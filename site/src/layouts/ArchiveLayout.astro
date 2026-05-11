@@ -1,0 +1,61 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import type { FullPage, SeoFields, PageType } from '../data/types';
+
+interface Props {
+  page: FullPage;
+  seo: SeoFields;
+  jsonLd: object[];
+  pageType: PageType;
+}
+
+const { page, seo, jsonLd } = Astro.props;
+const { data } = page;
+---
+
+<BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
+  <section class="archive-page">
+    <div class="container">
+      <Breadcrumbs crumbs={seo.breadcrumbs} />
+
+      <header class="archive-page__header">
+        {seo.h1 && <h1 class="archive-page__title">{seo.h1}</h1>}
+        {seo.description && <p class="archive-page__desc">{seo.description}</p>}
+      </header>
+
+      {data.content_html && (
+        <div class="prose archive-page__body" set:html={data.content_html} />
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.archive-page {
+  padding: var(--space-10) 0 var(--space-section);
+}
+
+.archive-page__header {
+  margin-bottom: var(--space-10);
+  max-width: var(--container-sm);
+}
+
+.archive-page__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-4);
+}
+
+.archive-page__desc {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+.archive-page__body {
+  max-width: none;
+}
+</style>

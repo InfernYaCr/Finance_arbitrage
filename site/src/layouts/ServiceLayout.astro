@@ -1,0 +1,82 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PromoSlot from '../components/PromoSlot.astro';
+import type { FullPage, SeoFields, PageType } from '../data/types';
+
+interface Props {
+  page: FullPage;
+  seo: SeoFields;
+  jsonLd: object[];
+  pageType: PageType;
+}
+
+const { page, seo, jsonLd, pageType } = Astro.props;
+const { data } = page;
+---
+
+<BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
+  <div class="service-page">
+    <header class="service-page__hero">
+      <div class="container">
+        <Breadcrumbs crumbs={seo.breadcrumbs} />
+        {seo.h1 && <h1 class="service-page__title">{seo.h1}</h1>}
+        {seo.description && <p class="service-page__lead">{seo.description}</p>}
+        <a href="/kontakty/" class="service-page__cta">Получить консультацию</a>
+      </div>
+    </header>
+
+    <section class="service-page__body">
+      <div class="container container--md">
+        <div class="prose" set:html={data.content_html} />
+        <PromoSlot placement="article_footer" section={page.section} path={page.path} pageType={pageType} />
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+.service-page__hero {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-12) 0;
+}
+
+.service-page__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-5);
+  max-width: 20ch;
+}
+
+.service-page__lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  max-width: 55ch;
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-8);
+}
+
+.service-page__cta {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.service-page__cta:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+.service-page__body {
+  padding: var(--space-12) 0 var(--space-section);
+}
+</style>

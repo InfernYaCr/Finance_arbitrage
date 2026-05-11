@@ -1,0 +1,176 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { FullPage, SeoFields, PageType } from '../data/types';
+import { siteConfig } from '../data/siteConfig';
+
+interface Props {
+  page: FullPage;
+  seo: SeoFields;
+  jsonLd: object[];
+  pageType: PageType;
+}
+
+const { page, seo, jsonLd } = Astro.props;
+const { data } = page;
+---
+
+<BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
+  <section class="home-hero">
+    <div class="container">
+      <div class="home-hero__content">
+        <h1 class="home-hero__title">
+          SEO-продвижение<br />сайтов в Яндекс<br />и Google
+        </h1>
+        <p class="home-hero__lead">
+          Комплексный подход: технический аудит, семантика, контент, ссылки.
+          Результат — рост органического трафика.
+        </p>
+        <div class="home-hero__actions">
+          <a href="/kontakty/" class="btn btn--primary">Получить консультацию</a>
+          <a href="/seo-uslugi/" class="btn btn--ghost">Наши услуги</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-nav-grid">
+    <div class="container">
+      <ul class="home-nav-grid__list" role="list">
+        {siteConfig.nav.slice(0, 6).map((item) => (
+          <li class="home-nav-grid__item">
+            <a href={item.path} class="home-nav-grid__link">
+              <span class="home-nav-grid__label">{item.label}</span>
+              <span class="home-nav-grid__arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {data.content_html && (
+    <section class="home-content">
+      <div class="container container--md">
+        <div class="prose" set:html={data.content_html} />
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+/* Hero */
+.home-hero {
+  padding: var(--space-section) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home-hero__content {
+  max-width: 36rem;
+}
+
+.home-hero__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+}
+
+.home-hero__lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-8);
+  max-width: 44ch;
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-accent);
+  border: 1.5px solid var(--color-accent);
+}
+
+.btn--ghost:hover {
+  background: var(--color-accent-light);
+}
+
+/* Nav grid */
+.home-nav-grid {
+  padding: var(--space-10) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.home-nav-grid__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  list-style: none;
+}
+
+.home-nav-grid__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-5) var(--space-6);
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+  transition: background var(--duration-fast);
+}
+
+.home-nav-grid__link:hover {
+  background: var(--color-surface);
+  color: var(--color-accent);
+}
+
+.home-nav-grid__arrow {
+  color: var(--color-text-light);
+  font-size: var(--text-lg);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.home-nav-grid__link:hover .home-nav-grid__arrow {
+  transform: translateX(4px);
+  color: var(--color-accent);
+}
+
+/* Home content */
+.home-content {
+  padding: var(--space-12) 0 var(--space-section);
+}
+</style>

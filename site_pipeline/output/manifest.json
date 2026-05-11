@@ -1,0 +1,52 @@
+[
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti--5117a362",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 4617,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/3"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__page__5--df45a703",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/page/5/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/page/5/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 4460,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/3"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__page__7--93415a30",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/page/7/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/page/7/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 4375,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/3"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__page__9--8a3618c4",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/page/9/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/page/9/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3636,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/3"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati--8372b07c",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 4046,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/275"
+  }
+]

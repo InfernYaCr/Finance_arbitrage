@@ -1,0 +1,31 @@
+---
+import { getPromoSlotsForPage } from '../lib/affiliate';
+import type { PageType } from '../data/types';
+
+interface Props {
+  placement: string;
+  section: string;
+  path: string;
+  pageType: PageType;
+}
+
+const { placement, section, path, pageType } = Astro.props;
+const slots = getPromoSlotsForPage(placement, section, path, pageType);
+---
+
+{slots.map((slot) => (
+  <aside class="promo-slot" data-slot-id={slot.id}>
+    <Fragment set:html={slot.html} />
+  </aside>
+))}
+
+<style>
+.promo-slot {
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-accent-light);
+  padding: var(--space-4) var(--space-5);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: var(--space-6) 0;
+  font-size: var(--text-sm);
+}
+</style>

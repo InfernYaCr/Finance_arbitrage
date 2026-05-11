@@ -1,0 +1,65 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import type { FullPage, SeoFields, PageType } from '../data/types';
+
+interface Props {
+  page: FullPage;
+  seo: SeoFields;
+  jsonLd: object[];
+  pageType: PageType;
+}
+
+const { page, seo, jsonLd } = Astro.props;
+const { data } = page;
+---
+
+<BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
+  <article class="portfolio-page">
+    <div class="container container--md">
+      <Breadcrumbs crumbs={seo.breadcrumbs} />
+
+      <header class="portfolio-page__header">
+        <div class="portfolio-page__label">Кейс</div>
+        {seo.h1 && <h1 class="portfolio-page__title">{seo.h1}</h1>}
+        {seo.description && <p class="portfolio-page__desc">{seo.description}</p>}
+      </header>
+
+      <div class="prose portfolio-page__body" set:html={data.content_html} />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.portfolio-page {
+  padding: var(--space-10) 0 var(--space-section);
+}
+
+.portfolio-page__header {
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.portfolio-page__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+.portfolio-page__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-4);
+}
+
+.portfolio-page__desc {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+</style>

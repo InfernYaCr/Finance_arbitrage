@@ -1,0 +1,84 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PromoSlot from '../components/PromoSlot.astro';
+import type { FullPage, SeoFields, PageType } from '../data/types';
+
+interface Props {
+  page: FullPage;
+  seo: SeoFields;
+  jsonLd: object[];
+  pageType: PageType;
+}
+
+const { page, seo, jsonLd, pageType } = Astro.props;
+const { data } = page;
+---
+
+<BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
+  <article class="article-page">
+    <div class="container container--md">
+      <Breadcrumbs crumbs={seo.breadcrumbs} />
+
+      <header class="article-page__header">
+        {seo.h1 && <h1 class="article-page__title">{seo.h1}</h1>}
+        {(seo.datePublished || seo.dateModified) && (
+          <div class="article-page__meta">
+            {seo.dateModified && (
+              <time datetime={seo.dateModified} class="article-page__date">
+                Обновлено: {new Date(seo.dateModified).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+            )}
+          </div>
+        )}
+      </header>
+
+      {data.excerpt_html && (
+        <div class="article-page__excerpt" set:html={data.excerpt_html} />
+      )}
+
+      <div class="prose article-page__body" set:html={data.content_html} />
+
+      <PromoSlot placement="article_footer" section={page.section} path={page.path} pageType={pageType} />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.article-page {
+  padding: var(--space-10) 0 var(--space-section);
+}
+
+.article-page__header {
+  margin-bottom: var(--space-8);
+}
+
+.article-page__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-4);
+}
+
+.article-page__meta {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.article-page__excerpt {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article-page__body {
+  margin-top: var(--space-6);
+}
+</style>

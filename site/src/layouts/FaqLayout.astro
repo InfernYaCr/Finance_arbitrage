@@ -1,0 +1,82 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import PromoSlot from '../components/PromoSlot.astro';
+import type { FullPage, SeoFields, PageType } from '../data/types';
+
+interface Props {
+  page: FullPage;
+  seo: SeoFields;
+  jsonLd: object[];
+  pageType: PageType;
+}
+
+const { page, seo, jsonLd, pageType } = Astro.props;
+const { data } = page;
+---
+
+<BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
+  <article class="faq-page">
+    <div class="container container--md">
+      <Breadcrumbs crumbs={seo.breadcrumbs} />
+
+      <header class="faq-page__header">
+        <div class="faq-page__badge">FAQ</div>
+        {seo.h1 && <h1 class="faq-page__title">{seo.h1}</h1>}
+      </header>
+
+      <div class="prose faq-page__body" set:html={data.content_html} />
+
+      <PromoSlot placement="article_footer" section={page.section} path={page.path} pageType={pageType} />
+
+      <footer class="faq-page__footer">
+        <p>
+          Есть другой вопрос?{' '}
+          <a href="/kontakty/">Напишите нам</a> — ответим лично.
+        </p>
+      </footer>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+.faq-page {
+  padding: var(--space-10) 0 var(--space-section);
+}
+
+.faq-page__header {
+  margin-bottom: var(--space-8);
+}
+
+.faq-page__badge {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  padding: 0.25em 0.75em;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-4);
+}
+
+.faq-page__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+}
+
+.faq-page__body {
+  margin-top: var(--space-4);
+}
+
+.faq-page__footer {
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+</style>

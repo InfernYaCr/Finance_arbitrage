@@ -1,0 +1,21 @@
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# Build output
+site/dist/
+site/.astro/
+site/node_modules/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+site_pipeline/output/pages/
+site_pipeline/output/*.sqlite
+site_pipeline/output/*.sqlite-*
+
+# OS
+.DS_Store
+Thumbs.db

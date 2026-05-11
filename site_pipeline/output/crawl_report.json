@@ -1,0 +1,24 @@
+{
+  "pages_requested": 5,
+  "pages_saved": 5,
+  "skipped_existing": 0,
+  "skipped_robots": [],
+  "failures": [],
+  "content_sources": {
+    "html_fallback": 5
+  },
+  "status_codes": {
+    "200": 5
+  },
+  "low_content_pages": [],
+  "run": {
+    "delay": 0.1,
+    "timeout": 25,
+    "retries": 2,
+    "backoff": 1.0,
+    "resume": false,
+    "respect_robots": false,
+    "proxy_enabled": false,
+    "elapsed_seconds": 5.5
+  }
+}

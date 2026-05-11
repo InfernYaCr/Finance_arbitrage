@@ -1,0 +1,40 @@
+[
+  {
+    "id": "example-partner",
+    "label": "Пример партнёрской ссылки",
+    "href": "https://example.com/?ref=mosseo",
+    "rel": "sponsored nofollow",
+    "utm": {
+      "source": "mosseo",
+      "medium": "article",
+      "campaign": "example"
+    },
+    "enabled": false
+  },
+  {
+    "id": "sape-2026",
+    "label": "Sape — биржа ссылок",
+    "href": "https://sape.ru",
+    "rel": "sponsored nofollow",
+    "utm": {
+      "source": "mosseo",
+      "medium": "article",
+      "campaign": "sape-2026",
+      "content": "article-footer"
+    },
+    "enabled": false
+  },
+  {
+    "id": "triplet-pbn",
+    "label": "Триплеты для PBN",
+    "href": "https://example.com/triplets",
+    "rel": "sponsored nofollow",
+    "utm": {
+      "source": "mosseo",
+      "medium": "promo",
+      "campaign": "triplet-pbn-2026",
+      "content": "sponsor-line"
+    },
+    "enabled": false
+  }
+]

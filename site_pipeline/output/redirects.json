@@ -1,0 +1,14 @@
+[
+  {
+    "source_url": "https://mosseo.ru/seo-slovar/yuzabiliti/",
+    "target_url": "https://mosseo.expert/seo-wikipedia/yuzabiliti/",
+    "status_code": 200,
+    "reason": "external_redirect"
+  },
+  {
+    "source_url": "https://mosseo.ru/uslugi/",
+    "target_url": "https://mosseo.expert/seo-uslugi/",
+    "status_code": 200,
+    "reason": "external_redirect"
+  }
+]

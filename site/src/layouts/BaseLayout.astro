@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+import JsonLd from '../components/JsonLd.astro';
+import Analytics from '../components/Analytics.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { SeoFields } from '../data/types';
+
+interface Props {
+  seo: SeoFields;
+  jsonLd: object[];
+  currentPath?: string;
+}
+
+const { seo, jsonLd, currentPath } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <SeoHead seo={seo} />
+    <JsonLd graph={jsonLd} />
+    <Analytics />
+  </head>
+  <body>
+    <Header currentPath={currentPath} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

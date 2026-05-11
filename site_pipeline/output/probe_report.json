@@ -1,0 +1,544 @@
+[
+  {
+    "url": "https://mosseo.ru/",
+    "section": "root",
+    "status_code": 200,
+    "body_class": [
+      "home",
+      "page-template-default",
+      "page",
+      "page-id-4",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 3391,
+    "links_count": 10,
+    "images_count": 2
+  },
+  {
+    "url": "https://mosseo.ru/calc/",
+    "section": "calc",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-calc",
+      "page-template-template-calc-php",
+      "page",
+      "page-id-6307",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/6307",
+    "content_source": "html_fallback",
+    "fallback_selector": "body",
+    "text_chars": 15124,
+    "links_count": 28,
+    "images_count": 3
+  },
+  {
+    "url": "https://mosseo.ru/case/",
+    "section": "case",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-case",
+      "page-template-template-case-php",
+      "page",
+      "page-id-4883",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4883",
+    "content_source": "html_fallback",
+    "fallback_selector": "body",
+    "text_chars": 2245,
+    "links_count": 24,
+    "images_count": 7
+  },
+  {
+    "url": "https://mosseo.ru/faq/",
+    "section": "faq",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-faq",
+      "page-template-template-faq-php",
+      "page",
+      "page-id-4826",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4826",
+    "content_source": "html_fallback",
+    "fallback_selector": ".section-faqs",
+    "text_chars": 10344,
+    "links_count": 46,
+    "images_count": 1
+  },
+  {
+    "url": "https://mosseo.ru/konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta/",
+    "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-482",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/482",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 3846,
+    "links_count": 8,
+    "images_count": 4
+  },
+  {
+    "url": "https://mosseo.ru/kontakty/",
+    "section": "kontakty",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-contacts",
+      "page-template-template-contacts-php",
+      "page",
+      "page-id-138",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/138",
+    "content_source": "wp_json",
+    "fallback_selector": "body",
+    "text_chars": 849,
+    "links_count": 2,
+    "images_count": 5
+  },
+  {
+    "url": "https://mosseo.ru/kontekstnaya-reklama/",
+    "section": "kontekstnaya-reklama",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-adv-context",
+      "page-template-template-adv-context-php",
+      "page",
+      "page-id-4084",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4084",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 2410,
+    "links_count": 7,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/na-ponyatnom-yazyke/",
+    "section": "na-ponyatnom-yazyke",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-140",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/140",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 1741,
+    "links_count": 37,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/novosti/v-paneli-yandeks-vebmastera-poyavilis-novye-rekomendacii-dlya-sajtov/",
+    "section": "novosti",
+    "status_code": 200,
+    "body_class": [
+      "post-template-default",
+      "single",
+      "single-post",
+      "postid-1350",
+      "single-format-standard",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1350",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 1104,
+    "links_count": 0,
+    "images_count": 1
+  },
+  {
+    "url": "https://mosseo.ru/o-kompanii/",
+    "section": "o-kompanii",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-about-company",
+      "page-template-template-about-company-php",
+      "page",
+      "page-id-330",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/330",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 223,
+    "links_count": 1,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/optimizaciya/",
+    "section": "optimizaciya",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-406",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/406",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 7534,
+    "links_count": 14,
+    "images_count": 3
+  },
+  {
+    "url": "https://mosseo.ru/otzyvy/",
+    "section": "otzyvy",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-reviews",
+      "page-template-template-reviews-php",
+      "page",
+      "page-id-470",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/470",
+    "content_source": "wp_json",
+    "fallback_selector": "body",
+    "text_chars": 9400,
+    "links_count": 9,
+    "images_count": 9
+  },
+  {
+    "url": "https://mosseo.ru/photogallery/",
+    "section": "photogallery",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-photogallary",
+      "page-template-template-photogallary-php",
+      "page",
+      "page-id-4742",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4742",
+    "content_source": "wp_json",
+    "fallback_selector": "body",
+    "text_chars": 33,
+    "links_count": 35,
+    "images_count": 24
+  },
+  {
+    "url": "https://mosseo.ru/poiskovye-sistemy/",
+    "section": "poiskovye-sistemy",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-491",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/491",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 6666,
+    "links_count": 8,
+    "images_count": 4
+  },
+  {
+    "url": "https://mosseo.ru/portfolio/",
+    "section": "portfolio",
+    "status_code": 200,
+    "body_class": [
+      "archive",
+      "category",
+      "category-portfolio",
+      "category-187",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/187",
+    "content_source": "html_fallback",
+    "fallback_selector": "body",
+    "text_chars": 5694,
+    "links_count": 71,
+    "images_count": 3
+  },
+  {
+    "url": "https://mosseo.ru/privacy/",
+    "section": "privacy",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-8678",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/8678",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 21468,
+    "links_count": 1,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/prodvizhenie-sajta-samostoyatelno/",
+    "section": "prodvizhenie-sajta-samostoyatelno",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-3106",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/3106",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 6987,
+    "links_count": 25,
+    "images_count": 5
+  },
+  {
+    "url": "https://mosseo.ru/rejting-seo/",
+    "section": "rejting-seo",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-4559",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4559",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 210,
+    "links_count": 8,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/seo-po-tematikam/",
+    "section": "seo-po-tematikam",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-336",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/336",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 9169,
+    "links_count": 31,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/seo-prodvizhenie-sajta/",
+    "section": "seo-prodvizhenie-sajta",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-seo",
+      "page-template-template-seo-php",
+      "page",
+      "page-id-3505",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/3505",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 421,
+    "links_count": 5,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/seo-slovar/yuzabiliti/",
+    "section": "seo-slovar",
+    "status_code": 200,
+    "body_class": [],
+    "wp_json_endpoint": "",
+    "content_source": "external_redirect",
+    "fallback_selector": "",
+    "text_chars": 0,
+    "links_count": 0,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/seo-uslugi/",
+    "section": "seo-uslugi",
+    "status_code": 200,
+    "body_class": [
+      "archive",
+      "category",
+      "category-seo-uslugi",
+      "category-196",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/196",
+    "content_source": "wp_json",
+    "fallback_selector": ".section-services",
+    "text_chars": 2561,
+    "links_count": 2,
+    "images_count": 5
+  },
+  {
+    "url": "https://mosseo.ru/seo-wikipedia/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-seo-wiki",
+      "page-template-template-seo-wiki-php",
+      "page",
+      "page-id-693",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/693",
+    "content_source": "html_fallback",
+    "fallback_selector": "body",
+    "text_chars": 14326,
+    "links_count": 143,
+    "images_count": 3
+  },
+  {
+    "url": "https://mosseo.ru/stoimost-uslug/",
+    "section": "stoimost-uslug",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-cost",
+      "page-template-template-cost-php",
+      "page",
+      "page-id-466",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/466",
+    "content_source": "html_fallback",
+    "fallback_selector": ".content",
+    "text_chars": 2586,
+    "links_count": 11,
+    "images_count": 2
+  },
+  {
+    "url": "https://mosseo.ru/tarify-seo/",
+    "section": "tarify-seo",
+    "status_code": 200,
+    "body_class": [
+      "page-template",
+      "page-template-template-seo-tarfis",
+      "page-template-template-seo-tarfis-php",
+      "page",
+      "page-id-5121",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/5121",
+    "content_source": "html_fallback",
+    "fallback_selector": ".content",
+    "text_chars": 221,
+    "links_count": 0,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/uslugi/",
+    "section": "uslugi",
+    "status_code": 200,
+    "body_class": [],
+    "wp_json_endpoint": "",
+    "content_source": "external_redirect",
+    "fallback_selector": "",
+    "text_chars": 0,
+    "links_count": 0,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/vidy-tipy-sajtov-i-ih-klassifikaciya/",
+    "section": "vidy-tipy-sajtov-i-ih-klassifikaciya",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-206",
+      "page-parent",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/206",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 11728,
+    "links_count": 7,
+    "images_count": 3
+  },
+  {
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "body_class": [
+      "archive",
+      "category",
+      "category-vse-o-seo-prodvizhenii",
+      "category-173",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/173",
+    "content_source": "html_fallback",
+    "fallback_selector": "body",
+    "text_chars": 3942,
+    "links_count": 45,
+    "images_count": 11
+  },
+  {
+    "url": "https://mosseo.ru/zakazat-kompleksnoe-prodvizhenie-sajta/",
+    "section": "zakazat-kompleksnoe-prodvizhenie-sajta",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-6564",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/6564",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 2264,
+    "links_count": 8,
+    "images_count": 0
+  },
+  {
+    "url": "https://mosseo.ru/zerkalo-sajta-pereezd-sklejka-i-rasklejka-veb-resursa/",
+    "section": "zerkalo-sajta-pereezd-sklejka-i-rasklejka-veb-resursa",
+    "status_code": 200,
+    "body_class": [
+      "page-template-default",
+      "page",
+      "page-id-2609",
+      "lazy"
+    ],
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/2609",
+    "content_source": "wp_json",
+    "fallback_selector": ".content",
+    "text_chars": 3312,
+    "links_count": 8,
+    "images_count": 1
+  }
+]

@@ -1,0 +1,48 @@
+---
+import { loadAllPages } from '../data/loadPages';
+import { getPageType, pathToSlug } from '../lib/routing';
+import { deriveSeoFields } from '../lib/seo';
+import { buildJsonLd } from '../lib/schema';
+
+import HomeLayout from '../layouts/HomeLayout.astro';
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import ArchiveLayout from '../layouts/ArchiveLayout.astro';
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import PortfolioLayout from '../layouts/PortfolioLayout.astro';
+import FaqLayout from '../layouts/FaqLayout.astro';
+import DictionaryLayout from '../layouts/DictionaryLayout.astro';
+import ContactLayout from '../layouts/ContactLayout.astro';
+
+export async function getStaticPaths() {
+  const pages = loadAllPages();
+
+  return pages.map((page) => {
+    const pageType = getPageType(page.path, page.section);
+    const seo = deriveSeoFields(page, pageType);
+    const jsonLd = buildJsonLd(page, seo, pageType);
+    const slug = pathToSlug(page.path);
+
+    return {
+      params: { slug },
+      props: { page, pageType, seo, jsonLd },
+    };
+  });
+}
+
+const { page, pageType, seo, jsonLd } = Astro.props;
+
+const layoutProps = { page, seo, jsonLd, pageType };
+---
+
+{pageType === 'home'               && <HomeLayout       {...layoutProps} />}
+{pageType === 'article'            && <ArticleLayout    {...layoutProps} />}
+{pageType === 'archive'            && <ArchiveLayout    {...layoutProps} />}
+{pageType === 'service'            && <ServiceLayout    {...layoutProps} />}
+{pageType === 'portfolio_archive'  && <ArchiveLayout    {...layoutProps} />}
+{pageType === 'portfolio_case'     && <PortfolioLayout  {...layoutProps} />}
+{pageType === 'faq'                && <FaqLayout        {...layoutProps} />}
+{pageType === 'dictionary_archive' && <ArchiveLayout    {...layoutProps} />}
+{pageType === 'dictionary_article' && <DictionaryLayout {...layoutProps} />}
+{pageType === 'contact'            && <ContactLayout    {...layoutProps} />}
+{pageType === 'company'            && <ArticleLayout    {...layoutProps} />}
+{pageType === 'content_page'       && <ArticleLayout    {...layoutProps} />}

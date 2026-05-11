@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig } from '../data/siteConfig';
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 — Страница не найдена | {siteConfig.siteName}</title>
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <Header />
+    <main class="error-page">
+      <div class="container">
+        <div class="error-page__content">
+          <p class="error-page__code">404</p>
+          <h1 class="error-page__title">Страница не найдена</h1>
+          <p class="error-page__text">
+            Возможно, страница была перемещена или удалена.
+          </p>
+          <div class="error-page__actions">
+            <a href="/" class="btn-primary">На главную</a>
+            <a href="/seo-uslugi/" class="btn-secondary">Наши услуги</a>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+.error-page {
+  padding: var(--space-section) 0;
+  display: flex;
+  align-items: center;
+}
+
+.error-page__content {
+  max-width: 32rem;
+}
+
+.error-page__code {
+  font-size: 6rem;
+  font-weight: var(--weight-bold);
+  line-height: 1;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+.error-page__title {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  margin-bottom: var(--space-4);
+}
+
+.error-page__text {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+.error-page__actions {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+}
+
+.btn-primary:hover { background: var(--color-accent-hover); color: #fff; }
+
+.btn-secondary {
+  color: var(--color-accent);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  border: 1.5px solid var(--color-accent);
+}
+
+.btn-secondary:hover { background: var(--color-accent-light); }
+</style>

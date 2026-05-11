@@ -1,0 +1,21 @@
+{
+  "name": "mosseo-site",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/generate-sitemap.mjs",
+    "build:astro": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "deploy": "bash scripts/deploy.sh",
+    "deploy:dry": "bash scripts/deploy.sh --dry-run"
+  },
+  "dependencies": {
+    "astro": "^4.16.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
