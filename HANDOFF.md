@@ -25,6 +25,10 @@ Pipeline scripts:
 - `site_pipeline/crawl_pages.py` crawls pages into JSON files.
 - `site_pipeline/qa_pages.py` validates crawled page JSON.
 - `site_pipeline/build_content_index.py` builds compact downstream indexes.
+- `site_pipeline/audit_extraction_sources.py` compares WP REST content with
+  rendered HTML fallback and finds pages where HTML is materially richer.
+- `site_pipeline/audit_page_templates.py` classifies parsed pages by source HTML
+  template and Astro page type.
 
 Generated outputs:
 
@@ -37,6 +41,8 @@ Generated outputs:
 - `site_pipeline/output/excluded_pages.json` has excluded pages.
 - `site_pipeline/output/content_index.jsonl` is a compact search/index file.
 - `site_pipeline/output/content_index.sqlite` is a SQLite page index.
+- `site_pipeline/output/template_audit.json` has source-template classification.
+- `site_pipeline/output/template_audit.csv` is the flat template-audit table.
 
 ## Latest QA result
 
@@ -44,19 +50,23 @@ Full dataset:
 
 ```text
 pages checked: 1013
-ok: 792
-info: 93
-warning: 126
+ok: 535
+info: 352
+warning: 124
 error: 2
 ```
 
 Content sources:
 
 ```text
-wp_json: 813
-html_fallback: 198
+wp_json: 545
+html_fallback: 466
 external_redirect: 2
 ```
+
+The higher `html_fallback` count is expected. A full extraction audit found
+that many WordPress REST responses omit rich template blocks. Those pages were
+recrawled from rendered HTML.
 
 Buildable pages:
 
@@ -115,6 +125,45 @@ the WP category description. Archive templates now derive child-page catalogs
 from `build_manifest.json` so service/archive landing pages can show section
 cards without depending on the original WordPress slider markup.
 
+Current service-catalog behavior:
+
+- `/seo-uslugi/` uses the source `.section-services` catalog, not the generated
+  fallback catalog.
+- Nested `/seo-uslugi/.../` category pages with `.serv-items` are intentionally
+  short because the live source pages are catalog/category pages, not long
+  articles.
+- Service catalog pages render full-width so the extracted cards do not look
+  compressed.
+- `site/src/styles/global.css` contains styling for extracted legacy classes
+  such as `.serv-blocks`, `.sbi`, `.serv-items`, and `.serv-item`.
+
+Latest template audit:
+
+```text
+generic_content: 582
+content_article: 136
+dictionary_archive_template: 84
+portfolio_template: 53
+quiz_calculator: 50
+service_catalog: 50
+blog_archive_template: 47
+thin_content: 3
+service_category_nav: 3
+empty_or_redirect: 2
+case_template: 1
+faq_archive_template: 1
+contacts_template: 1
+```
+
+Service page template mix:
+
+```text
+generic_content: 132
+service_catalog: 49
+quiz_calculator: 37
+service_category_nav: 3
+```
+
 ## Extractor details
 
 Primary extraction strategy:
@@ -126,6 +175,7 @@ Primary extraction strategy:
 
 Important fallback selectors already added:
 
+- `.parent-section`
 - `.section-quiz`
 - `.section-case-page`
 - `.section-portfolio`
@@ -147,6 +197,8 @@ Safety features in crawler:
 - `--respect-robots`
 - `--section`
 - `--url`
+- `--urls-file`
+- `--force-html`
 
 ## Commands
 
@@ -162,6 +214,7 @@ Re-run QA and indexes:
 ```bash
 python site_pipeline/qa_pages.py
 python site_pipeline/build_content_index.py
+python site_pipeline/audit_page_templates.py
 ```
 
 Full safe crawl:

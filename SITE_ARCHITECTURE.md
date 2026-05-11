@@ -15,6 +15,7 @@ Use this separation:
 - `site_pipeline/output/pages/*.json` - raw extracted content.
 - `site_pipeline/output/build_manifest.json` - buildable route list.
 - `site_pipeline/output/redirects.json` - redirects.
+- `site_pipeline/output/template_audit.json` - source-template classification.
 - Site generator templates - visual layouts and page composition.
 - SEO/schema helpers - reusable metadata and structured data generation.
 - Site config - analytics IDs, company contacts, deploy settings, feature flags.
@@ -170,6 +171,12 @@ HTML. They should also use `build_manifest.json` to render child-page catalogs,
 because some original WordPress category pages store the description in REST
 JSON but render the important card/list UI only in the HTML template.
 
+However, when the extracted HTML already contains a real source catalog, such as
+`.section-services`, `.serv-blocks`, or `.serv-items`, do not add a second
+generated catalog underneath it. Treat those pages as source-template pages and
+style the extracted blocks. This currently applies to `/seo-uslugi/` and many
+nested `/seo-uslugi/.../` category pages.
+
 Important rules:
 
 - Only emit schema fields that are known and reliable.
@@ -189,6 +196,20 @@ Design changes should happen in these layers:
 
 Avoid putting page-type-specific parsing logic inside visual components. Parsing
 and classification should happen before rendering or in `lib/routing.ts`.
+
+Use `site_pipeline/audit_page_templates.py` before broad template changes. It
+groups all parsed pages by source HTML signature and helps distinguish true
+missing content from intentionally short category/catalog pages.
+
+Current important source-template families:
+
+- `service_catalog` - service/category pages with `.section-services` and
+  `.serv-item` cards.
+- `quiz_calculator` - long SEO service pages with calculator/quiz blocks.
+- `portfolio_template` - portfolio archives/case-like pages.
+- `dictionary_archive_template` - dictionary/archive-like lists.
+- `blog_archive_template` - blog/news archive templates.
+- `content_article` / `generic_content` - normal prose/content pages.
 
 Suggested design tokens:
 

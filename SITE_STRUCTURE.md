@@ -19,6 +19,7 @@ site/dist/
 - Buildable pages: 1011
 - Generated pages after Astro build: 1013, including 404 and editorial additions
 - Sitemap URLs: 1012
+- Current QA: 535 ok, 352 info, 124 warning, 2 expected external-redirect errors
 - Top-level routes: 26
 - URL depth:
   - depth 0: 1
@@ -104,8 +105,11 @@ Check these first because they drive the site structure and SEO:
 
 1. `/seo-uslugi/`
    - Service catalog landing page.
-   - Should show child service cards from `build_manifest.json`.
-   - Current generated check: 46 cards, 83 catalog links, one H1.
+   - Uses the extracted source `.section-services` catalog.
+   - Current generated check: 6 grouped service blocks, 40 source service cards,
+     no duplicate generated archive-card catalog, one H1.
+   - Nested `/seo-uslugi/.../` pages often look short because they are source
+     category/catalog pages with 1-3 service cards, not long articles.
 
 2. `/vse-o-seo-prodvizhenii/`
    - Main blog/archive area.
@@ -128,6 +132,31 @@ Check these first because they drive the site structure and SEO:
    - Contact schema, forms, analytics goals, anti-spam, and business info.
 
 ## Useful Inspection Commands
+
+Source template audit:
+
+```bash
+cd /Users/deniskononov/mosseo-site-pipeline
+.venv/bin/python site_pipeline/audit_page_templates.py
+```
+
+Current source template counts:
+
+```text
+generic_content: 582
+content_article: 136
+dictionary_archive_template: 84
+portfolio_template: 53
+quiz_calculator: 50
+service_catalog: 50
+blog_archive_template: 47
+thin_content: 3
+service_category_nav: 3
+empty_or_redirect: 2
+case_template: 1
+faq_archive_template: 1
+contacts_template: 1
+```
 
 Section counts:
 
@@ -193,3 +222,6 @@ npm run build
   manifest logic, layouts, or shared normalizers instead.
 - The current archive layout can render child-page catalogs for section landing
   pages, which is especially important for `/seo-uslugi/`.
+- If a page already contains a source service catalog (`serv-blocks` or
+  `serv-items`), the generated archive catalog is suppressed to avoid duplicate
+  service cards.

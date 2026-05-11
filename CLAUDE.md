@@ -19,8 +19,20 @@ Current code entry points:
 - `site_pipeline/qa_pages.py`
 - `site_pipeline/build_content_index.py`
 - `site_pipeline/probe_pages.py`
+- `site_pipeline/audit_extraction_sources.py`
+- `site_pipeline/audit_page_templates.py`
 
 Do not treat `site_pipeline/output/pages/*.json` as source code. They are the
 generated content dataset. Use `site_pipeline/output/build_manifest.json`,
 `site_pipeline/output/redirects.json`, and
 `site_pipeline/output/content_index.sqlite` for downstream site generation.
+
+Before changing layouts broadly, run:
+
+```bash
+python site_pipeline/audit_page_templates.py
+```
+
+This distinguishes content articles from source-template pages such as service
+catalogs, calculator/service landings, portfolio templates, and dictionary
+archives.

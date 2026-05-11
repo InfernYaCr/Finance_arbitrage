@@ -22,7 +22,11 @@
   - [ ] FAQ page
   - [ ] portfolio page
   - [ ] service page
+  - [ ] service catalog/category page
+  - [ ] calculator-style service landing page
   - [ ] root/home page
+- [ ] `site_pipeline/audit_page_templates.py` has been run after the latest crawl.
+- [ ] `template_audit.csv` has been spot-checked for unexpected short pages.
 
 ## SEO
 

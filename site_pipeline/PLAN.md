@@ -83,6 +83,23 @@ Output:
 - `qa_report.json`
 - `qa_review.csv`
 
+### 4a. Template audit
+
+- Classify every parsed page by source HTML template and generated page type.
+- Use the audit to separate true missing content from intentionally short
+  category/catalog pages.
+- Review service pages by template family:
+  - `service_catalog` pages are source service category pages with cards.
+  - `quiz_calculator` pages are long service landing pages.
+  - `generic_content` pages are normal prose/service content.
+  - `service_category_nav` pages need manual spot checks because they have
+    category navigation but no visible service cards.
+
+Output:
+
+- `template_audit.json`
+- `template_audit.csv`
+
 ### 5. Build content indexes
 
 - Export buildable pages to `build_manifest.json`.
@@ -186,6 +203,7 @@ python site_pipeline/probe_pages.py --sample-per-section 1 --limit 30
 python site_pipeline/crawl_pages.py --delay 1.0 --resume
 python site_pipeline/qa_pages.py
 python site_pipeline/build_content_index.py
+python site_pipeline/audit_page_templates.py
 ```
 
 If the source starts throttling:

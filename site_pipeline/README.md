@@ -83,12 +83,19 @@ Build compact content indexes:
 python site_pipeline/build_content_index.py
 ```
 
+Classify parsed source templates:
+
+```bash
+python site_pipeline/audit_page_templates.py
+```
+
 Full crawl:
 
 ```bash
 python site_pipeline/crawl_pages.py --delay 1.0 --resume
 python site_pipeline/qa_pages.py
 python site_pipeline/build_content_index.py
+python site_pipeline/audit_page_templates.py
 ```
 
 Full crawl with a proxy, if the source starts returning 429/403 or timing out:
@@ -124,6 +131,8 @@ Default output goes to `site_pipeline/output/`:
 - `excluded_pages.json` - pages excluded from generation
 - `content_index.jsonl` - compact searchable page index
 - `content_index.sqlite` - SQLite index for quick querying
+- `template_audit.json` - source-template classification
+- `template_audit.csv` - spreadsheet-friendly template audit
 
 Each page JSON contains:
 
@@ -155,5 +164,6 @@ Recommended order before site generation:
 3. `crawl_pages.py --delay 1.0 --resume`
 4. `qa_pages.py`
 5. `build_content_index.py`
-6. Review `qa_review.csv` and improve selectors for any `body_fallback`,
+6. `audit_page_templates.py`
+7. Review `qa_review.csv` and improve selectors for any `body_fallback`,
    `template_contamination`, or `empty_content_html` pages.
