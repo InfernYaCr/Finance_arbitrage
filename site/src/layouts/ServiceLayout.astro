@@ -13,6 +13,7 @@ interface Props {
 
 const { page, seo, jsonLd, pageType } = Astro.props;
 const { data } = page;
+const hasServiceCatalog = data.content_html.includes('serv-blocks') || data.content_html.includes('serv-items');
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
@@ -27,7 +28,7 @@ const { data } = page;
     </header>
 
     <section class="service-page__body">
-      <div class="container container--md">
+      <div class:list={['container', !hasServiceCatalog && 'container--md']}>
         <div class="prose" set:html={data.content_html} />
         <PromoSlot placement="article_footer" section={page.section} path={page.path} pageType={pageType} />
       </div>
