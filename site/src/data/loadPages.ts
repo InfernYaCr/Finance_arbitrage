@@ -38,6 +38,14 @@ function rewriteInternalLinks(html: string): string {
   return result;
 }
 
+function restoreSourceAssetUrls(html: string): string {
+  return html
+    .replaceAll('src="/content/', 'src="https://mosseo.ru/content/')
+    .replaceAll("src='/content/", "src='https://mosseo.ru/content/")
+    .replaceAll('srcset="/content/', 'srcset="https://mosseo.ru/content/')
+    .replaceAll("srcset='/content/", "srcset='https://mosseo.ru/content/");
+}
+
 function stripEmbeddedH1(html: string): string {
   return html.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi, '').trim();
 }
@@ -58,6 +66,8 @@ export function loadPageData(relativePageFile: string): PageData {
   // Rewrite mosseo.ru links → root-relative so they work on any host
   if (data.content_html) data.content_html = rewriteInternalLinks(data.content_html);
   if (data.excerpt_html) data.excerpt_html = rewriteInternalLinks(data.excerpt_html);
+  if (data.content_html) data.content_html = restoreSourceAssetUrls(data.content_html);
+  if (data.excerpt_html) data.excerpt_html = restoreSourceAssetUrls(data.excerpt_html);
   return normalizePageData(data);
 }
 
