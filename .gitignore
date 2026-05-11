@@ -19,3 +19,6 @@ site_pipeline/output/*.sqlite-*
 # OS
 .DS_Store
 Thumbs.db
+
+# Local browser/test artifacts
+.playwright-mcp/
