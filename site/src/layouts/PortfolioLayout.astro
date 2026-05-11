@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import type { FullPage, SeoFields, PageType } from '../data/types';
+import { getImmediateChildPages } from '../data/loadPages';
 
 interface Props {
   page: FullPage;
@@ -10,27 +11,67 @@ interface Props {
   pageType: PageType;
 }
 
-const { page, seo, jsonLd } = Astro.props;
+const { page, seo, jsonLd, pageType } = Astro.props;
 const { data } = page;
+
+// Archive mode: show child case cards
+const isArchive = pageType === 'portfolio_archive';
+const casePages = isArchive ? getImmediateChildPages(page.path) : [];
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
-  <article class="portfolio-page">
-    <div class="container container--md">
-      <Breadcrumbs crumbs={seo.breadcrumbs} />
+  {isArchive ? (
+    <section class="portfolio-archive">
+      <div class="container">
+        <Breadcrumbs crumbs={seo.breadcrumbs} />
 
-      <header class="portfolio-page__header">
-        <div class="portfolio-page__label">Кейс</div>
-        {seo.h1 && <h1 class="portfolio-page__title">{seo.h1}</h1>}
-        {seo.description && <p class="portfolio-page__desc">{seo.description}</p>}
-      </header>
+        <header class="portfolio-archive__header">
+          {seo.h1 && <h1 class="portfolio-archive__title">{seo.h1}</h1>}
+          {seo.description && <p class="portfolio-archive__desc">{seo.description}</p>}
+        </header>
 
-      <div class="prose portfolio-page__body" set:html={data.content_html} />
-    </div>
-  </article>
+        {casePages.length > 0 && (
+          <ul class="portfolio-grid" role="list" aria-label="Кейсы">
+            {casePages.map((c) => (
+              <li class="portfolio-card">
+                <a href={c.path} class="portfolio-card__link">
+                  <span class="portfolio-card__badge">Кейс</span>
+                  <span class="portfolio-card__title">{c.h1 || c.title}</span>
+                  {c.description && (
+                    <span class="portfolio-card__desc">{c.description}</span>
+                  )}
+                  <span class="portfolio-card__more" aria-hidden="true">Читать кейс →</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </section>
+  ) : (
+    <article class="portfolio-page">
+      <div class="container container--md">
+        <Breadcrumbs crumbs={seo.breadcrumbs} />
+
+        <header class="portfolio-page__header">
+          <div class="portfolio-page__label">Кейс</div>
+          {seo.h1 && <h1 class="portfolio-page__title">{seo.h1}</h1>}
+          {seo.description && <p class="portfolio-page__desc">{seo.description}</p>}
+        </header>
+
+        <div class="prose portfolio-page__body" set:html={data.content_html} />
+
+        <footer class="portfolio-page__footer">
+          <a href="/portfolio/" class="portfolio-page__back">← Все кейсы</a>
+          <a href="/kontakty/" class="portfolio-page__cta">Обсудить похожий проект</a>
+        </footer>
+      </div>
+    </article>
+  )}
 </BaseLayout>
 
 <style>
+/* ── Case page ── */
 .portfolio-page {
   padding: var(--space-10) 0 var(--space-section);
 }
@@ -61,5 +102,126 @@ const { data } = page;
 .portfolio-page__desc {
   font-size: var(--text-lg);
   color: var(--color-text-muted);
+}
+
+.portfolio-page__footer {
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.portfolio-page__back {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.portfolio-page__back:hover {
+  color: var(--color-accent);
+}
+
+.portfolio-page__cta {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.portfolio-page__cta:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+/* ── Portfolio archive ── */
+.portfolio-archive {
+  padding: var(--space-10) 0 var(--space-section);
+}
+
+.portfolio-archive__header {
+  margin-bottom: var(--space-8);
+  max-width: var(--container-sm);
+}
+
+.portfolio-archive__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-4);
+}
+
+.portfolio-archive__desc {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+.portfolio-archive__intro {
+  margin-bottom: var(--space-10);
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-4);
+  list-style: none;
+}
+
+.portfolio-card__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  text-decoration: none;
+  color: var(--color-text);
+  height: 100%;
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.portfolio-card__link:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.portfolio-card__badge {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+.portfolio-card__title {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  color: var(--color-text);
+}
+
+.portfolio-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  flex: 1;
+}
+
+.portfolio-card__more {
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  font-weight: var(--weight-medium);
+  margin-top: var(--space-2);
 }
 </style>

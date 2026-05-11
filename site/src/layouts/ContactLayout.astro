@@ -26,16 +26,9 @@ const { data } = page;
       </header>
 
       <div class="contact-page__grid">
-        <div class="contact-page__content">
-          {data.content_html && (
-            <div class="prose" set:html={data.content_html} />
-          )}
-        </div>
-
-        <aside class="contact-page__form-wrap">
+        <div class="contact-form-col">
           <div class="contact-card">
             <h2 class="contact-card__title">Написать нам</h2>
-
             <form
               class="contact-form"
               name="contact"
@@ -43,48 +36,59 @@ const { data } = page;
               action="/thanks/"
               novalidate
             >
-              <!-- Honeypot anti-spam -->
               <input type="text" name="_honey" tabindex="-1" aria-hidden="true" style="display:none" />
-
               <div class="contact-form__field">
                 <label for="cf-name">Имя</label>
                 <input type="text" id="cf-name" name="name" required autocomplete="name" />
               </div>
-
+              <div class="contact-form__field">
+                <label for="cf-phone">Телефон</label>
+                <input type="tel" id="cf-phone" name="phone" autocomplete="tel" />
+              </div>
               <div class="contact-form__field">
                 <label for="cf-email">Email</label>
                 <input type="email" id="cf-email" name="email" required autocomplete="email" />
               </div>
-
               <div class="contact-form__field">
                 <label for="cf-message">Сообщение</label>
                 <textarea id="cf-message" name="message" rows="5" required></textarea>
               </div>
-
               <button type="submit" class="contact-form__submit">Отправить</button>
-
               <p class="contact-form__note">
                 Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных.
               </p>
             </form>
           </div>
+        </div>
 
-          {(siteConfig.company.phone || siteConfig.company.email) && (
-            <div class="contact-details">
-              {siteConfig.company.phone && (
-                <p>
-                  <strong>Телефон:</strong>{' '}
-                  <a href={`tel:${siteConfig.company.phoneHref}`}>{siteConfig.company.phone}</a>
-                </p>
-              )}
-              {siteConfig.company.email && (
-                <p>
-                  <strong>Email:</strong>{' '}
-                  <a href={`mailto:${siteConfig.company.email}`}>{siteConfig.company.email}</a>
-                </p>
-              )}
-            </div>
-          )}
+        <aside class="contact-info-col">
+          <div class="contact-info-card">
+            <h2 class="contact-info-card__title">Контактная информация</h2>
+            {siteConfig.company.worktime && (
+              <div class="contact-info-card__row">
+                <span class="contact-info-card__icon" aria-hidden="true">🕐</span>
+                <span>{siteConfig.company.worktime}</span>
+              </div>
+            )}
+            {siteConfig.company.phone && (
+              <div class="contact-info-card__row">
+                <span class="contact-info-card__icon" aria-hidden="true">📞</span>
+                <a href={`tel:${siteConfig.company.phoneHref}`}>{siteConfig.company.phone}</a>
+              </div>
+            )}
+            {siteConfig.company.email && (
+              <div class="contact-info-card__row">
+                <span class="contact-info-card__icon" aria-hidden="true">✉️</span>
+                <a href={`mailto:${siteConfig.company.email}`}>{siteConfig.company.email}</a>
+              </div>
+            )}
+            {siteConfig.company.address && siteConfig.company.address !== 'Адрес уточняется' && (
+              <div class="contact-info-card__row">
+                <span class="contact-info-card__icon" aria-hidden="true">📍</span>
+                <span>{siteConfig.company.address}</span>
+              </div>
+            )}
+          </div>
         </aside>
       </div>
     </div>
@@ -116,9 +120,63 @@ const { data } = page;
 
 .contact-page__grid {
   display: grid;
-  grid-template-columns: 1fr 420px;
+  grid-template-columns: 1fr 360px;
   gap: var(--space-12);
   align-items: start;
+}
+
+.contact-info-col {
+  position: sticky;
+  top: calc(var(--header-height, 7rem) + var(--space-6));
+}
+
+/* Info card */
+.contact-info-card {
+  background: var(--color-accent);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-7);
+  color: #fff;
+}
+
+.contact-info-card__title {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  margin-bottom: var(--space-5);
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: var(--text-xs);
+}
+
+.contact-info-card__row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+.contact-info-card__row:last-child {
+  border-bottom: 0;
+}
+
+.contact-info-card__icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.contact-info-card__row a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contact-info-card__row a:hover {
+  opacity: 0.8;
+  color: #fff;
 }
 
 /* Form card */

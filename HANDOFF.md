@@ -288,16 +288,65 @@ conn.close()
 PY
 ```
 
-## Next recommended work
+## Astro site — current implementation state (2026-05-11)
+
+The Astro site is fully operational. All 1011 routes build cleanly.
+
+### Completed
+
+- 8 page layouts: Home, Article, Archive, Service, Portfolio (archive + case),
+  FAQ, Dictionary, Contact
+- Double-row header: topbar (phones, email, socials, worktime) + nav with
+  dropdowns; topbar hidden on mobile (≤900px)
+- Homepage structured sections: hero, blue stats bar, nav grid, process steps,
+  case cards (live from `/portfolio/` children), FAQ list (live from `/faq/`
+  children), CTA banner
+- ContactLayout rebuilt without `content_html` injection (the extracted WP HTML
+  contains nested `<div class="container">` that breaks layout via HTML parser);
+  now uses form + info card in CSS grid
+- PortfolioLayout archive mode: live grid via `getImmediateChildPages()`
+- Routing fix: `portfolio_archive` now routes to `PortfolioLayout`
+- `siteConfig.ts` extended: `phoneLabel`, `phone2`, `phone2Href`, `phone2Label`,
+  `telegram`, `social.{vk, telegram, ok}` — all from env vars, hidden when empty
+
+### Next work — staged plan
+
+**Этап 1 (критично)**
+1. Footer: 4-column layout (brand | services | sections | contacts+social)
+2. ServiceLayout: show child service card grid in archive mode
+3. ArchiveLayout: replace content_html with `getImmediateChildPages()` card grid
+
+**Этап 2 (контентное обогащение)**
+4. Homepage: services grid block (children of `/seo-uslugi/`)
+5. Homepage: "Почему мы" / USP section
+6. ArticleLayout: sidebar with related articles from same section
+
+**Этап 3 (мобильная версия)**
+7. Header: verify/fix burger menu (open/close, accordion, aria)
+8. Global mobile breakpoints (container padding, tap targets ≥44px)
+9. Per-layout mobile fixes
+
+**Этап 4 (полировка)**
+10. FAQ archive accordion, portfolio case metrics block, pricing table, 404,
+    "О компании" layout
+
+### Deploy
+
+```bash
+cd /Users/deniskononov/mosseo-site-pipeline/site
+npm run build && npm run deploy   # reads credentials from site/.env
+```
+
+Test URL: http://yourkedm.beget.tech/
+FTP: `yourkedm_testseo` → `yourkedm.beget.tech` → `/seo-test/public_html`
+Disable iCloud Private Relay before FTP (System Settings → Apple ID → iCloud).
+
+## Next recommended work (pipeline)
 
 1. Review `warning` rows in `qa_sections.csv`.
 2. Decide whether short `portfolio` pages are acceptable as real case cards.
-3. Start a static site generator prototype, likely Astro.
-4. Use `build_manifest.json` to generate routes.
-5. Use `pages/*.json` as per-page content payloads.
-6. Use `redirects.json` for redirects.
-7. Generate sitemap and robots output.
-8. Verify generated pages with Playwright/browser checks.
+3. Generate sitemap and robots output.
+4. Verify generated pages with Playwright smoke tests.
 
 ## Site implementation requirements
 

@@ -33,6 +33,18 @@ const hasServiceCatalog = data.content_html.includes('serv-blocks') || data.cont
         <PromoSlot placement="article_footer" section={page.section} path={page.path} pageType={pageType} />
       </div>
     </section>
+
+    <section class="service-cta">
+      <div class="container">
+        <div class="service-cta__inner">
+          <div class="service-cta__text">
+            <h2 class="service-cta__title">Нужна эта услуга?</h2>
+            <p class="service-cta__desc">Оставьте заявку — обсудим задачу и предложим оптимальное решение.</p>
+          </div>
+          <a href="/kontakty/" class="service-cta__btn">Получить консультацию</a>
+        </div>
+      </div>
+    </section>
   </div>
 </BaseLayout>
 
@@ -78,6 +90,63 @@ const hasServiceCatalog = data.content_html.includes('serv-blocks') || data.cont
 }
 
 .service-page__body {
-  padding: var(--space-12) 0 var(--space-section);
+  padding: var(--space-12) 0;
+}
+
+/* CTA banner */
+.service-cta {
+  padding: var(--space-10) 0 var(--space-section);
+}
+
+.service-cta__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8) var(--space-10);
+}
+
+.service-cta__title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-2);
+}
+
+.service-cta__desc {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 48ch;
+}
+
+.service-cta__btn {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.service-cta__btn:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .service-cta__inner {
+    padding: var(--space-6);
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>

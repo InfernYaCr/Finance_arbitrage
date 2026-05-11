@@ -32,23 +32,44 @@ Generated content and indexes:
 
 Astro site:
 
-- `site/src/pages/[...slug].astro` - route generator.
+- `site/src/pages/[...slug].astro` - route generator; maps pageType to layout.
 - `site/src/data/loadPages.ts` - loads parsed JSON and normalizes brand, contacts, media.
-- `site/src/data/siteConfig.ts` - central config for brand, contacts, analytics, old-media mode.
+- `site/src/data/siteConfig.ts` - central config for brand, contacts, analytics, social links.
 - `site/src/lib/routing.ts` - page type mapping.
 - `site/src/lib/seo.ts` - SEO fields.
 - `site/src/lib/schema.ts` - JSON-LD.
-- `site/src/layouts/` - visual page templates.
-- `site/src/styles/global.css` - global and extracted legacy block styles.
+- `site/src/components/Header.astro` - double-row header: topbar + nav with dropdowns.
+- `site/src/components/Footer.astro` - site footer.
+- `site/src/layouts/` - page layout templates (Home, Article, Archive, Service, Portfolio,
+  FAQ, Dictionary, Contact).
+- `site/src/styles/global.css` - design tokens + legacy WP block styles.
+
+Page layouts:
+
+| Layout | pageType(s) | Key content |
+|---|---|---|
+| HomeLayout | home | Hero, stats bar, nav grid, process steps, case cards, FAQ, CTA |
+| ArticleLayout | article, company, content_page | Breadcrumbs, h1, date, body, PromoSlot, CTA |
+| ArchiveLayout | archive, dictionary_archive | Child list + CTA banner |
+| ServiceLayout | service | Hero + CTA btn, prose body, PromoSlot, CTA banner |
+| PortfolioLayout | portfolio_archive, portfolio_case | Archive grid / case content |
+| FaqLayout | faq | Badge, h1, body, PromoSlot, footer link |
+| DictionaryLayout | dictionary_article | Badge, h1, definition, body, back link |
+| ContactLayout | contact | Form (left) + info card (right) in CSS grid |
 
 Important current behavior:
 
 - Do not hand-edit `site_pipeline/output/pages/*.json` for design, contacts, brand, or media changes.
-- Old brand is normalized at render time.
+- Old brand is normalized at render time in `loadPages.ts`.
 - Old contacts/requisites/staff contacts are normalized or removed at render time.
 - Old `/content/` and `/wp-content/` media defaults to `/images/placeholder.svg`.
 - Change contacts in env/site config, not in parsed content.
 - `PUBLIC_LEGACY_MEDIA_MODE` supports `placeholder`, `source`, and `local`.
+- **Never inject `content_html` from contact or homepage JSON via `set:html`** — the
+  extracted WP HTML contains nested `<div class="container">` that breaks outer layout
+  via the HTML parser. Contact and Home use structured components instead.
+- `siteConfig.ts` has `phone2`, `phoneLabel`, `telegram`, `social.{vk,telegram,ok}` —
+  all read from env vars; empty string hides the element.
 
 Parallel-work caution:
 

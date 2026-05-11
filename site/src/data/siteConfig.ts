@@ -4,9 +4,14 @@ const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'Тестовый SEO-пр�
 const siteNameFull = import.meta.env.PUBLIC_SITE_NAME_FULL ?? `${siteName} — SEO-продвижение сайтов`;
 const companyPhone = import.meta.env.PUBLIC_COMPANY_PHONE ?? '+7 000 000-00-00';
 const companyPhoneHref = import.meta.env.PUBLIC_COMPANY_PHONE_HREF ?? '+70000000000';
+const companyPhoneLabel = import.meta.env.PUBLIC_COMPANY_PHONE_LABEL ?? 'звонок по РФ бесплатный';
+const companyPhone2 = import.meta.env.PUBLIC_COMPANY_PHONE2 ?? '';
+const companyPhone2Href = import.meta.env.PUBLIC_COMPANY_PHONE2_HREF ?? '';
+const companyPhone2Label = import.meta.env.PUBLIC_COMPANY_PHONE2_LABEL ?? 'для звонков из Москвы';
 const companyEmail = import.meta.env.PUBLIC_COMPANY_EMAIL ?? 'hello@example.test';
 const companyAddress = import.meta.env.PUBLIC_COMPANY_ADDRESS ?? 'Адрес уточняется';
 const companyWorktime = import.meta.env.PUBLIC_COMPANY_WORKTIME ?? 'Пн-Пт, 09:30-18:30';
+const companyTelegram = import.meta.env.PUBLIC_COMPANY_TELEGRAM ?? '';
 
 export const siteConfig = {
   siteUrl: import.meta.env.SITE_URL ?? 'https://mosseo.expert',
@@ -24,6 +29,11 @@ export const siteConfig = {
     url: import.meta.env.SITE_URL ?? 'https://mosseo.expert',
     phone: companyPhone,
     phoneHref: companyPhoneHref,
+    phoneLabel: companyPhoneLabel,
+    phone2: companyPhone2,
+    phone2Href: companyPhone2Href,
+    phone2Label: companyPhone2Label,
+    telegram: companyTelegram,
     email: companyEmail,
     address: companyAddress,
     city: 'Москва',
@@ -44,6 +54,12 @@ export const siteConfig = {
     mediaMode: import.meta.env.PUBLIC_LEGACY_MEDIA_MODE ?? 'placeholder',
     mediaPlaceholder: import.meta.env.PUBLIC_MEDIA_PLACEHOLDER ?? '/images/placeholder.svg',
     sourceDomain: 'https://mosseo.ru',
+  },
+
+  social: {
+    vk: import.meta.env.PUBLIC_SOCIAL_VK ?? '',
+    telegram: import.meta.env.PUBLIC_SOCIAL_TG ?? '',
+    ok: import.meta.env.PUBLIC_SOCIAL_OK ?? '',
   },
 
   // Nav links

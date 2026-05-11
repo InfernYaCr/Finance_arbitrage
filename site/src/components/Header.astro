@@ -29,100 +29,190 @@ const columnsClass = (count: number): string => {
   if (count === 2) return 'site-dropdown--cols-2';
   return 'site-dropdown--cols-1';
 };
+
+const { company, social } = siteConfig;
 ---
 
 <header class="site-header">
-  <div class="container">
-    <div class="site-header__inner">
-      <a href="/" class="site-header__logo" aria-label={siteConfig.siteName}>
-        <span class="site-header__logo-text">{siteConfig.siteName}</span>
-      </a>
+  <!-- Top bar: contacts + socials -->
+  <div class="site-topbar">
+    <div class="container">
+      <div class="site-topbar__inner">
 
-      <nav class="site-nav" aria-label="Основная навигация" id="site-nav">
-        <ul class="site-nav__list" role="list">
-          {navItems.map((item) => {
-            const active = isActive(item, currentPath);
-            const hasDropdown = Boolean(item.columns && item.columns.length > 0);
-            return (
-              <li
-                class:list={['site-nav__item', { 'site-nav__item--has-dropdown': hasDropdown }]}
-                data-nav-item
-              >
-                <div class="site-nav__row">
-                  <a
-                    href={item.href}
-                    class:list={['site-nav__link', { 'site-nav__link--active': active }]}
-                    aria-haspopup={hasDropdown ? 'true' : undefined}
-                    aria-expanded={hasDropdown ? 'false' : undefined}
-                  >
-                    {item.label}
-                    {hasDropdown && (
-                      <svg class="site-nav__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
-                        <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    )}
-                  </a>
-                  {hasDropdown && (
-                    <button
-                      type="button"
-                      class="site-nav__toggle"
-                      aria-label={`Раскрыть подменю «${item.label}»`}
-                      aria-expanded="false"
-                      data-submenu-toggle
+        <a href={`tel:${company.phoneHref}`} class="site-topbar__item site-topbar__contact">
+          <span class="site-topbar__icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.79 19.79 19.79 0 01.45 1.32 2 2 0 012.44 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </span>
+          <span class="site-topbar__contact-text">
+            <strong>{company.phone}</strong>
+            <small>{company.phoneLabel}</small>
+          </span>
+        </a>
+
+        {company.phone2 && (
+          <a href={`tel:${company.phone2Href}`} class="site-topbar__item site-topbar__contact">
+            <span class="site-topbar__icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.79 19.79 19.79 0 01.45 1.32 2 2 0 012.44 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </span>
+            <span class="site-topbar__contact-text">
+              <strong>{company.phone2}</strong>
+              <small>{company.phone2Label}</small>
+            </span>
+          </a>
+        )}
+
+        <a href={`mailto:${company.email}`} class="site-topbar__item site-topbar__contact">
+          <span class="site-topbar__icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M22 7l-10 7L2 7"/>
+            </svg>
+          </span>
+          <span class="site-topbar__contact-text">
+            <strong>{company.email}</strong>
+            {company.telegram && <small>{company.telegram}, Telegram</small>}
+          </span>
+        </a>
+
+        <div class="site-topbar__item site-topbar__callback">
+          <span class="site-topbar__icon">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.79 19.79 19.79 0 01.45 1.32 2 2 0 012.44 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </span>
+          <span class="site-topbar__contact-text">
+            <a href="/kontakty/" class="site-topbar__callback-link">перезвоните мне</a>
+            <small>{company.worktime}</small>
+          </span>
+        </div>
+
+        <div class="site-topbar__socials">
+          {social.vk && (
+            <a href={social.vk} class="site-topbar__social" aria-label="ВКонтакте" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12.785 16.241s.288-.032.436-.194c.136-.148.131-.427.131-.427s-.019-1.304.587-1.496c.596-.19 1.365 1.261 2.179 1.818.615.42 1.08.326 1.08.326l2.17-.03s1.136-.07.597-.963c-.044-.073-.314-.661-1.617-1.869-1.367-1.265-1.184-1.06.462-3.246 1-1.33 1.398-2.144 1.273-2.491-.12-.331-.866-.244-.866-.244l-2.44.015s-.182-.025-.315.056c-.132.079-.217.262-.217.262s-.388 1.03-1.025 1.886c-1.035 1.4-1.449 1.471-1.619 1.385-.393-.254-.295-1.063-.295-1.631 0-1.774.269-2.515-.522-2.71-.263-.064-.455-.106-1.125-.113-.861-.009-1.59.003-2.002.205-.274.134-.486.433-.357.45.159.021.52.098.712.359.248.336.239 1.09.239 1.09s.142 2.086-.332 2.347c-.325.177-.771-.184-1.728-1.834-.491-.848-.862-1.787-.862-1.787s-.071-.174-.202-.268c-.157-.113-.378-.149-.378-.149l-2.32.015s-.348.01-.476.161c-.114.135-.009.414-.009.414s1.814 4.244 3.869 6.381c1.885 1.963 4.025 1.835 4.025 1.835h.97z"/>
+              </svg>
+            </a>
+          )}
+          {social.telegram && (
+            <a href={social.telegram} class="site-topbar__social" aria-label="Telegram" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+            </a>
+          )}
+          {social.ok && (
+            <a href={social.ok} class="site-topbar__social" aria-label="Одноклассники" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 1a5 5 0 100 10A5 5 0 0012 1zm0 8a3 3 0 110-6 3 3 0 010 6zm5.8 4.2a9.1 9.1 0 01-3.3 1.5l3.1 3.1a1 1 0 01-1.4 1.4L12 15l-4.2 4.2a1 1 0 01-1.4-1.4l3.1-3.1a9.1 9.1 0 01-3.3-1.5 1 1 0 011.2-1.6A7.1 7.1 0 0012 13a7.1 7.1 0 004.6-1.4 1 1 0 011.2 1.6z"/>
+              </svg>
+            </a>
+          )}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Main row: logo + nav -->
+  <div class="site-header__main">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="/" class="site-header__logo" aria-label={siteConfig.siteName}>
+          <span class="site-header__logo-text">{siteConfig.siteName}</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Основная навигация" id="site-nav">
+          <ul class="site-nav__list" role="list">
+            {navItems.map((item) => {
+              const active = isActive(item, currentPath);
+              const hasDropdown = Boolean(item.columns && item.columns.length > 0);
+              return (
+                <li
+                  class:list={['site-nav__item', { 'site-nav__item--has-dropdown': hasDropdown }]}
+                  data-nav-item
+                >
+                  <div class="site-nav__row">
+                    <a
+                      href={item.href}
+                      class:list={['site-nav__link', { 'site-nav__link--active': active }]}
+                      aria-haspopup={hasDropdown ? 'true' : undefined}
+                      aria-expanded={hasDropdown ? 'false' : undefined}
                     >
-                      <svg width="12" height="8" viewBox="0 0 10 6" aria-hidden="true">
-                        <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </button>
-                  )}
-                </div>
-
-                {hasDropdown && item.columns && (
-                  <div
-                    class:list={['site-dropdown', columnsClass(item.columns.length)]}
-                    role="menu"
-                  >
-                    <div class="site-dropdown__inner">
-                      {item.columns.map((col) => (
-                        <div class="site-dropdown__col">
-                          {col.title && <div class="site-dropdown__title">{col.title}</div>}
-                          <ul class="site-dropdown__list" role="list">
-                            {col.items.map((child) => (
-                              <li>
-                                <a
-                                  href={child.href}
-                                  class:list={['site-dropdown__link', { 'site-dropdown__link--active': currentPath.startsWith(child.href) && child.href !== '/' }]}
-                                  role="menuitem"
-                                >
-                                  <span class="site-dropdown__label">
-                                    {child.label}
-                                    {child.badge && <span class="site-dropdown__badge">{child.badge}</span>}
-                                  </span>
-                                  {child.sublabel && <span class="site-dropdown__sub">{child.sublabel}</span>}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
+                      {item.label}
+                      {hasDropdown && (
+                        <svg class="site-nav__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+                          <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      )}
+                    </a>
+                    {hasDropdown && (
+                      <button
+                        type="button"
+                        class="site-nav__toggle"
+                        aria-label={`Раскрыть подменю «${item.label}»`}
+                        aria-expanded="false"
+                        data-submenu-toggle
+                      >
+                        <svg width="12" height="8" viewBox="0 0 10 6" aria-hidden="true">
+                          <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                    )}
                   </div>
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
 
-      <button
-        class="site-header__menu-toggle"
-        aria-label="Открыть меню"
-        aria-expanded="false"
-        aria-controls="site-nav"
-        data-menu-toggle
-      >
-        <span></span><span></span><span></span>
-      </button>
+                  {hasDropdown && item.columns && (
+                    <div
+                      class:list={['site-dropdown', columnsClass(item.columns.length)]}
+                      role="menu"
+                    >
+                      <div class="site-dropdown__inner">
+                        {item.columns.map((col) => (
+                          <div class="site-dropdown__col">
+                            {col.title && <div class="site-dropdown__title">{col.title}</div>}
+                            <ul class="site-dropdown__list" role="list">
+                              {col.items.map((child) => (
+                                <li>
+                                  <a
+                                    href={child.href}
+                                    class:list={['site-dropdown__link', { 'site-dropdown__link--active': currentPath.startsWith(child.href) && child.href !== '/' }]}
+                                    role="menuitem"
+                                  >
+                                    <span class="site-dropdown__label">
+                                      {child.label}
+                                      {child.badge && <span class="site-dropdown__badge">{child.badge}</span>}
+                                    </span>
+                                    {child.sublabel && <span class="site-dropdown__sub">{child.sublabel}</span>}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <button
+          class="site-header__menu-toggle"
+          aria-label="Открыть меню"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          data-menu-toggle
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </div>
 </header>
@@ -198,7 +288,6 @@ const columnsClass = (count: number): string => {
       }
     });
 
-    // Keyboard: open on Enter/Space/ArrowDown on the trigger link
     const link = li.querySelector<HTMLAnchorElement>('.site-nav__link[aria-haspopup="true"]');
     link?.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowDown') {
@@ -232,12 +321,124 @@ const columnsClass = (count: number): string => {
 </script>
 
 <style>
+/* ── Header shell ── */
 .site-header {
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+/* ── Top bar ── */
+.site-topbar {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+}
+
+.site-topbar__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  height: 2.75rem;
+  flex-wrap: nowrap;
+}
+
+.site-topbar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.site-topbar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-light);
+  flex-shrink: 0;
+}
+
+.site-topbar__contact:hover .site-topbar__icon {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.site-topbar__contact-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.site-topbar__contact-text strong {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  white-space: nowrap;
+}
+
+.site-topbar__contact:hover .site-topbar__contact-text strong {
+  color: var(--color-accent);
+}
+
+.site-topbar__contact-text small {
+  font-size: 0.68rem;
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+.site-topbar__callback {
+  margin-left: auto;
+}
+
+.site-topbar__callback-link {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+.site-topbar__callback-link:hover {
+  text-decoration: none;
+}
+
+/* Socials */
+.site-topbar__socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding-left: var(--space-3);
+  border-left: 1px solid var(--color-border);
+}
+
+.site-topbar__social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  color: var(--color-text-light);
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+
+.site-topbar__social:hover {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+/* ── Main row: logo + nav ── */
+.site-header__main {
+  position: relative;
 }
 
 .site-header__inner {
@@ -330,7 +531,7 @@ const columnsClass = (count: number): string => {
   color: var(--color-text-muted);
 }
 
-/* Dropdown */
+/* ── Dropdown ── */
 .site-dropdown {
   position: absolute;
   top: 100%;
@@ -359,7 +560,6 @@ const columnsClass = (count: number): string => {
   transition-delay: 0s;
 }
 
-/* Right-align dropdown when item is near the right edge */
 .site-nav__item:nth-last-child(-n+2) > .site-dropdown {
   left: auto;
   right: 0;
@@ -450,7 +650,7 @@ const columnsClass = (count: number): string => {
   color: #fff;
 }
 
-/* Burger */
+/* ── Burger ── */
 .site-header__menu-toggle {
   display: none;
   flex-direction: column;
@@ -471,8 +671,12 @@ const columnsClass = (count: number): string => {
   transition: transform var(--duration-fast);
 }
 
-/* Mobile */
+/* ── Mobile ── */
 @media (max-width: 900px) {
+  .site-topbar {
+    display: none;
+  }
+
   .site-header__menu-toggle {
     display: flex;
   }
@@ -490,6 +694,7 @@ const columnsClass = (count: number): string => {
     box-shadow: var(--shadow-lg);
     max-height: calc(100vh - 4rem);
     overflow-y: auto;
+    z-index: 110;
   }
 
   .site-nav--open {
@@ -568,7 +773,6 @@ const columnsClass = (count: number): string => {
   }
 
   .site-nav__item--has-dropdown:hover > .site-dropdown {
-    /* disable hover-open on mobile */
     visibility: hidden;
     max-height: 0;
   }
