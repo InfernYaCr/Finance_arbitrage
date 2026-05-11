@@ -2,35 +2,36 @@
   "summary": {
     "pages_checked": 1013,
     "severity_counts": {
-      "warning": 126,
-      "info": 93,
-      "ok": 792,
-      "error": 2
+      "warning": 123,
+      "info": 140,
+      "ok": 747,
+      "error": 3
     },
     "issue_counts": {
-      "html_fallback": 198,
+      "html_fallback": 247,
       "high_link_density": 75,
-      "low_content": 37,
+      "low_content": 34,
       "missing_csv_h1": 14,
       "canonical_mismatch": 11,
       "very_low_content": 4,
       "external_redirect": 2,
       "empty_content_html": 2,
       "missing_title": 2,
-      "missing_description": 2
+      "missing_description": 2,
+      "body_fallback": 1
     },
     "content_sources": {
-      "html_fallback": 198,
-      "wp_json": 813,
+      "html_fallback": 247,
+      "wp_json": 764,
       "external_redirect": 2
     },
     "fallback_selectors": {
-      ".section-quiz": 4,
+      ".section-quiz": 1,
       ".section-case-page": 1,
       ".section-faqs": 1,
+      "body": 1,
+      ".parent-section": 143,
       ".section-portfolio": 52,
-      ".section-service": 40,
-      ".section-services": 52,
       ".section-seowiki": 1,
       ".section-blog": 47
     },
@@ -49,10 +50,11 @@
         "ok": 19
       },
       "kontakty": {
-        "ok": 1
+        "error": 1
       },
       "kontekstnaya-reklama": {
-        "ok": 8
+        "info": 1,
+        "ok": 7
       },
       "na-ponyatnom-yazyke": {
         "warning": 1,
@@ -66,7 +68,8 @@
         "ok": 5
       },
       "optimizaciya": {
-        "ok": 14
+        "ok": 13,
+        "info": 1
       },
       "otzyvy": {
         "ok": 1
@@ -95,19 +98,18 @@
         "ok": 1
       },
       "seo-po-tematikam": {
-        "ok": 24,
-        "warning": 2
+        "ok": 18,
+        "info": 8
       },
       "seo-prodvizhenie-sajta": {
-        "ok": 43,
-        "warning": 1
+        "info": 36,
+        "ok": 8
       },
       "seo-slovar": {
         "error": 1
       },
       "seo-uslugi": {
-        "ok": 1,
-        "info": 40,
+        "info": 41,
         "warning": 52
       },
       "seo-wikipedia": {
@@ -195,26 +197,26 @@
     {
       "section": "kontakty",
       "total": 1,
-      "ok": 1,
+      "ok": 0,
       "info": 0,
       "warning": 0,
-      "error": 0,
-      "wp_json": 1,
-      "html_fallback": 0,
+      "error": 1,
+      "wp_json": 0,
+      "html_fallback": 1,
       "external_redirect": 0,
-      "top_issues": ""
+      "top_issues": "html_fallback:1, body_fallback:1"
     },
     {
       "section": "kontekstnaya-reklama",
       "total": 8,
-      "ok": 8,
-      "info": 0,
+      "ok": 7,
+      "info": 1,
       "warning": 0,
       "error": 0,
-      "wp_json": 8,
-      "html_fallback": 0,
+      "wp_json": 7,
+      "html_fallback": 1,
       "external_redirect": 0,
-      "top_issues": ""
+      "top_issues": "html_fallback:1"
     },
     {
       "section": "na-ponyatnom-yazyke",
@@ -255,14 +257,14 @@
     {
       "section": "optimizaciya",
       "total": 14,
-      "ok": 14,
-      "info": 0,
+      "ok": 13,
+      "info": 1,
       "warning": 0,
       "error": 0,
-      "wp_json": 14,
-      "html_fallback": 0,
+      "wp_json": 13,
+      "html_fallback": 1,
       "external_redirect": 0,
-      "top_issues": ""
+      "top_issues": "html_fallback:1"
     },
     {
       "section": "otzyvy",
@@ -363,26 +365,26 @@
     {
       "section": "seo-po-tematikam",
       "total": 26,
-      "ok": 24,
-      "info": 0,
-      "warning": 2,
+      "ok": 18,
+      "info": 8,
+      "warning": 0,
       "error": 0,
-      "wp_json": 26,
-      "html_fallback": 0,
+      "wp_json": 18,
+      "html_fallback": 8,
       "external_redirect": 0,
-      "top_issues": "low_content:2"
+      "top_issues": "html_fallback:8"
     },
     {
       "section": "seo-prodvizhenie-sajta",
       "total": 44,
-      "ok": 43,
-      "info": 0,
-      "warning": 1,
+      "ok": 8,
+      "info": 36,
+      "warning": 0,
       "error": 0,
-      "wp_json": 44,
-      "html_fallback": 0,
+      "wp_json": 8,
+      "html_fallback": 36,
       "external_redirect": 0,
-      "top_issues": "low_content:1"
+      "top_issues": "html_fallback:36"
     },
     {
       "section": "seo-slovar",
@@ -399,14 +401,14 @@
     {
       "section": "seo-uslugi",
       "total": 93,
-      "ok": 1,
-      "info": 40,
+      "ok": 0,
+      "info": 41,
       "warning": 52,
       "error": 0,
-      "wp_json": 1,
-      "html_fallback": 92,
+      "wp_json": 0,
+      "html_fallback": 93,
       "external_redirect": 0,
-      "top_issues": "html_fallback:92, high_link_density:52"
+      "top_issues": "html_fallback:93, high_link_density:52"
     },
     {
       "section": "seo-wikipedia",
@@ -451,8 +453,8 @@
       "info": 0,
       "warning": 7,
       "error": 1,
-      "wp_json": 53,
-      "html_fallback": 0,
+      "wp_json": 52,
+      "html_fallback": 1,
       "external_redirect": 1,
       "top_issues": "missing_csv_h1:8, canonical_mismatch:7, external_redirect:1, empty_content_html:1, very_low_content:1"
     },
@@ -531,6 +533,34 @@
           "code": "missing_csv_h1",
           "severity": "warning",
           "message": "CSV did not contain H1."
+        }
+      ]
+    },
+    {
+      "id": "kontakty--83e2d1e1",
+      "url": "https://mosseo.ru/kontakty/",
+      "section": "kontakty",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "fallback_selector": "body",
+      "text_chars": 2475,
+      "links_count": 28,
+      "images_count": 2,
+      "max_severity": "error",
+      "issue_codes": [
+        "html_fallback",
+        "body_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        },
+        {
+          "code": "body_fallback",
+          "severity": "error",
+          "message": "Fallback selector is body; likely includes template chrome."
         }
       ]
     },
@@ -1563,72 +1593,6 @@
       ]
     },
     {
-      "id": "seo-po-tematikam__prodvizhenie-sajta-uslug--de04841f",
-      "url": "https://mosseo.ru/seo-po-tematikam/prodvizhenie-sajta-uslug/",
-      "section": "seo-po-tematikam",
-      "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 272,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "warning",
-      "issue_codes": [
-        "low_content"
-      ],
-      "issues": [
-        {
-          "code": "low_content",
-          "severity": "warning",
-          "message": "Only 272 text characters."
-        }
-      ]
-    },
-    {
-      "id": "seo-po-tematikam__sajt-promyshlennoj-kompanij--5f469e7a",
-      "url": "https://mosseo.ru/seo-po-tematikam/sajt-promyshlennoj-kompanij/",
-      "section": "seo-po-tematikam",
-      "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 295,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "warning",
-      "issue_codes": [
-        "low_content"
-      ],
-      "issues": [
-        {
-          "code": "low_content",
-          "severity": "warning",
-          "message": "Only 295 text characters."
-        }
-      ]
-    },
-    {
-      "id": "seo-prodvizhenie-sajta__prodvizhenie-po-poziciyam--1b90dfcc",
-      "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-po-poziciyam/",
-      "section": "seo-prodvizhenie-sajta",
-      "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 111,
-      "links_count": 4,
-      "images_count": 0,
-      "max_severity": "warning",
-      "issue_codes": [
-        "low_content"
-      ],
-      "issues": [
-        {
-          "code": "low_content",
-          "severity": "warning",
-          "message": "Only 111 text characters."
-        }
-      ]
-    },
-    {
       "id": "seo-slovar__yuzabiliti--80e34737",
       "url": "https://mosseo.ru/seo-slovar/yuzabiliti/",
       "section": "seo-slovar",
@@ -1686,7 +1650,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1680,
       "links_count": 39,
       "images_count": 1,
@@ -1714,7 +1678,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1681,
       "links_count": 39,
       "images_count": 1,
@@ -1742,7 +1706,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1495,
       "links_count": 38,
       "images_count": 1,
@@ -1770,7 +1734,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1492,
       "links_count": 38,
       "images_count": 1,
@@ -1798,7 +1762,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1678,
       "links_count": 39,
       "images_count": 1,
@@ -1826,7 +1790,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1496,
       "links_count": 38,
       "images_count": 1,
@@ -1854,7 +1818,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1287,
       "links_count": 37,
       "images_count": 0,
@@ -1882,7 +1846,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1872,
       "links_count": 40,
       "images_count": 1,
@@ -1910,7 +1874,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1690,
       "links_count": 39,
       "images_count": 1,
@@ -1938,7 +1902,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1679,
       "links_count": 39,
       "images_count": 1,
@@ -1966,7 +1930,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1670,
       "links_count": 39,
       "images_count": 1,
@@ -1994,7 +1958,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1670,
       "links_count": 39,
       "images_count": 1,
@@ -2022,7 +1986,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1665,
       "links_count": 39,
       "images_count": 1,
@@ -2050,7 +2014,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 5134,
       "links_count": 57,
       "images_count": 1,
@@ -2078,7 +2042,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 3010,
       "links_count": 46,
       "images_count": 1,
@@ -2106,7 +2070,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1470,
       "links_count": 39,
       "images_count": 1,
@@ -2134,7 +2098,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1478,
       "links_count": 39,
       "images_count": 1,
@@ -2162,7 +2126,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2049,
       "links_count": 41,
       "images_count": 1,
@@ -2190,7 +2154,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1458,
       "links_count": 39,
       "images_count": 1,
@@ -2218,7 +2182,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1505,
       "links_count": 39,
       "images_count": 1,
@@ -2246,7 +2210,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1457,
       "links_count": 39,
       "images_count": 1,
@@ -2274,7 +2238,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2244,
       "links_count": 42,
       "images_count": 1,
@@ -2302,7 +2266,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1659,
       "links_count": 40,
       "images_count": 1,
@@ -2330,7 +2294,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1473,
       "links_count": 39,
       "images_count": 1,
@@ -2358,7 +2322,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1448,
       "links_count": 39,
       "images_count": 1,
@@ -2386,7 +2350,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1469,
       "links_count": 39,
       "images_count": 1,
@@ -2414,7 +2378,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1678,
       "links_count": 39,
       "images_count": 1,
@@ -2442,7 +2406,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 3203,
       "links_count": 47,
       "images_count": 1,
@@ -2470,7 +2434,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2420,
       "links_count": 43,
       "images_count": 1,
@@ -2498,7 +2462,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2024,
       "links_count": 42,
       "images_count": 1,
@@ -2526,7 +2490,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1474,
       "links_count": 39,
       "images_count": 1,
@@ -2554,7 +2518,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1844,
       "links_count": 40,
       "images_count": 1,
@@ -2582,7 +2546,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1643,
       "links_count": 39,
       "images_count": 1,
@@ -2610,7 +2574,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1468,
       "links_count": 38,
       "images_count": 1,
@@ -2638,7 +2602,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1455,
       "links_count": 38,
       "images_count": 1,
@@ -2666,7 +2630,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2059,
       "links_count": 41,
       "images_count": 1,
@@ -2694,7 +2658,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1275,
       "links_count": 37,
       "images_count": 0,
@@ -2722,7 +2686,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1689,
       "links_count": 40,
       "images_count": 1,
@@ -2750,7 +2714,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1498,
       "links_count": 39,
       "images_count": 1,
@@ -2778,7 +2742,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1461,
       "links_count": 39,
       "images_count": 1,
@@ -2806,7 +2770,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2582,
       "links_count": 44,
       "images_count": 1,
@@ -2834,7 +2798,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1460,
       "links_count": 38,
       "images_count": 1,
@@ -2862,7 +2826,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1458,
       "links_count": 38,
       "images_count": 1,
@@ -2890,7 +2854,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1461,
       "links_count": 38,
       "images_count": 1,
@@ -2918,7 +2882,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1644,
       "links_count": 39,
       "images_count": 1,
@@ -2946,7 +2910,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1272,
       "links_count": 37,
       "images_count": 0,
@@ -2974,7 +2938,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1656,
       "links_count": 39,
       "images_count": 1,
@@ -3002,7 +2966,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1836,
       "links_count": 41,
       "images_count": 4,
@@ -3030,7 +2994,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1420,
       "links_count": 38,
       "images_count": 1,
@@ -3058,7 +3022,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1407,
       "links_count": 38,
       "images_count": 1,
@@ -3086,7 +3050,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1409,
       "links_count": 38,
       "images_count": 1,
@@ -3114,7 +3078,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1414,
       "links_count": 38,
       "images_count": 1,
@@ -3170,7 +3134,7 @@
       "section": "stoimost-uslug",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-quiz",
+      "fallback_selector": ".parent-section",
       "text_chars": 10463,
       "links_count": 1,
       "images_count": 0,
@@ -3256,7 +3220,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5180,
       "links_count": 7,
       "images_count": 3,
@@ -3284,7 +3248,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 889,
       "links_count": 3,
       "images_count": 1,
@@ -3312,7 +3276,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 6642,
       "links_count": 13,
       "images_count": 3,
@@ -3340,7 +3304,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5933,
       "links_count": 0,
       "images_count": 2,
@@ -3368,7 +3332,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 6913,
       "links_count": 0,
       "images_count": 2,
@@ -3395,17 +3359,23 @@
       "url": "https://mosseo.ru/uslugi/usloviya-sotrudnichestva-po-seo-prodvizheniyu/osobennosti-prodvizheniya-sajta-v-google/",
       "section": "uslugi",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 381,
-      "links_count": 2,
-      "images_count": 0,
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 23326,
+      "links_count": 16,
+      "images_count": 15,
       "max_severity": "warning",
       "issue_codes": [
+        "html_fallback",
         "missing_csv_h1",
         "canonical_mismatch"
       ],
       "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        },
         {
           "code": "missing_csv_h1",
           "severity": "warning",
@@ -3424,7 +3394,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2994,
       "links_count": 1,
       "images_count": 3,
@@ -4816,7 +4786,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3846,
       "links_count": 8,
       "images_count": 4,
@@ -4830,7 +4800,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5180,
       "links_count": 7,
       "images_count": 3,
@@ -4844,7 +4814,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3188,
       "links_count": 7,
       "images_count": 2,
@@ -4858,7 +4828,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 889,
       "links_count": 3,
       "images_count": 1,
@@ -4872,7 +4842,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4844,
       "links_count": 0,
       "images_count": 2,
@@ -4886,7 +4856,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4122,
       "links_count": 4,
       "images_count": 2,
@@ -4900,7 +4870,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2660,
       "links_count": 7,
       "images_count": 2,
@@ -4914,7 +4884,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1101,
       "links_count": 4,
       "images_count": 1,
@@ -4928,7 +4898,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 6642,
       "links_count": 13,
       "images_count": 3,
@@ -4942,7 +4912,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5933,
       "links_count": 0,
       "images_count": 2,
@@ -4956,7 +4926,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 6913,
       "links_count": 0,
       "images_count": 2,
@@ -4970,7 +4940,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5145,
       "links_count": 8,
       "images_count": 3,
@@ -4984,7 +4954,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4684,
       "links_count": 8,
       "images_count": 2,
@@ -4998,7 +4968,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4963,
       "links_count": 2,
       "images_count": 2,
@@ -5012,7 +4982,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4086,
       "links_count": 3,
       "images_count": 2,
@@ -5026,7 +4996,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4453,
       "links_count": 6,
       "images_count": 2,
@@ -5040,7 +5010,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 7500,
       "links_count": 7,
       "images_count": 3,
@@ -5054,7 +5024,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 934,
       "links_count": 4,
       "images_count": 1,
@@ -5068,7 +5038,7 @@
       "section": "konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5041,
       "links_count": 9,
       "images_count": 2,
@@ -5081,28 +5051,50 @@
       "url": "https://mosseo.ru/kontakty/",
       "section": "kontakty",
       "status_code": 200,
-      "content_source": "wp_json",
+      "content_source": "html_fallback",
       "fallback_selector": "body",
-      "text_chars": 849,
-      "links_count": 2,
+      "text_chars": 2475,
+      "links_count": 28,
       "images_count": 2,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "max_severity": "error",
+      "issue_codes": [
+        "html_fallback",
+        "body_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        },
+        {
+          "code": "body_fallback",
+          "severity": "error",
+          "message": "Fallback selector is body; likely includes template chrome."
+        }
+      ]
     },
     {
       "id": "kontekstnaya-reklama--3b976bed",
       "url": "https://mosseo.ru/kontekstnaya-reklama/",
       "section": "kontekstnaya-reklama",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".content",
-      "text_chars": 2410,
-      "links_count": 7,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 8796,
+      "links_count": 11,
+      "images_count": 19,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "kontekstnaya-reklama__pochtovye-rassylki--c0a498ad",
@@ -5110,7 +5102,7 @@
       "section": "kontekstnaya-reklama",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2880,
       "links_count": 2,
       "images_count": 0,
@@ -5124,7 +5116,7 @@
       "section": "kontekstnaya-reklama",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 14021,
       "links_count": 2,
       "images_count": 3,
@@ -5138,7 +5130,7 @@
       "section": "kontekstnaya-reklama",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": "body",
+      "fallback_selector": ".parent-section",
       "text_chars": 5780,
       "links_count": 14,
       "images_count": 9,
@@ -5152,7 +5144,7 @@
       "section": "kontekstnaya-reklama",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2887,
       "links_count": 3,
       "images_count": 2,
@@ -5166,7 +5158,7 @@
       "section": "kontekstnaya-reklama",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3369,
       "links_count": 5,
       "images_count": 3,
@@ -5180,7 +5172,7 @@
       "section": "kontekstnaya-reklama",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2160,
       "links_count": 4,
       "images_count": 2,
@@ -5194,7 +5186,7 @@
       "section": "kontekstnaya-reklama",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2895,
       "links_count": 1,
       "images_count": 0,
@@ -5912,7 +5904,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 7534,
       "links_count": 14,
       "images_count": 3,
@@ -5925,14 +5917,22 @@
       "url": "https://mosseo.ru/optimizaciya/kak-my-rabotaem/",
       "section": "optimizaciya",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".content",
-      "text_chars": 4809,
-      "links_count": 18,
-      "images_count": 9,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 12246,
+      "links_count": 5,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "optimizaciya__kak-my-rabotaem__yandeks-treker-zadach--9d2ef1c4",
@@ -5940,7 +5940,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5496,
       "links_count": 4,
       "images_count": 2,
@@ -5954,7 +5954,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1530,
       "links_count": 7,
       "images_count": 0,
@@ -5968,7 +5968,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2174,
       "links_count": 7,
       "images_count": 0,
@@ -5982,7 +5982,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3074,
       "links_count": 8,
       "images_count": 0,
@@ -5996,7 +5996,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2712,
       "links_count": 8,
       "images_count": 0,
@@ -6010,7 +6010,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2285,
       "links_count": 11,
       "images_count": 0,
@@ -6024,7 +6024,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1164,
       "links_count": 6,
       "images_count": 0,
@@ -6038,7 +6038,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4788,
       "links_count": 9,
       "images_count": 2,
@@ -6052,7 +6052,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1898,
       "links_count": 8,
       "images_count": 0,
@@ -6066,7 +6066,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2038,
       "links_count": 6,
       "images_count": 0,
@@ -6080,7 +6080,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2216,
       "links_count": 8,
       "images_count": 0,
@@ -6094,7 +6094,7 @@
       "section": "optimizaciya",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1788,
       "links_count": 8,
       "images_count": 0,
@@ -7622,7 +7622,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 9169,
       "links_count": 31,
       "images_count": 0,
@@ -7635,20 +7635,20 @@
       "url": "https://mosseo.ru/seo-po-tematikam/prodvizhenie-sajta-uslug/",
       "section": "seo-po-tematikam",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 272,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "warning",
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 23095,
+      "links_count": 19,
+      "images_count": 16,
+      "max_severity": "info",
       "issue_codes": [
-        "low_content"
+        "html_fallback"
       ],
       "issues": [
         {
-          "code": "low_content",
-          "severity": "warning",
-          "message": "Only 272 text characters."
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
         }
       ]
     },
@@ -7657,14 +7657,22 @@
       "url": "https://mosseo.ru/seo-po-tematikam/sajt-agentstva-nedvizhimosti/",
       "section": "seo-po-tematikam",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 540,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 24720,
+      "links_count": 17,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-po-tematikam__sajt-avtomobilnoj-tematiki--d773afa8",
@@ -7672,7 +7680,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1505,
       "links_count": 7,
       "images_count": 0,
@@ -7686,7 +7694,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1382,
       "links_count": 5,
       "images_count": 0,
@@ -7700,7 +7708,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1645,
       "links_count": 8,
       "images_count": 0,
@@ -7714,7 +7722,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1306,
       "links_count": 6,
       "images_count": 0,
@@ -7728,7 +7736,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1580,
       "links_count": 7,
       "images_count": 0,
@@ -7742,7 +7750,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1593,
       "links_count": 9,
       "images_count": 0,
@@ -7755,14 +7763,22 @@
       "url": "https://mosseo.ru/seo-po-tematikam/sajt-magazina/",
       "section": "seo-po-tematikam",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 442,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 26055,
+      "links_count": 17,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-po-tematikam__sajt-magazina-po-prodazhe-telefonov--f0bdca94",
@@ -7770,7 +7786,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1307,
       "links_count": 7,
       "images_count": 0,
@@ -7783,28 +7799,44 @@
       "url": "https://mosseo.ru/seo-po-tematikam/sajt-mebelnoj-tematiki/",
       "section": "seo-po-tematikam",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 417,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 25230,
+      "links_count": 15,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-po-tematikam__sajt-medicinskoj-tematiki--2ad2bd8c",
       "url": "https://mosseo.ru/seo-po-tematikam/sajt-medicinskoj-tematiki/",
       "section": "seo-po-tematikam",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 527,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 24396,
+      "links_count": 14,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-po-tematikam__sajt-muzykalnoj-tematiki--445c50c8",
@@ -7812,7 +7844,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1173,
       "links_count": 5,
       "images_count": 0,
@@ -7826,7 +7858,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1699,
       "links_count": 10,
       "images_count": 0,
@@ -7839,14 +7871,22 @@
       "url": "https://mosseo.ru/seo-po-tematikam/sajt-po-plastikovym-oknam/",
       "section": "seo-po-tematikam",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 348,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 25062,
+      "links_count": 19,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-po-tematikam__sajt-po-prodazhe-dverej--e5ef819c",
@@ -7854,7 +7894,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1314,
       "links_count": 7,
       "images_count": 0,
@@ -7867,14 +7907,22 @@
       "url": "https://mosseo.ru/seo-po-tematikam/sajt-po-remontu/",
       "section": "seo-po-tematikam",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 350,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 23511,
+      "links_count": 16,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-po-tematikam__sajt-predpriyatiya--161b2e21",
@@ -7882,7 +7930,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1242,
       "links_count": 9,
       "images_count": 0,
@@ -7895,20 +7943,20 @@
       "url": "https://mosseo.ru/seo-po-tematikam/sajt-promyshlennoj-kompanij/",
       "section": "seo-po-tematikam",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 295,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "warning",
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 26378,
+      "links_count": 16,
+      "images_count": 13,
+      "max_severity": "info",
       "issue_codes": [
-        "low_content"
+        "html_fallback"
       ],
       "issues": [
         {
-          "code": "low_content",
-          "severity": "warning",
-          "message": "Only 295 text characters."
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
         }
       ]
     },
@@ -7918,7 +7966,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1349,
       "links_count": 7,
       "images_count": 0,
@@ -7932,7 +7980,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1453,
       "links_count": 8,
       "images_count": 0,
@@ -7946,7 +7994,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1430,
       "links_count": 8,
       "images_count": 0,
@@ -7960,7 +8008,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1140,
       "links_count": 7,
       "images_count": 0,
@@ -7974,7 +8022,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1448,
       "links_count": 10,
       "images_count": 0,
@@ -7988,7 +8036,7 @@
       "section": "seo-po-tematikam",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1441,
       "links_count": 5,
       "images_count": 0,
@@ -8001,14 +8049,22 @@
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 421,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 20720,
+      "links_count": 20,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__brainstorm-seo-tehnologiya-prodvizheniya-sajtov--fb6f6b2d",
@@ -8016,7 +8072,7 @@
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 912,
       "links_count": 0,
       "images_count": 21,
@@ -8029,146 +8085,218 @@
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/osobennosti-prodvizheniya-sajta-v-google/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 381,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 23326,
+      "links_count": 16,
+      "images_count": 15,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__osobennosti-prodvizheniya-sajta-v-yandekse--ecd2b688",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/osobennosti-prodvizheniya-sajta-v-yandekse/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 437,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 22635,
+      "links_count": 14,
+      "images_count": 15,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-gotovogo-sajta--2d8d563b",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-gotovogo-sajta/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 359,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 21689,
+      "links_count": 12,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-informacionnogo-sajta--655e60d7",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-informacionnogo-sajta/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 423,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 21159,
+      "links_count": 14,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-internet-magazina--f3fe66c9",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-internet-magazina/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 396,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 24314,
+      "links_count": 19,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-internet-portala--81c88222",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-internet-portala/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 524,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 20790,
+      "links_count": 23,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-kommercheskogo-sajta--6a1c0358",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-kommercheskogo-sajta/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 530,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 22261,
+      "links_count": 22,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-molodogo-sajta--8eadec24",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-molodogo-sajta/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 491,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 22720,
+      "links_count": 19,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-oficialnogo-sajta--73624807",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-oficialnogo-sajta/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 599,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 24096,
+      "links_count": 22,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-po-poziciyam--1b90dfcc",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-po-poziciyam/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 111,
-      "links_count": 4,
-      "images_count": 0,
-      "max_severity": "warning",
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 19025,
+      "links_count": 20,
+      "images_count": 16,
+      "max_severity": "info",
       "issue_codes": [
-        "low_content"
+        "html_fallback"
       ],
       "issues": [
         {
-          "code": "low_content",
-          "severity": "warning",
-          "message": "Only 111 text characters."
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
         }
       ]
     },
@@ -8178,7 +8306,7 @@
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2831,
       "links_count": 2,
       "images_count": 0,
@@ -8191,14 +8319,22 @@
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-po-trafiku/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 310,
-      "links_count": 3,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18966,
+      "links_count": 17,
+      "images_count": 14,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-po-trafiku__konversiya--a7ea0fd9",
@@ -8206,7 +8342,7 @@
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3220,
       "links_count": 3,
       "images_count": 1,
@@ -8220,7 +8356,7 @@
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2649,
       "links_count": 5,
       "images_count": 1,
@@ -8234,7 +8370,7 @@
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2138,
       "links_count": 7,
       "images_count": 1,
@@ -8248,7 +8384,7 @@
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3315,
       "links_count": 4,
       "images_count": 0,
@@ -8262,7 +8398,7 @@
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4284,
       "links_count": 8,
       "images_count": 0,
@@ -8276,7 +8412,7 @@
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2867,
       "links_count": 1,
       "images_count": 1,
@@ -8289,336 +8425,528 @@
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-agentstva-nedvizhimosti/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 608,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18512,
+      "links_count": 18,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-avtomobilnoj-tematiki--5b9848a7",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-avtomobilnoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".content",
-      "text_chars": 853,
-      "links_count": 6,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 29068,
+      "links_count": 27,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-detskoj-tematiki--6cce41eb",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-detskoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 837,
-      "links_count": 4,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18280,
+      "links_count": 16,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-foto-tematiki--19d229ef",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-foto-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 557,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18540,
+      "links_count": 20,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-gostinicy--bc78837d",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-gostinicy/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 577,
-      "links_count": 3,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18197,
+      "links_count": 17,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-igrovoj-tematiki--7b0c43a4",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-igrovoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 930,
-      "links_count": 3,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18478,
+      "links_count": 18,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-juridicheskoj-tematiki--d2dbcb60",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-juridicheskoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 706,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18350,
+      "links_count": 22,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-kompjuternoj-tematiki--87878713",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-kompjuternoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 836,
-      "links_count": 3,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18496,
+      "links_count": 21,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-magazina--378a9ef0",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-magazina/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 481,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18093,
+      "links_count": 17,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-magazina-po-prodazhe-telefonov--f5c72110",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-magazina-po-prodazhe-telefonov/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 582,
-      "links_count": 3,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18218,
+      "links_count": 18,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-mebelnoj-tematiki--c814d965",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-mebelnoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 388,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18200,
+      "links_count": 18,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-medicinskoj-tematiki--4ae9d4bc",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-medicinskoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 755,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18442,
+      "links_count": 16,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-muzykalnoj-tematiki--6ed12bbd",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-muzykalnoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 437,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18075,
+      "links_count": 16,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-po-audioknigam--f3b041d3",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-po-audioknigam/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 607,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18595,
+      "links_count": 21,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-po-plastikovym-oknam--09823001",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-po-plastikovym-oknam/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 650,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18498,
+      "links_count": 19,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-po-prodazhe-dverej--e208de24",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-po-prodazhe-dverej/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 524,
-      "links_count": 5,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18213,
+      "links_count": 18,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-predpriyatiya--b7205785",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-predpriyatiya/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 470,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 16033,
+      "links_count": 17,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-promyshlennoj-kompanii--a1688ab0",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-promyshlennoj-kompanii/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 572,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18207,
+      "links_count": 17,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-restorannogo-biznesa--edcaa421",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-restorannogo-biznesa/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 593,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18251,
+      "links_count": 18,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-sportivnoj-tematiki--01c991f0",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-sportivnoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 627,
-      "links_count": 4,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18354,
+      "links_count": 19,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-stroitelnoj-tematiki--0791fc78",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-stroitelnoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 728,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18345,
+      "links_count": 19,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-turisticheskoj-tematiki--64002b4b",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-turisticheskoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 575,
-      "links_count": 1,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18044,
+      "links_count": 19,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajta-zhenskoj-tematiki--172cdc17",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajta-zhenskoj-tematiki/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 767,
-      "links_count": 3,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18339,
+      "links_count": 16,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-prodvizhenie-sajta__prodvizhenie-sajtov-po-remontu--7729a9c7",
       "url": "https://mosseo.ru/seo-prodvizhenie-sajta/prodvizhenie-sajtov-po-remontu/",
       "section": "seo-prodvizhenie-sajta",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 363,
-      "links_count": 2,
-      "images_count": 0,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 18188,
+      "links_count": 17,
+      "images_count": 13,
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-slovar__yuzabiliti--80e34737",
@@ -8677,14 +9005,22 @@
       "url": "https://mosseo.ru/seo-uslugi/",
       "section": "seo-uslugi",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-services",
-      "text_chars": 2561,
-      "links_count": 2,
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 11366,
+      "links_count": 80,
       "images_count": 5,
-      "max_severity": "ok",
-      "issue_codes": [],
-      "issues": []
+      "max_severity": "info",
+      "issue_codes": [
+        "html_fallback"
+      ],
+      "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        }
+      ]
     },
     {
       "id": "seo-uslugi__audit-osnovnyh-pokazatelej-sajta-v-yandeks-vebmaster--2b206702",
@@ -8692,10 +9028,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 2806,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 4090,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -8714,7 +9050,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1680,
       "links_count": 39,
       "images_count": 1,
@@ -8742,7 +9078,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1681,
       "links_count": 39,
       "images_count": 1,
@@ -8770,7 +9106,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1495,
       "links_count": 38,
       "images_count": 1,
@@ -8798,7 +9134,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1492,
       "links_count": 38,
       "images_count": 1,
@@ -8826,7 +9162,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1678,
       "links_count": 39,
       "images_count": 1,
@@ -8854,7 +9190,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1496,
       "links_count": 38,
       "images_count": 1,
@@ -8882,7 +9218,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1287,
       "links_count": 37,
       "images_count": 0,
@@ -8910,10 +9246,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1162,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2446,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -8932,10 +9268,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1070,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2354,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -8954,7 +9290,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1872,
       "links_count": 40,
       "images_count": 1,
@@ -8982,7 +9318,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1690,
       "links_count": 39,
       "images_count": 1,
@@ -9010,7 +9346,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1679,
       "links_count": 39,
       "images_count": 1,
@@ -9038,7 +9374,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1670,
       "links_count": 39,
       "images_count": 1,
@@ -9066,7 +9402,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1670,
       "links_count": 39,
       "images_count": 1,
@@ -9094,7 +9430,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1665,
       "links_count": 39,
       "images_count": 1,
@@ -9122,10 +9458,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 949,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2233,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9144,10 +9480,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1143,
-      "links_count": 2,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2427,
+      "links_count": 10,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9166,7 +9502,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 5134,
       "links_count": 57,
       "images_count": 1,
@@ -9194,7 +9530,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 3010,
       "links_count": 46,
       "images_count": 1,
@@ -9222,7 +9558,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1470,
       "links_count": 39,
       "images_count": 1,
@@ -9250,7 +9586,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1478,
       "links_count": 39,
       "images_count": 1,
@@ -9278,7 +9614,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2049,
       "links_count": 41,
       "images_count": 1,
@@ -9306,7 +9642,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1458,
       "links_count": 39,
       "images_count": 1,
@@ -9334,7 +9670,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1505,
       "links_count": 39,
       "images_count": 1,
@@ -9362,7 +9698,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1457,
       "links_count": 39,
       "images_count": 1,
@@ -9390,7 +9726,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2244,
       "links_count": 42,
       "images_count": 1,
@@ -9418,7 +9754,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1659,
       "links_count": 40,
       "images_count": 1,
@@ -9446,7 +9782,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1473,
       "links_count": 39,
       "images_count": 1,
@@ -9474,7 +9810,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1448,
       "links_count": 39,
       "images_count": 1,
@@ -9502,7 +9838,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1469,
       "links_count": 39,
       "images_count": 1,
@@ -9530,7 +9866,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1678,
       "links_count": 39,
       "images_count": 1,
@@ -9558,10 +9894,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1035,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2319,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9580,10 +9916,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1052,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2311,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9602,10 +9938,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 907,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2177,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9624,10 +9960,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 889,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2174,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9646,10 +9982,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1008,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2275,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9668,10 +10004,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1290,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2551,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9690,10 +10026,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1341,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2610,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9712,10 +10048,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 2419,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 3682,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9734,10 +10070,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1907,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 3191,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9756,10 +10092,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 3119,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 4403,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9778,10 +10114,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1235,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2519,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9800,10 +10136,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1570,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2854,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9822,10 +10158,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1279,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2563,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9844,10 +10180,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 978,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2262,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9866,10 +10202,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 925,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2209,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9888,10 +10224,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1388,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2672,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9910,10 +10246,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 7200,
-      "links_count": 2,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 8484,
+      "links_count": 10,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9932,10 +10268,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 4618,
-      "links_count": 2,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 5902,
+      "links_count": 10,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9954,10 +10290,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 2928,
-      "links_count": 2,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 4212,
+      "links_count": 10,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9976,10 +10312,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 3614,
-      "links_count": 2,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 4898,
+      "links_count": 10,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -9998,7 +10334,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 3203,
       "links_count": 47,
       "images_count": 1,
@@ -10026,7 +10362,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2420,
       "links_count": 43,
       "images_count": 1,
@@ -10054,7 +10390,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2024,
       "links_count": 42,
       "images_count": 1,
@@ -10082,7 +10418,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1474,
       "links_count": 39,
       "images_count": 1,
@@ -10110,7 +10446,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1844,
       "links_count": 40,
       "images_count": 1,
@@ -10138,7 +10474,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1643,
       "links_count": 39,
       "images_count": 1,
@@ -10166,7 +10502,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1468,
       "links_count": 38,
       "images_count": 1,
@@ -10194,7 +10530,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1455,
       "links_count": 38,
       "images_count": 1,
@@ -10222,7 +10558,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2059,
       "links_count": 41,
       "images_count": 1,
@@ -10250,7 +10586,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1275,
       "links_count": 37,
       "images_count": 0,
@@ -10278,7 +10614,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1689,
       "links_count": 40,
       "images_count": 1,
@@ -10306,7 +10642,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1498,
       "links_count": 39,
       "images_count": 1,
@@ -10334,7 +10670,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1461,
       "links_count": 39,
       "images_count": 1,
@@ -10362,10 +10698,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 973,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2257,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10384,10 +10720,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 976,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2264,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10406,10 +10742,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 995,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2279,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10428,10 +10764,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1411,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2695,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10450,10 +10786,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1084,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2368,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10472,10 +10808,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1033,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2317,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10494,10 +10830,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1139,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2423,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10516,10 +10852,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1025,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2309,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10538,10 +10874,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 967,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2251,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10560,7 +10896,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 2582,
       "links_count": 44,
       "images_count": 1,
@@ -10588,7 +10924,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1460,
       "links_count": 38,
       "images_count": 1,
@@ -10616,7 +10952,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1458,
       "links_count": 38,
       "images_count": 1,
@@ -10644,7 +10980,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1461,
       "links_count": 38,
       "images_count": 1,
@@ -10672,7 +11008,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1644,
       "links_count": 39,
       "images_count": 1,
@@ -10700,7 +11036,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1272,
       "links_count": 37,
       "images_count": 0,
@@ -10728,7 +11064,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1656,
       "links_count": 39,
       "images_count": 1,
@@ -10756,10 +11092,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1319,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2603,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10778,10 +11114,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 988,
-      "links_count": 2,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2272,
+      "links_count": 10,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10800,7 +11136,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1836,
       "links_count": 41,
       "images_count": 4,
@@ -10828,7 +11164,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1420,
       "links_count": 38,
       "images_count": 1,
@@ -10856,7 +11192,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1407,
       "links_count": 38,
       "images_count": 1,
@@ -10884,7 +11220,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1409,
       "links_count": 38,
       "images_count": 1,
@@ -10912,7 +11248,7 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-services",
+      "fallback_selector": ".parent-section",
       "text_chars": 1414,
       "links_count": 38,
       "images_count": 1,
@@ -10940,10 +11276,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1403,
-      "links_count": 2,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2687,
+      "links_count": 10,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10962,10 +11298,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 961,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2245,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -10984,10 +11320,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1162,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2446,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -11006,10 +11342,10 @@
       "section": "seo-uslugi",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-service",
-      "text_chars": 1175,
-      "links_count": 5,
-      "images_count": 1,
+      "fallback_selector": ".parent-section",
+      "text_chars": 2459,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -12792,10 +13128,10 @@
       "section": "stoimost-uslug",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 10463,
-      "links_count": 2,
-      "images_count": 0,
+      "fallback_selector": ".parent-section",
+      "text_chars": 22581,
+      "links_count": 13,
+      "images_count": 2,
       "max_severity": "info",
       "issue_codes": [
         "html_fallback"
@@ -12814,7 +13150,7 @@
       "section": "stoimost-uslug",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 14206,
       "links_count": 7,
       "images_count": 3,
@@ -12828,7 +13164,7 @@
       "section": "stoimost-uslug",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 6702,
       "links_count": 0,
       "images_count": 0,
@@ -12842,7 +13178,7 @@
       "section": "stoimost-uslug",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 7942,
       "links_count": 4,
       "images_count": 3,
@@ -12856,7 +13192,7 @@
       "section": "stoimost-uslug",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-quiz",
+      "fallback_selector": ".parent-section",
       "text_chars": 10463,
       "links_count": 1,
       "images_count": 0,
@@ -12890,7 +13226,7 @@
       "section": "stoimost-uslug",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2419,
       "links_count": 0,
       "images_count": 0,
@@ -12904,7 +13240,7 @@
       "section": "stoimost-uslug",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1922,
       "links_count": 0,
       "images_count": 0,
@@ -12918,7 +13254,7 @@
       "section": "stoimost-uslug",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1484,
       "links_count": 0,
       "images_count": 0,
@@ -12932,7 +13268,7 @@
       "section": "stoimost-uslug",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1692,
       "links_count": 0,
       "images_count": 0,
@@ -12946,8 +13282,8 @@
       "section": "tarify-seo",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 10463,
+      "fallback_selector": ".parent-section",
+      "text_chars": 16848,
       "links_count": 2,
       "images_count": 0,
       "max_severity": "info",
@@ -13020,7 +13356,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5180,
       "links_count": 7,
       "images_count": 3,
@@ -13048,7 +13384,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 889,
       "links_count": 3,
       "images_count": 1,
@@ -13076,7 +13412,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3260,
       "links_count": 8,
       "images_count": 2,
@@ -13090,7 +13426,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3814,
       "links_count": 10,
       "images_count": 2,
@@ -13104,7 +13440,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3973,
       "links_count": 7,
       "images_count": 2,
@@ -13118,7 +13454,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2974,
       "links_count": 5,
       "images_count": 2,
@@ -13132,7 +13468,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5445,
       "links_count": 11,
       "images_count": 2,
@@ -13146,7 +13482,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4937,
       "links_count": 8,
       "images_count": 2,
@@ -13160,7 +13496,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5409,
       "links_count": 8,
       "images_count": 2,
@@ -13174,7 +13510,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4353,
       "links_count": 5,
       "images_count": 2,
@@ -13188,7 +13524,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 6318,
       "links_count": 3,
       "images_count": 2,
@@ -13202,7 +13538,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4310,
       "links_count": 6,
       "images_count": 2,
@@ -13216,7 +13552,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4490,
       "links_count": 6,
       "images_count": 2,
@@ -13230,7 +13566,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5688,
       "links_count": 5,
       "images_count": 3,
@@ -13244,7 +13580,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3912,
       "links_count": 0,
       "images_count": 2,
@@ -13258,7 +13594,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 6063,
       "links_count": 3,
       "images_count": 2,
@@ -13272,7 +13608,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5623,
       "links_count": 7,
       "images_count": 2,
@@ -13286,7 +13622,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4764,
       "links_count": 3,
       "images_count": 2,
@@ -13300,7 +13636,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4285,
       "links_count": 3,
       "images_count": 2,
@@ -13314,7 +13650,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3925,
       "links_count": 6,
       "images_count": 2,
@@ -13328,7 +13664,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4755,
       "links_count": 9,
       "images_count": 2,
@@ -13342,7 +13678,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2083,
       "links_count": 7,
       "images_count": 1,
@@ -13356,7 +13692,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 607,
       "links_count": 4,
       "images_count": 1,
@@ -13370,7 +13706,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 6642,
       "links_count": 13,
       "images_count": 3,
@@ -13398,7 +13734,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5933,
       "links_count": 0,
       "images_count": 2,
@@ -13426,7 +13762,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 6913,
       "links_count": 0,
       "images_count": 2,
@@ -13454,7 +13790,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1462,
       "links_count": 10,
       "images_count": 1,
@@ -13468,7 +13804,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4146,
       "links_count": 5,
       "images_count": 0,
@@ -13482,7 +13818,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3762,
       "links_count": 8,
       "images_count": 0,
@@ -13496,7 +13832,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2894,
       "links_count": 2,
       "images_count": 0,
@@ -13510,7 +13846,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3105,
       "links_count": 1,
       "images_count": 0,
@@ -13524,7 +13860,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2888,
       "links_count": 4,
       "images_count": 0,
@@ -13538,7 +13874,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2824,
       "links_count": 2,
       "images_count": 0,
@@ -13552,7 +13888,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4384,
       "links_count": 7,
       "images_count": 0,
@@ -13566,7 +13902,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2815,
       "links_count": 2,
       "images_count": 0,
@@ -13580,7 +13916,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2884,
       "links_count": 4,
       "images_count": 0,
@@ -13594,7 +13930,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2866,
       "links_count": 4,
       "images_count": 0,
@@ -13608,7 +13944,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2841,
       "links_count": 2,
       "images_count": 0,
@@ -13622,7 +13958,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4946,
       "links_count": 0,
       "images_count": 3,
@@ -13636,7 +13972,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 6365,
       "links_count": 5,
       "images_count": 3,
@@ -13650,7 +13986,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 5316,
       "links_count": 5,
       "images_count": 2,
@@ -13664,7 +14000,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4210,
       "links_count": 0,
       "images_count": 2,
@@ -13678,7 +14014,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4794,
       "links_count": 11,
       "images_count": 3,
@@ -13691,17 +14027,23 @@
       "url": "https://mosseo.ru/uslugi/usloviya-sotrudnichestva-po-seo-prodvizheniyu/osobennosti-prodvizheniya-sajta-v-google/",
       "section": "uslugi",
       "status_code": 200,
-      "content_source": "wp_json",
-      "fallback_selector": ".section-quiz",
-      "text_chars": 381,
-      "links_count": 2,
-      "images_count": 0,
+      "content_source": "html_fallback",
+      "fallback_selector": ".parent-section",
+      "text_chars": 23326,
+      "links_count": 16,
+      "images_count": 15,
       "max_severity": "warning",
       "issue_codes": [
+        "html_fallback",
         "missing_csv_h1",
         "canonical_mismatch"
       ],
       "issues": [
+        {
+          "code": "html_fallback",
+          "severity": "info",
+          "message": "Content was extracted from rendered HTML fallback."
+        },
         {
           "code": "missing_csv_h1",
           "severity": "warning",
@@ -13720,7 +14062,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3385,
       "links_count": 8,
       "images_count": 2,
@@ -13734,7 +14076,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 4901,
       "links_count": 0,
       "images_count": 2,
@@ -13748,7 +14090,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 3399,
       "links_count": 5,
       "images_count": 1,
@@ -13762,7 +14104,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2994,
       "links_count": 1,
       "images_count": 3,
@@ -13790,7 +14132,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1783,
       "links_count": 5,
       "images_count": 1,
@@ -13804,7 +14146,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1165,
       "links_count": 0,
       "images_count": 1,
@@ -13818,7 +14160,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1375,
       "links_count": 0,
       "images_count": 1,
@@ -13832,7 +14174,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 1620,
       "links_count": 0,
       "images_count": 1,
@@ -13846,7 +14188,7 @@
       "section": "uslugi",
       "status_code": 200,
       "content_source": "wp_json",
-      "fallback_selector": ".content",
+      "fallback_selector": ".parent-section",
       "text_chars": 2994,
       "links_count": 1,
       "images_count": 3,

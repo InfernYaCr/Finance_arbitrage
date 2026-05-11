@@ -26,6 +26,7 @@ from urllib.parse import urlparse
 
 
 CONTENT_SELECTORS = [
+    ".parent-section",
     ".section-quiz",
     ".section-case-page",
     ".section-portfolio",
@@ -68,6 +69,8 @@ DROP_SELECTORS = [
 
 
 RETRY_STATUS_CODES = {408, 425, 429, 500, 502, 503, 504}
+HTML_RICHER_RATIO = 2.0
+HTML_RICHER_MIN_EXTRA_CHARS = 800
 
 
 def session(proxy: str | None = None) -> requests.Session:
@@ -265,12 +268,27 @@ def extract_from_wp_json(payload: dict[str, Any] | None) -> dict[str, Any]:
     return {"source": "html_fallback", "wp": None, "content_html": "", "content_text": ""}
 
 
+def should_prefer_html_fallback(wp_extract: dict[str, Any], fallback: dict[str, Any]) -> bool:
+    wp_text = wp_extract.get("content_text") or ""
+    fallback_text = fallback.get("content_text") or ""
+    fallback_selector = fallback.get("selector") or ""
+    if not fallback_text or fallback_selector == "body":
+        return False
+    if not wp_text:
+        return True
+    return (
+        len(fallback_text) >= len(wp_text) * HTML_RICHER_RATIO
+        and len(fallback_text) - len(wp_text) >= HTML_RICHER_MIN_EXTRA_CHARS
+    )
+
+
 def enrich_page(
     sess: requests.Session,
     seed,
     timeout: int = 25,
     retries: int = 2,
     backoff: float = 1.0,
+    force_html: bool = False,
 ) -> dict[str, Any]:
     status_code, final_url, html_text = fetch_text(sess, seed.url, timeout, retries, backoff)
     final_domain = urlparse(final_url).netloc.lower().replace("www.", "")
@@ -310,13 +328,18 @@ def enrich_page(
         }
     soup = BeautifulSoup(html_text, "html.parser")
     endpoint = find_wp_endpoint(soup)
-    wp_payload = fetch_wp_json(sess, endpoint, timeout, retries, backoff)
-    wp_extract = extract_from_wp_json(wp_payload)
     fallback = extract_html_fallback(soup, final_url)
+    if force_html:
+        wp_payload = None
+        wp_extract = {"source": "html_fallback", "wp": None, "content_html": "", "content_text": ""}
+    else:
+        wp_payload = fetch_wp_json(sess, endpoint, timeout, retries, backoff)
+        wp_extract = extract_from_wp_json(wp_payload)
 
-    content_html = wp_extract.get("content_html") or fallback["content_html"]
-    content_text = wp_extract.get("content_text") or fallback["content_text"]
-    content_source = wp_extract["source"] if wp_extract.get("content_html") else "html_fallback"
+    prefer_html = force_html or should_prefer_html_fallback(wp_extract, fallback)
+    content_html = (fallback["content_html"] if prefer_html else None) or wp_extract.get("content_html") or fallback["content_html"]
+    content_text = (fallback["content_text"] if prefer_html else None) or wp_extract.get("content_text") or fallback["content_text"]
+    content_source = "html_fallback" if prefer_html else (wp_extract["source"] if wp_extract.get("content_html") else "html_fallback")
 
     content_soup = BeautifulSoup(content_html or "", "html.parser")
     links = sorted(
@@ -444,7 +467,7 @@ def main() -> None:
             except (OSError, json.JSONDecodeError, KeyError):
                 pass
         try:
-            page = enrich_page(sess, seed, args.timeout, args.retries, args.backoff)
+            page = enrich_page(sess, seed, args.timeout, args.retries, args.backoff, force_html=args.force_html)
             write_json(page_path, page)
             manifest.append(
                 {
