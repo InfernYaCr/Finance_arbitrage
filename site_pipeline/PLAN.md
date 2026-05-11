@@ -20,6 +20,16 @@ workflow, manual statuses, search, or versioning becomes necessary.
 
 ## Work phases
 
+### Queued next implementation phase
+
+- Review parallel SSH/deploy changes separately before merging them.
+- Finish Beget deploy flow in small commits.
+- Add contact/feedback forms and anti-spam.
+- Add configurable Yandex Metrica and Google Analytics/GA4.
+- Expand schema generation and QA for home, contacts, services, articles,
+  FAQ, archives, portfolio/cases, and dictionary pages.
+- Run SEO launch checks after each step.
+
 ### 1. Normalize source CSV
 
 - Convert all URLs to canonical `https://mosseo.ru/...` form.
