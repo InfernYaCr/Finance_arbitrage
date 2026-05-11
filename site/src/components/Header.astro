@@ -1,11 +1,34 @@
 ---
 import { siteConfig } from '../data/siteConfig';
+import { navItems, type NavItem } from '../data/nav';
 
 interface Props {
   currentPath?: string;
 }
 
 const { currentPath = '' } = Astro.props;
+
+function isActive(item: NavItem, path: string): boolean {
+  if (item.href === '/') {
+    return path === '/' || path === '';
+  }
+  if (path.startsWith(item.href)) return true;
+  if (item.columns) {
+    for (const col of item.columns) {
+      for (const child of col.items) {
+        if (child.href !== '/' && path.startsWith(child.href)) return true;
+      }
+    }
+  }
+  return false;
+}
+
+const columnsClass = (count: number): string => {
+  if (count >= 4) return 'site-dropdown--cols-4';
+  if (count === 3) return 'site-dropdown--cols-3';
+  if (count === 2) return 'site-dropdown--cols-2';
+  return 'site-dropdown--cols-1';
+};
 ---
 
 <header class="site-header">
@@ -15,22 +38,89 @@ const { currentPath = '' } = Astro.props;
         <span class="site-header__logo-text">{siteConfig.siteName}</span>
       </a>
 
-      <nav class="site-nav" aria-label="Основная навигация">
+      <nav class="site-nav" aria-label="Основная навигация" id="site-nav">
         <ul class="site-nav__list" role="list">
-          {siteConfig.nav.map((item) => (
-            <li>
-              <a
-                href={item.path}
-                class:list={['site-nav__link', { 'site-nav__link--active': currentPath.startsWith(item.path) }]}
+          {navItems.map((item) => {
+            const active = isActive(item, currentPath);
+            const hasDropdown = Boolean(item.columns && item.columns.length > 0);
+            return (
+              <li
+                class:list={['site-nav__item', { 'site-nav__item--has-dropdown': hasDropdown }]}
+                data-nav-item
               >
-                {item.label}
-              </a>
-            </li>
-          ))}
+                <div class="site-nav__row">
+                  <a
+                    href={item.href}
+                    class:list={['site-nav__link', { 'site-nav__link--active': active }]}
+                    aria-haspopup={hasDropdown ? 'true' : undefined}
+                    aria-expanded={hasDropdown ? 'false' : undefined}
+                  >
+                    {item.label}
+                    {hasDropdown && (
+                      <svg class="site-nav__caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+                        <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    )}
+                  </a>
+                  {hasDropdown && (
+                    <button
+                      type="button"
+                      class="site-nav__toggle"
+                      aria-label={`Раскрыть подменю «${item.label}»`}
+                      aria-expanded="false"
+                      data-submenu-toggle
+                    >
+                      <svg width="12" height="8" viewBox="0 0 10 6" aria-hidden="true">
+                        <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+
+                {hasDropdown && item.columns && (
+                  <div
+                    class:list={['site-dropdown', columnsClass(item.columns.length)]}
+                    role="menu"
+                  >
+                    <div class="site-dropdown__inner">
+                      {item.columns.map((col) => (
+                        <div class="site-dropdown__col">
+                          {col.title && <div class="site-dropdown__title">{col.title}</div>}
+                          <ul class="site-dropdown__list" role="list">
+                            {col.items.map((child) => (
+                              <li>
+                                <a
+                                  href={child.href}
+                                  class:list={['site-dropdown__link', { 'site-dropdown__link--active': currentPath.startsWith(child.href) && child.href !== '/' }]}
+                                  role="menuitem"
+                                >
+                                  <span class="site-dropdown__label">
+                                    {child.label}
+                                    {child.badge && <span class="site-dropdown__badge">{child.badge}</span>}
+                                  </span>
+                                  {child.sublabel && <span class="site-dropdown__sub">{child.sublabel}</span>}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </nav>
 
-      <button class="site-header__menu-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+      <button
+        class="site-header__menu-toggle"
+        aria-label="Открыть меню"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        data-menu-toggle
+      >
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -38,12 +128,106 @@ const { currentPath = '' } = Astro.props;
 </header>
 
 <script>
-  const toggle = document.querySelector('.site-header__menu-toggle') as HTMLButtonElement | null;
-  const nav = document.querySelector('.site-nav') as HTMLElement | null;
-  toggle?.addEventListener('click', () => {
-    const expanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', String(!expanded));
+  const DESKTOP_MQ = '(min-width: 901px)';
+
+  function isDesktop(): boolean {
+    return window.matchMedia(DESKTOP_MQ).matches;
+  }
+
+  const burger = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const nav = document.getElementById('site-nav');
+
+  burger?.addEventListener('click', () => {
+    const expanded = burger.getAttribute('aria-expanded') === 'true';
+    burger.setAttribute('aria-expanded', String(!expanded));
     nav?.classList.toggle('site-nav--open');
+  });
+
+  const items = document.querySelectorAll<HTMLLIElement>('[data-nav-item]');
+
+  function closeAll(except?: HTMLLIElement): void {
+    items.forEach((li) => {
+      if (li === except) return;
+      li.classList.remove('site-nav__item--open');
+      const link = li.querySelector<HTMLAnchorElement>('.site-nav__link[aria-haspopup="true"]');
+      const toggle = li.querySelector<HTMLButtonElement>('[data-submenu-toggle]');
+      link?.setAttribute('aria-expanded', 'false');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  function openItem(li: HTMLLIElement): void {
+    li.classList.add('site-nav__item--open');
+    const link = li.querySelector<HTMLAnchorElement>('.site-nav__link[aria-haspopup="true"]');
+    const toggle = li.querySelector<HTMLButtonElement>('[data-submenu-toggle]');
+    link?.setAttribute('aria-expanded', 'true');
+    toggle?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeItem(li: HTMLLIElement): void {
+    li.classList.remove('site-nav__item--open');
+    const link = li.querySelector<HTMLAnchorElement>('.site-nav__link[aria-haspopup="true"]');
+    const toggle = li.querySelector<HTMLButtonElement>('[data-submenu-toggle]');
+    link?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-expanded', 'false');
+  }
+
+  items.forEach((li) => {
+    if (!li.classList.contains('site-nav__item--has-dropdown')) return;
+
+    li.addEventListener('mouseenter', () => {
+      if (!isDesktop()) return;
+      closeAll(li);
+      openItem(li);
+    });
+
+    li.addEventListener('mouseleave', () => {
+      if (!isDesktop()) return;
+      closeItem(li);
+    });
+
+    const toggle = li.querySelector<HTMLButtonElement>('[data-submenu-toggle]');
+    toggle?.addEventListener('click', (e) => {
+      e.preventDefault();
+      const open = li.classList.contains('site-nav__item--open');
+      if (open) {
+        closeItem(li);
+      } else {
+        if (isDesktop()) closeAll(li);
+        openItem(li);
+      }
+    });
+
+    // Keyboard: open on Enter/Space/ArrowDown on the trigger link
+    const link = li.querySelector<HTMLAnchorElement>('.site-nav__link[aria-haspopup="true"]');
+    link?.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        openItem(li);
+        const first = li.querySelector<HTMLAnchorElement>('.site-dropdown__link');
+        first?.focus();
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeAll();
+      const active = document.activeElement;
+      if (active instanceof HTMLElement && active.closest('[data-nav-item]')) {
+        const parent = active.closest<HTMLLIElement>('[data-nav-item]');
+        const trigger = parent?.querySelector<HTMLAnchorElement>('.site-nav__link');
+        trigger?.focus();
+      }
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!isDesktop()) return;
+    const target = e.target;
+    if (target instanceof Node && !document.querySelector('.site-nav')?.contains(target)) {
+      closeAll();
+    }
   });
 </script>
 
@@ -59,7 +243,7 @@ const { currentPath = '' } = Astro.props;
 .site-header__inner {
   display: flex;
   align-items: center;
-  gap: var(--space-8);
+  gap: var(--space-6);
   height: 4rem;
 }
 
@@ -86,28 +270,187 @@ const { currentPath = '' } = Astro.props;
 
 .site-nav__list {
   display: flex;
-  align-items: center;
-  gap: var(--space-1);
+  align-items: stretch;
+  gap: 0;
   list-style: none;
 }
 
+.site-nav__item {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.site-nav__row {
+  display: flex;
+  align-items: center;
+}
+
 .site-nav__link {
-  display: block;
-  padding: var(--space-2) var(--space-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  height: 4rem;
+  padding: 0 var(--space-3);
   font-size: var(--text-sm);
   font-weight: var(--weight-medium);
-  color: var(--color-text-muted);
+  color: var(--color-text);
   text-decoration: none;
-  border-radius: var(--radius-md);
-  transition: color var(--duration-fast), background var(--duration-fast);
+  border-bottom: 2px solid transparent;
+  transition: color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
 }
 
-.site-nav__link:hover,
+.site-nav__link:hover {
+  color: var(--color-accent);
+}
+
 .site-nav__link--active {
   color: var(--color-accent);
-  background: var(--color-accent-light);
+  border-bottom-color: var(--color-accent);
 }
 
+.site-nav__caret {
+  transition: transform var(--duration-fast) var(--ease-out);
+  color: var(--color-text-light);
+}
+
+.site-nav__item--open .site-nav__caret,
+.site-nav__item:hover .site-nav__caret {
+  transform: rotate(180deg);
+  color: var(--color-accent);
+}
+
+.site-nav__toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: var(--space-2);
+  color: var(--color-text-muted);
+}
+
+/* Dropdown */
+.site-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 18rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-accent);
+  box-shadow: var(--shadow-lg);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  padding: var(--space-5) var(--space-6);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out),
+              visibility 0s linear var(--duration-fast);
+  z-index: 110;
+}
+
+.site-nav__item--open > .site-dropdown,
+.site-nav__item--has-dropdown:hover > .site-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+/* Right-align dropdown when item is near the right edge */
+.site-nav__item:nth-last-child(-n+2) > .site-dropdown {
+  left: auto;
+  right: 0;
+}
+
+.site-dropdown__inner {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.site-dropdown--cols-1 { min-width: 18rem; }
+.site-dropdown--cols-1 .site-dropdown__inner { grid-template-columns: 1fr; gap: var(--space-2); }
+.site-dropdown--cols-2 { min-width: 36rem; }
+.site-dropdown--cols-2 .site-dropdown__inner { grid-template-columns: 1fr 1fr; }
+.site-dropdown--cols-3 { min-width: 48rem; }
+.site-dropdown--cols-3 .site-dropdown__inner { grid-template-columns: repeat(3, 1fr); }
+.site-dropdown--cols-4 { min-width: 56rem; }
+.site-dropdown--cols-4 .site-dropdown__inner { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-5); }
+
+.site-dropdown__title {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-dropdown__list {
+  list-style: none;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.site-dropdown__link {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: background var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+}
+
+.site-dropdown__link:hover,
+.site-dropdown__link:focus-visible {
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+  outline: none;
+}
+
+.site-dropdown__link--active {
+  color: var(--color-accent);
+}
+
+.site-dropdown__label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-snug);
+}
+
+.site-dropdown__sub {
+  display: block;
+  margin-top: 2px;
+  font-size: var(--text-xs);
+  color: var(--color-text-light);
+  line-height: var(--leading-snug);
+}
+
+.site-dropdown__link:hover .site-dropdown__sub {
+  color: var(--color-text-muted);
+}
+
+.site-dropdown__badge {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 999px;
+  font-size: 0.65rem;
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* Burger */
 .site-header__menu-toggle {
   display: none;
   flex-direction: column;
@@ -128,7 +471,8 @@ const { currentPath = '' } = Astro.props;
   transition: transform var(--duration-fast);
 }
 
-@media (max-width: 768px) {
+/* Mobile */
+@media (max-width: 900px) {
   .site-header__menu-toggle {
     display: flex;
   }
@@ -141,9 +485,11 @@ const { currentPath = '' } = Astro.props;
     right: 0;
     background: var(--color-bg);
     border-bottom: 1px solid var(--color-border);
-    padding: var(--space-4) var(--space-6);
+    padding: var(--space-3) var(--space-4);
     margin: 0;
     box-shadow: var(--shadow-lg);
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
   }
 
   .site-nav--open {
@@ -152,8 +498,96 @@ const { currentPath = '' } = Astro.props;
 
   .site-nav__list {
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-2);
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .site-nav__item {
+    flex-direction: column;
+    align-items: stretch;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-nav__item:last-child {
+    border-bottom: 0;
+  }
+
+  .site-nav__row {
+    justify-content: space-between;
+  }
+
+  .site-nav__link {
+    flex: 1;
+    height: auto;
+    padding: var(--space-3);
+    border-bottom: 0;
+  }
+
+  .site-nav__link--active {
+    color: var(--color-accent);
+  }
+
+  .site-nav__caret {
+    display: none;
+  }
+
+  .site-nav__toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    transition: transform var(--duration-fast) var(--ease-out);
+  }
+
+  .site-nav__toggle[aria-expanded="true"] {
+    transform: rotate(180deg);
+    color: var(--color-accent);
+  }
+
+  .site-dropdown {
+    position: static;
+    border: 0;
+    border-top: 0;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0 0 var(--space-3) var(--space-4);
+    opacity: 1;
+    visibility: hidden;
+    transform: none;
+    transition: none;
+    max-height: 0;
+    overflow: hidden;
+    min-width: 0 !important;
+  }
+
+  .site-nav__item--open > .site-dropdown {
+    visibility: visible;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .site-nav__item--has-dropdown:hover > .site-dropdown {
+    /* disable hover-open on mobile */
+    visibility: hidden;
+    max-height: 0;
+  }
+
+  .site-nav__item--open.site-nav__item--has-dropdown > .site-dropdown {
+    visibility: visible;
+    max-height: 80vh;
+  }
+
+  .site-dropdown__inner,
+  .site-dropdown--cols-2 .site-dropdown__inner,
+  .site-dropdown--cols-3 .site-dropdown__inner,
+  .site-dropdown--cols-4 .site-dropdown__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .site-dropdown__title {
+    margin-bottom: var(--space-2);
   }
 }
 </style>
