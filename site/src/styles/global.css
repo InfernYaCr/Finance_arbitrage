@@ -146,6 +146,204 @@ a:hover {
   color: var(--color-accent);
 }
 
+/* Legacy service archive blocks extracted from the source site */
+.prose .section-services {
+  margin-top: var(--space-8);
+}
+
+.prose .section-services > .container {
+  max-width: none;
+  padding-inline: 0;
+}
+
+.prose .block-title {
+  display: none;
+}
+
+.prose .serv-blocks {
+  margin-bottom: var(--space-10);
+}
+
+.prose .swiper-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: var(--space-4);
+}
+
+.prose .serv-block,
+.prose .serv-item {
+  margin: 0;
+}
+
+.prose .sbi,
+.prose .serv-item__inner {
+  height: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.prose .sbi-header {
+  display: block;
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  text-decoration: none;
+}
+
+.prose .sbi-header:hover {
+  color: var(--color-accent);
+}
+
+.prose .sbi-body {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+}
+
+.prose .sbi-body-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.prose .sbi-body-item::before {
+  content: '';
+  flex: 0 0 0.35rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  margin-top: 0.55rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.prose .sbi-body-item input {
+  display: none;
+}
+
+.prose .sbi-body-item a,
+.prose .serv-item__b-title a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.prose .sbi-body-item a:hover,
+.prose .serv-item__b-title a:hover {
+  color: var(--color-accent);
+}
+
+.prose .sbi-act,
+.prose .swiper-scrollbar {
+  display: none;
+}
+
+.prose .serv-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 255px), 1fr));
+  gap: var(--space-5);
+  margin: var(--space-10) 0;
+}
+
+.prose .serv-item__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.prose .serv-item__img {
+  aspect-ratio: 16 / 10;
+  background: var(--color-surface);
+  overflow: hidden;
+}
+
+.prose .serv-item__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+}
+
+.prose .serv-item__b {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  flex: 1;
+}
+
+.prose .serv-item__b-price {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+}
+
+.prose .serv-item__b-price-cur {
+  color: var(--color-accent);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+}
+
+.prose .serv-item__b-price-old {
+  color: var(--color-text-light);
+  font-size: var(--text-sm);
+  text-decoration: line-through;
+}
+
+.prose .serv-item__b-title {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+}
+
+.prose .serv-item__b-art,
+.prose .serv-item__b-row,
+.prose .serv-item__b-inkl {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+}
+
+.prose .serv-item__b-row span,
+.prose .serv-item__b-inkl span {
+  color: var(--color-text);
+  font-weight: var(--weight-medium);
+}
+
+.prose .serv-item__order {
+  padding: 0 var(--space-5) var(--space-5);
+}
+
+.prose .serv-item__order a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 2.5rem;
+  border-radius: var(--radius-md);
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+}
+
+.prose .serv-item__order a:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+.prose .taxonomy-description {
+  max-width: 70ch;
+  margin-top: var(--space-10);
+}
+
 /* Utility */
 .visually-hidden {
   position: absolute;

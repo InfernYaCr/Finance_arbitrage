@@ -47,7 +47,9 @@ function restoreSourceAssetUrls(html: string): string {
     .replaceAll('src="/wp-content/', 'src="https://mosseo.ru/wp-content/')
     .replaceAll("src='/wp-content/", "src='https://mosseo.ru/wp-content/")
     .replaceAll('srcset="/wp-content/', 'srcset="https://mosseo.ru/wp-content/')
-    .replaceAll("srcset='/wp-content/", "srcset='https://mosseo.ru/wp-content/");
+    .replaceAll("srcset='/wp-content/", "srcset='https://mosseo.ru/wp-content/")
+    .replace(/([,\s])\/content\//g, '$1https://mosseo.ru/content/')
+    .replace(/([,\s])\/wp-content\//g, '$1https://mosseo.ru/wp-content/');
 }
 
 function stripEmbeddedH1(html: string): string {

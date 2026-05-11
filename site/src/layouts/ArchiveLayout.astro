@@ -15,6 +15,8 @@ const { page, seo, jsonLd } = Astro.props;
 const { data } = page;
 const directChildren = getImmediateChildPages(page.path);
 const descendantPages = getDescendantPages(page.path);
+const hasSourceCatalog = data.content_html.includes('serv-blocks') || data.content_html.includes('serv-items');
+const showGeneratedCatalog = directChildren.length > 0 && !hasSourceCatalog;
 const groupedChildren = directChildren.map((child) => ({
   page: child,
   children: descendantPages
@@ -37,7 +39,7 @@ const groupedChildren = directChildren.map((child) => ({
         <div class="prose archive-page__body" set:html={data.content_html} />
       )}
 
-      {directChildren.length > 0 && (
+      {showGeneratedCatalog && (
         <section class="archive-page__catalog" aria-labelledby="archive-catalog-title">
           <h2 id="archive-catalog-title" class="archive-page__catalog-title">
             Разделы и материалы
