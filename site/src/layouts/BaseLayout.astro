@@ -29,5 +29,13 @@ const { seo, jsonLd, currentPath } = Astro.props;
       <slot />
     </main>
     <Footer />
+    <script>
+      document.querySelectorAll<HTMLImageElement>('img[src]').forEach((img) => {
+        img.onerror = function () {
+          (this as HTMLImageElement).src = '/images/placeholder.svg';
+          (this as HTMLImageElement).onerror = null;
+        };
+      });
+    </script>
   </body>
 </html>

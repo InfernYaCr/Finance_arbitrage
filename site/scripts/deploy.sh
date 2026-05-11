@@ -1,26 +1,30 @@
 #!/usr/bin/env bash
-# Deploy site/dist/ to Beget over rsync+SSH.
+# Deploy site/dist/ to Beget over FTP (lftp).
 # Usage:
 #   ./scripts/deploy.sh           — production deploy
 #   ./scripts/deploy.sh --dry-run — preview what will be sent
 #
-# Configure via env vars or edit defaults below.
+# Configure via env vars or .env file.
 # NEVER commit real credentials here.
 
 set -euo pipefail
 
-BEGET_USER="${BEGET_USER:-}"
-BEGET_HOST="${BEGET_HOST:-}"
-BEGET_PATH="${BEGET_PATH:-}"   # e.g. /home/yourlogin/seo-test/public_html
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_FILE="$SCRIPT_DIR/../.env"
+if [[ -f "$ENV_FILE" ]]; then
+  set -a; source "$ENV_FILE"; set +a
+fi
 
-if [[ -z "$BEGET_USER" || -z "$BEGET_HOST" || -z "$BEGET_PATH" ]]; then
-  echo "❌  Set BEGET_USER, BEGET_HOST and BEGET_PATH before deploying."
-  echo "    Example:"
-  echo "    BEGET_USER=yourlogin BEGET_HOST=yourlogin.beget.tech BEGET_PATH=/home/yourlogin/seo-test/public_html ./scripts/deploy.sh"
+BEGET_FTP_USER="${BEGET_FTP_USER:-}"
+BEGET_FTP_PASS="${BEGET_FTP_PASS:-}"
+BEGET_HOST="${BEGET_HOST:-}"
+BEGET_FTP_PATH="${BEGET_FTP_PATH:-/}"
+
+if [[ -z "$BEGET_FTP_USER" || -z "$BEGET_FTP_PASS" || -z "$BEGET_HOST" ]]; then
+  echo "❌  Set BEGET_FTP_USER, BEGET_FTP_PASS and BEGET_HOST before deploying."
   exit 1
 fi
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DIST="$SCRIPT_DIR/../dist"
 
 if [[ ! -d "$DIST" ]]; then
@@ -28,20 +32,29 @@ if [[ ! -d "$DIST" ]]; then
   exit 1
 fi
 
-DRY=""
+DRY_FLAG=""
 if [[ "${1:-}" == "--dry-run" ]]; then
-  DRY="--dry-run"
+  DRY_FLAG="--dry-run"
   echo "🔍  Dry-run mode — no files will be transferred."
 fi
 
-echo "🚀  Deploying $DIST → $BEGET_USER@$BEGET_HOST:$BEGET_PATH"
+echo "🚀  Deploying $DIST → ftp://$BEGET_HOST$BEGET_FTP_PATH"
 
-rsync -avz --delete \
+lftp -u "$BEGET_FTP_USER,$BEGET_FTP_PASS" "ftp://$BEGET_HOST" << LFTP_EOF
+set ftp:ssl-allow no
+set ftp:passive-mode on
+set ftp:fix-pasv-address yes
+set net:timeout 60
+set net:max-retries 5
+set net:reconnect-interval-base 5
+set mirror:parallel-transfer-count 1
+mirror --reverse --verbose \
   --exclude='.DS_Store' \
-  --exclude='*.map' \
-  -e "ssh -p 22" \
-  $DRY \
+  --exclude='.map$' \
+  $DRY_FLAG \
   "$DIST/" \
-  "$BEGET_USER@$BEGET_HOST:$BEGET_PATH/"
+  .
+quit
+LFTP_EOF
 
-echo "✅  Deploy complete → https://${BEGET_HOST}/"
+echo "✅  Deploy complete → https://$BEGET_HOST/"
