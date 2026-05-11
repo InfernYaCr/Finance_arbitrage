@@ -890,10 +890,9 @@
     "title": "ООО МОССЕО - адрес компании в г. Москва, схема проезда, реквизиты",
     "description": "Контакты московской компании по продвижению сайтов МОССЕО. Реквизиты компании.",
     "h1": "Адрес компании МОССЕО в Москве",
-    "severity": "error",
+    "severity": "info",
     "issue_codes": [
-      "html_fallback",
-      "body_fallback"
+      "html_fallback"
     ],
     "page_file": "site_pipeline/output/pages/kontakty--83e2d1e1.json"
   },

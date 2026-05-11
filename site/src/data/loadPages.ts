@@ -43,7 +43,11 @@ function restoreSourceAssetUrls(html: string): string {
     .replaceAll('src="/content/', 'src="https://mosseo.ru/content/')
     .replaceAll("src='/content/", "src='https://mosseo.ru/content/")
     .replaceAll('srcset="/content/', 'srcset="https://mosseo.ru/content/')
-    .replaceAll("srcset='/content/", "srcset='https://mosseo.ru/content/");
+    .replaceAll("srcset='/content/", "srcset='https://mosseo.ru/content/")
+    .replaceAll('src="/wp-content/', 'src="https://mosseo.ru/wp-content/')
+    .replaceAll("src='/wp-content/", "src='https://mosseo.ru/wp-content/")
+    .replaceAll('srcset="/wp-content/', 'srcset="https://mosseo.ru/wp-content/')
+    .replaceAll("srcset='/wp-content/", "srcset='https://mosseo.ru/wp-content/");
 }
 
 function stripEmbeddedH1(html: string): string {

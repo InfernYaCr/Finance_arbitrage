@@ -1,14 +1,16 @@
 {
-  "pages_requested": 219,
-  "pages_saved": 219,
-  "skipped_existing": 0,
+  "pages_requested": 1013,
+  "pages_saved": 1013,
+  "skipped_existing": 1013,
   "skipped_robots": [],
   "failures": [],
   "content_sources": {
-    "html_fallback": 219
+    "html_fallback": 466,
+    "wp_json": 545,
+    "external_redirect": 2
   },
   "status_codes": {
-    "200": 219
+    "200": 1013
   },
   "low_content_pages": [
     {
@@ -20,16 +22,166 @@
       "content_source": "html_fallback",
       "text_chars": 23,
       "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/359"
+    },
+    {
+      "id": "o-kompanii__rekvizity-kompanii-mosseo--75a55c73",
+      "url": "https://mosseo.ru/o-kompanii/rekvizity-kompanii-mosseo/",
+      "path": "/o-kompanii/rekvizity-kompanii-mosseo/",
+      "section": "o-kompanii",
+      "status_code": 200,
+      "content_source": "wp_json",
+      "text_chars": 184,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/3360"
+    },
+    {
+      "id": "photogallery--145ef10f",
+      "url": "https://mosseo.ru/photogallery/",
+      "path": "/photogallery/",
+      "section": "photogallery",
+      "status_code": 200,
+      "content_source": "wp_json",
+      "text_chars": 33,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4742"
+    },
+    {
+      "id": "portfolio__centr-epilyacii-i-massazha-wax--d5d0facd",
+      "url": "https://mosseo.ru/portfolio/centr-epilyacii-i-massazha-wax/",
+      "path": "/portfolio/centr-epilyacii-i-massazha-wax/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 147,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7758"
+    },
+    {
+      "id": "portfolio__chop-gruppa-grad--3076472a",
+      "url": "https://mosseo.ru/portfolio/chop-gruppa-grad/",
+      "path": "/portfolio/chop-gruppa-grad/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 186,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/5415"
+    },
+    {
+      "id": "portfolio__dm-tower--128ea7c8",
+      "url": "https://mosseo.ru/portfolio/dm-tower/",
+      "path": "/portfolio/dm-tower/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 170,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7721"
+    },
+    {
+      "id": "portfolio__klinika-molodosti-revival--da7c438c",
+      "url": "https://mosseo.ru/portfolio/klinika-molodosti-revival/",
+      "path": "/portfolio/klinika-molodosti-revival/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 176,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7746"
+    },
+    {
+      "id": "portfolio__klubnyj-dom-kuznetsky-most-12--8b615fe5",
+      "url": "https://mosseo.ru/portfolio/klubnyj-dom-kuznetsky-most-12/",
+      "path": "/portfolio/klubnyj-dom-kuznetsky-most-12/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 144,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7725"
+    },
+    {
+      "id": "portfolio__kompleks-apartamentov-m1-skolkovo--7cc095dc",
+      "url": "https://mosseo.ru/portfolio/kompleks-apartamentov-m1-skolkovo/",
+      "path": "/portfolio/kompleks-apartamentov-m1-skolkovo/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 187,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7709"
+    },
+    {
+      "id": "portfolio__mnogoprofilnaya-klinika-k-medicina--9bd2cf72",
+      "url": "https://mosseo.ru/portfolio/mnogoprofilnaya-klinika-k-medicina/",
+      "path": "/portfolio/mnogoprofilnaya-klinika-k-medicina/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 171,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7786"
+    },
+    {
+      "id": "portfolio__monballons--4e15a993",
+      "url": "https://mosseo.ru/portfolio/monballons/",
+      "path": "/portfolio/monballons/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 188,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7781"
+    },
+    {
+      "id": "portfolio__montessori-centr-sami--30b9410f",
+      "url": "https://mosseo.ru/portfolio/montessori-centr-sami/",
+      "path": "/portfolio/montessori-centr-sami/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 186,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7767"
+    },
+    {
+      "id": "portfolio__zhk-legendarnyj-kvartal--98642a42",
+      "url": "https://mosseo.ru/portfolio/zhk-legendarnyj-kvartal/",
+      "path": "/portfolio/zhk-legendarnyj-kvartal/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 148,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7713"
+    },
+    {
+      "id": "portfolio__zhk-novo-nikolskoe--86456af7",
+      "url": "https://mosseo.ru/portfolio/zhk-novo-nikolskoe/",
+      "path": "/portfolio/zhk-novo-nikolskoe/",
+      "section": "portfolio",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 188,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7705"
+    },
+    {
+      "id": "seo-slovar__yuzabiliti--80e34737",
+      "url": "https://mosseo.ru/seo-slovar/yuzabiliti/",
+      "path": "/seo-slovar/yuzabiliti/",
+      "section": "seo-slovar",
+      "status_code": 200,
+      "content_source": "external_redirect",
+      "text_chars": 0,
+      "wp_json_endpoint": ""
+    },
+    {
+      "id": "uslugi--1f2e16c0",
+      "url": "https://mosseo.ru/uslugi/",
+      "path": "/uslugi/",
+      "section": "uslugi",
+      "status_code": 200,
+      "content_source": "external_redirect",
+      "text_chars": 0,
+      "wp_json_endpoint": ""
     }
   ],
   "run": {
-    "delay": 0.15,
+    "delay": 0.0,
     "timeout": 25,
     "retries": 1,
     "backoff": 0.5,
-    "resume": false,
+    "resume": true,
     "respect_robots": false,
     "proxy_enabled": false,
-    "elapsed_seconds": 263.34
+    "elapsed_seconds": 0.33
   }
 }

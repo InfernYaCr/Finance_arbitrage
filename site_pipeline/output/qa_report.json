@@ -3,9 +3,9 @@
     "pages_checked": 1013,
     "severity_counts": {
       "warning": 124,
-      "info": 351,
+      "info": 352,
       "ok": 535,
-      "error": 3
+      "error": 2
     },
     "issue_counts": {
       "html_fallback": 466,
@@ -17,8 +17,7 @@
       "external_redirect": 2,
       "empty_content_html": 2,
       "missing_title": 2,
-      "missing_description": 2,
-      "body_fallback": 1
+      "missing_description": 2
     },
     "content_sources": {
       "html_fallback": 466,
@@ -29,8 +28,7 @@
       ".section-quiz": 1,
       ".section-case-page": 1,
       ".section-faqs": 1,
-      ".parent-section": 362,
-      "body": 1,
+      ".parent-section": 363,
       ".section-portfolio": 52,
       ".section-seowiki": 1,
       ".section-blog": 47
@@ -50,7 +48,7 @@
         "ok": 19
       },
       "kontakty": {
-        "error": 1
+        "info": 1
       },
       "kontekstnaya-reklama": {
         "info": 1,
@@ -199,13 +197,13 @@
       "section": "kontakty",
       "total": 1,
       "ok": 0,
-      "info": 0,
+      "info": 1,
       "warning": 0,
-      "error": 1,
+      "error": 0,
       "wp_json": 0,
       "html_fallback": 1,
       "external_redirect": 0,
-      "top_issues": "html_fallback:1, body_fallback:1"
+      "top_issues": "html_fallback:1"
     },
     {
       "section": "kontekstnaya-reklama",
@@ -534,34 +532,6 @@
           "code": "missing_csv_h1",
           "severity": "warning",
           "message": "CSV did not contain H1."
-        }
-      ]
-    },
-    {
-      "id": "kontakty--83e2d1e1",
-      "url": "https://mosseo.ru/kontakty/",
-      "section": "kontakty",
-      "status_code": 200,
-      "content_source": "html_fallback",
-      "fallback_selector": "body",
-      "text_chars": 2475,
-      "links_count": 28,
-      "images_count": 2,
-      "max_severity": "error",
-      "issue_codes": [
-        "html_fallback",
-        "body_fallback"
-      ],
-      "issues": [
-        {
-          "code": "html_fallback",
-          "severity": "info",
-          "message": "Content was extracted from rendered HTML fallback."
-        },
-        {
-          "code": "body_fallback",
-          "severity": "error",
-          "message": "Fallback selector is body; likely includes template chrome."
         }
       ]
     },
@@ -5315,25 +5285,19 @@
       "section": "kontakty",
       "status_code": 200,
       "content_source": "html_fallback",
-      "fallback_selector": "body",
+      "fallback_selector": ".parent-section",
       "text_chars": 2475,
       "links_count": 28,
       "images_count": 2,
-      "max_severity": "error",
+      "max_severity": "info",
       "issue_codes": [
-        "html_fallback",
-        "body_fallback"
+        "html_fallback"
       ],
       "issues": [
         {
           "code": "html_fallback",
           "severity": "info",
           "message": "Content was extracted from rendered HTML fallback."
-        },
-        {
-          "code": "body_fallback",
-          "severity": "error",
-          "message": "Fallback selector is body; likely includes template chrome."
         }
       ]
     },

@@ -1,6 +1,5 @@
 ﻿max_severity,issue_codes,url,section,status_code,content_source,fallback_selector,text_chars,links_count,images_count,id
 warning,"html_fallback,missing_csv_h1",https://mosseo.ru/calc/,calc,200,html_fallback,.section-quiz,10463,1,0,calc--c99327d4
-error,"html_fallback,body_fallback",https://mosseo.ru/kontakty/,kontakty,200,html_fallback,body,2475,28,2,kontakty--83e2d1e1
 warning,high_link_density,https://mosseo.ru/na-ponyatnom-yazyke/,na-ponyatnom-yazyke,200,wp_json,.content,1741,37,0,na-ponyatnom-yazyke--2ae6fc6d
 warning,"html_fallback,missing_csv_h1,canonical_mismatch",https://mosseo.ru/novosti/v-paneli-yandeks-vebmastera-poyavilis-novye-rekomendacii-dlya-sajtov/,novosti,200,html_fallback,.parent-section,2942,20,10,novosti__v-paneli-yandeks-vebmastera-poyavilis-novye-rekomendacii-dlya-sajtov--929033bb
 warning,"very_low_content,html_fallback",https://mosseo.ru/o-kompanii/partnyory/,o-kompanii,200,html_fallback,.parent-section,23,0,11,o-kompanii__partnyory--ccbbea6e
