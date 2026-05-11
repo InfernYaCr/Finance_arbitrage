@@ -134,11 +134,34 @@ npm run build && npm run deploy
 Requires `site/.env` (not committed). Disable iCloud Private Relay before FTP.
 Test URL: http://yourkedm.beget.tech/
 
-## jcodemunch index
+## MCP servers
+
+### Активны в каждой сессии (встроенные)
+
+| MCP | Инструменты | Назначение |
+|---|---|---|
+| jcodemunch | `mcp__jcodemunch__*` | Индексация кода. Репо: `local/mosseo-site-pipeline-db570d70` |
+| context7 | `mcp__context7__*` | Документация библиотек |
+| claude-mem | `mcp__plugin_claude-mem_mcp-search__*` | Память между сессиями |
+| Claude_Preview | `mcp__Claude_Preview__*` | Превью локального Astro-сайта |
+| Claude_in_Chrome | `mcp__Claude_in_Chrome__*` | Браузерная автоматизация |
+
+### Настроены в `.mcp.json` (активируются при рестарте Claude Code)
+
+| MCP | Зачем | Требует |
+|---|---|---|
+| firecrawl | Краулинг новых донор-сайтов для PBN | `FIRECRAWL_API_KEY` (firecrawl.dev) |
+| exa | Поиск доноров по нишам, анализ конкурентов | `EXA_API_KEY` (exa.ai) |
+| playwright | Автотест задеплоенных сайтов | — |
+| filesystem | Управление конфигами N сайтов | — |
+
+API ключи добавлять в `site/.env`. Файл конфига: `.mcp.json` в корне проекта.
+
+### jcodemunch — как пользоваться
 
 ```
 repo: local/mosseo-site-pipeline-db570d70
 ```
 
-Use `mcp__jcodemunch__search_symbols` and `mcp__jcodemunch__get_symbol_source`
-before reading files — saves context on large codebases.
+Всегда запускать `mcp__jcodemunch__search_symbols` / `mcp__jcodemunch__get_symbol_source`
+перед чтением файлов — экономит контекст.
