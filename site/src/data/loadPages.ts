@@ -3,6 +3,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { ManifestPage, PageData, FullPage } from './types';
 import editorialPostsRaw from './editorialPosts.json';
+import { replaceLegacyBrand } from '../lib/brand';
 
 const DATA_ROOT = resolve(
   dirname(fileURLToPath(import.meta.url)),
@@ -37,7 +38,12 @@ function rewriteInternalLinks(html: string): string {
   return result;
 }
 
+function stripEmbeddedH1(html: string): string {
+  return html.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi, '').trim();
+}
+
 let _manifest: ManifestPage[] | null = null;
+let _allPages: FullPage[] | null = null;
 
 export function loadManifest(): ManifestPage[] {
   if (_manifest) return _manifest;
@@ -52,7 +58,42 @@ export function loadPageData(relativePageFile: string): PageData {
   // Rewrite mosseo.ru links → root-relative so they work on any host
   if (data.content_html) data.content_html = rewriteInternalLinks(data.content_html);
   if (data.excerpt_html) data.excerpt_html = rewriteInternalLinks(data.excerpt_html);
-  return data;
+  return normalizePageData(data);
+}
+
+function normalizePageData(data: PageData): PageData {
+  return {
+    ...data,
+    seed: {
+      ...data.seed,
+      title: replaceLegacyBrand(data.seed.title),
+      meta_description: replaceLegacyBrand(data.seed.meta_description),
+      h1: replaceLegacyBrand(data.seed.h1),
+      h2: data.seed.h2.map(replaceLegacyBrand),
+    },
+    meta: {
+      ...data.meta,
+      html_title: replaceLegacyBrand(data.meta.html_title),
+      html_meta_description: replaceLegacyBrand(data.meta.html_meta_description),
+    },
+    wp_title: replaceLegacyBrand(data.wp_title),
+    excerpt_html: replaceLegacyBrand(data.excerpt_html),
+    excerpt_text: replaceLegacyBrand(data.excerpt_text),
+    content_html: stripEmbeddedH1(replaceLegacyBrand(data.content_html)),
+    content_text: replaceLegacyBrand(data.content_text),
+    links: data.links.map((link) => ({ ...link, text: replaceLegacyBrand(link.text) })),
+    images: data.images.map((image) => ({ ...image, alt: replaceLegacyBrand(image.alt) })),
+  };
+}
+
+function normalizeFullPage(page: FullPage): FullPage {
+  return {
+    ...page,
+    title: replaceLegacyBrand(page.title),
+    description: replaceLegacyBrand(page.description),
+    h1: replaceLegacyBrand(page.h1),
+    data: normalizePageData(page.data),
+  };
 }
 
 function editorialToFullPage(post: EditorialPost): FullPage {
@@ -122,6 +163,8 @@ function editorialToFullPage(post: EditorialPost): FullPage {
 }
 
 export function loadAllPages(): FullPage[] {
+  if (_allPages) return _allPages;
+
   const crawled = loadManifest().map((entry) => ({
     ...entry,
     data: loadPageData(entry.page_file),
@@ -135,5 +178,26 @@ export function loadAllPages(): FullPage[] {
     if (!crawledPaths.has(path)) merged.push(ep);
   }
 
-  return merged;
+  _allPages = merged.map(normalizeFullPage);
+  return _allPages;
+}
+
+function pathDepth(path: string): number {
+  return path.replace(/^\/|\/$/g, '').split('/').filter(Boolean).length;
+}
+
+export function getDescendantPages(parentPath: string): FullPage[] {
+  const parentDepth = pathDepth(parentPath);
+  return loadAllPages()
+    .filter((candidate) => (
+      candidate.path !== parentPath &&
+      candidate.path.startsWith(parentPath) &&
+      pathDepth(candidate.path) > parentDepth
+    ))
+    .sort((a, b) => a.path.localeCompare(b.path, 'ru'));
+}
+
+export function getImmediateChildPages(parentPath: string): FullPage[] {
+  const parentDepth = pathDepth(parentPath);
+  return getDescendantPages(parentPath).filter((candidate) => pathDepth(candidate.path) === parentDepth + 1);
 }

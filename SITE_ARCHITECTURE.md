@@ -22,6 +22,10 @@ Use this separation:
 When a design changes, update templates/components. Avoid editing generated page
 JSON unless the source content itself is wrong.
 
+Runtime normalization is allowed when it is domain-wide and deterministic. For
+example, brand replacement should live in a shared helper and data loader, not
+in one-off edits to extracted JSON files.
+
 ## Recommended generator shape
 
 Astro is the preferred first choice for this project because the dataset is
@@ -160,6 +164,11 @@ Page-specific schemas:
 - Archive/category pages:
   - `CollectionPage`
   - `ItemList` for listed posts/cards if list items are cleanly available
+
+Archive and service-category pages should not rely only on the parsed body
+HTML. They should also use `build_manifest.json` to render child-page catalogs,
+because some original WordPress category pages store the description in REST
+JSON but render the important card/list UI only in the HTML template.
 
 Important rules:
 

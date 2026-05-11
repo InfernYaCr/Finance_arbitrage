@@ -1,6 +1,7 @@
 import type { FullPage, SeoFields, PageType } from '../data/types';
 import { siteConfig } from '../data/siteConfig';
 import { buildBreadcrumbs } from './routing';
+import { replaceLegacyBrand, stripBrandSuffix } from './brand';
 
 export function deriveSeoFields(page: FullPage, pageType: PageType): SeoFields {
   const seed = page.data.seed;
@@ -15,21 +16,21 @@ export function deriveSeoFields(page: FullPage, pageType: PageType): SeoFields {
     page.title ||
     '';
 
-  // Strip " - МОССЕО" or "| МОССЕО" suffixes already in the title
-  const title = rawTitle.replace(/[\s\-|]+МОССЕО\s*$/i, '').trim() || siteConfig.siteName;
+  const title = stripBrandSuffix(rawTitle) || siteConfig.siteName;
   const fullTitle = title === siteConfig.siteName
     ? siteConfig.siteNameFull
     : `${title} — ${siteConfig.siteName}`;
 
   // Description
-  const description =
+  const description = replaceLegacyBrand(
     seed.meta_description ||
     meta.html_meta_description ||
     page.description ||
-    '';
+    '',
+  );
 
   // H1: seed CSV h1 > wp_title > title (templates control display)
-  const h1 = seed.h1 || page.data.wp_title || title;
+  const h1 = replaceLegacyBrand(seed.h1 || page.data.wp_title || title);
 
   // Canonical: always use our domain + original path
   const canonical = siteConfig.siteUrl.replace(/\/$/, '') + page.path;

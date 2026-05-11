@@ -21,7 +21,7 @@ const { currentPath = '' } = Astro.props;
             <li>
               <a
                 href={item.path}
-                class:list={['site-nav__link', { 'site-nav__link--active': currentPath.startsWith(item.path) && item.path !== '/' }]}
+                class:list={['site-nav__link', { 'site-nav__link--active': currentPath.startsWith(item.path) }]}
               >
                 {item.label}
               </a>

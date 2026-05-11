@@ -88,6 +88,33 @@ Use `redirects.json` to configure redirects or external-link handling.
 Use `content_index.sqlite` for quick queries by section, path, severity, issue,
 or source type.
 
+The Astro site now has a local git repository on branch `main`. Baseline commit:
+
+```text
+c39e88c Initial Mosseo pipeline baseline
+```
+
+Use small commits before risky parser/template changes.
+
+Brand replacement is handled in the site data-loading layer, not by editing
+1000+ extracted JSON files. Old brand spellings (`МОССЕО`, `MOSSEO`, `Mosseo`,
+`Моссео`) are normalized to the configured test brand during rendering.
+
+Set the generated-site brand with:
+
+```bash
+PUBLIC_SITE_NAME="Тестовый SEO-проект"
+PUBLIC_SITE_NAME_FULL="Тестовый SEO-проект — SEO-продвижение сайтов"
+```
+
+The current fallback brand is `Тестовый SEO-проект`.
+
+The live `/seo-uslugi/` page contains a large `.section-services` catalog block
+with grouped service links/cards. The generated site originally rendered only
+the WP category description. Archive templates now derive child-page catalogs
+from `build_manifest.json` so service/archive landing pages can show section
+cards without depending on the original WordPress slider markup.
+
 ## Extractor details
 
 Primary extraction strategy:

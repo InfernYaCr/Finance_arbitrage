@@ -1,9 +1,12 @@
 // Analytics IDs and company info come from env vars or site config.
 // Do not hardcode real IDs here.
+const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'Тестовый SEO-проект';
+const siteNameFull = import.meta.env.PUBLIC_SITE_NAME_FULL ?? `${siteName} — SEO-продвижение сайтов`;
+
 export const siteConfig = {
   siteUrl: import.meta.env.SITE_URL ?? 'https://mosseo.expert',
-  siteName: 'МОССЕО',
-  siteNameFull: 'МОССЕО — SEO-продвижение сайтов',
+  siteName,
+  siteNameFull,
   siteDescription: 'Комплексное SEO-продвижение сайтов. Аудит, оптимизация, продвижение в Яндекс и Google.',
 
   // Set via environment variables; leave empty to disable in dev
@@ -11,8 +14,8 @@ export const siteConfig = {
   gtagId: import.meta.env.GTAG_ID ?? '',
 
   company: {
-    name: 'МОССЕО',
-    legalName: 'МОССЕО',
+    name: siteName,
+    legalName: siteName,
     url: 'https://mosseo.expert',
     phone: '',
     email: '',

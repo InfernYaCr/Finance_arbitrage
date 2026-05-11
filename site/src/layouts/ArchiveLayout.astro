@@ -1,6 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { getDescendantPages, getImmediateChildPages } from '../data/loadPages';
 import type { FullPage, SeoFields, PageType } from '../data/types';
 
 interface Props {
@@ -12,6 +13,14 @@ interface Props {
 
 const { page, seo, jsonLd } = Astro.props;
 const { data } = page;
+const directChildren = getImmediateChildPages(page.path);
+const descendantPages = getDescendantPages(page.path);
+const groupedChildren = directChildren.map((child) => ({
+  page: child,
+  children: descendantPages
+    .filter((candidate) => candidate.path !== child.path && candidate.path.startsWith(child.path))
+    .slice(0, 8),
+}));
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
@@ -26,6 +35,38 @@ const { data } = page;
 
       {data.content_html && (
         <div class="prose archive-page__body" set:html={data.content_html} />
+      )}
+
+      {directChildren.length > 0 && (
+        <section class="archive-page__catalog" aria-labelledby="archive-catalog-title">
+          <h2 id="archive-catalog-title" class="archive-page__catalog-title">
+            Разделы и материалы
+          </h2>
+
+          <div class="archive-page__grid">
+            {groupedChildren.map((group) => (
+              <article class="archive-card">
+                <a class="archive-card__title" href={group.page.path}>
+                  {group.page.h1 || group.page.title}
+                </a>
+
+                {group.page.description && (
+                  <p class="archive-card__desc">{group.page.description}</p>
+                )}
+
+                {group.children.length > 0 && (
+                  <ul class="archive-card__links" role="list">
+                    {group.children.map((child) => (
+                      <li>
+                        <a href={child.path}>{child.h1 || child.title}</a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
       )}
     </div>
   </section>
@@ -57,5 +98,61 @@ const { data } = page;
 
 .archive-page__body {
   max-width: none;
+}
+
+.archive-page__catalog {
+  margin-top: var(--space-12);
+}
+
+.archive-page__catalog-title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-6);
+}
+
+.archive-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-5);
+}
+
+.archive-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+  background: var(--color-bg);
+}
+
+.archive-card__title {
+  display: inline-block;
+  color: var(--color-text);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  text-decoration: none;
+  margin-bottom: var(--space-3);
+}
+
+.archive-card__title:hover {
+  color: var(--color-accent);
+}
+
+.archive-card__desc {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  margin-bottom: var(--space-4);
+}
+
+.archive-card__links {
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+}
+
+.archive-card__links a {
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
 }
 </style>
