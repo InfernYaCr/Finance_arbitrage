@@ -78,7 +78,9 @@ def main() -> None:
     parser.add_argument("--out", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--section", default=None)
     parser.add_argument("--url", action="append", default=None)
+    parser.add_argument("--offset", type=int, default=0)
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--output-prefix", default="extraction_audit")
     parser.add_argument("--delay", type=float, default=0.25)
     parser.add_argument("--timeout", type=int, default=25)
     parser.add_argument("--retries", type=int, default=1)
@@ -92,6 +94,8 @@ def main() -> None:
         seeds = [seed for seed in seeds if seed.url in wanted]
     if args.section:
         seeds = [seed for seed in seeds if seed.section == args.section]
+    if args.offset:
+        seeds = seeds[args.offset :]
     if args.limit:
         seeds = seeds[: args.limit]
 
@@ -100,7 +104,7 @@ def main() -> None:
     failures = []
     started_at = time.time()
     for index, seed in enumerate(seeds, start=1):
-        print(f"[{index}/{len(seeds)}] {seed.url}")
+        print(f"[{index}/{len(seeds)}] {seed.url}", flush=True)
         try:
             rows.append(audit_seed(sess, seed, args.timeout, args.retries, args.backoff))
         except Exception as exc:
@@ -116,8 +120,8 @@ def main() -> None:
         "elapsed_seconds": round(time.time() - started_at, 2),
         "top_prefer_html": [row for row in rows if row["prefer_html"]][:50],
     }
-    write_json(args.out / "extraction_audit.json", {"summary": summary, "rows": rows})
-    write_csv(args.out / "extraction_audit.csv", rows)
+    write_json(args.out / f"{args.output_prefix}.json", {"summary": summary, "rows": rows})
+    write_csv(args.out / f"{args.output_prefix}.csv", rows)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
 

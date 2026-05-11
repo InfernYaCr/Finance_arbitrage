@@ -1,24 +1,35 @@
 {
-  "pages_requested": 5,
-  "pages_saved": 5,
+  "pages_requested": 219,
+  "pages_saved": 219,
   "skipped_existing": 0,
   "skipped_robots": [],
   "failures": [],
   "content_sources": {
-    "html_fallback": 5
+    "html_fallback": 219
   },
   "status_codes": {
-    "200": 5
+    "200": 219
   },
-  "low_content_pages": [],
+  "low_content_pages": [
+    {
+      "id": "o-kompanii__partnyory--ccbbea6e",
+      "url": "https://mosseo.ru/o-kompanii/partnyory/",
+      "path": "/o-kompanii/partnyory/",
+      "section": "o-kompanii",
+      "status_code": 200,
+      "content_source": "html_fallback",
+      "text_chars": 23,
+      "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/359"
+    }
+  ],
   "run": {
-    "delay": 0.1,
+    "delay": 0.15,
     "timeout": 25,
-    "retries": 2,
-    "backoff": 1.0,
+    "retries": 1,
+    "backoff": 0.5,
     "resume": false,
     "respect_robots": false,
     "proxy_enabled": false,
-    "elapsed_seconds": 5.5
+    "elapsed_seconds": 263.34
   }
 }

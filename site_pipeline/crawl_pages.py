@@ -419,6 +419,7 @@ def main() -> None:
     parser.add_argument("--sample-per-section", type=int, default=None)
     parser.add_argument("--section", default=None, help="Only crawl one normalized section, for example portfolio.")
     parser.add_argument("--url", action="append", default=None, help="Only crawl this normalized URL. Can be passed more than once.")
+    parser.add_argument("--urls-file", type=Path, default=None, help="Plain-text file with one normalized URL per line.")
     parser.add_argument("--delay", type=float, default=0.25)
     parser.add_argument("--timeout", type=int, default=25)
     parser.add_argument("--retries", type=int, default=2)
@@ -429,7 +430,14 @@ def main() -> None:
     parser.add_argument("--force-html", action="store_true", help="Skip WP REST API and use HTML fallback for all crawled pages.")
     args = parser.parse_args()
 
-    seeds = select_seeds(read_seeds(args.csv), args.limit, args.sample_per_section, args.section, args.url)
+    urls = list(args.url or [])
+    if args.urls_file:
+        urls.extend(
+            line.strip()
+            for line in args.urls_file.read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.strip().startswith("#")
+        )
+    seeds = select_seeds(read_seeds(args.csv), args.limit, args.sample_per_section, args.section, urls or None)
     sess = session(args.proxy)
     robots = robots_parser(seeds[0].url, USER_AGENT, args.timeout, args.proxy) if args.respect_robots and seeds else None
     pages_dir = args.out / "pages"

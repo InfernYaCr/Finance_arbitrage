@@ -50,8 +50,10 @@
     "title": "Атрибут title для ссылок на сайте - МОССЕО",
     "description": "Влияние заполнения атрибута title для ссылок на сайте для SEO-продвижения в поисковой выдаче. Функции атрибута title.",
     "h1": "Нужно ли прописывать атрибут title для ссылок на сайте?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__atribut-title-dlya-ssylok-na-sajte--40e7adeb.json"
   },
   {
@@ -122,8 +124,10 @@
     "title": "Типы и виды контекстной рекламы в Яндекс и Google",
     "description": "Что такое контекстная реклама в интернете? Типы контекстной рекламы: поисковая и тематическая. Оптимизация и раскрутка сайта. Недостатки данного вида рекламы в сети.",
     "h1": "Что такое контекстная реклама?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__chto-takoe-kontekstnaya-reklama--c3a60fd9.json"
   },
   {
@@ -146,8 +150,10 @@
     "title": "Landing page что это, привлечение клиентов с помощью лендингов",
     "description": "Что такое лендинг пейдж? Повышение конверсии сайта с помощью посадочных (целевых) страниц. Функции landing page - побуждение пользователя к совершению целвого действия: покупка товара, заказ услуги, подписка.",
     "h1": "Что такое Landing page?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__chto-takoe-landing-page--caaec5b3.json"
   },
   {
@@ -170,8 +176,10 @@
     "title": "Поведенческие факторы ранжирования сайта в Яндекс и Google",
     "description": "Поведенческие факторы - что это? Показатели взаимодействия пользователей с сайтом. Посещаемость веб-ресурса, повторное возвращение пользователей, CTR, процент отказов, глубина просмотра, активность взаимодействия, процент конверсии.",
     "h1": "Что такое поведенческие факторы?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__chto-takoe-povedencheskie-faktory--7c837585.json"
   },
   {
@@ -194,8 +202,10 @@
     "title": "Что такое SEO продвижение и поисковая оптимизация сайта",
     "description": "Что такое SEO-оптимизация интернет-проекта? СЕО-продвижение сайта что это? Комплекс мер по улучшению сайта. Проверка и приведение веб-ресурса в соответствие требованиям поисковых систем.",
     "h1": "Что такое SEO оптимизация?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__chto-takoe-seo-seo-optimizaciya--658cdab5.json"
   },
   {
@@ -206,8 +216,10 @@
     "title": "Что такое SEO-ссылка и как она влияет на продвижение сайта?",
     "description": "Что такое СЕО-ссылки (спамные ссылки). Ссылочное продвижение сайта в поисковых системах Яндекс и Google. Почему стоит опасаться SEO продвижения сайта ссылками.",
     "h1": "Что такое SEO-ссылка?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__chto-takoe-seo-ssylka-i-kak-ona-vliyaet-na-prodvizhenie-sajta--1722aafb.json"
   },
   {
@@ -254,8 +266,10 @@
     "title": "Эффективны ли автоматические сервисы SEO-продвижения сайта?",
     "description": "Автоматические сервисы SEO-продвижения сайта. Меоды накрутки сайта. Фильтры и баны веб-ресурсов поисковыми системами.",
     "h1": "Есть ли автоматическое SEO?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__effektivny-li-avtomaticheskie-servisy-seo-prodvizheniya-sajta--d8ec3889.json"
   },
   {
@@ -266,8 +280,10 @@
     "title": "Где взять уникальный SEO-текст для сайта?",
     "description": "Разработка уникального контента для сайта. Написание уникальных SEO-текстов на сайт.",
     "h1": "Где взять уникальный SEO-текст для сайта?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__gde-vzyat-unikalnyj-seo-tekst-dlya-sajta--6e50fe0b.json"
   },
   {
@@ -278,8 +294,10 @@
     "title": "Как длина URL-адреса страницы влияет на SEO-продвижение сайта?",
     "description": "Влияние URL-адресов страниц сайта на SEO продвижение в поиске. Как правильно настроить и прописать адрес страниц веб-ресурса. Какие URLы важны для СЕО.",
     "h1": "Как URL-адрес влияет на SEO?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__kak-dlina-url-adresa-stranicy-vliyaet-na-seo-prodvizhenie-sajta--49313a8c.json"
   },
   {
@@ -350,8 +368,10 @@
     "title": "Как снять позиции сайта по ключевым запросам в Яндекс и Google",
     "description": "Сбор позиций сайта с помощью сервисов в поисковых системах Яндекс и Google. Снять позиции сайта по ключевым запросам в автоматическом режиме с помощью интернет-сервисов.",
     "h1": "Как снять позиции по запросам?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__kak-snyat-pozicii-moego-sajta-po-neskolkim-zaprosam--90a00355.json"
   },
   {
@@ -398,8 +418,10 @@
     "title": "Мой сайт в ТОПе, почему нет звонков? - ответ на вопрос",
     "description": "Основные причины отсутствия заказов и звонков на сайте при высоких позициях в поисковой выдаче.",
     "h1": "Мой сайт в ТОПе, почему нет звонков?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__moj-sajt-v-tope-pochemu-net-zvonkov--6cc8d716.json"
   },
   {
@@ -410,8 +432,10 @@
     "title": "Гарантии на SEO-продвижение сайта в поисковых системах",
     "description": "Гарантии на результаты SEO-продвижения сайта в Яндекс и Google. Гарантия на результат услуги продвижения сайтов в поисковых системах.",
     "h1": "Какие гарантии SEO?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__mozhno-li-poluchit-kakie-to-garantii-seo-prodvizheniya-sajta--febd4f49.json"
   },
   {
@@ -422,8 +446,10 @@
     "title": "Продвижение сайта в нескольких регионах",
     "description": "Продвижение сайта по нескольким регионам. Создание поддоменов для продвижения в регионах.",
     "h1": "Можно ли продвигать сайт сразу в нескольких регионах?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__mozhno-li-prodvigat-sajt-srazu-v-neskolkih-regionah--42700841.json"
   },
   {
@@ -446,8 +472,10 @@
     "title": "Откуда берутся естественные и качественные ссылки на сайт? - ответ",
     "description": "Влияние внешних ссылок на продвижение сайта. Как ссылки влияют на SEO продвижение сайта в поисковых системах Яндекс и Гугл.",
     "h1": "Откуда берутся ссылки на сайт?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__otkuda-berutsya-estestvennye-i-kachestvennye-ssylki-na-sajt--f559adf4.json"
   },
   {
@@ -458,8 +486,10 @@
     "title": "Почему не видно сайт в Яндекс.Директ - MOSSEO",
     "description": "Причины и проблемы с видимостью сайта при платном размещении в Яндекс.Директ. Методы и способы решения проблемы.",
     "h1": "Почему не видно сайт в Яндекс.Директ",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__pochemu-ne-vidno-sajt-v-yandeks-direkt--00163e44.json"
   },
   {
@@ -482,8 +512,10 @@
     "title": "Почему в Яндексе сайт продвигается, а в Google нет?",
     "description": "Разница в продвижении сайтов в поисковых системах Яндекс и Google. Алгоритмы ранжирования поисковиков. Факторы и особенности каждой из систем.",
     "h1": "Почему в Яндексе сайт продвигается, а в Google нет?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__pochemu-v-yandekse-sajt-prodvigaetsya-a-v-google-net--41f55db6.json"
   },
   {
@@ -494,8 +526,10 @@
     "title": "Влияние поведенческих факторов на ранжирование - ответы от МОССЕО",
     "description": "Влияние поведенческих факторов сайта на ранжирование в поисковых системах. Группы пользовательский факторов - внешние и внутренние.",
     "h1": "Поведенческие факторы сайта и их влияние на позиции в поиске",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__povedencheskie-faktory-sajta-i-ih-vliyanie-na-pozicii-v-poiske--cd6130a2.json"
   },
   {
@@ -506,8 +540,10 @@
     "title": "Правда, что скоро SEO умрёт и продвижение сайта станет бесполезным?",
     "description": "SEO-продвижение и раскрутка сайта в поисковых системах Яндекс и Гугл. Особенности оптимизация сайта и ранжирование веб-ресурса в поиске.",
     "h1": "SEO скоро умрет?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__pravda-chto-skoro-seo-umrjot-i-prodvizhenie-sajta-stanet-bespoleznym--04a32674.json"
   },
   {
@@ -542,8 +578,10 @@
     "title": "Какая поисковая система лучше, продвижение в Яндекс и Google",
     "description": "В каких поисковых системах лучше продвигать свой сайт? Плюсы и минусы поисковых систем Яндекс и Google. Доля коммерческих и информационных запросов. Поисковое продвижение в интернете.",
     "h1": "В каких поисковых продвигаться?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__v-kakih-poiskovyh-sistemah-luchshe-prodvigatsya--39f86871.json"
   },
   {
@@ -554,8 +592,10 @@
     "title": "Влияет ли трафик на позиции сайта? - ответ от МОССЕО",
     "description": "Рост позиций сайта при увеличении трафика. Влияние роста входящего трафика на позиции сайта в поиске. Улучшение поведенческих факторов.",
     "h1": "Влияет ли трафик на позиции сайта?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__vliyaet-li-trafik-na-pozicii-sajta--538c3c7b.json"
   },
   {
@@ -566,8 +606,10 @@
     "title": "Влияют ли ссылки и другая активность в социальных сетях на продвижение сайта?",
     "description": "Ссылочное продвижение сайта в 2022 году. Как влияют внешние и внутренние ссылки на СЕО продвижение сайта в поиске. Влияние ссылок на позиции сайта в ТОПе.",
     "h1": "Влияют ли ссылки на продвижение?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__vliyajut-li-ssylki-i-drugaya-aktivnost-v-socialnyh-setyah-na-prodvizhenie-sajta--17fadbdc.json"
   },
   {
@@ -578,8 +620,10 @@
     "title": "Влияют ли знаки препинания и окончания в ключевых словах на SEO-продвижение сайта?",
     "description": "Как влияют знаки препинания и окончания в ключевых словах на эффективность SEO раскрутки сайта в поисковиках.",
     "h1": "Влияют ли знаки препинания и окончания на SEO?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__vliyajut-li-znaki-prepinaniya-i-okonchaniya-v-kljuchevyh-slovah-na-seo-prodvizhenie-sajta--8739eb2e.json"
   },
   {
@@ -590,8 +634,10 @@
     "title": "Зачем мне SEO-продвижение сайта, если я работаю в узконаправленной нише?",
     "description": "SEO-продвижение для сайтов с низкой частотностью запросов. Продвижение низкочастотных запросов сайта в поисковых системах.",
     "h1": "Зачем мне SEO?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/faq__zachem-mne-seo-prodvizhenie-sajta-esli-ya-rabotaju-v-uzkonapravlennoj-nishe--8319c2fe.json"
   },
   {
@@ -602,8 +648,10 @@
     "title": "Заказать SEO продвижение сайтов | СЕО компания в Москве: раскрутка сайтов",
     "description": "SEO продвижение и раскрутка сайта в ТОП 10 под ключ. Поисковая оптимизация сайтов от агентства в Москве. Заказать услуги СЕО раскрутки сайтов. SEO компания для успешного продвижения сайта в топ 10.",
     "h1": "Продвижение и SEO раскрутка сайта",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/index--f26af4e6.json"
   },
   {
@@ -1415,6 +1463,7 @@
     "h1": "",
     "severity": "warning",
     "issue_codes": [
+      "html_fallback",
       "missing_csv_h1",
       "canonical_mismatch"
     ],
@@ -1428,9 +1477,9 @@
     "title": "Информация о компании по продвижению сайтов MOSSEO",
     "description": "Информация о профессиональных услугах по продвижению сайтов MOSSEO. Улучшение позиции веб-ресурса в поисковой выдаче. Информация о компании предоставляющей услуги по разработке сайта и его оптимизации.",
     "h1": "пару слов о МОССЕО",
-    "severity": "warning",
+    "severity": "info",
     "issue_codes": [
-      "low_content"
+      "html_fallback"
     ],
     "page_file": "site_pipeline/output/pages/o-kompanii--35be95d1.json"
   },
@@ -1480,7 +1529,8 @@
     "h1": "Партнёры нашей компании",
     "severity": "warning",
     "issue_codes": [
-      "very_low_content"
+      "very_low_content",
+      "html_fallback"
     ],
     "page_file": "site_pipeline/output/pages/o-kompanii__partnyory--ccbbea6e.json"
   },
@@ -2513,8 +2563,10 @@
     "title": "Продвижение интернет-магазина энергетического оборудования",
     "description": "Кейс компании MOSSEO по продвижению сайта интернет-магазина энергетического оборудования. Выполнение задач по переезду сайта на новую CMS. Оптимизация сайта под SEO.",
     "h1": "zapchasti-generator.ru",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/portfolio__zapchastigenerator--2b92156e.json"
   },
   {
@@ -4904,8 +4956,10 @@
     "title": "Адаптивная верстка сайта - советы для эффективности",
     "description": "Изучите принципы адаптивной верстки сайта для обеспечения оптимального отображения на различных устройствах. Узнайте о преимуществах.",
     "h1": "Что такое адаптивная верстка сайта",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__adaptivnaya-verstka-sajta--536dc330.json"
   },
   {
@@ -4916,8 +4970,10 @@
     "title": "Аффилиат (аффилат) для монополии сайтов одним владельцем",
     "description": "Аффилиаты (affiliate) и аффилиация в поисковых системах Яндекс и Google. Что это такое. Чем грозит аффилированность сайтов для SEO-продвижения. Признаки аффилированности сайтов.",
     "h1": "Аффилиат (аффилат)",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__affiliat--fb5a88fa.json"
   },
   {
@@ -4928,8 +4984,10 @@
     "title": "Айдентика: уникальный образа компании | новая аудитория",
     "description": "Брендинг и его влияние на восприятие компании с помощью платформы Айдентика. Методы создания уникального визуального образа, привлечение и удержание внимания целевой аудитории.",
     "h1": "Что такое айдентика?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__ajdentika--f91539e7.json"
   },
   {
@@ -4940,8 +4998,10 @@
     "title": "Атрибут Alt для изображений на сайте",
     "description": "Атрибут Alt для изображений на сайте. Альтернативный текст для изображений в теге img в языке HTML.",
     "h1": "Alt — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__alt--a9117ed0.json"
   },
   {
@@ -5000,8 +5060,10 @@
     "title": "API в сео продвижении, продвижение сайта при помощи API",
     "description": "Что такое API и его роль в продвижении сайта, код для написания приложений понятный программисту. Application Programming Interface - интерфейс программирования для написания приложения.",
     "h1": "API — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__api--f29ab59f.json"
   },
   {
@@ -5012,8 +5074,10 @@
     "title": "Продвижения товаров и услуг компании за вознаграждение",
     "description": "Как заработать от рекламодателя на арбитраже трафика. Что такое арбитраж трафика и как это работает в интернете.",
     "h1": "Что такое арбитраж трафика",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__arbitrazh-trafika--8cbb630d.json"
   },
   {
@@ -5060,8 +5124,10 @@
     "title": "Что такое целевая аудитория, потенциальные клиенты",
     "description": "Аудитория, которая заинтересована в информации о продвижении и раскрутке сайта. Классификация целевых аудиторий сайта. Определения аудитории, целей и задач ради эффективного SEO.",
     "h1": "Целевая аудитория- это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__celevaya-auditoriya--ef01f6bd.json"
   },
   {
@@ -5096,8 +5162,10 @@
     "title": "CTR: стратегии для улучшения вовлеченности",
     "description": "Click-Through Rate (CTR): эффективные стратегии для повышения вовлеченности пользователей. Оптимизация CTR для улучшения результатов цифрового маркетинга и увеличения трафика на сайте.",
     "h1": "Что такое CTR?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__ctr--b8ef4010.json"
   },
   {
@@ -5144,8 +5212,10 @@
     "title": "Домен в продвижении сайта, выбрать доменное имя для сайта",
     "description": "Что такое домен в продвижении сайта, адрес сайта которому присвоено уникальное имя, разные уровни доменов. SEO справочник по терминам. Адрес сайта или определенная зона для SEO продвижения.",
     "h1": "Домен — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__domen--01db040a.json"
   },
   {
@@ -5156,8 +5226,10 @@
     "title": "Донор - сайт на котором размещена ссылка на другой",
     "description": "Что такое сайты доноры, как их найти и выбрать. Продвижение сайта с помощью доноров и внешних ссылок.",
     "h1": "Донор — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__donor--c5367ac1.json"
   },
   {
@@ -5204,8 +5276,10 @@
     "title": "Что такое фавиконка в продвижении сайта",
     "description": "Что такое фавиконка. SEO-словарь МОССЕО.",
     "h1": "Фавикон - что это?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__favikonka--5272f4f9.json"
   },
   {
@@ -5228,8 +5302,10 @@
     "title": "Что такое Google Adwords- интернет реклама",
     "description": "Что такое Google Adwords. SEO-словарь МОССЕО.",
     "h1": "Google Adwords - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__google-adwords--a026fc8a.json"
   },
   {
@@ -5240,8 +5316,10 @@
     "title": "Что такое Google Аналитикс, анализ статистики сайта",
     "description": "Что такое Google Analytics. SEO-словарь МОССЕО.",
     "h1": "Google Аналитикс - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__google-analitiks--c28e8f7d.json"
   },
   {
@@ -5264,8 +5342,10 @@
     "title": "Удобная лента новостей - Google Discover",
     "description": "Самые актуальные новости, статьи и обновления прямо на свое устройство. Используйте Google Discover для расширения своего кругозора и оставайтесь в курсе важных событий.",
     "h1": "Google Discover — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__google-discover--ea29003a.json"
   },
   {
@@ -5276,8 +5356,10 @@
     "title": "Управление сайтом с помощью Google Search Console",
     "description": "Оптимизация своего сайта с помощью Google Search Console. Мониторинг о показах, кликах и позициях вашего сайта в поисковой выдаче.",
     "h1": "Что такое Google Search Console",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__google-search-console--0119e630.json"
   },
   {
@@ -5288,8 +5370,10 @@
     "title": "Что такое Google Вебмастер для продвижения сайта",
     "description": "Что такое Google Webmaster. SEO-словарь МОССЕО.",
     "h1": "Google Вебмастер - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__google-vebmaster--6974c0af.json"
   },
   {
@@ -5300,8 +5384,10 @@
     "title": "Что такое хостинг и сервер в продвижении сайта",
     "description": "Что такое хостинг. SEO-словарь МОССЕО.",
     "h1": "Хостинг — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__hosting--d1c30c65.json"
   },
   {
@@ -5324,8 +5410,10 @@
     "title": "Что такое индексация в продвижении сайта, добавление страниц",
     "description": "Что такое индексация сайта. SEO-словарь МОССЕО.",
     "h1": "Индексация - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__indeksaciya--d7cb518a.json"
   },
   {
@@ -5372,8 +5460,10 @@
     "title": "Что такое интерфейс и его роль в продвижении сайта",
     "description": "Что такое интерфейс. SEO-словарь МОССЕО.",
     "h1": "Интерфейс - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__interfejs--9c59e110.json"
   },
   {
@@ -5444,8 +5534,10 @@
     "title": "Что такое ключевое слово и его роль в продвижении сайта",
     "description": "Что такое ключевое слово. SEO-словарь МОССЕО.",
     "h1": "Ключевое слово - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__klyuchevoe-slovo--70ece2ab.json"
   },
   {
@@ -5456,8 +5548,10 @@
     "title": "Что такое ключевой запрос и его роль в продвижении сайта",
     "description": "Что такое ключевой запрос. SEO-словарь МОССЕО.",
     "h1": "Ключевой запрос - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__klyuchevoj-zapros--04cffe7c.json"
   },
   {
@@ -5480,8 +5574,10 @@
     "title": "Контекстная реклама: стратегии и преимущества для бизнеса",
     "description": "Повышение эффективности вашей кампании. Узнайте о преимуществах контекстной рекламы для бизнеса и как использовать ее для привлечения целевой аудитории и увеличения конверсии.",
     "h1": "Что такое контекстная реклама?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__kontekstnaya-reklama--62c4d21f.json"
   },
   {
@@ -5492,8 +5588,10 @@
     "title": "Что такое контент в продвижении сайта",
     "description": "Что такое контент. SEO-словарь МОССЕО.",
     "h1": "Контент - что это?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__kontent--4f76ea92.json"
   },
   {
@@ -5504,8 +5602,10 @@
     "title": "Что такое конверсия в продвижении сайта",
     "description": "Что такое конверсия сайта. SEO-словарь МОССЕО.",
     "h1": "Конверсия - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__konversiya--1f389242.json"
   },
   {
@@ -5552,8 +5652,10 @@
     "title": "Заинтересованный клиент в вашей услуге - Лид",
     "description": "Лид (lead, целевой лид) - потенциальный клиент, проявивший интерес к услуге или продукту через маркетинговые каналы и оставивший свои контакты.",
     "h1": "Лид — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__lid--8956b9d9.json"
   },
   {
@@ -5612,8 +5714,10 @@
     "title": "Что такое микроформат и каково его участие в продвижении сайта",
     "description": "Что такое микроформат. SEO-словарь МОССЕО.",
     "h1": "Микроформат - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__mikroformat--7bd2c6d1.json"
   },
   {
@@ -5636,8 +5740,10 @@
     "title": "Что такое навигация сайта и какова ее роль в продвижении",
     "description": "Что такое навигация сайта. SEO-словарь МОССЕО.",
     "h1": "Навигация сайта - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__navigaciya-sajta--8dfeb617.json"
   },
   {
@@ -5660,8 +5766,10 @@
     "title": "Что такое низкочастотные запросы и их роль в продвижении сайта",
     "description": "Что такое низкочастотные запросы. SEO-словарь МОССЕО.",
     "h1": "Низкочастотные запросы - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__nizkochastotnye-zaprosy--21144ac4.json"
   },
   {
@@ -5744,8 +5852,10 @@
     "title": "Что такое поисковая выдача и ее роль в продвижении сайта",
     "description": "Что такое поисковая выдача. SEO-словарь МОССЕО.",
     "h1": "Поисковая выдача - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__poiskovaya-vydacha--9fd4eb09.json"
   },
   {
@@ -5780,8 +5890,10 @@
     "title": "Что такое поисковый робот и его роль в продвижении сайта",
     "description": "Что такое поисковый робот. SEO-словарь МОССЕО.",
     "h1": "Поисковый робот - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__poiskovyj-robot--dba73daf.json"
   },
   {
@@ -5792,8 +5904,10 @@
     "title": "Что такое поисковый запрос и как он влияет на продвижение сайта",
     "description": "Что такое поисковый запрос. SEO-словарь МОССЕО.",
     "h1": "Поисковый запрос - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__poiskovyj-zapros--5b1a1a99.json"
   },
   {
@@ -5804,8 +5918,10 @@
     "title": "PBN сеть для  улучшения поискового рейтинга сайта SEO",
     "description": "Увеличьте авторитетность и трафик, используя защищенную сеть блогов. Оптимизируйте ваш онлайн успех и достигните высоких позиций в поисковых системах с помощью PBN.",
     "h1": "Что такое Private Blog Network (PBN)",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__private-blog-network-pbn--e235b5e5.json"
   },
   {
@@ -5828,8 +5944,10 @@
     "title": "Что такое ранжирование сайта - SEO-словарь МОССЕО.",
     "description": "Узнайте что такое ранжирование сайта в поисковых системах. Википедия МОССЕО.",
     "h1": "Ранжирование сайта - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__ranzhirovanie--d3b681c7.json"
   },
   {
@@ -5840,8 +5958,10 @@
     "title": "Что такое редирект в продвижении сайта, перенаправление",
     "description": "Что такое редирект. SEO-словарь МОССЕО.",
     "h1": "Редирект - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__redirekt--963f4013.json"
   },
   {
@@ -5864,8 +5984,10 @@
     "title": "Что такое robots.txt в продвижении сайта",
     "description": "Что такое robots.txt. SEO-словарь МОССЕО.",
     "h1": "Robots.txt - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__robots-txt--e5be8396.json"
   },
   {
@@ -5888,8 +6010,10 @@
     "title": "Screaming Frog SEO Spider для глубокого анализа сайта",
     "description": "Screaming Frog SEO Spider — проанализировать сайт и найти ошибки, которые мешают успешному продвижению.",
     "h1": "Screaming Frog SEO Spider",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__screaming-frog-seo-spider--b5416c6f.json"
   },
   {
@@ -5900,8 +6024,10 @@
     "title": "Что такое семантическая разметка в продвижении сайта",
     "description": "Что такое семантическая разметка. SEO-словарь МОССЕО.",
     "h1": "Семантическая разметка - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__semanticheskaya-razmetka--24681cde.json"
   },
   {
@@ -5912,8 +6038,10 @@
     "title": "Что такое семантика (семантическое ядро) в продвижении сайта",
     "description": "Что такое семантика и семантическое ядро. SEO-словарь МОССЕО.",
     "h1": "Семантика (семантическое ядро) - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__semantika-semanticheskoe-yadro--d03713eb.json"
   },
   {
@@ -5924,8 +6052,10 @@
     "title": "Что такое SEO, помощь в продвижении сайта, оптимизация",
     "description": "Что такое Search Engine Optimization (SEO). SEO-словарь МОССЕО.",
     "h1": "SEO — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__seo--0f3641e6.json"
   },
   {
@@ -5948,8 +6078,10 @@
     "title": "Что такое Sitemap в продвижении сайта, карта сайта или XML-файл",
     "description": "Что такое Sitemap (карта сайта). SEO-словарь МОССЕО.",
     "h1": "Sitemap — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__sitemap--dd90180f.json"
   },
   {
@@ -5984,8 +6116,10 @@
     "title": "Что такое SMM в продвижении сайта, социальные сети",
     "description": "Что такое SMM. SEO-словарь МОССЕО.",
     "h1": "SMM — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__smm--375a24ab.json"
   },
   {
@@ -5996,8 +6130,10 @@
     "title": "Что такое сниппет и его роль в продвижении сайта",
     "description": "Что такое сниппет. SEO-словарь МОССЕО.",
     "h1": "Сниппет — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__snippet--c5dc7995.json"
   },
   {
@@ -6032,8 +6168,10 @@
     "title": "Что такое спам и как он влияет на продвижение сайта",
     "description": "Что такое спам. SEO-словарь МОССЕО.",
     "h1": "Спам — что это?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__spam--1c274ed7.json"
   },
   {
@@ -6044,8 +6182,10 @@
     "title": "Что такое среднечастотные запросы, их роль в продвижении сайта",
     "description": "Что такое среднечастотные запросы. SEO-словарь МОССЕО.",
     "h1": "Среднечастотные запросы - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__srednechastotnye-zaprosy--0c7ec640.json"
   },
   {
@@ -6056,8 +6196,10 @@
     "title": "Что такое ссылки и их роль в продвижении сайта",
     "description": "Что такое ссылки. SEO-словарь МОССЕО.",
     "h1": "Ссылки и гиперссылки",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__ssylki--d029a0ab.json"
   },
   {
@@ -6068,8 +6210,10 @@
     "title": "Ссылки, которые ведут на ваш сайт",
     "description": "Общее количество ссылок на сторонних ресурсах, которые ведут на ваш сайт и которые проиндексированы алгоритмами поисковиков.",
     "h1": "Что такое ссылочная масса",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__ssylochnaya-massa--f5f25a9f.json"
   },
   {
@@ -6092,8 +6236,10 @@
     "title": "Что такое субдомен (поддомен) и его роль в продвижении сайта",
     "description": "Что такое субдомен (поддомен) сайта. SEO-словарь МОССЕО.",
     "h1": "Субдомен (поддомен) - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__subdomen-poddomen--bccc11ae.json"
   },
   {
@@ -6116,8 +6262,10 @@
     "title": "Что такое ТОП позиции и как они влияют на продвижение сайта",
     "description": "Что такое ТОП позиции. SEO-словарь МОССЕО.",
     "h1": "ТОП позиции - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__top-pozicii--eadf1828.json"
   },
   {
@@ -6164,8 +6312,10 @@
     "title": "Что такое URL и его роль в продвижении сайта",
     "description": "Что такое URL. SEO-словарь МОССЕО.",
     "h1": "URL — что это такое?",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__url--937ba812.json"
   },
   {
@@ -6176,8 +6326,10 @@
     "title": "Что такое валидатор в продвижении сайта",
     "description": "Что такое валидатор (программа проверки кода). SEO-словарь МОССЕО.",
     "h1": "Валидатор - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__validator--17de503d.json"
   },
   {
@@ -6188,8 +6340,10 @@
     "title": "Что такое веб-ресурс и его роль в продвижении сайта",
     "description": "Что такое веб-ресурс. SEO-словарь МОССЕО.",
     "h1": "Веб-ресурс - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__veb-resurs--7ccb8625.json"
   },
   {
@@ -6236,8 +6390,10 @@
     "title": "Что такое высокочастотные запросы, ключевики ВЧ",
     "description": "Что такое высокочастотные запросы. SEO-словарь МОССЕО.",
     "h1": "Высокочастотные запросы - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__vysokochastotnye-zaprosy--e640af5a.json"
   },
   {
@@ -6272,8 +6428,10 @@
     "title": "YANDEX DATALENS — визуализация данных",
     "description": "Исследуйте невероятные возможности визуализации данных с помощью Yandex DataLens. Создавайте динамичные и информативные графики, диаграммы и отчеты для быстрого и эффективного анализа данных.",
     "h1": "Что такое Yandex DataLens",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__yandex-datalens--0e6e1fa5.json"
   },
   {
@@ -6284,8 +6442,10 @@
     "title": "Что такое Яндекс Директ и какова его роль в продвижении сайта",
     "description": "Что такое Яндекс.Директ. SEO-словарь МОССЕО.",
     "h1": "Яндекс.Директ - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__yandex-direkt--63483ce4.json"
   },
   {
@@ -6296,8 +6456,10 @@
     "title": "Что такое Яндекс Метрика и ее влияние на продвижение сайта",
     "description": "Что такое Яндекс.Метрика. SEO-словарь МОССЕО.",
     "h1": "Яндекс.Метрика - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__yandex-metrika--cf553f88.json"
   },
   {
@@ -6308,8 +6470,10 @@
     "title": "Что такое Яндекс-Вебмастер и как он работает",
     "description": "Что такое Яндекс.Вебмастер. SEO-словарь МОССЕО.",
     "h1": "Яндекс.Вебмастер - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__yandex-vebmaster--2be48d2b.json"
   },
   {
@@ -6356,8 +6520,10 @@
     "title": "Что такое юзабилити в продвижении сайта",
     "description": "Что такое юзабилити сайта. SEO-словарь МОССЕО.",
     "h1": "Юзабилити - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__yuzabiliti--6f41b63e.json"
   },
   {
@@ -6368,8 +6534,10 @@
     "title": "Что такое зеркало сайта в продвижении, дубликат сайта",
     "description": "Что такое зеркало сайта. SEO-словарь МОССЕО.",
     "h1": "Зеркало сайта - это",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/seo-wikipedia__zerkalo-sajta--92e82792.json"
   },
   {
@@ -7480,8 +7648,10 @@
     "title": "Google тестирует изменения в дизайне поисковой выдачи - СЕО блог",
     "description": "Гугл тестирует изменения в дизайне поисковой выдачи - информация от компании МОССЕО. Следите за актуальными СЕО новостями на нашем сайте.",
     "h1": "Google тестирует изменения в дизайне поисковой выдачи",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__google-testiruet-izmeneniya-v-dizajne-poiskovoj-vydachi--a8c1938d.json"
   },
   {
@@ -9807,6 +9977,7 @@
     "h1": "",
     "severity": "warning",
     "issue_codes": [
+      "html_fallback",
       "missing_csv_h1",
       "canonical_mismatch"
     ],
@@ -10386,6 +10557,7 @@
     "h1": "",
     "severity": "warning",
     "issue_codes": [
+      "html_fallback",
       "missing_csv_h1",
       "canonical_mismatch"
     ],
@@ -10509,8 +10681,10 @@
     "title": "Показатель ИКС Яндекса, проверка статистического показателя ИКС",
     "description": "Факты про Индекс Качества Сайта. Обновление, расчет и влияние показателя ИКС на поисковую выдачу в Яндексе. Проверка статистического показателя ИКС.",
     "h1": "7 фактов про ИКС - Яндекс напомнил об индексе качества сайта",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__7-faktov-pro-iks-yandeks-napomnil-ob-indekse-kachestva-sajta--7088ed70.json"
   },
   {
@@ -10521,8 +10695,10 @@
     "title": "Разработка собственной поисковой системы Ahrefs",
     "description": "Руководитель сервиса Ahrefs объявил о начале разработки собственной поисковой системы. Главные недостатки Google. Монетизация контента в новом поисковике Ahrefs.",
     "h1": "Ahrefs объявил о разработке своей поисковой системы",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__ahrefs-obyavil-o-razrabotke-svoej-poiskovoj-sistemy--36773a2b.json"
   },
   {
@@ -10533,8 +10709,11 @@
     "title": "Поисковые алгоритмы Яндекса - ранжирование в поиске",
     "description": "Алгоритм ранжирования: Вега, Магадан, Находка, Арзамас, Снежинск, Конаково, Обнинск, Краснодар, Рейкъявик, Калининград, Дублин, Минусинск, Владивосток, Палех, Баден-Баден, Королев",
     "h1": "Поисковые алгоритмы Яндекса",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "warning",
+    "issue_codes": [
+      "html_fallback",
+      "high_link_density"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__algoritm-yandex--f9eb5492.json"
   },
   {
@@ -10545,8 +10724,10 @@
     "title": "Андромеда - обновление поиска от Яндекса, улучшения выдачи",
     "description": "Обновление поисковой выдачи Яндекс - Андромеда. Обновление поиска. Улучшение быстрых ответов. Изменение алгоритма ранжирования. Новый сервис Яндекс.Коллекции.",
     "h1": "\"Андромеда\" - большое обновление поиска Яндекс",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__andromeda-bolshoe-obnovlenie-poiska-yandeks--2bd99b31.json"
   },
   {
@@ -10557,8 +10738,10 @@
     "title": "Протокол HTTP не обеспечивает защиты персональных данных",
     "description": "Результаты исследования реакции пользователей на незащищенное соединение с сайтом. Негативное влияние на восприятие бренда из-за HTTP-протокола. Новый стандарт защиты информации - HTTPS.",
     "h1": "Больше половины пользователей не доверяют HTTP-сайтам",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__bolshe-poloviny-polzovatelej-ne-doveryajut-http-sajtam--c00fdd4f.json"
   },
   {
@@ -10569,8 +10752,10 @@
     "title": "Ценность негативных отзывов - МОССЕО",
     "description": "В компании Google рассказали о ценности негативных отзывов. Влияние положительных и отрицательных отзывов на доверие пользователей к компании.",
     "h1": "В Google рассказали о ценности негативных отзывов",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__cennost-negativnyh-otzyvov--adfeabb8.json"
   },
   {
@@ -10581,8 +10766,10 @@
     "title": "Окончание бета-тестирования чатов для бизнеса в Директе",
     "description": "Яндекс рассказал об окончании бета-тестирования чатов для бизнеса. Подключение чата к текстово-графическим объявлениям в поиске. Чаты в Яндекс.Директе и Яндекс.Маркете.",
     "h1": "Чаты для бизнеса от Яндекса вышли из бета-теста в Директе и появились в Маркете",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__chaty-dlya-biznesa-ot-yandeksa-vyshli-iz-beta-testa-v-direkte-i-poyavilis-v-markete--81191f30.json"
   },
   {
@@ -10593,8 +10780,10 @@
     "title": "Продвижение сайта по акции, бесплатные услуги раскрутки сайта",
     "description": "Акции и бонусы при продвижении сайтов. Бесплатные услуги: настройка контекстной рекламы, техподдержка сайта и ведение групп в социальных сетях (SMM).",
     "h1": "Белый Понедельник!! Бесплатно: контекстная реклама, техподдержка сайта и SMM",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__do-konca-oktyabrya-vsem-novym-klientam-kontekstnaya-reklama-tehpodderzhka-sajta-i-smm-besplatno--3c22b121.json"
   },
   {
@@ -10605,8 +10794,11 @@
     "title": "Как бесплатно добавить сайт в Яндекс и Google",
     "description": "Мы подробно описали как можно совершенно бесплатно и самостоятельно добавить свой сайт в поисковые системы Яндекс и Google. Привели примеры, и дали ссылки на необходимые инструменты.",
     "h1": "Как добавить сайт в поисковые системы",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "warning",
+    "issue_codes": [
+      "html_fallback",
+      "high_link_density"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__dobavit-sajt-v-poiskovye-sistemy--a72f08f7.json"
   },
   {
@@ -10617,8 +10809,10 @@
     "title": "Регистрация сайта в новом домене верхнего уровня",
     "description": "Общедоступность домена верхнего уровня \".dev\". Протокол HTTPS обязательное условие для регистрации в зоне dev. Возможность покупки доменного имени.",
     "h1": "Домен dev станет общедоступным",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__domen-dev-stanet-obshhedostupnym--156a81a0.json"
   },
   {
@@ -10629,8 +10823,10 @@
     "title": "Исследование анонимного поисковика DuckDuckGo",
     "description": "Персонализация поисковой выдачи Google. Уникальные результаты выдачи. Исследование поисковика DuckDuckGo.",
     "h1": "DuckDuckGo проверил персонализирует ли Google поисковую выдачу",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__duckduckgo-proveril-personaliziruet-li-google-poiskovuyu-vydachu--362dbb24.json"
   },
   {
@@ -10641,8 +10837,10 @@
     "title": "Верификация рекламодателей: новые требования Google для подтверждения личности и страны работы",
     "description": "Узнайте о новом требовании Google по верификации рекламодателей. Изменения прозрачности в онлайн-рекламе и улучшения информированности пользователей.",
     "h1": "Google Ads вводит обязательную верификацию для рекламодателей",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-ads-vvodit-obyazatelnuju-verifikaciju-dlya-reklamodatelej--0d845f31.json"
   },
   {
@@ -10665,8 +10863,10 @@
     "title": "Баг поисковой выдачи Google, ошибка в результатах поиска Гугл",
     "description": "Искажение результатов поиска Google. Баг в панели знаний поисковой системы Гугл.",
     "h1": "Google исправит баг, с помощью которого можно влиять на поисковую выдачу",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-ispravit-bag-s-pomoshchyu-kotorogo-mozhno-vliyat-na-poiskovuyu-vydachu--c38b780d.json"
   },
   {
@@ -10677,8 +10877,10 @@
     "title": "Директивы noindex в файле robots.txt, использование Google",
     "description": "Директива noindex в файле robots.txt. Скрыть страницу от поискового робота Google с помощью директивы noindex.",
     "h1": "Google может отказаться от использования директивы noindex в robots.txt",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-mozhet-otkazatsya-ot-ispolzovaniya-direktivy-noindex-v-robots-txt--c8be912a.json"
   },
   {
@@ -10689,8 +10891,10 @@
     "title": "Обновление алгоритма ранжирования от Гугл",
     "description": "Компания Гугл запустила крупный апдейт алгоритма ранжирования. SEO продвижение и раскрутка сайта в ТОП 10 под ключ. Поисковая оптимизация сайтов от агентства в Москве.",
     "h1": "Google начал обновление алгоритма ранжирования",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-nachal-obnovlenie-algoritma-ranzhirovaniya--e2b7c2c1.json"
   },
   {
@@ -10701,8 +10905,10 @@
     "title": "Расширенные сниппеты сайтов с ответами",
     "description": "Несколько вариантов ответов на запрос пользователя в сниппетах сайтов. Обновление сниппетов веб-ресурсов в поисковой выдаче Google. Расширенные блоки с ответами в описании к сайтам.",
     "h1": "Google начал тестировать расширенные сниппеты с ответами",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-nachal-testirovat-rasshirennye-snippety-s-otvetami--c22fffb6.json"
   },
   {
@@ -10713,8 +10919,10 @@
     "title": "Факторы, влияющие на скорость индексации контента сайта",
     "description": "Скорость индексации контента сайта в поисковой системе Google. Формат контента веб-ресурса. Этапы индексирования содержания страниц сайта в Гугл. Недостатки использования JavaScript для SEO (СЕО) продвижения.",
     "h1": "Google объяснил что влияет на скорость индексации контента",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-obyasnil-chto-vliyaet-na-skorost-indeksacii-kontenta--6d6b7328.json"
   },
   {
@@ -10725,8 +10933,10 @@
     "title": "Сайт ранжируется по нерелевантным ключевым словам - почему??",
     "description": "Представитель команды поиска компании Google Джон Мюллер о «странных» ключах в отчетах Search Console.",
     "h1": "Google объяснил, почему сайт ранжируется по нерелевантным ключевым словам",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-obyasnil-pochemu-sajt-ranzhiruetsya-po-nerelevantnym-kljuchevym-slovam--5bffe712.json"
   },
   {
@@ -10737,8 +10947,10 @@
     "title": "Колебания в локальном поиске: Обновление алгоритма Google",
     "description": "Колебания в локальном поиске, вызванных возможным влиянием крупного обновления алгоритма Google May 2020 Core Update.",
     "h1": "Google опроверг информацию об изменениях в локальном поиске",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-oproverg-informaciju-ob-izmeneniyah-v-lokalnom-poiske--4c894d79.json"
   },
   {
@@ -10749,8 +10961,10 @@
     "title": "Влияние CTR на ранжирование в Google, привлечение трафика",
     "description": "Влияние процентного отношения числа кликов на сайте к числу его показов в поисковой выдаче Google. Показатель ранжирования CTR в Google. Учет количества переходов на сайт из поиска в процессе ранжирования.",
     "h1": "Google ответил как CTR влияет на ранжирование",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-otvetil-kak-ctr-vliyaet-na-ranzhirovanie--5832a9ed.json"
   },
   {
@@ -10773,8 +10987,10 @@
     "title": "Google отменил контекстную рекламу в России - МОССЕО",
     "description": "Ограничение в Google на продажу и показ контекстной рекламы в поисковой системе.",
     "h1": "Google приостановил показ контекстной рекламы в России",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-priostanovil-pokaz-kontekstnoj-reklamy-v-rossii--23c5b691.json"
   },
   {
@@ -10785,8 +11001,10 @@
     "title": "Персонализация поисковой выдачи в Google",
     "description": "Поисковая выдача на основе истории поиска пользователя в поисковой системе. Персонализация в поисковой системе Goggle. Органическая поисковая выдача.",
     "h1": "Google признался, что почти не персонализирует поисковую выдачу",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-priznalsya-chto-pochti-ne-personaliziruet-poiskovuyu-vydachu--bc1be4a4.json"
   },
   {
@@ -10809,8 +11027,10 @@
     "title": "Домены сайтов в поисковой выдаче спрятал Гугл - МОССЕО",
     "description": "Гугл переместил URL-адрес сайта под заголовок страницы (title). СЕО компания в Москве: раскрутка сайтов.",
     "h1": "Google “спрятал” домены сайтов в поисковой выдаче",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-spryatal-domeny-sajtov-v-poiskovoj-vydache--01fff868.json"
   },
   {
@@ -10821,8 +11041,10 @@
     "title": "Google обновил алгоритм ранжирования - МОССЕО",
     "description": "Жалобы зарубежных вебмастеров на очередные колебания в выдаче Google. СЕО новости от компании для успешного продвижения сайта в топ 10.",
     "h1": "Google в очередной раз обновляет алгоритм ранжирования",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-v-ocherednoj-raz-obnovlyaet-algoritm-ranzhirovaniya--14738030.json"
   },
   {
@@ -10833,8 +11055,10 @@
     "title": "Обновление основного алгоритма ранжирования Google",
     "description": "Крупнейшее обновление поискового алгоритма, которое может значительно повлиять на рынок поискового продвижения. \"Майское обновление основного алгоритма\".",
     "h1": "Google закончил выкатывать обновление алгоритма ранжирования",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-zakonchil-vykatyvat-obnovlenie-algoritma-ranzhirovaniya--287df7de.json"
   },
   {
@@ -10845,8 +11069,10 @@
     "title": "Адаптивные медийные объявления Google Adwords",
     "description": "Новый формат рекламных объявлений Google Adwords - адаптивные медийные объявления. Описание Responsive Display Ads, RDA. Контекстная реклама Google Ads. Адаптивные медийные рекламные объявления Гугл Адвордс.",
     "h1": "Google запустит адаптивные медийные объявления",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__google-zapustit-adaptivnye-medijnye-obyavleniya--5bfd570e.json"
   },
   {
@@ -10857,8 +11083,10 @@
     "title": "Закрытие социальной сети Google+ для рядовых пользователей",
     "description": "Прекращение поддержки социальной сети Google Plus для обычных пользователей. Закрытие Google+. Проблемы и причины. Развитие бизнес-версии Гугл Плюс. Корпоративная версия соцсети.",
     "h1": "Гугл прекратит поддержку Google+",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__gugl-prekratit-podderzhku-google-pluse--3d66ca56.json"
   },
   {
@@ -10869,8 +11097,10 @@
     "title": "Отключение элементов Google+ на сайте",
     "description": "7 марта будут отключены скрипты, которые обеспечивают интеграцию сайта с социальной сетью Google+. Отключение авторизации через аккаунт пользователя в социальной сети Гугл плюс. Рекомендации Гугл по удалению с сайта элементов Google+.",
     "h1": "Гугл советует отключить на сайте элементы Google+",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__gugl-sovetuet-otkljuchit-na-sajte-elementy-google--9d78c21a.json"
   },
   {
@@ -10893,8 +11123,10 @@
     "title": "Поисковые привычки россиян в Интернете: Исследование 2021 года от Яндекса",
     "description": "Данные опроса Online Market Intelligence по исследованию поисковых привычек Россиян на 2021 год. Результаты участников опроса.",
     "h1": "Как россияне ищут в интернете: результаты опроса Online Market Intelligence",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__kak-rossiyane-ishhut-v-internete-rezultaty-oprosa-online-market-intelligence--36ea11b0.json"
   },
   {
@@ -10905,8 +11137,10 @@
     "title": "Карточки Profi.ru и YouDo теперь в Яндекс - новости МОССЕ:О",
     "description": "Интерактивные блоки с сайтов Profi.ru и YouDo в поисковой выдаче Яндекс. Расширенные карточки онлайн-сервисов в поиске.",
     "h1": "Яндекс будет показывать в колдунщике карточки Profi.ru и YouDo",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__kartochki-profi-ru-i-youdo-v-koldunshchike--48feab1d.json"
   },
   {
@@ -10917,8 +11151,10 @@
     "title": "Более высокие позиции синдицированных страниц сайта",
     "description": "Более высокие позиции в выдаче копий страницы. Видеоконференция сотрудника Google Джона Мюллера с вебмастерами. Позиции синдицированных страниц выше, чем оригинального источника",
     "h1": "Копия страницы может иметь более высокую позицию в выдаче, чем оригинал",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__kopiya-stranicy-mozhet-imet-bolee-vysokuju-poziciju-v-vydache-chem-original--2e2b8a48.json"
   },
   {
@@ -10929,8 +11165,10 @@
     "title": "Коронавирус вылечим, карантин пройдет — клиенты снова пойдут!",
     "description": "Продвижение сайта в условиях пандемии. Короновирус - время для развития и роста сайта в поисковых системах.",
     "h1": "Коронавирус вылечим, карантин пройдет - клиенты снова пойдут!",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__koronavirus--3c614fe9.json"
   },
   {
@@ -10941,8 +11179,10 @@
     "title": "Link Spam Update Google | СЕО компания по раскрутке сайтов",
     "description": "Обновление Link Spam Update в Google. Изменение поисковой выдачи Гугл. Выкатывание обновления алгоритма автоматической борьбы со ссылочным спамом.",
     "h1": "Google окончательно выкатил Link Spam Update и обновил страницу «Как работает Google Поиск»",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__link-spam-update-google--3fbbb4d5.json"
   },
   {
@@ -10965,8 +11205,10 @@
     "title": "Обновление панели вебмастера",
     "description": "Яндекс сообщил об очень удобном обновлении панели вебмастера. Отображение информации о турбо-страницах на странице \"Мои сайты\".",
     "h1": "На странице “Мои сайты” в Яндекс.Вебмастере появилась информация о турбо-страницах",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__na-stranice-moi-sajty-v-yandeks-vebmastere-poyavilas-informaciya-o-turbo-stranicah--06a285a4.json"
   },
   {
@@ -10977,8 +11219,10 @@
     "title": "Запуск нового сервиса Google - Dataset Search, возможности",
     "description": "Новый сервис поиска по наборам данных Google. Dataset Search - сервис по поиску информации на сайтах. Правила индексирования набора данных.",
     "h1": "Наборы данных теперь можно найти с помощью Google",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__nabory-dannyh-teper-mozhno-najti-s-pomoshchyu-google--8b2ba3c3.json"
   },
   {
@@ -10989,8 +11233,11 @@
     "title": "SEO настройка сайта в Яндексе для продвижение в ТОП 10",
     "description": "Настройка сайтов для SEO продвижения и оптимизации в поисковой системе Яндекс. Редактирование Яндекс Вебмастер, Яндекс Справочник и поисковые сниппеты в выдаче.",
     "h1": "Настройка сайта для Яндекса",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "warning",
+    "issue_codes": [
+      "html_fallback",
+      "high_link_density"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__nastrojka-sajta-dlya-yandeksa--4012dd52.json"
   },
   {
@@ -11001,8 +11248,10 @@
     "title": "Обновление алгоритма ранжирования сайтов в Яндекс",
     "description": "Яндекс обновил алгоритм ранжирования сайтов. Индексация неканонических страниц в поисковой выдаче. Прирост количества URL-адресов в поиске. Обновление панели вебмастера.",
     "h1": "Неканонические страницы будут чаще появляться в поиске Яндекса",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__nekanonicheskie-stranicy-budut-chashhe-poyavlyatsya-v-poiske-yandeksa--5da87813.json"
   },
   {
@@ -11013,8 +11262,10 @@
     "title": "Nofollow-ссылки - влияние на продвижение сайта | новости СЕО",
     "description": "Ссылки, которые закрыты от индексации атрибутом nofollow, также учитываются поисковыми системами в процессе ранжирования (по крайней мере, так делает Гугл). Поисковая оптимизация сайтов от агентства в Москве.",
     "h1": "Nofollow-ссылки влияют на продвижение сайта",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__nofollow-ssylki-vliyajut-na-prodvizhenie-sajta--258c89e8.json"
   },
   {
@@ -11025,8 +11276,10 @@
     "title": "Новая функция в Яндекс.Директ - новости СЕО",
     "description": "Новая функция в мастере кампаний Яндекс.Директа. Автоматическая компоновка заголовков, текстов, изображений и видео в объявлении.",
     "h1": "Яндекс.Директ научился автоматически подбирать выигрышные комбинации элементов объявления",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__novaya-funkciya-v-yandeks-direkt--6b6e5ce6.json"
   },
   {
@@ -11049,8 +11302,10 @@
     "title": "Новая технология индексирования сайтов IndexNow - МОССЕО",
     "description": "Яндекс и компания Microsoft запустили новую технология индексирования сайтов IndexNow. Передача информации об изменениях на сайте поисковику по API.",
     "h1": "Яндекс совместно с Microsoft запустили новую технологию индексирования сайтов IndexNow",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__novaya-tekhnologiya-indeksirovaniya-sajtov-indexnow--152b04dc.json"
   },
   {
@@ -11061,8 +11316,10 @@
     "title": "Определитель номера от Яндекса: маркировка и защита бизнеса от спама",
     "description": "Новые возможности для бизнеса: маркировка телефонных номеров, видимость информации при входящих звонках, проверка на спам-статус и автоматическое отклонение нежелательных звонков с сокращением расходов.",
     "h1": "Новые возможности автоматического определителя номера для бизнеса от Яндекса",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__novye-vozmozhnosti-avtomaticheskogo-opredelitelya-nomera-dlya-biznesa-ot-yandeksa--731b8941.json"
   },
   {
@@ -11073,8 +11330,10 @@
     "title": "Обновление формирования заголовков для выдачи в Google",
     "description": "Обновление алгоритма для подсистемы формирования заголовков для выдачи в Google. Подмена в выдаче заголовков из title на содержимое тегов h1 и h2.",
     "h1": "Google перестанет учитывать текст из title при формировании заголовков в выдаче",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__obnovlenie-formirovaniya-zagolovkov-dlya-vydachi-v-google--036c29ae.json"
   },
   {
@@ -11097,8 +11356,10 @@
     "title": "Отчеты Яндекс.Маркета стали доступнее  - СЕО новости",
     "description": "Яндекс более чем в 3 раза снизил требования к партнёрам Яндекс.Маркета и сделал доступ в Аналитику доступнее. Об этом и не только узнавайте на сайте МОССЕО.",
     "h1": "Отчеты Яндекс.Маркета стали доступнее",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__otchety-yandeks-marketa-stali-dostupnee--ada602d4.json"
   },
   {
@@ -11109,8 +11370,10 @@
     "title": "Новый раздел в Яндекс.Вебмастере, управление отзывами",
     "description": "Раздел управления отзывами в панели вебмастера. Условия управления ответами на отзывы о компании из Яндекс.Вебмастера. Подтверждение прав. Рейтинг компании. Ранжирование организаций в сервисе Яндекс.Карты.",
     "h1": "Отзывами теперь можно управлять из панели вебмастера",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__otzyvami-teper-mozhno-upravlyat-iz-paneli-vebmastera--2a5c9658.json"
   },
   {
@@ -11219,8 +11482,10 @@
     "title": "Расширенные сниппеты для PDF-файлов в системе Google",
     "description": "Нововведение Google. Отображение расширенного сниппета для PDF-файлов. Определение и показ дополнительной информации для сниппетов PDF-файлов.",
     "h1": "PDF-файлы получили расширенные сниппеты в Google",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__pdf-fajly-poluchili-rasshirennye-snippety-v-google--173384d8.json"
   },
   {
@@ -11231,8 +11496,10 @@
     "title": "Обновление основного алгоритма Google: Влияние на поисковую выдачу",
     "description": "Узнайте об изменениях в поисковой выдаче Google после крупного обновления основного алгоритма. Подробнее узнайте, какие сферы и ресурсы сильнее всего почувствовали изменения, и как многие оптимизаторы сообщают о значительной потере трафика.",
     "h1": "Первые впечатления от майских обновлений алгоритма ранжирования Google",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__pervye-vpechatleniya-ot-majskih-obnovlenij-algoritma-ranzhirovaniya-google--f6fddee5.json"
   },
   {
@@ -11243,8 +11510,10 @@
     "title": "Первый в России калькулятор цены на SEO продвижение сайта",
     "description": "Зачем переплачивать за услуги по SEO-продвижению, которые Вам не нужны? Именно так подумали мы и сделали для наших клиентов калькулятор цен и услуг по поисковой оптимизации сайта. Редактируйте тарифы на СЕО и рассчитывайте Ваши расходы в режиме онлайн.",
     "h1": "Первый в России калькулятор цены на SEO продвижение сайта",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__pervyj-kalkulyator-ceny-na-seo-prodvizheniya-v-rossii--e8fde955.json"
   },
   {
@@ -11255,8 +11524,10 @@
     "title": "Поисковая выдача Яндекс стала блочной - МОССЕО",
     "description": "Обновленный дизайн страницы поисковой выдачи Яндекс на десктопах. Ссылки на сайт в виде блоков. Разделение результатов поиска.",
     "h1": "Поисковая выдача Яндекс стала блочной",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__poiskovaya-vydacha-yandeks-stala-blochnoj--4a954594.json"
   },
   {
@@ -11267,8 +11538,10 @@
     "title": "Новые функции в мобильном приложении для Яндекс.Директа",
     "description": "Обновления в мобильном приложении для Яндекс.Директа. Новые функции решения задач по работе с контекстной рекламой.",
     "h1": "Появились новые обновления в мобильном приложении для Яндекс.Директа",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__poyavilis-novye-obnovleniya-v-mobilnom-prilozhenii-dlya-yandeks-direkta--45f5e968.json"
   },
   {
@@ -11327,8 +11600,10 @@
     "title": "Раскрыты факторы ранжирования в поисковой системе Google",
     "description": "Главные факторы ранжирования сайтов в Google, которые учитываются поисковым роботом. Контент, мета-теги title и description, скорость работы и производительность ресурса.",
     "h1": "Раскрыты 3 главных фактора ранжирования в Google",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__raskryty-3-glavnyh-faktora-ranzhirovaniya-v-google--878b9acd.json"
   },
   {
@@ -11351,8 +11626,10 @@
     "title": "Роскомнадзор продолжает закручивать гайки Гуглу - МОССЕО",
     "description": "Роскомнадзор принимает новые ужесточающие требования в отношении компании Google, касающиеся устранения нарушений российского законодательства.",
     "h1": "Роскомнадзор продолжает закручивать гайки Гуглу",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__roskomnadzor-prodolzhaet-zakruchivat-gajki-guglu--2963bd5a.json"
   },
   {
@@ -11363,8 +11640,10 @@
     "title": "Роскомнадзор заблокировал Google News - МОССЕО",
     "description": "24 марта у пользователей из России пропал доступ к новостному агрегатору Google News.",
     "h1": "Роскомнадзор заблокировал Google News",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__roskomnadzor-zablokiroval-google-news--6f12ca42.json"
   },
   {
@@ -11375,8 +11654,10 @@
     "title": "Статистика запросов пользователей в Яндекс и Google",
     "description": "Главные события и темы, наиболее популярные в 2018 году. Статистика поисковых запросов пользователей в Яндекс и Google. Топ-5 событий, людей, мемов и утрат.",
     "h1": "Самые популярные поисковые запросы в 2018 году",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__samye-populyarnye-poiskovye-zaprosy-v-2018-godu--253e5077.json"
   },
   {
@@ -11411,8 +11692,10 @@
     "title": "Порядок SEO продвижения сайта, новая методика раскрутки сайта",
     "description": "Продвижение сайтов в поисковых системах Яндекс и Google по новой технологии Brainstorm. Гарантированный результат продвижения сайта в ТОП поисковой выдачи.",
     "h1": "SEO технология Brainstorm",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__seo-brainstorm--35f474e1.json"
   },
   {
@@ -11423,8 +11706,10 @@
     "title": "Влияние скорости загрузки страниц на ранжирование в Google",
     "description": "Скорость загрузки страниц сайта не влияет на ранжирование в Google. Релевантность контента на странице. Основные факторы влияние на позиции ресурса.",
     "h1": "Скорость загрузки страниц почти не влияет на ранжирование в Google",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__skorost-zagruzki-stranic-pochti-ne-vliyaet-na-ranzhirovanie-v-google--803a7f87.json"
   },
   {
@@ -11435,8 +11720,10 @@
     "title": "Защищенный протокол HTTPS, новый отчет в Яндекс.Радаре",
     "description": "Доля трафика на сайтах с протоколом HTTPS. Новый отчет в Яндекс.Радаре по количеству сайтов с защищенным протоколом HTTPS.",
     "h1": "Согласно Яндекс.Радару 90% сайтов перешли на протокол HTTPS",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__soglasno-yandeks-radaru-90-sajtov-pereshli-na-protokol-https--605da5b7.json"
   },
   {
@@ -11447,8 +11734,10 @@
     "title": "Клоакинг в SEO: понятие, отличия и подходы к использованию",
     "description": "Узнайте о клоакинге, методе 'чёрного' SEO-продвижения, при котором поисковым роботам показывается один контент, а пользователям - другой. Заказать SEO продвижение сайтов.",
     "h1": "Сотрудник Google объяснил что компания считает клоакингом",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__sotrudnik-google-obyasnil-chto-kompaniya-schitaet-kloakingom--aa2ae856.json"
   },
   {
@@ -11459,8 +11748,10 @@
     "title": "Продвижение сайта с помощью SEO-ссылок и 301-редиректа в Google",
     "description": "SEO-продвижение сайта в Google. Продвижение веб-ресурса SEO-ссылками. Наращивание ссылочной массы с помощью 301-редиректа.",
     "h1": "Сотрудник Google рассказал о продвижении сайта с помощью SEO-ссылок и 301-редиректа",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__sotrudnik-google-rasskazal-o-prodvizhenii-sajta-s-pomoshhju-seo-ssylok-i-301-redirekta--9116f45f.json"
   },
   {
@@ -11471,8 +11762,10 @@
     "title": "Показатели качества текстов для Яндекс и Google",
     "description": "Комментарий сотрудника Google Джона Мюллера о показателях, влияющих на качество текста на страницах сайта. Влияние поведенческих факторов на ранжирование интернет-сайта в поисковых системах Яндекс и Google.",
     "h1": "Сотрудник Google удивил всех своим комментарием о показателях качества текста",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__sotrudnik-google-udivil-vseh-svoim-kommentariem-o-pokazatelyah-kachestva-teksta--ced0b65f.json"
   },
   {
@@ -11483,8 +11776,10 @@
     "title": "Влияние смены хостинга на позиции сайта в поисковой выдаче",
     "description": "Ухудшение позиций сайта в поисковой выдаче после смены хостинга. Влияние на индексацию и скорость загрузки страниц. Поведенческие факторы.",
     "h1": "Сотрудник Google заявил, что смена хостинга не влияет на позиции сайта",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__sotrudnik-google-zayavil-chto-smena-hostinga-ne-vliyaet-na-pozicii-sajta--2a839e37.json"
   },
   {
@@ -11495,8 +11790,10 @@
     "title": "Создание сайтов из страницы в Instagram - MOSSEO",
     "description": "Новая функция от Яндекса для малого бизнеса в Инстаграм. Возможность создавать сайты из страницы Instagram. Реклама в поисковой выдаче.",
     "h1": "Яндекс запустил возможность создавать сайты из страницы в Instagram",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__sozdanie-sajtov-iz-stranicy-v-instagram--3a2510fb.json"
   },
   {
@@ -11507,8 +11804,10 @@
     "title": "Виджет статистики сайта в поисковой выдаче Google",
     "description": "Новый виджет со статистикой сайта от Google. Статистика о посещаемости и видимости веб-ресурса в поисковой выдаче Google.",
     "h1": "Статистику сайта можно будет посмотреть в поисковой выдаче, но это не точно",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__statistiku-sajta-mozhno-budet-posmotret-v-poiskovoj-vydache-no-ehto-ne-tochno--94c9eeef.json"
   },
   {
@@ -11519,8 +11818,10 @@
     "title": "Десктопная версия турбо-страниц, разработка турбо-страниц",
     "description": "Создание и подключение турбо-страниц Яндекс для персональных компьютеров. Десктопная версия турбо-страниц. Их влияние на SEO продвижение сайтов в поисковой выдаче.",
     "h1": "Турбо-страницы начнут работать на десктопных устройствах",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__turbo-stranicy-nachnut-rabotat-na-desktopnyh-ustrojstvah--4d821d35.json"
   },
   {
@@ -11543,8 +11844,10 @@
     "title": "Знаки и типы меток для сайтов в поисковой выдаче Яндекс",
     "description": "Знаки качества сайта в поисковой системе Яндекс. Виды специальных меток для веб-ресурса в поисковой выдаче. Принцип присвоения отличительных символов для сайта в результатах поиска Яндекс.",
     "h1": "У сайтов появились знаки качества",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__u-sajtov-poyavilis-znaki-kachestva--69ffd4b3.json"
   },
   {
@@ -11555,8 +11858,10 @@
     "title": "Умная камера от Яндекса стала ещё умнее - новости СЕО",
     "description": "Яндекс обновил умную камеру. Сканирование и распознавание документов, перевод текстов, определение предметов. Обновление технологии.",
     "h1": "Умная камера от Яндекса стала ещё умнее",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__umnaya-kamera-ot-yandeksa-stala-eshhjo-umnee--1ea92624.json"
   },
   {
@@ -11567,8 +11872,10 @@
     "title": "Оповещения о медленной скорости загрузки страниц сайта",
     "description": "Оповещение в Google Search Console о медленной скорости загрузки страниц сайта. Снижение позиций медленных страниц в поисковой выдаче Google для мобильных и десктопных устройств. Алгоритм",
     "h1": "Уведомления о медленных страницах начали приходить в Google Search Console",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__uvedomleniya-o-medlennyh-stranicah-nachali-prihodit-v-google-search-console--28642cf2.json"
   },
   {
@@ -11579,8 +11886,10 @@
     "title": "Уведомления о заказах из Яндекс.Бизнеса",
     "description": "Компании, которые подключили в профиле Яндекс.Бизнеса форму заявки или добавили корзину на сайт, теперь могут получать уведомления о заказах в Telegram.",
     "h1": "Теперь уведомления о заказах из Яндекс.Бизнеса можно получать в Telegram",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__uvedomleniya-o-zakazah-iz-yandeks-biznesa--7728febc.json"
   },
   {
@@ -11591,8 +11900,10 @@
     "title": "В Google разработали тест для специалистов СЕО - новости MOSSEO",
     "description": "Тест на проверку знанию сеошников от Google. Тест ГУГЛ для SEO-специалистов. Проверка знания правил сканирования поисковиком.",
     "h1": "В Google разработали тест для специалистов СЕО",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-google-razrabotali-test-dlya-specialistov-seo--702aece9.json"
   },
   {
@@ -11603,8 +11914,10 @@
     "title": "Новый отчет Speed Report в Google Search Console",
     "description": "Бета-тестирование нового отчета Speed Report. Новая технология отчета о скорости загрузки сайта. Инструмент браузера Chrome.",
     "h1": "В Google Search Console появится новый отчёт Speed Report",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-google-search-console-poyavitsya-novyj-otchjot-speed-report--639b30f3.json"
   },
   {
@@ -11627,8 +11940,10 @@
     "title": "Рекомендации для сайтов в панели Яндекс.Вебмастер",
     "description": "Рекомендации для сайтов в панели вебмастера. Оформление разметки видео. Заполнение информации об организации в Яндекс.Справочнике. Настройка онлайн-чата с компанией. Перевод всех страниц сайта в турбо-формат.",
     "h1": "В панели Яндекс.Вебмастера появились новые рекомендации для сайтов",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-paneli-yandeks-vebmastera-poyavilis-novye-rekomendacii-dlya-sajtov--03fd078b.json"
   },
   {
@@ -11651,8 +11966,10 @@
     "title": "Панель знаний в поиске Google",
     "description": "Панель знаний в поисковой выдаче Google. Эскперимент компании Google по улучшению поиска. Блок с основной информацией в поиске.",
     "h1": "В поиске Google пропала панель знаний",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-poiske-google-propala-panel-znanij--473fa187.json"
   },
   {
@@ -11663,8 +11980,10 @@
     "title": "Отображение фавиконок в поисковой выдаче Google",
     "description": "Появление фавкионок сайтов на странице поиска Google. Показ и отображение значков веб-ресурсов в поисковой выдаче. Гугл тестирует отображение favicon в сниппетах сайтов.",
     "h1": "В поиске Google снова появились фавиконки",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-poiske-google-snova-poyavilis-favikonki--ac33c7ca.json"
   },
   {
@@ -11675,8 +11994,10 @@
     "title": "Двойные быстрые ответы в Яндексе - новости СЕО",
     "description": "По некоторым запросам в Яндекс.Поиске стали появляться двойные ответы.",
     "h1": "В поиске Яндекс начали появляться двойные быстрые ответы",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-poiske-yandeks-nachali-poyavlyatsya-dvojnye-bystrye-otvety--2afa7174.json"
   },
   {
@@ -11687,8 +12008,10 @@
     "title": "Новый рекламный инструмент в поиске Яндекса - \"Суперответ\"",
     "description": "Запуск нового рекламного инструмента под названием \"Суперответ\" в поиске Яндекса. Вывод ответа на запрос пользователя в поисковой выдаче.",
     "h1": "В поиске Яндекса появится новый рекламный инструмент",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-poiske-yandeksa-poyavitsya-novyj-reklamnyj-instrument--1c985ee8.json"
   },
   {
@@ -11699,8 +12022,10 @@
     "title": "Резкое изменение позиций сайтов в результатах выдачи Яндекс",
     "description": "Колебания в поисковой выдаче Яндекс. Изменение позиций сайтов в результатах поисковой выдачи Яндекс. Падение позиций запросов веб-ресурса.",
     "h1": "В поисковой выдаче Яндекс произошли колебания",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-poiskovoj-vydache-yandeks-proizoshli-kolebaniya--c9b48e5e.json"
   },
   {
@@ -11711,8 +12036,10 @@
     "title": "Яндекс увеличил выручку на 110 миллиардов рублей - МОССЕО",
     "description": "Яндекс увеличил выручку компании на 110 миллиардов рублей в 2021 году.",
     "h1": "В прошлом году Яндекс увеличил выручку на 110 миллиардов рублей",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-proshlom-godu-yandeks-uvelichil-vyruchku-na-110-milliardov-rublej--54d478b4.json"
   },
   {
@@ -11723,8 +12050,10 @@
     "title": "Обновление поискового алгоритма Google, изменения в Гугл",
     "description": "Изменения поискового алгоритма Google. Обновление и адаптирование поискового алгоритма Google к современным условиям поиска. Улучшение поисковой выдачи Гугл: показ более релевантных сайтов под запросы пользователей.",
     "h1": "В сентябре Google обновил поисковый алгоритм",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-sentyabre-google-obnovil-poiskovyj-algoritm--26e37b90.json"
   },
   {
@@ -11747,8 +12076,10 @@
     "title": "Колебания в выдаче Яндекса: Тестирование нового алгоритма ранжирования",
     "description": "Наблюдения показывают неожиданный рост и падение сайтов независимо от их размера или качества. Узнайте, как Яндекс объясняет эти колебания и какие действия предпринимает компания для улучшения оценки качества ресурсов в выдаче.",
     "h1": "В выдаче Яндекса замечены колебания",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-vydache-yandeksa-zamecheny-kolebaniya--16a11507.json"
   },
   {
@@ -11771,8 +12102,10 @@
     "title": "В Яндекс.Директе появилась возможность привязывать карточку организации к объявлению",
     "description": "Возможность привязать карточку организации к объявлению в Яндекс.Директе.",
     "h1": "В Яндекс.Директе появилась возможность привязывать карточку организации к объявлению",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-direkte-poyavilas-vozmozhnost-privyazyvat-kartochku-organizacii-k-obyavleniju--dd41ada3.json"
   },
   {
@@ -11783,8 +12116,10 @@
     "title": "Отдельное поле для цены в объявлениях в Яндекс.Директе",
     "description": "Создания объявления с ценами на поиске и РСЯ. Функция добавления цены в Яндекс.Директе. Отдельное поле в объявлениях в поиске и РСЯ.",
     "h1": "В Яндекс.Директе теперь можно создавать объявления с ценами на поиске и РСЯ",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-direkte-teper-mozhno-sozdavat-obyavleniya-s-cenami-na-poiske-i-rsya--fa44f668.json"
   },
   {
@@ -11795,8 +12130,10 @@
     "title": "Новые отчеты по взаимодействию с контентом в Яндекс.Метрике",
     "description": "Новый вид отчетов в Яндекс.Метрике для сайтов с медийным контентом. Сводный и детальный. Порядок подключения отчетов.",
     "h1": "В Яндекс.Метрике появились новые отчёты по взаимодействию пользователей с контентом",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-metrike-poyavilis-novye-otchjoty-po-vzaimodejstviju-polzovatelej-s-kontentom--3055e8c8.json"
   },
   {
@@ -11807,8 +12144,10 @@
     "title": "Расширенная статистика страниц и поисковых запросов от Яндекс.Вебмастер",
     "description": "Новая функциональность Яндекс.Вебмастера для скачивания расширенной статистики страниц сайта и поисковых запросов. Заказать SEO продвижение сайтов в Москве.",
     "h1": "В Яндекс.Вебмастере появилась расширенная статистика поисковых запросов и позиций страниц",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-poyavilas-rasshirennaya-statistika-poiskovyh-zaprosov-i-pozicij-stranic--6e2c0014.json"
   },
   {
@@ -11819,8 +12158,10 @@
     "title": "В Яндекс.Вебмастере появилась сводка по статистике турбо-страниц",
     "description": "Сводка по расширенной статистике турбо-страниц в Яндекс.Вебмастере.",
     "h1": "В Яндекс.Вебмастере появилась сводка по статистике турбо-страниц",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-poyavilas-svodka-po-statistike-turbo-stranic--4052ef07.json"
   },
   {
@@ -11831,8 +12172,10 @@
     "title": "Заметки о последних обновлениях в сервисе Яндекс.Вебмастер",
     "description": "Новости об обновлениях для каждого раздела и инструмента в сервисе Яндекс.Вебмастер. Заметки о последних обновлениях в разделах.",
     "h1": "В Яндекс.Вебмастере появились заметки о последних обновлениях в разделах",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-poyavilis-zametki-o-poslednih-obnovleniyah-v-razdelah--844e312b.json"
   },
   {
@@ -11843,8 +12186,10 @@
     "title": "Нейровебмастер: ИИ-ассистент для вебмастеров на Yandex GPT 5 Pro",
     "description": "Нейровебмастер - новый ИИ-виджет в Яндекс Вебмастере на базе Yandex GPT 5 Pro. Получайте мгновенные ответы на вопросы, советы по оптимизации сайта и рекомендации по поиску без ожидания поддержки.",
     "h1": "В Яндекс.Вебмастере появился Нейровебмастер – ИИ-виджет, который отвечает на вопросы пользователей о работе платформы",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-poyavilsya-nejrovebmaster-ii-vidzhet-kotoryj-otvechaet-na-voprosy-polzovatelej-o-rabote-platformy--1f5f890b.json"
   },
   {
@@ -11855,8 +12200,10 @@
     "title": "Индекс качества сайта (ИКС) в Яндекс.Вебмастер",
     "description": "Рост индекса качества сайта и получение знаков в поисковой выдаче Яндекс. Значение ИКС в панели вебмастера. Сравнение конкурентов. Рекомендации по улучшению качества сайта.",
     "h1": "В Яндекс.Вебмастере появился новый раздел с информацией о качестве сайта",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-poyavilsya-novyj-razdel-s-informaciej-o-kachestve-sajta--7cae485e.json"
   },
   {
@@ -11867,8 +12214,10 @@
     "title": "Новая шкала оценки скорости загрузки страниц в Яндекс.Вебмастере",
     "description": "Скорость загрузки страниц является ключевым фактором для SEO-продвижения. Обращайтесь к специалисту, если ваш сайт имеет низкие показатели скорости загрузки для улучшения его эффективности.",
     "h1": "В Яндекс.Вебмастере теперь отображается показатель скорости загрузки сайта",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-teper-otobrazhaetsya-pokazatel-skorosti-zagruzki-sajta--0c75b5e0.json"
   },
   {
@@ -11879,8 +12228,10 @@
     "title": "Обновление приложения Google Adwords",
     "description": "Обновление версии редактора Google Adwords 12.5. Основные изменения и нововведения системы интернет-рекламы. Полное описание обновления новой версии Гугл Адвордс.",
     "h1": "Вышло обновление редактора Google Adwords",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__vyshlo-obnovlenie-redaktora-google-adwords--0ae63c2f.json"
   },
   {
@@ -11891,8 +12242,10 @@
     "title": "Некорректный сертификат безопасности в поиске и панели вебмастера",
     "description": "Уведомление в поиске и панели вебмастера - на сайте некорректный SSL-сертификат безопасности. Исключение сайта из выдачи. Удаление и исправление критичной ошибки сайта.",
     "h1": "Яндекс будет помечать сайты с некорректным SSL-сертификатом",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-budet-pomechat-sajty-s-nekorrektnym-ssl-sertifikatom--58dea5a8.json"
   },
   {
@@ -11905,6 +12258,7 @@
     "h1": "Яндекс.Директ для новичков",
     "severity": "warning",
     "issue_codes": [
+      "html_fallback",
       "high_link_density"
     ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-direkt-dlya-novichkov--368332cf.json"
@@ -11917,8 +12271,10 @@
     "title": "Яндекс.Директ вводит оплату рекламы за конверсии",
     "description": "Помощь бизнесу выжить в период кризиса - новый способ оплаты рекламы за конверсии от Яндекс.Директ. Заказать услуги СЕО раскрутки сайтов.",
     "h1": "Яндекс.Директ вводит оплату рекламы за конверсии",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-direkt-vvodit-oplatu-reklamy-za-konversii--fd10c5ff.json"
   },
   {
@@ -11929,8 +12285,10 @@
     "title": "Новый счётчик в Метрике от Яндекса - новости MOSSEO",
     "description": "На новом счётчике в Метрике теперь можно отслеживать как пользователи взаимодействовали с карточкой компании в Справочнике. Поисковая оптимизация сайтов от агентства в Москве.",
     "h1": "Яндекс добавил новый счётчик из Справочника в Метрику",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-dobavil-novyj-schjotchik-iz-spravochnika-v-metriku--5d5751bf.json"
   },
   {
@@ -11941,8 +12299,10 @@
     "title": "Новый отчет для турбо-страниц в Яндекс.Метрике",
     "description": "Статистика и отчет для турбо-страниц в Яндекс.Метрике: количество входящего трафика, количество отказов, глубина просмотра страниц, время проведенное на сайте, процент конверсии и другие показатели вовлеченности пользователей.",
     "h1": "Яндекс добавил в метрику новый отчёт для турбо-страниц",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-dobavil-v-metriku-novyj-otchjot-dlya-turbo-stranic--c21a4f4a.json"
   },
   {
@@ -11953,8 +12313,10 @@
     "title": "Редактор постов в десктопной версии от Яндекса",
     "description": "Редактор постав будет работать и на десктопе в Яндекс.Дзене. Особенности формата постов в Дзене.",
     "h1": "Редактор постов в десктопной версии Яндекс.Дзен",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-dzen-zapustil-redaktor-postov-v-desktopnoj-versii--64a36224.json"
   },
   {
@@ -11965,8 +12327,10 @@
     "title": "История всплеска кликов в контекстной рекламе - новости СЕО",
     "description": "Рост кликов в контекстной рекламе мебельных магазинов. Яндекс в рамках программы лояльности вернул часть израсходованных средств рекламодателям в связи с нетипичной ситуацией.",
     "h1": "Яндекс.Маркет вернул деньги мебельным магазинам из-за интернет-флешмоба",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-market-vernul-dengi-mebelnym-magazinam-iz-za-internet-fleshmoba--1f9cab2c.json"
   },
   {
@@ -11977,8 +12341,10 @@
     "title": "Яндекс.Маркет запустил рекомендации цен для рекламы товаров",
     "description": "Подсказки по ценам на товары в рекламных компаниях Яндекс.Маркета. Продвижение товаров с помощью рекламы на поиске и карточке товара. Рекомендации по ценам.",
     "h1": "Яндекс.Маркет запустил рекомендации цен",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-market-zapustil-rekomendacii-cen-dlya-reklamy-tovarov--3545eecb.json"
   },
   {
@@ -11989,8 +12355,10 @@
     "title": "Понижение сайтов в поисковой выдаче Яндекс из-за рекламы",
     "description": "Падение позиций сайта в поиске Яндекс. Некачественная реклама сервиса Google Adsense. Обновление алгоритма ранжирования Яндекс. Отслеживание рекламы на веб-ресурсе, которая вводить пользователя в заблуждение.",
     "h1": "Яндекс может понизить сайт в выдаче из-за рекламы Google",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-mozhet-ponizit-sajt-v-vydache-iz-za-reklamy-google--a6d60b33.json"
   },
   {
@@ -12001,8 +12369,10 @@
     "title": "Предупреждение Яндекс для пользователей о незащищенных HTTP-сайтах",
     "description": "Технологии Яндекс о предупреждении пользователей о незащищенных сайтах в поиске. Влияние защищенной версии протокола HTTPS на ранжирование сайта в поисковых системах. Переход сайтов на новый стандарт защиты.",
     "h1": "Яндекс начал предупреждать о незащищённых HTTP-сайтах",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-nachal-preduprezhdat-o-nezashhishhjonnyh-http-sajtah--fba19645.json"
   },
   {
@@ -12013,8 +12383,10 @@
     "title": "Яндекс научился распознавать товары по картинкам - МОССЕО",
     "description": "Теперь в поисковой выдаче Яндекс можно находить похожие товары по картинкам. Новая функция распознавания товаров по изображениям",
     "h1": "Яндекс научился распознавать товары по картинкам и подсказывать где их можно купить",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-nauchilsya-raspoznavat-tovary-po-kartinkam--2740fe64.json"
   },
   {
@@ -12025,8 +12397,10 @@
     "title": "Обновление алгоритма подборазапросов в Яндекс.Вебмастер",
     "description": "Новая группы рекомендованных запросов сайта в панели Яндекс.Вебмастер - которые ранее в поиске не отображались. Новый алгоритм подбора рекомендованных поисковых запросов для формирования семантического ядра.",
     "h1": "Яндекс обновил алгоритм подбора рекомендованных запросов",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-obnovil-algoritm-podbora-rekomendovannyh-zaprosov--5d628a76.json"
   },
   {
@@ -12037,8 +12411,10 @@
     "title": "Обновление сниппетов сайтов в поисковой выдаче Яндекс,",
     "description": "Новые сниппеты в Яндекс. Обновление и примеры новых сниппетов в поисковой выдаче Яндекс. Горячие ссылки на контент сайта в описании под названием страницы веб-ресурса.",
     "h1": "Яндекс обновил сниппеты сайтов",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-obnovil-snippety-sajtov--b117926b.json"
   },
   {
@@ -12049,8 +12425,10 @@
     "title": "Снять ограничения с сайта за СПАМ, нарушения на сайте",
     "description": "Инструкция Яндекса о снятии ограничений с сайта за поисковый спам. Функции кнопки «Я всё исправил». Исправление и устранение нарушений в панели Яндекс.Вебмастер. Сроки проверки сайта и обязательные условия для снятия ограничений.",
     "h1": "Яндекс объяснил как снять ограничения с сайта за поисковый спам",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-obyasnil-kak-snyat-ogranicheniya-s-sajta-za-poiskovyj-spam--b94074d7.json"
   },
   {
@@ -12061,8 +12439,10 @@
     "title": "Авторизация и комментарии на турбо-страницах Яндекс,",
     "description": "Подключение комментариев на турбо-страницах в Яндекс. Подключение авторизации с помощью API. Индивидуальный индентификатор посетителя. Настройка порядка выхода. Комментарии на турбо-страницах в режиме онлайн.",
     "h1": "Яндекс подключил авторизацию и комментарии на турбо-страницах",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-podkljuchil-avtorizaciju-i-kommentarii-na-turbo-stranicah--a89df6fd.json"
   },
   {
@@ -12097,8 +12477,10 @@
     "title": "Яндекс расширяет программу поддержки бизнеса в Директе - новости СЕО",
     "description": "Узнайте о расширении программы поддержки от Яндекса, предоставляющей бесплатный доступ и бонусные рубли рекламодателям в Яндекс.Директе.",
     "h1": "Яндекс расширяет программу поддержки бизнеса в Директе",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-rasshiryaet-programmu-podderzhki-biznesa-v-direkte--312145c3.json"
   },
   {
@@ -12109,8 +12491,10 @@
     "title": "Ранжирование новостей в поиске Яндекс",
     "description": "Порядок и правила ранжирования новостей в поисковой системе Яндекс.",
     "h1": "Яндекс рассказал, что ранжирует новости по авторитетности источника",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-rasskazal-chto-ranzhiruet-novosti-po-avtoritetnosti-istochnika--270714a8.json"
   },
   {
@@ -12121,8 +12505,10 @@
     "title": "Программа поддержки бизнеса от Яндекс: бонусы, реклама в Яндекс.Директе",
     "description": "Программа поддержки бизнеса от Яндекса, которая предоставляет бонусы до 15 000 рублей для размещения рекламы в Яндекс.Директе. Получите доступ к Яндекс.Трекеру, 200 Гб на Яндекс.Диске, 25 рабочих мест в Яндекс.",
     "h1": "Яндекс раздаёт бесплатные бонусы бизнесу и дарит рекламодателям 15 000 рублей Директе",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-razdajot-besplatnye-bonusy-biznesu-i-darit-reklamodatelyam-15-000-rublej-direkte--124cfff0.json"
   },
   {
@@ -12133,8 +12519,10 @@
     "title": "Решение по рекламе малого бизнеса от Яндекса - новости СЕО",
     "description": "Помощь от Яндекса малому бизнесу, который пострадал от эпидемии коронавируса. На Яндекс.Картах можно будет заказать приоритетное размещение. SEO продвижение и раскрутка сайта в ТОП 10 под ключ.",
     "h1": "Яндекс разработал комплексное решение по рекламе малого бизнеса",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-razrabotal-kompleksnoe-reshenie-po-reklame-malogo-biznesa--34a53ed0.json"
   },
   {
@@ -12145,8 +12533,10 @@
     "title": "Яндекс изменил правила синих галочек для сайтов: защита пользователей в поиске",
     "description": "Новые правила присвоения знаков официальности в Яндексе с 30 июня. Синие галочки теперь только для финансовых организаций, государственных учреждений и подтвержденных соцсетей. Фокус на безопасность.",
     "h1": "Яндекс сфокусируется на защите пользователей при отображении знаков сайта",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-sfokusiruetsya-na-zashhite-polzovatelej-pri-otobrazhenii-znakov-sajta--32aad02a.json"
   },
   {
@@ -12157,8 +12547,10 @@
     "title": "Настройка результатов поисковой выдачи в Яндексе",
     "description": "Настройка функций поиска в Яндексе. Специальная страница для настроек результатов поиска. Поисковая выдача в браузере. Сокращение настроек результатов поисковой выдачи.",
     "h1": "Яндекс сократил настройки результатов поисковой выдачи",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-sokratil-nastrojki-rezultatov-poiskovoj-vydachi--793561d5.json"
   },
   {
@@ -12169,8 +12561,10 @@
     "title": "Яндекс.Справочник добавил общую статистику - новости СЕО в Москве",
     "description": "В Яндексе появилась новая статистика взаимодействия пользователей с бизнесом через сервисы Яндекса. Узнайте сколько пользователей построили маршрут к офису компании, нажали на кнопку “позвонить” или перешли на сайт организации из Поиска, Карт, Коллекций, Кью и других сервисов компании.",
     "h1": "Яндекс.Справочник добавил общую статистику для всех сервисов Яндекса",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-spravochnik-dobavil-obshhuju-statistiku-iz-vseh-servisov-yandeksa--2b10b562.json"
   },
   {
@@ -12181,8 +12575,10 @@
     "title": "Обновление профиля организации в Яндекс.Справочнике",
     "description": "Профиль компании получил отдельную страницу со своим URL-адресом в Яндекс.Справочнике. Обновление блока с товарами и услугами - отображение в виде карусели с горизонтальной прокрутной.",
     "h1": "Яндекс.Справочник обновил профили организаций",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-spravochnik-obnovil-profili-organizacij--e048fc13.json"
   },
   {
@@ -12193,8 +12589,10 @@
     "title": "Изменение в показах рекламных объявлений Яндекс.Директа",
     "description": "Закрепление объявлений, которые занимают первую строчку в Яндекс.Директе. Нововведение в контекстной рекламе для мобильных устройств.",
     "h1": "Яндекс стал закреплять в поиске рекламное объявление из Яндекс.Директа",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-stal-zakreplyat-v-poiske-reklamnoe-obyavlenie-iz-yandeks-direkta--657e1d77.json"
   },
   {
@@ -12205,8 +12603,10 @@
     "title": "Оформление сниппетов для объявлений в контекстной рекламе Яндекс",
     "description": "Уточнения с преимуществами компании в рекламных блоках в поиске Яндекс. Текстовые вставки в объявлениях в контекстной рекламе.",
     "h1": "Яндекс тестирует отображение преимуществ для рекламных объявлений в поиске",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-testiruet-otobrazhenie-preimushhestv-dlya-reklamnyh-obyavlenij-v-poiske--8e947ae0.json"
   },
   {
@@ -12217,8 +12617,10 @@
     "title": "Яндекс удалил инструмент \"Поиск по сайту\" из поисковой выдачи",
     "description": "Отключение инструмента \"Поиск по сайту\" в поисковой системе Яндекс. Поиск информации на конкретном сайте.",
     "h1": "Яндекс удалил из поисковой выдачи инструмент “Поиск по сайту”",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-udalil-iz-poiskovoj-vydachi-instrument-poisk-po-sajtu--5e9c3140.json"
   },
   {
@@ -12229,8 +12631,10 @@
     "title": "Отключение старых знаков качества в Яндекс.Вебмастере",
     "description": "Яндекс отключает старые знаки качества для сайтов в Вебмастере, которые отображали достижения и успехи сайтов в продвижении.",
     "h1": "Яндекс удалил старые знаки качества в Вебмастере",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-udalil-starye-znaki-kachestva-v-vebmastere--9aab30dc.json"
   },
   {
@@ -12253,8 +12657,10 @@
     "title": "Индекс качества сайта (ИКС) - новый показатель Яндекса",
     "description": "Новый показатель качества сайта от Яндекса. Индекс качества сайта (ИКС): алгоритм расчета и формирования показателя. Основные принципы подсчета ИКС.",
     "h1": "Яндекс запустил индекс качества сайта (ИКС)",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-zapustil-indeks-kachestva-sajta-iks--38b6fcbf.json"
   },
   {
@@ -12265,8 +12671,10 @@
     "title": "Турбо-колдунщик в мобильной выдаче Яндекс",
     "description": "Слайдер турбо-страниц в мобильной выдаче Яндекс. Дополнительный блок быстрых ответов на запросы пользователей.",
     "h1": "Яндекс запустил турбо-колдунщик в мобильной выдаче",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yandeks-zapustil-turbo-koldunshchik-v-mobilnoj-vydache--7057a2a1.json"
   },
   {
@@ -12277,8 +12685,10 @@
     "title": "Являемся партнерами Яндекса по развитию Трекера",
     "description": "Недавно мы стали партнёрами Яндекса по развитию Яндекс.Трекера и сейчас хотим подвести небольшие итоги работы с данным сервисом.",
     "h1": "Являемся партнерами Яндекса по развитию Трекера",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__yavlyaemsya-partnerami-yandeksa-po-razvitiju-trekera--7be0dd7a.json"
   },
   {
@@ -12289,8 +12699,10 @@
     "title": "Google Speed Update, оптимизация скорости загрузки сайта",
     "description": "Алгоритм ранжирования сайтов в поисковой выдаче Speed Update. Оптимизация и увеличение скорости загрузки сайта Google. Фактор ранжирования сайтов в поиске.",
     "h1": "Запуск алгоритма Speed Update сделал сайты более быстрыми и снизил процент возвратов",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-novosti__zapusk-algoritma-speed-update-sdelal-sajty-bolee-bystrymi-i-snizil-procent-vozvratov--cc7a5a3f.json"
   },
   {
@@ -12339,8 +12751,10 @@
     "title": "Бесплатный аудит сайта недвижимости | СЕО компания в Москве",
     "description": "Вашему вниманию бесплатный аудит сайта недвижимости от команды MOSSEO! SEO продвижение и раскрутка сайта в ТОП 10 под ключ. Поисковая оптимизация сайтов от агентства в Москве.",
     "h1": "Бесплатный аудит сайта недвижимости",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__audit-sajta-nedvizhimosti--9669574a.json"
   },
   {
@@ -12351,9 +12765,9 @@
     "title": "Бесплатный анализ сайта от компании MOSSEO",
     "description": "Готовые кейсы по анализу сайтов различных тематик на нашем сайте!",
     "h1": "Бесплатный анализ сайта",
-    "severity": "warning",
+    "severity": "info",
     "issue_codes": [
-      "low_content"
+      "html_fallback"
     ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__besplatnyj-analiz--c3e4a0c0.json"
   },
@@ -12389,8 +12803,10 @@
     "title": "Фильтр Google Panda | продвижение сайта в Москве",
     "description": "Информация о фильтре поисковой системы Google Панда. Услуги по разработке сайта и его оптимизации. Компания МОССЕО.",
     "h1": "Фильтр Google Panda (Гугл Панда)",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__filtr-google-panda--2879e183.json"
   },
   {
@@ -12401,8 +12817,10 @@
     "title": "Фильтр Google Penguin | СЕО раскрутка сайтов",
     "description": "Информация о фильтре поисковой системы Google Пингвин. SEO продвижение и раскрутка сайта в ТОП 10 под ключ. Поисковая оптимизация сайтов от агентства в Москве.",
     "h1": "Фильтр Google Penguin (Гугл Пингвин)",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__filtr-google-penguin--b4415112.json"
   },
   {
@@ -12413,8 +12831,10 @@
     "title": "Фильтр Яндекса Минусинск | СЕО компания в Москве",
     "description": "Примеры писем о наложении на Ваш сайт фильтра Яндекс Минусинск. Поисковая оптимизация сайтов от агентства в Москве. Заказать услуги СЕО раскрутки сайтов.",
     "h1": "Фильтр Яндекса Минусинск",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__filtr-yandeksa-minusinsk--80926c6f.json"
   },
   {
@@ -12437,8 +12857,10 @@
     "title": "Фильтр за накрутку Поведенческих факторов - СЕО статьи",
     "description": "Примеры писем о наложении на Ваш сайт фильтра Яндекса за накрутку поведенческих факторов.",
     "h1": "Фильтр за \"накрутку\" Поведенческих факторов",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__filtr-za-nakrutku-povedencheskih-faktorov--388c5772.json"
   },
   {
@@ -12449,8 +12871,10 @@
     "title": "Фильтр за переспам | СЕО компания в Москве: раскрутка сайтов",
     "description": "Примеры писем о наложении фильтра Яндекса за переспам страницы. Проседание позиций сайта из-за спама. Скорость выхода из под фильтра.",
     "h1": "Фильтр за переспам",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__filtr-za-perespam--394c47fb.json"
   },
   {
@@ -12509,8 +12933,10 @@
     "title": "Мигание сайта в ТОП-10 Яндекса - информация от МОССЕО",
     "description": "Подробная информация о мигании Вашего сайта в ТОПе поисковой выдачи Яндекса.",
     "h1": "Мигание сайта в ТОП-10 Яндекса",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__miganie-sajta-v-top-10-yandeksa--21619b68.json"
   },
   {
@@ -12533,8 +12959,10 @@
     "title": "Письма Яндексу | Связь с поисковыми системами",
     "description": "Ознакомьтесь с самыми распространенными ответами техподдержки Яндекса на письма оптимизаторов.",
     "h1": "Письма Яндексу - держите связь!",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__pisma-yandeksu--6b573baf.json"
   },
   {
@@ -12605,8 +13033,10 @@
     "title": "Спам фильтр Яндекса | СЕО компания в Москве: раскрутка сайтов",
     "description": "Подробная информация о принципе работы спам-фильтра Яндекса. SEO компания для успешного продвижения сайта в топ 10.",
     "h1": "СПАМ фильтр Яндекса",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__spam-filtr-yandeksa--67a2d918.json"
   },
   {
@@ -12617,8 +13047,10 @@
     "title": "Записки SEOшника | СЕО компания в Москве: раскрутка сайтов",
     "description": "Информация о фильтрах и санкциях со стороны поисковых систем. SEO-статьи от компании Моссео.",
     "h1": "Записки SEOшника",
-    "severity": "ok",
-    "issue_codes": [],
+    "severity": "info",
+    "issue_codes": [
+      "html_fallback"
+    ],
     "page_file": "site_pipeline/output/pages/vse-o-seo-prodvizhenii__seo-stati__zapiski-seoshnika--2c17c685.json"
   },
   {

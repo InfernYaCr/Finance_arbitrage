@@ -1,52 +1,2192 @@
 [
   {
-    "id": "vse-o-seo-prodvizhenii__seo-novosti--5117a362",
-    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/",
-    "path": "/vse-o-seo-prodvizhenii/seo-novosti/",
-    "section": "vse-o-seo-prodvizhenii",
+    "id": "index--f26af4e6",
+    "url": "https://mosseo.ru/",
+    "path": "/",
+    "section": "root",
     "status_code": 200,
     "content_source": "html_fallback",
-    "text_chars": 4617,
-    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/3"
+    "text_chars": 35946,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4"
   },
   {
-    "id": "vse-o-seo-prodvizhenii__seo-novosti__page__5--df45a703",
-    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/page/5/",
-    "path": "/vse-o-seo-prodvizhenii/seo-novosti/page/5/",
-    "section": "vse-o-seo-prodvizhenii",
+    "id": "faq__atribut-title-dlya-ssylok-na-sajte--40e7adeb",
+    "url": "https://mosseo.ru/faq/atribut-title-dlya-ssylok-na-sajte/",
+    "path": "/faq/atribut-title-dlya-ssylok-na-sajte/",
+    "section": "faq",
     "status_code": 200,
     "content_source": "html_fallback",
-    "text_chars": 4460,
-    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/3"
+    "text_chars": 2473,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/8023"
   },
   {
-    "id": "vse-o-seo-prodvizhenii__seo-novosti__page__7--93415a30",
-    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/page/7/",
-    "path": "/vse-o-seo-prodvizhenii/seo-novosti/page/7/",
-    "section": "vse-o-seo-prodvizhenii",
+    "id": "faq__chto-takoe-kontekstnaya-reklama--c3a60fd9",
+    "url": "https://mosseo.ru/faq/chto-takoe-kontekstnaya-reklama/",
+    "path": "/faq/chto-takoe-kontekstnaya-reklama/",
+    "section": "faq",
     "status_code": 200,
     "content_source": "html_fallback",
-    "text_chars": 4375,
-    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/3"
+    "text_chars": 2614,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/78"
   },
   {
-    "id": "vse-o-seo-prodvizhenii__seo-novosti__page__9--8a3618c4",
-    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/page/9/",
-    "path": "/vse-o-seo-prodvizhenii/seo-novosti/page/9/",
-    "section": "vse-o-seo-prodvizhenii",
+    "id": "faq__chto-takoe-landing-page--caaec5b3",
+    "url": "https://mosseo.ru/faq/chto-takoe-landing-page/",
+    "path": "/faq/chto-takoe-landing-page/",
+    "section": "faq",
     "status_code": 200,
     "content_source": "html_fallback",
-    "text_chars": 3636,
-    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/3"
+    "text_chars": 2602,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/85"
   },
   {
-    "id": "vse-o-seo-prodvizhenii__seo-stati--8372b07c",
-    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/",
-    "path": "/vse-o-seo-prodvizhenii/seo-stati/",
+    "id": "faq__chto-takoe-povedencheskie-faktory--7c837585",
+    "url": "https://mosseo.ru/faq/chto-takoe-povedencheskie-faktory/",
+    "path": "/faq/chto-takoe-povedencheskie-faktory/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2582,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/91"
+  },
+  {
+    "id": "faq__chto-takoe-seo-seo-optimizaciya--658cdab5",
+    "url": "https://mosseo.ru/faq/chto-takoe-seo-seo-optimizaciya/",
+    "path": "/faq/chto-takoe-seo-seo-optimizaciya/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2458,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/2524"
+  },
+  {
+    "id": "faq__chto-takoe-seo-ssylka-i-kak-ona-vliyaet-na-prodvizhenie-sajta--1722aafb",
+    "url": "https://mosseo.ru/faq/chto-takoe-seo-ssylka-i-kak-ona-vliyaet-na-prodvizhenie-sajta/",
+    "path": "/faq/chto-takoe-seo-ssylka-i-kak-ona-vliyaet-na-prodvizhenie-sajta/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2420,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4435"
+  },
+  {
+    "id": "faq__effektivny-li-avtomaticheskie-servisy-seo-prodvizheniya-sajta--d8ec3889",
+    "url": "https://mosseo.ru/faq/effektivny-li-avtomaticheskie-servisy-seo-prodvizheniya-sajta/",
+    "path": "/faq/effektivny-li-avtomaticheskie-servisy-seo-prodvizheniya-sajta/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2737,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4443"
+  },
+  {
+    "id": "faq__gde-vzyat-unikalnyj-seo-tekst-dlya-sajta--6e50fe0b",
+    "url": "https://mosseo.ru/faq/gde-vzyat-unikalnyj-seo-tekst-dlya-sajta/",
+    "path": "/faq/gde-vzyat-unikalnyj-seo-tekst-dlya-sajta/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2331,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4445"
+  },
+  {
+    "id": "faq__kak-dlina-url-adresa-stranicy-vliyaet-na-seo-prodvizhenie-sajta--49313a8c",
+    "url": "https://mosseo.ru/faq/kak-dlina-url-adresa-stranicy-vliyaet-na-seo-prodvizhenie-sajta/",
+    "path": "/faq/kak-dlina-url-adresa-stranicy-vliyaet-na-seo-prodvizhenie-sajta/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2265,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4427"
+  },
+  {
+    "id": "faq__kak-snyat-pozicii-moego-sajta-po-neskolkim-zaprosam--90a00355",
+    "url": "https://mosseo.ru/faq/kak-snyat-pozicii-moego-sajta-po-neskolkim-zaprosam/",
+    "path": "/faq/kak-snyat-pozicii-moego-sajta-po-neskolkim-zaprosam/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2221,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/105"
+  },
+  {
+    "id": "faq__moj-sajt-v-tope-pochemu-net-zvonkov--6cc8d716",
+    "url": "https://mosseo.ru/faq/moj-sajt-v-tope-pochemu-net-zvonkov/",
+    "path": "/faq/moj-sajt-v-tope-pochemu-net-zvonkov/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2582,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/7454"
+  },
+  {
+    "id": "faq__mozhno-li-poluchit-kakie-to-garantii-seo-prodvizheniya-sajta--febd4f49",
+    "url": "https://mosseo.ru/faq/mozhno-li-poluchit-kakie-to-garantii-seo-prodvizheniya-sajta/",
+    "path": "/faq/mozhno-li-poluchit-kakie-to-garantii-seo-prodvizheniya-sajta/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2516,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4385"
+  },
+  {
+    "id": "faq__mozhno-li-prodvigat-sajt-srazu-v-neskolkih-regionah--42700841",
+    "url": "https://mosseo.ru/faq/mozhno-li-prodvigat-sajt-srazu-v-neskolkih-regionah/",
+    "path": "/faq/mozhno-li-prodvigat-sajt-srazu-v-neskolkih-regionah/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2565,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4392"
+  },
+  {
+    "id": "faq__otkuda-berutsya-estestvennye-i-kachestvennye-ssylki-na-sajt--f559adf4",
+    "url": "https://mosseo.ru/faq/otkuda-berutsya-estestvennye-i-kachestvennye-ssylki-na-sajt/",
+    "path": "/faq/otkuda-berutsya-estestvennye-i-kachestvennye-ssylki-na-sajt/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2424,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4429"
+  },
+  {
+    "id": "faq__pochemu-ne-vidno-sajt-v-yandeks-direkt--00163e44",
+    "url": "https://mosseo.ru/faq/pochemu-ne-vidno-sajt-v-yandeks-direkt/",
+    "path": "/faq/pochemu-ne-vidno-sajt-v-yandeks-direkt/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2525,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/8803"
+  },
+  {
+    "id": "faq__pochemu-v-yandekse-sajt-prodvigaetsya-a-v-google-net--41f55db6",
+    "url": "https://mosseo.ru/faq/pochemu-v-yandekse-sajt-prodvigaetsya-a-v-google-net/",
+    "path": "/faq/pochemu-v-yandekse-sajt-prodvigaetsya-a-v-google-net/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2652,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/7463"
+  },
+  {
+    "id": "faq__povedencheskie-faktory-sajta-i-ih-vliyanie-na-pozicii-v-poiske--cd6130a2",
+    "url": "https://mosseo.ru/faq/povedencheskie-faktory-sajta-i-ih-vliyanie-na-pozicii-v-poiske/",
+    "path": "/faq/povedencheskie-faktory-sajta-i-ih-vliyanie-na-pozicii-v-poiske/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2761,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/7489"
+  },
+  {
+    "id": "faq__pravda-chto-skoro-seo-umrjot-i-prodvizhenie-sajta-stanet-bespoleznym--04a32674",
+    "url": "https://mosseo.ru/faq/pravda-chto-skoro-seo-umrjot-i-prodvizhenie-sajta-stanet-bespoleznym/",
+    "path": "/faq/pravda-chto-skoro-seo-umrjot-i-prodvizhenie-sajta-stanet-bespoleznym/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2445,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4423"
+  },
+  {
+    "id": "faq__v-kakih-poiskovyh-sistemah-luchshe-prodvigatsya--39f86871",
+    "url": "https://mosseo.ru/faq/v-kakih-poiskovyh-sistemah-luchshe-prodvigatsya/",
+    "path": "/faq/v-kakih-poiskovyh-sistemah-luchshe-prodvigatsya/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2599,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/2542"
+  },
+  {
+    "id": "faq__vliyaet-li-trafik-na-pozicii-sajta--538c3c7b",
+    "url": "https://mosseo.ru/faq/vliyaet-li-trafik-na-pozicii-sajta/",
+    "path": "/faq/vliyaet-li-trafik-na-pozicii-sajta/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2461,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/7611"
+  },
+  {
+    "id": "faq__vliyajut-li-ssylki-i-drugaya-aktivnost-v-socialnyh-setyah-na-prodvizhenie-sajta--17fadbdc",
+    "url": "https://mosseo.ru/faq/vliyajut-li-ssylki-i-drugaya-aktivnost-v-socialnyh-setyah-na-prodvizhenie-sajta/",
+    "path": "/faq/vliyajut-li-ssylki-i-drugaya-aktivnost-v-socialnyh-setyah-na-prodvizhenie-sajta/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2478,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4412"
+  },
+  {
+    "id": "faq__vliyajut-li-znaki-prepinaniya-i-okonchaniya-v-kljuchevyh-slovah-na-seo-prodvizhenie-sajta--8739eb2e",
+    "url": "https://mosseo.ru/faq/vliyajut-li-znaki-prepinaniya-i-okonchaniya-v-kljuchevyh-slovah-na-seo-prodvizhenie-sajta/",
+    "path": "/faq/vliyajut-li-znaki-prepinaniya-i-okonchaniya-v-kljuchevyh-slovah-na-seo-prodvizhenie-sajta/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2521,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4433"
+  },
+  {
+    "id": "faq__zachem-mne-seo-prodvizhenie-sajta-esli-ya-rabotaju-v-uzkonapravlennoj-nishe--8319c2fe",
+    "url": "https://mosseo.ru/faq/zachem-mne-seo-prodvizhenie-sajta-esli-ya-rabotaju-v-uzkonapravlennoj-nishe/",
+    "path": "/faq/zachem-mne-seo-prodvizhenie-sajta-esli-ya-rabotaju-v-uzkonapravlennoj-nishe/",
+    "section": "faq",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2185,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/4425"
+  },
+  {
+    "id": "novosti__v-paneli-yandeks-vebmastera-poyavilis-novye-rekomendacii-dlya-sajtov--929033bb",
+    "url": "https://mosseo.ru/novosti/v-paneli-yandeks-vebmastera-poyavilis-novye-rekomendacii-dlya-sajtov/",
+    "path": "/novosti/v-paneli-yandeks-vebmastera-poyavilis-novye-rekomendacii-dlya-sajtov/",
+    "section": "novosti",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2942,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1350"
+  },
+  {
+    "id": "o-kompanii--35be95d1",
+    "url": "https://mosseo.ru/o-kompanii/",
+    "path": "/o-kompanii/",
+    "section": "o-kompanii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 5188,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/330"
+  },
+  {
+    "id": "o-kompanii__partnyory--ccbbea6e",
+    "url": "https://mosseo.ru/o-kompanii/partnyory/",
+    "path": "/o-kompanii/partnyory/",
+    "section": "o-kompanii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 23,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/359"
+  },
+  {
+    "id": "portfolio__zapchastigenerator--2b92156e",
+    "url": "https://mosseo.ru/portfolio/zapchastigenerator/",
+    "path": "/portfolio/zapchastigenerator/",
+    "section": "portfolio",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1248,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8913"
+  },
+  {
+    "id": "seo-wikipedia__adaptivnaya-verstka-sajta--536dc330",
+    "url": "https://mosseo.ru/seo-wikipedia/adaptivnaya-verstka-sajta/",
+    "path": "/seo-wikipedia/adaptivnaya-verstka-sajta/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1711,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10396"
+  },
+  {
+    "id": "seo-wikipedia__affiliat--fb5a88fa",
+    "url": "https://mosseo.ru/seo-wikipedia/affiliat/",
+    "path": "/seo-wikipedia/affiliat/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1872,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/8811"
+  },
+  {
+    "id": "seo-wikipedia__ajdentika--f91539e7",
+    "url": "https://mosseo.ru/seo-wikipedia/ajdentika/",
+    "path": "/seo-wikipedia/ajdentika/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1620,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10497"
+  },
+  {
+    "id": "seo-wikipedia__alt--a9117ed0",
+    "url": "https://mosseo.ru/seo-wikipedia/alt/",
+    "path": "/seo-wikipedia/alt/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1854,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/7593"
+  },
+  {
+    "id": "seo-wikipedia__api--f29ab59f",
+    "url": "https://mosseo.ru/seo-wikipedia/api/",
+    "path": "/seo-wikipedia/api/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1672,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/603"
+  },
+  {
+    "id": "seo-wikipedia__arbitrazh-trafika--8cbb630d",
+    "url": "https://mosseo.ru/seo-wikipedia/arbitrazh-trafika/",
+    "path": "/seo-wikipedia/arbitrazh-trafika/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1740,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10416"
+  },
+  {
+    "id": "seo-wikipedia__celevaya-auditoriya--ef01f6bd",
+    "url": "https://mosseo.ru/seo-wikipedia/celevaya-auditoriya/",
+    "path": "/seo-wikipedia/celevaya-auditoriya/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1901,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/605"
+  },
+  {
+    "id": "seo-wikipedia__ctr--b8ef4010",
+    "url": "https://mosseo.ru/seo-wikipedia/ctr/",
+    "path": "/seo-wikipedia/ctr/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1555,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10525"
+  },
+  {
+    "id": "seo-wikipedia__domen--01db040a",
+    "url": "https://mosseo.ru/seo-wikipedia/domen/",
+    "path": "/seo-wikipedia/domen/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1548,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/607"
+  },
+  {
+    "id": "seo-wikipedia__donor--c5367ac1",
+    "url": "https://mosseo.ru/seo-wikipedia/donor/",
+    "path": "/seo-wikipedia/donor/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2094,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/7507"
+  },
+  {
+    "id": "seo-wikipedia__favikonka--5272f4f9",
+    "url": "https://mosseo.ru/seo-wikipedia/favikonka/",
+    "path": "/seo-wikipedia/favikonka/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1592,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/609"
+  },
+  {
+    "id": "seo-wikipedia__google-adwords--a026fc8a",
+    "url": "https://mosseo.ru/seo-wikipedia/google-adwords/",
+    "path": "/seo-wikipedia/google-adwords/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1809,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/611"
+  },
+  {
+    "id": "seo-wikipedia__google-analitiks--c28e8f7d",
+    "url": "https://mosseo.ru/seo-wikipedia/google-analitiks/",
+    "path": "/seo-wikipedia/google-analitiks/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1662,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/613"
+  },
+  {
+    "id": "seo-wikipedia__google-discover--ea29003a",
+    "url": "https://mosseo.ru/seo-wikipedia/google-discover/",
+    "path": "/seo-wikipedia/google-discover/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1999,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10465"
+  },
+  {
+    "id": "seo-wikipedia__google-search-console--0119e630",
+    "url": "https://mosseo.ru/seo-wikipedia/google-search-console/",
+    "path": "/seo-wikipedia/google-search-console/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1761,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10469"
+  },
+  {
+    "id": "seo-wikipedia__google-vebmaster--6974c0af",
+    "url": "https://mosseo.ru/seo-wikipedia/google-vebmaster/",
+    "path": "/seo-wikipedia/google-vebmaster/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1618,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/615"
+  },
+  {
+    "id": "seo-wikipedia__hosting--d1c30c65",
+    "url": "https://mosseo.ru/seo-wikipedia/hosting/",
+    "path": "/seo-wikipedia/hosting/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1578,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/617"
+  },
+  {
+    "id": "seo-wikipedia__indeksaciya--d7cb518a",
+    "url": "https://mosseo.ru/seo-wikipedia/indeksaciya/",
+    "path": "/seo-wikipedia/indeksaciya/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1695,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/619"
+  },
+  {
+    "id": "seo-wikipedia__interfejs--9c59e110",
+    "url": "https://mosseo.ru/seo-wikipedia/interfejs/",
+    "path": "/seo-wikipedia/interfejs/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1856,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/621"
+  },
+  {
+    "id": "seo-wikipedia__klyuchevoe-slovo--70ece2ab",
+    "url": "https://mosseo.ru/seo-wikipedia/klyuchevoe-slovo/",
+    "path": "/seo-wikipedia/klyuchevoe-slovo/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1934,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/623"
+  },
+  {
+    "id": "seo-wikipedia__klyuchevoj-zapros--04cffe7c",
+    "url": "https://mosseo.ru/seo-wikipedia/klyuchevoj-zapros/",
+    "path": "/seo-wikipedia/klyuchevoj-zapros/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1954,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/625"
+  },
+  {
+    "id": "seo-wikipedia__kontekstnaya-reklama--62c4d21f",
+    "url": "https://mosseo.ru/seo-wikipedia/kontekstnaya-reklama/",
+    "path": "/seo-wikipedia/kontekstnaya-reklama/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1505,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10523"
+  },
+  {
+    "id": "seo-wikipedia__kontent--4f76ea92",
+    "url": "https://mosseo.ru/seo-wikipedia/kontent/",
+    "path": "/seo-wikipedia/kontent/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1681,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/627"
+  },
+  {
+    "id": "seo-wikipedia__konversiya--1f389242",
+    "url": "https://mosseo.ru/seo-wikipedia/konversiya/",
+    "path": "/seo-wikipedia/konversiya/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1590,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/629"
+  },
+  {
+    "id": "seo-wikipedia__lid--8956b9d9",
+    "url": "https://mosseo.ru/seo-wikipedia/lid/",
+    "path": "/seo-wikipedia/lid/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1747,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/7514"
+  },
+  {
+    "id": "seo-wikipedia__mikroformat--7bd2c6d1",
+    "url": "https://mosseo.ru/seo-wikipedia/mikroformat/",
+    "path": "/seo-wikipedia/mikroformat/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1542,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/631"
+  },
+  {
+    "id": "seo-wikipedia__navigaciya-sajta--8dfeb617",
+    "url": "https://mosseo.ru/seo-wikipedia/navigaciya-sajta/",
+    "path": "/seo-wikipedia/navigaciya-sajta/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1845,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/633"
+  },
+  {
+    "id": "seo-wikipedia__nizkochastotnye-zaprosy--21144ac4",
+    "url": "https://mosseo.ru/seo-wikipedia/nizkochastotnye-zaprosy/",
+    "path": "/seo-wikipedia/nizkochastotnye-zaprosy/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1782,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/635"
+  },
+  {
+    "id": "seo-wikipedia__poiskovaya-vydacha--9fd4eb09",
+    "url": "https://mosseo.ru/seo-wikipedia/poiskovaya-vydacha/",
+    "path": "/seo-wikipedia/poiskovaya-vydacha/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1636,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/637"
+  },
+  {
+    "id": "seo-wikipedia__poiskovyj-robot--dba73daf",
+    "url": "https://mosseo.ru/seo-wikipedia/poiskovyj-robot/",
+    "path": "/seo-wikipedia/poiskovyj-robot/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1594,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/639"
+  },
+  {
+    "id": "seo-wikipedia__poiskovyj-zapros--5b1a1a99",
+    "url": "https://mosseo.ru/seo-wikipedia/poiskovyj-zapros/",
+    "path": "/seo-wikipedia/poiskovyj-zapros/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1606,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/641"
+  },
+  {
+    "id": "seo-wikipedia__private-blog-network-pbn--e235b5e5",
+    "url": "https://mosseo.ru/seo-wikipedia/private-blog-network-pbn/",
+    "path": "/seo-wikipedia/private-blog-network-pbn/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1743,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10420"
+  },
+  {
+    "id": "seo-wikipedia__ranzhirovanie--d3b681c7",
+    "url": "https://mosseo.ru/seo-wikipedia/ranzhirovanie/",
+    "path": "/seo-wikipedia/ranzhirovanie/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1717,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/643"
+  },
+  {
+    "id": "seo-wikipedia__redirekt--963f4013",
+    "url": "https://mosseo.ru/seo-wikipedia/redirekt/",
+    "path": "/seo-wikipedia/redirekt/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1644,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/645"
+  },
+  {
+    "id": "seo-wikipedia__robots-txt--e5be8396",
+    "url": "https://mosseo.ru/seo-wikipedia/robots-txt/",
+    "path": "/seo-wikipedia/robots-txt/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1761,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/647"
+  },
+  {
+    "id": "seo-wikipedia__screaming-frog-seo-spider--b5416c6f",
+    "url": "https://mosseo.ru/seo-wikipedia/screaming-frog-seo-spider/",
+    "path": "/seo-wikipedia/screaming-frog-seo-spider/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1739,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10369"
+  },
+  {
+    "id": "seo-wikipedia__semanticheskaya-razmetka--24681cde",
+    "url": "https://mosseo.ru/seo-wikipedia/semanticheskaya-razmetka/",
+    "path": "/seo-wikipedia/semanticheskaya-razmetka/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1756,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/649"
+  },
+  {
+    "id": "seo-wikipedia__semantika-semanticheskoe-yadro--d03713eb",
+    "url": "https://mosseo.ru/seo-wikipedia/semantika-semanticheskoe-yadro/",
+    "path": "/seo-wikipedia/semantika-semanticheskoe-yadro/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1705,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/651"
+  },
+  {
+    "id": "seo-wikipedia__seo--0f3641e6",
+    "url": "https://mosseo.ru/seo-wikipedia/seo/",
+    "path": "/seo-wikipedia/seo/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1748,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/653"
+  },
+  {
+    "id": "seo-wikipedia__sitemap--dd90180f",
+    "url": "https://mosseo.ru/seo-wikipedia/sitemap/",
+    "path": "/seo-wikipedia/sitemap/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1574,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/655"
+  },
+  {
+    "id": "seo-wikipedia__smm--375a24ab",
+    "url": "https://mosseo.ru/seo-wikipedia/smm/",
+    "path": "/seo-wikipedia/smm/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1670,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/657"
+  },
+  {
+    "id": "seo-wikipedia__snippet--c5dc7995",
+    "url": "https://mosseo.ru/seo-wikipedia/snippet/",
+    "path": "/seo-wikipedia/snippet/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1562,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/659"
+  },
+  {
+    "id": "seo-wikipedia__spam--1c274ed7",
+    "url": "https://mosseo.ru/seo-wikipedia/spam/",
+    "path": "/seo-wikipedia/spam/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1725,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/661"
+  },
+  {
+    "id": "seo-wikipedia__srednechastotnye-zaprosy--0c7ec640",
+    "url": "https://mosseo.ru/seo-wikipedia/srednechastotnye-zaprosy/",
+    "path": "/seo-wikipedia/srednechastotnye-zaprosy/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1877,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/663"
+  },
+  {
+    "id": "seo-wikipedia__ssylki--d029a0ab",
+    "url": "https://mosseo.ru/seo-wikipedia/ssylki/",
+    "path": "/seo-wikipedia/ssylki/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1990,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/665"
+  },
+  {
+    "id": "seo-wikipedia__ssylochnaya-massa--f5f25a9f",
+    "url": "https://mosseo.ru/seo-wikipedia/ssylochnaya-massa/",
+    "path": "/seo-wikipedia/ssylochnaya-massa/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2005,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10358"
+  },
+  {
+    "id": "seo-wikipedia__subdomen-poddomen--bccc11ae",
+    "url": "https://mosseo.ru/seo-wikipedia/subdomen-poddomen/",
+    "path": "/seo-wikipedia/subdomen-poddomen/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1592,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/670"
+  },
+  {
+    "id": "seo-wikipedia__top-pozicii--eadf1828",
+    "url": "https://mosseo.ru/seo-wikipedia/top-pozicii/",
+    "path": "/seo-wikipedia/top-pozicii/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1894,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/672"
+  },
+  {
+    "id": "seo-wikipedia__url--937ba812",
+    "url": "https://mosseo.ru/seo-wikipedia/url/",
+    "path": "/seo-wikipedia/url/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1726,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/680"
+  },
+  {
+    "id": "seo-wikipedia__validator--17de503d",
+    "url": "https://mosseo.ru/seo-wikipedia/validator/",
+    "path": "/seo-wikipedia/validator/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1650,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/684"
+  },
+  {
+    "id": "seo-wikipedia__veb-resurs--7ccb8625",
+    "url": "https://mosseo.ru/seo-wikipedia/veb-resurs/",
+    "path": "/seo-wikipedia/veb-resurs/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1765,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/688"
+  },
+  {
+    "id": "seo-wikipedia__vysokochastotnye-zaprosy--e640af5a",
+    "url": "https://mosseo.ru/seo-wikipedia/vysokochastotnye-zaprosy/",
+    "path": "/seo-wikipedia/vysokochastotnye-zaprosy/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1795,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/702"
+  },
+  {
+    "id": "seo-wikipedia__yandex-datalens--0e6e1fa5",
+    "url": "https://mosseo.ru/seo-wikipedia/yandex-datalens/",
+    "path": "/seo-wikipedia/yandex-datalens/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1344,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/10384"
+  },
+  {
+    "id": "seo-wikipedia__yandex-direkt--63483ce4",
+    "url": "https://mosseo.ru/seo-wikipedia/yandex-direkt/",
+    "path": "/seo-wikipedia/yandex-direkt/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1696,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/706"
+  },
+  {
+    "id": "seo-wikipedia__yandex-metrika--cf553f88",
+    "url": "https://mosseo.ru/seo-wikipedia/yandex-metrika/",
+    "path": "/seo-wikipedia/yandex-metrika/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1679,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/708"
+  },
+  {
+    "id": "seo-wikipedia__yandex-vebmaster--2be48d2b",
+    "url": "https://mosseo.ru/seo-wikipedia/yandex-vebmaster/",
+    "path": "/seo-wikipedia/yandex-vebmaster/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1629,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/704"
+  },
+  {
+    "id": "seo-wikipedia__yuzabiliti--6f41b63e",
+    "url": "https://mosseo.ru/seo-wikipedia/yuzabiliti/",
+    "path": "/seo-wikipedia/yuzabiliti/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1585,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/701"
+  },
+  {
+    "id": "seo-wikipedia__zerkalo-sajta--92e82792",
+    "url": "https://mosseo.ru/seo-wikipedia/zerkalo-sajta/",
+    "path": "/seo-wikipedia/zerkalo-sajta/",
+    "section": "seo-wikipedia",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1656,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/699"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__google-testiruet-izmeneniya-v-dizajne-poiskovoj-vydachi--a8c1938d",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/google-testiruet-izmeneniya-v-dizajne-poiskovoj-vydachi/",
+    "path": "/vse-o-seo-prodvizhenii/google-testiruet-izmeneniya-v-dizajne-poiskovoj-vydachi/",
     "section": "vse-o-seo-prodvizhenii",
     "status_code": 200,
     "content_source": "html_fallback",
-    "text_chars": 4046,
-    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/categories/275"
+    "text_chars": 2024,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4608"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-blog__prodvizhenie-sajtov-v-tematike-fashion__seo-wikipedia__klyuchevoe-slovo--ca98dbc6",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-blog/prodvizhenie-sajtov-v-tematike-fashion/seo-wikipedia/klyuchevoe-slovo/",
+    "path": "/vse-o-seo-prodvizhenii/seo-blog/prodvizhenie-sajtov-v-tematike-fashion/seo-wikipedia/klyuchevoe-slovo/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1934,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/623"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-blog__vneshnyaya-ssylochnaya-massa-kak-s-nej-rabotat__seo-wikipedia__donor--da784617",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-blog/vneshnyaya-ssylochnaya-massa-kak-s-nej-rabotat/seo-wikipedia/donor/",
+    "path": "/vse-o-seo-prodvizhenii/seo-blog/vneshnyaya-ssylochnaya-massa-kak-s-nej-rabotat/seo-wikipedia/donor/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2094,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/pages/7507"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__7-faktov-pro-iks-yandeks-napomnil-ob-indekse-kachestva-sajta--7088ed70",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/7-faktov-pro-iks-yandeks-napomnil-ob-indekse-kachestva-sajta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/7-faktov-pro-iks-yandeks-napomnil-ob-indekse-kachestva-sajta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2430,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1300"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__ahrefs-obyavil-o-razrabotke-svoej-poiskovoj-sistemy--36773a2b",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/ahrefs-obyavil-o-razrabotke-svoej-poiskovoj-sistemy/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/ahrefs-obyavil-o-razrabotke-svoej-poiskovoj-sistemy/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2378,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2694"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__algoritm-yandex--f9eb5492",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/algoritm-yandex/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/algoritm-yandex/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2605,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/3952"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__andromeda-bolshoe-obnovlenie-poiska-yandeks--2bd99b31",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/andromeda-bolshoe-obnovlenie-poiska-yandeks/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/andromeda-bolshoe-obnovlenie-poiska-yandeks/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3213,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1367"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__bolshe-poloviny-polzovatelej-ne-doveryajut-http-sajtam--c00fdd4f",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/bolshe-poloviny-polzovatelej-ne-doveryajut-http-sajtam/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/bolshe-poloviny-polzovatelej-ne-doveryajut-http-sajtam/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2905,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2605"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__cennost-negativnyh-otzyvov--adfeabb8",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/cennost-negativnyh-otzyvov/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/cennost-negativnyh-otzyvov/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3075,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8040"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__chaty-dlya-biznesa-ot-yandeksa-vyshli-iz-beta-testa-v-direkte-i-poyavilis-v-markete--81191f30",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/chaty-dlya-biznesa-ot-yandeksa-vyshli-iz-beta-testa-v-direkte-i-poyavilis-v-markete/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/chaty-dlya-biznesa-ot-yandeksa-vyshli-iz-beta-testa-v-direkte-i-poyavilis-v-markete/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2854,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2980"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__do-konca-oktyabrya-vsem-novym-klientam-kontekstnaya-reklama-tehpodderzhka-sajta-i-smm-besplatno--3c22b121",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/do-konca-oktyabrya-vsem-novym-klientam-kontekstnaya-reklama-tehpodderzhka-sajta-i-smm-besplatno/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/do-konca-oktyabrya-vsem-novym-klientam-kontekstnaya-reklama-tehpodderzhka-sajta-i-smm-besplatno/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3141,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/3591"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__dobavit-sajt-v-poiskovye-sistemy--a72f08f7",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/dobavit-sajt-v-poiskovye-sistemy/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/dobavit-sajt-v-poiskovye-sistemy/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2138,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/3790"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__domen-dev-stanet-obshhedostupnym--156a81a0",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/domen-dev-stanet-obshhedostupnym/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/domen-dev-stanet-obshhedostupnym/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2415,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2558"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__duckduckgo-proveril-personaliziruet-li-google-poiskovuyu-vydachu--362dbb24",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/duckduckgo-proveril-personaliziruet-li-google-poiskovuyu-vydachu/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/duckduckgo-proveril-personaliziruet-li-google-poiskovuyu-vydachu/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2861,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1405"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-ads-vvodit-obyazatelnuju-verifikaciju-dlya-reklamodatelej--0d845f31",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-ads-vvodit-obyazatelnuju-verifikaciju-dlya-reklamodatelej/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-ads-vvodit-obyazatelnuju-verifikaciju-dlya-reklamodatelej/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2338,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4521"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-ispravit-bag-s-pomoshchyu-kotorogo-mozhno-vliyat-na-poiskovuyu-vydachu--c38b780d",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-ispravit-bag-s-pomoshchyu-kotorogo-mozhno-vliyat-na-poiskovuyu-vydachu/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-ispravit-bag-s-pomoshchyu-kotorogo-mozhno-vliyat-na-poiskovuyu-vydachu/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2604,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1428"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-mozhet-otkazatsya-ot-ispolzovaniya-direktivy-noindex-v-robots-txt--c8be912a",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-mozhet-otkazatsya-ot-ispolzovaniya-direktivy-noindex-v-robots-txt/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-mozhet-otkazatsya-ot-ispolzovaniya-direktivy-noindex-v-robots-txt/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2699,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2788"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-nachal-obnovlenie-algoritma-ranzhirovaniya--e2b7c2c1",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-nachal-obnovlenie-algoritma-ranzhirovaniya/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-nachal-obnovlenie-algoritma-ranzhirovaniya/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2137,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4531"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-nachal-testirovat-rasshirennye-snippety-s-otvetami--c22fffb6",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-nachal-testirovat-rasshirennye-snippety-s-otvetami/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-nachal-testirovat-rasshirennye-snippety-s-otvetami/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2593,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1397"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-obyasnil-chto-vliyaet-na-skorost-indeksacii-kontenta--6d6b7328",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-obyasnil-chto-vliyaet-na-skorost-indeksacii-kontenta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-obyasnil-chto-vliyaet-na-skorost-indeksacii-kontenta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2365,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1272"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-obyasnil-pochemu-sajt-ranzhiruetsya-po-nerelevantnym-kljuchevym-slovam--5bffe712",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-obyasnil-pochemu-sajt-ranzhiruetsya-po-nerelevantnym-kljuchevym-slovam/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-obyasnil-pochemu-sajt-ranzhiruetsya-po-nerelevantnym-kljuchevym-slovam/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3201,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6786"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-oproverg-informaciju-ob-izmeneniyah-v-lokalnom-poiske--4c894d79",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-oproverg-informaciju-ob-izmeneniyah-v-lokalnom-poiske/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-oproverg-informaciju-ob-izmeneniyah-v-lokalnom-poiske/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2510,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4536"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-otvetil-kak-ctr-vliyaet-na-ranzhirovanie--5832a9ed",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-otvetil-kak-ctr-vliyaet-na-ranzhirovanie/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-otvetil-kak-ctr-vliyaet-na-ranzhirovanie/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3102,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2619"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-priostanovil-pokaz-kontekstnoj-reklamy-v-rossii--23c5b691",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-priostanovil-pokaz-kontekstnoj-reklamy-v-rossii/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-priostanovil-pokaz-kontekstnoj-reklamy-v-rossii/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2193,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8721"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-priznalsya-chto-pochti-ne-personaliziruet-poiskovuyu-vydachu--bc1be4a4",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-priznalsya-chto-pochti-ne-personaliziruet-poiskovuyu-vydachu/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-priznalsya-chto-pochti-ne-personaliziruet-poiskovuyu-vydachu/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2497,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1276"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-spryatal-domeny-sajtov-v-poiskovoj-vydache--01fff868",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-spryatal-domeny-sajtov-v-poiskovoj-vydache/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-spryatal-domeny-sajtov-v-poiskovoj-vydache/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2218,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4526"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-v-ocherednoj-raz-obnovlyaet-algoritm-ranzhirovaniya--14738030",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-v-ocherednoj-raz-obnovlyaet-algoritm-ranzhirovaniya/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-v-ocherednoj-raz-obnovlyaet-algoritm-ranzhirovaniya/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2092,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4605"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-zakonchil-vykatyvat-obnovlenie-algoritma-ranzhirovaniya--287df7de",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-zakonchil-vykatyvat-obnovlenie-algoritma-ranzhirovaniya/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-zakonchil-vykatyvat-obnovlenie-algoritma-ranzhirovaniya/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2508,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4573"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__google-zapustit-adaptivnye-medijnye-obyavleniya--5bfd570e",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/google-zapustit-adaptivnye-medijnye-obyavleniya/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/google-zapustit-adaptivnye-medijnye-obyavleniya/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2383,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1270"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__gugl-prekratit-podderzhku-google-pluse--3d66ca56",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/gugl-prekratit-podderzhku-google-pluse/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/gugl-prekratit-podderzhku-google-pluse/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3033,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1311"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__gugl-sovetuet-otkljuchit-na-sajte-elementy-google--9d78c21a",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/gugl-sovetuet-otkljuchit-na-sajte-elementy-google/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/gugl-sovetuet-otkljuchit-na-sajte-elementy-google/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2170,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2529"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__kak-rossiyane-ishhut-v-internete-rezultaty-oprosa-online-market-intelligence--36ea11b0",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/kak-rossiyane-ishhut-v-internete-rezultaty-oprosa-online-market-intelligence/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/kak-rossiyane-ishhut-v-internete-rezultaty-oprosa-online-market-intelligence/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3161,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6795"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__kartochki-profi-ru-i-youdo-v-koldunshchike--48feab1d",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/kartochki-profi-ru-i-youdo-v-koldunshchike/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/kartochki-profi-ru-i-youdo-v-koldunshchike/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2690,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7516"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__kopiya-stranicy-mozhet-imet-bolee-vysokuju-poziciju-v-vydache-chem-original--2e2b8a48",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/kopiya-stranicy-mozhet-imet-bolee-vysokuju-poziciju-v-vydache-chem-original/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/kopiya-stranicy-mozhet-imet-bolee-vysokuju-poziciju-v-vydache-chem-original/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2640,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2512"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__koronavirus--3c614fe9",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/koronavirus/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/koronavirus/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3232,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4447"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__link-spam-update-google--3fbbb4d5",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/link-spam-update-google/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/link-spam-update-google/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2706,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7497"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__na-stranice-moi-sajty-v-yandeks-vebmastere-poyavilas-informaciya-o-turbo-stranicah--06a285a4",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/na-stranice-moi-sajty-v-yandeks-vebmastere-poyavilas-informaciya-o-turbo-stranicah/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/na-stranice-moi-sajty-v-yandeks-vebmastere-poyavilas-informaciya-o-turbo-stranicah/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2244,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2947"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__nabory-dannyh-teper-mozhno-najti-s-pomoshchyu-google--8b2ba3c3",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/nabory-dannyh-teper-mozhno-najti-s-pomoshchyu-google/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/nabory-dannyh-teper-mozhno-najti-s-pomoshchyu-google/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2635,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1327"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__nastrojka-sajta-dlya-yandeksa--4012dd52",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/nastrojka-sajta-dlya-yandeksa/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/nastrojka-sajta-dlya-yandeksa/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2859,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/3860"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__nekanonicheskie-stranicy-budut-chashhe-poyavlyatsya-v-poiske-yandeksa--5da87813",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/nekanonicheskie-stranicy-budut-chashhe-poyavlyatsya-v-poiske-yandeksa/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/nekanonicheskie-stranicy-budut-chashhe-poyavlyatsya-v-poiske-yandeksa/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3474,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2974"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__nofollow-ssylki-vliyajut-na-prodvizhenie-sajta--258c89e8",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/nofollow-ssylki-vliyajut-na-prodvizhenie-sajta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/nofollow-ssylki-vliyajut-na-prodvizhenie-sajta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2859,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4507"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__novaya-funkciya-v-yandeks-direkt--6b6e5ce6",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/novaya-funkciya-v-yandeks-direkt/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/novaya-funkciya-v-yandeks-direkt/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2389,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7627"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__novaya-tekhnologiya-indeksirovaniya-sajtov-indexnow--152b04dc",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/novaya-tekhnologiya-indeksirovaniya-sajtov-indexnow/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/novaya-tekhnologiya-indeksirovaniya-sajtov-indexnow/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2204,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7622"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__novye-vozmozhnosti-avtomaticheskogo-opredelitelya-nomera-dlya-biznesa-ot-yandeksa--731b8941",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/novye-vozmozhnosti-avtomaticheskogo-opredelitelya-nomera-dlya-biznesa-ot-yandeksa/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/novye-vozmozhnosti-avtomaticheskogo-opredelitelya-nomera-dlya-biznesa-ot-yandeksa/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3046,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/11285"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__obnovlenie-formirovaniya-zagolovkov-dlya-vydachi-v-google--036c29ae",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/obnovlenie-formirovaniya-zagolovkov-dlya-vydachi-v-google/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/obnovlenie-formirovaniya-zagolovkov-dlya-vydachi-v-google/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2680,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7504"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__otchety-yandeks-marketa-stali-dostupnee--ada602d4",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/otchety-yandeks-marketa-stali-dostupnee/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/otchety-yandeks-marketa-stali-dostupnee/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2525,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4516"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__otzyvami-teper-mozhno-upravlyat-iz-paneli-vebmastera--2a5c9658",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/otzyvami-teper-mozhno-upravlyat-iz-paneli-vebmastera/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/otzyvami-teper-mozhno-upravlyat-iz-paneli-vebmastera/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2544,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1422"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__pdf-fajly-poluchili-rasshirennye-snippety-v-google--173384d8",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/pdf-fajly-poluchili-rasshirennye-snippety-v-google/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/pdf-fajly-poluchili-rasshirennye-snippety-v-google/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3102,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1433"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__pervye-vpechatleniya-ot-majskih-obnovlenij-algoritma-ranzhirovaniya-google--f6fddee5",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/pervye-vpechatleniya-ot-majskih-obnovlenij-algoritma-ranzhirovaniya-google/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/pervye-vpechatleniya-ot-majskih-obnovlenij-algoritma-ranzhirovaniya-google/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2386,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4534"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__pervyj-kalkulyator-ceny-na-seo-prodvizheniya-v-rossii--e8fde955",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/pervyj-kalkulyator-ceny-na-seo-prodvizheniya-v-rossii/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/pervyj-kalkulyator-ceny-na-seo-prodvizheniya-v-rossii/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2166,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/3625"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__poiskovaya-vydacha-yandeks-stala-blochnoj--4a954594",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/poiskovaya-vydacha-yandeks-stala-blochnoj/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/poiskovaya-vydacha-yandeks-stala-blochnoj/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2176,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7509"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__poyavilis-novye-obnovleniya-v-mobilnom-prilozhenii-dlya-yandeks-direkta--45f5e968",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/poyavilis-novye-obnovleniya-v-mobilnom-prilozhenii-dlya-yandeks-direkta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/poyavilis-novye-obnovleniya-v-mobilnom-prilozhenii-dlya-yandeks-direkta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2246,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2986"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__raskryty-3-glavnyh-faktora-ranzhirovaniya-v-google--878b9acd",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/raskryty-3-glavnyh-faktora-ranzhirovaniya-v-google/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/raskryty-3-glavnyh-faktora-ranzhirovaniya-v-google/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3143,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2977"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__roskomnadzor-prodolzhaet-zakruchivat-gajki-guglu--2963bd5a",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/roskomnadzor-prodolzhaet-zakruchivat-gajki-guglu/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/roskomnadzor-prodolzhaet-zakruchivat-gajki-guglu/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2754,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8800"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__roskomnadzor-zablokiroval-google-news--6f12ca42",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/roskomnadzor-zablokiroval-google-news/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/roskomnadzor-zablokiroval-google-news/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2419,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8798"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__samye-populyarnye-poiskovye-zaprosy-v-2018-godu--253e5077",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/samye-populyarnye-poiskovye-zaprosy-v-2018-godu/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/samye-populyarnye-poiskovye-zaprosy-v-2018-godu/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3457,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1416"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__seo-brainstorm--35f474e1",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/seo-brainstorm/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/seo-brainstorm/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2511,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4370"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__skorost-zagruzki-stranic-pochti-ne-vliyaet-na-ranzhirovanie-v-google--803a7f87",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/skorost-zagruzki-stranic-pochti-ne-vliyaet-na-ranzhirovanie-v-google/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/skorost-zagruzki-stranic-pochti-ne-vliyaet-na-ranzhirovanie-v-google/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2473,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2535"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__soglasno-yandeks-radaru-90-sajtov-pereshli-na-protokol-https--605da5b7",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/soglasno-yandeks-radaru-90-sajtov-pereshli-na-protokol-https/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/soglasno-yandeks-radaru-90-sajtov-pereshli-na-protokol-https/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2596,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2990"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__sotrudnik-google-obyasnil-chto-kompaniya-schitaet-kloakingom--aa2ae856",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/sotrudnik-google-obyasnil-chto-kompaniya-schitaet-kloakingom/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/sotrudnik-google-obyasnil-chto-kompaniya-schitaet-kloakingom/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2811,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4511"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__sotrudnik-google-rasskazal-o-prodvizhenii-sajta-s-pomoshhju-seo-ssylok-i-301-redirekta--9116f45f",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/sotrudnik-google-rasskazal-o-prodvizhenii-sajta-s-pomoshhju-seo-ssylok-i-301-redirekta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/sotrudnik-google-rasskazal-o-prodvizhenii-sajta-s-pomoshhju-seo-ssylok-i-301-redirekta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3186,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2647"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__sotrudnik-google-udivil-vseh-svoim-kommentariem-o-pokazatelyah-kachestva-teksta--ced0b65f",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/sotrudnik-google-udivil-vseh-svoim-kommentariem-o-pokazatelyah-kachestva-teksta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/sotrudnik-google-udivil-vseh-svoim-kommentariem-o-pokazatelyah-kachestva-teksta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2595,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1316"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__sotrudnik-google-zayavil-chto-smena-hostinga-ne-vliyaet-na-pozicii-sajta--2a839e37",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/sotrudnik-google-zayavil-chto-smena-hostinga-ne-vliyaet-na-pozicii-sajta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/sotrudnik-google-zayavil-chto-smena-hostinga-ne-vliyaet-na-pozicii-sajta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2577,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1412"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__sozdanie-sajtov-iz-stranicy-v-instagram--3a2510fb",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/sozdanie-sajtov-iz-stranicy-v-instagram/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/sozdanie-sajtov-iz-stranicy-v-instagram/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2530,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7632"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__statistiku-sajta-mozhno-budet-posmotret-v-poiskovoj-vydache-no-ehto-ne-tochno--94c9eeef",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/statistiku-sajta-mozhno-budet-posmotret-v-poiskovoj-vydache-no-ehto-ne-tochno/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/statistiku-sajta-mozhno-budet-posmotret-v-poiskovoj-vydache-no-ehto-ne-tochno/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2303,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1309"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__turbo-stranicy-nachnut-rabotat-na-desktopnyh-ustrojstvah--4d821d35",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/turbo-stranicy-nachnut-rabotat-na-desktopnyh-ustrojstvah/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/turbo-stranicy-nachnut-rabotat-na-desktopnyh-ustrojstvah/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3177,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2671"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__u-sajtov-poyavilis-znaki-kachestva--69ffd4b3",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/u-sajtov-poyavilis-znaki-kachestva/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/u-sajtov-poyavilis-znaki-kachestva/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2976,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1292"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__umnaya-kamera-ot-yandeksa-stala-eshhjo-umnee--1ea92624",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/umnaya-kamera-ot-yandeksa-stala-eshhjo-umnee/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/umnaya-kamera-ot-yandeksa-stala-eshhjo-umnee/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2694,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7614"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__uvedomleniya-o-medlennyh-stranicah-nachali-prihodit-v-google-search-console--28642cf2",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/uvedomleniya-o-medlennyh-stranicah-nachali-prihodit-v-google-search-console/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/uvedomleniya-o-medlennyh-stranicah-nachali-prihodit-v-google-search-console/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2581,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1355"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__uvedomleniya-o-zakazah-iz-yandeks-biznesa--7728febc",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/uvedomleniya-o-zakazah-iz-yandeks-biznesa/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/uvedomleniya-o-zakazah-iz-yandeks-biznesa/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2031,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8820"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-google-razrabotali-test-dlya-specialistov-seo--702aece9",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-google-razrabotali-test-dlya-specialistov-seo/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-google-razrabotali-test-dlya-specialistov-seo/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2649,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7445"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-google-search-console-poyavitsya-novyj-otchjot-speed-report--639b30f3",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-google-search-console-poyavitsya-novyj-otchjot-speed-report/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-google-search-console-poyavitsya-novyj-otchjot-speed-report/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2324,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2831"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-paneli-yandeks-vebmastera-poyavilis-novye-rekomendacii-dlya-sajtov--03fd078b",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-paneli-yandeks-vebmastera-poyavilis-novye-rekomendacii-dlya-sajtov/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-paneli-yandeks-vebmastera-poyavilis-novye-rekomendacii-dlya-sajtov/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2942,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1350"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-poiske-google-propala-panel-znanij--473fa187",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-poiske-google-propala-panel-znanij/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-poiske-google-propala-panel-znanij/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2418,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1400"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-poiske-google-snova-poyavilis-favikonki--ac33c7ca",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-poiske-google-snova-poyavilis-favikonki/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-poiske-google-snova-poyavilis-favikonki/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2904,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1332"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-poiske-yandeks-nachali-poyavlyatsya-dvojnye-bystrye-otvety--2afa7174",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-poiske-yandeks-nachali-poyavlyatsya-dvojnye-bystrye-otvety/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-poiske-yandeks-nachali-poyavlyatsya-dvojnye-bystrye-otvety/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2139,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8664"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-poiske-yandeksa-poyavitsya-novyj-reklamnyj-instrument--1c985ee8",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-poiske-yandeksa-poyavitsya-novyj-reklamnyj-instrument/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-poiske-yandeksa-poyavitsya-novyj-reklamnyj-instrument/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2814,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/3042"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-poiskovoj-vydache-yandeks-proizoshli-kolebaniya--c9b48e5e",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-poiskovoj-vydache-yandeks-proizoshli-kolebaniya/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-poiskovoj-vydache-yandeks-proizoshli-kolebaniya/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2213,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1319"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-proshlom-godu-yandeks-uvelichil-vyruchku-na-110-milliardov-rublej--54d478b4",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-proshlom-godu-yandeks-uvelichil-vyruchku-na-110-milliardov-rublej/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-proshlom-godu-yandeks-uvelichil-vyruchku-na-110-milliardov-rublej/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2576,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8691"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-sentyabre-google-obnovil-poiskovyj-algoritm--26e37b90",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-sentyabre-google-obnovil-poiskovyj-algoritm/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-sentyabre-google-obnovil-poiskovyj-algoritm/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2416,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1302"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-vydache-yandeksa-zamecheny-kolebaniya--16a11507",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-vydache-yandeksa-zamecheny-kolebaniya/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-vydache-yandeksa-zamecheny-kolebaniya/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2684,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4594"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-direkte-poyavilas-vozmozhnost-privyazyvat-kartochku-organizacii-k-obyavleniju--dd41ada3",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-direkte-poyavilas-vozmozhnost-privyazyvat-kartochku-organizacii-k-obyavleniju/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-direkte-poyavilas-vozmozhnost-privyazyvat-kartochku-organizacii-k-obyavleniju/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2680,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4479"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-direkte-teper-mozhno-sozdavat-obyavleniya-s-cenami-na-poiske-i-rsya--fa44f668",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-direkte-teper-mozhno-sozdavat-obyavleniya-s-cenami-na-poiske-i-rsya/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-direkte-teper-mozhno-sozdavat-obyavleniya-s-cenami-na-poiske-i-rsya/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2648,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2743"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-metrike-poyavilis-novye-otchjoty-po-vzaimodejstviju-polzovatelej-s-kontentom--3055e8c8",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-metrike-poyavilis-novye-otchjoty-po-vzaimodejstviju-polzovatelej-s-kontentom/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-metrike-poyavilis-novye-otchjoty-po-vzaimodejstviju-polzovatelej-s-kontentom/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3065,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2970"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-poyavilas-rasshirennaya-statistika-poiskovyh-zaprosov-i-pozicij-stranic--6e2c0014",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-poyavilas-rasshirennaya-statistika-poiskovyh-zaprosov-i-pozicij-stranic/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-poyavilas-rasshirennaya-statistika-poiskovyh-zaprosov-i-pozicij-stranic/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2998,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4487"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-poyavilas-svodka-po-statistike-turbo-stranic--4052ef07",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-poyavilas-svodka-po-statistike-turbo-stranic/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-poyavilas-svodka-po-statistike-turbo-stranic/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2443,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4557"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-poyavilis-zametki-o-poslednih-obnovleniyah-v-razdelah--844e312b",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-poyavilis-zametki-o-poslednih-obnovleniyah-v-razdelah/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-poyavilis-zametki-o-poslednih-obnovleniyah-v-razdelah/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2413,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2901"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-poyavilsya-nejrovebmaster-ii-vidzhet-kotoryj-otvechaet-na-voprosy-polzovatelej-o-rabote-platformy--1f5f890b",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-poyavilsya-nejrovebmaster-ii-vidzhet-kotoryj-otvechaet-na-voprosy-polzovatelej-o-rabote-platformy/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-poyavilsya-nejrovebmaster-ii-vidzhet-kotoryj-otvechaet-na-voprosy-polzovatelej-o-rabote-platformy/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3013,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/11288"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-poyavilsya-novyj-razdel-s-informaciej-o-kachestve-sajta--7cae485e",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-poyavilsya-novyj-razdel-s-informaciej-o-kachestve-sajta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-poyavilsya-novyj-razdel-s-informaciej-o-kachestve-sajta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2884,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1374"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__v-yandeks-vebmastere-teper-otobrazhaetsya-pokazatel-skorosti-zagruzki-sajta--0c75b5e0",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-teper-otobrazhaetsya-pokazatel-skorosti-zagruzki-sajta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/v-yandeks-vebmastere-teper-otobrazhaetsya-pokazatel-skorosti-zagruzki-sajta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2430,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4519"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__vyshlo-obnovlenie-redaktora-google-adwords--0ae63c2f",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/vyshlo-obnovlenie-redaktora-google-adwords/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/vyshlo-obnovlenie-redaktora-google-adwords/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2526,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1100"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-budet-pomechat-sajty-s-nekorrektnym-ssl-sertifikatom--58dea5a8",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-budet-pomechat-sajty-s-nekorrektnym-ssl-sertifikatom/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-budet-pomechat-sajty-s-nekorrektnym-ssl-sertifikatom/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2518,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2186"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-direkt-dlya-novichkov--368332cf",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-direkt-dlya-novichkov/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-direkt-dlya-novichkov/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3214,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/3987"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-direkt-vvodit-oplatu-reklamy-za-konversii--fd10c5ff",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-direkt-vvodit-oplatu-reklamy-za-konversii/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-direkt-vvodit-oplatu-reklamy-za-konversii/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2483,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4528"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-dobavil-novyj-schjotchik-iz-spravochnika-v-metriku--5d5751bf",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-dobavil-novyj-schjotchik-iz-spravochnika-v-metriku/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-dobavil-novyj-schjotchik-iz-spravochnika-v-metriku/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2142,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4514"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-dobavil-v-metriku-novyj-otchjot-dlya-turbo-stranic--c21a4f4a",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-dobavil-v-metriku-novyj-otchjot-dlya-turbo-stranic/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-dobavil-v-metriku-novyj-otchjot-dlya-turbo-stranic/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2162,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2681"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-dzen-zapustil-redaktor-postov-v-desktopnoj-versii--64a36224",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-dzen-zapustil-redaktor-postov-v-desktopnoj-versii/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-dzen-zapustil-redaktor-postov-v-desktopnoj-versii/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2281,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/7580"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-market-vernul-dengi-mebelnym-magazinam-iz-za-internet-fleshmoba--1f9cab2c",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-market-vernul-dengi-mebelnym-magazinam-iz-za-internet-fleshmoba/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-market-vernul-dengi-mebelnym-magazinam-iz-za-internet-fleshmoba/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2398,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4575"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-market-zapustil-rekomendacii-cen-dlya-reklamy-tovarov--3545eecb",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-market-zapustil-rekomendacii-cen-dlya-reklamy-tovarov/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-market-zapustil-rekomendacii-cen-dlya-reklamy-tovarov/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3082,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8832"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-mozhet-ponizit-sajt-v-vydache-iz-za-reklamy-google--a6d60b33",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-mozhet-ponizit-sajt-v-vydache-iz-za-reklamy-google/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-mozhet-ponizit-sajt-v-vydache-iz-za-reklamy-google/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2975,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2810"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-nachal-preduprezhdat-o-nezashhishhjonnyh-http-sajtah--fba19645",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-nachal-preduprezhdat-o-nezashhishhjonnyh-http-sajtah/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-nachal-preduprezhdat-o-nezashhishhjonnyh-http-sajtah/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2813,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2667"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-nauchilsya-raspoznavat-tovary-po-kartinkam--2740fe64",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-nauchilsya-raspoznavat-tovary-po-kartinkam/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-nauchilsya-raspoznavat-tovary-po-kartinkam/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2172,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8408"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-obnovil-algoritm-podbora-rekomendovannyh-zaprosov--5d628a76",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-obnovil-algoritm-podbora-rekomendovannyh-zaprosov/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-obnovil-algoritm-podbora-rekomendovannyh-zaprosov/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2765,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1283"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-obnovil-snippety-sajtov--b117926b",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-obnovil-snippety-sajtov/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-obnovil-snippety-sajtov/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2146,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1357"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-obyasnil-kak-snyat-ogranicheniya-s-sajta-za-poiskovyj-spam--b94074d7",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-obyasnil-kak-snyat-ogranicheniya-s-sajta-za-poiskovyj-spam/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-obyasnil-kak-snyat-ogranicheniya-s-sajta-za-poiskovyj-spam/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3621,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1263"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-podkljuchil-avtorizaciju-i-kommentarii-na-turbo-stranicah--a89df6fd",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-podkljuchil-avtorizaciju-i-kommentarii-na-turbo-stranicah/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-podkljuchil-avtorizaciju-i-kommentarii-na-turbo-stranicah/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3250,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2915"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-rasshiryaet-programmu-podderzhki-biznesa-v-direkte--312145c3",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-rasshiryaet-programmu-podderzhki-biznesa-v-direkte/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-rasshiryaet-programmu-podderzhki-biznesa-v-direkte/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3053,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4509"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-rasskazal-chto-ranzhiruet-novosti-po-avtoritetnosti-istochnika--270714a8",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-rasskazal-chto-ranzhiruet-novosti-po-avtoritetnosti-istochnika/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-rasskazal-chto-ranzhiruet-novosti-po-avtoritetnosti-istochnika/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2224,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/3498"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-razdajot-besplatnye-bonusy-biznesu-i-darit-reklamodatelyam-15-000-rublej-direkte--124cfff0",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-razdajot-besplatnye-bonusy-biznesu-i-darit-reklamodatelyam-15-000-rublej-direkte/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-razdajot-besplatnye-bonusy-biznesu-i-darit-reklamodatelyam-15-000-rublej-direkte/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2777,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4460"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-razrabotal-kompleksnoe-reshenie-po-reklame-malogo-biznesa--34a53ed0",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-razrabotal-kompleksnoe-reshenie-po-reklame-malogo-biznesa/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-razrabotal-kompleksnoe-reshenie-po-reklame-malogo-biznesa/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2218,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4523"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-sfokusiruetsya-na-zashhite-polzovatelej-pri-otobrazhenii-znakov-sajta--32aad02a",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-sfokusiruetsya-na-zashhite-polzovatelej-pri-otobrazhenii-znakov-sajta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-sfokusiruetsya-na-zashhite-polzovatelej-pri-otobrazhenii-znakov-sajta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3227,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/11279"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-sokratil-nastrojki-rezultatov-poiskovoj-vydachi--793561d5",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-sokratil-nastrojki-rezultatov-poiskovoj-vydachi/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-sokratil-nastrojki-rezultatov-poiskovoj-vydachi/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3203,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2926"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-spravochnik-dobavil-obshhuju-statistiku-iz-vseh-servisov-yandeksa--2b10b562",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-spravochnik-dobavil-obshhuju-statistiku-iz-vseh-servisov-yandeksa/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-spravochnik-dobavil-obshhuju-statistiku-iz-vseh-servisov-yandeksa/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2242,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/4601"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-spravochnik-obnovil-profili-organizacij--e048fc13",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-spravochnik-obnovil-profili-organizacij/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-spravochnik-obnovil-profili-organizacij/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2663,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2966"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-stal-zakreplyat-v-poiske-reklamnoe-obyavlenie-iz-yandeks-direkta--657e1d77",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-stal-zakreplyat-v-poiske-reklamnoe-obyavlenie-iz-yandeks-direkta/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-stal-zakreplyat-v-poiske-reklamnoe-obyavlenie-iz-yandeks-direkta/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2445,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2950"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-testiruet-otobrazhenie-preimushhestv-dlya-reklamnyh-obyavlenij-v-poiske--8e947ae0",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-testiruet-otobrazhenie-preimushhestv-dlya-reklamnyh-obyavlenij-v-poiske/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-testiruet-otobrazhenie-preimushhestv-dlya-reklamnyh-obyavlenij-v-poiske/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2376,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2962"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-udalil-iz-poiskovoj-vydachi-instrument-poisk-po-sajtu--5e9c3140",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-udalil-iz-poiskovoj-vydachi-instrument-poisk-po-sajtu/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-udalil-iz-poiskovoj-vydachi-instrument-poisk-po-sajtu/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2355,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/3375"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-udalil-starye-znaki-kachestva-v-vebmastere--9aab30dc",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-udalil-starye-znaki-kachestva-v-vebmastere/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-udalil-starye-znaki-kachestva-v-vebmastere/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2333,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/8906"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-zapustil-indeks-kachestva-sajta-iks--38b6fcbf",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-zapustil-indeks-kachestva-sajta-iks/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-zapustil-indeks-kachestva-sajta-iks/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2525,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1255"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yandeks-zapustil-turbo-koldunshchik-v-mobilnoj-vydache--7057a2a1",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yandeks-zapustil-turbo-koldunshchik-v-mobilnoj-vydache/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yandeks-zapustil-turbo-koldunshchik-v-mobilnoj-vydache/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2060,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/1387"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__yavlyaemsya-partnerami-yandeksa-po-razvitiju-trekera--7be0dd7a",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/yavlyaemsya-partnerami-yandeksa-po-razvitiju-trekera/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/yavlyaemsya-partnerami-yandeksa-po-razvitiju-trekera/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2750,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/3628"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-novosti__zapusk-algoritma-speed-update-sdelal-sajty-bolee-bystrymi-i-snizil-procent-vozvratov--cc7a5a3f",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-novosti/zapusk-algoritma-speed-update-sdelal-sajty-bolee-bystrymi-i-snizil-procent-vozvratov/",
+    "path": "/vse-o-seo-prodvizhenii/seo-novosti/zapusk-algoritma-speed-update-sdelal-sajty-bolee-bystrymi-i-snizil-procent-vozvratov/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2573,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/2735"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__audit-sajta-nedvizhimosti--9669574a",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/audit-sajta-nedvizhimosti/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/audit-sajta-nedvizhimosti/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3076,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6464"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__besplatnyj-analiz--c3e4a0c0",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/besplatnyj-analiz/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/besplatnyj-analiz/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1652,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6462"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__filtr-google-panda--2879e183",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/filtr-google-panda/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/filtr-google-panda/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2507,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6485"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__filtr-google-penguin--b4415112",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/filtr-google-penguin/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/filtr-google-penguin/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2349,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6488"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__filtr-yandeksa-minusinsk--80926c6f",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/filtr-yandeksa-minusinsk/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/filtr-yandeksa-minusinsk/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2214,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6472"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__filtr-za-nakrutku-povedencheskih-faktorov--388c5772",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/filtr-za-nakrutku-povedencheskih-faktorov/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/filtr-za-nakrutku-povedencheskih-faktorov/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 3125,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6475"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__filtr-za-perespam--394c47fb",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/filtr-za-perespam/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/filtr-za-perespam/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2922,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6477"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__miganie-sajta-v-top-10-yandeksa--21619b68",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/miganie-sajta-v-top-10-yandeksa/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/miganie-sajta-v-top-10-yandeksa/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2815,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6495"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__pisma-yandeksu--6b573baf",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/pisma-yandeksu/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/pisma-yandeksu/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2040,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6470"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__spam-filtr-yandeksa--67a2d918",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/spam-filtr-yandeksa/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/spam-filtr-yandeksa/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 2898,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6501"
+  },
+  {
+    "id": "vse-o-seo-prodvizhenii__seo-stati__zapiski-seoshnika--2c17c685",
+    "url": "https://mosseo.ru/vse-o-seo-prodvizhenii/seo-stati/zapiski-seoshnika/",
+    "path": "/vse-o-seo-prodvizhenii/seo-stati/zapiski-seoshnika/",
+    "section": "vse-o-seo-prodvizhenii",
+    "status_code": 200,
+    "content_source": "html_fallback",
+    "text_chars": 1863,
+    "wp_json_endpoint": "https://mosseo.ru/wp-json/wp/v2/posts/6483"
   }
 ]

@@ -1,31 +1,31 @@
 ﻿section,total,ok,info,warning,error,wp_json,html_fallback,external_redirect,top_issues
 calc,1,0,0,1,0,0,1,0,"html_fallback:1, missing_csv_h1:1"
 case,1,0,1,0,0,0,1,0,html_fallback:1
-faq,47,46,1,0,0,46,1,0,html_fallback:1
+faq,47,23,24,0,0,23,24,0,html_fallback:24
 konsultacii-ehkspertov-po-seo-i-soprovozhdenie-sajta,19,19,0,0,0,19,0,0,
 kontakty,1,0,0,0,1,0,1,0,"html_fallback:1, body_fallback:1"
 kontekstnaya-reklama,8,7,1,0,0,7,1,0,html_fallback:1
 na-ponyatnom-yazyke,38,37,0,1,0,38,0,0,high_link_density:1
-novosti,1,0,0,1,0,1,0,0,"missing_csv_h1:1, canonical_mismatch:1"
-o-kompanii,8,5,0,3,0,8,0,0,"low_content:2, very_low_content:1"
+novosti,1,0,0,1,0,0,1,0,"html_fallback:1, missing_csv_h1:1, canonical_mismatch:1"
+o-kompanii,8,5,1,2,0,6,2,0,"html_fallback:2, very_low_content:1, low_content:1"
 optimizaciya,14,13,1,0,0,13,1,0,html_fallback:1
 otzyvy,1,1,0,0,0,1,0,0,
 photogallery,1,0,0,1,0,1,0,0,very_low_content:1
 poiskovye-sistemy,6,6,0,0,0,6,0,0,
-portfolio,53,1,21,31,0,1,52,0,"html_fallback:52, low_content:30, high_link_density:1"
+portfolio,53,0,22,31,0,0,53,0,"html_fallback:53, low_content:30, high_link_density:1"
 privacy,1,1,0,0,0,1,0,0,
 prodvizhenie-sajta-samostoyatelno,1,1,0,0,0,1,0,0,
 rejting-seo,1,0,0,1,0,1,0,0,low_content:1
-root,1,1,0,0,0,1,0,0,
+root,1,0,1,0,0,0,1,0,html_fallback:1
 seo-po-tematikam,26,18,8,0,0,18,8,0,html_fallback:8
 seo-prodvizhenie-sajta,44,8,36,0,0,8,36,0,html_fallback:36
 seo-slovar,1,0,0,0,1,0,0,1,"external_redirect:1, empty_content_html:1, very_low_content:1, missing_title:1, missing_description:1"
 seo-uslugi,93,0,41,52,0,0,93,0,"html_fallback:93, high_link_density:52"
-seo-wikipedia,125,124,0,1,0,124,1,0,"html_fallback:1, high_link_density:1"
+seo-wikipedia,125,66,58,1,0,66,59,0,"html_fallback:59, high_link_density:1"
 stoimost-uslug,9,7,1,1,0,7,2,0,"html_fallback:2, missing_csv_h1:1, canonical_mismatch:1"
 tarify-seo,1,0,1,0,0,0,1,0,html_fallback:1
 uslugi,54,46,0,7,1,52,1,1,"missing_csv_h1:8, canonical_mismatch:7, external_redirect:1, empty_content_html:1, very_low_content:1"
 vidy-tipy-sajtov-i-ih-klassifikaciya,12,12,0,0,0,12,0,0,
-vse-o-seo-prodvizhenii,443,392,28,23,0,396,47,0,"html_fallback:47, high_link_density:20, missing_csv_h1:2, canonical_mismatch:2, low_content:1"
+vse-o-seo-prodvizhenii,443,263,155,25,0,263,180,0,"html_fallback:180, high_link_density:23, missing_csv_h1:2, canonical_mismatch:2"
 zakazat-kompleksnoe-prodvizhenie-sajta,1,1,0,0,0,1,0,0,
 zerkalo-sajta-pereezd-sklejka-i-rasklejka-veb-resursa,1,1,0,0,0,1,0,0,

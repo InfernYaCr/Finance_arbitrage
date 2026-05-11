@@ -10,5 +10,8 @@ export function replaceLegacyBrand(value: string): string {
 export function stripBrandSuffix(value: string): string {
   const escapedCurrentBrand = siteConfig.siteName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const suffixRe = new RegExp(`[\\s\\-|]+(?:МОССЕО|Моссео|MOSSEO|Mosseo|${escapedCurrentBrand})\\s*$`, 'i');
-  return replaceLegacyBrand(value).replace(suffixRe, '').trim();
+  return replaceLegacyBrand(value)
+    .replace(suffixRe, '')
+    .replace(/\s+от\s*$/i, '')
+    .trim();
 }
