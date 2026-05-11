@@ -110,6 +110,10 @@ Brand replacement is handled in the site data-loading layer, not by editing
 1000+ extracted JSON files. Old brand spellings (`МОССЕО`, `MOSSEO`, `Mosseo`,
 `Моссео`) are normalized to the configured test brand during rendering.
 
+Old contact details and old Mosseo media are also normalized at render time in
+`site/src/data/loadPages.ts`. Do not edit generated JSON to change phones,
+email, legal details, addresses, or old images.
+
 Set the generated-site brand with:
 
 ```bash
@@ -118,6 +122,36 @@ PUBLIC_SITE_NAME_FULL="Тестовый SEO-проект — SEO-продвиж�
 ```
 
 The current fallback brand is `Тестовый SEO-проект`.
+
+Set generated-site contacts with:
+
+```bash
+PUBLIC_COMPANY_PHONE="+7 000 000-00-00"
+PUBLIC_COMPANY_PHONE_HREF="+70000000000"
+PUBLIC_COMPANY_EMAIL="hello@example.test"
+PUBLIC_COMPANY_ADDRESS="Адрес уточняется"
+PUBLIC_COMPANY_WORKTIME="Пн-Пт, 09:30-18:30"
+PUBLIC_COMPANY_LEGAL_NAME="ООО «Тестовый SEO-проект»"
+PUBLIC_COMPANY_INN="0000000000"
+PUBLIC_COMPANY_KPP="000000000"
+PUBLIC_COMPANY_OGRN="0000000000000"
+PUBLIC_COMPANY_BANK="Банк уточняется"
+PUBLIC_COMPANY_BIK="000000000"
+PUBLIC_COMPANY_ACCOUNT="00000000000000000000"
+PUBLIC_COMPANY_CORRESPONDENT_ACCOUNT="00000000000000000000"
+```
+
+Old extracted images are controlled with:
+
+```bash
+PUBLIC_LEGACY_MEDIA_MODE="placeholder" # placeholder | source | local
+PUBLIC_MEDIA_PLACEHOLDER="/images/placeholder.svg"
+```
+
+Default is `placeholder`, which hides old Mosseo `/content/` and
+`/wp-content/` images. Use `source` only for temporary visual comparison with
+the original site. Use `local` after copying approved images into
+`site/public/content/` and/or `site/public/wp-content/`.
 
 The live `/seo-uslugi/` page contains a large `.section-services` catalog block
 with grouped service links/cards. The generated site originally rendered only

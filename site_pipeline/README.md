@@ -145,6 +145,29 @@ Each page JSON contains:
 - content links and images
 - basic quality counters
 
+## Runtime sanitization
+
+Generated JSON keeps source content. Site rendering normalizes old brand,
+contacts, legal details, and legacy media through `site/src/data/loadPages.ts`
+and `site/src/data/siteConfig.ts`.
+
+Change contacts with environment variables such as:
+
+```bash
+PUBLIC_COMPANY_PHONE="+7 000 000-00-00"
+PUBLIC_COMPANY_EMAIL="hello@example.test"
+PUBLIC_COMPANY_ADDRESS="Адрес уточняется"
+```
+
+Control old extracted images with:
+
+```bash
+PUBLIC_LEGACY_MEDIA_MODE="placeholder" # placeholder | source | local
+PUBLIC_MEDIA_PLACEHOLDER="/images/placeholder.svg"
+```
+
+Do not mass-edit `pages/*.json` for these changes.
+
 ## Full-crawl safety
 
 The crawler is intentionally polite and resumable:

@@ -27,6 +27,21 @@ Runtime normalization is allowed when it is domain-wide and deterministic. For
 example, brand replacement should live in a shared helper and data loader, not
 in one-off edits to extracted JSON files.
 
+The same rule applies to legacy contacts and media. Extracted Mosseo phones,
+emails, legal details, address fragments, staff-contact blocks, and old media
+URLs are normalized in `site/src/data/loadPages.ts` from
+`site/src/data/siteConfig.ts`. This keeps contacts and images changeable from
+one config/env layer without touching 1000+ page JSON files.
+
+Current media modes:
+
+- `placeholder` - replace old `/content/` and `/wp-content/` images with the
+  configured placeholder. This is the default.
+- `source` - load old media from the source domain for temporary visual
+  comparison only.
+- `local` - use copied local `/content/` and `/wp-content/` files after media
+  migration.
+
 ## Recommended generator shape
 
 Astro is the preferred first choice for this project because the dataset is

@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import type { ManifestPage, PageData, FullPage } from './types';
 import editorialPostsRaw from './editorialPosts.json';
 import { replaceLegacyBrand } from '../lib/brand';
+import { siteConfig } from './siteConfig';
 
 const DATA_ROOT = resolve(
   dirname(fileURLToPath(import.meta.url)),
@@ -38,18 +39,94 @@ function rewriteInternalLinks(html: string): string {
   return result;
 }
 
-function restoreSourceAssetUrls(html: string): string {
+function rewriteLegacyMediaUrl(url: string = ''): string {
+  const sourceDomain = siteConfig.legacyContent.sourceDomain.replace(/\/$/, '');
+  const rootRelative = url
+    .replace(/^https?:\/\/(?:www\.)?mosseo\.ru/i, '')
+    .replace(/^https?:\/\/(?:www\.)?mosseo\.expert/i, '');
+  if (!rootRelative.startsWith('/content/') && !rootRelative.startsWith('/wp-content/')) {
+    return url;
+  }
+
+  if (siteConfig.legacyContent.mediaMode === 'source') {
+    return `${sourceDomain}${rootRelative}`;
+  }
+  if (siteConfig.legacyContent.mediaMode === 'local') {
+    return rootRelative;
+  }
+  return siteConfig.legacyContent.mediaPlaceholder;
+}
+
+function rewriteLegacySrcset(value: string): string {
+  return value
+    .split(',')
+    .map((candidate) => {
+      const parts = candidate.trim().split(/\s+/);
+      if (!parts[0]) return candidate;
+      parts[0] = rewriteLegacyMediaUrl(parts[0]);
+      return parts.join(' ');
+    })
+    .join(', ');
+}
+
+function normalizeLegacyMedia(html: string): string {
   return html
-    .replaceAll('src="/content/', 'src="https://mosseo.ru/content/')
-    .replaceAll("src='/content/", "src='https://mosseo.ru/content/")
-    .replaceAll('srcset="/content/', 'srcset="https://mosseo.ru/content/')
-    .replaceAll("srcset='/content/", "srcset='https://mosseo.ru/content/")
-    .replaceAll('src="/wp-content/', 'src="https://mosseo.ru/wp-content/')
-    .replaceAll("src='/wp-content/", "src='https://mosseo.ru/wp-content/")
-    .replaceAll('srcset="/wp-content/', 'srcset="https://mosseo.ru/wp-content/')
-    .replaceAll("srcset='/wp-content/", "srcset='https://mosseo.ru/wp-content/")
-    .replace(/([,\s])\/content\//g, '$1https://mosseo.ru/content/')
-    .replace(/([,\s])\/wp-content\//g, '$1https://mosseo.ru/wp-content/');
+    .replace(/\s(src)=["']["']/gi, (_match, attr: string) => (
+      ` ${attr}="${siteConfig.legacyContent.mediaPlaceholder}"`
+    ))
+    .replace(/\s(src)=["']([^"']+)["']/gi, (_match, attr: string, value: string) => (
+      ` ${attr}="${rewriteLegacyMediaUrl(value)}"`
+    ))
+    .replace(/\s(srcset)=["']([^"']+)["']/gi, (_match, attr: string, value: string) => (
+      ` ${attr}="${rewriteLegacySrcset(value)}"`
+    ))
+    .replace(/\sdata-src=["']([^"']+)["']/gi, (_match, value: string) => (
+      ` src="${rewriteLegacyMediaUrl(value)}"`
+    ))
+    .replace(/\sdata-srcset=["'][^"']+["']/gi, '');
+}
+
+function stripLegacyContactStaff(html: string): string {
+  return html
+    .replace(/<section\b[^>]*class=["'][^"']*section-contacts__stuff[^"']*["'][\s\S]*?<\/section>/gi, '')
+    .replace(/<div\b[^>]*class=["'][^"']*contacts-soc[^"']*["'][\s\S]*?<\/div>/gi, '');
+}
+
+function normalizeLegacyContacts(value: string = ''): string {
+  return value
+    .replace(/8\s*\(?495\)?\s*111[-\s]?55[-\s]?99(?:\s*доб\.?\s*\d+)?/g, siteConfig.company.phone)
+    .replace(/\+7\s*\(?495\)?\s*111[-\s]?55[-\s]?99(?:\s*доб\.?\s*\d+)?/g, siteConfig.company.phone)
+    .replace(/8\s*\(?800\)?\s*350[-\s]?99[-\s]?87/g, siteConfig.company.phone)
+    .replace(/\+7\s*\(?800\)?\s*350[-\s]?99[-\s]?87/g, siteConfig.company.phone)
+    .replace(/\+7\s*\(916\)\s*219[-\s]?65[-\s]?78/g, siteConfig.company.phone)
+    .replace(/8\s*\(?916\)?\s*219[-\s]?65[-\s]?78/g, siteConfig.company.phone)
+    .replace(/\+7\s*\(915\)\s*274[-\s]?74[-\s]?06/g, siteConfig.company.phone)
+    .replace(/8\s*\(919\)\s*728[-\s]?91[-\s]?96/g, siteConfig.company.phone)
+    .replace(/\b\d{1,2}@mosseo\.ru\b/gi, siteConfig.company.email)
+    .replace(/\binfo@mosseo\.ru\b/gi, siteConfig.company.email)
+    .replace(/https:\/\/t\.me\/[A-Za-z0-9_]+/g, '')
+    .replace(/\bmosseo\d+\s*-\s*Skype\b/gi, '')
+    .replace(/\bИНН:\s*7714908129/g, `ИНН: ${siteConfig.company.inn}`)
+    .replace(/\bКПП:\s*502701001/g, `КПП: ${siteConfig.company.kpp}`)
+    .replace(/\bОГРН:\s*1137746509933/g, `ОГРН: ${siteConfig.company.ogrn}`)
+    .replace(/\bБИК:\s*44525593/g, `БИК: ${siteConfig.company.bik}`)
+    .replace(/\b7714908129\b/g, siteConfig.company.inn)
+    .replace(/\b502701001\b/g, siteConfig.company.kpp)
+    .replace(/\b1137746509933\b/g, siteConfig.company.ogrn)
+    .replace(/\b44525593\b/g, siteConfig.company.bik)
+    .replace(/ОАО «АЛЬФА-БАНК»/g, siteConfig.company.bank)
+    .replace(/ОАО АЛЬФА-БАНК/g, siteConfig.company.bank)
+    .replace(/40702810301100003591/g, siteConfig.company.account)
+    .replace(/30101810200000000593/g, siteConfig.company.correspondentAccount)
+    .replace(/г\.\s*Москва\s*,?\s*Ленинградский проспект,\s*57А/g, siteConfig.company.address)
+    .replace(/Ленинградский проспект,\s*57А/g, siteConfig.company.address)
+    .replace(/Понедельник\s*-\s*Пятница\s*с\s*09:30\s*до\s*18:30\s*\(по Москве\)/g, siteConfig.company.worktime)
+    .replace(/href=["']tel:[^"']+["']/gi, `href="tel:${siteConfig.company.phoneHref}"`)
+    .replace(/href=["']mailto:[^"']+["']/gi, `href="mailto:${siteConfig.company.email}"`);
+}
+
+function normalizeLegacyHtml(html: string): string {
+  return normalizeLegacyContacts(normalizeLegacyMedia(stripLegacyContactStaff(html)));
 }
 
 function stripEmbeddedH1(html: string): string {
@@ -72,8 +149,8 @@ export function loadPageData(relativePageFile: string): PageData {
   // Rewrite mosseo.ru links → root-relative so they work on any host
   if (data.content_html) data.content_html = rewriteInternalLinks(data.content_html);
   if (data.excerpt_html) data.excerpt_html = rewriteInternalLinks(data.excerpt_html);
-  if (data.content_html) data.content_html = restoreSourceAssetUrls(data.content_html);
-  if (data.excerpt_html) data.excerpt_html = restoreSourceAssetUrls(data.excerpt_html);
+  if (data.content_html) data.content_html = normalizeLegacyHtml(data.content_html);
+  if (data.excerpt_html) data.excerpt_html = normalizeLegacyHtml(data.excerpt_html);
   return normalizePageData(data);
 }
 
@@ -94,11 +171,19 @@ function normalizePageData(data: PageData): PageData {
     },
     wp_title: replaceLegacyBrand(data.wp_title),
     excerpt_html: replaceLegacyBrand(data.excerpt_html),
-    excerpt_text: replaceLegacyBrand(data.excerpt_text),
+    excerpt_text: normalizeLegacyContacts(replaceLegacyBrand(data.excerpt_text)),
     content_html: stripEmbeddedH1(replaceLegacyBrand(data.content_html)),
-    content_text: replaceLegacyBrand(data.content_text),
-    links: data.links.map((link) => ({ ...link, text: replaceLegacyBrand(link.text) })),
-    images: data.images.map((image) => ({ ...image, alt: replaceLegacyBrand(image.alt) })),
+    content_text: normalizeLegacyContacts(replaceLegacyBrand(data.content_text)),
+    links: data.links.map((link) => ({
+      ...link,
+      href: normalizeLegacyContacts(link.href || ''),
+      text: normalizeLegacyContacts(replaceLegacyBrand(link.text)),
+    })),
+    images: data.images.map((image) => ({
+      ...image,
+      src: rewriteLegacyMediaUrl(image.src || ''),
+      alt: replaceLegacyBrand(image.alt),
+    })),
   };
 }
 
