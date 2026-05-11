@@ -113,6 +113,21 @@ cd /Users/deniskononov/mosseo-site-pipeline/site
 npm run preview -- --host 127.0.0.1 --port 4321
 ```
 
+Deploy to Beget:
+
+```bash
+cd /Users/deniskononov/mosseo-site-pipeline/site
+npm run build && npm run deploy
+```
+
+Credentials are read automatically from `site/.env` (not committed). Before
+running, disable iCloud Private Relay (System Settings → Apple ID → iCloud →
+Private Relay → Off) — otherwise FTP data connections fail with `425 Bad IP`.
+Stop with Ctrl+C if needed.
+
+FTP account: `yourkedm_testseo` → `yourkedm.beget.tech` → root = `/seo-test/public_html`.
+Test domain: http://yourkedm.beget.tech/
+
 Useful smoke-test routes:
 
 - `/`
