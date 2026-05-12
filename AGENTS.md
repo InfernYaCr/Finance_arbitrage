@@ -98,31 +98,18 @@ PUBLIC_SOCIAL_OK=""               # OK page URL, hidden if empty
 - PortfolioLayout archive mode: live grid from `getImmediateChildPages()`
 - Routing fix: `portfolio_archive` → `PortfolioLayout` (was wrongly → `ArchiveLayout`)
 
-## What is planned next (staged plan)
+## Roadmap
 
-See the plan in the last session or reconstruct from this priority order:
+Полный план — см. `ROADMAP.md` в корне проекта.
 
-**Этап 1 — Critical gaps**
-1. Footer: expand to 4-column layout (brand | services | sections | contacts+social)
-2. ServiceLayout: detect child pages and show service card grid in archive mode
-3. ArchiveLayout: replace `content_html` with `getImmediateChildPages()` card grid
+Два трека:
+- **Трек A** — UI сайта: Footer → ServiceLayout → ArchiveLayout → Homepage USP → Mobile → Polish
+- **Трек B** — PBN-инфраструктура: Multi-donor pipeline → Batch deploy → Темы → Link config → MCP воркфлоу
 
-**Этап 2 — Homepage + content enrichment**
-4. Homepage: add services grid block (children of `/seo-uslugi/`)
-5. Homepage: add "Почему мы" / USP section
-6. ArticleLayout: add sidebar with related articles from same section
+**Текущий приоритет: A1.1 — Footer (4-колоночный подвал)**
 
-**Этап 3 — Mobile**
-7. Header: verify and fix burger menu (open/close, dropdown accordion, aria)
-8. Global mobile breakpoints audit (container padding, tap targets ≥44px)
-9. Per-layout mobile fixes (process grid, stats, CTA flex)
-
-**Этап 4 — Polish**
-10. FAQ archive: accordion instead of list of links
-11. Portfolio case: results/metrics block
-12. Pricing page: tariff table/cards
-13. 404 page styling
-14. "О компании" dedicated layout or enriched ArticleLayout
+Порядок всегда: завершить текущий этап A → следующий этап A → затем B1 → B2 → ...
+При старте новой сессии: читать `ROADMAP.md`, брать первую `[ ]` задачу.
 
 ## Deploy
 
