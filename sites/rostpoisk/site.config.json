@@ -1,0 +1,34 @@
+{
+  "site_id": "rostpoisk",
+  "donor_id": "mosseo-ru",
+  "brand": {
+    "name": "РостПоиск",
+    "name_full": "РостПоиск — продвижение сайтов для бизнеса",
+    "aliases": ["Мосео", "Mosseo", "mosseo", "mosseo.ru", "Мosseo"]
+  },
+  "contacts": {
+    "phone": "+7 495 128-34-56",
+    "phone_href": "+74951283456",
+    "phone_label": "звонок по РФ бесплатный",
+    "email": "lead@yourkedm.beget.tech",
+    "address": "Москва, Пресненская набережная, 12",
+    "worktime": "Пн-Пт, 10:00-19:00"
+  },
+  "form": {
+    "action": "/mail.php",
+    "to": "qubitaibot@qubitaibot.store",
+    "subject": "Новая заявка с сайта РостПоиск"
+  },
+  "analytics": {
+    "metrika_id": "109164667",
+    "gtag_id": ""
+  },
+  "deploy": {
+    "site_url": "http://yourkedm.beget.tech",
+    "beget_host": "yourkedm.beget.tech",
+    "beget_ftp_user": "yourkedm_testseo",
+    "beget_ftp_path": "/"
+  },
+  "theme": "alpha",
+  "enable_editorial_posts": false
+}

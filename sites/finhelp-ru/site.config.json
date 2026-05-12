@@ -1,0 +1,34 @@
+{
+  "site_id": "finhelp-ru",
+  "donor_id": "vsezaimyonline-ru",
+  "brand": {
+    "name": "ФинПомощь",
+    "name_full": "ФинПомощь — займы и кредиты для бизнеса и физлиц",
+    "aliases": ["ВсеЗаймыОнлайн", "Все Займы Онлайн", "VseZaimyOnline", "vsezaimyonline.ru"]
+  },
+  "contacts": {
+    "phone": "",
+    "phone_href": "",
+    "phone_label": "",
+    "email": "",
+    "address": "",
+    "worktime": ""
+  },
+  "form": {
+    "action": "/mail.php",
+    "to": "",
+    "subject": "Новая заявка с сайта ФинПомощь"
+  },
+  "analytics": {
+    "metrika_id": "",
+    "gtag_id": ""
+  },
+  "deploy": {
+    "site_url": "",
+    "beget_host": "",
+    "beget_ftp_user": "",
+    "beget_ftp_path": "/"
+  },
+  "theme": "alpha",
+  "enable_editorial_posts": false
+}
