@@ -288,47 +288,87 @@ conn.close()
 PY
 ```
 
-## Astro site — current implementation state (2026-05-11)
+## Astro site — current implementation state (2026-05-12)
 
 The Astro site is fully operational. All 1011 routes build cleanly.
+**Track A (UI) is fully complete.** Track B (PBN infrastructure) is next.
 
-### Completed
+### Completed — Track A (all done)
 
+**A1 · Critical gaps**
+- Footer: 4-column grid (brand+social | 7 services | company nav | contacts+socials).
+  CSS: `2fr 1.5fr 1.2fr 1.5fr` → 2-col at ≤1024px → 1-col at ≤640px.
+- ServiceLayout: child service card grid before body (auto-fill minmax 260px,
+  accent left border). Read via `getImmediateChildPages(page.path)`.
+- ArchiveLayout: replaced raw `content_html` with `getImmediateChildPages()`
+  card grid. `showGeneratedCatalog = directChildren.length > 0 && !hasSourceCatalog`.
+
+**A2 · Content enrichment**
+- Homepage services block: top 8 children of `/seo-uslugi/` in grid after nav-grid.
+- Homepage USP block: 6 hardcoded advantage items (icon+title+desc) after process steps.
+- ArticleLayout sidebar: sibling pages from same parent (≥3 siblings → sticky 300px
+  aside with related-links block + accent CTA card). Grid: `1fr 300px`, 1-col at ≤900px.
+
+**A3 · Mobile**
+- Header burger: `min-width: 44px; min-height: 44px` — meets tap target requirement.
+- Container padding, global tap targets ≥44px.
+- Per-layout mobile fixes (process grid, stats, CTA flex at ≤480px).
+
+**A4 · Polish**
+- FAQ archive: `<details>/<summary>` accordion with chevron SVG, no JS needed.
+- Portfolio case: generic metrics block (ТОП-10, +150%, 3–6 мес.) — 3-col grid,
+  1-col at ≤480px.
+- Pricing page: tariff cards (border: 2px accent) + info cards grid.
+  Tariffs detected by `path.includes('tarif')`.
+- 404 page: styled with 6rem accent code + two action buttons.
+- "О компании": ArticleLayout child-pages nav block — shows 7 child links between
+  body and PromoSlot (`.article-children` component in ArticleLayout).
+
+**Earlier baseline (still applies)**
 - 8 page layouts: Home, Article, Archive, Service, Portfolio (archive + case),
   FAQ, Dictionary, Contact
 - Double-row header: topbar (phones, email, socials, worktime) + nav with
   dropdowns; topbar hidden on mobile (≤900px)
-- Homepage structured sections: hero, blue stats bar, nav grid, process steps,
+- Homepage structured sections: hero, stats bar, nav grid, process steps,
   case cards (live from `/portfolio/` children), FAQ list (live from `/faq/`
   children), CTA banner
-- ContactLayout rebuilt without `content_html` injection (the extracted WP HTML
-  contains nested `<div class="container">` that breaks layout via HTML parser);
-  now uses form + info card in CSS grid
+- ContactLayout rebuilt without `content_html` injection
 - PortfolioLayout archive mode: live grid via `getImmediateChildPages()`
-- Routing fix: `portfolio_archive` now routes to `PortfolioLayout`
-- `siteConfig.ts` extended: `phoneLabel`, `phone2`, `phone2Href`, `phone2Label`,
+- Routing fix: `portfolio_archive` → `PortfolioLayout`
+- `siteConfig.ts`: `phoneLabel`, `phone2`, `phone2Href`, `phone2Label`,
   `telegram`, `social.{vk, telegram, ok}` — all from env vars, hidden when empty
 
-### Next work — staged plan
+### Next work — Track B (PBN infrastructure), Variant 3
 
-**Этап 1 (критично)**
-1. Footer: 4-column layout (brand | services | sections | contacts+social)
-2. ServiceLayout: show child service card grid in archive mode
-3. ArchiveLayout: replace content_html with `getImmediateChildPages()` card grid
+**Variant 3** means: get Firecrawl + Exa API keys and run real multi-donor crawl.
+Firecrawl MCP is already connected (`mcp__firecrawl__*` tools available).
+Exa MCP not yet connected (needs `EXA_API_KEY` in `site/.env`).
 
-**Этап 2 (контентное обогащение)**
-4. Homepage: services grid block (children of `/seo-uslugi/`)
-5. Homepage: "Почему мы" / USP section
-6. ArticleLayout: sidebar with related articles from same section
+**B1 · Multi-donor pipeline (priority)**
 
-**Этап 3 (мобильная версия)**
-7. Header: verify/fix burger menu (open/close, accordion, aria)
-8. Global mobile breakpoints (container padding, tap targets ≥44px)
-9. Per-layout mobile fixes
+B1.1 — Remove hardcoded `mosseo.ru` from `crawl_pages.py`:
+- Line ~295: `if final_domain != "mosseo.ru":` → replace with `donor_domain` variable
+- Line ~143: WP JSON regex hardcodes `mosseo.ru` → generalize to extracted base domain
+- Add `--donor-url` CLI argument (or `--source-domain`); `qa_pages.py` line ~229
+  has `--source-domain mosseo.ru` default to update
 
-**Этап 4 (полировка)**
-10. FAQ archive accordion, portfolio case metrics block, pricing table, 404,
-    "О компании" layout
+B1.2 — Firecrawl MCP backend:
+- `mcp__firecrawl__firecrawl_crawl(url, maxDepth, limit)` crawls entire donor
+- `mcp__firecrawl__firecrawl_scrape(url)` fetches single page
+- New `site_pipeline/crawl_firecrawl.py` or flag `--backend firecrawl` in existing
+  crawl script; output format same as current `pages/*.json`
+
+B1.3 — Universal content extractor:
+- Current extractor relies on WP REST API (`/wp-json/wp/v2/pages/`) with HTML fallback
+- New donor may not run WP or may have different structure
+- Generalize: try WP REST → fall back to a ranked list of content selectors →
+  fall back to `<main>` / `<article>` / largest text block
+
+B1.4 — Test run on second donor:
+- Pick a niche SEO-agency site as donor (Exa search once key is available)
+- Crawl with Firecrawl, run through extractor, build manifest, check QA report
+
+**B2+ stays pending** (batch deploy, themes, link config) — do B1 first.
 
 ### Deploy
 

@@ -55,7 +55,7 @@ def assess_page(page: dict[str, Any], source_domain: str) -> dict[str, Any]:
     if status_code < 200 or status_code >= 400:
         add_issue(issues, "bad_status", "error", f"HTTP status is {status_code}.")
 
-    if final_url and normalized_domain(final_url) != source_domain:
+    if source_domain and final_url and normalized_domain(final_url) != source_domain:
         add_issue(issues, "external_redirect", "error", f"Redirected outside {source_domain}: {final_url}")
 
     if not content_html.strip():
@@ -226,7 +226,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Check crawled page JSON files before site generation.")
     parser.add_argument("--pages-dir", type=Path, default=DEFAULT_OUTPUT / "pages")
     parser.add_argument("--out", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument("--source-domain", default="mosseo.ru")
+    parser.add_argument("--source-domain", default=None, help="Expected donor domain, e.g. example.ru. Skips redirect check if omitted.")
     args = parser.parse_args()
 
     report = build_report(args.pages_dir, args.source_domain)

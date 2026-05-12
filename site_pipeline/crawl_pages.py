@@ -140,7 +140,7 @@ def find_wp_endpoint(soup: BeautifulSoup) -> str:
         link_type = link.get("type") or ""
         if "alternate" in rel and "application/json" in link_type and "/wp-json/wp/v2/" in href:
             return href
-    match = re.search(r"https://mosseo\.ru/wp-json/wp/v2/[^\"'<\s]+", str(soup))
+    match = re.search(r"https?://[^\"'<\s]+/wp-json/wp/v2/[^\"'<\s]+", str(soup))
     return match.group(0) if match else ""
 
 
@@ -289,10 +289,11 @@ def enrich_page(
     retries: int = 2,
     backoff: float = 1.0,
     force_html: bool = False,
+    source_domain: str = "",
 ) -> dict[str, Any]:
     status_code, final_url, html_text = fetch_text(sess, seed.url, timeout, retries, backoff)
     final_domain = urlparse(final_url).netloc.lower().replace("www.", "")
-    if final_domain != "mosseo.ru":
+    if source_domain and final_domain != source_domain:
         return {
             "id": safe_page_id(seed.url),
             "seed": seed.__dict__,
@@ -428,6 +429,7 @@ def main() -> None:
     parser.add_argument("--resume", action="store_true", help="Skip pages that already have JSON files in the output folder.")
     parser.add_argument("--respect-robots", action="store_true", help="Skip URLs disallowed by robots.txt for this crawler user-agent.")
     parser.add_argument("--force-html", action="store_true", help="Skip WP REST API and use HTML fallback for all crawled pages.")
+    parser.add_argument("--source-domain", default=None, help="Expected donor domain, e.g. example.ru. Auto-detected from seeds if omitted.")
     args = parser.parse_args()
 
     urls = list(args.url or [])
@@ -438,6 +440,9 @@ def main() -> None:
             if line.strip() and not line.strip().startswith("#")
         )
     seeds = select_seeds(read_seeds(args.csv), args.limit, args.sample_per_section, args.section, urls or None)
+    source_domain = args.source_domain or (
+        urlparse(seeds[0].url).netloc.lower().replace("www.", "") if seeds else ""
+    )
     sess = session(args.proxy)
     robots = robots_parser(seeds[0].url, USER_AGENT, args.timeout, args.proxy) if args.respect_robots and seeds else None
     pages_dir = args.out / "pages"
@@ -475,7 +480,7 @@ def main() -> None:
             except (OSError, json.JSONDecodeError, KeyError):
                 pass
         try:
-            page = enrich_page(sess, seed, args.timeout, args.retries, args.backoff, force_html=args.force_html)
+            page = enrich_page(sess, seed, args.timeout, args.retries, args.backoff, force_html=args.force_html, source_domain=source_domain)
             write_json(page_path, page)
             manifest.append(
                 {

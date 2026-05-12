@@ -86,30 +86,44 @@ PUBLIC_SOCIAL_TG=""               # Telegram channel URL, hidden if empty
 PUBLIC_SOCIAL_OK=""               # OK page URL, hidden if empty
 ```
 
-## What has been implemented (as of 2026-05-11)
+## What has been implemented (as of 2026-05-12)
+
+**Track A (UI) — fully complete.**
 
 - Full Astro site with 8 page layouts covering all 1011 buildable routes
 - Double-row header: topbar with phones/email/callback/socials + main nav row
   with dropdown menus; topbar hidden on mobile (≤900px)
-- Homepage: structured sections (hero, stats, nav-grid, process steps, case
-  cards from `/portfolio/` children, FAQ from `/faq/` children, CTA)
-- ContactLayout: rebuilt without `content_html` injection — form + blue info card
-  in CSS grid; no HTML parser breakage
-- PortfolioLayout archive mode: live grid from `getImmediateChildPages()`
-- Routing fix: `portfolio_archive` → `PortfolioLayout` (was wrongly → `ArchiveLayout`)
+- Homepage: hero, stats bar, nav-grid, process steps, **services grid** (top 8
+  children of `/seo-uslugi/`), **USP block** (6 advantage items), case cards,
+  FAQ items, CTA
+- ContactLayout: form + blue info card in CSS grid; no `content_html` injection
+- PortfolioLayout archive: live grid; case: generic metrics block (3-col: ТОП-10 /
+  +150% / 3–6 мес.) above prose body
+- ArchiveLayout: `showGeneratedCatalog` replaces `content_html` with:
+  - FAQ path → `<details>/<summary>` accordion (no JS)
+  - Pricing path → tariff `.pricing-card` (2px accent border) + info `.archive-card`
+  - Default → grouped child cards with sub-links
+- ServiceLayout: child service grid before body (`auto-fill minmax(260px, 1fr)`)
+- Footer: 4-column grid (brand+social | 7 services | company nav | contacts)
+- ArticleLayout sidebar: sibling pages (≥3 → sticky 300px aside); child-pages
+  nav block between body and PromoSlot (used by "О компании" with 7 children)
+- Mobile: burger `min-width/height: 44px`; container padding; per-layout responsive
+- 404 page: accent "404" code + two action buttons
 
 ## Roadmap
 
 Полный план — см. `ROADMAP.md` в корне проекта.
 
 Два трека:
-- **Трек A** — UI сайта: Footer → ServiceLayout → ArchiveLayout → Homepage USP → Mobile → Polish
+- **Трек A** — UI сайта: **ЗАВЕРШЁН** (все A1–A4 пункты закрыты, 2026-05-12)
 - **Трек B** — PBN-инфраструктура: Multi-donor pipeline → Batch deploy → Темы → Link config → MCP воркфлоу
 
-**Текущий приоритет: A1.1 — Footer (4-колоночный подвал)**
+**Текущий приоритет: B1.1 — убрать хардкод mosseo.ru из crawl_pages.py**
 
-Порядок всегда: завершить текущий этап A → следующий этап A → затем B1 → B2 → ...
-При старте новой сессии: читать `ROADMAP.md`, брать первую `[ ]` задачу.
+Подход: **Variant 3** — Firecrawl MCP подключён (`mcp__firecrawl__*` работает),
+нужен EXA_API_KEY в `site/.env` для Exa.
+
+При старте новой сессии: читать `ROADMAP.md`, брать первую `[ ]` задачу в Треке B.
 
 ## Deploy
 
@@ -135,12 +149,12 @@ Test URL: http://yourkedm.beget.tech/
 
 ### Настроены в `.mcp.json` (активируются при рестарте Claude Code)
 
-| MCP | Зачем | Требует |
+| MCP | Зачем | Статус |
 |---|---|---|
-| firecrawl | Краулинг новых донор-сайтов для PBN | `FIRECRAWL_API_KEY` (firecrawl.dev) |
-| exa | Поиск доноров по нишам, анализ конкурентов | `EXA_API_KEY` (exa.ai) |
-| playwright | Автотест задеплоенных сайтов | — |
-| filesystem | Управление конфигами N сайтов | — |
+| firecrawl | Краулинг новых донор-сайтов для PBN | ✅ Подключён (FIRECRAWL_API_KEY задан) |
+| exa | Поиск доноров по нишам, анализ конкурентов | ⚠️ Нужен EXA_API_KEY в `site/.env` |
+| playwright | Автотест задеплоенных сайтов | ✅ Готов |
+| filesystem | Управление конфигами N сайтов | ✅ Готов |
 
 API ключи добавлять в `site/.env`. Файл конфига: `.mcp.json` в корне проекта.
 
