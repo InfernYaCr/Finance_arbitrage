@@ -14,7 +14,7 @@
 
 - [x] **A1.1 Footer** — 4-колоночный подвал: бренд+описание | услуги | разделы | контакты+соцсети
 - [x] **A1.2 ServiceLayout archive** — если есть дочерние страницы, показывать сетку дочерних услуг
-- [ ] **A1.3 ArchiveLayout** — заменить `content_html` на карточную сетку из `getImmediateChildPages()`
+- [x] **A1.3 ArchiveLayout** — заменить `content_html` на карточную сетку из `getImmediateChildPages()`
 
 ### A2 · Контентное обогащение
 

@@ -35,7 +35,7 @@ const groupedChildren = directChildren.map((child) => ({
         {seo.description && <p class="archive-page__desc">{seo.description}</p>}
       </header>
 
-      {data.content_html && (
+      {data.content_html && !showGeneratedCatalog && (
         <div class="prose archive-page__body" set:html={data.content_html} />
       )}
 
