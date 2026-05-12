@@ -70,7 +70,7 @@ set ftp:fix-pasv-address yes
 set net:timeout 60
 set net:max-retries 5
 set net:reconnect-interval-base 5
-set mirror:parallel-transfer-count 1
+set mirror:parallel-transfer-count 4
 mirror --reverse --verbose \
   --exclude='.DS_Store' \
   --exclude='.map$' \

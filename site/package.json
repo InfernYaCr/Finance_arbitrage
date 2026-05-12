@@ -10,7 +10,8 @@
     "check:b0": "node scripts/check-b0-env.mjs",
     "check": "astro check",
     "deploy": "bash scripts/deploy.sh",
-    "deploy:dry": "bash scripts/deploy.sh --dry-run"
+    "deploy:dry": "bash scripts/deploy.sh --dry-run",
+    "deploy:file": "bash scripts/deploy-file.sh"
   },
   "dependencies": {
     "astro": "^4.16.0"
