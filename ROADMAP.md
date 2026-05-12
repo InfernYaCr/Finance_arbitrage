@@ -24,9 +24,9 @@
 
 ### A3 · Мобильная версия
 
-- [ ] **A3.1 Header burger** — проверить и починить открытие/закрытие, accordion дропдаунов, aria
-- [ ] **A3.2 Global mobile** — container padding, tap targets ≥44px, типографика
-- [ ] **A3.3 Per-layout mobile** — process grid, stats, CTA flex на ≤480px
+- [x] **A3.1 Header burger** — проверить и починить открытие/закрытие, accordion дропдаунов, aria
+- [x] **A3.2 Global mobile** — container padding, tap targets ≥44px, типографика
+- [x] **A3.3 Per-layout mobile** — process grid, stats, CTA flex на ≤480px
 
 ### A4 · Полировка
 
