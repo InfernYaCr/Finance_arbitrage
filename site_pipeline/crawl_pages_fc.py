@@ -51,6 +51,8 @@ if _SITE_ENV.exists():
 from firecrawl.v1 import V1FirecrawlApp  # noqa: E402
 from firecrawl.v1.client import V1JsonConfig, V1LocationConfig  # noqa: E402
 
+from registry import insert_crawl_run  # noqa: E402
+
 from common import (  # noqa: E402
     DEFAULT_OUTPUT,
     absolutize_url,
@@ -621,6 +623,21 @@ def crawl(
         saved += 1
 
     print(f"Done. Saved {saved} pages → {pages_dir}")
+
+    # Record crawl run in registry
+    mode = "llm" if with_llm else ("recrawl" if recrawl else "base")
+    credit_cost = saved * (5 if with_llm else 1)
+    try:
+        run_id = insert_crawl_run(
+            f"https://{source_domain}",
+            page_count=saved,
+            credit_cost=credit_cost,
+            mode=mode,
+            output_dir=str(output_dir),
+        )
+        print(f"✓ Registry: crawl run {run_id} saved (mode={mode}, pages={saved}, credits≈{credit_cost})")
+    except Exception as exc:
+        print(f"  Registry write skipped: {exc}", file=sys.stderr)
 
 
 def main() -> None:

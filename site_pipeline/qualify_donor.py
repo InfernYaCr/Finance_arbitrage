@@ -11,6 +11,7 @@ from urllib.parse import urlparse
 import requests
 
 from common import DEFAULT_OUTPUT, write_json
+from registry import upsert_donor
 
 
 _SITE_ENV = Path(__file__).parent.parent / "site" / ".env"
@@ -104,7 +105,21 @@ def main() -> None:
         out = DEFAULT_OUTPUT / f"qualify_{domain}.json"
     output = qualify(args.url, out)
     print(f"Saved qualification → {out}")
-    print(output.get("summary"))
+    summary = output.get("summary") or {}
+    print(summary)
+
+    # Write result to registry
+    verdict = summary.get("verdict", "PENDING")
+    score = summary.get("crawl_value")
+    niche = summary.get("niche")
+    donor_id = upsert_donor(
+        args.url,
+        verdict=verdict,
+        score=float(score) / 100 if score is not None else None,
+        niche=niche,
+        notes=summary.get("notes"),
+    )
+    print(f"✓ Registry updated: {donor_id}  verdict={verdict}")
 
 
 if __name__ == "__main__":
