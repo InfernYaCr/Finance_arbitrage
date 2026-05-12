@@ -364,13 +364,6 @@ const formAction = contactForm.action || '/mail.php';
     }
   });
 
-  document.getElementById('cf-email')?.addEventListener('blur', function () {
-    if (this.value.trim() && !validateEmail(this.value)) {
-      showError('cf-email', 'err-email', 'Некорректный email, например: name@mail.ru');
-    } else {
-      clearError('cf-email', 'err-email');
-    }
-  });
 
   document.getElementById('cf-message')?.addEventListener('blur', function () {
     this.value.trim() ? clearError('cf-message', 'err-message') : showError('cf-message', 'err-message', 'Напишите сообщение');
@@ -388,9 +381,6 @@ const formAction = contactForm.action || '/mail.php';
     else if (!validatePhone(phone.value)) { showError('cf-phone', 'err-phone', 'Введите полный номер: +7 (XXX) XXX-XX-XX'); valid = false; }
     else clearError('cf-phone', 'err-phone');
 
-    const email = document.getElementById('cf-email');
-    if (email?.value.trim() && !validateEmail(email.value)) { showError('cf-email', 'err-email', 'Некорректный email, например: name@mail.ru'); valid = false; }
-    else clearError('cf-email', 'err-email');
 
     const message = document.getElementById('cf-message');
     if (!message?.value.trim()) { showError('cf-message', 'err-message', 'Напишите сообщение'); valid = false; }

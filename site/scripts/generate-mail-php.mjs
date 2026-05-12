@@ -98,7 +98,7 @@ if (
     $message === '' ||
     strlen($phoneDigits) !== 11 ||
     $phoneDigits[0] !== '7' ||
-    ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL))
+    false
 ) {
     redirect_to($errorPath);
 }
