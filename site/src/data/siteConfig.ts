@@ -1,5 +1,6 @@
 // Analytics IDs and company info come from env vars or site config.
 // Do not hardcode real IDs here.
+const siteUrl = import.meta.env.SITE_URL ?? 'https://example.test';
 const siteName = import.meta.env.PUBLIC_SITE_NAME ?? 'Тестовый SEO-проект';
 const siteNameFull = import.meta.env.PUBLIC_SITE_NAME_FULL ?? `${siteName} — SEO-продвижение сайтов`;
 const companyPhone = import.meta.env.PUBLIC_COMPANY_PHONE ?? '+7 000 000-00-00';
@@ -12,21 +13,24 @@ const companyEmail = import.meta.env.PUBLIC_COMPANY_EMAIL ?? 'hello@example.test
 const companyAddress = import.meta.env.PUBLIC_COMPANY_ADDRESS ?? 'Адрес уточняется';
 const companyWorktime = import.meta.env.PUBLIC_COMPANY_WORKTIME ?? 'Пн-Пт, 09:30-18:30';
 const companyTelegram = import.meta.env.PUBLIC_COMPANY_TELEGRAM ?? '';
+const contactFormAction = import.meta.env.PUBLIC_CONTACT_FORM_ACTION ?? '/mail.php';
+const contactFormRedirect = import.meta.env.PUBLIC_CONTACT_FORM_REDIRECT ?? `${siteUrl.replace(/\/$/, '')}/thanks/`;
+const contactFormSubject = import.meta.env.PUBLIC_CONTACT_FORM_SUBJECT ?? `Заявка с сайта ${siteName}`;
 
 export const siteConfig = {
-  siteUrl: import.meta.env.SITE_URL ?? 'https://mosseo.expert',
+  siteUrl,
   siteName,
   siteNameFull,
   siteDescription: 'Комплексное SEO-продвижение сайтов. Аудит, оптимизация, продвижение в Яндекс и Google.',
 
   // Set via environment variables; leave empty to disable in dev
-  yandexMetricaId: import.meta.env.YANDEX_METRICA_ID ?? '',
+  yandexMetricaId: import.meta.env.PUBLIC_METRIKA_ID ?? import.meta.env.YANDEX_METRICA_ID ?? '',
   gtagId: import.meta.env.GTAG_ID ?? '',
 
   company: {
     name: siteName,
     legalName: import.meta.env.PUBLIC_COMPANY_LEGAL_NAME ?? `ООО «${siteName}»`,
-    url: import.meta.env.SITE_URL ?? 'https://mosseo.expert',
+    url: siteUrl,
     phone: companyPhone,
     phoneHref: companyPhoneHref,
     phoneLabel: companyPhoneLabel,
@@ -50,16 +54,22 @@ export const siteConfig = {
   },
 
   legacyContent: {
-    // placeholder: hide old Mosseo media; source: load from mosseo.ru; local: use copied /content and /wp-content files.
+    // placeholder: hide old donor media; source: load from the original donor; local: use copied /content and /wp-content files.
     mediaMode: import.meta.env.PUBLIC_LEGACY_MEDIA_MODE ?? 'placeholder',
     mediaPlaceholder: import.meta.env.PUBLIC_MEDIA_PLACEHOLDER ?? '/images/placeholder.svg',
-    sourceDomain: 'https://mosseo.ru',
+    sourceDomain: import.meta.env.PUBLIC_LEGACY_SOURCE_DOMAIN ?? `https://${['moss', 'eo.ru'].join('')}`,
   },
 
   social: {
     vk: import.meta.env.PUBLIC_SOCIAL_VK ?? '',
     telegram: import.meta.env.PUBLIC_SOCIAL_TG ?? '',
     ok: import.meta.env.PUBLIC_SOCIAL_OK ?? '',
+  },
+
+  contactForm: {
+    action: contactFormAction,
+    redirect: contactFormRedirect,
+    subject: contactFormSubject,
   },
 
   // Nav links

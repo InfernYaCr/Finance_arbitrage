@@ -1,12 +1,13 @@
 {
-  "name": "mosseo-site",
+  "name": "seo-site",
   "type": "module",
   "version": "0.1.0",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/generate-sitemap.mjs",
+    "build": "astro build && node scripts/generate-sitemap.mjs && node scripts/generate-mail-php.mjs",
     "build:astro": "astro build",
     "preview": "astro preview",
+    "check:b0": "node scripts/check-b0-env.mjs",
     "check": "astro check",
     "deploy": "bash scripts/deploy.sh",
     "deploy:dry": "bash scripts/deploy.sh --dry-run"

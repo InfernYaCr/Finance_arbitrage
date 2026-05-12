@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import type { SeoFields } from '../data/types';
+import { siteConfig } from '../data/siteConfig';
+
+const seo: SeoFields = {
+  title: `Заявка отправлена — ${siteConfig.siteName}`,
+  description: 'Спасибо за обращение. Мы получили заявку и свяжемся с вами в рабочее время.',
+  h1: 'Заявка отправлена',
+  canonical: `${siteConfig.siteUrl.replace(/\/$/, '')}/thanks/`,
+  ogTitle: `Заявка отправлена — ${siteConfig.siteName}`,
+  ogDescription: 'Спасибо за обращение. Мы получили заявку и свяжемся с вами в рабочее время.',
+  ogType: 'website',
+  breadcrumbs: [
+    { label: 'Главная', path: '/' },
+    { label: 'Заявка отправлена', path: '/thanks/' },
+  ],
+};
+---
+
+<BaseLayout seo={seo} jsonLd={[]} currentPath="/thanks/">
+  <section class="thanks-page">
+    <div class="container">
+      <div class="thanks-page__content">
+        <p class="thanks-page__eyebrow">Спасибо</p>
+        <h1>Заявка отправлена</h1>
+        <p>
+          Мы получили ваше сообщение и свяжемся с вами в рабочее время.
+        </p>
+        <div class="thanks-page__actions">
+          <a class="thanks-page__button thanks-page__button--primary" href="/">На главную</a>
+          <a class="thanks-page__button" href="/seo-uslugi/">Смотреть услуги</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.thanks-page {
+  padding: var(--space-section) 0;
+}
+
+.thanks-page__content {
+  max-width: 680px;
+}
+
+.thanks-page__eyebrow {
+  margin-bottom: var(--space-3);
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+}
+
+.thanks-page h1 {
+  margin-bottom: var(--space-4);
+  font-size: var(--text-hero);
+  line-height: var(--leading-tight);
+}
+
+.thanks-page p {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+.thanks-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.thanks-page__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+}
+
+.thanks-page__button--primary {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+}
+</style>

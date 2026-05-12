@@ -12,7 +12,8 @@ interface Props {
 }
 
 const { page, seo, jsonLd } = Astro.props;
-const { data } = page;
+const { contactForm } = siteConfig;
+const formAction = contactForm.action || '/mail.php';
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
@@ -33,10 +34,12 @@ const { data } = page;
               class="contact-form"
               name="contact"
               method="POST"
-              action="/thanks/"
+              action={formAction}
               novalidate
             >
-              <input type="text" name="_honey" tabindex="-1" aria-hidden="true" style="display:none" />
+              <input type="hidden" name="_subject" value={contactForm.subject} />
+              {contactForm.redirect && <input type="hidden" name="_next" value={contactForm.redirect} />}
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
               <div class="contact-form__field">
                 <label for="cf-name">Имя</label>
                 <input type="text" id="cf-name" name="name" required autocomplete="name" />
