@@ -17,17 +17,11 @@ http://yourkedm.beget.tech/
 Latest status (2026-05-13):
 
 - Track A UI is complete.
-- B0.1-B0.4 are complete for the first Beget test site.
-- B1.1-B1.5 are complete: source-domain parameterization, Firecrawl backend
-  smoke, finance donor smoke, and Exa discovery/qualification smoke.
-- B6.4 is partially complete: contact form posts to generated `/mail.php`;
-  notifications are still pending because the Beget subdomain has no mailbox.
-- Yandex Webmaster verification file is deployed:
-  `/yandex_b096686526decb58.html`.
-- Current recommended system step: B2.1 `sites/` structure / multi-site build
-  config. If the user chooses the larger rewrite, prepare
-  `NEW_PIPELINE_ARCH.md`, `MIGRATION_PLAN.md`, and `CLEANUP_PLAN.md` before
-  mass migration.
+- B0 + B1.1–B1.5: complete (Firecrawl + Exa smoke, finance donor).
+- B2.0: `sites/`, `gen-env.sh`, `preview.sh` — done.
+- Contact form posts to `/mail.php`; notifications pending (B5.5).
+- Yandex Webmaster verification file deployed: `/yandex_b096686526decb58.html`.
+- Current recommended next step: B2.1 — SQLite registry (`registry.py` + `registry_cli.py`).
 
 ## Claude quick context
 
@@ -39,13 +33,21 @@ Workspace:
 
 Main context files to read first:
 
-- `HANDOFF.md` - current state, decisions, commands, latest QA.
-- `ROADMAP.md` - current phase plan and next tasks.
-- `CRAWLER_ARCH.md` - Exa + Firecrawl donor discovery/crawl architecture.
-- `SITE_ARCHITECTURE.md` - architecture, SEO/schema, contacts/media strategy.
-- `SITE_STRUCTURE.md` - section map, page counts, priority QA routes.
-- `LAUNCH_CHECKLIST.md` - deployment/SEO/forms/analytics checklist.
-- `site_pipeline/PLAN.md` - pipeline and implementation phases.
+- `HANDOFF.md` — current state, decisions, commands, latest QA.
+- `ROADMAP.md` — phase plan, next tasks, implementation order.
+- `CRAWLER_ARCH.md` — Exa + Firecrawl donor discovery/crawl architecture.
+- `MIGRATION_PLAN.md` — phased E0→E4 migration plan (bridge → registry).
+- `NEW_PIPELINE_ARCH.md` — target architecture: SQLite registry, sites/, exporter.
+- `PAGE_GENERATION_RESEARCH.md` — SEO + GEO + AI SEO page structure research.
+- `LAUNCH_CHECKLIST.md` — deployment/SEO/forms/analytics checklist per site.
+- `ARBITRAGE.md` — monetization strategy (CPA, PromoSlot, Keitaro).
+- `CLEANUP_PLAN.md` — artifact triage: what to keep, archive, delete.
+
+Reference only (archived, superseded):
+
+- `docs/SITE_ARCHITECTURE.md` — superseded by NEW_PIPELINE_ARCH.md
+- `docs/SITE_STRUCTURE.md` — mosseo.ru-specific, superseded by multi-site approach
+- `docs/PIPELINE_PLAN_v1.md` — CSV pipeline plan, superseded by CRAWLER_ARCH.md
 
 Generated content and indexes:
 

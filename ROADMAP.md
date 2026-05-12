@@ -38,47 +38,59 @@
 
 > Архитектура пайплайна, схемы запросов, стоимость — `CRAWLER_ARCH.md`.
 
-### B2 · Batch deploy
+### B2 · Multi-site инфраструктура [~]
 
-- [ ] **B2.1** `sites/` структура — `sites/site-NNN/.env` с брендом/FTP/аналитикой
-- [ ] **B2.2** `build-all.sh` — итерируется по `sites/`, собирает и деплоит каждый
-- [ ] **B2.3** `--dry-run` флаг — показывает что будет без деплоя
+- [x] **B2.0** `sites/<id>/site.config.json` + `gen-env.sh` + `preview.sh` — переключение сайтов
+- [ ] **B2.1** SQLite registry (`registry.py` + `registry_cli.py`) — доноры, краул-раны, сайты
+- [ ] **B2.2** `export_site.py --site-id` — изолированный экспорт контента по SITE_ID
+- [ ] **B2.3** `build-all.sh` — итерируется по `sites/`, собирает и деплоит каждый
+- [ ] **B2.4** `--dry-run` флаг для build-all.sh
 
-### B3 · Вариативность тем (footprint)
+> Детали миграции — `MIGRATION_PLAN.md`. Архитектура registry — `NEW_PIPELINE_ARCH.md`.
 
-- [ ] **B3.1** Вынести токены в `site/src/styles/themes/alpha.css` (текущая тема)
-- [ ] **B3.2** Тема Beta — другие цвета, шрифт, border-radius
-- [ ] **B3.3** Тема Gamma — другая структура секций (1-колонка vs 2-колонки)
-- [ ] **B3.4** `theme` в `.env` сайта — выбор темы при сборке
+### B3 · Страницы: SEO + GEO + AI SEO
 
-### B4 · Link config (исходящие ссылки)
+> Полный research — `PAGE_GENERATION_RESEARCH.md`.
 
-- [ ] **B4.1** `links.json` — таблица: `site_id → money_url → анкор → страницы → rel`
-- [ ] **B4.2** PromoSlot читает из `links.json`, не из хардкода
-- [ ] **B4.3** `update-links.py --money-url X --anchor Y` — обновляет все сайты
+- [ ] **B3.1** Динамическая навигация: `generate_nav.py` + `loadNav.ts` (убрать хардкод `nav.ts`)
+- [ ] **B3.2** `FAQPage` Schema.org для всех страниц с `faq_pairs` (макс эффект, мин усилий)
+- [ ] **B3.3** Summary-блок из `key_points[]` + `speakable` Schema (GEO-сигнал)
+- [ ] **B3.4** Related Pages блок (3–5 ссылок через `content_index.sqlite` FTS)
+- [ ] **B3.5** `datePublished` / `dateModified` из краулера на всех страницах
+- [ ] **B3.6** `FinancialProduct` / `ItemList` Schema для финансовых page_type
+- [ ] **B3.7** Расширить LLM-схему: `summary`, `entities`, `data_points`, `target_query`
 
-### B5 · Автоматизация пайплайна (Exa + Firecrawl)
+### B4 · Вариативность тем (footprint)
 
-- [ ] **B5.1** `discover_donors.py` — Exa двухфазный поиск: highlights → qualify + find_similar
-- [ ] **B5.2** `qualify_donor.py` — Exa get_contents + summary → CRAWL / SKIP вердикт
-- [ ] **B5.3** Полный цикл: Exa → Firecrawl → qa_pages → Astro build без ручных шагов
-- [ ] **B5.4** Playwright smoke-test после деплоя → отчёт OK/FAIL по каждому сайту
+- [ ] **B4.1** Вынести CSS-токены в `site/src/styles/themes/alpha.css` (текущая тема)
+- [ ] **B4.2** Тема Beta — другие цвета, шрифт, border-radius (финансовая ниша)
+- [ ] **B4.3** Тема Gamma — информационная (нейтральный, широкий)
+- [ ] **B4.4** `theme` в `site.config.json` — выбор темы при сборке
+- [ ] **B4.5** `style_extractor.py` — donor_style_profile из CSS донора → theme tokens
 
-### B6 · Монетизация
+### B5 · Link config (исходящие ссылки / монетизация)
 
-- [ ] **B6.1** `/go/{offer}/` — `.htaccess` redirect-обёртка (Astro static не поддерживает `Astro.redirect`)
-- [ ] **B6.2** PromoSlot ← `links.json` (CPA-ссылки из конфига)
-- [ ] **B6.3** Цели Метрики на outbound `/go/` клики и форму
-- [~] **B6.4** Форма: отправка работает, уведомления не настроены (Beget-субдомен без почты). Варианты: Telegram Bot API / Formspree / EmailJS / n8n webhook.
-- [ ] **B6.5** Keitaro на VPS — только при стабильном трафике
+- [ ] **B5.1** `links.json` — таблица: `site_id → money_url → анкор → страницы → rel`
+- [ ] **B5.2** PromoSlot читает из `links.json`, не из хардкода
+- [ ] **B5.3** `/go/{offer}/` — `.htaccess` redirect-обёртка
+- [ ] **B5.4** Цели Метрики на outbound `/go/` клики и форму
+- [~] **B5.5** Форма: отправка работает, уведомления pending. Варианты: Telegram Bot API / Formspree / n8n webhook.
+- [ ] **B5.6** Keitaro на VPS — только при стабильном трафике
 
-Стратегия монетизации — `ARBITRAGE.md`.
+> Стратегия монетизации — `ARBITRAGE.md`.
 
-### B7 · Мониторинг и ссылки
+### B6 · Автоматизация пайплайна
+
+- [ ] **B6.1** `discover_donors.py` — Exa двухфазный поиск доноров по нише
+- [ ] **B6.2** `qualify_donor.py` → авто-запись в SQLite registry (CRAWL / SKIP)
+- [ ] **B6.3** Полный цикл: Exa → Firecrawl → qa → export → build без ручных шагов
+- [ ] **B6.4** Playwright smoke-test после деплоя → отчёт OK/FAIL по каждому сайту
+
+### B7 · Мониторинг
 
 - [ ] **B7.1** 5–10 крауд-ссылок на сайт до индексации
 - [ ] **B7.2** UptimeRobot — пинг каждого сайта каждые 5 минут
-- [ ] **B7.3** Re-crawl донора раз в 1–2 месяца через `--recrawl` (changeTracking → только изменения)
+- [ ] **B7.3** Re-crawl донора раз в 1–2 месяца через `--recrawl`
 - [ ] **B7.4** Алерт в Метрике при падении трафика > 30% за сутки
 
 ---
@@ -86,33 +98,33 @@
 ## Порядок реализации
 
 ```
-A1–A4  ✅  B1.1 ✅  B0.1–B0.4 ✅  B1.2 ✅
-                ↓
-         B1.3 → B1.4 → B1.5 ✅
-           параллельно:
-           B6.4 (форма-уведомления)
-           B6.1 → B6.3 (redirect + Метрика)
-                ↓
-         B2.1 → B2.2 (batch deploy)  ← следующий системный шаг
-           параллельно:
-           B7.1 (крауд-ссылки)
-           B7.2 (UptimeRobot)
-                ↓
-         B3.1 → B3.4 (темы)
-         B4.1 → B4.3 (link config)
-                ↓
-         B5.1 → B5.4 (полная автоматизация)
-         B7.3 → B7.4 (re-crawl + алерты)
-                ↓
-         B6.5 (Keitaro — при стабильном трафике)
+B0 ✅  B1 ✅  B2.0 ✅
+           ↓
+     B2.1 (SQLite registry)        ← следующий шаг
+     B2.2 (export_site.py)
+     B2.3 (build-all.sh)
+           ↓
+     B3.1 (динамическая навигация)
+     B3.2–B3.5 (SEO/GEO schemas)
+     B3.6–B3.7 (финансовые типы + LLM-схема)
+       параллельно:
+       B5.5 (форма-уведомления Telegram)
+           ↓
+     B4.1–B4.5 (темы + donor_style_profile)
+     B5.1–B5.4 (link config + монетизация)
+           ↓
+     B6.1–B6.4 (полная автоматизация)
+     B7.1–B7.4 (мониторинг)
+           ↓
+     B5.6 (Keitaro — при стабильном трафике)
 ```
 
 ---
 
 ## Текущее состояние (2026-05-13)
 
-- Трек A: завершён полностью
-- B0 + B1.1–B1.5: готово
-- Деплой `yourkedm.beget.tech`: работает, форма отправляет (уведомления pending B6.4)
-- **Следующий шаг: B2.1** — `sites/` структура с env/content output для нескольких сайтов.
-- Параллельно полезно взять **B6.4** (Telegram-уведомления формы), потому что Beget-субдомен без почты.
+- Трек A: завершён ✅
+- B0 + B1 (1.1–1.5): завершён ✅
+- B2.0: `sites/`, `gen-env.sh`, `preview.sh` — готово ✅
+- Деплой `yourkedm.beget.tech`: работает, форма отправляет (уведомления pending B5.5)
+- **Следующий шаг: B2.1** — SQLite registry (`registry.py` + `registry_cli.py`)
