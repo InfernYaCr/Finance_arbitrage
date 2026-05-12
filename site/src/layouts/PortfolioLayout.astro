@@ -59,6 +59,24 @@ const casePages = isArchive ? getImmediateChildPages(page.path) : [];
           {seo.description && <p class="portfolio-page__desc">{seo.description}</p>}
         </header>
 
+        <div class="portfolio-results">
+          <div class="portfolio-result">
+            <span class="portfolio-result__icon" aria-hidden="true">📈</span>
+            <span class="portfolio-result__value">ТОП-10</span>
+            <span class="portfolio-result__label">Ключевых запросов</span>
+          </div>
+          <div class="portfolio-result">
+            <span class="portfolio-result__icon" aria-hidden="true">🚀</span>
+            <span class="portfolio-result__value">+150%</span>
+            <span class="portfolio-result__label">Рост органического трафика</span>
+          </div>
+          <div class="portfolio-result">
+            <span class="portfolio-result__icon" aria-hidden="true">⏱️</span>
+            <span class="portfolio-result__value">3–6 мес.</span>
+            <span class="portfolio-result__label">Срок достижения результата</span>
+          </div>
+        </div>
+
         <div class="prose portfolio-page__body" set:html={data.content_html} />
 
         <footer class="portfolio-page__footer">
@@ -102,6 +120,52 @@ const casePages = isArchive ? getImmediateChildPages(page.path) : [];
 .portfolio-page__desc {
   font-size: var(--text-lg);
   color: var(--color-text-muted);
+}
+
+/* Results metrics bar */
+.portfolio-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-10);
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.portfolio-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+
+.portfolio-result__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.portfolio-result__value {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.portfolio-result__label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-snug);
+}
+
+@media (max-width: 480px) {
+  .portfolio-results {
+    grid-template-columns: 1fr;
+  }
 }
 
 .portfolio-page__footer {
