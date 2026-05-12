@@ -5,30 +5,37 @@
 The pipeline has completed a full crawl and QA pass for the original page
 export. The Astro site is built and deployed to the first Beget test host.
 
+### 2026-05-13 update — B2.0 + B2.1 (multi-site infrastructure)
+
+Multi-site infrastructure is now in place:
+
+- `sites/rostpoisk/site.config.json` — brand, contacts, analytics, deploy config.
+- `sites/finhelp-ru/site.config.json` — finance donor config (contacts/deploy TBD).
+- `gen-env.sh <site_id>` — generates `site/.env` from `site.config.json`, preserves FTP/API secrets.
+- `preview.sh <site_id>` — gen-env + build + local preview on :4321. No deploy triggered.
+- `registry/registry.db` — SQLite registry (gitignored). Schema: donors, crawl_runs, site_targets, build_runs.
+- `site_pipeline/registry.py` — sqlite3 wrapper for all registry operations.
+- `registry_cli.py` — CLI: `init`, `add-donor`, `list-donors`, `add-site`, `list-sites`, `list-runs`.
+- `qualify_donor.py` — now auto-writes verdict/score/niche to registry after Exa.
+- `crawl_pages_fc.py` — now auto-writes crawl_run (pages, credits, mode) to registry after scrape.
+
+Registry seeded: mosseo-ru (SEO, CRAWL) + vsezaimyonline-ru (finance, CRAWL, score=0.82).
+Site targets seeded: rostpoisk + finhelp-ru.
+
+Architecture decisions:
+- `CONTENT_OUTPUT_DIR` is a bridge — stays until `export_site.py` (B2.2) replaces it.
+- Nav is still hardcoded in `nav.ts` — will be replaced by `generate_nav.py` + `loadNav.ts` (B3.1).
+- SQLite from the start — donors will exceed 5, JSON registry skipped.
+
+Current best next step: B2.2 `export_site.py` — isolates content per SITE_ID from registry.
+
 ### 2026-05-13 update — B1.3/B1.4/B1.5
 
-Multi-donor crawl smoke is now working end to end:
-
-- `site_pipeline/crawl_pages_fc.py` supports Firecrawl `--map-only`, cached maps,
-  base scrape without LLM, optional `--with-llm`, and `--recrawl`.
-- `mosseo.ru` Firecrawl smoke (`limit=30`) passed base and LLM modes. QA has no
-  errors; remaining warnings are `high_link_density` on dense/archive-like pages.
-- `vsezaimyonline.ru` finance donor smoke (`limit=30`) passed base crawl and QA:
-  27 ok, 3 warnings, 0 errors.
-- `site_pipeline/discover_donors.py` and `site_pipeline/qualify_donor.py` provide
-  the first Exa smoke path. `discover_donors.py --niche finance --num-results 5`
-  returned candidates; `qualify_donor.py --url https://vsezaimyonline.ru`
-  returned `verdict=CRAWL`.
-- Astro can build alternate content outputs via `CONTENT_OUTPUT_DIR`; finance
-  smoke build produced 32 pages and a 30-URL sitemap.
-
-Important architectural decision: keep one Astro build pipeline. Crawlers adapt
-their outputs into the shared `PageData + extracted` contract; site builds choose
-the dataset with `CONTENT_OUTPUT_DIR`. Donor CSS/style should become a separate
-future `donor_style_profile`/theme input, not copied CSS in page JSON.
-
-Current best next step: B2.1 `sites/` structure, then B2.2 `build-all.sh`.
-Parallel useful task: B6.4 Telegram notifications for forms.
+- `crawl_pages_fc.py`: map-only, cached maps, base/LLM/recrawl modes.
+- mosseo.ru smoke (limit=30): QA clean, warnings only on archive pages.
+- vsezaimyonline.ru smoke (limit=30): 27 ok, 3 warnings, 0 errors.
+- Exa smoke: discover_donors + qualify_donor functional.
+- Finance build via CONTENT_OUTPUT_DIR: 32 pages OK.
 
 Latest live test deploy:
 

@@ -41,7 +41,7 @@
 ### B2 · Multi-site инфраструктура [~]
 
 - [x] **B2.0** `sites/<id>/site.config.json` + `gen-env.sh` + `preview.sh` — переключение сайтов
-- [ ] **B2.1** SQLite registry (`registry.py` + `registry_cli.py`) — доноры, краул-раны, сайты
+- [x] **B2.1** SQLite registry (`registry.py` + `registry_cli.py`) — доноры, краул-раны, сайты
 - [ ] **B2.2** `export_site.py --site-id` — изолированный экспорт контента по SITE_ID
 - [ ] **B2.3** `build-all.sh` — итерируется по `sites/`, собирает и деплоит каждый
 - [ ] **B2.4** `--dry-run` флаг для build-all.sh
