@@ -64,6 +64,10 @@ fields = {
   "BEGET_HOST":                  d.get("beget_host", ""),
   "BEGET_FTP_USER":              d.get("beget_ftp_user", ""),
   "BEGET_FTP_PATH":              d.get("beget_ftp_path", "/"),
+  "CONTENT_OUTPUT_DIR":          c.get("content_dir", ""),
+  "ENABLE_EDITORIAL_POSTS":      str(c.get("enable_editorial_posts", True)).lower(),
+  "PUBLIC_LEGACY_SOURCE_DOMAIN": c.get("legacy_source_domain", ""),
+  "PUBLIC_LEGACY_BRAND_ALIASES": c.get("legacy_brand_aliases", ""),
 }
 for k, v in fields.items():
     print(f"{k}={v}")

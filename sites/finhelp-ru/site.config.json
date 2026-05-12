@@ -30,5 +30,8 @@
     "beget_ftp_path": "/"
   },
   "theme": "alpha",
-  "enable_editorial_posts": false
+  "enable_editorial_posts": false,
+  "content_dir": "../site_pipeline/output/finance_test",
+  "legacy_source_domain": "https://vsezaimyonline.ru",
+  "legacy_brand_aliases": "ВсеЗаймыОнлайн,Все Займы Онлайн,VseZaimyOnline,vsezaimyonline.ru"
 }
