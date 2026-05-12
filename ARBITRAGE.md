@@ -110,10 +110,71 @@ PBN-сайт → форма обратной связи → лид → прод�
 3. Клик фиксируется в Метрике как цель "outbound_click"
 4. Keitaro можно воткнуть между `/go/` и конечным URL позднее
 
-**Реализация в Astro:**
-- Статические редиректы через `astro.config.mjs` redirects (только при known URLs)
-- Или edge-функция `/src/pages/go/[offer].astro` с `Astro.redirect()`
-- `/go/` страницы не индексируются (meta robots noindex или X-Robots-Tag)
+**⚠️ Важно: `Astro.redirect()` недоступен в static mode** (только SSR).
+В нашем стеке (статический билд → FTP на Beget) нужен один из вариантов ниже.
+
+**Вариант 1 — `.htaccess` (рекомендуется для старта)**
+
+Apache-правила в `public/.htaccess` деплоятся вместе со статикой.
+Beget использует Apache — файл подхватывается автоматически.
+
+```apache
+# public/.htaccess
+RewriteEngine On
+Redirect 302 /go/admitad-aliexpress/ https://alitems.com/g/XXX/?utm_source=site
+Redirect 302 /go/tbank-credit/       https://www.tbank.ru/credit/?pid=XXX
+```
+
+Генерировать при билде из `links.json` через скрипт или Astro integration.
+Библиотека: [`astro-htaccess`](https://github.com/BadMannersXYZ/astro-htaccess).
+Настоящий 302, нет задержки, работает без JS.
+
+**Вариант 2 — Cloudflare Workers (лучше при росте)**
+
+Если поставить Cloudflare перед Beget как прокси — Worker перехватывает
+`/go/*` на edge и делает redirect до того, как запрос доходит до сервера.
+
+```js
+// worker.js
+export default {
+  async fetch(request) {
+    const url = new URL(request.url);
+    if (url.pathname.startsWith('/go/')) {
+      const offer = url.pathname.replace('/go/', '').replace('/', '');
+      const target = LINKS[offer];
+      if (target) return Response.redirect(target, 302);
+    }
+    return fetch(request);
+  }
+}
+```
+
+Бесплатный план: 100 000 запросов/день. Даёт edge-аналитику и гео-ротацию.
+
+**Вариант 3 — Redirectless JS (самый простой, без инфраструктуры)**
+
+Ссылка идёт напрямую на партнёрку, JS-событие пишет клик в Метрику.
+Нет собственного контроля над URL, партнёрский ID виден в href.
+Подходит для тестирования офферов до реализации `/go/`.
+
+```html
+<a href="https://partner.url/?ref=XXX"
+   onclick="ym(METRIKA_ID,'reachGoal','outbound_click',{offer:'aliexpress'})">
+  Перейти к офферу
+</a>
+```
+
+**Рекомендуемый путь:**
+1. Старт → Вариант 3 (JS, нет кода)
+2. Первые CPA-ссылки → Вариант 1 (`.htaccess`, настоящий 302)
+3. Масштаб + Keitaro → Вариант 2 (Cloudflare Workers)
+
+`/go/` страницы не индексируются: добавить в `.htaccess`:
+```apache
+<Files ~ "^/go/">
+  Header set X-Robots-Tag "noindex, nofollow"
+</Files>
+```
 
 ---
 
