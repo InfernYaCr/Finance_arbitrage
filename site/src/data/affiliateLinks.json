@@ -2,10 +2,10 @@
   {
     "id": "example-partner",
     "label": "Пример партнёрской ссылки",
-    "href": "https://example.com/?ref=mosseo",
+    "href": "https://example.com/?ref=seo-site",
     "rel": "sponsored nofollow",
     "utm": {
-      "source": "mosseo",
+      "source": "seo-site",
       "medium": "article",
       "campaign": "example"
     },
@@ -17,7 +17,7 @@
     "href": "https://sape.ru",
     "rel": "sponsored nofollow",
     "utm": {
-      "source": "mosseo",
+      "source": "seo-site",
       "medium": "article",
       "campaign": "sape-2026",
       "content": "article-footer"
@@ -30,7 +30,7 @@
     "href": "https://example.com/triplets",
     "rel": "sponsored nofollow",
     "utm": {
-      "source": "mosseo",
+      "source": "seo-site",
       "medium": "promo",
       "campaign": "triplet-pbn-2026",
       "content": "sponsor-line"

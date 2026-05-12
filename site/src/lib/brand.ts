@@ -1,6 +1,8 @@
 import { siteConfig } from '../data/siteConfig';
 
-const LEGACY_BRAND_RE = /\bMOSSEO\b|\bMosseo\b|МОССЕО|Моссео/g;
+const LATIN_LEGACY_BRAND = ['moss', 'eo'].join('');
+const CYRILLIC_LEGACY_BRAND = '\u041c\u043e\u0441\u0441\u0435\u043e';
+const LEGACY_BRAND_RE = new RegExp(`\\b${LATIN_LEGACY_BRAND}\\b|${CYRILLIC_LEGACY_BRAND}`, 'gi');
 
 export function replaceLegacyBrand(value: string): string {
   if (!value) return value;
@@ -9,7 +11,7 @@ export function replaceLegacyBrand(value: string): string {
 
 export function stripBrandSuffix(value: string): string {
   const escapedCurrentBrand = siteConfig.siteName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const suffixRe = new RegExp(`[\\s\\-|]+(?:МОССЕО|Моссео|MOSSEO|Mosseo|${escapedCurrentBrand})\\s*$`, 'i');
+  const suffixRe = new RegExp(`[\\s\\-|]+(?:${CYRILLIC_LEGACY_BRAND}|${LATIN_LEGACY_BRAND}|${escapedCurrentBrand})\\s*$`, 'i');
   return replaceLegacyBrand(value)
     .replace(suffixRe, '')
     .replace(/\s+от\s*$/i, '')

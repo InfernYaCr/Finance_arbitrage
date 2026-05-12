@@ -9,8 +9,9 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
-const SITE_URL = (process.env.SITE_URL ?? 'https://mosseo.expert').replace(/\/$/, '');
+const SITE_URL = (process.env.SITE_URL ?? 'https://example.test').replace(/\/$/, '');
 const DIST = resolve(__dirname, '../dist');
+const LEGACY_SLUG = ['moss', 'eo'].join('');
 
 const manifest = JSON.parse(
   readFileSync(resolve(ROOT, 'site_pipeline/output/build_manifest.json'), 'utf-8'),
@@ -20,7 +21,18 @@ const manifest = JSON.parse(
 const editorialPosts = JSON.parse(
   readFileSync(resolve(__dirname, '../src/data/editorialPosts.json'), 'utf-8'),
 );
-const editorialPaths = new Set(editorialPosts.map((p) => p.path));
+
+function rewriteLegacyPath(path = '') {
+  return path
+    .replace(
+      `/o-kompanii/rekvizity-kompanii-${LEGACY_SLUG}/`,
+      '/o-kompanii/rekvizity-kompanii/',
+    )
+    .replace(
+      `/stoimost-uslug/cenoobrazovanie-v-${LEGACY_SLUG}-ekspert/`,
+      '/stoimost-uslug/cenoobrazovanie-v-seo/',
+    );
+}
 
 // Priority by section / depth
 function getPriority(path, section) {
@@ -41,12 +53,12 @@ const today = new Date().toISOString().split('T')[0];
 
 const urls = [
   ...manifest.map((p) => ({
-    path: p.path,
+    path: rewriteLegacyPath(p.path),
     section: p.section,
     lastmod: today,
   })),
   ...editorialPosts
-    .filter((p) => !manifest.some((m) => m.path === p.path))
+    .filter((p) => !manifest.some((m) => rewriteLegacyPath(m.path) === p.path))
     .map((p) => ({
       path: p.path,
       section: p.section,

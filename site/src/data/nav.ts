@@ -27,20 +27,20 @@ export const navItems: NavItem[] = [
     columns: [
       {
         items: [
-          { label: 'Пару слов о Моссео', sublabel: 'Информация о SEO компании', href: '/o-kompanii/' },
+          { label: 'Пару слов о компании', sublabel: 'Информация о SEO компании', href: '/o-kompanii/' },
           { label: 'Как мы работаем', sublabel: 'Этапы SEO продвижения', href: '/optimizaciya/kak-my-rabotaem/' },
-          { label: 'Наши работы', sublabel: 'Последние кейсы Mosseo', href: '/portfolio/' },
+          { label: 'Наши работы', sublabel: 'Последние кейсы', href: '/portfolio/' },
           { label: 'Отзывы', sublabel: 'Официальные письма', href: '/otzyvy/' },
           { label: 'Гарантии продвижения', sublabel: 'Трафик или позиции', href: '/o-kompanii/garantii/' },
-          { label: 'Философия компании', sublabel: 'Принцип работы Mosseo', href: '/o-kompanii/filosofiya/' },
+          { label: 'Философия компании', sublabel: 'Принципы работы', href: '/o-kompanii/filosofiya/' },
         ],
       },
       {
         items: [
           { label: 'Вопросы и ответы', sublabel: 'Все о SEO', href: '/faq/' },
-          { label: 'Новости', sublabel: 'Что нового у Mosseo', href: '/vse-o-seo-prodvizhenii/seo-novosti/' },
+          { label: 'Новости', sublabel: 'Что нового в SEO', href: '/vse-o-seo-prodvizhenii/seo-novosti/' },
           { label: 'Условия сотрудничества', sublabel: 'Индивидуальные решения', href: '/o-kompanii/usloviya-sotrudnichestva/' },
-          { label: 'Реквизиты', sublabel: 'Данные для договоров', href: '/o-kompanii/rekvizity-kompanii-mosseo/' },
+          { label: 'Реквизиты', sublabel: 'Данные для договоров', href: '/o-kompanii/' },
           { label: 'Коммерческое предложение', sublabel: 'Цены, сроки', href: '/o-kompanii/kommercheskie-predlozheniya/' },
           { label: 'Партнёрство компании', sublabel: 'Взаимовыручка', href: '/o-kompanii/partnyory/' },
         ],
@@ -106,7 +106,7 @@ export const navItems: NavItem[] = [
           { label: 'Тариф SEO Plus', href: '/stoimost-uslug/tarif-seo-plus/' },
           { label: 'Тариф SEO Expert', href: '/stoimost-uslug/tarif-seo-expert/' },
           { label: 'Сравнить тарифы', href: '/stoimost-uslug/' },
-          { label: 'Ценообразование в SEO', href: '/stoimost-uslug/cenoobrazovanie-v-mosseo-ekspert/' },
+          { label: 'Ценообразование в SEO', href: '/stoimost-uslug/' },
         ],
       },
     ],

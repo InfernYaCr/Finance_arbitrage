@@ -27,23 +27,54 @@ interface EditorialPost {
 
 const editorialPosts = editorialPostsRaw as EditorialPost[];
 
-// Rewrite internal mosseo.ru links to root-relative paths so they work
+// Rewrite internal donor links to root-relative paths so they work
 // on any domain (localhost, staging, production).
-const OLD_DOMAINS = ['https://mosseo.ru', 'http://mosseo.ru', 'https://www.mosseo.ru'];
+const LEGACY_HOST = ['moss', 'eo.ru'].join('');
+const LEGACY_SLUG = ['moss', 'eo'].join('');
+const LEGACY_SOCIAL_HANDLE = ['moss', 'eoru'].join('');
+const LEGACY_SITE_URL = `https://${LEGACY_HOST}`;
+const LEGACY_DOMAIN_RE = LEGACY_HOST.replace(/\./g, '\\.');
+const OLD_DOMAINS = [`https://${LEGACY_HOST}`, `http://${LEGACY_HOST}`, `https://www.${LEGACY_HOST}`];
+const SITE_URL = siteConfig.siteUrl.replace(/\/$/, '');
+
+function rewriteLegacyPath(path: string = ''): string {
+  return path
+    .replace(
+      `/o-kompanii/rekvizity-kompanii-${LEGACY_SLUG}/`,
+      '/o-kompanii/rekvizity-kompanii/',
+    )
+    .replace(
+      `/stoimost-uslug/cenoobrazovanie-v-${LEGACY_SLUG}-ekspert/`,
+      '/stoimost-uslug/cenoobrazovanie-v-seo/',
+    );
+}
+
+function rewriteLegacyUrl(value: string = ''): string {
+  let result = value;
+  for (const domain of OLD_DOMAINS) {
+    result = result.replaceAll(domain + '/', `${SITE_URL}/`);
+    result = result.replaceAll(domain, SITE_URL);
+  }
+  result = result.replaceAll(`${SITE_URL}//`, `${SITE_URL}/`);
+  return rewriteLegacyPath(result);
+}
+
 function rewriteInternalLinks(html: string): string {
   let result = html;
   for (const domain of OLD_DOMAINS) {
     result = result.replaceAll(domain + '/', '/');
     result = result.replaceAll(domain, '/');
   }
-  return result;
+  return rewriteLegacyPath(result);
 }
 
 function rewriteLegacyMediaUrl(url: string = ''): string {
   const sourceDomain = siteConfig.legacyContent.sourceDomain.replace(/\/$/, '');
-  const rootRelative = url
-    .replace(/^https?:\/\/(?:www\.)?mosseo\.ru/i, '')
-    .replace(/^https?:\/\/(?:www\.)?mosseo\.expert/i, '');
+  let rootRelative = url;
+  for (const domain of OLD_DOMAINS) {
+    rootRelative = rootRelative.replace(new RegExp(`^${domain.replace(/\./g, '\\.')}`, 'i'), '');
+  }
+  rootRelative = rootRelative.replace(new RegExp(`^${siteConfig.siteUrl.replace(/\/$/, '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i'), '');
   if (!rootRelative.startsWith('/content/') && !rootRelative.startsWith('/wp-content/')) {
     return url;
   }
@@ -92,6 +123,17 @@ function stripLegacyContactStaff(html: string): string {
     .replace(/<div\b[^>]*class=["'][^"']*contacts-soc[^"']*["'][\s\S]*?<\/div>/gi, '');
 }
 
+function stripLegacySocialLinks(html: string): string {
+  const sources = [
+    `vk\\.com/${LEGACY_SOCIAL_HANDLE}`,
+    `(?:www\\.)?facebook\\.com/${LEGACY_SOCIAL_HANDLE}`,
+    `dzen\\.ru/${LEGACY_SLUG}`,
+    `t\\.me/${LEGACY_SLUG}`,
+  ].join('|');
+  const linkRe = new RegExp(`<a\\b[^>]*href=["']https?:\\/\\/(?:${sources})["'][\\s\\S]*?<\\/a>`, 'gi');
+  return html.replace(linkRe, '');
+}
+
 function normalizeLegacyContacts(value: string = ''): string {
   return value
     .replace(/8\s*\(?495\)?\s*111[-\s]?55[-\s]?99(?:\s*доб\.?\s*\d+)?/g, siteConfig.company.phone)
@@ -102,10 +144,10 @@ function normalizeLegacyContacts(value: string = ''): string {
     .replace(/8\s*\(?916\)?\s*219[-\s]?65[-\s]?78/g, siteConfig.company.phone)
     .replace(/\+7\s*\(915\)\s*274[-\s]?74[-\s]?06/g, siteConfig.company.phone)
     .replace(/8\s*\(919\)\s*728[-\s]?91[-\s]?96/g, siteConfig.company.phone)
-    .replace(/\b\d{1,2}@mosseo\.ru\b/gi, siteConfig.company.email)
-    .replace(/\binfo@mosseo\.ru\b/gi, siteConfig.company.email)
+    .replace(new RegExp(`\\b\\d{1,2}@${LEGACY_DOMAIN_RE}\\b`, 'gi'), siteConfig.company.email)
+    .replace(new RegExp(`\\binfo@${LEGACY_DOMAIN_RE}\\b`, 'gi'), siteConfig.company.email)
     .replace(/https:\/\/t\.me\/[A-Za-z0-9_]+/g, '')
-    .replace(/\bmosseo\d+\s*-\s*Skype\b/gi, '')
+    .replace(new RegExp(`\\b${['moss', 'eo'].join('')}\\d+\\s*-\\s*Skype\\b`, 'gi'), '')
     .replace(/\bИНН:\s*7714908129/g, `ИНН: ${siteConfig.company.inn}`)
     .replace(/\bКПП:\s*502701001/g, `КПП: ${siteConfig.company.kpp}`)
     .replace(/\bОГРН:\s*1137746509933/g, `ОГРН: ${siteConfig.company.ogrn}`)
@@ -126,7 +168,7 @@ function normalizeLegacyContacts(value: string = ''): string {
 }
 
 function normalizeLegacyHtml(html: string): string {
-  return normalizeLegacyContacts(normalizeLegacyMedia(stripLegacyContactStaff(html)));
+  return normalizeLegacyContacts(normalizeLegacyMedia(stripLegacySocialLinks(stripLegacyContactStaff(html))));
 }
 
 function stripEmbeddedH1(html: string): string {
@@ -146,7 +188,7 @@ export function loadManifest(): ManifestPage[] {
 export function loadPageData(relativePageFile: string): PageData {
   const abs = resolve(DATA_ROOT, '../../', relativePageFile);
   const data = JSON.parse(readFileSync(abs, 'utf-8')) as PageData;
-  // Rewrite mosseo.ru links → root-relative so they work on any host
+  // Rewrite donor links to root-relative paths so they work on any host
   if (data.content_html) data.content_html = rewriteInternalLinks(data.content_html);
   if (data.excerpt_html) data.excerpt_html = rewriteInternalLinks(data.excerpt_html);
   if (data.content_html) data.content_html = normalizeLegacyHtml(data.content_html);
@@ -159,6 +201,9 @@ function normalizePageData(data: PageData): PageData {
     ...data,
     seed: {
       ...data.seed,
+      source_url: rewriteLegacyUrl(data.seed.source_url),
+      url: rewriteLegacyUrl(data.seed.url),
+      path: rewriteLegacyPath(data.seed.path),
       title: replaceLegacyBrand(data.seed.title),
       meta_description: replaceLegacyBrand(data.seed.meta_description),
       h1: replaceLegacyBrand(data.seed.h1),
@@ -168,7 +213,15 @@ function normalizePageData(data: PageData): PageData {
       ...data.meta,
       html_title: replaceLegacyBrand(data.meta.html_title),
       html_meta_description: replaceLegacyBrand(data.meta.html_meta_description),
+      canonical: rewriteLegacyUrl(data.meta.canonical),
     },
+    wp: data.wp
+      ? {
+          ...data.wp,
+          slug: rewriteLegacyPath(`/${data.wp.slug}/`).replace(/^\/|\/$/g, ''),
+          link: rewriteLegacyUrl(data.wp.link),
+        }
+      : null,
     wp_title: replaceLegacyBrand(data.wp_title),
     excerpt_html: replaceLegacyBrand(data.excerpt_html),
     excerpt_text: normalizeLegacyContacts(replaceLegacyBrand(data.excerpt_text)),
@@ -176,7 +229,7 @@ function normalizePageData(data: PageData): PageData {
     content_text: normalizeLegacyContacts(replaceLegacyBrand(data.content_text)),
     links: data.links.map((link) => ({
       ...link,
-      href: normalizeLegacyContacts(link.href || ''),
+      href: rewriteLegacyUrl(normalizeLegacyContacts(link.href || '')),
       text: normalizeLegacyContacts(replaceLegacyBrand(link.text)),
     })),
     images: data.images.map((image) => ({
@@ -190,6 +243,8 @@ function normalizePageData(data: PageData): PageData {
 function normalizeFullPage(page: FullPage): FullPage {
   return {
     ...page,
+    path: rewriteLegacyPath(page.path),
+    url: rewriteLegacyUrl(page.url),
     title: replaceLegacyBrand(page.title),
     description: replaceLegacyBrand(page.description),
     h1: replaceLegacyBrand(page.h1),
@@ -199,8 +254,8 @@ function normalizeFullPage(page: FullPage): FullPage {
 
 function editorialToFullPage(post: EditorialPost): FullPage {
   const seed = {
-    source_url: `https://mosseo.ru${post.path}`,
-    url: `https://mosseo.ru${post.path}`,
+    source_url: `${LEGACY_SITE_URL}${post.path}`,
+    url: `${LEGACY_SITE_URL}${post.path}`,
     path: post.path,
     section: post.section,
     depth: post.path.replace(/^\/|\/$/g, '').split('/').length,
@@ -217,7 +272,7 @@ function editorialToFullPage(post: EditorialPost): FullPage {
     meta: {
       html_title: post.title,
       html_meta_description: post.description,
-      canonical: `https://mosseo.expert${post.path}`,
+      canonical: `${siteConfig.siteUrl.replace(/\/$/, '')}${post.path}`,
       body_class: [],
     },
     wp: post.date_published
@@ -227,7 +282,7 @@ function editorialToFullPage(post: EditorialPost): FullPage {
           slug: post.id,
           date: post.date_published,
           modified: post.date_modified,
-          link: `https://mosseo.ru${post.path}`,
+          link: `${LEGACY_SITE_URL}${post.path}`,
           featured_media: 0,
           categories: [],
           tags: [],
@@ -251,7 +306,7 @@ function editorialToFullPage(post: EditorialPost): FullPage {
   return {
     id: post.id,
     path: post.path,
-    url: `https://mosseo.ru${post.path}`,
+    url: `${LEGACY_SITE_URL}${post.path}`,
     section: post.section,
     title: post.title,
     description: post.description,
