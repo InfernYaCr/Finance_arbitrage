@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PromoSlot from '../components/PromoSlot.astro';
+import { getImmediateChildPages } from '../data/loadPages';
 import type { FullPage, SeoFields, PageType } from '../data/types';
 
 interface Props {
@@ -13,38 +14,67 @@ interface Props {
 
 const { page, seo, jsonLd, pageType } = Astro.props;
 const { data } = page;
+
+// Get sibling pages for sidebar (parent's immediate children, excluding self)
+const parentPath = '/' + page.path.replace(/^\//, '').split('/').slice(0, -2).join('/') + '/';
+const siblings = parentPath.length > 1
+  ? getImmediateChildPages(parentPath).filter((p) => p.path !== page.path).slice(0, 6)
+  : [];
+const hasSidebar = siblings.length >= 3;
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
   <article class="article-page">
-    <div class="container container--md">
-      <Breadcrumbs crumbs={seo.breadcrumbs} />
+    <div class={hasSidebar ? 'container article-page__with-sidebar' : 'container container--md'}>
+      <div class="article-page__main">
+        <Breadcrumbs crumbs={seo.breadcrumbs} />
 
-      <header class="article-page__header">
-        {seo.h1 && <h1 class="article-page__title">{seo.h1}</h1>}
-        {(seo.datePublished || seo.dateModified) && (
-          <div class="article-page__meta">
-            {seo.dateModified && (
-              <time datetime={seo.dateModified} class="article-page__date">
-                Обновлено: {new Date(seo.dateModified).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}
-              </time>
-            )}
-          </div>
+        <header class="article-page__header">
+          {seo.h1 && <h1 class="article-page__title">{seo.h1}</h1>}
+          {(seo.datePublished || seo.dateModified) && (
+            <div class="article-page__meta">
+              {seo.dateModified && (
+                <time datetime={seo.dateModified} class="article-page__date">
+                  Обновлено: {new Date(seo.dateModified).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+              )}
+            </div>
+          )}
+        </header>
+
+        {data.excerpt_html && (
+          <div class="article-page__excerpt" set:html={data.excerpt_html} />
         )}
-      </header>
 
-      {data.excerpt_html && (
-        <div class="article-page__excerpt" set:html={data.excerpt_html} />
-      )}
+        <div class="prose article-page__body" set:html={data.content_html} />
 
-      <div class="prose article-page__body" set:html={data.content_html} />
+        <PromoSlot placement="article_footer" section={page.section} path={page.path} pageType={pageType} />
 
-      <PromoSlot placement="article_footer" section={page.section} path={page.path} pageType={pageType} />
-
-      <div class="article-page__cta">
-        <p class="article-page__cta-text">Остались вопросы по SEO-продвижению?</p>
-        <a href="/kontakty/" class="article-page__cta-btn">Задать вопрос специалисту</a>
+        <div class="article-page__cta">
+          <p class="article-page__cta-text">Остались вопросы по SEO-продвижению?</p>
+          <a href="/kontakty/" class="article-page__cta-btn">Задать вопрос специалисту</a>
+        </div>
       </div>
+
+      {hasSidebar && (
+        <aside class="article-sidebar">
+          <div class="article-sidebar__block">
+            <h2 class="article-sidebar__heading">Статьи по теме</h2>
+            <ul class="article-sidebar__list" role="list">
+              {siblings.map((s) => (
+                <li>
+                  <a href={s.path} class="article-sidebar__link">{s.h1 || s.title}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="article-sidebar__cta">
+            <p class="article-sidebar__cta-title">Нужно SEO-продвижение?</p>
+            <p class="article-sidebar__cta-desc">Оставьте заявку — обсудим ваш сайт бесплатно.</p>
+            <a href="/kontakty/" class="article-sidebar__cta-btn">Получить консультацию</a>
+          </div>
+        </aside>
+      )}
     </div>
   </article>
 </BaseLayout>
@@ -131,6 +161,119 @@ const { data } = page;
     flex-direction: column;
     align-items: flex-start;
     padding: var(--space-5);
+  }
+}
+
+/* Two-column layout with sidebar */
+.article-page__with-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.article-page__main {
+  min-width: 0;
+}
+
+/* Sidebar */
+.article-sidebar {
+  position: sticky;
+  top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.article-sidebar__block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+.article-sidebar__heading {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.article-sidebar__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.article-sidebar__link {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  line-height: var(--leading-snug);
+  display: block;
+  transition: color var(--duration-fast);
+}
+
+.article-sidebar__link:hover {
+  color: var(--color-accent);
+}
+
+.article-sidebar__cta {
+  background: var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.article-sidebar__cta-title {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: #fff;
+  line-height: var(--leading-snug);
+}
+
+.article-sidebar__cta-desc {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.85);
+  line-height: var(--leading-normal);
+}
+
+.article-sidebar__cta-btn {
+  display: inline-block;
+  background: #fff;
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  margin-top: var(--space-2);
+  transition: opacity var(--duration-fast);
+}
+
+.article-sidebar__cta-btn:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .article-page__with-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .article-sidebar {
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .article-sidebar__block,
+  .article-sidebar__cta {
+    flex: 1 1 260px;
   }
 }
 </style>
