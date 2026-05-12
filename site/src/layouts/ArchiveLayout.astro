@@ -14,6 +14,7 @@ interface Props {
 const { page, seo, jsonLd } = Astro.props;
 const { data } = page;
 const isFaqArchive = page.path === '/faq/';
+const isPricingArchive = page.path === '/stoimost-uslug/';
 const directChildren = getImmediateChildPages(page.path);
 const descendantPages = getDescendantPages(page.path);
 const hasSourceCatalog = data.content_html.includes('serv-blocks') || data.content_html.includes('serv-items');
@@ -59,7 +60,43 @@ const groupedChildren = directChildren.map((child) => ({
         </section>
       )}
 
-      {showGeneratedCatalog && !isFaqArchive && (
+      {showGeneratedCatalog && isPricingArchive && (() => {
+        const tariffs = directChildren.filter(c => c.path.includes('tarif'));
+        const others = directChildren.filter(c => !c.path.includes('tarif'));
+        return (
+          <section class="archive-page__catalog">
+            {tariffs.length > 0 && (
+              <>
+                <h2 class="archive-page__catalog-title">Тарифы SEO-продвижения</h2>
+                <div class="pricing-grid">
+                  {tariffs.map((t) => (
+                    <article class="pricing-card">
+                      <div class="pricing-card__name">{t.h1 || t.title}</div>
+                      {t.description && <p class="pricing-card__desc">{t.description}</p>}
+                      <a href={t.path} class="pricing-card__btn">Подробнее о тарифе</a>
+                    </article>
+                  ))}
+                </div>
+              </>
+            )}
+            {others.length > 0 && (
+              <>
+                <h2 class="archive-page__catalog-title" style="margin-top: var(--space-12)">Полезная информация</h2>
+                <div class="archive-page__grid">
+                  {others.map((c) => (
+                    <article class="archive-card">
+                      <a class="archive-card__title" href={c.path}>{c.h1 || c.title}</a>
+                      {c.description && <p class="archive-card__desc">{c.description}</p>}
+                    </article>
+                  ))}
+                </div>
+              </>
+            )}
+          </section>
+        );
+      })()}
+
+      {showGeneratedCatalog && !isFaqArchive && !isPricingArchive && (
         <section class="archive-page__catalog" aria-labelledby="archive-catalog-title">
           <h2 id="archive-catalog-title" class="archive-page__catalog-title">
             Разделы и материалы
@@ -186,6 +223,57 @@ const groupedChildren = directChildren.map((child) => ({
 .archive-card__links a {
   font-size: var(--text-sm);
   line-height: var(--leading-normal);
+}
+
+/* Pricing grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border: 2px solid var(--color-accent);
+  border-radius: var(--radius-xl);
+  background: var(--color-bg);
+}
+
+.pricing-card__name {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+}
+
+.pricing-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  flex: 1;
+}
+
+.pricing-card__btn {
+  display: inline-block;
+  margin-top: var(--space-2);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  text-align: center;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.pricing-card__btn:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
 }
 
 /* FAQ Accordion */
