@@ -1,7 +1,7 @@
 <claude-mem-context>
 # Memory Context
 
-# [mosseo-site-pipeline] recent context, 2026-05-12 6:48pm GMT+3
+# [mosseo-site-pipeline] recent context, 2026-05-13 1:31am GMT+3
 
 No previous sessions found.
 </claude-mem-context>
@@ -13,20 +13,24 @@ Read `HANDOFF.md` for current status. Read `CLAUDE.md` for quick commands.
 
 ## What this project is
 
-A content pipeline + Astro static site that turns a Mosseo (mosseo.ru) CSV
-export into a white-label SEO-agency website. The site is deployed to Beget
-hosting at `yourkedm.beget.tech`. Brand, contacts, analytics, and form settings
-come from `site/.env` and must stay unique per site.
+A content pipeline + Astro static-site renderer for white-label SEO / PBN sites.
+The original Mosseo (mosseo.ru) CSV export is now the legacy baseline dataset;
+the project also has early Exa + Firecrawl donor discovery/crawl support for
+new niches. The first test site is deployed to Beget at `yourkedm.beget.tech`.
+Brand, contacts, analytics, content dataset, and form settings come from env /
+site config and must stay unique per site.
 
 ## Architecture in one paragraph
 
-`site_pipeline/` scripts crawl mosseo.ru pages, extract content into 1013 JSON
-files under `site_pipeline/output/pages/`, and build indexes
-(`build_manifest.json`, `content_index.sqlite`). The `site/` Astro project
-reads those JSON files at build time via `site/src/data/loadPages.ts`, maps
-paths to page types via `site/src/lib/routing.ts`, derives SEO fields via
-`site/src/lib/seo.ts`, and renders each page through one of the layout
-components in `site/src/layouts/`.
+`site_pipeline/` scripts discover donors (Exa), crawl pages (legacy CSV crawler
+or Firecrawl), normalize content into the shared `PageData + extracted`
+contract, and build indexes/manifests. The `site/` Astro project is the single
+renderer: it reads the selected content output at build time via
+`site/src/data/loadPages.ts`, maps paths to page types via
+`site/src/lib/routing.ts`, derives SEO fields via `site/src/lib/seo.ts`, and
+renders pages through `site/src/layouts/`. Donor CSS/style should become a
+separate future `donor_style_profile`/theme-token input, not copied into page
+JSON.
 
 ## Key files agents need
 
@@ -42,6 +46,10 @@ components in `site/src/layouts/`.
 | `site/src/components/Footer.astro` | Footer: logo, nav list, copyright |
 | `site/src/components/PromoSlot.astro` | Affiliate/promo slot component (config-driven) |
 | `site/src/styles/global.css` | Design tokens + legacy WP class styles |
+| `site_pipeline/crawl_pages_fc.py` | Firecrawl map/filter/scrape backend with optional LLM extraction |
+| `site_pipeline/discover_donors.py` | Exa donor discovery smoke path |
+| `site_pipeline/qualify_donor.py` | Exa donor qualification smoke path |
+| `CRAWLER_ARCH.md` | Exa + Firecrawl architecture, costs, contracts |
 
 ## Layout map
 
@@ -72,6 +80,10 @@ components in `site/src/layouts/`.
    may be user/other-agent work — do not overwrite without checking.
 6. **Before broad layout changes**, run `python site_pipeline/audit_page_templates.py`
    to understand the template distribution (service_catalog vs content_article etc.).
+7. **Do not commit smoke crawl outputs** such as `site_pipeline/output/test_*`,
+   `site_pipeline/output/finance_test/`, Exa smoke JSON, or qualification JSON.
+8. **Do not copy donor CSS directly** into Astro layouts. Extract style signals
+   into future theme tokens / `donor_style_profile` instead.
 
 ## Git workflow
 
@@ -114,9 +126,13 @@ PUBLIC_COMPANY_TELEGRAM=""        # Telegram username, hidden if empty
 PUBLIC_SOCIAL_VK=""               # VK page URL, hidden if empty
 PUBLIC_SOCIAL_TG=""               # Telegram channel URL, hidden if empty
 PUBLIC_SOCIAL_OK=""               # OK page URL, hidden if empty
+CONTENT_OUTPUT_DIR="../site_pipeline/output" # optional alternate build dataset
+ENABLE_EDITORIAL_POSTS="true"     # false for donor-only builds
+PUBLIC_LEGACY_SOURCE_DOMAIN=""    # optional donor domain for link/media rewrite
+PUBLIC_LEGACY_BRAND_ALIASES=""    # comma-separated donor brand aliases
 ```
 
-## What has been implemented (as of 2026-05-12)
+## What has been implemented (as of 2026-05-13)
 
 **Track A (UI) — fully complete.**
 
@@ -150,10 +166,20 @@ PUBLIC_SOCIAL_OK=""               # OK page URL, hidden if empty
 - **Трек A** — UI сайта: **ЗАВЕРШЁН** (все A1–A4 пункты закрыты, 2026-05-12)
 - **Трек B** — PBN-инфраструктура: Multi-donor pipeline → Batch deploy → Темы → Link config → MCP воркфлоу
 
-**Текущий приоритет: B1.2 — Firecrawl MCP как альтернативный бэкенд краулинга**
+**Текущий приоритет: B2.1 — `sites/` структура / multi-site build config.**
+Если принимается кардинальная перестройка, сначала подготовить
+`NEW_PIPELINE_ARCH.md`, `MIGRATION_PLAN.md`, `CLEANUP_PLAN.md`.
 
 B1.1 закрыт (2026-05-12): хардкод mosseo.ru убран из crawl_pages.py и qa_pages.py,
 добавлен `--source-domain` с авто-детектом из seeds.
+
+B1.2-B1.5 закрыты (2026-05-13):
+- `crawl_pages_fc.py` реализует Firecrawl map → filter → scrape, `--map-only`,
+  base mode без LLM, optional `--with-llm`, cached maps, `--recrawl`
+- `mosseo.ru` smoke прошёл base + LLM; `vsezaimyonline.ru` finance smoke прошёл
+  base crawl + QA
+- `discover_donors.py` и `qualify_donor.py` проверили Exa discovery/qualification
+- Astro умеет собирать alternate datasets через `CONTENT_OUTPUT_DIR`
 
 B0.1-B0.4 закрыты для первого тестового сайта (2026-05-12):
 - уникальный тестовый бренд/контакты заданы через `site/.env`
@@ -165,12 +191,15 @@ B0.1-B0.4 закрыты для первого тестового сайта (20
 - `npm run check:b0`, `npm run check`, `npm run build`, `php -l dist/mail.php`,
   `npm run deploy:dry`, `npm run deploy` прошли
 
-Подход: **Variant 3** — Firecrawl MCP подключён (`mcp__firecrawl__*` работает),
-нужен EXA_API_KEY в `site/.env` для Exa.
+Подход: один Astro renderer, разные источники приводятся к общему
+`PageData + extracted`. Exa используется для donor discovery/qualification;
+Firecrawl используется для crawl/extraction. API keys читаются из `site/.env`;
+не печатать и не коммитить значения.
 
 При старте новой сессии: читать `HANDOFF.md`, затем `ROADMAP.md`. Сначала
-закрыть постдеплой-проверки (Yandex Webmaster, Метрика, тест формы), затем
-брать первую `[ ]` задачу в Треке B.
+проверить актуальную ветку и `git status`, затем брать первую `[ ]` задачу в
+Треке B или подготовить документы новой архитектуры, если пользователь выбрал
+кардинальную перестройку.
 
 ## Deploy
 
@@ -203,7 +232,7 @@ Test URL: http://yourkedm.beget.tech/
 | MCP | Зачем | Статус |
 |---|---|---|
 | firecrawl | Краулинг новых донор-сайтов для PBN | ✅ Подключён (FIRECRAWL_API_KEY задан) |
-| exa | Поиск доноров по нишам, анализ конкурентов | ⚠️ Нужен EXA_API_KEY в `site/.env` |
+| exa | Поиск доноров по нишам, квалификация доноров | ✅ Проверен через `discover_donors.py` / `qualify_donor.py` |
 | playwright | Автотест задеплоенных сайтов | ✅ Готов |
 | filesystem | Управление конфигами N сайтов | ✅ Готов |
 

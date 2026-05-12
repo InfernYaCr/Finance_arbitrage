@@ -3,8 +3,10 @@
 Read `HANDOFF.md` first. It contains the current project state, generated
 artifacts, QA status, deploy status, and the next recommended tasks.
 
-This project is a content pipeline + Astro static site for turning a donor-site
-crawl into a white-label SEO agency website deployed to Beget hosting.
+This project is evolving from a Mosseo-derived content pipeline into a
+multi-donor PBN/content-factory platform. `site_pipeline/` discovers/crawls and
+normalizes donor content; `site/` is the single Astro renderer for selected
+build datasets.
 
 Current live test site:
 
@@ -12,16 +14,20 @@ Current live test site:
 http://yourkedm.beget.tech/
 ```
 
-Latest status (2026-05-12):
+Latest status (2026-05-13):
 
 - Track A UI is complete.
-- B1.1 is complete: crawl/QA source-domain hardcode was removed.
 - B0.1-B0.4 are complete for the first Beget test site.
-- B6.4 is complete for Beget: contact form posts to generated `/mail.php`.
+- B1.1-B1.5 are complete: source-domain parameterization, Firecrawl backend
+  smoke, finance donor smoke, and Exa discovery/qualification smoke.
+- B6.4 is partially complete: contact form posts to generated `/mail.php`;
+  notifications are still pending because the Beget subdomain has no mailbox.
 - Yandex Webmaster verification file is deployed:
   `/yandex_b096686526decb58.html`.
-- Next: post-deploy smoke-test, verify Yandex Webmaster/Metrika/form delivery,
-  then continue B1.2 Firecrawl MCP backend.
+- Current recommended system step: B2.1 `sites/` structure / multi-site build
+  config. If the user chooses the larger rewrite, prepare
+  `NEW_PIPELINE_ARCH.md`, `MIGRATION_PLAN.md`, and `CLEANUP_PLAN.md` before
+  mass migration.
 
 ## Claude quick context
 
@@ -34,6 +40,8 @@ Workspace:
 Main context files to read first:
 
 - `HANDOFF.md` - current state, decisions, commands, latest QA.
+- `ROADMAP.md` - current phase plan and next tasks.
+- `CRAWLER_ARCH.md` - Exa + Firecrawl donor discovery/crawl architecture.
 - `SITE_ARCHITECTURE.md` - architecture, SEO/schema, contacts/media strategy.
 - `SITE_STRUCTURE.md` - section map, page counts, priority QA routes.
 - `LAUNCH_CHECKLIST.md` - deployment/SEO/forms/analytics checklist.
@@ -46,6 +54,9 @@ Generated content and indexes:
 - `site_pipeline/output/qa_report.json` - QA report.
 - `site_pipeline/output/template_audit.json` - source template classification.
 - `site_pipeline/output/content_index.sqlite` - quick local inspection DB.
+- `site_pipeline/output/test_*`, `finance_test`, Exa smoke JSON, and
+  `qualify_*.json` are temporary research/smoke artifacts and must not be
+  committed.
 
 Astro site:
 
@@ -77,11 +88,18 @@ Page layouts:
 Important current behavior:
 
 - Do not hand-edit `site_pipeline/output/pages/*.json` for design, contacts, brand, or media changes.
-- Old brand is normalized at render time in `loadPages.ts`.
+- Old/donor brand aliases are normalized at render time in `loadPages.ts` /
+  `brand.ts`.
 - Old contacts/requisites/staff contacts are normalized or removed at render time.
 - Old `/content/` and `/wp-content/` media defaults to `/images/placeholder.svg`.
 - Change contacts in env/site config, not in parsed content.
 - `PUBLIC_LEGACY_MEDIA_MODE` supports `placeholder`, `source`, and `local`.
+- `CONTENT_OUTPUT_DIR` selects an alternate content output for Astro builds.
+- `ENABLE_EDITORIAL_POSTS=false` should be used for donor-only builds.
+- `PUBLIC_LEGACY_SOURCE_DOMAIN` and `PUBLIC_LEGACY_BRAND_ALIASES` normalize
+  donor links/brand mentions; do not normalize product brands such as banks/MFOs.
+- Donor CSS/style should become a future `donor_style_profile` / theme-token
+  input. Do not copy donor CSS directly into Astro layouts.
 - **Never inject `content_html` from contact or homepage JSON via `set:html`** — the
   extracted WP HTML contains nested `<div class="container">` that breaks outer layout
   via the HTML parser. Contact and Home use structured components instead.
@@ -120,6 +138,9 @@ Current code entry points:
 - `site_pipeline/probe_pages.py`
 - `site_pipeline/audit_extraction_sources.py`
 - `site_pipeline/audit_page_templates.py`
+- `site_pipeline/crawl_pages_fc.py` - Firecrawl map/filter/scrape backend.
+- `site_pipeline/discover_donors.py` - Exa donor search via highlights.
+- `site_pipeline/qualify_donor.py` - Exa donor qualification via summary schema.
 
 Do not treat `site_pipeline/output/pages/*.json` as source code. They are the
 generated content dataset. Use `site_pipeline/output/build_manifest.json`,
@@ -148,12 +169,33 @@ python site_pipeline/build_content_index.py
 python site_pipeline/audit_page_templates.py
 ```
 
+Firecrawl / Exa smoke commands:
+
+```bash
+cd /Users/deniskononov/mosseo-site-pipeline
+. .venv/bin/activate
+python site_pipeline/crawl_pages_fc.py --source-domain mosseo.ru --limit 30 --output-dir site_pipeline/output/test_fc --map-only
+python site_pipeline/discover_donors.py --niche finance --num-results 5 --out site_pipeline/output/exa_finance_smoke.json
+python site_pipeline/qualify_donor.py --url https://vsezaimyonline.ru --out site_pipeline/output/qualify_vsezaimyonline.json
+```
+
 Astro build/check:
 
 ```bash
 cd /Users/deniskononov/mosseo-site-pipeline/site
 npm run build
 npm run check
+```
+
+Alternate donor dataset build:
+
+```bash
+cd /Users/deniskononov/mosseo-site-pipeline/site
+CONTENT_OUTPUT_DIR=../site_pipeline/output/finance_test \
+ENABLE_EDITORIAL_POSTS=false \
+PUBLIC_LEGACY_SOURCE_DOMAIN=https://vsezaimyonline.ru \
+PUBLIC_LEGACY_BRAND_ALIASES='ВсеЗаймыОнлайн,Все Займы Онлайн,VseZaimyOnline,К5М' \
+npm run build
 ```
 
 Local preview:
