@@ -365,6 +365,14 @@ const formAction = contactForm.action || '/mail.php';
   });
 
 
+  document.getElementById('cf-email')?.addEventListener('blur', function () {
+    if (this.value.trim() && !validateEmail(this.value)) {
+      showError('cf-email', 'err-email', 'Проверьте email — возможно, опечатка');
+    } else {
+      clearError('cf-email', 'err-email');
+    }
+  });
+
   document.getElementById('cf-message')?.addEventListener('blur', function () {
     this.value.trim() ? clearError('cf-message', 'err-message') : showError('cf-message', 'err-message', 'Напишите сообщение');
   });
