@@ -118,7 +118,10 @@ PUBLIC_SOCIAL_OK=""               # OK page URL, hidden if empty
 - **Трек A** — UI сайта: **ЗАВЕРШЁН** (все A1–A4 пункты закрыты, 2026-05-12)
 - **Трек B** — PBN-инфраструктура: Multi-donor pipeline → Batch deploy → Темы → Link config → MCP воркфлоу
 
-**Текущий приоритет: B1.1 — убрать хардкод mosseo.ru из crawl_pages.py**
+**Текущий приоритет: B1.2 — Firecrawl MCP как альтернативный бэкенд краулинга**
+
+B1.1 закрыт (2026-05-12): хардкод mosseo.ru убран из crawl_pages.py и qa_pages.py,
+добавлен `--source-domain` с авто-детектом из seeds.
 
 Подход: **Variant 3** — Firecrawl MCP подключён (`mcp__firecrawl__*` работает),
 нужен EXA_API_KEY в `site/.env` для Exa.

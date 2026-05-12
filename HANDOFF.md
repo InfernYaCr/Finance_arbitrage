@@ -346,11 +346,11 @@ Exa MCP not yet connected (needs `EXA_API_KEY` in `site/.env`).
 
 **B1 · Multi-donor pipeline (priority)**
 
-B1.1 — Remove hardcoded `mosseo.ru` from `crawl_pages.py`:
-- Line ~295: `if final_domain != "mosseo.ru":` → replace with `donor_domain` variable
-- Line ~143: WP JSON regex hardcodes `mosseo.ru` → generalize to extracted base domain
-- Add `--donor-url` CLI argument (or `--source-domain`); `qa_pages.py` line ~229
-  has `--source-domain mosseo.ru` default to update
+B1.1 ✅ Done (2026-05-12, commit a0d9b54):
+- `find_wp_endpoint`: regex generalized to `https?://[^"'<\s]+/wp-json/wp/v2/...`
+- `enrich_page`: `source_domain: str = ""` param, check skipped if empty
+- `crawl_pages.py main`: `--source-domain` (auto-detected from first seed if omitted)
+- `qa_pages.py`: `--source-domain` default `None`; external_redirect check guarded
 
 B1.2 — Firecrawl MCP backend:
 - `mcp__firecrawl__firecrawl_crawl(url, maxDepth, limit)` crawls entire donor
