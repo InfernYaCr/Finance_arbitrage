@@ -12,9 +12,15 @@ const ROOT = resolve(__dirname, '../..');
 const SITE_URL = (process.env.SITE_URL ?? 'https://example.test').replace(/\/$/, '');
 const DIST = resolve(__dirname, '../dist');
 const LEGACY_SLUG = ['moss', 'eo'].join('');
+const DATA_ROOT = process.env.CONTENT_OUTPUT_DIR
+  ? resolve(ROOT, 'site', process.env.CONTENT_OUTPUT_DIR)
+  : resolve(ROOT, 'site_pipeline/output');
+const ENABLE_EDITORIAL_POSTS = process.env.ENABLE_EDITORIAL_POSTS
+  ? process.env.ENABLE_EDITORIAL_POSTS === 'true'
+  : !process.env.CONTENT_OUTPUT_DIR;
 
 const manifest = JSON.parse(
-  readFileSync(resolve(ROOT, 'site_pipeline/output/build_manifest.json'), 'utf-8'),
+  readFileSync(resolve(DATA_ROOT, 'build_manifest.json'), 'utf-8'),
 );
 
 // Editorial posts (appended paths)
@@ -57,7 +63,7 @@ const urls = [
     section: p.section,
     lastmod: today,
   })),
-  ...editorialPosts
+  ...(ENABLE_EDITORIAL_POSTS ? editorialPosts : [])
     .filter((p) => !manifest.some((m) => rewriteLegacyPath(m.path) === p.path))
     .map((p) => ({
       path: p.path,

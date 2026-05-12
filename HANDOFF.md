@@ -5,6 +5,31 @@
 The pipeline has completed a full crawl and QA pass for the original page
 export. The Astro site is built and deployed to the first Beget test host.
 
+### 2026-05-13 update — B1.3/B1.4/B1.5
+
+Multi-donor crawl smoke is now working end to end:
+
+- `site_pipeline/crawl_pages_fc.py` supports Firecrawl `--map-only`, cached maps,
+  base scrape without LLM, optional `--with-llm`, and `--recrawl`.
+- `mosseo.ru` Firecrawl smoke (`limit=30`) passed base and LLM modes. QA has no
+  errors; remaining warnings are `high_link_density` on dense/archive-like pages.
+- `vsezaimyonline.ru` finance donor smoke (`limit=30`) passed base crawl and QA:
+  27 ok, 3 warnings, 0 errors.
+- `site_pipeline/discover_donors.py` and `site_pipeline/qualify_donor.py` provide
+  the first Exa smoke path. `discover_donors.py --niche finance --num-results 5`
+  returned candidates; `qualify_donor.py --url https://vsezaimyonline.ru`
+  returned `verdict=CRAWL`.
+- Astro can build alternate content outputs via `CONTENT_OUTPUT_DIR`; finance
+  smoke build produced 32 pages and a 30-URL sitemap.
+
+Important architectural decision: keep one Astro build pipeline. Crawlers adapt
+their outputs into the shared `PageData + extracted` contract; site builds choose
+the dataset with `CONTENT_OUTPUT_DIR`. Donor CSS/style should become a separate
+future `donor_style_profile`/theme input, not copied CSS in page JSON.
+
+Current best next step: B2.1 `sites/` structure, then B2.2 `build-all.sh`.
+Parallel useful task: B6.4 Telegram notifications for forms.
+
 Latest live test deploy:
 
 ```text

@@ -6,10 +6,17 @@ import editorialPostsRaw from './editorialPosts.json';
 import { replaceLegacyBrand } from '../lib/brand';
 import { siteConfig } from './siteConfig';
 
-const DATA_ROOT = resolve(
+const PROJECT_ROOT = resolve(
   dirname(fileURLToPath(import.meta.url)),
-  '../../../site_pipeline/output',
+  '../../..',
 );
+const DEFAULT_DATA_ROOT = resolve(PROJECT_ROOT, 'site_pipeline/output');
+const DATA_ROOT = import.meta.env.CONTENT_OUTPUT_DIR
+  ? resolve(process.cwd(), import.meta.env.CONTENT_OUTPUT_DIR)
+  : DEFAULT_DATA_ROOT;
+const ENABLE_EDITORIAL_POSTS = import.meta.env.ENABLE_EDITORIAL_POSTS
+  ? import.meta.env.ENABLE_EDITORIAL_POSTS === 'true'
+  : !import.meta.env.CONTENT_OUTPUT_DIR;
 
 interface EditorialPost {
   id: string;
@@ -34,7 +41,17 @@ const LEGACY_SLUG = ['moss', 'eo'].join('');
 const LEGACY_SOCIAL_HANDLE = ['moss', 'eoru'].join('');
 const LEGACY_SITE_URL = `https://${LEGACY_HOST}`;
 const LEGACY_DOMAIN_RE = LEGACY_HOST.replace(/\./g, '\\.');
-const OLD_DOMAINS = [`https://${LEGACY_HOST}`, `http://${LEGACY_HOST}`, `https://www.${LEGACY_HOST}`];
+const configuredSourceDomain = siteConfig.legacyContent.sourceDomain.replace(/\/$/, '');
+const configuredSourceHost = configuredSourceDomain.replace(/^https?:\/\//, '').replace(/^www\./, '');
+const OLD_DOMAINS = Array.from(new Set([
+  `https://${LEGACY_HOST}`,
+  `http://${LEGACY_HOST}`,
+  `https://www.${LEGACY_HOST}`,
+  configuredSourceDomain,
+  `https://${configuredSourceHost}`,
+  `http://${configuredSourceHost}`,
+  `https://www.${configuredSourceHost}`,
+]));
 const SITE_URL = siteConfig.siteUrl.replace(/\/$/, '');
 
 function rewriteLegacyPath(path: string = ''): string {
@@ -186,7 +203,7 @@ export function loadManifest(): ManifestPage[] {
 }
 
 export function loadPageData(relativePageFile: string): PageData {
-  const abs = resolve(DATA_ROOT, '../../', relativePageFile);
+  const abs = resolve(PROJECT_ROOT, relativePageFile);
   const data = JSON.parse(readFileSync(abs, 'utf-8')) as PageData;
   // Rewrite donor links to root-relative paths so they work on any host
   if (data.content_html) data.content_html = rewriteInternalLinks(data.content_html);
@@ -326,8 +343,9 @@ export function loadAllPages(): FullPage[] {
     data: loadPageData(entry.page_file),
   }));
 
-  // Editorial posts override crawled pages with same path; new paths are appended
-  const editorialByPath = new Map(editorialPosts.map((p) => [p.path, editorialToFullPage(p)]));
+  // Editorial posts are local additions for the default Mosseo-derived dataset.
+  const activeEditorialPosts = ENABLE_EDITORIAL_POSTS ? editorialPosts : [];
+  const editorialByPath = new Map(activeEditorialPosts.map((p) => [p.path, editorialToFullPage(p)]));
   const merged = crawled.map((p) => editorialByPath.get(p.path) ?? p);
   const crawledPaths = new Set(crawled.map((p) => p.path));
   for (const [path, ep] of editorialByPath) {

@@ -13,6 +13,10 @@ site/node_modules/
 __pycache__/
 *.pyc
 site_pipeline/output/pages/
+site_pipeline/output/test_*/
+site_pipeline/output/finance_test/
+site_pipeline/output/exa_*_smoke.json
+site_pipeline/output/qualify_*.json
 site_pipeline/output/*.sqlite
 site_pipeline/output/*.sqlite-*
 

@@ -2,7 +2,20 @@ import { siteConfig } from '../data/siteConfig';
 
 const LATIN_LEGACY_BRAND = ['moss', 'eo'].join('');
 const CYRILLIC_LEGACY_BRAND = '\u041c\u043e\u0441\u0441\u0435\u043e';
-const LEGACY_BRAND_RE = new RegExp(`\\b${LATIN_LEGACY_BRAND}\\b|${CYRILLIC_LEGACY_BRAND}`, 'gi');
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+const LEGACY_BRAND_ALIASES = [
+  LATIN_LEGACY_BRAND,
+  CYRILLIC_LEGACY_BRAND,
+  ...siteConfig.legacyContent.brandAliases,
+].filter(Boolean);
+const LEGACY_BRAND_RE = new RegExp(
+  LEGACY_BRAND_ALIASES.map((alias) => escapeRegExp(alias)).join('|'),
+  'gi',
+);
 
 export function replaceLegacyBrand(value: string): string {
   if (!value) return value;
@@ -10,8 +23,9 @@ export function replaceLegacyBrand(value: string): string {
 }
 
 export function stripBrandSuffix(value: string): string {
-  const escapedCurrentBrand = siteConfig.siteName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const suffixRe = new RegExp(`[\\s\\-|]+(?:${CYRILLIC_LEGACY_BRAND}|${LATIN_LEGACY_BRAND}|${escapedCurrentBrand})\\s*$`, 'i');
+  const escapedCurrentBrand = escapeRegExp(siteConfig.siteName);
+  const escapedLegacyBrands = LEGACY_BRAND_ALIASES.map((alias) => escapeRegExp(alias)).join('|');
+  const suffixRe = new RegExp(`[\\s\\-|]+(?:${escapedLegacyBrands}|${escapedCurrentBrand})\\s*$`, 'i');
   return replaceLegacyBrand(value)
     .replace(suffixRe, '')
     .replace(/\s+от\s*$/i, '')

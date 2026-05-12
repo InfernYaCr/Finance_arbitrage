@@ -16,6 +16,10 @@ const companyTelegram = import.meta.env.PUBLIC_COMPANY_TELEGRAM ?? '';
 const contactFormAction = import.meta.env.PUBLIC_CONTACT_FORM_ACTION ?? '/mail.php';
 const contactFormRedirect = import.meta.env.PUBLIC_CONTACT_FORM_REDIRECT ?? `${siteUrl.replace(/\/$/, '')}/thanks/`;
 const contactFormSubject = import.meta.env.PUBLIC_CONTACT_FORM_SUBJECT ?? `Заявка с сайта ${siteName}`;
+const legacyBrandAliases = (import.meta.env.PUBLIC_LEGACY_BRAND_ALIASES ?? '')
+  .split(',')
+  .map((alias: string) => alias.trim())
+  .filter(Boolean);
 
 export const siteConfig = {
   siteUrl,
@@ -58,6 +62,7 @@ export const siteConfig = {
     mediaMode: import.meta.env.PUBLIC_LEGACY_MEDIA_MODE ?? 'placeholder',
     mediaPlaceholder: import.meta.env.PUBLIC_MEDIA_PLACEHOLDER ?? '/images/placeholder.svg',
     sourceDomain: import.meta.env.PUBLIC_LEGACY_SOURCE_DOMAIN ?? `https://${['moss', 'eo.ru'].join('')}`,
+    brandAliases: legacyBrandAliases,
   },
 
   social: {
