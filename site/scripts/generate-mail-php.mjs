@@ -95,11 +95,10 @@ $subject = clean_header($_POST['_subject'] ?? $defaultSubject);
 $phoneDigits = preg_replace('/\\D/', '', $phone);
 if (
     $name === '' ||
-    $email === '' ||
     $message === '' ||
-    !filter_var($email, FILTER_VALIDATE_EMAIL) ||
     strlen($phoneDigits) !== 11 ||
-    $phoneDigits[0] !== '7'
+    $phoneDigits[0] !== '7' ||
+    ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL))
 ) {
     redirect_to($errorPath);
 }

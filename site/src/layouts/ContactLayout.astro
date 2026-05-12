@@ -52,8 +52,8 @@ const formAction = contactForm.action || '/mail.php';
                 <span class="contact-form__error" id="err-phone"></span>
               </div>
               <div class="contact-form__field">
-                <label for="cf-email">Email <span class="contact-form__req" aria-hidden="true">*</span></label>
-                <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="example@mail.ru" />
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" autocomplete="email" placeholder="example@mail.ru" />
                 <span class="contact-form__error" id="err-email"></span>
               </div>
               <div class="contact-form__field">
@@ -365,10 +365,8 @@ const formAction = contactForm.action || '/mail.php';
   });
 
   document.getElementById('cf-email')?.addEventListener('blur', function () {
-    if (!this.value.trim()) {
-      showError('cf-email', 'err-email', 'Введите email');
-    } else if (!validateEmail(this.value)) {
-      showError('cf-email', 'err-email', 'Введите корректный email, например: name@mail.ru');
+    if (this.value.trim() && !validateEmail(this.value)) {
+      showError('cf-email', 'err-email', 'Некорректный email, например: name@mail.ru');
     } else {
       clearError('cf-email', 'err-email');
     }
@@ -391,8 +389,7 @@ const formAction = contactForm.action || '/mail.php';
     else clearError('cf-phone', 'err-phone');
 
     const email = document.getElementById('cf-email');
-    if (!email?.value.trim()) { showError('cf-email', 'err-email', 'Введите email'); valid = false; }
-    else if (!validateEmail(email.value)) { showError('cf-email', 'err-email', 'Введите корректный email, например: name@mail.ru'); valid = false; }
+    if (email?.value.trim() && !validateEmail(email.value)) { showError('cf-email', 'err-email', 'Некорректный email, например: name@mail.ru'); valid = false; }
     else clearError('cf-email', 'err-email');
 
     const message = document.getElementById('cf-message');
