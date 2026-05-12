@@ -2,7 +2,28 @@
 
 ## Current status
 
-The pipeline has completed a full crawl and QA pass for the Mosseo page export.
+The pipeline has completed a full crawl and QA pass for the original page
+export. The Astro site is built and deployed to the first Beget test host.
+
+Latest live test deploy:
+
+```text
+URL: http://yourkedm.beget.tech/
+Date: 2026-05-12
+Status: deploy complete
+```
+
+Production-readiness foundation B0 is complete for this first test site:
+
+- unique test brand is configured through `site/.env`
+- unique test contacts are configured through `site/.env`
+- Yandex Metrika counter is configured through `PUBLIC_METRIKA_ID`
+- Yandex Webmaster verification file is deployed:
+  `/yandex_b096686526decb58.html`
+- contact form posts to `/mail.php`
+- `mail.php` is generated into `site/dist/` during build
+- B0 predeploy guard runs before every deploy
+- public runtime files were scanned for old source-brand mentions
 
 Workspace:
 
@@ -114,23 +135,24 @@ Old contact details and old Mosseo media are also normalized at render time in
 `site/src/data/loadPages.ts`. Do not edit generated JSON to change phones,
 email, legal details, addresses, or old images.
 
-Set the generated-site brand with:
+Set the generated-site brand with env vars in `site/.env`.
 
 ```bash
-PUBLIC_SITE_NAME="Тестовый SEO-проект"
-PUBLIC_SITE_NAME_FULL="Тестовый SEO-проект — SEO-продвижение сайтов"
+PUBLIC_SITE_NAME="..."
+PUBLIC_SITE_NAME_FULL="..."
 ```
 
-The current fallback brand is `Тестовый SEO-проект`.
+For the current Beget test deploy, a fictional test brand is configured in the
+local uncommitted `site/.env`. Do not commit real brand/contact/deploy secrets.
 
-Set generated-site contacts with:
+Set generated-site contacts with env vars in `site/.env`.
 
 ```bash
-PUBLIC_COMPANY_PHONE="+7 000 000-00-00"
-PUBLIC_COMPANY_PHONE_HREF="+70000000000"
-PUBLIC_COMPANY_EMAIL="hello@example.test"
-PUBLIC_COMPANY_ADDRESS="Адрес уточняется"
-PUBLIC_COMPANY_WORKTIME="Пн-Пт, 09:30-18:30"
+PUBLIC_COMPANY_PHONE="..."
+PUBLIC_COMPANY_PHONE_HREF="+7..."
+PUBLIC_COMPANY_EMAIL="..."
+PUBLIC_COMPANY_ADDRESS="..."
+PUBLIC_COMPANY_WORKTIME="..."
 PUBLIC_COMPANY_LEGAL_NAME="ООО «Тестовый SEO-проект»"
 PUBLIC_COMPANY_INN="0000000000"
 PUBLIC_COMPANY_KPP="000000000"
@@ -152,6 +174,45 @@ Default is `placeholder`, which hides old Mosseo `/content/` and
 `/wp-content/` images. Use `source` only for temporary visual comparison with
 the original site. Use `local` after copying approved images into
 `site/public/content/` and/or `site/public/wp-content/`.
+
+### B0 implementation notes (2026-05-12)
+
+Files added/changed for predeploy safety:
+
+- `site/scripts/check-b0-env.mjs` validates required brand, contacts, Metrika
+  ID, and contact form action before deploy.
+- `site/scripts/generate-mail-php.mjs` generates `dist/mail.php` after Astro
+  build.
+- `site/src/layouts/ContactLayout.astro` posts to
+  `siteConfig.contactForm.action`, currently `/mail.php`.
+- `site/src/pages/thanks.astro` provides a static success page.
+- `site/src/components/Analytics.astro` injects the configured Yandex Metrika
+  counter.
+- `site/public/yandex_b096686526decb58.html` is the Yandex Webmaster
+  verification file.
+- `site/scripts/deploy.sh` loads `.env` without shell-evaluating values, so
+  Russian text and spaces in env values are safe.
+
+Verification already run locally:
+
+```bash
+cd /Users/deniskononov/mosseo-site-pipeline/site
+npm run check:b0
+npm run check
+npm run build
+php -l dist/mail.php
+npm run deploy:dry
+npm run deploy
+```
+
+Expected follow-up checks on the live host:
+
+- open `http://yourkedm.beget.tech/yandex_b096686526decb58.html`
+- verify the site in Yandex Webmaster
+- check that Yandex Metrika receives visits for counter `109164667`
+- submit a test contact form on `/kontakty/`
+- confirm the recipient mailbox in `PUBLIC_CONTACT_FORM_TO` exists and receives
+  the message
 
 The live `/seo-uslugi/` page contains a large `.section-services` catalog block
 with grouped service links/cards. The generated site originally rendered only
@@ -368,9 +429,35 @@ B1.4 — Test run on second donor:
 - Pick a niche SEO-agency site as donor (Exa search once key is available)
 - Crawl with Firecrawl, run through extractor, build manifest, check QA report
 
-**B2+ stays pending** (batch deploy, themes, link config) — do B1 first.
+**B0/B6.4 are done for the first test site.** Repeat B0 for every new site in
+the network with a different brand, contacts, and Metrika counter.
+
+**B2+ stays pending** (batch deploy, themes, link config) — do B1 first, except
+small post-deploy validation tasks listed below.
+
+### Immediate next steps after the 2026-05-12 deploy
+
+1. Verify Yandex Webmaster ownership using:
+   `http://yourkedm.beget.tech/yandex_b096686526decb58.html`
+2. Open Yandex Metrika and confirm counter `109164667` receives a real visit.
+3. Submit a test request through `http://yourkedm.beget.tech/kontakty/`.
+4. Confirm `PUBLIC_CONTACT_FORM_TO` points to a mailbox that exists on Beget or
+   to another real recipient.
+5. Run browser smoke checks for `/`, `/seo-uslugi/`, `/kontakty/`,
+   `/portfolio/`, `/faq/`, and one article/service detail page.
+6. After smoke checks, continue B1.2: Firecrawl MCP backend.
 
 ### Deploy
+
+```bash
+cd /Users/deniskononov/mosseo-site-pipeline/site
+npm run check:b0
+npm run build
+npm run deploy:dry
+npm run deploy   # reads credentials from site/.env
+```
+
+One-liner:
 
 ```bash
 cd /Users/deniskononov/mosseo-site-pipeline/site
@@ -378,7 +465,7 @@ npm run build && npm run deploy   # reads credentials from site/.env
 ```
 
 Test URL: http://yourkedm.beget.tech/
-FTP: `yourkedm_testseo` → `yourkedm.beget.tech` → `/seo-test/public_html`
+FTP host is configured in uncommitted `site/.env`.
 Disable iCloud Private Relay before FTP (System Settings → Apple ID → iCloud).
 
 ## Next recommended work (pipeline)

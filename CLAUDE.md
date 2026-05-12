@@ -1,10 +1,27 @@
 # Mosseo Site Pipeline
 
 Read `HANDOFF.md` first. It contains the current project state, generated
-artifacts, QA status, and the next recommended tasks.
+artifacts, QA status, deploy status, and the next recommended tasks.
 
-This project is a pre-deployment content pipeline for turning the Mosseo CSV
-export into structured JSON data and build indexes for a future static site.
+This project is a content pipeline + Astro static site for turning a donor-site
+crawl into a white-label SEO agency website deployed to Beget hosting.
+
+Current live test site:
+
+```text
+http://yourkedm.beget.tech/
+```
+
+Latest status (2026-05-12):
+
+- Track A UI is complete.
+- B1.1 is complete: crawl/QA source-domain hardcode was removed.
+- B0.1-B0.4 are complete for the first Beget test site.
+- B6.4 is complete for Beget: contact form posts to generated `/mail.php`.
+- Yandex Webmaster verification file is deployed:
+  `/yandex_b096686526decb58.html`.
+- Next: post-deploy smoke-test, verify Yandex Webmaster/Metrika/form delivery,
+  then continue B1.2 Firecrawl MCP backend.
 
 ## Claude quick context
 
@@ -76,6 +93,18 @@ Parallel-work caution:
 - `AGENTS.md`, `site/scripts/download-images.sh`, and `site/scripts/ru-images.txt`
   may be user/other-agent work. Do not overwrite or revert them without checking.
 
+Git workflow:
+
+- Feature work should happen on a topic branch, not directly on `main`.
+- Use branch names like `codex/b0-predeploy-safety`.
+- Keep commits small and revertable: separate site behavior, deploy plumbing,
+  public cleanup, and docs when practical.
+- Do not stage unrelated untracked files. In particular,
+  `site/scripts/download-images.sh` and `site/scripts/ru-images.txt` are
+  legacy-media helper files and should stay out of non-media commits.
+- Roll back committed work with `git revert <sha>`. Do not use destructive
+  reset/checkout commands unless the user explicitly asks.
+
 Use the local virtual environment:
 
 ```bash
@@ -138,16 +167,34 @@ Deploy to Beget:
 
 ```bash
 cd /Users/deniskononov/mosseo-site-pipeline/site
-npm run build && npm run deploy
+npm run check:b0
+npm run build
+npm run deploy:dry
+npm run deploy
 ```
 
-Credentials are read automatically from `site/.env` (not committed). Before
-running, disable iCloud Private Relay (System Settings → Apple ID → iCloud →
-Private Relay → Off) — otherwise FTP data connections fail with `425 Bad IP`.
-Stop with Ctrl+C if needed.
+Credentials and brand/contact/Metrika values are read from `site/.env`
+(not committed). Before running, disable iCloud Private Relay/VPN/proxy if FTP
+hangs or returns `425 Security: Bad IP connecting`.
 
-FTP account: `yourkedm_testseo` → `yourkedm.beget.tech` → root = `/seo-test/public_html`.
 Test domain: http://yourkedm.beget.tech/
+
+Post-deploy smoke checks:
+
+```text
+http://yourkedm.beget.tech/
+http://yourkedm.beget.tech/yandex_b096686526decb58.html
+http://yourkedm.beget.tech/kontakty/
+http://yourkedm.beget.tech/seo-uslugi/
+http://yourkedm.beget.tech/portfolio/
+http://yourkedm.beget.tech/faq/
+```
+
+Required before calling the first site fully done:
+
+- Verify ownership in Yandex Webmaster.
+- Confirm Metrika counter receives visits.
+- Submit one test form from `/kontakty/` and confirm email delivery.
 
 Useful smoke-test routes:
 

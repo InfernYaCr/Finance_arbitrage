@@ -1,7 +1,7 @@
 <claude-mem-context>
 # Memory Context
 
-# [mosseo-site-pipeline] recent context, 2026-05-11 8:35pm GMT+3
+# [mosseo-site-pipeline] recent context, 2026-05-12 6:48pm GMT+3
 
 No previous sessions found.
 </claude-mem-context>
@@ -15,8 +15,8 @@ Read `HANDOFF.md` for current status. Read `CLAUDE.md` for quick commands.
 
 A content pipeline + Astro static site that turns a Mosseo (mosseo.ru) CSV
 export into a white-label SEO-agency website. The site is deployed to Beget
-hosting at `yourkedm.beget.tech` and uses the test brand "Тестовый SEO-проект"
-until real brand details are configured via env vars.
+hosting at `yourkedm.beget.tech`. Brand, contacts, analytics, and form settings
+come from `site/.env` and must stay unique per site.
 
 ## Architecture in one paragraph
 
@@ -73,6 +73,36 @@ components in `site/src/layouts/`.
 6. **Before broad layout changes**, run `python site_pipeline/audit_page_templates.py`
    to understand the template distribution (service_catalog vs content_article etc.).
 
+## Git workflow
+
+- Do not do feature work directly on `main`. Create a topic branch first:
+  `codex/<short-task-name>`.
+- Keep commits atomic and revertable: one behavior/docs/deploy concern per commit.
+- Prefer commit prefixes already used in the repo: `feat(...)`, `fix(...)`,
+  `docs(...)`, `chore(...)`.
+- Do not stage generated artifacts or unrelated untracked files just because
+  they are present in the worktree.
+- `site/scripts/download-images.sh` and `site/scripts/ru-images.txt` are
+  legacy-media helper files. Leave them untracked unless the current task is
+  explicitly about downloading/replacing legacy images.
+- Before deploy-related commits, run:
+
+```bash
+cd /Users/deniskononov/mosseo-site-pipeline/site
+npm run check:b0
+npm run build
+```
+
+- For Beget form changes, also run:
+
+```bash
+php -l dist/mail.php
+```
+
+- Use `git revert <sha>` for rollback of committed work. Do not use
+  `git reset --hard` or checkout away user changes unless the user explicitly
+  asks for it.
+
 ## siteConfig env vars (important additions from v2)
 
 ```bash
@@ -125,19 +155,35 @@ PUBLIC_SOCIAL_OK=""               # OK page URL, hidden if empty
 B1.1 закрыт (2026-05-12): хардкод mosseo.ru убран из crawl_pages.py и qa_pages.py,
 добавлен `--source-domain` с авто-детектом из seeds.
 
+B0.1-B0.4 закрыты для первого тестового сайта (2026-05-12):
+- уникальный тестовый бренд/контакты заданы через `site/.env`
+- `PUBLIC_METRIKA_ID=109164667`
+- Яндекс.Вебмастер verification-файл:
+  `/yandex_b096686526decb58.html`
+- форма контактов отправляет на `/mail.php`
+- `mail.php` генерируется при сборке и деплоится рядом со статикой
+- `npm run check:b0`, `npm run check`, `npm run build`, `php -l dist/mail.php`,
+  `npm run deploy:dry`, `npm run deploy` прошли
+
 Подход: **Variant 3** — Firecrawl MCP подключён (`mcp__firecrawl__*` работает),
 нужен EXA_API_KEY в `site/.env` для Exa.
 
-При старте новой сессии: читать `ROADMAP.md`, брать первую `[ ]` задачу в Треке B.
+При старте новой сессии: читать `HANDOFF.md`, затем `ROADMAP.md`. Сначала
+закрыть постдеплой-проверки (Yandex Webmaster, Метрика, тест формы), затем
+брать первую `[ ]` задачу в Треке B.
 
 ## Deploy
 
 ```bash
 cd /Users/deniskononov/mosseo-site-pipeline/site
-npm run build && npm run deploy
+npm run check:b0
+npm run build
+npm run deploy:dry
+npm run deploy
 ```
 
-Requires `site/.env` (not committed). Disable iCloud Private Relay before FTP.
+Requires `site/.env` (not committed). Disable iCloud Private Relay/VPN/proxy
+before FTP if it hangs or returns `425 Security: Bad IP connecting`.
 Test URL: http://yourkedm.beget.tech/
 
 ## MCP servers
