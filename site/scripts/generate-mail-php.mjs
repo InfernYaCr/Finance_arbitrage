@@ -92,7 +92,15 @@ $email = clean_header($_POST['email'] ?? '');
 $message = clean_body($_POST['message'] ?? '');
 $subject = clean_header($_POST['_subject'] ?? $defaultSubject);
 
-if ($name === '' || $email === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+$phoneDigits = preg_replace('/\\D/', '', $phone);
+if (
+    $name === '' ||
+    $email === '' ||
+    $message === '' ||
+    !filter_var($email, FILTER_VALIDATE_EMAIL) ||
+    strlen($phoneDigits) !== 11 ||
+    $phoneDigits[0] !== '7'
+) {
     redirect_to($errorPath);
 }
 
@@ -124,8 +132,11 @@ $headers = [
     'X-Mailer: PHP/' . phpversion(),
 ];
 
-$sent = mail($toEmail, $encodedSubject, $body, implode("\\r\\n", $headers));
-redirect_to($sent ? $next : $errorPath);
+$sent = mail($toEmail, $encodedSubject, $body, implode("\\r\\n", $headers), '-f ' . $from);
+if (!$sent) {
+    error_log('[mail.php] mail() failed: to=' . $toEmail . ' from=' . $from);
+}
+redirect_to($sent ? $next : '/thanks/?status=mail_error');
 `;
 
 writeFileSync(resolve(DIST, 'mail.php'), php, 'utf8');

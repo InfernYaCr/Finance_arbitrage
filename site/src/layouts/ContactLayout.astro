@@ -32,6 +32,7 @@ const formAction = contactForm.action || '/mail.php';
             <h2 class="contact-card__title">Написать нам</h2>
             <form
               class="contact-form"
+              id="contact-form"
               name="contact"
               method="POST"
               action={formAction}
@@ -41,24 +42,28 @@ const formAction = contactForm.action || '/mail.php';
               {contactForm.redirect && <input type="hidden" name="_next" value={contactForm.redirect} />}
               <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
               <div class="contact-form__field">
-                <label for="cf-name">Имя</label>
-                <input type="text" id="cf-name" name="name" required autocomplete="name" />
+                <label for="cf-name">Имя <span class="contact-form__req" aria-hidden="true">*</span></label>
+                <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Иван Иванов" />
+                <span class="contact-form__error" id="err-name"></span>
               </div>
               <div class="contact-form__field">
-                <label for="cf-phone">Телефон</label>
-                <input type="tel" id="cf-phone" name="phone" autocomplete="tel" />
+                <label for="cf-phone">Телефон <span class="contact-form__req" aria-hidden="true">*</span></label>
+                <input type="tel" id="cf-phone" name="phone" required autocomplete="tel" placeholder="+7 (___) ___-__-__" maxlength="18" inputmode="tel" />
+                <span class="contact-form__error" id="err-phone"></span>
               </div>
               <div class="contact-form__field">
-                <label for="cf-email">Email</label>
-                <input type="email" id="cf-email" name="email" required autocomplete="email" />
+                <label for="cf-email">Email <span class="contact-form__req" aria-hidden="true">*</span></label>
+                <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="example@mail.ru" />
+                <span class="contact-form__error" id="err-email"></span>
               </div>
               <div class="contact-form__field">
-                <label for="cf-message">Сообщение</label>
-                <textarea id="cf-message" name="message" rows="5" required></textarea>
+                <label for="cf-message">Сообщение <span class="contact-form__req" aria-hidden="true">*</span></label>
+                <textarea id="cf-message" name="message" rows="5" required placeholder="Расскажите о вашем проекте..."></textarea>
+                <span class="contact-form__error" id="err-message"></span>
               </div>
               <button type="submit" class="contact-form__submit">Отправить</button>
               <p class="contact-form__note">
-                Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных.
+                * — обязательные поля. Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных.
               </p>
             </form>
           </div>
@@ -266,4 +271,138 @@ const formAction = contactForm.action || '/mail.php';
     grid-template-columns: 1fr;
   }
 }
+
+.contact-form__req {
+  color: var(--color-accent);
+}
+
+.contact-form__error {
+  font-size: var(--text-xs);
+  color: #d32f2f;
+  min-height: 1.2em;
+  display: block;
+}
+
+.contact-form__field input.is-invalid,
+.contact-form__field textarea.is-invalid {
+  border-color: #d32f2f;
+}
 </style>
+
+<script>
+(function () {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  // Phone mask: formats to +7 (XXX) XXX-XX-XX
+  const phoneInput = document.getElementById('cf-phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function () {
+      let digits = this.value.replace(/\D/g, '');
+      if (digits.startsWith('8')) digits = '7' + digits.slice(1);
+      if (digits.startsWith('7')) digits = digits.slice(1);
+      digits = digits.slice(0, 10);
+      let formatted = '+7';
+      if (digits.length > 0) formatted += ' (' + digits.slice(0, 3);
+      if (digits.length >= 3) formatted += ') ' + digits.slice(3, 6);
+      if (digits.length >= 6) formatted += '-' + digits.slice(6, 8);
+      if (digits.length >= 8) formatted += '-' + digits.slice(8, 10);
+      this.value = formatted;
+    });
+
+    phoneInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Backspace' && this.value === '+7') {
+        e.preventDefault();
+        this.value = '';
+      }
+    });
+
+    phoneInput.addEventListener('focus', function () {
+      if (!this.value) this.value = '+7 (';
+    });
+
+    phoneInput.addEventListener('blur', function () {
+      if (this.value === '+7 (') this.value = '';
+    });
+  }
+
+  function showError(fieldId, errId, msg) {
+    const field = document.getElementById(fieldId);
+    const err = document.getElementById(errId);
+    if (field) field.classList.add('is-invalid');
+    if (err) err.textContent = msg;
+  }
+
+  function clearError(fieldId, errId) {
+    const field = document.getElementById(fieldId);
+    const err = document.getElementById(errId);
+    if (field) field.classList.remove('is-invalid');
+    if (err) err.textContent = '';
+  }
+
+  function validatePhone(val) {
+    const digits = val.replace(/\D/g, '');
+    return digits.length === 11 && digits.startsWith('7');
+  }
+
+  function validateEmail(val) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val.trim());
+  }
+
+  // Live validation on blur
+  document.getElementById('cf-name')?.addEventListener('blur', function () {
+    this.value.trim() ? clearError('cf-name', 'err-name') : showError('cf-name', 'err-name', 'Введите ваше имя');
+  });
+
+  document.getElementById('cf-phone')?.addEventListener('blur', function () {
+    if (!this.value.trim()) {
+      showError('cf-phone', 'err-phone', 'Введите номер телефона');
+    } else if (!validatePhone(this.value)) {
+      showError('cf-phone', 'err-phone', 'Введите полный номер: +7 (XXX) XXX-XX-XX');
+    } else {
+      clearError('cf-phone', 'err-phone');
+    }
+  });
+
+  document.getElementById('cf-email')?.addEventListener('blur', function () {
+    if (!this.value.trim()) {
+      showError('cf-email', 'err-email', 'Введите email');
+    } else if (!validateEmail(this.value)) {
+      showError('cf-email', 'err-email', 'Введите корректный email, например: name@mail.ru');
+    } else {
+      clearError('cf-email', 'err-email');
+    }
+  });
+
+  document.getElementById('cf-message')?.addEventListener('blur', function () {
+    this.value.trim() ? clearError('cf-message', 'err-message') : showError('cf-message', 'err-message', 'Напишите сообщение');
+  });
+
+  form.addEventListener('submit', function (e) {
+    let valid = true;
+
+    const name = document.getElementById('cf-name');
+    if (!name?.value.trim()) { showError('cf-name', 'err-name', 'Введите ваше имя'); valid = false; }
+    else clearError('cf-name', 'err-name');
+
+    const phone = document.getElementById('cf-phone');
+    if (!phone?.value.trim()) { showError('cf-phone', 'err-phone', 'Введите номер телефона'); valid = false; }
+    else if (!validatePhone(phone.value)) { showError('cf-phone', 'err-phone', 'Введите полный номер: +7 (XXX) XXX-XX-XX'); valid = false; }
+    else clearError('cf-phone', 'err-phone');
+
+    const email = document.getElementById('cf-email');
+    if (!email?.value.trim()) { showError('cf-email', 'err-email', 'Введите email'); valid = false; }
+    else if (!validateEmail(email.value)) { showError('cf-email', 'err-email', 'Введите корректный email, например: name@mail.ru'); valid = false; }
+    else clearError('cf-email', 'err-email');
+
+    const message = document.getElementById('cf-message');
+    if (!message?.value.trim()) { showError('cf-message', 'err-message', 'Напишите сообщение'); valid = false; }
+    else clearError('cf-message', 'err-message');
+
+    if (!valid) {
+      e.preventDefault();
+      form.querySelector('.is-invalid')?.focus();
+    }
+  });
+})();
+</script>
