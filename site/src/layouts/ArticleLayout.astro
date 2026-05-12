@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PromoSlot from '../components/PromoSlot.astro';
 import { getImmediateChildPages } from '../data/loadPages';
+
 import type { FullPage, SeoFields, PageType } from '../data/types';
 
 interface Props {
@@ -21,6 +22,7 @@ const siblings = parentPath.length > 1
   ? getImmediateChildPages(parentPath).filter((p) => p.path !== page.path).slice(0, 6)
   : [];
 const hasSidebar = siblings.length >= 3;
+const childPages = getImmediateChildPages(page.path);
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
@@ -47,6 +49,22 @@ const hasSidebar = siblings.length >= 3;
         )}
 
         <div class="prose article-page__body" set:html={data.content_html} />
+
+        {childPages.length > 0 && (
+          <nav class="article-children" aria-label="В этом разделе">
+            <h2 class="article-children__heading">В этом разделе</h2>
+            <ul class="article-children__list" role="list">
+              {childPages.map((c) => (
+                <li>
+                  <a href={c.path} class="article-children__link">
+                    <span>{c.h1 || c.title}</span>
+                    <span class="article-children__arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
 
         <PromoSlot placement="article_footer" section={page.section} path={page.path} pageType={pageType} />
 
@@ -162,6 +180,62 @@ const hasSidebar = siblings.length >= 3;
     align-items: flex-start;
     padding: var(--space-5);
   }
+}
+
+/* Child pages nav */
+.article-children {
+  margin-top: var(--space-10);
+  padding: var(--space-6);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.article-children__heading {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.article-children__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.article-children__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+
+.article-children__list li:last-child .article-children__link {
+  border-bottom: 0;
+}
+
+.article-children__link:hover {
+  color: var(--color-accent);
+}
+
+.article-children__arrow {
+  flex-shrink: 0;
+  color: var(--color-text-light);
+  transition: transform var(--duration-fast), color var(--duration-fast);
+}
+
+.article-children__link:hover .article-children__arrow {
+  color: var(--color-accent);
+  transform: translateX(3px);
 }
 
 /* Two-column layout with sidebar */
