@@ -25,7 +25,7 @@ export const siteConfig = {
   siteUrl,
   siteName,
   siteNameFull,
-  siteDescription: 'Комплексное SEO-продвижение сайтов. Аудит, оптимизация, продвижение в Яндекс и Google.',
+  siteDescription: import.meta.env.PUBLIC_SITE_DESCRIPTION ?? siteNameFull,
 
   // Set via environment variables; leave empty to disable in dev
   yandexMetricaId: import.meta.env.PUBLIC_METRIKA_ID ?? import.meta.env.YANDEX_METRICA_ID ?? '',

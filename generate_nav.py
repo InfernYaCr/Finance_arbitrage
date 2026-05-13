@@ -22,6 +22,15 @@ CONTACT_SLUGS: set[str] = {
     "kontakty", "contact", "contacts",
     "about", "o-kompanii", "o-servise",
 }
+# Human-readable labels for known contact slugs (avoids using raw page titles)
+CONTACT_LABELS: dict[str, str] = {
+    "kontakty": "Контакты",
+    "contact": "Контакты",
+    "contacts": "Контакты",
+    "about": "О сервисе",
+    "o-kompanii": "О компании",
+    "o-servise": "О сервисе",
+}
 
 MAX_NAV_ITEMS = 6       # top-level items (excluding home and contacts)
 MAX_DROPDOWN_ITEMS = 8  # items per dropdown column
@@ -46,9 +55,27 @@ def _slug_label(slug: str) -> str:
     return " ".join(w.capitalize() for w in words[:2])
 
 
+def _load_brand_aliases(site_id: str) -> list[str]:
+    """Load donor brand aliases from site.config.json for title normalization."""
+    config_path = PROJECT_ROOT / "sites" / site_id / "site.config.json"
+    try:
+        config = json.loads(config_path.read_text(encoding="utf-8"))
+        return config.get("brand", {}).get("aliases", [])
+    except Exception:
+        return []
+
+
+def _strip_brand(title: str, aliases: list[str]) -> str:
+    """Remove donor brand alias fragments from a title."""
+    for alias in aliases:
+        title = re.sub(re.escape(alias), "", title, flags=re.IGNORECASE)
+    return re.sub(r"\s{2,}", " ", title).strip(" -–—|,")
+
+
 def generate_nav(site_id: str) -> list[dict]:
     manifest_path = PROJECT_ROOT / "sites" / site_id / "build_manifest.json"
     manifest: list[dict] = json.loads(manifest_path.read_text(encoding="utf-8"))
+    brand_aliases = _load_brand_aliases(site_id)
 
     by_path = {p["path"]: p for p in manifest}
 
@@ -70,14 +97,22 @@ def generate_nav(site_id: str) -> list[dict]:
         section_url = f"/{section}/"
 
         # Landing page: prefer exact section URL; else infer label from children or slug
+        # Contact slugs get a fixed human-readable label, skip title parsing
+        if section in CONTACT_SLUGS:
+            label = CONTACT_LABELS.get(section, _slug_label(section))
+            contact_items.append({"label": label, "href": section_url})
+            continue
+
         landing = by_path.get(section_url)
         if landing:
-            label = _short_title(landing["title"])
+            raw = _strip_brand(landing["title"], brand_aliases)
+            label = _short_title(raw)
         else:
             # Use shallowest child's title if available, otherwise slug
             shallowest = min(pages, key=lambda p: (len(p["path"]), p["path"]), default=None)
             if shallowest and shallowest["path"] != section_url:
-                label = _short_title(shallowest["title"], max_words=2)
+                raw = _strip_brand(shallowest["title"], brand_aliases)
+                label = _short_title(raw, max_words=2)
             else:
                 label = _slug_label(section)
 
@@ -91,14 +126,12 @@ def generate_nav(site_id: str) -> list[dict]:
         item: dict = {"label": label, "href": section_url}
         if children:
             dropdown_items = [
-                {"label": _short_title(p["title"]), "href": p["path"]}
+                {"label": _short_title(_strip_brand(p["title"], brand_aliases)), "href": p["path"]}
                 for p in children[:MAX_DROPDOWN_ITEMS]
             ]
             item["columns"] = [{"items": dropdown_items}]
 
-        if section in CONTACT_SLUGS:
-            contact_items.append({"label": label, "href": section_url})
-        elif len(pages) >= MIN_SECTION_PAGES:
+        if len(pages) >= MIN_SECTION_PAGES:
             main_items.append(item)
 
     nav.extend(main_items[:MAX_NAV_ITEMS])

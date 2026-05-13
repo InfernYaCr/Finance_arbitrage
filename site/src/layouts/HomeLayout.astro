@@ -37,28 +37,6 @@ const faqChildren = faqSection ? getImmediateChildPages(faqSection.href).slice(0
 const secondCtaHref = primarySection?.href ?? '/';
 const secondCtaLabel = primarySection?.label ?? 'Разделы';
 
-const stats = [
-  { value: '500+', label: 'Реализованных проектов' },
-  { value: '10', label: 'Лет на рынке SEO' },
-  { value: '1000+', label: 'Запросов в ТОП-10' },
-  { value: '98%', label: 'Клиентов продлевают договор' },
-];
-
-const howWeWork = [
-  { num: '01', title: 'Технический аудит', desc: 'Выявляем ошибки, мешающие индексации и ранжированию сайта.' },
-  { num: '02', title: 'Семантика и структура', desc: 'Собираем ключевые запросы и выстраиваем правильную структуру страниц.' },
-  { num: '03', title: 'Контент и оптимизация', desc: 'Создаём и оптимизируем тексты, мета-теги и внутреннюю перелинковку.' },
-  { num: '04', title: 'Ссылочное продвижение', desc: 'Наращиваем качественную внешнюю ссылочную массу.' },
-];
-
-const usp = [
-  { icon: '📈', title: 'Результат в цифрах', desc: 'Прозрачная аналитика: трафик, позиции, заявки — в едином отчёте каждый месяц.' },
-  { icon: '🔍', title: 'Глубокий аудит', desc: 'Находим скрытые технические и контентные проблемы, которые тормозят рост сайта.' },
-  { icon: '⚡', title: 'Быстрый старт', desc: 'Первые правки и рекомендации — уже в течение 3 рабочих дней после запуска проекта.' },
-  { icon: '🤝', title: 'Персональный менеджер', desc: 'Один специалист ведёт проект от старта до результата. Всегда на связи.' },
-  { icon: '🛡️', title: 'Безопасные методы', desc: 'Работаем только белыми методами: никакого риска для репутации сайта.' },
-  { icon: '🏆', title: '10 лет экспертизы', desc: 'Более 500 проектов в нишах e-commerce, услуг и B2B по всей России.' },
-];
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
@@ -66,11 +44,8 @@ const usp = [
   <section class="home-hero">
     <div class="container">
       <div class="home-hero__content">
-        <div class="home-hero__badge">{seo.h1}</div>
         <h1 class="home-hero__title">{seo.h1}</h1>
-        <p class="home-hero__lead">
-          {seo.description || 'Комплексный подход: технический аудит, семантика, контент, ссылки. Результат — рост органического трафика.'}
-        </p>
+        <p class="home-hero__lead">{seo.description}</p>
         <div class="home-hero__actions">
           <a href={contactHref} class="btn btn--primary">Получить консультацию</a>
           {primarySection && (
@@ -78,20 +53,6 @@ const usp = [
           )}
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Статистика -->
-  <section class="home-stats" aria-label="Ключевые показатели компании">
-    <div class="container">
-      <ul class="home-stats__list" role="list">
-        {stats.map((stat) => (
-          <li class="home-stats__item">
-            <span class="home-stats__value">{stat.value}</span>
-            <span class="home-stats__label">{stat.label}</span>
-          </li>
-        ))}
-      </ul>
     </div>
   </section>
 
@@ -135,38 +96,6 @@ const usp = [
       </div>
     </section>
   )}
-
-  <!-- Как мы работаем -->
-  <section class="home-process" aria-labelledby="home-process-title">
-    <div class="container">
-      <h2 id="home-process-title" class="home-section-title">Как мы работаем</h2>
-      <div class="home-process__grid">
-        {howWeWork.map((step) => (
-          <div class="home-process__step">
-            <div class="home-process__num">{step.num}</div>
-            <h3 class="home-process__step-title">{step.title}</h3>
-            <p class="home-process__step-desc">{step.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Почему мы / USP -->
-  <section class="home-usp" aria-labelledby="home-usp-title">
-    <div class="container">
-      <h2 id="home-usp-title" class="home-section-title">Почему выбирают нас</h2>
-      <ul class="home-usp__grid" role="list">
-        {usp.map((item) => (
-          <li class="home-usp__item">
-            <span class="home-usp__icon" aria-hidden="true">{item.icon}</span>
-            <h3 class="home-usp__title">{item.title}</h3>
-            <p class="home-usp__desc">{item.desc}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </section>
 
   <!-- Кейсы -->
   {portfolioChildren.length > 0 && (
@@ -221,8 +150,8 @@ const usp = [
     <div class="container">
       <div class="home-cta__inner">
         <div class="home-cta__text">
-          <h2 class="home-cta__title">Готовы вырасти в поиске?</h2>
-          <p class="home-cta__desc">Расскажите о проекте — оценим потенциал и предложим план продвижения бесплатно.</p>
+          <h2 class="home-cta__title">Остались вопросы?</h2>
+          <p class="home-cta__desc">Свяжитесь с нами — ответим и поможем разобраться.</p>
         </div>
         <div class="home-cta__actions">
           <a href={contactHref} class="btn btn--primary">Обсудить проект</a>
