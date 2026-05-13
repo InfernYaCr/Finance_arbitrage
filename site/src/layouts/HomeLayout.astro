@@ -1,8 +1,8 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import type { FullPage, SeoFields, PageType } from '../data/types';
-import { siteConfig } from '../data/siteConfig';
 import { getImmediateChildPages } from '../data/loadPages';
+import { navItems } from '../data/loadNav';
 
 interface Props {
   page: FullPage;
@@ -12,7 +12,30 @@ interface Props {
 }
 
 const { page, seo, jsonLd } = Astro.props;
-const { data } = page;
+
+// Contact link — read from env (set via site.config.json → gen-env.sh)
+const contactHref = import.meta.env.PUBLIC_CONTACT_PATH ?? '/kontakty/';
+
+// Nav sections that have dropdown children, sorted as they appear in the nav
+const sectionsWithKids = navItems.filter((item) => item.href !== '/' && item.columns?.length);
+
+// Primary section: first section with children → used as "services" block
+const primarySection = sectionsWithKids[0];
+const topServices = primarySection ? getImmediateChildPages(primarySection.href).slice(0, 8) : [];
+
+// Secondary section: second section with children → used as "cases" block
+const secondarySection = sectionsWithKids[1];
+const portfolioChildren = secondarySection ? getImmediateChildPages(secondarySection.href).slice(0, 6) : [];
+
+// FAQ section: nav item whose href contains "faq" or "vopros", else first flat nav item
+const faqSection =
+  navItems.find((item) => item.href !== '/' && /faq|vopros/.test(item.href)) ??
+  navItems.find((item) => item.href !== '/' && !item.columns?.length);
+const faqChildren = faqSection ? getImmediateChildPages(faqSection.href).slice(0, 5) : [];
+
+// Second CTA target — primary section or fallback to "/"
+const secondCtaHref = primarySection?.href ?? '/';
+const secondCtaLabel = primarySection?.label ?? 'Разделы';
 
 const stats = [
   { value: '500+', label: 'Реализованных проектов' },
@@ -27,13 +50,6 @@ const howWeWork = [
   { num: '03', title: 'Контент и оптимизация', desc: 'Создаём и оптимизируем тексты, мета-теги и внутреннюю перелинковку.' },
   { num: '04', title: 'Ссылочное продвижение', desc: 'Наращиваем качественную внешнюю ссылочную массу.' },
 ];
-
-// Get a few portfolio cases for the homepage showcase
-const portfolioChildren = getImmediateChildPages('/portfolio/').slice(0, 6);
-// Get a few FAQ items for the homepage FAQ block
-const faqChildren = getImmediateChildPages('/faq/').slice(0, 5);
-// Top services for the homepage services grid
-const topServices = getImmediateChildPages('/seo-uslugi/').slice(0, 8);
 
 const usp = [
   { icon: '📈', title: 'Результат в цифрах', desc: 'Прозрачная аналитика: трафик, позиции, заявки — в едином отчёте каждый месяц.' },
@@ -50,17 +66,16 @@ const usp = [
   <section class="home-hero">
     <div class="container">
       <div class="home-hero__content">
-        <div class="home-hero__badge">SEO-продвижение сайтов</div>
-        <h1 class="home-hero__title">
-          SEO-продвижение<br />сайтов в Яндекс<br />и Google
-        </h1>
+        <div class="home-hero__badge">{seo.h1}</div>
+        <h1 class="home-hero__title">{seo.h1}</h1>
         <p class="home-hero__lead">
-          Комплексный подход: технический аудит, семантика, контент, ссылки.
-          Результат — рост органического трафика.
+          {seo.description || 'Комплексный подход: технический аудит, семантика, контент, ссылки. Результат — рост органического трафика.'}
         </p>
         <div class="home-hero__actions">
-          <a href="/kontakty/" class="btn btn--primary">Получить консультацию</a>
-          <a href="/seo-uslugi/" class="btn btn--ghost">Наши услуги</a>
+          <a href={contactHref} class="btn btn--primary">Получить консультацию</a>
+          {primarySection && (
+            <a href={secondCtaHref} class="btn btn--ghost">{secondCtaLabel}</a>
+          )}
         </div>
       </div>
     </div>
@@ -84,9 +99,9 @@ const usp = [
   <section class="home-nav-grid">
     <div class="container">
       <ul class="home-nav-grid__list" role="list">
-        {siteConfig.nav.slice(0, 6).map((item) => (
+        {navItems.filter((item) => item.href !== '/').slice(0, 6).map((item) => (
           <li class="home-nav-grid__item">
-            <a href={item.path} class="home-nav-grid__link">
+            <a href={item.href} class="home-nav-grid__link">
               <span class="home-nav-grid__label">{item.label}</span>
               <span class="home-nav-grid__arrow" aria-hidden="true">→</span>
             </a>
@@ -101,8 +116,8 @@ const usp = [
     <section class="home-services" aria-labelledby="home-services-title">
       <div class="container">
         <div class="home-section-header">
-          <h2 id="home-services-title" class="home-section-title">Наши услуги</h2>
-          <a href="/seo-uslugi/" class="home-section-more">Все услуги →</a>
+          <h2 id="home-services-title" class="home-section-title">{secondCtaLabel}</h2>
+          <a href={secondCtaHref} class="home-section-more">Все →</a>
         </div>
         <ul class="home-services__grid" role="list">
           {topServices.map((s) => (
@@ -158,8 +173,8 @@ const usp = [
     <section class="home-cases" aria-labelledby="home-cases-title">
       <div class="container">
         <div class="home-section-header">
-          <h2 id="home-cases-title" class="home-section-title">Кейсы наших клиентов</h2>
-          <a href="/portfolio/" class="home-section-more">Все кейсы →</a>
+          <h2 id="home-cases-title" class="home-section-title">{secondarySection?.label ?? 'Кейсы'}</h2>
+          <a href={secondarySection?.href ?? '/'} class="home-section-more">Все →</a>
         </div>
         <ul class="home-cases__grid" role="list">
           {portfolioChildren.map((c) => (
@@ -184,8 +199,8 @@ const usp = [
     <section class="home-faq" aria-labelledby="home-faq-title">
       <div class="container container--md">
         <div class="home-section-header">
-          <h2 id="home-faq-title" class="home-section-title">Вопросы и ответы</h2>
-          <a href="/faq/" class="home-section-more">Все вопросы →</a>
+          <h2 id="home-faq-title" class="home-section-title">{faqSection?.label ?? 'Вопросы и ответы'}</h2>
+          <a href={faqSection?.href ?? '/'} class="home-section-more">Все →</a>
         </div>
         <ul class="home-faq__list" role="list">
           {faqChildren.map((faq) => (
@@ -210,8 +225,10 @@ const usp = [
           <p class="home-cta__desc">Расскажите о проекте — оценим потенциал и предложим план продвижения бесплатно.</p>
         </div>
         <div class="home-cta__actions">
-          <a href="/kontakty/" class="btn btn--primary">Обсудить проект</a>
-          <a href="/stoimost-uslug/" class="btn btn--ghost">Стоимость услуг</a>
+          <a href={contactHref} class="btn btn--primary">Обсудить проект</a>
+          {primarySection && (
+            <a href={secondCtaHref} class="btn btn--ghost">{secondCtaLabel}</a>
+          )}
         </div>
       </div>
     </div>

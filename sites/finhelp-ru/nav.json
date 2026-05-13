@@ -1,0 +1,74 @@
+[
+  {
+    "label": "Главная",
+    "href": "/"
+  },
+  {
+    "label": "ТОП 10",
+    "href": "/ratings/",
+    "columns": [
+      {
+        "items": [
+          {
+            "label": "ТОП-10 дебетовых карт",
+            "href": "/ratings/besplatnye-debetovye-karty/"
+          },
+          {
+            "label": "ТОП 7 дебетовых",
+            "href": "/ratings/debetovye-kartu-bonus-mili/"
+          },
+          {
+            "label": "Топ-5 дебетовых карт",
+            "href": "/ratings/debetovye-karty-keshbek-taksi/"
+          },
+          {
+            "label": "ТОП-7 кредитных карт",
+            "href": "/ratings/dlya-snyatiya-nalichnyh/"
+          },
+          {
+            "label": "ТОП-7 дебетовых карт",
+            "href": "/ratings/karty-s-protsentami-na-ostatok/"
+          },
+          {
+            "label": "Обзор и рейтинг",
+            "href": "/ratings/kreditnye-karty-sberbanka/"
+          },
+          {
+            "label": "ТОП 10 лучших",
+            "href": "/ratings/luchshee-refinansirovanie-kredita/"
+          },
+          {
+            "label": "ТОП 10 самых",
+            "href": "/ratings/luchshie-avtokredity/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Банк Санкт-Петербург",
+    "href": "/banks/"
+  },
+  {
+    "label": "Что делать",
+    "href": "/qa/",
+    "columns": [
+      {
+        "items": [
+          {
+            "label": "Что делать, если",
+            "href": "/qa/propazha-karty/"
+          },
+          {
+            "label": "Нужно ли заменить",
+            "href": "/qa/zamenit-kartu-sberbanka/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "О сервисе «Все",
+    "href": "/about/"
+  }
+]

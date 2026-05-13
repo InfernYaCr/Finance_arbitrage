@@ -26,9 +26,18 @@ const ARCHIVE_PATHS = new Set([
   '/poiskovye-sistemy/',
 ]);
 
-export function getPageType(path: string, section: string): PageType {
+export function getPageType(
+  path: string,
+  section: string,
+  hints: { hasChildren: boolean; contactPath: string } = { hasChildren: false, contactPath: '/kontakty/' },
+): PageType {
   if (path === '/') return 'home';
+
+  // Per-site contact page (from site.config.json)
+  if (path === hints.contactPath) return 'contact';
+  // Legacy mosseo fallback
   if (path === '/kontakty/') return 'contact';
+
   if (section === 'o-kompanii') return 'company';
 
   if (path === '/portfolio/') return 'portfolio_archive';
@@ -41,12 +50,14 @@ export function getPageType(path: string, section: string): PageType {
   if (section === 'faq') return 'faq';
 
   if (SERVICE_SECTIONS.has(section)) {
-    // Section landing pages are archive-like; deep pages are service pages
     const depth = path.replace(/^\/|\/$/g, '').split('/').length;
     return depth === 1 ? 'archive' : 'service';
   }
 
   if (ARCHIVE_PATHS.has(path)) return 'archive';
+
+  // Universal structural fallback: page with children → archive
+  if (hints.hasChildren) return 'archive';
 
   return 'article';
 }

@@ -36,6 +36,7 @@
   },
   "theme": "alpha",
   "enable_editorial_posts": false,
+  "contact_path": "/about/",
   "content_dir": "../sites/finhelp-ru",
   "legacy_source_domain": "https://vsezaimyonline.ru",
   "legacy_brand_aliases": "ВсеЗаймыОнлайн,Все Займы Онлайн,VseZaimyOnline,vsezaimyonline.ru"

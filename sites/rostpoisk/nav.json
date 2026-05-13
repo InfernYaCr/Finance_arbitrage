@@ -1,0 +1,262 @@
+[
+  {
+    "label": "Главная",
+    "href": "/"
+  },
+  {
+    "label": "Все о SEO-продвижении",
+    "href": "/vse-o-seo-prodvizhenii/",
+    "columns": [
+      {
+        "items": [
+          {
+            "label": "Антивирус для сайта:",
+            "href": "/vse-o-seo-prodvizhenii/antivirus-dlya-sajta-zachem-on-nuzhen-i-kak-on-rabotaet/"
+          },
+          {
+            "label": "CAPTCHA для сайта:",
+            "href": "/vse-o-seo-prodvizhenii/captcha-dlya-sajta/"
+          },
+          {
+            "label": "Чекбокс на Тильде:",
+            "href": "/vse-o-seo-prodvizhenii/chekboks-na-tilde-kak-sdelat-samostoyatelno/"
+          },
+          {
+            "label": "Файрвол WAF для",
+            "href": "/vse-o-seo-prodvizhenii/chto-takoe-faervol-firewall-dlya-sajta-i-zachem-on-nuzhen/"
+          },
+          {
+            "label": "Информационные запросы: влияние",
+            "href": "/vse-o-seo-prodvizhenii/chto-takoe-informacionnye-zaprosy-i-kak-informacionnyj-trafik-vliyaet-na-seo/"
+          },
+          {
+            "label": "Что такое jQuery",
+            "href": "/vse-o-seo-prodvizhenii/chto-takoe-jquery-i-zachem-on-nuzhen/"
+          },
+          {
+            "label": "LTV: что это,",
+            "href": "/vse-o-seo-prodvizhenii/chto-takoe-ltv-kak-pravilno-schitat-i-pochemu-eto-vazhno/"
+          },
+          {
+            "label": "Релевантность страницы в",
+            "href": "/vse-o-seo-prodvizhenii/chto-takoe-relevantnost-stranicy-i-kak-ona-vliyaet-na-seo/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Wikipedia (Википедия) для",
+    "href": "/seo-wikipedia/",
+    "columns": [
+      {
+        "items": [
+          {
+            "label": "Адаптивная верстка сайта",
+            "href": "/seo-wikipedia/adaptivnaya-verstka-sajta/"
+          },
+          {
+            "label": "Аффилиат (аффилат) для",
+            "href": "/seo-wikipedia/affiliat/"
+          },
+          {
+            "label": "Айдентика: уникальный образа",
+            "href": "/seo-wikipedia/ajdentika/"
+          },
+          {
+            "label": "Атрибут Alt для",
+            "href": "/seo-wikipedia/alt/"
+          },
+          {
+            "label": "Анализ карты сайта,",
+            "href": "/seo-wikipedia/analiz-fajlov-sitemap/"
+          },
+          {
+            "label": "Настройка индексации сайта",
+            "href": "/seo-wikipedia/analiz-ispolzovanie-i-direktivy-fajla-robots-txt/"
+          },
+          {
+            "label": "Анкор",
+            "href": "/seo-wikipedia/anchor/"
+          },
+          {
+            "label": "Апдейт для обновления",
+            "href": "/seo-wikipedia/apdejt/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Услуги поискового продвижения",
+    "href": "/seo-uslugi/",
+    "columns": [
+      {
+        "items": [
+          {
+            "label": "Аудит основных показателей",
+            "href": "/seo-uslugi/audit-osnovnyh-pokazatelej-sajta-v-yandeks-vebmaster/"
+          },
+          {
+            "label": "Аудит сайта",
+            "href": "/seo-uslugi/audit-sajta/"
+          },
+          {
+            "label": "Аудит видимости сайта",
+            "href": "/seo-uslugi/audit-vidimosti-sajta-v-poiskovyh-sistemah/"
+          },
+          {
+            "label": "Консультация главного SEO-специалиста",
+            "href": "/seo-uslugi/konsultaciya-glavnogo-seo-specialista/"
+          },
+          {
+            "label": "Консультация по продвижению",
+            "href": "/seo-uslugi/konsultaciya-po-prodvizheniju-sajta/"
+          },
+          {
+            "label": "Консультация руководителя проекта",
+            "href": "/seo-uslugi/konsultaciya-rukovoditelya-proekta/"
+          },
+          {
+            "label": "Настроить резервное копирование",
+            "href": "/seo-uslugi/nastroit-rezervnoe-kopirovanie-sajta/"
+          },
+          {
+            "label": "Настройка сайта",
+            "href": "/seo-uslugi/nastrojka-sajta/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Выполненные работы компании",
+    "href": "/portfolio/",
+    "columns": [
+      {
+        "items": [
+          {
+            "label": "SEO для сайта",
+            "href": "/portfolio/avantajm/"
+          },
+          {
+            "label": "Авто / Мото",
+            "href": "/portfolio/avto-moto/"
+          },
+          {
+            "label": "SEO для сайта",
+            "href": "/portfolio/avtoshkola-glavnaya-doroga/"
+          },
+          {
+            "label": "SEO для сайта",
+            "href": "/portfolio/bazis-development/"
+          },
+          {
+            "label": "SEO для сайта",
+            "href": "/portfolio/centr-epilyacii-i-massazha-wax/"
+          },
+          {
+            "label": "SEO для сайта",
+            "href": "/portfolio/chop-gruppa-grad/"
+          },
+          {
+            "label": "SEO для сайта",
+            "href": "/portfolio/dm-tower/"
+          },
+          {
+            "label": "SEO для сайта",
+            "href": "/portfolio/est-a-tet/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Виджеты для",
+    "href": "/uslugi/",
+    "columns": [
+      {
+        "items": [
+          {
+            "label": "Заказать SEO-аудит сайта",
+            "href": "/uslugi/audit-veb-sajta/"
+          },
+          {
+            "label": "Заказать эффективное поисковое",
+            "href": "/uslugi/ehffektivnoe-prodvizhenie-i-tehnicheskaya-podderzhka-sajta/"
+          },
+          {
+            "label": "Комплексное продвижение сайтов",
+            "href": "/uslugi/kompleksnoe-prodvizhenie-sajtov/"
+          },
+          {
+            "label": "Заказать SEO аудит",
+            "href": "/uslugi/kompleksnyj-seo-analiz-i-audit-sajta/"
+          },
+          {
+            "label": "Платные консультации по",
+            "href": "/uslugi/konsultaciya-po-prodvizheniyu/"
+          },
+          {
+            "label": "Продвижение бизнеса на",
+            "href": "/uslugi/prodvizhenie-na-marketplejsah/"
+          },
+          {
+            "label": "Работа с отзывами",
+            "href": "/uslugi/rabota-nad-otzyvami-o-kompanii-upravlenie-reputaciej-v-internete/"
+          },
+          {
+            "label": "Поведенческие факторы",
+            "href": "/uslugi/rabota-s-povedencheskimi-faktorami/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "FAQ",
+    "href": "/faq/",
+    "columns": [
+      {
+        "items": [
+          {
+            "label": "Атрибут title для",
+            "href": "/faq/atribut-title-dlya-ssylok-na-sajte/"
+          },
+          {
+            "label": "Что будет, если",
+            "href": "/faq/chto-budet-esli-prekratit-seo-prodvizhenie-sajta/"
+          },
+          {
+            "label": "Советы и рекомендации",
+            "href": "/faq/chto-nelzya-delat-pri-prodvizhenii-sajta-v-2020-godu/"
+          },
+          {
+            "label": "Белые методы SEO",
+            "href": "/faq/chto-takoe-belye-metody-seo-prodvizheniya-sajta/"
+          },
+          {
+            "label": "Методы черного SEO",
+            "href": "/faq/chto-takoe-chernye-metody-seo-prodvizheniya-sajta/"
+          },
+          {
+            "label": "Коммерческие факторы ранжирования",
+            "href": "/faq/chto-takoe-kommercheskie-faktory/"
+          },
+          {
+            "label": "Типы и виды",
+            "href": "/faq/chto-takoe-kontekstnaya-reklama/"
+          },
+          {
+            "label": "Конверсия сайта",
+            "href": "/faq/chto-takoe-konversiya/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "label": "Информация о компании",
+    "href": "/o-kompanii/"
+  }
+]

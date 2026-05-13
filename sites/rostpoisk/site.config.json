@@ -37,5 +37,6 @@
   },
   "theme": "alpha",
   "enable_editorial_posts": false,
+  "contact_path": "/kontakty/",
   "content_dir": "../sites/rostpoisk"
 }

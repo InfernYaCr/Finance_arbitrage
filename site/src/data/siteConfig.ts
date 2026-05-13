@@ -77,13 +77,4 @@ export const siteConfig = {
     subject: contactFormSubject,
   },
 
-  // Nav links
-  nav: [
-    { label: 'Услуги', path: '/seo-uslugi/' },
-    { label: 'Портфолио', path: '/portfolio/' },
-    { label: 'Блог', path: '/vse-o-seo-prodvizhenii/' },
-    { label: 'FAQ', path: '/faq/' },
-    { label: 'SEO-словарь', path: '/seo-wikipedia/' },
-    { label: 'Контакты', path: '/kontakty/' },
-  ],
 } as const;
