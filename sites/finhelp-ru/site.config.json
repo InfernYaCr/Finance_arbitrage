@@ -34,7 +34,7 @@
     "beget_ftp_user": "",
     "beget_ftp_path": "/"
   },
-  "theme": "alpha",
+  "theme": "beta",
   "enable_editorial_posts": false,
   "contact_path": "/about/",
   "content_dir": "../sites/finhelp-ru",

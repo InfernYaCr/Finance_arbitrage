@@ -21,6 +21,33 @@ function breadcrumbList(crumbs: SeoFields['breadcrumbs'], siteUrl: string) {
   };
 }
 
+function textOnly(value: string): string {
+  return value.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+}
+
+function faqPage(page: FullPage): object | null {
+  const pairs = page.data.extracted?.faq_pairs?.filter((pair) => (
+    pair.question?.trim() && pair.answer?.trim()
+  ));
+  if (!pairs?.length) return null;
+
+  return {
+    '@type': 'FAQPage',
+    mainEntity: pairs.map((pair) => ({
+      '@type': 'Question',
+      name: textOnly(pair.question),
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: textOnly(pair.answer),
+      },
+    })),
+  };
+}
+
+function hasSpeakableSummary(page: FullPage): boolean {
+  return (page.data.extracted?.key_points?.filter((point) => point.trim()).length ?? 0) >= 2;
+}
+
 export function buildJsonLd(
   page: FullPage,
   seo: SeoFields,
@@ -28,6 +55,10 @@ export function buildJsonLd(
 ): object[] {
   const siteUrl = siteConfig.siteUrl.replace(/\/$/, '');
   const graph: object[] = [];
+  const faq = faqPage(page);
+  const speakable = hasSpeakableSummary(page)
+    ? { '@type': 'SpeakableSpecification', cssSelector: ['.article-summary'] }
+    : null;
 
   // Organization + WebSite always on home
   if (pageType === 'home') {
@@ -70,9 +101,11 @@ export function buildJsonLd(
       mainEntityOfPage: seo.canonical,
       ...(seo.datePublished ? { datePublished: seo.datePublished } : {}),
       ...(seo.dateModified ? { dateModified: seo.dateModified } : {}),
+      ...(speakable ? { speakable } : {}),
       publisher: ORG,
       inLanguage: 'ru',
     });
+    if (faq) graph.push(faq);
     return graph;
   }
 
@@ -84,10 +117,12 @@ export function buildJsonLd(
       mainEntityOfPage: seo.canonical,
       ...(seo.datePublished ? { datePublished: seo.datePublished } : {}),
       ...(seo.dateModified ? { dateModified: seo.dateModified } : {}),
+      ...(speakable ? { speakable } : {}),
       publisher: ORG,
       inLanguage: 'ru',
       about: { '@type': 'DefinedTerm', name: seo.h1 || seo.title },
     });
+    if (faq) graph.push(faq);
     return graph;
   }
 
@@ -99,6 +134,8 @@ export function buildJsonLd(
       url: seo.canonical,
       provider: ORG,
     });
+    if (faq) graph.push(faq);
+    if (speakable) graph.push(speakable);
     return graph;
   }
 
@@ -119,10 +156,16 @@ export function buildJsonLd(
       '@type': 'CollectionPage',
       ...webPageBase,
     });
+    if (faq) graph.push(faq);
     return graph;
   }
 
   // content_page fallback
-  graph.push({ '@type': 'WebPage', ...webPageBase });
+  graph.push({
+    '@type': 'WebPage',
+    ...webPageBase,
+    ...(speakable ? { speakable } : {}),
+  });
+  if (faq) graph.push(faq);
   return graph;
 }

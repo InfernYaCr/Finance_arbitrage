@@ -23,6 +23,7 @@ const siblings = parentPath.length > 1
   : [];
 const hasSidebar = siblings.length >= 3;
 const childPages = getImmediateChildPages(page.path);
+const keyPoints = data.extracted?.key_points?.filter((point) => point.trim()) ?? [];
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
@@ -46,6 +47,15 @@ const childPages = getImmediateChildPages(page.path);
 
         {data.excerpt_html && (
           <div class="article-page__excerpt" set:html={data.excerpt_html} />
+        )}
+
+        {keyPoints.length >= 2 && (
+          <section class="article-summary" aria-labelledby="article-summary-title">
+            <h2 id="article-summary-title" class="article-summary__title">Кратко о главном</h2>
+            <ul class="article-summary__list" role="list">
+              {keyPoints.map((point) => <li>{point}</li>)}
+            </ul>
+          </section>
         )}
 
         <div class="prose article-page__body" set:html={data.content_html} />

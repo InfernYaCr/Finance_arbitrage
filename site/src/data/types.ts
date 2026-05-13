@@ -51,6 +51,16 @@ export interface PageQuality {
   has_csv_h1: boolean;
 }
 
+export interface ExtractedData {
+  page_type?: string;
+  services?: unknown[];
+  faq_pairs?: Array<{ question: string; answer: string }>;
+  pricing_tiers?: unknown[];
+  case_results?: unknown[];
+  key_points?: string[];
+  cta_text?: string;
+}
+
 export interface PageData {
   id: string;
   seed: PageSeed;
@@ -65,6 +75,7 @@ export interface PageData {
   links: Array<{ href: string; text: string }>;
   images: Array<{ src: string; alt: string }>;
   quality: PageQuality;
+  extracted?: ExtractedData;
 }
 
 export interface FullPage extends ManifestPage {

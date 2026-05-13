@@ -66,6 +66,7 @@ fields = {
   "BEGET_FTP_PATH":              d.get("beget_ftp_path", "/"),
   "CONTENT_OUTPUT_DIR":          c.get("content_dir", ""),
   "ENABLE_EDITORIAL_POSTS":      str(c.get("enable_editorial_posts", True)).lower(),
+  "PUBLIC_THEME":                c.get("theme", "alpha"),
   "PUBLIC_CONTACT_PATH":         c.get("contact_path", "/kontakty/"),
   "PUBLIC_LEGACY_SOURCE_DOMAIN": c.get("legacy_source_domain", ""),
   "PUBLIC_LEGACY_BRAND_ALIASES": c.get("legacy_brand_aliases", ""),

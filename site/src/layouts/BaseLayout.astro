@@ -14,10 +14,12 @@ interface Props {
 }
 
 const { seo, jsonLd, currentPath } = Astro.props;
+const rawTheme = import.meta.env.PUBLIC_THEME || 'alpha';
+const theme = /^[a-z0-9_-]+$/.test(rawTheme) ? rawTheme : 'alpha';
 ---
 
 <!doctype html>
-<html lang="ru">
+<html lang="ru" data-theme={theme}>
   <head>
     <SeoHead seo={seo} />
     <JsonLd graph={jsonLd} />

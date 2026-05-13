@@ -291,13 +291,13 @@ const formAction = contactForm.action || '/mail.php';
 
 <script>
 (function () {
-  const form = document.getElementById('contact-form');
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
   if (!form) return;
 
   // Phone mask: formats to +7 (XXX) XXX-XX-XX
-  const phoneInput = document.getElementById('cf-phone');
+  const phoneInput = document.getElementById('cf-phone') as HTMLInputElement | null;
   if (phoneInput) {
-    phoneInput.addEventListener('input', function () {
+    phoneInput.addEventListener('input', function (this: HTMLInputElement) {
       let digits = this.value.replace(/\D/g, '');
       if (digits.startsWith('8')) digits = '7' + digits.slice(1);
       if (digits.startsWith('7')) digits = digits.slice(1);
@@ -310,51 +310,51 @@ const formAction = contactForm.action || '/mail.php';
       this.value = formatted;
     });
 
-    phoneInput.addEventListener('keydown', function (e) {
+    phoneInput.addEventListener('keydown', function (this: HTMLInputElement, e: KeyboardEvent) {
       if (e.key === 'Backspace' && this.value === '+7') {
         e.preventDefault();
         this.value = '';
       }
     });
 
-    phoneInput.addEventListener('focus', function () {
+    phoneInput.addEventListener('focus', function (this: HTMLInputElement) {
       if (!this.value) this.value = '+7 (';
     });
 
-    phoneInput.addEventListener('blur', function () {
+    phoneInput.addEventListener('blur', function (this: HTMLInputElement) {
       if (this.value === '+7 (') this.value = '';
     });
   }
 
-  function showError(fieldId, errId, msg) {
+  function showError(fieldId: string, errId: string, msg: string) {
     const field = document.getElementById(fieldId);
     const err = document.getElementById(errId);
     if (field) field.classList.add('is-invalid');
     if (err) err.textContent = msg;
   }
 
-  function clearError(fieldId, errId) {
+  function clearError(fieldId: string, errId: string) {
     const field = document.getElementById(fieldId);
     const err = document.getElementById(errId);
     if (field) field.classList.remove('is-invalid');
     if (err) err.textContent = '';
   }
 
-  function validatePhone(val) {
+  function validatePhone(val: string) {
     const digits = val.replace(/\D/g, '');
     return digits.length === 11 && digits.startsWith('7');
   }
 
-  function validateEmail(val) {
+  function validateEmail(val: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val.trim());
   }
 
   // Live validation on blur
-  document.getElementById('cf-name')?.addEventListener('blur', function () {
+  document.getElementById('cf-name')?.addEventListener('blur', function (this: HTMLInputElement) {
     this.value.trim() ? clearError('cf-name', 'err-name') : showError('cf-name', 'err-name', 'Введите ваше имя');
   });
 
-  document.getElementById('cf-phone')?.addEventListener('blur', function () {
+  document.getElementById('cf-phone')?.addEventListener('blur', function (this: HTMLInputElement) {
     if (!this.value.trim()) {
       showError('cf-phone', 'err-phone', 'Введите номер телефона');
     } else if (!validatePhone(this.value)) {
@@ -365,7 +365,7 @@ const formAction = contactForm.action || '/mail.php';
   });
 
 
-  document.getElementById('cf-email')?.addEventListener('blur', function () {
+  document.getElementById('cf-email')?.addEventListener('blur', function (this: HTMLInputElement) {
     if (this.value.trim() && !validateEmail(this.value)) {
       showError('cf-email', 'err-email', 'Проверьте email — возможно, опечатка');
     } else {
@@ -373,30 +373,30 @@ const formAction = contactForm.action || '/mail.php';
     }
   });
 
-  document.getElementById('cf-message')?.addEventListener('blur', function () {
+  document.getElementById('cf-message')?.addEventListener('blur', function (this: HTMLTextAreaElement) {
     this.value.trim() ? clearError('cf-message', 'err-message') : showError('cf-message', 'err-message', 'Напишите сообщение');
   });
 
   form.addEventListener('submit', function (e) {
     let valid = true;
 
-    const name = document.getElementById('cf-name');
+    const name = document.getElementById('cf-name') as HTMLInputElement | null;
     if (!name?.value.trim()) { showError('cf-name', 'err-name', 'Введите ваше имя'); valid = false; }
     else clearError('cf-name', 'err-name');
 
-    const phone = document.getElementById('cf-phone');
+    const phone = document.getElementById('cf-phone') as HTMLInputElement | null;
     if (!phone?.value.trim()) { showError('cf-phone', 'err-phone', 'Введите номер телефона'); valid = false; }
     else if (!validatePhone(phone.value)) { showError('cf-phone', 'err-phone', 'Введите полный номер: +7 (XXX) XXX-XX-XX'); valid = false; }
     else clearError('cf-phone', 'err-phone');
 
 
-    const message = document.getElementById('cf-message');
+    const message = document.getElementById('cf-message') as HTMLTextAreaElement | null;
     if (!message?.value.trim()) { showError('cf-message', 'err-message', 'Напишите сообщение'); valid = false; }
     else clearError('cf-message', 'err-message');
 
     if (!valid) {
       e.preventDefault();
-      form.querySelector('.is-invalid')?.focus();
+      (form.querySelector('.is-invalid') as HTMLElement | null)?.focus();
     }
   });
 })();
