@@ -40,6 +40,7 @@ if [[ ${#SITE_IDS[@]} -eq 0 ]]; then
   mapfile -t SITE_IDS < <(ls -1 "$SITES_DIR")
 fi
 
+mkdir -p "$OUTPUT_BASE"
 echo "Building ${#SITE_IDS[@]} site(s): ${SITE_IDS[*]}"
 
 LAST_BUILT=""
@@ -99,13 +100,14 @@ if [[ "$DO_PREVIEW" -eq 1 && -n "$LAST_BUILT" ]]; then
   # Убиваем всё, что слушает нужный порт
   PIDS=$(lsof -ti tcp:"$PREVIEW_PORT" 2>/dev/null || true)
   if [[ -n "$PIDS" ]]; then
-    echo "  Останавливаем PID(s): $PIDS"
-    kill "$PIDS" 2>/dev/null || true
-    sleep 0.5
+    echo "  Останавливаем PID(s): $(echo "$PIDS" | tr '\n' ' ')"
+    # shellcheck disable=SC2086
+    kill -9 $PIDS 2>/dev/null || true
+    sleep 1
   fi
 
-  # Запускаем новый preview в фоне
-  npx --yes serve "$PREVIEW_ROOT" -l "$PREVIEW_PORT" &>/tmp/build-all-preview.log &
+  # Запускаем новый preview в фоне (-s: SPA-режим для Astro-роутов)
+  npx --yes serve "$PREVIEW_ROOT" -l "$PREVIEW_PORT" -s --no-port-switching &>/tmp/build-all-preview.log &
   echo "✓ Preview запущен → http://localhost:${PREVIEW_PORT}/"
   echo "  Логи: /tmp/build-all-preview.log"
 fi
