@@ -62,6 +62,7 @@ from common import (  # noqa: E402
     section_from_path,
     write_json,
 )
+from extraction_rules import enrich_extracted  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # URL filtering
@@ -530,7 +531,7 @@ def _build_record(
     if change_info is not None:
         record["change_tracking"] = change_info
 
-    return record
+    return enrich_extracted(record)
 
 
 # ---------------------------------------------------------------------------

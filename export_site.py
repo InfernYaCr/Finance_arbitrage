@@ -25,6 +25,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent
 sys.path.insert(0, str(PROJECT_ROOT / "site_pipeline"))
 import registry as reg
+from extraction_rules import enrich_page_file
 
 # Fallback paths for donors crawled before registry existed
 _LEGACY_OUTPUT_DIRS: dict[str, str] = {
@@ -95,6 +96,7 @@ def export_site(site_id: str, output_dir_override: str | None = None) -> None:
         shutil.rmtree(dest_pages)
     shutil.copytree(src_pages, dest_pages)
     page_count = len(list(dest_pages.glob("*.json")))
+    enriched_count = sum(1 for path in dest_pages.glob("*.json") if enrich_page_file(path))
 
     # Copy manifest and rewrite page_file paths to point to sites/<id>/pages/
     manifest = json.loads(src_manifest.read_text(encoding="utf-8"))
@@ -108,6 +110,8 @@ def export_site(site_id: str, output_dir_override: str | None = None) -> None:
     )
 
     print(f"✓ Copied {page_count} pages → {dest_pages}")
+    if enriched_count:
+        print(f"✓ Enriched extracted metadata in {enriched_count} page(s)")
     print(f"✓ Wrote build_manifest.json (page_file → {pages_prefix}*) → {dest_manifest}")
 
     # Generate nav.json from manifest
