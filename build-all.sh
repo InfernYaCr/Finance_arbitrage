@@ -42,6 +42,8 @@ fi
 
 echo "Building ${#SITE_IDS[@]} site(s): ${SITE_IDS[*]}"
 
+LAST_BUILT=""
+
 for SITE_ID in "${SITE_IDS[@]}"; do
   CONFIG="$SITES_DIR/$SITE_ID/site.config.json"
   if [[ ! -f "$CONFIG" ]]; then
@@ -77,6 +79,7 @@ for SITE_ID in "${SITE_IDS[@]}"; do
   mv "$SITE_DIR/dist" "$DEST"
   mkdir -p "$SITE_DIR/dist"  # recreate empty dist for next iteration
   echo "✓ Built → $DEST"
+  LAST_BUILT="$SITE_ID"
 
   cd "$REPO_ROOT"
 done
@@ -85,12 +88,11 @@ echo ""
 echo "All done. Artifacts in $OUTPUT_BASE/"
 
 # --preview: убиваем старый процесс на порту и стартуем новый
-if [[ "$DO_PREVIEW" -eq 1 ]]; then
-  LAST_SITE="${SITE_IDS[-1]}"
-  PREVIEW_ROOT="$OUTPUT_BASE/$LAST_SITE"
+if [[ "$DO_PREVIEW" -eq 1 && -n "$LAST_BUILT" ]]; then
+  PREVIEW_ROOT="$OUTPUT_BASE/$LAST_BUILT"
 
   echo ""
-  echo "→ Перезапуск preview на http://localhost:${PREVIEW_PORT} (${LAST_SITE})..."
+  echo "→ Перезапуск preview на http://localhost:${PREVIEW_PORT} (${LAST_BUILT})..."
 
   # Убиваем всё, что слушает нужный порт
   PIDS=$(lsof -ti tcp:"$PREVIEW_PORT" 2>/dev/null || true)
