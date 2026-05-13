@@ -63,7 +63,7 @@ for SITE_ID in "${SITE_IDS[@]}"; do
   # 2. Export pages + nav.json (unless skipped)
   if [[ "${SKIP_EXPORT:-0}" != "1" ]]; then
     echo "→ Exporting pages..."
-    python3 "$REPO_ROOT/export_site.py" "$SITE_ID"
+    python3 "$REPO_ROOT/export_site.py" --site-id "$SITE_ID"
   fi
 
   # 3. Astro build
