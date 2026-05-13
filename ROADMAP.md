@@ -52,7 +52,7 @@
 
 > Полный research — `PAGE_GENERATION_RESEARCH.md`.
 
-- [ ] **B3.1** Динамическая навигация: `generate_nav.py` + `loadNav.ts` (убрать хардкод `nav.ts`)
+- [x] **B3.1** Динамическая навигация: `generate_nav.py` + `loadNav.ts` (убрать хардкод `nav.ts`)
 - [ ] **B3.2** `FAQPage` Schema.org для всех страниц с `faq_pairs` (макс эффект, мин усилий)
 - [ ] **B3.3** Summary-блок из `key_points[]` + `speakable` Schema (GEO-сигнал)
 - [ ] **B3.4** Related Pages блок (3–5 ссылок через `content_index.sqlite` FTS)

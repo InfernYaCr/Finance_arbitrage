@@ -1,20 +1,19 @@
 ---
 import { siteConfig } from '../data/siteConfig';
-import { getImmediateChildPages } from '../data/loadPages';
+import { navItems } from '../data/loadNav';
 
 const year = new Date().getFullYear();
 
-const services = getImmediateChildPages('/seo-uslugi/').slice(0, 7);
+// First nav item with a dropdown → its items become the "sections" footer column
+const firstDropdown = navItems.find((item) => item.columns?.length);
+const sectionLinks = firstDropdown?.columns?.[0]?.items?.slice(0, 7) ?? [];
+const sectionHeader = firstDropdown?.label ?? 'Разделы';
+const sectionHref = firstDropdown?.href ?? '/';
 
-const companyLinks = [
-  { label: 'О компании',   path: '/o-kompanii/' },
-  { label: 'Портфолио',    path: '/portfolio/' },
-  { label: 'Блог',         path: '/vse-o-seo-prodvizhenii/' },
-  { label: 'FAQ',          path: '/faq/' },
-  { label: 'SEO-словарь',  path: '/seo-wikipedia/' },
-  { label: 'Стоимость',    path: '/stoimost-uslug/' },
-  { label: 'Контакты',     path: '/kontakty/' },
-];
+// Remaining nav items (skip home "/", skip the one used as sectionLinks) → company column
+const companyLinks = navItems
+  .filter((item) => item.href !== '/' && item !== firstDropdown)
+  .map((item) => ({ label: item.label, path: item.href }));
 
 const hasSocials = siteConfig.social.vk || siteConfig.social.telegram || siteConfig.social.ok;
 ---
@@ -54,15 +53,15 @@ const hasSocials = siteConfig.social.vk || siteConfig.social.telegram || siteCon
         )}
       </div>
 
-      <!-- Колонка 2: Услуги -->
-      {services.length > 0 && (
+      <!-- Колонка 2: Разделы (из nav.json) -->
+      {sectionLinks.length > 0 && (
         <div class="site-footer__col">
-          <h3 class="site-footer__heading">Услуги</h3>
+          <h3 class="site-footer__heading">{sectionHeader}</h3>
           <ul class="site-footer__links" role="list">
-            {services.map((s) => (
-              <li><a href={s.path}>{s.h1 || s.title}</a></li>
+            {sectionLinks.map((s) => (
+              <li><a href={s.href}>{s.label}</a></li>
             ))}
-            <li><a href="/seo-uslugi/" class="site-footer__all-link">Все услуги →</a></li>
+            <li><a href={sectionHref} class="site-footer__all-link">Все →</a></li>
           </ul>
         </div>
       )}

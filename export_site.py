@@ -110,6 +110,19 @@ def export_site(site_id: str, output_dir_override: str | None = None) -> None:
     print(f"✓ Copied {page_count} pages → {dest_pages}")
     print(f"✓ Wrote build_manifest.json (page_file → {pages_prefix}*) → {dest_manifest}")
 
+    # Generate nav.json from manifest
+    try:
+        from generate_nav import generate_nav
+        nav = generate_nav(site_id)
+        nav_path = dest_dir / "nav.json"
+        nav_path.write_text(
+            json.dumps(nav, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        print(f"✓ Generated nav.json ({len(nav)} items) → {nav_path}")
+    except Exception as exc:
+        print(f"  nav.json generation skipped: {exc}", file=sys.stderr)
+
     # Update content_dir in site.config.json to point to sites/<id>/
     relative_content_dir = f"../sites/{site_id}"
     if config.get("content_dir") != relative_content_dir:
