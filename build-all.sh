@@ -73,11 +73,13 @@ for SITE_ID in "${SITE_IDS[@]}"; do
     NODE_OPTIONS='--max-old-space-size=8192' \
     npx astro build
 
-  # 4. Move dist to dist/<site_id>
+  # 4. Move dist to dist/<site_id> via tmp (can't mv a dir into its own subdir)
   DEST="$OUTPUT_BASE/$SITE_ID"
+  TMP_DIST="$(mktemp -d)"
+  cp -r "$SITE_DIR/dist/." "$TMP_DIST/"
   rm -rf "$DEST"
-  mv "$SITE_DIR/dist" "$DEST"
-  mkdir -p "$SITE_DIR/dist"  # recreate empty dist for next iteration
+  mv "$TMP_DIST" "$DEST"
+  rm -rf "$SITE_DIR/dist" && mkdir -p "$SITE_DIR/dist"
   echo "✓ Built → $DEST"
   LAST_BUILT="$SITE_ID"
 
