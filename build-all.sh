@@ -2,9 +2,10 @@
 # build-all.sh — build Astro site for every site_id under sites/
 #
 # Usage:
-#   ./build-all.sh                   # build all sites
-#   ./build-all.sh rostpoisk         # build a single site
-#   SKIP_EXPORT=1 ./build-all.sh     # skip export_site step (use existing sites/ data)
+#   ./build-all.sh                        # build all sites
+#   ./build-all.sh rostpoisk              # build a single site
+#   ./build-all.sh rostpoisk --preview    # build + restart preview on localhost:4321
+#   SKIP_EXPORT=1 ./build-all.sh         # skip export_site step (use existing sites/ data)
 #
 # Output:
 #   site/dist/<site_id>/   — built HTML tree for each site
@@ -15,6 +16,18 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SITE_DIR="$REPO_ROOT/site"
 SITES_DIR="$REPO_ROOT/sites"
 OUTPUT_BASE="$SITE_DIR/dist"
+PREVIEW_PORT=4321
+DO_PREVIEW=0
+
+# Parse args: first non-flag = site_id, --preview = restart preview server
+SITE_IDS=()
+for arg in "$@"; do
+  if [[ "$arg" == "--preview" ]]; then
+    DO_PREVIEW=1
+  elif [[ "$arg" != --* ]]; then
+    SITE_IDS+=("$arg")
+  fi
+done
 
 # Activate virtualenv if present
 if [[ -f "$REPO_ROOT/.venv/bin/activate" ]]; then
@@ -22,10 +35,8 @@ if [[ -f "$REPO_ROOT/.venv/bin/activate" ]]; then
   source "$REPO_ROOT/.venv/bin/activate"
 fi
 
-# Determine which sites to build
-if [[ "${1:-}" != "" ]]; then
-  SITE_IDS=("$1")
-else
+# If no site_id given, build all
+if [[ ${#SITE_IDS[@]} -eq 0 ]]; then
   mapfile -t SITE_IDS < <(ls -1 "$SITES_DIR")
 fi
 
@@ -72,3 +83,25 @@ done
 
 echo ""
 echo "All done. Artifacts in $OUTPUT_BASE/"
+
+# --preview: убиваем старый процесс на порту и стартуем новый
+if [[ "$DO_PREVIEW" -eq 1 ]]; then
+  LAST_SITE="${SITE_IDS[-1]}"
+  PREVIEW_ROOT="$OUTPUT_BASE/$LAST_SITE"
+
+  echo ""
+  echo "→ Перезапуск preview на http://localhost:${PREVIEW_PORT} (${LAST_SITE})..."
+
+  # Убиваем всё, что слушает нужный порт
+  PIDS=$(lsof -ti tcp:"$PREVIEW_PORT" 2>/dev/null || true)
+  if [[ -n "$PIDS" ]]; then
+    echo "  Останавливаем PID(s): $PIDS"
+    kill "$PIDS" 2>/dev/null || true
+    sleep 0.5
+  fi
+
+  # Запускаем новый preview в фоне
+  npx --yes serve "$PREVIEW_ROOT" -l "$PREVIEW_PORT" &>/tmp/build-all-preview.log &
+  echo "✓ Preview запущен → http://localhost:${PREVIEW_PORT}/"
+  echo "  Логи: /tmp/build-all-preview.log"
+fi
