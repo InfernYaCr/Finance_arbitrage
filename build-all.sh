@@ -15,7 +15,7 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SITE_DIR="$REPO_ROOT/site"
 SITES_DIR="$REPO_ROOT/sites"
-OUTPUT_BASE="$SITE_DIR/dist"
+OUTPUT_BASE="$REPO_ROOT/builds"
 PREVIEW_PORT=4321
 DO_PREVIEW=0
 

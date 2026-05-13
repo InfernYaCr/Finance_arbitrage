@@ -36,3 +36,4 @@ sites/*/content_index.*
 
 # Local browser/test artifacts
 .playwright-mcp/
+builds/
