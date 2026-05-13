@@ -54,7 +54,7 @@ export interface PageQuality {
 export interface ExtractedData {
   page_type?: string;
   services?: unknown[];
-  faq_pairs?: Array<{ question: string; answer: string }>;
+  faq_pairs?: Array<{ question?: string; answer?: string; q?: string; a?: string }>;
   pricing_tiers?: unknown[];
   case_results?: unknown[];
   key_points?: string[];

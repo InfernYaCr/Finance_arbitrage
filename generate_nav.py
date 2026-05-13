@@ -31,6 +31,15 @@ CONTACT_LABELS: dict[str, str] = {
     "o-kompanii": "О компании",
     "o-servise": "О сервисе",
 }
+SECTION_LABELS: dict[str, str] = {
+    "ratings": "Рейтинги",
+    "banks": "Банки",
+    "qa": "Вопросы",
+    "terms": "Словарь",
+    "mortgage": "Ипотека",
+    "autocredit": "Автокредиты",
+    "business": "Бизнес",
+}
 
 MAX_NAV_ITEMS = 6       # top-level items (excluding home and contacts)
 MAX_DROPDOWN_ITEMS = 8  # items per dropdown column
@@ -104,7 +113,9 @@ def generate_nav(site_id: str) -> list[dict]:
             continue
 
         landing = by_path.get(section_url)
-        if landing:
+        if section in SECTION_LABELS:
+            label = SECTION_LABELS[section]
+        elif landing:
             raw = _strip_brand(landing["title"], brand_aliases)
             label = _short_title(raw)
         else:

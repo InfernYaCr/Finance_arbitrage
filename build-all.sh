@@ -5,7 +5,8 @@
 #   ./build-all.sh                        # build all sites
 #   ./build-all.sh rostpoisk              # build a single site
 #   ./build-all.sh rostpoisk --preview    # build + restart preview on localhost:4321
-#   SKIP_EXPORT=1 ./build-all.sh         # skip export_site step (use existing sites/ data)
+#   ./build-all.sh finhelp-ru --dry-run   # show steps without writing files
+#   SKIP_EXPORT=1 ./build-all.sh          # skip export_site step (use existing sites/ data)
 #
 # Output:
 #   site/dist/<site_id>/   — built HTML tree for each site
@@ -18,12 +19,15 @@ SITES_DIR="$REPO_ROOT/sites"
 OUTPUT_BASE="$REPO_ROOT/builds"
 PREVIEW_PORT=4321
 DO_PREVIEW=0
+DO_DRY_RUN=0
 
 # Parse args: first non-flag = site_id, --preview = restart preview server
 SITE_IDS=()
 for arg in "$@"; do
   if [[ "$arg" == "--preview" ]]; then
     DO_PREVIEW=1
+  elif [[ "$arg" == "--dry-run" ]]; then
+    DO_DRY_RUN=1
   elif [[ "$arg" != --* ]]; then
     SITE_IDS+=("$arg")
   fi
@@ -37,11 +41,16 @@ fi
 
 # If no site_id given, build all
 if [[ ${#SITE_IDS[@]} -eq 0 ]]; then
-  mapfile -t SITE_IDS < <(ls -1 "$SITES_DIR")
+  while IFS= read -r site_id; do
+    SITE_IDS+=("$site_id")
+  done < <(ls -1 "$SITES_DIR")
 fi
 
 mkdir -p "$OUTPUT_BASE"
 echo "Building ${#SITE_IDS[@]} site(s): ${SITE_IDS[*]}"
+if [[ "$DO_DRY_RUN" -eq 1 ]]; then
+  echo "Dry run: commands will be printed, not executed."
+fi
 
 LAST_BUILT=""
 
@@ -56,6 +65,19 @@ for SITE_ID in "${SITE_IDS[@]}"; do
   echo "════════════════════════════════════════"
   echo "  Building: $SITE_ID"
   echo "════════════════════════════════════════"
+
+  if [[ "$DO_DRY_RUN" -eq 1 ]]; then
+    echo "[dry-run] $REPO_ROOT/gen-env.sh $SITE_ID"
+    if [[ "${SKIP_EXPORT:-0}" != "1" ]]; then
+      echo "[dry-run] python3 $REPO_ROOT/export_site.py --site-id $SITE_ID"
+    else
+      echo "[dry-run] SKIP_EXPORT=1, export_site.py would be skipped"
+    fi
+    echo "[dry-run] cd $SITE_DIR && CONTENT_OUTPUT_DIR=../sites/$SITE_ID NODE_OPTIONS=--max-old-space-size=8192 npx astro build"
+    echo "[dry-run] copy $SITE_DIR/dist → $OUTPUT_BASE/$SITE_ID"
+    LAST_BUILT="$SITE_ID"
+    continue
+  fi
 
   # 1. Generate .env from site config
   echo "→ Generating site/.env..."
@@ -97,6 +119,12 @@ if [[ "$DO_PREVIEW" -eq 1 && -n "$LAST_BUILT" ]]; then
   echo ""
   echo "→ Перезапуск preview на http://localhost:${PREVIEW_PORT} (${LAST_BUILT})..."
 
+  if [[ "$DO_DRY_RUN" -eq 1 ]]; then
+    echo "[dry-run] stop listeners on tcp:${PREVIEW_PORT}"
+    echo "[dry-run] python3 -m http.server ${PREVIEW_PORT} --bind localhost --directory $PREVIEW_ROOT"
+    exit 0
+  fi
+
   # Убиваем всё, что слушает нужный порт
   PIDS=$(lsof -ti tcp:"$PREVIEW_PORT" 2>/dev/null || true)
   if [[ -n "$PIDS" ]]; then
@@ -106,8 +134,25 @@ if [[ "$DO_PREVIEW" -eq 1 && -n "$LAST_BUILT" ]]; then
     sleep 1
   fi
 
-  # Запускаем новый preview в фоне (-s: SPA-режим для Astro-роутов)
-  npx --yes serve "$PREVIEW_ROOT" -l "$PREVIEW_PORT" -s --no-port-switching &>/tmp/build-all-preview.log &
+  # Запускаем новый preview в фоне и проверяем, что он реально отвечает.
+  nohup python3 -m http.server "$PREVIEW_PORT" --bind localhost --directory "$PREVIEW_ROOT" >/tmp/build-all-preview.log 2>&1 &
+  PREVIEW_PID=$!
+  sleep 1
+
+  if ! kill -0 "$PREVIEW_PID" 2>/dev/null; then
+    echo "✗ Preview process exited. Logs:" >&2
+    sed -n '1,120p' /tmp/build-all-preview.log >&2 || true
+    exit 1
+  fi
+
+  if ! curl -fsSI "http://localhost:${PREVIEW_PORT}/" >/dev/null; then
+    echo "✗ Preview did not respond at http://localhost:${PREVIEW_PORT}/. Logs:" >&2
+    sed -n '1,120p' /tmp/build-all-preview.log >&2 || true
+    exit 1
+  fi
+
   echo "✓ Preview запущен → http://localhost:${PREVIEW_PORT}/"
   echo "  Логи: /tmp/build-all-preview.log"
+  echo "  Нажмите Ctrl+C, чтобы остановить preview."
+  wait "$PREVIEW_PID"
 fi

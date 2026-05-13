@@ -27,20 +27,24 @@ function textOnly(value: string): string {
 
 function faqPage(page: FullPage): object | null {
   const pairs = page.data.extracted?.faq_pairs?.filter((pair) => (
-    pair.question?.trim() && pair.answer?.trim()
+    (pair.question?.trim() || pair.q?.trim()) && (pair.answer?.trim() || pair.a?.trim())
   ));
   if (!pairs?.length) return null;
 
   return {
     '@type': 'FAQPage',
-    mainEntity: pairs.map((pair) => ({
-      '@type': 'Question',
-      name: textOnly(pair.question),
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: textOnly(pair.answer),
-      },
-    })),
+    mainEntity: pairs.map((pair) => {
+      const question = pair.question || pair.q || '';
+      const answer = pair.answer || pair.a || '';
+      return {
+        '@type': 'Question',
+        name: textOnly(question),
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: textOnly(answer),
+        },
+      };
+    }),
   };
 }
 

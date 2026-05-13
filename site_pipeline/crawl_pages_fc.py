@@ -366,7 +366,7 @@ def _normalize_faq_pairs(value: Any) -> list[dict[str, str]]:
         q = item.get("q") or item.get("question")
         a = item.get("a") or item.get("answer")
         if isinstance(q, str) and isinstance(a, str) and q.strip() and a.strip():
-            pairs.append({"q": q.strip(), "a": a.strip()})
+            pairs.append({"question": q.strip(), "answer": a.strip()})
     return pairs
 
 
