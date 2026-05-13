@@ -7,4 +7,12 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  vite: {
+    server: {
+      watch: {
+        // Exclude exported content dirs from file-watching to prevent OOM
+        ignored: ['**/sites/*/pages/**', '**/registry/**'],
+      },
+    },
+  },
 });

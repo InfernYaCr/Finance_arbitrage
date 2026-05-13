@@ -5,6 +5,25 @@
 The pipeline has completed a full crawl and QA pass for the original page
 export. The Astro site is built and deployed to the first Beget test host.
 
+### 2026-05-13 update — B2.2 (export_site.py)
+
+`export_site.py` is complete and verified:
+
+- `python export_site.py --site-id rostpoisk` — copies 1013 pages + rewrites manifest page_file paths → `sites/rostpoisk/pages/`
+- `python export_site.py --site-id finhelp-ru` — copies 30 pages + rewrites manifest page_file paths → `sites/finhelp-ru/pages/`
+- Manifest `page_file` entries are rewritten to `sites/<id>/pages/<file>.json` so each site is self-contained.
+- `site/astro.config.mjs` — added `vite.server.watch.ignored` to exclude `sites/*/pages/` from dev-server watch.
+- `site/package.json` — build scripts now set `NODE_OPTIONS='--max-old-space-size=8192'` (required for 1000+ page builds; 30-page finance build works without it).
+
+Build flow (2026-05-13):
+```bash
+python export_site.py --site-id rostpoisk   # or finhelp-ru
+./gen-env.sh rostpoisk                      # generates site/.env
+cd site && npm run build                    # 8GB heap, ~33min for 1013 pages; ~1min for 30 pages
+```
+
+Current best next step: B2.3 `build-all.sh` — iterates over `sites/`, runs export+build for each.
+
 ### 2026-05-13 update — B2.0 + B2.1 (multi-site infrastructure)
 
 Multi-site infrastructure is now in place:

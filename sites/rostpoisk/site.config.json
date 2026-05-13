@@ -4,7 +4,13 @@
   "brand": {
     "name": "РостПоиск",
     "name_full": "РостПоиск — продвижение сайтов для бизнеса",
-    "aliases": ["Мосео", "Mosseo", "mosseo", "mosseo.ru", "Мosseo"]
+    "aliases": [
+      "Мосео",
+      "Mosseo",
+      "mosseo",
+      "mosseo.ru",
+      "Мosseo"
+    ]
   },
   "contacts": {
     "phone": "+7 495 128-34-56",
@@ -30,5 +36,6 @@
     "beget_ftp_path": "/"
   },
   "theme": "alpha",
-  "enable_editorial_posts": false
+  "enable_editorial_posts": false,
+  "content_dir": "../sites/rostpoisk"
 }
