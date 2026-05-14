@@ -53,6 +53,7 @@ class NicheProfile:
     brand_voice_prompt: str
     schema_types: list[str]
     meta_templates: list[str]
+    site_stats: list[str] = field(default_factory=list)
     niche_cta: NicheCta = field(default_factory=NicheCta)
 
     def label_for(self, section: str, variant_index: int = 0) -> str:
@@ -101,6 +102,7 @@ def load_niche(niche_id: str) -> NicheProfile:
         brand_voice_prompt=data.get("brand_voice_prompt", ""),
         schema_types=data.get("schema_types", []),
         meta_templates=data.get("meta_templates", []),
+        site_stats=data.get("site_stats", []),
         niche_cta=NicheCta(**{
             k: v for k, v in data.get("niche_cta", {}).items()
             if k in NicheCta.__dataclass_fields__

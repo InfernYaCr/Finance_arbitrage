@@ -79,6 +79,11 @@ export const siteConfig = {
 
   contactPath: import.meta.env.PUBLIC_CONTACT_PATH ?? '/kontakty/',
 
+  siteStats: (import.meta.env.PUBLIC_SITE_STATS ?? '')
+    .split('|')
+    .map((s: string) => s.trim())
+    .filter(Boolean),
+
   niche: {
     ctaQuestion:  import.meta.env.PUBLIC_NICHE_CTA_QUESTION  ?? 'Есть вопросы?',
     ctaBtn:       import.meta.env.PUBLIC_NICHE_CTA_BTN       ?? 'Задать вопрос',

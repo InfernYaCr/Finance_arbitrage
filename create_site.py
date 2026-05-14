@@ -116,6 +116,7 @@ def scaffold_site_config(
         ),
         "niche": niche_data.get("niche_id", ""),
         "section_labels_override": site_labels,
+        "site_stats": niche_data.get("site_stats", []),
         "niche_cta": niche_data.get("niche_cta", {}),
     }
 
@@ -178,6 +179,7 @@ def main() -> None:
             "description": niche.description,
             "site": {"theme": niche.site.theme, "contact_path": niche.site.contact_path},
             "section_labels": niche.section_labels,
+            "site_stats": niche.site_stats,
             "niche_cta": {
                 "article_question": niche.niche_cta.article_question,
                 "article_btn":      niche.niche_cta.article_btn,

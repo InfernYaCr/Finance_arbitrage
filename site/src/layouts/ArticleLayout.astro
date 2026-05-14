@@ -4,6 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PromoSlot from '../components/PromoSlot.astro';
 import RelatedPages from '../components/RelatedPages.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
+import StatsBar from '../components/StatsBar.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import type { TocHeading } from '../components/TableOfContents.astro';
 import { getImmediateChildPages, getRelatedPages } from '../data/loadPages';
@@ -86,6 +87,8 @@ const { niche } = siteConfig;
         {data.excerpt_html && (
           <div class="article-page__excerpt" set:html={data.excerpt_html} />
         )}
+
+        <StatsBar stats={siteConfig.siteStats} />
 
         {keyPoints.length >= 2 && (
           <section class="article-summary" aria-labelledby="article-summary-title">

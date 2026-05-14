@@ -1,0 +1,56 @@
+{
+  "site_id": "vsezaimyonline",
+  "donor_id": "vsezaimyonline-ru",
+  "brand": {
+    "name": "ЗаймыОнлайн",
+    "name_full": "ЗаймыОнлайн — займы, кредиты и банковские карты",
+    "aliases": [
+      "ВсеЗаймыОнлайн",
+      "Все Займы Онлайн",
+      "VseZaimyOnline",
+      "vsezaimyonline.ru"
+    ]
+  },
+  "contacts": {
+    "phone": "",
+    "phone_href": "",
+    "phone_label": "",
+    "email": "",
+    "address": "",
+    "worktime": ""
+  },
+  "form": {
+    "action": "/mail.php",
+    "to": "",
+    "subject": "Новая заявка с сайта ЗаймыОнлайн"
+  },
+  "analytics": {
+    "metrika_id": "",
+    "gtag_id": ""
+  },
+  "deploy": {
+    "site_url": "",
+    "beget_host": "",
+    "beget_ftp_user": "",
+    "beget_ftp_path": "/"
+  },
+  "theme": "beta",
+  "enable_editorial_posts": false,
+  "contact_path": "/about/",
+  "content_dir": "../sites/vsezaimyonline",
+  "legacy_source_domain": "https://vsezaimyonline.ru",
+  "legacy_brand_aliases": "ВсеЗаймыОнлайн,Все Займы Онлайн,VseZaimyOnline,vsezaimyonline.ru",
+  "site_stats": [
+    "100+ МФО и банков",
+    "до 5 000 000₽",
+    "от 0% в день",
+    "решение за 5 минут"
+  ],
+  "niche_cta": {
+    "article_question": "Нужна финансовая консультация?",
+    "article_btn": "Получить бесплатный совет",
+    "sidebar_title": "Нужен займ или кредит?",
+    "sidebar_desc": "Подберём лучшее предложение по вашим условиям.",
+    "sidebar_btn": "Подобрать предложение"
+  }
+}

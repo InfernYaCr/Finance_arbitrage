@@ -70,6 +70,7 @@ fields = {
   "PUBLIC_CONTACT_PATH":         c.get("contact_path", "/kontakty/"),
   "PUBLIC_LEGACY_SOURCE_DOMAIN": c.get("legacy_source_domain", ""),
   "PUBLIC_LEGACY_BRAND_ALIASES": c.get("legacy_brand_aliases", ""),
+  "PUBLIC_SITE_STATS":           "|".join(c.get("site_stats", [])),
   "PUBLIC_NICHE_CTA_QUESTION":   c.get("niche_cta", {}).get("article_question", "Есть вопросы?"),
   "PUBLIC_NICHE_CTA_BTN":        c.get("niche_cta", {}).get("article_btn", "Задать вопрос"),
   "PUBLIC_NICHE_SIDEBAR_TITLE":  c.get("niche_cta", {}).get("sidebar_title", "Нужна помощь?"),
