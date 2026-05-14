@@ -32,6 +32,15 @@ class NicheSiteConfig:
 
 
 @dataclass
+class NicheCta:
+    article_question: str = "Есть вопросы?"
+    article_btn: str = "Задать вопрос"
+    sidebar_title: str = "Нужна помощь?"
+    sidebar_desc: str = "Свяжитесь с нами."
+    sidebar_btn: str = "Получить консультацию"
+
+
+@dataclass
 class NicheProfile:
     niche_id: str
     label: str
@@ -44,6 +53,7 @@ class NicheProfile:
     brand_voice_prompt: str
     schema_types: list[str]
     meta_templates: list[str]
+    niche_cta: NicheCta = field(default_factory=NicheCta)
 
     def label_for(self, section: str, variant_index: int = 0) -> str:
         """Return a section label, optionally picking a variation for footprint diversity."""
@@ -91,6 +101,10 @@ def load_niche(niche_id: str) -> NicheProfile:
         brand_voice_prompt=data.get("brand_voice_prompt", ""),
         schema_types=data.get("schema_types", []),
         meta_templates=data.get("meta_templates", []),
+        niche_cta=NicheCta(**{
+            k: v for k, v in data.get("niche_cta", {}).items()
+            if k in NicheCta.__dataclass_fields__
+        }),
     )
 
 

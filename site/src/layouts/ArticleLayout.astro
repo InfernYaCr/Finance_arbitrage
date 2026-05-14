@@ -3,7 +3,11 @@ import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PromoSlot from '../components/PromoSlot.astro';
 import RelatedPages from '../components/RelatedPages.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import type { TocHeading } from '../components/TableOfContents.astro';
 import { getImmediateChildPages, getRelatedPages } from '../data/loadPages';
+import { siteConfig } from '../data/siteConfig';
 
 import type { FullPage, SeoFields, PageType } from '../data/types';
 
@@ -26,6 +30,38 @@ const hasSidebar = siblings.length >= 3;
 const childPages = getImmediateChildPages(page.path);
 const keyPoints = data.extracted?.key_points?.filter((point) => point.trim()) ?? [];
 const relatedLinks = getRelatedPages(page.id);
+
+// --- Table of Contents: parse h2 headings and inject IDs ---
+function slugify(text: string): string {
+  return text.trim().toLowerCase()
+    .replace(/ё/g, 'е')
+    .replace(/[^a-zа-яё0-9\s]/gi, '')
+    .replace(/\s+/g, '-')
+    .substring(0, 60);
+}
+
+function injectHeadingIds(html: string): { html: string; headings: TocHeading[] } {
+  const headings: TocHeading[] = [];
+  const processed = html.replace(/<h2([^>]*)>([\s\S]*?)<\/h2>/gi, (full, attrs, inner) => {
+    const text = inner.replace(/<[^>]+>/g, '').trim();
+    if (!text) return full;
+    // If the h2 already has an id attribute, reuse it
+    const existingId = attrs.match(/\bid="([^"]+)"/);
+    if (existingId) {
+      headings.push({ id: existingId[1], text });
+      return full; // leave as-is
+    }
+    const id = slugify(text);
+    headings.push({ id, text });
+    return `<h2${attrs} id="${id}">${inner}</h2>`;
+  });
+  return { html: processed, headings };
+}
+
+const { html: processedContentHtml, headings: tocHeadings } =
+  injectHeadingIds(data.content_html || '');
+
+const { niche } = siteConfig;
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
@@ -60,7 +96,9 @@ const relatedLinks = getRelatedPages(page.id);
           </section>
         )}
 
-        <div class="prose article-page__body" set:html={data.content_html} />
+        <TableOfContents headings={tocHeadings} />
+
+        <div class="prose article-page__body" set:html={processedContentHtml} />
 
         {childPages.length > 0 && (
           <nav class="article-children" aria-label="В этом разделе">
@@ -78,13 +116,15 @@ const relatedLinks = getRelatedPages(page.id);
           </nav>
         )}
 
+        <FaqAccordion extracted={data.extracted} />
+
         <PromoSlot placement="article_footer" section={page.section} path={page.path} pageType={pageType} />
 
         {relatedLinks.length > 0 && <RelatedPages links={relatedLinks} />}
 
         <div class="article-page__cta">
-          <p class="article-page__cta-text">Остались вопросы по SEO-продвижению?</p>
-          <a href="/kontakty/" class="article-page__cta-btn">Задать вопрос специалисту</a>
+          <p class="article-page__cta-text">{niche.ctaQuestion}</p>
+          <a href={siteConfig.contactPath} class="article-page__cta-btn">{niche.ctaBtn}</a>
         </div>
       </div>
 
@@ -101,9 +141,9 @@ const relatedLinks = getRelatedPages(page.id);
             </ul>
           </div>
           <div class="article-sidebar__cta">
-            <p class="article-sidebar__cta-title">Нужно SEO-продвижение?</p>
-            <p class="article-sidebar__cta-desc">Оставьте заявку — обсудим ваш сайт бесплатно.</p>
-            <a href="/kontakty/" class="article-sidebar__cta-btn">Получить консультацию</a>
+            <p class="article-sidebar__cta-title">{niche.sidebarTitle}</p>
+            <p class="article-sidebar__cta-desc">{niche.sidebarDesc}</p>
+            <a href={siteConfig.contactPath} class="article-sidebar__cta-btn">{niche.sidebarBtn}</a>
           </div>
         </aside>
       )}

@@ -116,6 +116,7 @@ def scaffold_site_config(
         ),
         "niche": niche_data.get("niche_id", ""),
         "section_labels_override": site_labels,
+        "niche_cta": niche_data.get("niche_cta", {}),
     }
 
     site_cfg.write_text(json.dumps(config, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -177,6 +178,13 @@ def main() -> None:
             "description": niche.description,
             "site": {"theme": niche.site.theme, "contact_path": niche.site.contact_path},
             "section_labels": niche.section_labels,
+            "niche_cta": {
+                "article_question": niche.niche_cta.article_question,
+                "article_btn":      niche.niche_cta.article_btn,
+                "sidebar_title":    niche.niche_cta.sidebar_title,
+                "sidebar_desc":     niche.niche_cta.sidebar_desc,
+                "sidebar_btn":      niche.niche_cta.sidebar_btn,
+            },
         },
         brand_name=args.brand,
         brand_name_full=args.brand_full,

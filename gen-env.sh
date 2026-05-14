@@ -70,6 +70,11 @@ fields = {
   "PUBLIC_CONTACT_PATH":         c.get("contact_path", "/kontakty/"),
   "PUBLIC_LEGACY_SOURCE_DOMAIN": c.get("legacy_source_domain", ""),
   "PUBLIC_LEGACY_BRAND_ALIASES": c.get("legacy_brand_aliases", ""),
+  "PUBLIC_NICHE_CTA_QUESTION":   c.get("niche_cta", {}).get("article_question", "Есть вопросы?"),
+  "PUBLIC_NICHE_CTA_BTN":        c.get("niche_cta", {}).get("article_btn", "Задать вопрос"),
+  "PUBLIC_NICHE_SIDEBAR_TITLE":  c.get("niche_cta", {}).get("sidebar_title", "Нужна помощь?"),
+  "PUBLIC_NICHE_SIDEBAR_DESC":   c.get("niche_cta", {}).get("sidebar_desc", "Свяжитесь с нами."),
+  "PUBLIC_NICHE_SIDEBAR_BTN":    c.get("niche_cta", {}).get("sidebar_btn", "Получить консультацию"),
 }
 for k, v in fields.items():
     print(f"{k}={v}")

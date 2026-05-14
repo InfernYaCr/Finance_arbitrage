@@ -77,4 +77,14 @@ export const siteConfig = {
     subject: contactFormSubject,
   },
 
+  contactPath: import.meta.env.PUBLIC_CONTACT_PATH ?? '/kontakty/',
+
+  niche: {
+    ctaQuestion:  import.meta.env.PUBLIC_NICHE_CTA_QUESTION  ?? 'Есть вопросы?',
+    ctaBtn:       import.meta.env.PUBLIC_NICHE_CTA_BTN       ?? 'Задать вопрос',
+    sidebarTitle: import.meta.env.PUBLIC_NICHE_SIDEBAR_TITLE ?? 'Нужна помощь?',
+    sidebarDesc:  import.meta.env.PUBLIC_NICHE_SIDEBAR_DESC  ?? 'Свяжитесь с нами.',
+    sidebarBtn:   import.meta.env.PUBLIC_NICHE_SIDEBAR_BTN   ?? 'Получить консультацию',
+  },
+
 } as const;
