@@ -1,0 +1,41 @@
+[
+  {
+    "id": "finance-mfo-top",
+    "label": "Займ онлайн — ТОП МФО",
+    "href": "https://example.com/mfo",
+    "rel": "sponsored nofollow",
+    "utm": {
+      "source": "finhelp-ru",
+      "medium": "article",
+      "campaign": "mfo-top-2026",
+      "content": "article-body"
+    },
+    "enabled": false
+  },
+  {
+    "id": "finance-bank-card",
+    "label": "Кредитная карта — лучшие предложения",
+    "href": "https://example.com/credit-cards",
+    "rel": "sponsored nofollow",
+    "utm": {
+      "source": "finhelp-ru",
+      "medium": "article",
+      "campaign": "credit-cards-2026",
+      "content": "article-footer"
+    },
+    "enabled": false
+  },
+  {
+    "id": "finance-deposit",
+    "label": "Вклады — сравни ставки",
+    "href": "https://example.com/deposits",
+    "rel": "sponsored nofollow",
+    "utm": {
+      "source": "finhelp-ru",
+      "medium": "article",
+      "campaign": "deposits-2026",
+      "content": "article-footer"
+    },
+    "enabled": false
+  }
+]

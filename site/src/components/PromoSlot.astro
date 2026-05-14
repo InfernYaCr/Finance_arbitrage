@@ -15,7 +15,7 @@ const slots = getPromoSlotsForPage(placement, section, path, pageType);
 
 {slots.map((slot) => (
   <aside class="promo-slot" data-slot-id={slot.id}>
-    <Fragment set:html={slot.html} />
+    <Fragment set:html={slot.resolvedHtml} />
   </aside>
 ))}
 

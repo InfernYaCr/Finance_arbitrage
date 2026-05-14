@@ -23,6 +23,7 @@ interface PromoSlot {
   placement: string;
   sections: string[];
   paths: string[];
+  /** Raw HTML to render. If empty, html is auto-generated from link_ids. */
   html: string;
   link_ids: string[];
 }
@@ -49,17 +50,40 @@ export function getAffiliateLink(id: string): (AffiliateLink & { utmHref: string
   return { ...link, utmHref: buildUtmHref(link) };
 }
 
+/** Resolve a slot's html: use provided html or auto-generate from link_ids. */
+function resolveSlotHtml(slot: PromoSlot): string {
+  if (slot.html) return slot.html;
+  if (slot.link_ids.length === 0) return '';
+  const items = slot.link_ids
+    .map((id) => {
+      const link = affiliateLinks.find((l) => l.id === id && l.enabled);
+      if (!link) return null;
+      const href = buildUtmHref(link);
+      return `<a href="${href}" rel="${link.rel}">${link.label}</a>`;
+    })
+    .filter(Boolean);
+  if (items.length === 0) return '';
+  return `<p class="promo-slot__links">${items.join(' · ')}</p>`;
+}
+
+export interface ResolvedPromoSlot extends PromoSlot {
+  resolvedHtml: string;
+}
+
 export function getPromoSlotsForPage(
   placement: string,
   section: string,
   path: string,
   _pageType: PageType,
-): PromoSlot[] {
-  return promoSlots.filter((slot) => {
-    if (!slot.enabled) return false;
-    if (slot.placement !== placement) return false;
-    if (slot.sections.length > 0 && !slot.sections.includes(section)) return false;
-    if (slot.paths.length > 0 && !slot.paths.includes(path)) return false;
-    return true;
-  });
+): ResolvedPromoSlot[] {
+  return promoSlots
+    .filter((slot) => {
+      if (!slot.enabled) return false;
+      if (slot.placement !== placement) return false;
+      if (slot.sections.length > 0 && !slot.sections.includes(section)) return false;
+      if (slot.paths.length > 0 && !slot.paths.includes(path)) return false;
+      return true;
+    })
+    .map((slot) => ({ ...slot, resolvedHtml: resolveSlotHtml(slot) }))
+    .filter((slot) => slot.resolvedHtml !== '');
 }

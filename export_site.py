@@ -114,6 +114,15 @@ def export_site(site_id: str, output_dir_override: str | None = None) -> None:
         print(f"✓ Enriched extracted metadata in {enriched_count} page(s)")
     print(f"✓ Wrote build_manifest.json (page_file → {pages_prefix}*) → {dest_manifest}")
 
+    # Copy per-site affiliate/promo configs to site/src/data/ if present
+    astro_data_dir = PROJECT_ROOT / "site" / "src" / "data"
+    for fname in ("affiliateLinks.json", "promoSlots.json"):
+        src_cfg = dest_dir / fname
+        dst_cfg = astro_data_dir / fname
+        if src_cfg.exists():
+            shutil.copy2(src_cfg, dst_cfg)
+            print(f"✓ Copied {fname} → {dst_cfg}")
+
     # Generate nav.json from manifest
     try:
         from generate_nav import generate_nav
