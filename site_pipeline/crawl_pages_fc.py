@@ -19,6 +19,7 @@ Usage:
   python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --map-only
   python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --with-llm
   python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --recrawl
+  python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --smart-actions
 
 Requires FIRECRAWL_API_KEY in environment or site/.env.
 """
@@ -49,7 +50,12 @@ if _SITE_ENV.exists():
             os.environ.setdefault(key, val)
 
 from firecrawl.v1 import V1FirecrawlApp  # noqa: E402
-from firecrawl.v1.client import V1JsonConfig, V1LocationConfig  # noqa: E402
+from firecrawl.v1.client import (  # noqa: E402
+    V1JsonConfig,
+    V1LocationConfig,
+    V1ScrollAction,
+    V1WaitAction,
+)
 
 from registry import insert_crawl_run  # noqa: E402
 
@@ -541,6 +547,64 @@ def _build_record(
 
 
 # ---------------------------------------------------------------------------
+# Smart-actions: retry thin pages
+# ---------------------------------------------------------------------------
+
+_THIN_THRESHOLD = 300  # chars; pages below this get a scroll/wait re-scrape
+
+
+def _retry_thin_pages(
+    app: V1FirecrawlApp,
+    records: dict[str, dict[str, Any]],  # path → record, mutated in-place
+    source_domain: str,
+    base_url: str,
+    recrawl: bool,
+) -> tuple[int, int]:
+    """Re-scrape pages with thin content using scroll+wait browser actions.
+
+    Mutates *records* in-place for any page that improves.
+    Returns (improved_count, tried_count).
+    """
+    thin_paths = [
+        path for path, rec in records.items()
+        if rec["quality"]["content_text_chars"] < _THIN_THRESHOLD
+    ]
+    if not thin_paths:
+        return 0, 0
+
+    improved = 0
+    for path in thin_paths:
+        old_rec = records[path]
+        old_chars = old_rec["quality"]["content_text_chars"]
+        url = old_rec["seed"]["source_url"]
+        try:
+            resp = app.scrape_url(
+                url,
+                formats=["markdown", "html", "links"],
+                only_main_content=True,
+                location=V1LocationConfig(country="RU", languages=["ru-RU"]),
+                actions=[
+                    V1WaitAction(type="wait", milliseconds=1500),
+                    V1ScrollAction(type="scroll", direction="down"),
+                    V1WaitAction(type="wait", milliseconds=800),
+                ],
+                timeout=45000,
+            )
+            new_rec = _build_record(resp, base_url, source_domain, recrawl)
+            new_chars = new_rec["quality"]["content_text_chars"]
+            if new_chars > old_chars:
+                records[path] = new_rec
+                improved += 1
+                print(f"  ✓ thin→rich {url} ({old_chars}→{new_chars} chars)")
+            else:
+                print(f"  ~ no gain   {url} ({old_chars}→{new_chars} chars)")
+        except Exception as exc:
+            print(f"  ! retry failed {url}: {exc}", file=sys.stderr)
+
+    return improved, len(thin_paths)
+
+
+# ---------------------------------------------------------------------------
 # Main crawl logic
 # ---------------------------------------------------------------------------
 
@@ -551,6 +615,7 @@ def crawl(
     recrawl: bool = False,
     map_only: bool = False,
     with_llm: bool = False,
+    smart_actions: bool = False,
 ) -> None:
     api_key = os.environ.get("FIRECRAWL_API_KEY")
     if not api_key:
@@ -618,14 +683,34 @@ def crawl(
     docs: list[Any] = batch_resp.data or []
     print(f"      Received {len(docs)} page results.")
 
-    pages_dir.mkdir(parents=True, exist_ok=True)
-    saved = 0
+    # Build all records into a path-keyed dict before writing.
+    records_by_path: dict[str, dict[str, Any]] = {}
     for doc in docs:
         try:
             record = _build_record(doc, base_url, source_domain, recrawl)
+            records_by_path[record["seed"]["path"]] = record
         except Exception as exc:
             print(f"  SKIP (parse error): {exc}", file=sys.stderr)
-            continue
+    print(f"      Built {len(records_by_path)} records.")
+
+    # Smart-actions: re-scrape pages with thin content.
+    if smart_actions and records_by_path:
+        thin_count = sum(
+            1 for r in records_by_path.values()
+            if r["quality"]["content_text_chars"] < _THIN_THRESHOLD
+        )
+        if thin_count:
+            print(f"[3b/3] Smart-actions: retrying {thin_count} thin pages (<{_THIN_THRESHOLD} chars) …")
+            improved, tried = _retry_thin_pages(
+                app, records_by_path, source_domain, base_url, recrawl
+            )
+            print(f"       {improved}/{tried} pages improved.")
+        else:
+            print(f"[3b/3] Smart-actions: no thin pages found, skipping.")
+
+    pages_dir.mkdir(parents=True, exist_ok=True)
+    saved = 0
+    for record in records_by_path.values():
         write_json(pages_dir / f"{record['id']}.json", record)
         saved += 1
 
@@ -673,6 +758,13 @@ def main() -> None:
         "--with-llm", action="store_true",
         help="Add Firecrawl json LLM extraction to formats (costs extra credits).",
     )
+    parser.add_argument(
+        "--smart-actions", action="store_true",
+        help=(
+            f"Re-scrape pages with thin content (<{_THIN_THRESHOLD} chars) using "
+            "scroll+wait browser actions to trigger lazy-loaded JS content."
+        ),
+    )
     args = parser.parse_args()
     crawl(
         source_domain=args.source_domain,
@@ -681,6 +773,7 @@ def main() -> None:
         recrawl=args.recrawl,
         map_only=args.map_only,
         with_llm=args.with_llm,
+        smart_actions=args.smart_actions,
     )
 
 
