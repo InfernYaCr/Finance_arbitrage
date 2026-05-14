@@ -5,6 +5,35 @@
 The pipeline has completed a full crawl and QA pass for the original page
 export. The Astro site is built and deployed to the first Beget test host.
 
+### 2026-05-14 update — B3.5 + B5.3 + B1.6–B1.7 (Firecrawl improvements)
+
+**B3.5 datePublished/dateModified (d878434):**
+- `crawl_pages_fc.py`: читает `publishedTime`/`modifiedTime` из Firecrawl metadata → создаёт `wp` stub
+- `extraction_rules.py`: `extract_dates()` — JSON-LD datePublished + `<time datetime>` fallback
+- `site/src/lib/seo.ts`: цепочка `wp.date → extracted.date_published` для `datePublished`/`dateModified`
+- `site/src/data/types.ts`: добавлены `date_published?`/`date_modified?` в `ExtractedData`
+
+**B5.1–B5.2 per-site affiliate (ac222c9):**
+- `sites/<id>/affiliateLinks.json` + `promoSlots.json` — per-site конфиги
+- `export_site.py`: копирует их в `site/src/data/` при экспорте
+- `site/src/lib/affiliate.ts`: `resolveSlotHtml()` + `ResolvedPromoSlot`, ссылки через `/go/<id>/`
+
+**B5.3 /go/ редиректы (0590b64):**
+- `site/src/pages/go/[offer].astro` — статические страницы с meta refresh + `window.location.replace`
+- Только для `enabled: true` ссылок (getStaticPaths фильтрует)
+
+**B1.6 --smart-actions (4a445ad):**
+- После batch scrape страницы с `content_text_chars < 300` пере-скрейпятся с `actions: [wait 1.5s → scroll → wait 0.8s]`
+- Триггерит lazy-load JS; mutates records dict in-place если результат лучше
+- `_retry_thin_pages()` в `crawl_pages_fc.py`
+
+**B1.7 --include-sections (4f6b247):**
+- `filter_urls()` принимает `include_sections: list[str] | None`
+- `--include-sections blog,uslugi,qa` — оставляет только URL с нужным первым сегментом пути
+- Экономит кредиты: пагинация, теги, корзина, юридические страницы не скрейпятся
+
+Следующий шаг: **B3.4** (Related Pages блок через `content_index.sqlite` FTS)
+
 ### 2026-05-14 update — B2.4 + B3.2–B3.3 + B4.1–B4.4 (Codex session)
 
 Три коммита Codex (0cc51f3, 5523fda, 6753044):

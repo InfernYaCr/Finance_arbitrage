@@ -35,6 +35,8 @@
 - [x] **B1.3** Тест на mosseo.ru: Firecrawl map/base/LLM, QA без ошибок, Astro build
 - [x] **B1.4** Финансовый донор `vsezaimyonline.ru`: map/base crawl, QA, finance content build
 - [x] **B1.5** Exa smoke: `discover_donors.py` + `qualify_donor.py` минимально проверены на finance
+- [x] **B1.6** `--smart-actions` флаг: retry thin pages (<300 chars) через scroll+wait browser actions
+- [x] **B1.7** `--include-sections` флаг: фильтр URL по первому сегменту пути после map
 
 > Архитектура пайплайна, схемы запросов, стоимость — `CRAWLER_ARCH.md`.
 
@@ -56,7 +58,7 @@
 - [x] **B3.2** `FAQPage` Schema.org для всех страниц с `faq_pairs`
 - [x] **B3.3** Summary-блок из `key_points[]` + `speakable` Schema (GEO-сигнал)
 - [ ] **B3.4** Related Pages блок (3–5 ссылок через `content_index.sqlite` FTS)
-- [ ] **B3.5** `datePublished` / `dateModified` из краулера на всех страницах
+- [x] **B3.5** `datePublished` / `dateModified` из краулера на всех страницах
 - [ ] **B3.6** `FinancialProduct` / `ItemList` Schema для финансовых page_type
 - [ ] **B3.7** Расширить LLM-схему: `summary`, `entities`, `data_points`, `target_query`
 
@@ -72,7 +74,7 @@
 
 - [x] **B5.1** `affiliateLinks.json` per-site в `sites/<id>/`, копируется в `site/src/data/` при экспорте
 - [x] **B5.2** PromoSlot генерирует HTML из `link_ids`+UTM через `resolveSlotHtml()` если `html` пустой
-- [ ] **B5.3** `/go/{offer}/` — `.htaccess` redirect-обёртка
+- [x] **B5.3** `/go/{offer}/` — статические Astro-страницы с meta refresh + JS redirect
 - [ ] **B5.4** Цели Метрики на outbound `/go/` клики и форму
 - [ ] **B5.5** Форма: уведомления отложены до готовности дизайна сайта. Варианты: Telegram Bot API / Formspree / n8n webhook.
 - [ ] **B5.6** Keitaro на VPS — только при стабильном трафике
@@ -98,18 +100,18 @@
 ## Порядок реализации
 
 ```
-B0 ✅  B1 ✅  B2.0–B2.4 ✅  B3.1–B3.3 ✅  B4.1–B4.2–B4.4 ✅
+B0 ✅  B1 ✅ (+ B1.6–B1.7 smart-actions/include-sections)
+B2.0–B2.4 ✅  B3.1–B3.3 ✅  B3.5 ✅  B4.1–B4.2–B4.4 ✅
+B5.1–B5.3 ✅
            ↓
      B3.4 (Related Pages блок, FTS)              ← следующий шаг
-     B3.5 (datePublished/dateModified)
+     B3.6 (FinancialProduct / ItemList Schema)
      B4.3 (gamma.css — информационная)
            ↓
+     B3.7 (расширить LLM-схему: summary, entities)
      B4.5 (style_extractor.py — donor → tokens)
-     B3.6–B3.7 (FinancialProduct + LLM-схема)
            ↓
-     B5.1–B5.4 (link config + PromoSlot + монетизация)
-     B5.5 (форма-уведомления — после готовности дизайна)
-           ↓
+     B5.4–B5.5 (цели Метрики + форма-уведомления)
      B6.1–B6.4 (полная автоматизация пайплайна)
      B7.1–B7.4 (мониторинг)
            ↓
@@ -121,11 +123,11 @@ B0 ✅  B1 ✅  B2.0–B2.4 ✅  B3.1–B3.3 ✅  B4.1–B4.2–B4.4 ✅
 ## Текущее состояние (2026-05-14)
 
 - Трек A: завершён ✅
-- B0 + B1 (1.1–1.5): завершён ✅
+- B0 + B1 (1.1–1.7): crawler с LLM, smart-actions, include-sections — готово ✅
 - B2.0–B2.4: multi-site инфра полностью готова ✅
-- B3.1–B3.3: динамическая навигация, FAQPage Schema, Summary+speakable — готово ✅
-- B4.1–B4.2–B4.4: темы alpha/beta, переключение через `theme` в site.config.json — готово ✅
+- B3.1–B3.3 + B3.5: навигация, FAQPage, Summary+speakable, даты — готово ✅
+- B4.1–B4.2–B4.4: темы alpha/beta, переключение через `theme` — готово ✅
+- B5.1–B5.3: per-site affiliate, resolveSlotHtml, /go/ редиректы — готово ✅
 - `finhelp-ru` использует тему beta (teal), nav и FAQ Schema работают
 - Деплой `yourkedm.beget.tech`: работает, форма отправляет (уведомления B5.5 отложены)
-- B5.1–B5.2: per-site affiliate config + resolveSlotHtml — готово ✅
-- **Следующий шаг: B3.5** (datePublished/dateModified из краулера) или **B5.3** (`/go/` редиректы)
+- **Следующий шаг: B3.4** (Related Pages блок через FTS)
