@@ -47,7 +47,7 @@ def page_record(page: dict[str, Any], qa_page: dict[str, Any] | None, page_path:
     }
 
 
-def build_indexes(output_dir: Path) -> dict[str, Any]:
+def build_indexes(output_dir: Path, min_chars: int = 0) -> dict[str, Any]:
     pages_dir = output_dir / "pages"
     qa_report_path = output_dir / "qa_report.json"
     qa_report = load_json(qa_report_path) if qa_report_path.exists() else {"pages": []}
@@ -69,15 +69,19 @@ def build_indexes(output_dir: Path) -> dict[str, Any]:
                     "reason": "external_redirect",
                 }
             )
+        thin = min_chars > 0 and record["text_chars"] < min_chars and not record["excluded"]
+        if thin:
+            record = {**record, "excluded": True}
         if record["excluded"]:
             excluded_pages.append(
                 {
                     "id": record["id"],
                     "url": record["url"],
                     "final_url": record["final_url"],
-                    "reason": ",".join(record["issue_codes"]) or record["content_source"],
+                    "reason": "thin_content" if thin else (",".join(record["issue_codes"]) or record["content_source"]),
                 }
             )
+        records[-1] = record  # update last appended record with possible thin exclusion
 
     build_manifest = [
         {
@@ -88,6 +92,7 @@ def build_indexes(output_dir: Path) -> dict[str, Any]:
             "title": record["title"],
             "description": record["description"],
             "h1": record["h1"],
+            "text_chars": record["text_chars"],
             "severity": record["severity"],
             "issue_codes": record["issue_codes"],
             "page_file": record["page_file"],
@@ -189,9 +194,16 @@ def write_sqlite(path: Path, rows: list[dict[str, Any]]) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Build compact indexes for generated page JSON files.")
     parser.add_argument("--out", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--min-chars",
+        type=int,
+        default=0,
+        metavar="N",
+        help="Exclude pages with fewer than N content text chars from build_manifest (default: 0 = no filter)",
+    )
     args = parser.parse_args()
 
-    indexes = build_indexes(args.out)
+    indexes = build_indexes(args.out, min_chars=args.min_chars)
     write_json(args.out / "build_manifest.json", indexes["build_manifest"])
     write_json(args.out / "redirects.json", indexes["redirects"])
     write_json(args.out / "excluded_pages.json", indexes["excluded_pages"])

@@ -92,6 +92,7 @@ _SKIP_PATTERNS = re.compile(
     r"|/login(?:/|$)"      # auth pages
     r"|/feed/"             # RSS feeds
     r"|/wp-|/admin"        # WordPress internals
+    r"|/amp(?:/|$)|\.html/amp"  # AMP duplicates
     r")"
 )
 

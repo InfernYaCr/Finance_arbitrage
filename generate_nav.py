@@ -44,6 +44,7 @@ SECTION_LABELS: dict[str, str] = {
 MAX_NAV_ITEMS = 6       # top-level items (excluding home and contacts)
 MAX_DROPDOWN_ITEMS = 8  # items per dropdown column
 MIN_SECTION_PAGES = 2   # skip one-off section slugs from top nav
+MIN_TEXT_CHARS = 500    # exclude thin pages (stub/listing placeholders) from nav dropdowns
 
 
 def _short_title(title: str, max_words: int = 3) -> str:
@@ -127,10 +128,11 @@ def generate_nav(site_id: str) -> list[dict]:
             else:
                 label = _slug_label(section)
 
-        # Immediate children: depth == 2 for top-level sections
+        # Immediate children: depth == 2 for top-level sections; skip thin pages
         children = [
             p for p in pages
             if len([x for x in p["path"].strip("/").split("/") if x]) == 2
+            and p.get("text_chars", MIN_TEXT_CHARS) >= MIN_TEXT_CHARS
         ]
         children.sort(key=lambda p: p["path"])
 
