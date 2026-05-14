@@ -37,3 +37,8 @@ sites/*/content_index.*
 # Local browser/test artifacts
 .playwright-mcp/
 builds/
+
+# QA screenshots (Codex/agent work artifacts)
+*.png
+*.jpg
+*.jpeg

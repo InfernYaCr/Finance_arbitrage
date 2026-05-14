@@ -5,6 +5,66 @@
 The pipeline has completed a full crawl and QA pass for the original page
 export. The Astro site is built and deployed to the first Beget test host.
 
+### 2026-05-14 update — B2.4 + B3.2–B3.3 + B4.1–B4.4 (Codex session)
+
+Три коммита Codex (0cc51f3, 5523fda, 6753044):
+
+**Темы (B4.1, B4.2, B4.4):**
+- `site/src/styles/themes/alpha.css` — токены текущей темы (синяя акцентная)
+- `site/src/styles/themes/beta.css` — финансовая тема (teal `:root[data-theme='beta']`, Inter)
+- `BaseLayout.astro`: `<html data-theme={PUBLIC_THEME}>`, дефолт `alpha`
+- `gen-env.sh`: читает `site.config.json#theme` → `PUBLIC_THEME`
+- `sites/finhelp-ru/site.config.json`: `"theme": "beta"`
+
+**FAQPage Schema + Summary (B3.2, B3.3):**
+- `schema.ts`: FAQPage JSON-LD из `faq_pairs`, поддержка форматов `question/answer` и `q/a`
+- `schema.ts`: `SpeakableSpecification` с `cssSelector: ['.article-summary']` если есть `key_points ≥ 2`
+- `ArticleLayout.astro`: блок `.article-summary` из `key_points[]` перед основным контентом
+- `ServiceLayout.astro`: аналогичный summary-блок
+
+**Hardening (B2.4):**
+- `build-all.sh`: `--dry-run` флаг, preview health-check, bash 3 safe
+
+**Backfill metadata:**
+- `site_pipeline/extraction_rules.py`: правила нормализации extracted-полей (faq_pairs, key_points и др.)
+- `export_site.py` + `crawl_pages_fc.py`: backfill при экспорте
+
+QA после коммитов: `./build-all.sh finhelp-ru` — 30 pages OK, `npm run check` — 0 errors.
+
+### 2026-05-13 update — B2.3 + B3.1 universal renderer
+
+**B2.3 `build-all.sh`** — complete:
+- Iterates over all `sites/` (or single `--site-id`), runs `gen-env.sh` → `export_site.py` → `npm run build` → `mv` to `builds/<id>/`
+- `--preview` flag: kills existing server on :4321, starts fresh `npx serve builds/<LAST_BUILT>` (no `-s` SPA mode)
+- `NODE_OPTIONS=--max-old-space-size=8192` set for 1000+ page builds
+- Output dir: `builds/` (repo root), not `site/dist/`, to avoid mv-into-self error
+- Bash 3.x safe: no negative array indexing, uses `LAST_BUILT` variable
+
+**B3.1 universal HomeLayout + Header + siteConfig** — complete:
+- `HomeLayout.astro`: removed all SEO-niche-specific blocks (stats bar, howWeWork steps, USP cards). Nav-grid, services, cases, FAQ blocks now 100% driven by `navItems` from `loadNav.ts`
+- `siteConfig.ts`: removed hardcoded `nav` array; `siteDescription` now reads `PUBLIC_SITE_DESCRIPTION` env
+- `Header.astro`: phone/email links wrapped in guards (hidden when empty); "перезвоните мне" href reads `PUBLIC_CONTACT_PATH` env
+- `generate_nav.py`: added `_strip_brand()` + `CONTACT_LABELS` — donor brand aliases stripped from nav labels; known contact slugs get fixed Russian labels
+- `sites/finhelp-ru/nav.json` regenerated: clean labels, no donor brand fragments
+
+Build flow (2026-05-13):
+```bash
+# Single site
+./build-all.sh finhelp-ru
+
+# All sites with local preview
+./build-all.sh --preview
+
+# Or manually
+python export_site.py --site-id rostpoisk   # or finhelp-ru
+./gen-env.sh rostpoisk                      # generates site/.env
+cd site && npm run build                    # 8GB heap, ~33min for 1013 pages; ~1min for 30 pages
+```
+
+Current best next steps:
+- **B3.2** FAQPage Schema.org (max SEO impact, ~30 lines in schema.ts)
+- **B5.5** Form notifications via Telegram Bot API (practical deploy blocker)
+
 ### 2026-05-13 update — B2.2 (export_site.py)
 
 `export_site.py` is complete and verified:
@@ -14,15 +74,6 @@ export. The Astro site is built and deployed to the first Beget test host.
 - Manifest `page_file` entries are rewritten to `sites/<id>/pages/<file>.json` so each site is self-contained.
 - `site/astro.config.mjs` — added `vite.server.watch.ignored` to exclude `sites/*/pages/` from dev-server watch.
 - `site/package.json` — build scripts now set `NODE_OPTIONS='--max-old-space-size=8192'` (required for 1000+ page builds; 30-page finance build works without it).
-
-Build flow (2026-05-13):
-```bash
-python export_site.py --site-id rostpoisk   # or finhelp-ru
-./gen-env.sh rostpoisk                      # generates site/.env
-cd site && npm run build                    # 8GB heap, ~33min for 1013 pages; ~1min for 30 pages
-```
-
-Current best next step: B2.3 `build-all.sh` — iterates over `sites/`, runs export+build for each.
 
 ### 2026-05-13 update — B2.0 + B2.1 (multi-site infrastructure)
 

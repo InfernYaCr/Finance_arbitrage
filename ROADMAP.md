@@ -43,8 +43,8 @@
 - [x] **B2.0** `sites/<id>/site.config.json` + `gen-env.sh` + `preview.sh` — переключение сайтов
 - [x] **B2.1** SQLite registry (`registry.py` + `registry_cli.py`) — доноры, краул-раны, сайты
 - [x] **B2.2** `export_site.py --site-id` — изолированный экспорт контента по SITE_ID
-- [ ] **B2.3** `build-all.sh` — итерируется по `sites/`, собирает и деплоит каждый
-- [ ] **B2.4** `--dry-run` флаг для build-all.sh
+- [x] **B2.3** `build-all.sh` — итерируется по `sites/`, собирает и деплоит каждый; `--preview` запускает локальный сервер на :4321
+- [x] **B2.4** `--dry-run` флаг для build-all.sh
 
 > Детали миграции — `MIGRATION_PLAN.md`. Архитектура registry — `NEW_PIPELINE_ARCH.md`.
 
@@ -53,8 +53,8 @@
 > Полный research — `PAGE_GENERATION_RESEARCH.md`.
 
 - [x] **B3.1** Динамическая навигация: `generate_nav.py` + `loadNav.ts` (убрать хардкод `nav.ts`)
-- [ ] **B3.2** `FAQPage` Schema.org для всех страниц с `faq_pairs` (макс эффект, мин усилий)
-- [ ] **B3.3** Summary-блок из `key_points[]` + `speakable` Schema (GEO-сигнал)
+- [x] **B3.2** `FAQPage` Schema.org для всех страниц с `faq_pairs`
+- [x] **B3.3** Summary-блок из `key_points[]` + `speakable` Schema (GEO-сигнал)
 - [ ] **B3.4** Related Pages блок (3–5 ссылок через `content_index.sqlite` FTS)
 - [ ] **B3.5** `datePublished` / `dateModified` из краулера на всех страницах
 - [ ] **B3.6** `FinancialProduct` / `ItemList` Schema для финансовых page_type
@@ -62,10 +62,10 @@
 
 ### B4 · Вариативность тем (footprint)
 
-- [ ] **B4.1** Вынести CSS-токены в `site/src/styles/themes/alpha.css` (текущая тема)
-- [ ] **B4.2** Тема Beta — другие цвета, шрифт, border-radius (финансовая ниша)
+- [x] **B4.1** Вынести CSS-токены в `site/src/styles/themes/alpha.css` (текущая тема)
+- [x] **B4.2** Тема Beta — финансовая ниша (teal-акцент, Inter, finhelp-ru)
 - [ ] **B4.3** Тема Gamma — информационная (нейтральный, широкий)
-- [ ] **B4.4** `theme` в `site.config.json` — выбор темы при сборке
+- [x] **B4.4** `theme` в `site.config.json` → `PUBLIC_THEME` → `data-theme` на `<html>`
 - [ ] **B4.5** `style_extractor.py` — donor_style_profile из CSS донора → theme tokens
 
 ### B5 · Link config (исходящие ссылки / монетизация)
@@ -74,7 +74,7 @@
 - [ ] **B5.2** PromoSlot читает из `links.json`, не из хардкода
 - [ ] **B5.3** `/go/{offer}/` — `.htaccess` redirect-обёртка
 - [ ] **B5.4** Цели Метрики на outbound `/go/` клики и форму
-- [~] **B5.5** Форма: отправка работает, уведомления pending. Варианты: Telegram Bot API / Formspree / n8n webhook.
+- [ ] **B5.5** Форма: уведомления отложены до готовности дизайна сайта. Варианты: Telegram Bot API / Formspree / n8n webhook.
 - [ ] **B5.6** Keitaro на VPS — только при стабильном трафике
 
 > Стратегия монетизации — `ARBITRAGE.md`.
@@ -98,22 +98,19 @@
 ## Порядок реализации
 
 ```
-B0 ✅  B1 ✅  B2.0 ✅
+B0 ✅  B1 ✅  B2.0–B2.4 ✅  B3.1–B3.3 ✅  B4.1–B4.2–B4.4 ✅
            ↓
-     B2.1 (SQLite registry)        ← следующий шаг
-     B2.2 (export_site.py)
-     B2.3 (build-all.sh)
+     B3.4 (Related Pages блок, FTS)              ← следующий шаг
+     B3.5 (datePublished/dateModified)
+     B4.3 (gamma.css — информационная)
            ↓
-     B3.1 (динамическая навигация)
-     B3.2–B3.5 (SEO/GEO schemas)
-     B3.6–B3.7 (финансовые типы + LLM-схема)
-       параллельно:
-       B5.5 (форма-уведомления Telegram)
+     B4.5 (style_extractor.py — donor → tokens)
+     B3.6–B3.7 (FinancialProduct + LLM-схема)
            ↓
-     B4.1–B4.5 (темы + donor_style_profile)
-     B5.1–B5.4 (link config + монетизация)
+     B5.1–B5.4 (link config + PromoSlot + монетизация)
+     B5.5 (форма-уведомления — после готовности дизайна)
            ↓
-     B6.1–B6.4 (полная автоматизация)
+     B6.1–B6.4 (полная автоматизация пайплайна)
      B7.1–B7.4 (мониторинг)
            ↓
      B5.6 (Keitaro — при стабильном трафике)
@@ -121,10 +118,13 @@ B0 ✅  B1 ✅  B2.0 ✅
 
 ---
 
-## Текущее состояние (2026-05-13)
+## Текущее состояние (2026-05-14)
 
 - Трек A: завершён ✅
 - B0 + B1 (1.1–1.5): завершён ✅
-- B2.0: `sites/`, `gen-env.sh`, `preview.sh` — готово ✅
-- Деплой `yourkedm.beget.tech`: работает, форма отправляет (уведомления pending B5.5)
-- **Следующий шаг: B2.1** — SQLite registry (`registry.py` + `registry_cli.py`)
+- B2.0–B2.4: multi-site инфра полностью готова ✅
+- B3.1–B3.3: динамическая навигация, FAQPage Schema, Summary+speakable — готово ✅
+- B4.1–B4.2–B4.4: темы alpha/beta, переключение через `theme` в site.config.json — готово ✅
+- `finhelp-ru` использует тему beta (teal), nav и FAQ Schema работают
+- Деплой `yourkedm.beget.tech`: работает, форма отправляет (уведомления B5.5 отложены)
+- **Следующий шаг: B3.4** (Related Pages через FTS) или **B3.5** (datePublished/dateModified)
