@@ -70,8 +70,8 @@
 
 ### B5 · Link config (исходящие ссылки / монетизация)
 
-- [ ] **B5.1** `links.json` — таблица: `site_id → money_url → анкор → страницы → rel`
-- [ ] **B5.2** PromoSlot читает из `links.json`, не из хардкода
+- [x] **B5.1** `affiliateLinks.json` per-site в `sites/<id>/`, копируется в `site/src/data/` при экспорте
+- [x] **B5.2** PromoSlot генерирует HTML из `link_ids`+UTM через `resolveSlotHtml()` если `html` пустой
 - [ ] **B5.3** `/go/{offer}/` — `.htaccess` redirect-обёртка
 - [ ] **B5.4** Цели Метрики на outbound `/go/` клики и форму
 - [ ] **B5.5** Форма: уведомления отложены до готовности дизайна сайта. Варианты: Telegram Bot API / Formspree / n8n webhook.
@@ -127,4 +127,5 @@ B0 ✅  B1 ✅  B2.0–B2.4 ✅  B3.1–B3.3 ✅  B4.1–B4.2–B4.4 ✅
 - B4.1–B4.2–B4.4: темы alpha/beta, переключение через `theme` в site.config.json — готово ✅
 - `finhelp-ru` использует тему beta (teal), nav и FAQ Schema работают
 - Деплой `yourkedm.beget.tech`: работает, форма отправляет (уведомления B5.5 отложены)
-- **Следующий шаг: B3.4** (Related Pages через FTS) или **B3.5** (datePublished/dateModified)
+- B5.1–B5.2: per-site affiliate config + resolveSlotHtml — готово ✅
+- **Следующий шаг: B3.5** (datePublished/dateModified из краулера) или **B5.3** (`/go/` редиректы)
