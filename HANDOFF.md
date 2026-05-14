@@ -5,6 +5,22 @@
 The pipeline has completed a full crawl and QA pass for the original page
 export. The Astro site is built and deployed to the first Beget test host.
 
+### 2026-05-14 update — SITE_BUILD_PLAN + ветка codex/pbn-factory
+
+**SITE_BUILD_PLAN.md** (711b16e → 6946c37) — архитектурный план PBN-фабрики:
+- 9 фаз F1–F9: platform cleanup → niche profiles → create_site.py → LLM-rewrite → related → templates → tags → schema → footprint
+- PBN-метрики: time-to-live < 30 мин, 0 ручных шагов, < $5/сайт, 80%+ уникальность
+- `vsezaimyonline` тест-краул 100 страниц: QA ок, Astro build ок
+
+**sites/vsezaimyonline/** — новый тест-сайт (финансовая ниша):
+- `site.config.json`: brand "ЗаймыОнлайн", theme "beta", donor vsezaimyonline-ru
+- `affiliateLinks.json` / `promoSlots.json`: пустые заглушки
+
+**Текущая ветка**: `codex/pbn-factory`
+**Следующий шаг**: F1 (platform cleanup) → F2 (niche profiles) → F5 (Related Pages) → F3 (create_site.py)
+
+---
+
 ### 2026-05-14 update — B3.5 + B5.3 + B1.6–B1.7 (Firecrawl improvements)
 
 **B3.5 datePublished/dateModified (d878434):**
