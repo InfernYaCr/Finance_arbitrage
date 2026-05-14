@@ -192,6 +192,73 @@ function stripEmbeddedH1(html: string): string {
   return html.replace(/<h1\b[^>]*>[\s\S]*?<\/h1>/gi, '').trim();
 }
 
+// Strip div blocks whose class attribute contains any of the given class names.
+// Handles arbitrary nesting by tracking <div> depth.
+function stripDivsByClass(html: string, ...classNames: string[]): string {
+  const patterns = classNames.map(
+    (c) => new RegExp(`(?:^|\\s)${c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:\\s|$)`),
+  );
+
+  const parts: string[] = [];
+  let i = 0;
+  let lastSafe = 0;
+  const len = html.length;
+
+  while (i < len) {
+    const divPos = html.indexOf('<div', i);
+    if (divPos === -1) break;
+
+    const tagEnd = html.indexOf('>', divPos);
+    if (tagEnd === -1) break;
+
+    const fullTag = html.slice(divPos, tagEnd + 1);
+    if (!/^<div\b/i.test(fullTag)) { i = divPos + 1; continue; }
+
+    const classMatch = fullTag.match(/\bclass="([^"]*)"/i);
+    if (classMatch && patterns.some((p) => p.test(classMatch[1]))) {
+      parts.push(html.slice(lastSafe, divPos));
+      i = tagEnd + 1;
+      let depth = 1;
+      while (i < len && depth > 0) {
+        const nd = html.indexOf('<div', i);
+        const nc = html.indexOf('</div>', i);
+        if (nc === -1) { i = len; break; }
+        if (nd !== -1 && nd < nc) {
+          const nte = html.indexOf('>', nd);
+          if (nte !== -1 && /^<div\b/i.test(html.slice(nd, nte + 1))) {
+            depth++;
+            i = nte + 1;
+          } else {
+            i = nd + 1;
+          }
+        } else {
+          depth--;
+          i = nc + 6; // '</div>'.length
+        }
+      }
+      lastSafe = i;
+    } else {
+      i = divPos + 1;
+    }
+  }
+
+  parts.push(html.slice(lastSafe));
+  return parts.join('');
+}
+
+// Remove donor-specific noise that appears in crawled content_html.
+function stripDonorNoise(html: string): string {
+  return stripDivsByClass(
+    html,
+    'authors-wrap',         // donor author profiles with real emails/photos
+    'rat_block_item',       // product rating cards in listing pages
+    'product_review-block', // product review containers
+    'button_show',          // JS "show more" toggle
+    'button_hide',          // JS "hide" toggle
+    'related',              // donor "related articles" widget (we render our own RelatedPages)
+  );
+}
+
 let _manifest: ManifestPage[] | null = null;
 let _allPages: FullPage[] | null = null;
 
@@ -205,6 +272,7 @@ export function loadManifest(): ManifestPage[] {
 export function loadPageData(relativePageFile: string): PageData {
   const abs = resolve(PROJECT_ROOT, relativePageFile);
   const data = JSON.parse(readFileSync(abs, 'utf-8')) as PageData;
+  if (data.content_html) data.content_html = stripDonorNoise(data.content_html);
   // Rewrite donor links to root-relative paths so they work on any host
   if (data.content_html) data.content_html = rewriteInternalLinks(data.content_html);
   if (data.excerpt_html) data.excerpt_html = rewriteInternalLinks(data.excerpt_html);
