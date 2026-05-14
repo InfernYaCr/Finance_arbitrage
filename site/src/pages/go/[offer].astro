@@ -1,0 +1,30 @@
+---
+import { getAffiliateLink, buildUtmHref } from '../../lib/affiliate';
+import affiliateLinksRaw from '../../data/affiliateLinks.json';
+
+export function getStaticPaths() {
+  return (affiliateLinksRaw as { id: string; enabled: boolean }[])
+    .filter((l) => l.enabled)
+    .map((l) => ({ params: { offer: l.id } }));
+}
+
+const { offer } = Astro.params;
+const link = getAffiliateLink(offer);
+const destination = link ? buildUtmHref(link) : '/';
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+    <link rel="canonical" href={destination} />
+    <title>Переход…</title>
+  </head>
+  <body>
+    <p>Переход к партнёру… <a href={destination}>Нажмите здесь</a>, если не перенаправило.</p>
+    <script define:vars={{ destination }}>
+      window.location.replace(destination);
+    </script>
+  </body>
+</html>

@@ -58,7 +58,8 @@ function resolveSlotHtml(slot: PromoSlot): string {
     .map((id) => {
       const link = affiliateLinks.find((l) => l.id === id && l.enabled);
       if (!link) return null;
-      const href = buildUtmHref(link);
+      // Route through /go/<id>/ so Metrika can track clicks as a goal
+      const href = `/go/${id}/`;
       return `<a href="${href}" rel="${link.rel}">${link.label}</a>`;
     })
     .filter(Boolean);
