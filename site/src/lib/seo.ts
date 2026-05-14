@@ -37,8 +37,13 @@ export function deriveSeoFields(page: FullPage, pageType: PageType): SeoFields {
 
   const isArticle = ['article', 'faq', 'portfolio_case', 'service', 'dictionary_article', 'company'].includes(pageType);
 
-  const datePublished = wp?.date ? wp.date.split('T')[0] : undefined;
-  const dateModified = wp?.modified ? wp.modified.split('T')[0] : undefined;
+  const extracted = page.data.extracted;
+  const datePublished = wp?.date
+    ? wp.date.split('T')[0]
+    : (extracted?.date_published || undefined);
+  const dateModified = wp?.modified
+    ? wp.modified.split('T')[0]
+    : (extracted?.date_modified || extracted?.date_published || undefined);
 
   const breadcrumbs = page.path === '/'
     ? [{ label: 'Главная', path: '/' }]

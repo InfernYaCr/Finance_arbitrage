@@ -59,6 +59,8 @@ export interface ExtractedData {
   case_results?: unknown[];
   key_points?: string[];
   cta_text?: string;
+  date_published?: string;
+  date_modified?: string;
 }
 
 export interface PageData {

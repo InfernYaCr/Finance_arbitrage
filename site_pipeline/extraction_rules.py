@@ -137,6 +137,31 @@ def derive_key_points(content_html: str, content_text: str, limit: int = 5) -> l
     return []
 
 
+def extract_dates(content_html: str) -> tuple[str, str]:
+    """Extract (date_published, date_modified) from HTML. Returns ('', '') if not found."""
+    import re
+    if not content_html:
+        return "", ""
+    # JSON-LD datePublished / dateModified
+    ld_match = re.search(
+        r'"datePublished"\s*:\s*"([0-9T:+\-Z]{8,})"', content_html
+    )
+    ld_mod = re.search(
+        r'"dateModified"\s*:\s*"([0-9T:+\-Z]{8,})"', content_html
+    )
+    if ld_match:
+        pub = ld_match.group(1)[:10]
+        mod = ld_mod.group(1)[:10] if ld_mod else pub
+        return pub, mod
+    # <time datetime="YYYY-MM-DD...">
+    soup = BeautifulSoup(content_html, "html.parser")
+    times = soup.find_all("time", datetime=True)
+    dates = sorted({t["datetime"][:10] for t in times if len(t.get("datetime", "")) >= 10})
+    if dates:
+        return dates[0], dates[-1]
+    return "", ""
+
+
 def enrich_extracted(page: dict[str, Any]) -> dict[str, Any]:
     """Backfill extracted metadata without changing canonical page content."""
     seed = page.get("seed") or {}
@@ -152,6 +177,11 @@ def enrich_extracted(page: dict[str, Any]) -> dict[str, Any]:
     if not page_type or page_type == "other":
         page_type = infer_page_type(path, title)
 
+    date_pub = current.get("date_published") or ""
+    date_mod = current.get("date_modified") or ""
+    if not date_pub:
+        date_pub, date_mod = extract_dates(content_html)
+
     page["extracted"] = {
         **current,
         "page_type": page_type,
@@ -161,6 +191,8 @@ def enrich_extracted(page: dict[str, Any]) -> dict[str, Any]:
         "case_results": current.get("case_results") or [],
         "key_points": key_points,
         "cta_text": current.get("cta_text") or "",
+        "date_published": date_pub,
+        "date_modified": date_mod or date_pub,
     }
     return page
 

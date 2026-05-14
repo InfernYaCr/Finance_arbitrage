@@ -439,6 +439,8 @@ def _build_record(
     og_description: str = _get(meta, "ogDescription") or description
     canonical: str = _get(meta, "ogUrl") or source_url
     status_code: int = int(_get(meta, "statusCode") or 200)
+    published_time: str = _get(meta, "publishedTime") or _get(meta, "article:published_time") or ""
+    modified_time: str = _get(meta, "modifiedTime") or _get(meta, "article:modified_time") or ""
 
     md: str = _get(doc, "markdown") or ""
     html: str = _get(doc, "html") or ""
@@ -510,7 +512,11 @@ def _build_record(
             "robots": robots,
             "og_image": og_image,
         },
-        "wp": None,
+        "wp": {
+            "id": 0, "type": "page", "slug": path.strip("/").replace("/", "-"),
+            "date": published_time, "modified": modified_time or published_time,
+            "link": source_url, "featured_media": 0, "categories": [], "tags": [],
+        } if published_time else None,
         "wp_title": "",
         "excerpt_html": "",
         "excerpt_text": "",
