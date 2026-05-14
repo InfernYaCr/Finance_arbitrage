@@ -186,6 +186,24 @@ def write_sqlite(path: Path, rows: list[dict[str, Any]]) -> None:
         connection.execute("CREATE INDEX pages_path_idx ON pages(path)")
         connection.execute("CREATE INDEX pages_severity_idx ON pages(severity)")
         connection.execute("CREATE INDEX issues_code_idx ON issues(issue_code)")
+        # FTS5 index for related-pages similarity search
+        connection.execute(
+            """
+            CREATE VIRTUAL TABLE pages_fts USING fts5(
+                id UNINDEXED,
+                path UNINDEXED,
+                title,
+                h1,
+                description,
+                content='pages',
+                content_rowid='rowid'
+            )
+            """
+        )
+        connection.execute(
+            "INSERT INTO pages_fts(id, path, title, h1, description) "
+            "SELECT id, path, title, h1, description FROM pages WHERE excluded=0"
+        )
         connection.commit()
     finally:
         connection.close()

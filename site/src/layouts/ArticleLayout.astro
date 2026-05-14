@@ -2,7 +2,8 @@
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PromoSlot from '../components/PromoSlot.astro';
-import { getImmediateChildPages } from '../data/loadPages';
+import RelatedPages from '../components/RelatedPages.astro';
+import { getImmediateChildPages, getRelatedPages } from '../data/loadPages';
 
 import type { FullPage, SeoFields, PageType } from '../data/types';
 
@@ -24,6 +25,7 @@ const siblings = parentPath.length > 1
 const hasSidebar = siblings.length >= 3;
 const childPages = getImmediateChildPages(page.path);
 const keyPoints = data.extracted?.key_points?.filter((point) => point.trim()) ?? [];
+const relatedLinks = getRelatedPages(page.id);
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
@@ -77,6 +79,8 @@ const keyPoints = data.extracted?.key_points?.filter((point) => point.trim()) ??
         )}
 
         <PromoSlot placement="article_footer" section={page.section} path={page.path} pageType={pageType} />
+
+        {relatedLinks.length > 0 && <RelatedPages links={relatedLinks} />}
 
         <div class="article-page__cta">
           <p class="article-page__cta-text">Остались вопросы по SEO-продвижению?</p>

@@ -375,3 +375,27 @@ export function getImmediateChildPages(parentPath: string): FullPage[] {
   const parentDepth = pathDepth(parentPath);
   return getDescendantPages(parentPath).filter((candidate) => pathDepth(candidate.path) === parentDepth + 1);
 }
+
+export interface RelatedPageLink {
+  path: string;
+  title: string;
+  h1: string;
+}
+
+let _relatedPages: Record<string, RelatedPageLink[]> | null = null;
+
+function loadRelatedPagesMap(): Record<string, RelatedPageLink[]> {
+  if (_relatedPages) return _relatedPages;
+  const relatedPath = resolve(DATA_ROOT, 'related_pages.json');
+  try {
+    const raw = readFileSync(relatedPath, 'utf-8');
+    _relatedPages = JSON.parse(raw) as Record<string, RelatedPageLink[]>;
+  } catch {
+    _relatedPages = {};
+  }
+  return _relatedPages;
+}
+
+export function getRelatedPages(pageId: string): RelatedPageLink[] {
+  return loadRelatedPagesMap()[pageId] ?? [];
+}

@@ -123,6 +123,12 @@ def export_site(site_id: str, output_dir_override: str | None = None) -> None:
             shutil.copy2(src_cfg, dst_cfg)
             print(f"✓ Copied {fname} → {dst_cfg}")
 
+    # Copy content_index.sqlite for FTS-based features (related pages, etc.)
+    src_sqlite = source_dir / "content_index.sqlite"
+    if src_sqlite.exists():
+        shutil.copy2(src_sqlite, dest_dir / "content_index.sqlite")
+        print(f"✓ Copied content_index.sqlite → {dest_dir / 'content_index.sqlite'}")
+
     # Generate nav.json from manifest
     try:
         from generate_nav import generate_nav
@@ -135,6 +141,20 @@ def export_site(site_id: str, output_dir_override: str | None = None) -> None:
         print(f"✓ Generated nav.json ({len(nav)} items) → {nav_path}")
     except Exception as exc:
         print(f"  nav.json generation skipped: {exc}", file=sys.stderr)
+
+    # Generate related_pages.json via FTS5
+    try:
+        from generate_related import generate_related
+        related = generate_related(site_id, top_k=5, min_chars=500)
+        related_path = dest_dir / "related_pages.json"
+        related_path.write_text(
+            json.dumps(related, ensure_ascii=False, separators=(",", ":")) + "\n",
+            encoding="utf-8",
+        )
+        total_with_related = sum(1 for v in related.values() if v)
+        print(f"✓ Generated related_pages.json ({total_with_related}/{len(related)} pages with links) → {related_path}")
+    except Exception as exc:
+        print(f"  related_pages.json generation skipped: {exc}", file=sys.stderr)
 
     # Update content_dir in site.config.json to point to sites/<id>/
     relative_content_dir = f"../sites/{site_id}"
