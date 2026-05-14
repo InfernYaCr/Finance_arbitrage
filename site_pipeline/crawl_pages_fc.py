@@ -20,6 +20,7 @@ Usage:
   python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --with-llm
   python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --recrawl
   python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --smart-actions
+  python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --include-sections blog,uslugi,qa
 
 Requires FIRECRAWL_API_KEY in environment or site/.env.
 """
@@ -137,8 +138,25 @@ DROP_SELECTORS = [
 ]
 
 
-def filter_urls(urls: list[str], source_domain: str, limit: int) -> list[str]:
-    """Keep only useful content URLs from this domain, deduplicated."""
+def filter_urls(
+    urls: list[str],
+    source_domain: str,
+    limit: int,
+    include_sections: list[str] | None = None,
+) -> list[str]:
+    """Keep only useful content URLs from this domain, deduplicated.
+
+    If *include_sections* is given (e.g. ['blog', 'uslugi', 'qa']),
+    only URLs whose first path segment matches one of those values are kept.
+    The root URL '/' is always kept regardless of include_sections.
+    """
+    section_re = (
+        re.compile(
+            r"^/(?:" + "|".join(re.escape(s) for s in include_sections) + r")(?:/|$)"
+        )
+        if include_sections
+        else None
+    )
     seen: set[str] = set()
     result: list[str] = []
     for raw in urls:
@@ -150,6 +168,8 @@ def filter_urls(urls: list[str], source_domain: str, limit: int) -> list[str]:
         if ext in _SKIP_EXTENSIONS:
             continue
         if _SKIP_PATTERNS.search(raw):
+            continue
+        if section_re and parsed.path not in ("/", "") and not section_re.match(parsed.path):
             continue
         # Normalise: drop fragment, lowercase scheme+host
         clean = urlunparse((
@@ -616,6 +636,7 @@ def crawl(
     map_only: bool = False,
     with_llm: bool = False,
     smart_actions: bool = False,
+    include_sections: list[str] | None = None,
 ) -> None:
     api_key = os.environ.get("FIRECRAWL_API_KEY")
     if not api_key:
@@ -643,8 +664,9 @@ def crawl(
     print(f"      {len(raw_urls)} URLs discovered.")
 
     # Step 2: filter
-    urls = filter_urls(raw_urls, source_domain, limit)
-    print(f"[2/3] {len(urls)} URLs after filtering (limit={limit}).")
+    urls = filter_urls(raw_urls, source_domain, limit, include_sections)
+    sections_info = f", sections={include_sections}" if include_sections else ""
+    print(f"[2/3] {len(urls)} URLs after filtering (limit={limit}{sections_info}).")
     if not urls:
         sys.exit("No URLs to scrape after filtering. Check the domain or filters.")
     if map_only:
@@ -765,7 +787,20 @@ def main() -> None:
             "scroll+wait browser actions to trigger lazy-loaded JS content."
         ),
     )
+    parser.add_argument(
+        "--include-sections", type=str, default=None,
+        metavar="SECTIONS",
+        help=(
+            "Comma-separated list of first-path-segment sections to keep, e.g. "
+            "'blog,uslugi,qa'. Pages outside these sections are dropped after map."
+        ),
+    )
     args = parser.parse_args()
+    include_sections = (
+        [s.strip() for s in args.include_sections.split(",") if s.strip()]
+        if args.include_sections
+        else None
+    )
     crawl(
         source_domain=args.source_domain,
         limit=args.limit,
@@ -774,6 +809,7 @@ def main() -> None:
         map_only=args.map_only,
         with_llm=args.with_llm,
         smart_actions=args.smart_actions,
+        include_sections=include_sections,
     )
 
 
