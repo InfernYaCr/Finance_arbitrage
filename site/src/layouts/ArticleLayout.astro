@@ -6,6 +6,7 @@ import RelatedPages from '../components/RelatedPages.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import StatsBar from '../components/StatsBar.astro';
 import TableOfContents from '../components/TableOfContents.astro';
+import RatingQuickList from '../components/RatingQuickList.astro';
 import type { TocHeading } from '../components/TableOfContents.astro';
 import { getImmediateChildPages, getRelatedPages } from '../data/loadPages';
 import { siteConfig } from '../data/siteConfig';
@@ -99,6 +100,7 @@ const { niche } = siteConfig;
           </section>
         )}
 
+        <RatingQuickList headings={tocHeadings} />
         <TableOfContents headings={tocHeadings} />
 
         <div class="prose article-page__body" set:html={processedContentHtml} />
