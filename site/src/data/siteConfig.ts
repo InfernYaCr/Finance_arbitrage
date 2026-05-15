@@ -92,4 +92,12 @@ export const siteConfig = {
     sidebarBtn:   import.meta.env.PUBLIC_NICHE_SIDEBAR_BTN   ?? 'Получить консультацию',
   },
 
+  sectionLabels: (() => {
+    try {
+      return JSON.parse(import.meta.env.PUBLIC_SECTION_LABELS ?? '{}') as Record<string, string>;
+    } catch {
+      return {} as Record<string, string>;
+    }
+  })(),
+
 } as const;

@@ -76,6 +76,7 @@ fields = {
   "PUBLIC_NICHE_SIDEBAR_TITLE":  c.get("niche_cta", {}).get("sidebar_title", "Нужна помощь?"),
   "PUBLIC_NICHE_SIDEBAR_DESC":   c.get("niche_cta", {}).get("sidebar_desc", "Свяжитесь с нами."),
   "PUBLIC_NICHE_SIDEBAR_BTN":    c.get("niche_cta", {}).get("sidebar_btn", "Получить консультацию"),
+  "PUBLIC_SECTION_LABELS":       json.dumps(c.get("section_labels_override", {}), ensure_ascii=False),
 }
 for k, v in fields.items():
     print(f"{k}={v}")

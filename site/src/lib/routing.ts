@@ -1,4 +1,5 @@
 import type { PageType } from '../data/types';
+import { siteConfig } from '../data/siteConfig';
 
 const SERVICE_SECTIONS = new Set([
   'seo-uslugi',
@@ -94,6 +95,8 @@ export function buildBreadcrumbs(
     'kontekstnaya-reklama': 'Контекстная реклама',
     'novosti': 'Новости',
     'otzyvy': 'Отзывы',
+    // Per-site overrides from niche profile (PUBLIC_SECTION_LABELS env var)
+    ...siteConfig.sectionLabels,
   };
 
   const crumbs: Array<{ label: string; path: string }> = [

@@ -52,5 +52,17 @@
     "sidebar_title": "Нужен займ или кредит?",
     "sidebar_desc": "Подберём лучшее предложение по вашим условиям.",
     "sidebar_btn": "Подобрать предложение"
+  },
+  "section_labels_override": {
+    "ratings": "Рейтинги",
+    "banks": "Банки",
+    "credits": "Кредиты",
+    "loans": "Займы",
+    "cards": "Карты",
+    "mortgage": "Ипотека",
+    "autocredit": "Автокредиты",
+    "business": "Бизнес",
+    "qa": "Вопросы",
+    "terms": "Словарь"
   }
 }
