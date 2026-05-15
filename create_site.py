@@ -143,6 +143,7 @@ def main() -> None:
     parser.add_argument("--brand-full", default=None, help="Full brand name (optional)")
     parser.add_argument("--limit", type=int, default=150, help="Max pages to crawl (default: 150)")
     parser.add_argument("--skip-crawl", action="store_true", help="Skip crawl step (use existing pages)")
+    parser.add_argument("--recrawl", action="store_true", help="Re-crawl donor: overwrite existing pages, then rebuild")
     parser.add_argument("--skip-build", action="store_true", help="Skip Astro build step")
     parser.add_argument("--preview", action="store_true", help="Start preview server after build")
     parser.add_argument("--min-chars", type=int, default=500, help="Min content chars for index/nav (default: 500)")
@@ -193,8 +194,14 @@ def main() -> None:
     )
 
     # --- Step 2: Crawl ---
-    if not args.skip_crawl:
+    do_crawl = not args.skip_crawl
+    if args.recrawl:
+        do_crawl = True
+        print(f"\n[2/5] Re-crawling {args.donor} (--recrawl: existing pages will be overwritten)…")
+    elif do_crawl:
         print(f"\n[2/5] Crawling {args.donor}…")
+
+    if do_crawl:
         crawl_cmd = [
             py, "site_pipeline/crawl_pages_fc.py",
             "--source-domain", args.donor,
