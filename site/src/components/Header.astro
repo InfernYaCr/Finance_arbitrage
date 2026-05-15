@@ -220,6 +220,33 @@ const { company, social } = siteConfig;
       </div>
     </div>
   </div>
+
+  <!-- Quick-links strip -->
+  <div class="site-quicklinks" aria-label="Быстрые ссылки">
+    <div class="container">
+      <ul class="site-quicklinks__list" role="list">
+        {navItems
+          .filter((item) => item.href !== '/')
+          .flatMap((item) =>
+            item.columns
+              ? item.columns.flatMap((col) => col.items.slice(0, 2))
+              : [{ label: item.label, href: item.href }]
+          )
+          .slice(0, 8)
+          .map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class:list={['site-quicklinks__link', { 'site-quicklinks__link--active': currentPath === link.href }]}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </header>
 
 <script>
@@ -801,6 +828,51 @@ const { company, social } = siteConfig;
 
   .site-dropdown__title {
     margin-bottom: var(--space-2);
+  }
+}
+
+/* ── Quick-links strip ── */
+.site-quicklinks {
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.site-quicklinks__list {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.site-quicklinks__list::-webkit-scrollbar { display: none; }
+
+.site-quicklinks__link {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color var(--duration-fast), border-color var(--duration-fast);
+  line-height: 2.2;
+}
+
+.site-quicklinks__link:hover {
+  color: var(--color-accent);
+}
+
+.site-quicklinks__link--active {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+@media (max-width: 900px) {
+  .site-quicklinks {
+    display: none;
   }
 }
 </style>

@@ -8,123 +8,61 @@
     "href": "/ratings/",
     "columns": [
       {
+        "title": "Дебетовые карты",
         "items": [
-          {
-            "label": "ТОП-10 дебетовых карт",
-            "href": "/ratings/besplatnye-debetovye-karty/"
-          },
-          {
-            "label": "Дебетовые и кредитные",
-            "href": "/ratings/cashback-produkty/"
-          },
-          {
-            "label": "Рейтинг карт с",
-            "href": "/ratings/cashback-remont/"
-          },
-          {
-            "label": "ТОП 5 лучших",
-            "href": "/ratings/cashback-zhkh/"
-          },
-          {
-            "label": "ТОП 7 дебетовых",
-            "href": "/ratings/debetovye-kartu-bonus-mili/"
-          },
-          {
-            "label": "Топ-5 дебетовых карт",
-            "href": "/ratings/debetovye-karty-keshbek-taksi/"
-          },
-          {
-            "label": "ТОП 10 лучших",
-            "href": "/ratings/debetovye-karty-pensioneram/"
-          },
-          {
-            "label": "ТОП-7 кредитных карт",
-            "href": "/ratings/dlya-snyatiya-nalichnyh/"
-          }
+          { "label": "Бесплатное обслуживание", "href": "/ratings/besplatnye-debetovye-karty/" },
+          { "label": "Кэшбэк за продукты", "href": "/ratings/cashback-produkty/" },
+          { "label": "Кэшбэк за ремонт", "href": "/ratings/cashback-remont/" },
+          { "label": "Кэшбэк за ЖКХ", "href": "/ratings/cashback-zhkh/" },
+          { "label": "Карты с милями", "href": "/ratings/debetovye-kartu-bonus-mili/" },
+          { "label": "Кэшбэк в такси", "href": "/ratings/debetovye-karty-keshbek-taksi/" },
+          { "label": "Карты для пенсионеров", "href": "/ratings/debetovye-karty-pensioneram/" }
+        ]
+      },
+      {
+        "title": "Кредитные карты",
+        "items": [
+          { "label": "Снятие наличных без %", "href": "/ratings/dlya-snyatiya-nalichnyh/" },
+          { "label": "Лучшая ипотека", "href": "/ratings/luchshaya-ipoteka/" },
+          { "label": "Рефинансирование", "href": "/ratings/luchshee-refinansirovanie-kredita/" },
+          { "label": "Лучшие автокредиты", "href": "/ratings/luchshie-avtokredity/" },
+          { "label": "Лучшие кредитные карты", "href": "/ratings/luchshie-kreditnye-karty/" },
+          { "label": "Карты с кэшбэком AliExpress", "href": "/ratings/karty-s-keshbekom-aliekspress/" },
+          { "label": "Карты с % на остаток", "href": "/ratings/karty-s-protsentami-na-ostatok/" }
         ]
       }
     ]
   },
   {
-    "label": "Кредитные карты онлайн",
+    "label": "Кредитные карты",
     "href": "/credit-cards/",
     "columns": [
       {
         "items": [
-          {
-            "label": "Кредитная карта с",
-            "href": "/credit-cards/18-let/"
-          },
-          {
-            "label": "Страница не найдена",
-            "href": "/credit-cards/banki/"
-          },
-          {
-            "label": "Кредитные карты с",
-            "href": "/credit-cards/bolshoj-lgotnyj-period/"
-          },
-          {
-            "label": "Кредитные карты с",
-            "href": "/credit-cards/bolshoj-limit/"
-          },
-          {
-            "label": "Взять кредитку с",
-            "href": "/credit-cards/cashback/"
-          },
-          {
-            "label": "Кредитные карты пенсионерам",
-            "href": "/credit-cards/dlya-pensionerov/"
-          },
-          {
-            "label": "Кредитные карты с",
-            "href": "/credit-cards/dlya-puteshestviy/"
-          },
-          {
-            "label": "Кредитные карты в",
-            "href": "/credit-cards/krym/"
-          }
+          { "label": "С 18 лет без отказа", "href": "/credit-cards/18-let/" },
+          { "label": "Льготный период до 365 дней", "href": "/credit-cards/bolshoj-lgotnyj-period/" },
+          { "label": "Лимит до 7 000 000 ₽", "href": "/credit-cards/bolshoj-limit/" },
+          { "label": "С кэшбэком", "href": "/credit-cards/cashback/" },
+          { "label": "Для пенсионеров", "href": "/credit-cards/dlya-pensionerov/" },
+          { "label": "Для путешествий", "href": "/credit-cards/dlya-puteshestviy/" },
+          { "label": "Карты Сбербанка", "href": "/ratings/kreditnye-karty-sberbanka/" }
         ]
       }
     ]
   },
   {
-    "label": "Оформить кредит онлайн",
+    "label": "Кредиты",
     "href": "/online-credit/",
     "columns": [
       {
         "items": [
-          {
-            "label": "Кредит без отказа",
-            "href": "/online-credit/100-procentnoe-odobrenie/"
-          },
-          {
-            "label": "Кредит с 18",
-            "href": "/online-credit/18-let/"
-          },
-          {
-            "label": "Страница не найдена",
-            "href": "/online-credit/banki/"
-          },
-          {
-            "label": "Взять кредит на",
-            "href": "/online-credit/bez-posesheniya-banka/"
-          },
-          {
-            "label": "Взять кредит без",
-            "href": "/online-credit/bez-spravok-poruchitelej/"
-          },
-          {
-            "label": "Банки с дифференцированными",
-            "href": "/online-credit/differencirovannye-platezhi/"
-          },
-          {
-            "label": "Долгосрочный кредит на",
-            "href": "/online-credit/dolgosrochnye/"
-          },
-          {
-            "label": "Кредит по 2",
-            "href": "/online-credit/dva-dokumenta/"
-          }
+          { "label": "Кредит без отказа", "href": "/online-credit/100-procentnoe-odobrenie/" },
+          { "label": "С 18 лет онлайн", "href": "/online-credit/18-let/" },
+          { "label": "Без посещения банка", "href": "/online-credit/bez-posesheniya-banka/" },
+          { "label": "Без справок и поручителей", "href": "/online-credit/bez-spravok-poruchitelej/" },
+          { "label": "Дифференцированные платежи", "href": "/online-credit/differencirovannye-platezhi/" },
+          { "label": "Долгосрочный кредит", "href": "/online-credit/dolgosrochnye/" },
+          { "label": "Рефинансирование", "href": "/ratings/luchshee-refinansirovanie-kredita/" }
         ]
       }
     ]
@@ -135,38 +73,13 @@
     "columns": [
       {
         "items": [
-          {
-            "label": "Карты с 16",
-            "href": "/debit-cards/16-let/"
-          },
-          {
-            "label": "Страница не найдена",
-            "href": "/debit-cards/banki/"
-          },
-          {
-            "label": "Карты для путешествий",
-            "href": "/debit-cards/dlya-puteshestvyi/"
-          },
-          {
-            "label": "Карты без комиссии",
-            "href": "/debit-cards/dlya-snyatiya-nalichnyh/"
-          },
-          {
-            "label": "Именные дебетовые карты",
-            "href": "/debit-cards/imennaya/"
-          },
-          {
-            "label": "Банковская карта для",
-            "href": "/debit-cards/inostrantsam/"
-          },
-          {
-            "label": "Электронные карты без",
-            "href": "/debit-cards/jelektronnye/"
-          },
-          {
-            "label": "Какую дебетовую карту",
-            "href": "/debit-cards/luchshie/"
-          }
+          { "label": "С 16 лет онлайн", "href": "/debit-cards/16-let/" },
+          { "label": "Для путешествий", "href": "/debit-cards/dlya-puteshestvyi/" },
+          { "label": "Без комиссии за наличные", "href": "/debit-cards/dlya-snyatiya-nalichnyh/" },
+          { "label": "Именные карты", "href": "/debit-cards/imennaya/" },
+          { "label": "Карты для иностранцев", "href": "/debit-cards/inostrantsam/" },
+          { "label": "Виртуальные карты", "href": "/ratings/virtualnye-karty/" },
+          { "label": "Бесплатное обслуживание", "href": "/ratings/besplatnye-debetovye-karty/" }
         ]
       }
     ]
@@ -177,38 +90,13 @@
     "columns": [
       {
         "items": [
-          {
-            "label": "Какие банки дают",
-            "href": "/autocredit/18-let/"
-          },
-          {
-            "label": "Автокредит без КАСКО",
-            "href": "/autocredit/bez-kasko/"
-          },
-          {
-            "label": "Можно ли взять",
-            "href": "/autocredit/bez-prav/"
-          },
-          {
-            "label": "Автокредит без справок",
-            "href": "/autocredit/bez-spravok/"
-          },
-          {
-            "label": "Автокредит для иностранных",
-            "href": "/autocredit/inostrannyj-grazhdanin/"
-          },
-          {
-            "label": "Автокредит пенсионерам",
-            "href": "/autocredit/pensioneram/"
-          },
-          {
-            "label": "Автокредит с плохой",
-            "href": "/autocredit/plohaya-kreditnaya-istoriya/"
-          },
-          {
-            "label": "Автокредит по паспорту",
-            "href": "/autocredit/po-pasportu/"
-          }
+          { "label": "С 18 лет", "href": "/autocredit/18-let/" },
+          { "label": "Без КАСКО", "href": "/autocredit/bez-kasko/" },
+          { "label": "Без справок", "href": "/autocredit/bez-spravok/" },
+          { "label": "Для иностранных граждан", "href": "/autocredit/inostrannyj-grazhdanin/" },
+          { "label": "Пенсионерам", "href": "/autocredit/pensioneram/" },
+          { "label": "С плохой КИ", "href": "/autocredit/plohaya-kreditnaya-istoriya/" },
+          { "label": "Рейтинг автокредитов", "href": "/ratings/luchshie-avtokredity/" }
         ]
       }
     ]
@@ -219,26 +107,10 @@
     "columns": [
       {
         "items": [
-          {
-            "label": "Могут ли одобрить",
-            "href": "/qa/ipoteka-ip-patent/"
-          },
-          {
-            "label": "Мастер-счет ВТБ: что",
-            "href": "/qa/master-schet-vtb/"
-          },
-          {
-            "label": "Что делать, если",
-            "href": "/qa/propazha-karty/"
-          },
-          {
-            "label": "Чего ожидать в",
-            "href": "/qa/sdat-zoloto-v-lombard-bez-vikypa/"
-          },
-          {
-            "label": "Нужно ли заменить",
-            "href": "/qa/zamenit-kartu-sberbanka/"
-          }
+          { "label": "Ипотека для ИП по патенту", "href": "/qa/ipoteka-ip-patent/" },
+          { "label": "Мастер-счёт ВТБ", "href": "/qa/master-schet-vtb/" },
+          { "label": "Потерял карту Сбербанка", "href": "/qa/propazha-karty/" },
+          { "label": "Замена карты Сбербанка", "href": "/qa/zamenit-kartu-sberbanka/" }
         ]
       }
     ]
