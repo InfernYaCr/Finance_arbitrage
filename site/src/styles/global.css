@@ -1,5 +1,6 @@
 @import './themes/alpha.css';
 @import './themes/beta.css';
+@import './themes/gamma.css';
 
 *, *::before, *::after {
   box-sizing: border-box;
