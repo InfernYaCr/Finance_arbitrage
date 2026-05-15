@@ -1,4 +1,4 @@
-import type { FullPage, SeoFields, PageType } from '../data/types';
+import type { FullPage, SeoFields, PageType, Offer } from '../data/types';
 import { siteConfig } from '../data/siteConfig';
 
 const ORG = {
@@ -52,6 +52,30 @@ function hasSpeakableSummary(page: FullPage): boolean {
   return (page.data.extracted?.key_points?.filter((point) => point.trim()).length ?? 0) >= 2;
 }
 
+function itemListSchema(offers: Offer[], seo: SeoFields): object | null {
+  if (!offers.length) return null;
+  const sourceDomain = siteConfig.legacyContent.sourceDomain.replace(/\/$/, '');
+  return {
+    '@type': 'ItemList',
+    name: seo.h1 || seo.title,
+    url: seo.canonical,
+    numberOfItems: offers.length,
+    itemListElement: offers.map((offer, i) => ({
+      '@type': 'ListItem',
+      position: offer.rank ?? i + 1,
+      item: {
+        '@type': 'FinancialProduct',
+        name: offer.name,
+        description: offer.description || undefined,
+        url: offer.cta_path
+          ? (offer.cta_path.startsWith('http') ? offer.cta_path : `${sourceDomain}${offer.cta_path}`)
+          : undefined,
+        ...(offer.logo_url ? { logo: offer.logo_url } : {}),
+      },
+    })),
+  };
+}
+
 export function buildJsonLd(
   page: FullPage,
   seo: SeoFields,
@@ -99,7 +123,7 @@ export function buildJsonLd(
 
   if (pageType === 'article' || pageType === 'faq' || pageType === 'company') {
     graph.push({
-      '@type': pageType === 'faq' ? 'Article' : 'Article',
+      '@type': 'Article',
       headline: seo.h1 || seo.title,
       description: seo.description || undefined,
       mainEntityOfPage: seo.canonical,
@@ -109,6 +133,11 @@ export function buildJsonLd(
       publisher: ORG,
       inLanguage: 'ru',
     });
+    const offers = page.data.extracted?.offers;
+    if (offers?.length) {
+      const il = itemListSchema(offers, seo);
+      if (il) graph.push(il);
+    }
     if (faq) graph.push(faq);
     return graph;
   }
