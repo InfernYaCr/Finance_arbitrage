@@ -107,7 +107,7 @@ const { niche } = siteConfig;
         {(data.extracted?.offers?.length ?? 0) > 0 && (
           <section class="offer-list" aria-label="Рейтинг продуктов">
             {data.extracted!.offers!.map((offer: Offer) => (
-              <OfferCard offer={offer} />
+              <OfferCard offer={offer} ctaBaseUrl={siteConfig.legacyContent.sourceDomain} />
             ))}
           </section>
         )}
