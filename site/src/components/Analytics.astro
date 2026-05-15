@@ -25,6 +25,30 @@ const isDev = import.meta.env.DEV;
         trackLinks: true
       });
     </script>
+    <script>
+      // Goal tracking: outbound /go/ clicks and form submissions
+      document.addEventListener('click', function(e) {
+        const a = e.target.closest('a[href]');
+        if (!a) return;
+        const href = a.getAttribute('href') || '';
+        if (/^\/go\//.test(href) || /^https?:\/\//.test(href)) {
+          if (typeof ym !== 'undefined' && window.__ymId) {
+            ym(window.__ymId, 'reachGoal', 'outbound_click', { url: href });
+          }
+        }
+      });
+      document.addEventListener('submit', function(e) {
+        const form = e.target;
+        if (form && form.tagName === 'FORM') {
+          if (typeof ym !== 'undefined' && window.__ymId) {
+            ym(window.__ymId, 'reachGoal', 'form_submit');
+          }
+        }
+      });
+    </script>
+    <script define:vars={{ ymIdStore: yandexMetricaId }}>
+      window.__ymId = ymIdStore;
+    </script>
     <noscript>
       <div>
         <img

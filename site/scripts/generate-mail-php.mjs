@@ -34,6 +34,38 @@ const env = { ...fileEnv, ...process.env };
 const siteName = env.PUBLIC_SITE_NAME || 'SEO Site';
 const toEmail = env.PUBLIC_CONTACT_FORM_TO || env.PUBLIC_COMPANY_EMAIL || 'hello@example.test';
 const defaultSubject = env.PUBLIC_CONTACT_FORM_SUBJECT || `Заявка с сайта ${siteName}`;
+const tgBotToken = env.TELEGRAM_BOT_TOKEN || '';
+const tgChatId = env.TELEGRAM_CHAT_ID || '';
+
+const tgBlock = tgBotToken && tgChatId ? `
+function notify_telegram(string $text): void {
+    $token = ${phpString(tgBotToken)};
+    $chatId = ${phpString(tgChatId)};
+    $url = 'https://api.telegram.org/bot' . $token . '/sendMessage';
+    $payload = json_encode(['chat_id' => $chatId, 'text' => $text, 'parse_mode' => 'HTML']);
+    $ctx = stream_context_create(['http' => [
+        'method' => 'POST',
+        'header' => "Content-Type: application/json\\r\\n",
+        'content' => $payload,
+        'timeout' => 5,
+        'ignore_errors' => true,
+    ]]);
+    @file_get_contents($url, false, $ctx);
+}
+` : `
+function notify_telegram(string $text): void {}
+`;
+
+const tgCallBlock = tgBotToken && tgChatId ? `
+$tgText = implode("\\n", [
+    '<b>Новая заявка с ' . htmlspecialchars($host) . '</b>',
+    'Имя: ' . htmlspecialchars($name),
+    'Телефон: ' . htmlspecialchars($phone),
+    'Email: ' . htmlspecialchars($email),
+    'Сообщение: ' . htmlspecialchars(mb_substr($message, 0, 200)),
+]);
+notify_telegram($tgText);
+` : '';
 
 const php = `<?php
 declare(strict_types=1);
@@ -43,6 +75,7 @@ $defaultSubject = ${phpString(defaultSubject)};
 $successPath = '/thanks/?status=sent';
 $errorPath = '/thanks/?status=error';
 
+${tgBlock}
 function redirect_to(string $target): void {
     header('Location: ' . $target, true, 303);
     exit;
@@ -135,6 +168,7 @@ $sent = mail($toEmail, $encodedSubject, $body, implode("\\r\\n", $headers), '-f 
 if (!$sent) {
     error_log('[mail.php] mail() failed: to=' . $toEmail . ' from=' . $from);
 }
+${tgCallBlock}
 redirect_to($sent ? $next : '/thanks/?status=mail_error');
 `;
 
