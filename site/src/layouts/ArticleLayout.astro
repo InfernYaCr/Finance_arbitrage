@@ -7,11 +7,12 @@ import FaqAccordion from '../components/FaqAccordion.astro';
 import StatsBar from '../components/StatsBar.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import RatingQuickList from '../components/RatingQuickList.astro';
+import OfferCard from '../components/OfferCard.astro';
 import type { TocHeading } from '../components/TableOfContents.astro';
 import { getImmediateChildPages, getRelatedPages } from '../data/loadPages';
 import { siteConfig } from '../data/siteConfig';
 
-import type { FullPage, SeoFields, PageType } from '../data/types';
+import type { FullPage, SeoFields, PageType, Offer } from '../data/types';
 
 interface Props {
   page: FullPage;
@@ -102,6 +103,14 @@ const { niche } = siteConfig;
 
         <RatingQuickList headings={tocHeadings} />
         <TableOfContents headings={tocHeadings} />
+
+        {(data.extracted?.offers?.length ?? 0) > 0 && (
+          <section class="offer-list" aria-label="Рейтинг продуктов">
+            {data.extracted!.offers!.map((offer: Offer) => (
+              <OfferCard offer={offer} />
+            ))}
+          </section>
+        )}
 
         <div class="prose article-page__body" set:html={processedContentHtml} />
 
@@ -408,5 +417,13 @@ const { niche } = siteConfig;
   .article-sidebar__cta {
     flex: 1 1 260px;
   }
+}
+
+/* Offer list */
+.offer-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
 }
 </style>

@@ -51,6 +51,17 @@ export interface PageQuality {
   has_csv_h1: boolean;
 }
 
+export interface Offer {
+  rank: number | null;
+  name: string;
+  logo_url: string;
+  description: string;
+  params: Record<string, string>;
+  pros: string[];
+  cons: string[];
+  cta_path: string;
+}
+
 export interface ExtractedData {
   page_type?: string;
   services?: unknown[];
@@ -61,6 +72,7 @@ export interface ExtractedData {
   cta_text?: string;
   date_published?: string;
   date_modified?: string;
+  offers?: Offer[];
 }
 
 export interface PageData {

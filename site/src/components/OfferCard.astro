@@ -1,0 +1,280 @@
+---
+interface Offer {
+  rank: number | null;
+  name: string;
+  logo_url: string;
+  description: string;
+  params: Record<string, string>;
+  pros: string[];
+  cons: string[];
+  cta_path: string;
+}
+
+interface Props {
+  offer: Offer;
+  ctaBaseUrl?: string;
+}
+
+const { offer, ctaBaseUrl = '' } = Astro.props;
+const { rank, name, logo_url, description, params, pros, cons, cta_path } = offer;
+
+const paramEntries = Object.entries(params).slice(0, 5);
+const ctaHref = cta_path ? (ctaBaseUrl ? ctaBaseUrl.replace(/\/$/, '') + cta_path : cta_path) : '#';
+
+const badgeClass = rank === 1 ? 'offer-card__rank--gold'
+  : rank === 2 ? 'offer-card__rank--silver'
+  : rank === 3 ? 'offer-card__rank--bronze'
+  : 'offer-card__rank--rest';
+---
+
+<article class="offer-card" id={rank ? `offer-${rank}` : undefined}>
+  <header class="offer-card__header">
+    {rank && (
+      <div class={`offer-card__rank ${badgeClass}`} aria-label={`${rank} место`}>{rank}</div>
+    )}
+    {logo_url ? (
+      <img
+        class="offer-card__logo"
+        src={logo_url}
+        alt={name}
+        width="120"
+        height="40"
+        loading="lazy"
+        decoding="async"
+      />
+    ) : (
+      <span class="offer-card__logo-text">{name.split('(')[0]?.trim()}</span>
+    )}
+    <div class="offer-card__title-wrap">
+      <h3 class="offer-card__name">{name}</h3>
+    </div>
+  </header>
+
+  {paramEntries.length > 0 && (
+    <dl class="offer-card__params">
+      {paramEntries.map(([key, val]) => (
+        <div class="offer-card__param">
+          <dt class="offer-card__param-key">{key}</dt>
+          <dd class="offer-card__param-val">{val}</dd>
+        </div>
+      ))}
+    </dl>
+  )}
+
+  {description && (
+    <p class="offer-card__desc">{description.length > 180 ? description.slice(0, 180) + '…' : description}</p>
+  )}
+
+  {(pros.length > 0 || cons.length > 0) && (
+    <div class="offer-card__pros-cons">
+      {pros.length > 0 && (
+        <ul class="offer-card__pros" aria-label="Плюсы">
+          {pros.slice(0, 3).map((p) => <li>{p}</li>)}
+        </ul>
+      )}
+      {cons.length > 0 && (
+        <ul class="offer-card__cons" aria-label="Минусы">
+          {cons.slice(0, 2).map((c) => <li>{c}</li>)}
+        </ul>
+      )}
+    </div>
+  )}
+
+  <footer class="offer-card__footer">
+    <a
+      href={ctaHref}
+      class="offer-card__cta"
+      rel="nofollow noopener"
+      target="_blank"
+    >
+      Подать заявку
+    </a>
+  </footer>
+</article>
+
+<style>
+.offer-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+}
+
+.offer-card__rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full, 999px);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.offer-card__rank--gold   { background: #f59e0b; color: #fff; }
+.offer-card__rank--silver { background: var(--color-text-muted); color: #fff; }
+.offer-card__rank--bronze { background: #b45309; color: #fff; }
+.offer-card__rank--rest   { background: var(--color-surface); border: 1px solid var(--color-border); color: var(--color-text-muted); }
+
+.offer-card__logo {
+  height: 36px;
+  width: auto;
+  max-width: 110px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.offer-card__logo-text {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+}
+
+.offer-card__title-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.offer-card__name {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.offer-card__params {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+  margin: 0;
+}
+
+.offer-card__param {
+  padding: var(--space-3) var(--space-5);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.offer-card__param:last-child {
+  border-right: 0;
+}
+
+.offer-card__param-key {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--weight-medium);
+  margin-bottom: var(--space-1);
+}
+
+.offer-card__param-val {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin: 0;
+  line-height: var(--leading-snug);
+}
+
+.offer-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  padding: var(--space-4) var(--space-5);
+  margin: 0;
+  flex: 1;
+}
+
+.offer-card__pros-cons {
+  display: flex;
+  gap: var(--space-4);
+  padding: 0 var(--space-5) var(--space-4);
+}
+
+.offer-card__pros,
+.offer-card__cons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.offer-card__pros li,
+.offer-card__cons li {
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  padding-left: var(--space-4);
+  position: relative;
+  color: var(--color-text-muted);
+}
+
+.offer-card__pros li::before {
+  content: '+';
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: var(--weight-bold);
+}
+
+.offer-card__cons li::before {
+  content: '−';
+  position: absolute;
+  left: 0;
+  color: #ef4444;
+  font-weight: var(--weight-bold);
+}
+
+.offer-card__footer {
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
+
+.offer-card__cta {
+  display: block;
+  text-align: center;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.offer-card__cta:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .offer-card__params {
+    grid-template-columns: 1fr 1fr;
+  }
+  .offer-card__name {
+    white-space: normal;
+  }
+}
+</style>
