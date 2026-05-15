@@ -57,42 +57,42 @@
 - [x] **B3.1** Динамическая навигация: `generate_nav.py` + `loadNav.ts` (убрать хардкод `nav.ts`)
 - [x] **B3.2** `FAQPage` Schema.org для всех страниц с `faq_pairs`
 - [x] **B3.3** Summary-блок из `key_points[]` + `speakable` Schema (GEO-сигнал)
-- [ ] **B3.4** Related Pages блок (3–5 ссылок через `content_index.sqlite` FTS)
+- [x] **B3.4** Related Pages блок (3–5 ссылок через `content_index.sqlite` FTS)
 - [x] **B3.5** `datePublished` / `dateModified` из краулера на всех страницах
-- [ ] **B3.6** `FinancialProduct` / `ItemList` Schema для финансовых page_type
-- [ ] **B3.7** Расширить LLM-схему: `summary`, `entities`, `data_points`, `target_query`
+- [x] **B3.6** `FinancialProduct` / `ItemList` Schema для финансовых page_type
+- [x] **B3.7** Расширить LLM-схему: `summary`, `entities`, `data_points`, `target_query`
 
 ### B4 · Вариативность тем (footprint)
 
 - [x] **B4.1** Вынести CSS-токены в `site/src/styles/themes/alpha.css` (текущая тема)
 - [x] **B4.2** Тема Beta — финансовая ниша (teal-акцент, Inter, finhelp-ru)
-- [ ] **B4.3** Тема Gamma — информационная (нейтральный, широкий)
+- [x] **B4.3** Тема Gamma — информационная (нейтральный, широкий)
 - [x] **B4.4** `theme` в `site.config.json` → `PUBLIC_THEME` → `data-theme` на `<html>`
-- [ ] **B4.5** `style_extractor.py` — donor_style_profile из CSS донора → theme tokens
+- [x] **B4.5** `style_extractor.py` — donor_style_profile из CSS донора → theme tokens
 
 ### B5 · Link config (исходящие ссылки / монетизация)
 
 - [x] **B5.1** `affiliateLinks.json` per-site в `sites/<id>/`, копируется в `site/src/data/` при экспорте
 - [x] **B5.2** PromoSlot генерирует HTML из `link_ids`+UTM через `resolveSlotHtml()` если `html` пустой
 - [x] **B5.3** `/go/{offer}/` — статические Astro-страницы с meta refresh + JS redirect
-- [ ] **B5.4** Цели Метрики на outbound `/go/` клики и форму
-- [ ] **B5.5** Форма: уведомления отложены до готовности дизайна сайта. Варианты: Telegram Bot API / Formspree / n8n webhook.
+- [x] **B5.4** Цели Метрики на outbound `/go/` клики и форму
+- [x] **B5.5** Форма: Telegram Bot API уведомления в `mail.php` (токен через TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID)
 - [ ] **B5.6** Keitaro на VPS — только при стабильном трафике
 
 > Стратегия монетизации — `ARBITRAGE.md`.
 
 ### B6 · Автоматизация пайплайна
 
-- [ ] **B6.1** `discover_donors.py` — Exa двухфазный поиск доноров по нише
-- [ ] **B6.2** `qualify_donor.py` → авто-запись в SQLite registry (CRAWL / SKIP)
-- [ ] **B6.3** Полный цикл: Exa → Firecrawl → qa → export → build без ручных шагов
-- [ ] **B6.4** Playwright smoke-test после деплоя → отчёт OK/FAIL по каждому сайту
+- [x] **B6.1** `discover_donors.py` — Exa двухфазный поиск доноров по нише (`--auto-qualify`)
+- [x] **B6.2** `qualify_donor.py` → авто-запись в SQLite registry (CRAWL / SKIP)
+- [x] **B6.3** Полный цикл: Exa → Firecrawl → qa → export → build без ручных шагов (`create_site.py`)
+- [x] **B6.4** Playwright smoke-test после деплоя → отчёт OK/FAIL по каждому сайту (`smoke_test.py`)
 
 ### B7 · Мониторинг
 
 - [ ] **B7.1** 5–10 крауд-ссылок на сайт до индексации
 - [ ] **B7.2** UptimeRobot — пинг каждого сайта каждые 5 минут
-- [ ] **B7.3** Re-crawl донора раз в 1–2 месяца через `--recrawl`
+- [x] **B7.3** Re-crawl донора раз в 1–2 месяца через `--recrawl`
 - [ ] **B7.4** Алерт в Метрике при падении трафика > 30% за сутки
 
 ---
