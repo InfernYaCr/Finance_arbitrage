@@ -141,13 +141,55 @@ def discover(
     return output
 
 
+def auto_qualify(candidates: list[dict[str, Any]], niche: str, min_score: float = 0.1) -> list[dict[str, Any]]:
+    """Phase 2: qualify top candidates via Exa summary schema and write to registry."""
+    try:
+        import importlib.util, subprocess, sys as _sys
+        spec = importlib.util.spec_from_file_location(
+            "qualify_donor",
+            Path(__file__).parent / "qualify_donor.py",
+        )
+        qmod = importlib.util.module_from_spec(spec)  # type: ignore[arg-type]
+        spec.loader.exec_module(qmod)  # type: ignore[union-attr]
+    except Exception as exc:
+        print(f"  WARN: could not load qualify_donor: {exc}", file=sys.stderr)
+        return []
+
+    results = []
+    for c in candidates:
+        if not c.get("qualified_for_review"):
+            continue
+        score = c.get("score") or 0
+        if score < min_score:
+            continue
+        url = c["url"]
+        print(f"  Qualifying {url} …", end=" ", flush=True)
+        try:
+            summary = qmod.qualify(url)
+            verdict = summary.get("verdict", "PENDING")
+            print(verdict)
+            results.append({"url": url, "verdict": verdict, "summary": summary})
+        except Exception as exc:
+            print(f"ERROR: {exc}", file=sys.stderr)
+    return results
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Find donor candidates with Exa search highlights.")
+    parser = argparse.ArgumentParser(
+        description="Find donor candidates with Exa search highlights.",
+        epilog="Use --auto-qualify to run Phase 2: qualify top candidates via Exa summary.",
+    )
     parser.add_argument("--niche", default="finance", choices=sorted(NICHE_QUERIES))
     parser.add_argument("--query", default=None)
     parser.add_argument("--highlight-query", default=None)
     parser.add_argument("--num-results", type=int, default=10)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUTPUT / "donor_candidates.json")
+    parser.add_argument(
+        "--auto-qualify",
+        action="store_true",
+        help="Phase 2: qualify candidates with Exa summary and write CRAWL/SKIP to registry",
+    )
+    parser.add_argument("--min-score", type=float, default=0.1, help="Exa score threshold for auto-qualify")
     args = parser.parse_args()
 
     output = discover(
@@ -161,6 +203,12 @@ def main() -> None:
     for candidate in output["candidates"][:10]:
         score = candidate["score"] if candidate["score"] is not None else "n/a"
         print(f"- {candidate['domain']} score={score} {candidate['url']}")
+
+    if args.auto_qualify:
+        print(f"\nPhase 2: auto-qualifying candidates (min_score={args.min_score}) …")
+        qualified = auto_qualify(output["candidates"], niche=args.niche, min_score=args.min_score)
+        crawl = [q for q in qualified if q["verdict"] == "CRAWL"]
+        print(f"\nPhase 2 done: {len(crawl)}/{len(qualified)} candidates → CRAWL")
 
 
 if __name__ == "__main__":
