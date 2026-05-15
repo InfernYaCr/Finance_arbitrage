@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { getDescendantPages, getImmediateChildPages } from '../data/loadPages';
+import { siteConfig } from '../data/siteConfig';
 import type { FullPage, SeoFields, PageType } from '../data/types';
 
 interface Props {
@@ -13,6 +14,24 @@ interface Props {
 
 const { page, seo, jsonLd } = Astro.props;
 const { data } = page;
+
+const isRatingsArchive = page.path === '/ratings/';
+
+function getCategoryFromPath(path: string): string {
+  if (/debetov|cashback|virtual|mili|taksi|pensioneram|protsentami-na-ostatok/.test(path)) return 'debit';
+  if (/ipoteka/.test(path)) return 'mortgage';
+  if (/avtokredit/.test(path)) return 'auto';
+  if (/kredit|refinansirovan|nalichnyh|aliekspress|sberbanka/.test(path)) return 'credit';
+  return 'all';
+}
+
+const filterTabs = [
+  { id: 'all', label: 'Все' },
+  { id: 'debit', label: 'Дебетовые карты' },
+  { id: 'credit', label: 'Кредитные карты' },
+  { id: 'mortgage', label: 'Ипотека' },
+  { id: 'auto', label: 'Автокредиты' },
+];
 const isFaqArchive = page.path === '/faq/';
 const isPricingArchive = page.path === '/stoimost-uslug/';
 const directChildren = getImmediateChildPages(page.path);
@@ -98,13 +117,33 @@ const groupedChildren = directChildren.map((child) => ({
 
       {showGeneratedCatalog && !isFaqArchive && !isPricingArchive && (
         <section class="archive-page__catalog" aria-labelledby="archive-catalog-title">
-          <h2 id="archive-catalog-title" class="archive-page__catalog-title">
-            Разделы и материалы
-          </h2>
+          {isRatingsArchive && (
+            <div class="archive-filter" role="tablist" aria-label="Фильтр рейтингов">
+              {filterTabs.map((tab) => (
+                <button
+                  class="archive-filter__tab"
+                  data-tab={tab.id}
+                  role="tab"
+                  aria-selected={tab.id === 'all' ? 'true' : 'false'}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          )}
 
-          <div class="archive-page__grid">
+          {!isRatingsArchive && (
+            <h2 id="archive-catalog-title" class="archive-page__catalog-title">
+              Разделы и материалы
+            </h2>
+          )}
+
+          <div class="archive-page__grid" id="archive-grid">
             {groupedChildren.map((group) => (
-              <article class="archive-card">
+              <article
+                class="archive-card"
+                data-category={isRatingsArchive ? getCategoryFromPath(group.page.path) : undefined}
+              >
                 <a class="archive-card__title" href={group.page.path}>
                   {group.page.h1 || group.page.title}
                 </a>
@@ -131,10 +170,10 @@ const groupedChildren = directChildren.map((child) => ({
       <div class="archive-page__cta">
         <div class="archive-cta-banner">
           <div class="archive-cta-banner__text">
-            <p class="archive-cta-banner__title">Нужна SEO-консультация?</p>
-            <p class="archive-cta-banner__desc">Обсудим ваш сайт и дадим конкретные рекомендации.</p>
+            <p class="archive-cta-banner__title">{siteConfig.niche.ctaQuestion}</p>
+            <p class="archive-cta-banner__desc">{siteConfig.niche.sidebarDesc}</p>
           </div>
-          <a href="/kontakty/" class="archive-cta-banner__btn">Написать нам</a>
+          <a href={siteConfig.contactPath} class="archive-cta-banner__btn">{siteConfig.niche.ctaBtn}</a>
         </div>
       </div>
     </div>
@@ -358,6 +397,38 @@ const groupedChildren = directChildren.map((child) => ({
   opacity: 0.8;
 }
 
+/* Filter tabs */
+.archive-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.archive-filter__tab {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full, 999px);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: background var(--duration-fast), color var(--duration-fast), border-color var(--duration-fast);
+  white-space: nowrap;
+}
+
+.archive-filter__tab:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.archive-filter__tab[aria-selected="true"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
 /* CTA banner */
 .archive-page__cta {
   margin-top: var(--space-12);
@@ -414,3 +485,19 @@ const groupedChildren = directChildren.map((child) => ({
   }
 }
 </style>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.archive-filter__tab');
+  if (tabs.length > 0) {
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const active = tab.dataset.tab ?? 'all';
+        tabs.forEach((t) => t.setAttribute('aria-selected', t === tab ? 'true' : 'false'));
+        document.querySelectorAll<HTMLElement>('#archive-grid .archive-card').forEach((card) => {
+          const cat = card.dataset.category ?? 'all';
+          card.style.display = active === 'all' || cat === active ? '' : 'none';
+        });
+      });
+    });
+  }
+</script>

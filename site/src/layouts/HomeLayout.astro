@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import type { FullPage, SeoFields, PageType } from '../data/types';
 import { getImmediateChildPages } from '../data/loadPages';
 import { navItems } from '../data/loadNav';
+import { siteConfig } from '../data/siteConfig';
 
 interface Props {
   page: FullPage;
@@ -13,8 +14,8 @@ interface Props {
 
 const { page, seo, jsonLd } = Astro.props;
 
-// Contact link — read from env (set via site.config.json → gen-env.sh)
-const contactHref = import.meta.env.PUBLIC_CONTACT_PATH ?? '/kontakty/';
+const { niche } = siteConfig;
+const contactHref = siteConfig.contactPath;
 
 // Nav sections that have dropdown children, sorted as they appear in the nav
 const sectionsWithKids = navItems.filter((item) => item.href !== '/' && item.columns?.length);
@@ -32,6 +33,10 @@ const faqSection =
   navItems.find((item) => item.href !== '/' && /faq|vopros/.test(item.href)) ??
   navItems.find((item) => item.href !== '/' && !item.columns?.length);
 const faqChildren = faqSection ? getImmediateChildPages(faqSection.href).slice(0, 5) : [];
+
+// Articles section: pages from qa or another content-heavy section (3 cards)
+const articlesSection = navItems.find((item) => item.href !== '/' && /qa|vopros/.test(item.href));
+const articleCards = articlesSection ? getImmediateChildPages(articlesSection.href).slice(0, 3) : [];
 
 // Second CTA target — primary section or fallback to "/"
 const secondCtaHref = primarySection?.href ?? '/';
@@ -109,12 +114,12 @@ const secondCtaLabel = primarySection?.label ?? 'Разделы';
           {portfolioChildren.map((c) => (
             <li class="home-case-card">
               <a href={c.path} class="home-case-card__link">
-                <span class="home-case-card__label">Кейс</span>
+                <span class="home-case-card__label">{secondarySection?.label ?? 'Статья'}</span>
                 <span class="home-case-card__title">{c.h1 || c.title}</span>
                 {c.description && (
                   <span class="home-case-card__desc">{c.description}</span>
                 )}
-                <span class="home-case-card__cta" aria-hidden="true">Читать кейс →</span>
+                <span class="home-case-card__cta" aria-hidden="true">Подробнее →</span>
               </a>
             </li>
           ))}
@@ -145,16 +150,41 @@ const secondCtaLabel = primarySection?.label ?? 'Разделы';
     </section>
   )}
 
+  <!-- Статьи -->
+  {articleCards.length > 0 && (
+    <section class="home-articles" aria-labelledby="home-articles-title">
+      <div class="container">
+        <div class="home-section-header">
+          <h2 id="home-articles-title" class="home-section-title">Полезные статьи</h2>
+          <a href={articlesSection?.href ?? '/'} class="home-section-more">Все статьи →</a>
+        </div>
+        <ul class="home-articles__grid" role="list">
+          {articleCards.map((art) => (
+            <li class="home-article-card">
+              <a href={art.path} class="home-article-card__link">
+                <span class="home-article-card__section">{articlesSection?.label ?? 'Статья'}</span>
+                <span class="home-article-card__title">{art.h1 || art.title}</span>
+                {art.description && (
+                  <span class="home-article-card__desc">{art.description}</span>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
   <!-- CTA-баннер -->
   <section class="home-cta">
     <div class="container">
       <div class="home-cta__inner">
         <div class="home-cta__text">
-          <h2 class="home-cta__title">Остались вопросы?</h2>
-          <p class="home-cta__desc">Свяжитесь с нами — ответим и поможем разобраться.</p>
+          <h2 class="home-cta__title">{niche.ctaQuestion}</h2>
+          <p class="home-cta__desc">{niche.sidebarDesc}</p>
         </div>
         <div class="home-cta__actions">
-          <a href={contactHref} class="btn btn--primary">Обсудить проект</a>
+          <a href={contactHref} class="btn btn--primary">{niche.ctaBtn}</a>
           {primarySection && (
             <a href={secondCtaHref} class="btn btn--ghost">{secondCtaLabel}</a>
           )}
@@ -685,5 +715,73 @@ const secondCtaLabel = primarySection?.label ?? 'Разделы';
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   line-height: var(--leading-normal);
+}
+
+/* Articles grid */
+.home-articles {
+  padding: var(--space-section) 0 0;
+}
+
+.home-articles__grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+
+.home-article-card {
+  display: flex;
+}
+
+.home-article-card__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  transition: border-color var(--duration-fast), box-shadow var(--duration-fast);
+}
+
+.home-article-card__link:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.home-article-card__section {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-accent);
+}
+
+.home-article-card__title {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.home-article-card__link:hover .home-article-card__title {
+  color: var(--color-accent);
+}
+
+.home-article-card__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 </style>
