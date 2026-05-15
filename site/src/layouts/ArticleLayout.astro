@@ -86,8 +86,13 @@ const { niche } = siteConfig;
           )}
         </header>
 
-        {data.excerpt_html && (
-          <div class="article-page__excerpt" set:html={data.excerpt_html} />
+        {(data.excerpt_html || data.extracted?.summary) && (
+          <div class="article-page__excerpt">
+            {data.excerpt_html
+              ? <Fragment set:html={data.excerpt_html} />
+              : <p>{data.extracted!.summary}</p>
+            }
+          </div>
         )}
 
         <StatsBar stats={siteConfig.siteStats} />

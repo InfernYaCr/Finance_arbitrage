@@ -73,6 +73,11 @@ export interface ExtractedData {
   date_published?: string;
   date_modified?: string;
   offers?: Offer[];
+  // LLM-enriched fields (populated by enrich_llm.py)
+  summary?: string;
+  entities?: string[];
+  data_points?: string[];
+  target_query?: string;
 }
 
 export interface PageData {

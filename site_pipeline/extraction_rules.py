@@ -193,6 +193,11 @@ def enrich_extracted(page: dict[str, Any]) -> dict[str, Any]:
         "cta_text": current.get("cta_text") or "",
         "date_published": date_pub,
         "date_modified": date_mod or date_pub,
+        # LLM-enriched fields — preserved if already set, empty otherwise
+        "summary": current.get("summary") or "",
+        "entities": current.get("entities") or [],
+        "data_points": current.get("data_points") or [],
+        "target_query": current.get("target_query") or "",
     }
     return page
 
