@@ -63,7 +63,7 @@ const topOffers: TopOffer[] = loadAllPages()
         <h1 class="home-hero__title">{seo.h1}</h1>
         <p class="home-hero__lead">{seo.description}</p>
         <div class="home-hero__actions">
-          <a href={contactHref} class="btn btn--primary">Получить консультацию</a>
+          <a href={contactHref} class="btn btn--primary">{niche.ctaBtn}</a>
           {primarySection && (
             <a href={secondCtaHref} class="btn btn--ghost">{secondCtaLabel}</a>
           )}
