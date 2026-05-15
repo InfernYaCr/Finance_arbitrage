@@ -1,0 +1,62 @@
+---
+import ArchiveLayout from '../../layouts/ArchiveLayout.astro';
+import { siteConfig } from '../../data/siteConfig';
+import type { FullPage, SeoFields } from '../../data/types';
+
+const siteName = siteConfig.siteName;
+const h1 = `Рейтинги — ${siteName}`;
+const description = 'Независимые рейтинги банковских карт, кредитов, ипотеки и автокредитов. Сравните условия и выберите лучшее предложение.';
+
+const seo: SeoFields = {
+  title: `Рейтинги финансовых продуктов — ${siteName}`,
+  description,
+  h1,
+  canonical: `${siteConfig.siteUrl}/ratings/`,
+  ogTitle: h1,
+  ogDescription: description,
+  ogType: 'website',
+  breadcrumbs: [
+    { label: 'Главная', path: '/' },
+    { label: 'Рейтинги', path: '/ratings/' },
+  ],
+};
+
+// Synthetic FullPage — ArchiveLayout uses section, path, data.content_html
+const page: FullPage = {
+  id: 'ratings-index',
+  path: '/ratings/',
+  url: `${siteConfig.siteUrl}/ratings/`,
+  section: 'ratings',
+  title: h1,
+  description,
+  h1,
+  severity: 'ok',
+  issue_codes: [],
+  page_file: '',
+  data: {
+    id: 'ratings-index',
+    seed: { source_url: '', url: '', path: '/ratings/', section: 'ratings', depth: 1, title: h1, meta_description: description, h1, h2: [], csv_line: 0 },
+    fetch: {},
+    meta: { html_title: h1, html_meta_description: description, canonical: '/ratings/', body_class: [] },
+    wp: null,
+    wp_title: '',
+    excerpt_html: '',
+    excerpt_text: '',
+    content_html: '',
+    content_text: '',
+    links: [],
+    images: [],
+    quality: { content_text_chars: 0, links_count: 0, images_count: 0, has_csv_title: false, has_csv_h1: false },
+  },
+};
+
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: h1,
+  description,
+  url: `${siteConfig.siteUrl}/ratings/`,
+}];
+---
+
+<ArchiveLayout page={page} seo={seo} jsonLd={jsonLd} pageType="archive" />
