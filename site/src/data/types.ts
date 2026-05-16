@@ -105,6 +105,7 @@ export type PageType =
   | 'home'
   | 'article'
   | 'archive'
+  | 'listing'
   | 'faq'
   | 'portfolio_archive'
   | 'portfolio_case'

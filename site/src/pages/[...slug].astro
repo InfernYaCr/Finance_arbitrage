@@ -7,6 +7,7 @@ import { buildJsonLd } from '../lib/schema';
 import HomeLayout from '../layouts/HomeLayout.astro';
 import ArticleLayout from '../layouts/ArticleLayout.astro';
 import ArchiveLayout from '../layouts/ArchiveLayout.astro';
+import ListingLayout from '../layouts/ListingLayout.astro';
 import ServiceLayout from '../layouts/ServiceLayout.astro';
 import PortfolioLayout from '../layouts/PortfolioLayout.astro';
 import FaqLayout from '../layouts/FaqLayout.astro';
@@ -50,6 +51,7 @@ const layoutProps = { page, seo, jsonLd, pageType };
 {pageType === 'home'               && <HomeLayout       {...layoutProps} />}
 {pageType === 'article'            && <ArticleLayout    {...layoutProps} />}
 {pageType === 'archive'            && <ArchiveLayout    {...layoutProps} />}
+{pageType === 'listing'            && <ListingLayout    {...layoutProps} />}
 {pageType === 'service'            && <ServiceLayout    {...layoutProps} />}
 {pageType === 'portfolio_archive'  && <PortfolioLayout  {...layoutProps} />}
 {pageType === 'portfolio_case'     && <PortfolioLayout  {...layoutProps} />}
