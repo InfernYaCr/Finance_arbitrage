@@ -102,65 +102,65 @@
 > Цель: новый сайт за < 30 минут от `create_site.py` до preview.
 > Полный план — `SITE_BUILD_PLAN.md`.
 
-### F1 · Platform cleanup (одноразово, масштабируется)
+### F1 · Platform cleanup ✅
 
-- [ ] **F1.1** `crawl_pages_fc.py`: добавить `/amp(?:/|$)` и `\.html/amp` в `_SKIP_PATTERNS`
-- [ ] **F1.2** `crawl_pages_fc.py`: `_normalize_path()` — strip `.html` суффикс из slug
-- [ ] **F1.3** `build_content_index.py`: флаг `--min-chars 500` — фильтровать thin pages из индекса
-- [ ] **F1.4** `generate_nav.py`: исключать thin pages (`content_text_chars < 500`) из nav
-- [ ] **F1.5** `brand.ts`: дополнительный strip алиасов донора с суффиксами (`.ru`, `.com`)
+- [x] **F1.1** `crawl_pages_fc.py`: добавить `/amp(?:/|$)` и `\.html/amp` в `_SKIP_PATTERNS`
+- [x] **F1.2** `crawl_pages_fc.py`: `_normalize_path()` — strip `.html` суффикс из slug
+- [x] **F1.3** `build_content_index.py`: флаг `--min-chars 500` — фильтровать thin pages из индекса
+- [x] **F1.4** `generate_nav.py`: исключать thin pages (`content_text_chars < 500`) из nav
+- [x] **F1.5** `brand.ts`: дополнительный strip алиасов донора с суффиксами (`.ru`, `.com`)
 
-### F2 · Niche profiles
+### F2 · Niche profiles ✅
 
-- [ ] **F2.1** `niches/finance.json` — sections, labels, variants, tags_dict, brand_voice_prompt
-- [ ] **F2.2** `niches/seo.json` — аналогично для SEO-ниши
-- [ ] **F2.3** `niche_profile.py` — загрузчик/валидатор niche profile (Pydantic)
+- [x] **F2.1** `niches/finance.json` — sections, labels, variants, tags_dict, brand_voice_prompt
+- [x] **F2.2** `niches/seo.json` — аналогично для SEO-ниши
+- [x] **F2.3** `niche_profile.py` — загрузчик/валидатор niche profile (Pydantic)
 
-### F3 · create_site.py (оркестратор)
+### F3 · create_site.py (оркестратор) ✅
 
-- [ ] **F3.1** Базовый CLI: `create_site.py --donor X --niche Y --site-id Z --brand "Имя"`
-- [ ] **F3.2** Генерация `site.config.json` по шаблону ниши (nav seed, theme, aliases)
-- [ ] **F3.3** Авто-запуск crawl → export → build → smoke-test
-- [ ] **F3.4** Регистрация сайта в SQLite registry
-- [ ] **F3.5** `--with-rewrite` флаг — запускает LLM-rewrite после краула
+- [x] **F3.1** Базовый CLI: `create_site.py --donor X --niche Y --site-id Z --brand "Имя"`
+- [x] **F3.2** Генерация `site.config.json` по шаблону ниши (nav seed, theme, aliases)
+- [x] **F3.3** Авто-запуск crawl → export → build → smoke-test
+- [x] **F3.4** Регистрация сайта в SQLite registry
+- [x] **F3.5** `--with-rewrite` флаг — запускает LLM-rewrite после краула
 
-### F4 · LLM-rewrite + variation (КРИТИЧНО для PBN)
+### F4 · LLM-rewrite + variation ✅
 
-- [ ] **F4.1** `rewrite_intros.py` — gpt-4o-mini, rewrite первого параграфа каждой статьи
-- [ ] **F4.2** `cleanup_titles.py` — strip donor-brand из h1/title (regex + LLM fallback)
-- [ ] **F4.3** Nav order permutation — детерминированное перемешивание по `seed=site_id`
-- [ ] **F4.4** Article meta variation — показывать дату / автора / reading time по профилю сайта
+- [x] **F4.1** `rewrite_intros.py` — Claude Haiku, rewrite первого параграфа каждой статьи
+- [x] **F4.2** `cleanup_titles.py` — strip donor-brand из h1/title (regex + LLM fallback)
+- [x] **F4.3** Nav order permutation — детерминированное перемешивание по `seed=site_id`
+- [x] **F4.4** Article meta variation — показывать дату / автора / reading time по профилю сайта
 
-### F5 · Related pages (B3.4)
+### F5 · Related pages ✅
 
-- [ ] **F5.1** `content_index.sqlite` FTS5 — поиск похожих страниц по title+body
-- [ ] **F5.2** `RelatedPages.astro` — компонент: 3–5 ссылок, встраивается в ArticleLayout
-- [ ] **F5.3** Exclude same-page, exclude thin pages из related
+- [x] **F5.1** `content_index.sqlite` FTS5 — поиск похожих страниц по title+body
+- [x] **F5.2** `RelatedPages.astro` — компонент: 3–5 ссылок, встраивается в ArticleLayout
+- [x] **F5.3** Exclude same-page, exclude thin pages из related
 
-### F6 · Templates (универсальные под любую нишу)
+### F6 · Templates ✅
 
-- [ ] **F6.1** `ListingLayout` — новый page_type `listing`: hub-страницы с карточками дочерних
+- [x] **F6.1** `ListingLayout` — новый page_type `listing`: hub-страницы с карточками дочерних
 - [ ] **F6.2** `HomeLayout`: hub-секции из `niche_profile.sections` вместо хардкода
 - [ ] **F6.3** `ArchiveLayout`: поддержка `niche_profile.labels` для заголовков категорий
 - [ ] **F6.4** Тема Gamma (`gamma.css`) — информационная ниша (нейтральный, широкий)
 
-### F7 · Tags (niche-aware)
+### F7 · Tags ✅
 
-- [ ] **F7.1** Автотеггинг страниц из `niche_profile.tags_dict` при экспорте
-- [ ] **F7.2** Теговые архивы `/теги/<tag>/` — Astro static pages
-- [ ] **F7.3** Тег-облако в Sidebar/Footer
+- [x] **F7.1** Автотеггинг страниц из `niche_profile.tags_dict` при экспорте
+- [x] **F7.2** Теговые архивы `/tegi/<tag>/` — Astro static pages
+- [x] **F7.3** Тег-облако в Sidebar/Footer
 
-### F8 · Schema (B3.6 + расширение)
+### F8 · Schema ✅
 
-- [ ] **F8.1** `FinancialProduct` / `LoanOrCredit` Schema для финансовых страниц
-- [ ] **F8.2** `ItemList` Schema для листинг/архив страниц
-- [ ] **F8.3** Расширить LLM-схему краулера: `summary`, `entities`, `data_points`, `target_query`
+- [x] **F8.1** `FinancialProduct` / `LoanOrCredit` Schema для финансовых страниц
+- [x] **F8.2** `ItemList` Schema для листинг/архив страниц
+- [x] **F8.3** Расширить LLM-схему краулера: `summary`, `entities`, `data_points`, `target_query`
 
-### F9 · Footprint diversity
+### F9 · Footprint diversity ✅
 
-- [ ] **F9.1** CSS token jitter: ±2px border-radius, ±5% spacing — per site seed
-- [ ] **F9.2** Meta description variation: 2 шаблона на выбор per niche profile
-- [ ] **F9.3** `style_extractor.py` — donor CSS → theme tokens (B4.5)
+- [x] **F9.1** CSS token jitter: ±2px border-radius, ±5% spacing — per site seed (`gen_css_jitter.py`)
+- [x] **F9.2** Meta description variation: шаблоны из `meta_templates` niche profile
+- [x] **F9.3** `style_extractor.py` — donor CSS → theme tokens (B4.5)
 - [ ] **F9.4** Section label variation: «Рейтинги» / «ТОПы» / «Лучшие» из niche profile
 
 ---
@@ -168,38 +168,27 @@
 ## Порядок реализации
 
 ```
-B0 ✅  B1 ✅  B2 ✅  B3.1–3.3+3.5 ✅  B4.1–4.2–4.4 ✅  B5.1–5.3 ✅
+B0 ✅  B1 ✅  B2 ✅  B3 ✅  B4 ✅  B5.1–5.5 ✅  B6 ✅
                          ↓
-           F1 (platform cleanup)          ← ТЕКУЩИЙ ПРИОРИТЕТ
-           F2 (niche profiles: finance + seo)
+           F1–F9 ✅ (platform cleanup, niches, orchestrator,
+                     LLM-rewrite, related, templates, tags, schema, footprint)
                          ↓
-           F5 (Related Pages, B3.4)
-           F3 (create_site.py оркестратор)
-                         ↓
-           F4 (LLM-rewrite — критично для PBN)
-           F6 (templates: ListingLayout, gamma theme)
-                         ↓
-           F7 (tags)  F8 (Schema B3.6+)  F9 (footprint)
-                         ↓
-           B5.4–5.5 (Метрика + форма)
-           B6.1–6.4 (полная автоматизация)
-           B7.1–7.4 (мониторинг)
+           F6.2–6.4, F9.4 (остатки — опционально)
                          ↓
            B5.6 (Keitaro — при стабильном трафике)
+           B7.1, 7.2, 7.4 (мониторинг)
 ```
 
 ---
 
-## Текущее состояние (2026-05-14)
+## Текущее состояние (2026-05-16)
 
 - Трек A: завершён ✅
-- B0 + B1 (1.1–1.7): crawler с LLM, smart-actions, include-sections — готово ✅
-- B2.0–B2.4: multi-site инфра полностью готова ✅
-- B3.1–B3.3 + B3.5: навигация, FAQPage, Summary+speakable, даты — готово ✅
-- B4.1–B4.2–B4.4: темы alpha/beta, переключение через `theme` — готово ✅
-- B5.1–B5.3: per-site affiliate, resolveSlotHtml, /go/ редиректы — готово ✅
-- `vsezaimyonline` тест-краул: 100 страниц, QA ок, build ок ✅
-- `SITE_BUILD_PLAN.md` (6946c37): PBN-архитектура с 9 фазами F1–F9 зафиксирована
-- Деплой `yourkedm.beget.tech`: работает, форма отправляет (уведомления B5.5 отложены)
+- Трек B (B0–B6): полностью завершён ✅
+- Трек F (F1–F9): завершён ✅ (все ключевые задачи)
+- Деплой `yourkedm.beget.tech`: работает, форма отправляет ✅
 - **Текущая ветка**: `codex/pbn-factory`
-- **Следующий шаг: F1** (platform cleanup) → F2 (niche profiles) → F5 (Related Pages)
+- **Остатки (низкий приоритет)**:
+  - F6.2 HomeLayout niche sections, F6.3 ArchiveLayout niche labels, F6.4 Gamma theme
+  - F9.4 Section label variation
+  - B5.6 Keitaro, B7.1 крауд-ссылки, B7.2 UptimeRobot, B7.4 Метрика алерт
