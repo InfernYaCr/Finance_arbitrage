@@ -7,10 +7,16 @@ function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+function _withoutTld(alias: string): string[] {
+  const without = alias.replace(/\.(ru|com|net|org|рф)$/i, '');
+  return without !== alias ? [without] : [];
+}
+
 const LEGACY_BRAND_ALIASES = [
   LATIN_LEGACY_BRAND,
   CYRILLIC_LEGACY_BRAND,
   ...siteConfig.legacyContent.brandAliases,
+  ...siteConfig.legacyContent.brandAliases.flatMap(_withoutTld),
 ].filter(Boolean);
 const LEGACY_BRAND_RE = new RegExp(
   LEGACY_BRAND_ALIASES.map((alias) => escapeRegExp(alias)).join('|'),

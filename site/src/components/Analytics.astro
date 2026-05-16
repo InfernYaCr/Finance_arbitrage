@@ -27,21 +27,24 @@ const isDev = import.meta.env.DEV;
     </script>
     <script>
       // Goal tracking: outbound /go/ clicks and form submissions
+      declare const ym: ((id: number, action: string, goal: string, params?: object) => void) | undefined;
       document.addEventListener('click', function(e) {
-        const a = e.target.closest('a[href]');
+        const a = (e.target as Element | null)?.closest('a[href]');
         if (!a) return;
         const href = a.getAttribute('href') || '';
         if (/^\/go\//.test(href) || /^https?:\/\//.test(href)) {
-          if (typeof ym !== 'undefined' && window.__ymId) {
-            ym(window.__ymId, 'reachGoal', 'outbound_click', { url: href });
+          const ymId = (window as unknown as Record<string, unknown>).__ymId as number | undefined;
+          if (typeof ym !== 'undefined' && ymId) {
+            ym(ymId, 'reachGoal', 'outbound_click', { url: href });
           }
         }
       });
       document.addEventListener('submit', function(e) {
-        const form = e.target;
+        const form = e.target as HTMLElement | null;
         if (form && form.tagName === 'FORM') {
-          if (typeof ym !== 'undefined' && window.__ymId) {
-            ym(window.__ymId, 'reachGoal', 'form_submit');
+          const ymId = (window as unknown as Record<string, unknown>).__ymId as number | undefined;
+          if (typeof ym !== 'undefined' && ymId) {
+            ym(ymId, 'reachGoal', 'form_submit');
           }
         }
       });
