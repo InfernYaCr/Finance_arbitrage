@@ -106,4 +106,9 @@ export const siteConfig = {
     showAuthor:      import.meta.env.PUBLIC_SHOW_AUTHOR       === 'true',
   },
 
+  metaTemplates: (import.meta.env.PUBLIC_META_TEMPLATES ?? '')
+    .split('|')
+    .map((t: string) => t.trim())
+    .filter(Boolean) as string[],
+
 } as const;

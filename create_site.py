@@ -118,6 +118,7 @@ def scaffold_site_config(
         "section_labels_override": site_labels,
         "site_stats": niche_data.get("site_stats", []),
         "niche_cta": niche_data.get("niche_cta", {}),
+        "meta_templates": niche_data.get("meta_templates", []),
     }
 
     site_cfg.write_text(json.dumps(config, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -188,9 +189,16 @@ def main() -> None:
                 "sidebar_desc":     niche.niche_cta.sidebar_desc,
                 "sidebar_btn":      niche.niche_cta.sidebar_btn,
             },
+            "meta_templates": niche.meta_templates,
         },
         brand_name=args.brand,
         brand_name_full=args.brand_full,
+    )
+
+    # --- Step 1b: CSS jitter ---
+    _run(
+        [py, "site_pipeline/gen_css_jitter.py", "--site-id", args.site_id],
+        desc=f"CSS jitter for {args.site_id}",
     )
 
     # --- Step 2: Crawl ---

@@ -21,13 +21,18 @@ export function deriveSeoFields(page: FullPage, pageType: PageType): SeoFields {
     ? siteConfig.siteNameFull
     : `${title} — ${siteConfig.siteName}`;
 
-  // Description
-  const description = replaceLegacyBrand(
-    seed.meta_description ||
-    meta.html_meta_description ||
-    page.description ||
-    '',
-  );
+  // Description: use page data first, fall back to niche meta template
+  const rawDesc = seed.meta_description || meta.html_meta_description || page.description || '';
+  const year = new Date().getFullYear().toString();
+  const fallbackDesc = (() => {
+    const templates = siteConfig.metaTemplates;
+    if (!templates.length) return '';
+    // Pick template deterministically by path hash (alternates between 2 templates)
+    const idx = page.path.length % templates.length;
+    const tpl = templates[idx] ?? templates[0] ?? '';
+    return tpl.replace('{h1}', page.title || '').replace('{year}', year);
+  })();
+  const description = replaceLegacyBrand(rawDesc || fallbackDesc);
 
   // H1: seed CSV h1 > wp_title > title (templates control display)
   const h1 = replaceLegacyBrand(seed.h1 || page.data.wp_title || title);

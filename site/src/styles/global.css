@@ -1,6 +1,8 @@
 @import './themes/alpha.css';
 @import './themes/beta.css';
 @import './themes/gamma.css';
+/* jitter.css is generated per-site by gen_css_jitter.py and imported last to override radius/spacing */
+@import './themes/jitter.css';
 
 *, *::before, *::after {
   box-sizing: border-box;

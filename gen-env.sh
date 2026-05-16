@@ -80,6 +80,7 @@ fields = {
   "PUBLIC_SHOW_DATE":            str(c.get("article_meta", {}).get("show_date", True)).lower(),
   "PUBLIC_SHOW_READING_TIME":    str(c.get("article_meta", {}).get("show_reading_time", False)).lower(),
   "PUBLIC_SHOW_AUTHOR":          str(c.get("article_meta", {}).get("show_author", False)).lower(),
+  "PUBLIC_META_TEMPLATES":       "|".join(c.get("meta_templates", [])),
 }
 for k, v in fields.items():
     print(f"{k}={v}")
