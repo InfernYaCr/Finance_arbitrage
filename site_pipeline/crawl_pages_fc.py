@@ -21,6 +21,7 @@ Usage:
   python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --recrawl
   python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --smart-actions
   python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --include-sections blog,uslugi,qa
+  python site_pipeline/crawl_pages_fc.py --source-domain donor.ru --use-crawler
 
 Requires FIRECRAWL_API_KEY in environment or site/.env.
 """
@@ -55,6 +56,7 @@ from firecrawl.v1.client import (  # noqa: E402
     V1JsonConfig,
     V1LocationConfig,
     V1ScrollAction,
+    V1ScrapeOptions,
     V1WaitAction,
 )
 
@@ -629,6 +631,43 @@ def _retry_thin_pages(
 # Main crawl logic
 # ---------------------------------------------------------------------------
 
+def _crawl_via_crawler(
+    app: V1FirecrawlApp,
+    base_url: str,
+    source_domain: str,
+    limit: int,
+    formats: list[str],
+    json_opts: V1JsonConfig | None,
+    include_sections: list[str] | None,
+) -> list[dict[str, Any]]:
+    """Use Firecrawl crawl_url() instead of map+batch_scrape.
+
+    Better for sites where map misses URLs; Firecrawl follows links recursively.
+    Returns list of raw record dicts (same shape as batch_scrape results).
+    """
+    include_paths: list[str] | None = None
+    if include_sections:
+        include_paths = [f"/{s}/*" for s in include_sections]
+
+    scrape_opts = V1ScrapeOptions(
+        formats=formats,  # type: ignore[arg-type]
+        onlyMainContent=True,
+        location=V1LocationConfig(country="RU", languages=["ru-RU"]),
+        **({"jsonOptions": json_opts} if json_opts else {}),
+    )
+
+    print(f"  Using crawl_url() (limit={limit}, include_paths={include_paths}) …")
+    resp = app.crawl_url(
+        base_url,
+        limit=limit,
+        include_paths=include_paths,
+        ignore_sitemap=False,
+        scrape_options=scrape_opts,
+        poll_interval=5,
+    )
+    return resp.data or []
+
+
 def crawl(
     source_domain: str,
     limit: int,
@@ -638,6 +677,7 @@ def crawl(
     with_llm: bool = False,
     smart_actions: bool = False,
     include_sections: list[str] | None = None,
+    use_crawler: bool = False,
 ) -> None:
     api_key = os.environ.get("FIRECRAWL_API_KEY")
     if not api_key:
@@ -658,7 +698,7 @@ def crawl(
         ]
     else:
         print(f"[1/3] Mapping {base_url} …")
-        map_result = app.map_url(base_url, limit=min(limit * 3, 3000))
+        map_result = app.map_url(base_url, limit=min(limit * 3, 5000))
         raw_urls = _get(map_result, "links", default=[]) or []
         output_dir.mkdir(parents=True, exist_ok=True)
         write_json(map_cache_path, raw_urls)
@@ -693,17 +733,23 @@ def crawl(
     if recrawl:
         formats.append("changeTracking")
 
-    print(f"[3/3] Scraping {len(urls)} pages (formats={formats}, recrawl={recrawl}) …")
-    batch_resp = app.batch_scrape_urls(
-        urls,
-        formats=formats,  # type: ignore[arg-type]
-        only_main_content=True,
-        json_options=json_opts,
-        location=V1LocationConfig(country="RU", languages=["ru-RU"]),
-        poll_interval=5,
-    )
-
-    docs: list[Any] = batch_resp.data or []
+    if use_crawler:
+        # Skip map+filter — use Firecrawl's recursive crawler directly.
+        print(f"[3/3] Crawling via crawl_url() (formats={formats}, recrawl={recrawl}) …")
+        docs: list[Any] = _crawl_via_crawler(
+            app, base_url, source_domain, limit, formats, json_opts, include_sections
+        )
+    else:
+        print(f"[3/3] Scraping {len(urls)} pages (formats={formats}, recrawl={recrawl}) …")
+        batch_resp = app.batch_scrape_urls(
+            urls,
+            formats=formats,  # type: ignore[arg-type]
+            only_main_content=True,
+            json_options=json_opts,
+            location=V1LocationConfig(country="RU", languages=["ru-RU"]),
+            poll_interval=5,
+        )
+        docs: list[Any] = batch_resp.data or []
     print(f"      Received {len(docs)} page results.")
 
     # Build all records into a path-keyed dict before writing.
@@ -796,6 +842,13 @@ def main() -> None:
             "'blog,uslugi,qa'. Pages outside these sections are dropped after map."
         ),
     )
+    parser.add_argument(
+        "--use-crawler", action="store_true",
+        help=(
+            "Use Firecrawl crawl_url() (recursive link-following) instead of "
+            "map+batch_scrape. Better for sites where map misses URLs."
+        ),
+    )
     args = parser.parse_args()
     include_sections = (
         [s.strip() for s in args.include_sections.split(",") if s.strip()]
@@ -811,6 +864,7 @@ def main() -> None:
         with_llm=args.with_llm,
         smart_actions=args.smart_actions,
         include_sections=include_sections,
+        use_crawler=args.use_crawler,
     )
 
 

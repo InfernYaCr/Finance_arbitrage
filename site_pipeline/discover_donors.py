@@ -26,6 +26,13 @@ if _SITE_ENV.exists():
 
 EXA_SEARCH_URL = "https://api.exa.ai/search"
 
+FIRECRAWL_SEARCH_QUERIES = {
+    "finance": "российский финансовый сайт рейтинги займов кредитных карт банков МФО",
+    "seo_agency": "SEO агентство продвижение сайтов кейсы цены услуги",
+    "legal": "юридическая компания консультации судебная практика услуги",
+    "medical": "частная клиника диагностика лечение врачи услуги цены",
+}
+
 EXCLUDE_DOMAINS = [
     "wikipedia.org",
     "youtube.com",
@@ -88,13 +95,72 @@ def _request_exa(payload: dict[str, Any]) -> dict[str, Any]:
     return response.json()
 
 
+def _discover_firecrawl(
+    niche: str,
+    query: str | None,
+    num_results: int,
+) -> list[dict[str, Any]]:
+    """Search donors via Firecrawl search API (alternative to Exa)."""
+    api_key = os.environ.get("FIRECRAWL_API_KEY")
+    if not api_key:
+        sys.exit("FIRECRAWL_API_KEY not set. Add it to site/.env or the environment.")
+
+    from firecrawl.v1 import V1FirecrawlApp  # local import to avoid mandatory dep
+    app = V1FirecrawlApp(api_key=api_key)
+
+    final_query = query or FIRECRAWL_SEARCH_QUERIES.get(niche, FIRECRAWL_SEARCH_QUERIES["finance"])
+    print(f"  Firecrawl search: {final_query!r} (limit={num_results})")
+    resp = app.search(
+        final_query,
+        limit=num_results,
+        lang="ru",
+        country="RU",
+    )
+    docs = resp.data if hasattr(resp, "data") else (resp if isinstance(resp, list) else [])
+    candidates = []
+    for doc in docs:
+        url = getattr(doc, "url", None) or (doc.get("url") if isinstance(doc, dict) else None) or ""
+        title = getattr(doc, "title", None) or (doc.get("title") if isinstance(doc, dict) else None) or ""
+        if not url:
+            continue
+        domain = _domain(url)
+        if any(ex in domain for ex in EXCLUDE_DOMAINS):
+            continue
+        candidates.append({
+            "title": title,
+            "url": url,
+            "domain": domain,
+            "score": None,
+            "published_date": None,
+            "highlights": [],
+            "highlight_scores": [],
+            "qualified_for_review": True,
+            "backend": "firecrawl",
+        })
+    return candidates
+
+
 def discover(
     niche: str,
     query: str | None,
     highlight_query: str | None,
     num_results: int,
     out: Path,
+    backend: str = "exa",
 ) -> dict[str, Any]:
+    if backend == "firecrawl":
+        candidates = _discover_firecrawl(niche, query, num_results)
+        output = {
+            "niche": niche,
+            "query": query or FIRECRAWL_SEARCH_QUERIES.get(niche, ""),
+            "highlight_query": None,
+            "request_id": None,
+            "backend": "firecrawl",
+            "candidates": candidates,
+        }
+        write_json(out, output)
+        return output
+
     preset = NICHE_QUERIES.get(niche, NICHE_QUERIES["finance"])
     final_query = query or preset["query"]
     final_highlight_query = highlight_query or preset["highlight_query"]
@@ -127,6 +193,7 @@ def discover(
                 "highlights": highlights,
                 "highlight_scores": highlight_scores,
                 "qualified_for_review": bool(highlights),
+                "backend": "exa",
             }
         )
 
@@ -135,6 +202,7 @@ def discover(
         "query": final_query,
         "highlight_query": final_highlight_query,
         "request_id": result.get("requestId"),
+        "backend": "exa",
         "candidates": candidates,
     }
     write_json(out, output)
@@ -185,6 +253,10 @@ def main() -> None:
     parser.add_argument("--num-results", type=int, default=10)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUTPUT / "donor_candidates.json")
     parser.add_argument(
+        "--backend", choices=["exa", "firecrawl"], default="exa",
+        help="Search backend: 'exa' (default) uses Exa highlights; 'firecrawl' uses Firecrawl search.",
+    )
+    parser.add_argument(
         "--auto-qualify",
         action="store_true",
         help="Phase 2: qualify candidates with Exa summary and write CRAWL/SKIP to registry",
@@ -198,6 +270,7 @@ def main() -> None:
         highlight_query=args.highlight_query,
         num_results=args.num_results,
         out=args.out,
+        backend=args.backend,
     )
     print(f"Saved {len(output['candidates'])} candidates → {args.out}")
     for candidate in output["candidates"][:10]:
