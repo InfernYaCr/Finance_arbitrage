@@ -1,0 +1,57 @@
+---
+import { getAllTags } from '../data/loadPages';
+
+const tags = getAllTags().slice(0, 30); // top 30 tags
+const maxCount = tags[0]?.count ?? 1;
+---
+
+{tags.length > 0 && (
+  <nav class="tag-cloud" aria-label="Теги">
+    {tags.map(({ tag, count }) => {
+      const weight = Math.round(1 + (count / maxCount) * 4); // 1–5
+      return (
+        <a
+          href={`/tegi/${tag}/`}
+          class="tag-cloud__item"
+          data-weight={weight}
+          aria-label={`${tag} (${count})`}
+        >
+          {tag}
+        </a>
+      );
+    })}
+  </nav>
+)}
+
+<style>
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.tag-cloud__item {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full, 999px);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  transition: background var(--duration-fast), color var(--duration-fast), border-color var(--duration-fast);
+  white-space: nowrap;
+}
+
+.tag-cloud__item[data-weight="2"] { font-size: calc(var(--text-sm) * 1.05); }
+.tag-cloud__item[data-weight="3"] { font-size: calc(var(--text-sm) * 1.1); color: var(--color-text); }
+.tag-cloud__item[data-weight="4"] { font-size: var(--text-base); color: var(--color-text); font-weight: var(--weight-medium); }
+.tag-cloud__item[data-weight="5"] { font-size: var(--text-base); color: var(--color-accent); font-weight: var(--weight-semibold); border-color: var(--color-accent); }
+
+.tag-cloud__item:hover {
+  background: var(--color-surface);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+</style>

@@ -467,3 +467,48 @@ function loadRelatedPagesMap(): Record<string, RelatedPageLink[]> {
 export function getRelatedPages(pageId: string): RelatedPageLink[] {
   return loadRelatedPagesMap()[pageId] ?? [];
 }
+
+// ---------------------------------------------------------------------------
+// Page tags (F7)
+// ---------------------------------------------------------------------------
+let _pageTags: Record<string, string[]> | null = null;
+
+function loadPageTagsMap(): Record<string, string[]> {
+  if (_pageTags) return _pageTags;
+  const tagsPath = resolve(DATA_ROOT, 'page_tags.json');
+  try {
+    _pageTags = JSON.parse(readFileSync(tagsPath, 'utf-8')) as Record<string, string[]>;
+  } catch {
+    _pageTags = {};
+  }
+  return _pageTags;
+}
+
+export function getPageTags(path: string): string[] {
+  return loadPageTagsMap()[path] ?? [];
+}
+
+export function getAllTags(): Array<{ tag: string; count: number }> {
+  const map = loadPageTagsMap();
+  const counts: Record<string, number> = {};
+  for (const tags of Object.values(map)) {
+    for (const tag of tags) {
+      counts[tag] = (counts[tag] ?? 0) + 1;
+    }
+  }
+  return Object.entries(counts)
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count);
+}
+
+export function getPagesByTag(tag: string): Array<{ path: string; title: string; description: string }> {
+  const map = loadPageTagsMap();
+  const allPages = loadAllPages();
+  const byPath = new Map(allPages.map((p) => [p.path, p]));
+  return Object.entries(map)
+    .filter(([, tags]) => tags.includes(tag))
+    .map(([path]) => {
+      const p = byPath.get(path);
+      return { path, title: p?.title ?? path, description: p?.description ?? '' };
+    });
+}

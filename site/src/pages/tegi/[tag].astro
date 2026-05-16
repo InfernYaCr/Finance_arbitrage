@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getAllTags, getPagesByTag } from '../../data/loadPages';
+import { siteConfig } from '../../data/siteConfig';
+import type { SeoFields } from '../../data/types';
+
+export async function getStaticPaths() {
+  const tags = getAllTags();
+  return tags.map(({ tag }) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+const pages = getPagesByTag(tag);
+
+const seo: SeoFields = {
+  title: `${tag} — ${siteConfig.siteName}`,
+  description: `Страницы по теме «${tag}» на сайте ${siteConfig.siteName}`,
+  h1: tag,
+  canonical: `${siteConfig.siteUrl.replace(/\/$/, '')}/tegi/${tag}/`,
+  ogTitle: `${tag} — ${siteConfig.siteName}`,
+  ogDescription: `Страницы по теме «${tag}»`,
+  ogType: 'website',
+  datePublished: undefined,
+  dateModified: undefined,
+  breadcrumbs: [
+    { label: 'Главная', path: '/' },
+    { label: 'Теги', path: '/tegi/' },
+    { label: tag, path: `/tegi/${tag}/` },
+  ],
+};
+---
+
+<BaseLayout seo={seo} jsonLd={[]} currentPath={`/tegi/${tag}/`}>
+  <section class="tag-archive">
+    <div class="container container--md">
+      <Breadcrumbs crumbs={seo.breadcrumbs} />
+
+      <header class="tag-archive__header">
+        <span class="tag-archive__badge">Тег</span>
+        <h1 class="tag-archive__title">{tag}</h1>
+        <p class="tag-archive__count">{pages.length} {pages.length === 1 ? 'страница' : pages.length < 5 ? 'страницы' : 'страниц'}</p>
+      </header>
+
+      {pages.length > 0 ? (
+        <ul class="tag-archive__list" role="list">
+          {pages.map((p) => (
+            <li class="tag-archive__item">
+              <a class="tag-archive__link" href={p.path}>{p.title}</a>
+              {p.description && <p class="tag-archive__desc">{p.description}</p>}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="tag-archive__empty">По этому тегу пока нет страниц.</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.tag-archive {
+  padding: var(--space-10) 0 var(--space-section);
+}
+
+.tag-archive__header {
+  margin-bottom: var(--space-10);
+}
+
+.tag-archive__badge {
+  display: inline-block;
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: var(--weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+
+.tag-archive__title {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.tag-archive__count {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+
+.tag-archive__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.tag-archive__item {
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  transition: border-color var(--duration-fast);
+}
+
+.tag-archive__item:hover {
+  border-color: var(--color-accent);
+}
+
+.tag-archive__link {
+  display: block;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  text-decoration: none;
+  margin-bottom: var(--space-1);
+  line-height: var(--leading-snug);
+}
+
+.tag-archive__link:hover {
+  color: var(--color-accent);
+}
+
+.tag-archive__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+}
+
+.tag-archive__empty {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  text-align: center;
+  padding: var(--space-12) 0;
+}
+</style>

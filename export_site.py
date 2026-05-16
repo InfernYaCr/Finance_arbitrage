@@ -156,6 +156,20 @@ def export_site(site_id: str, output_dir_override: str | None = None) -> None:
     except Exception as exc:
         print(f"  related_pages.json generation skipped: {exc}", file=sys.stderr)
 
+    # Generate page_tags.json via niche tags_dict (F7.1)
+    try:
+        from generate_tags import generate_tags
+        tags = generate_tags(site_id)
+        tags_path = dest_dir / "page_tags.json"
+        tags_path.write_text(
+            json.dumps(tags, ensure_ascii=False, separators=(",", ":")) + "\n",
+            encoding="utf-8",
+        )
+        tagged_count = sum(1 for v in tags.values() if v)
+        print(f"✓ Generated page_tags.json ({tagged_count}/{len(tags)} pages tagged) → {tags_path}")
+    except Exception as exc:
+        print(f"  page_tags.json generation skipped: {exc}", file=sys.stderr)
+
     # Update content_dir in site.config.json to point to sites/<id>/
     relative_content_dir = f"../sites/{site_id}"
     if config.get("content_dir") != relative_content_dir:
