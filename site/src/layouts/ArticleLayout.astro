@@ -64,7 +64,11 @@ function injectHeadingIds(html: string): { html: string; headings: TocHeading[] 
 const { html: processedContentHtml, headings: tocHeadings } =
   injectHeadingIds(data.content_html || '');
 
-const { niche } = siteConfig;
+const { niche, articleMeta } = siteConfig;
+
+// Reading time estimate: ~1500 chars per minute for Russian
+const contentChars = (data.content_html || '').replace(/<[^>]+>/g, '').length;
+const readingMinutes = Math.max(1, Math.round(contentChars / 1500));
 ---
 
 <BaseLayout seo={seo} jsonLd={jsonLd} currentPath={page.path}>
@@ -75,12 +79,15 @@ const { niche } = siteConfig;
 
         <header class="article-page__header">
           {seo.h1 && <h1 class="article-page__title">{seo.h1}</h1>}
-          {(seo.datePublished || seo.dateModified) && (
+          {(articleMeta.showDate || articleMeta.showReadingTime || articleMeta.showAuthor) && (
             <div class="article-page__meta">
-              {seo.dateModified && (
+              {articleMeta.showDate && seo.dateModified && (
                 <time datetime={seo.dateModified} class="article-page__date">
                   Обновлено: {new Date(seo.dateModified).toLocaleDateString('ru-RU', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </time>
+              )}
+              {articleMeta.showReadingTime && contentChars > 200 && (
+                <span class="article-page__reading-time">{readingMinutes} мин. чтения</span>
               )}
             </div>
           )}

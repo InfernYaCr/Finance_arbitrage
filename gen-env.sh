@@ -77,6 +77,9 @@ fields = {
   "PUBLIC_NICHE_SIDEBAR_DESC":   c.get("niche_cta", {}).get("sidebar_desc", "Свяжитесь с нами."),
   "PUBLIC_NICHE_SIDEBAR_BTN":    c.get("niche_cta", {}).get("sidebar_btn", "Получить консультацию"),
   "PUBLIC_SECTION_LABELS":       json.dumps(c.get("section_labels_override", {}), ensure_ascii=False),
+  "PUBLIC_SHOW_DATE":            str(c.get("article_meta", {}).get("show_date", True)).lower(),
+  "PUBLIC_SHOW_READING_TIME":    str(c.get("article_meta", {}).get("show_reading_time", False)).lower(),
+  "PUBLIC_SHOW_AUTHOR":          str(c.get("article_meta", {}).get("show_author", False)).lower(),
 }
 for k, v in fields.items():
     print(f"{k}={v}")

@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 import re
 from collections import defaultdict
 from pathlib import Path
@@ -82,7 +83,7 @@ def _strip_brand(title: str, aliases: list[str]) -> str:
     return re.sub(r"\s{2,}", " ", title).strip(" -–—|,")
 
 
-def generate_nav(site_id: str) -> list[dict]:
+def generate_nav(site_id: str, permute: bool = False) -> list[dict]:
     manifest_path = PROJECT_ROOT / "sites" / site_id / "build_manifest.json"
     manifest: list[dict] = json.loads(manifest_path.read_text(encoding="utf-8"))
     brand_aliases = _load_brand_aliases(site_id)
@@ -147,6 +148,11 @@ def generate_nav(site_id: str) -> list[dict]:
         if len(pages) >= MIN_SECTION_PAGES:
             main_items.append(item)
 
+    # Deterministic permutation: shuffle order by site_id seed for footprint diversity
+    if permute and len(main_items) > 2:
+        rng = random.Random(site_id)
+        rng.shuffle(main_items)
+
     nav.extend(main_items[:MAX_NAV_ITEMS])
     if contact_items:
         nav.append(contact_items[0])
@@ -157,9 +163,10 @@ def generate_nav(site_id: str) -> list[dict]:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate nav.json for a site")
     parser.add_argument("--site-id", required=True, help="Site ID (e.g. finhelp-ru)")
+    parser.add_argument("--permute", action="store_true", help="Shuffle nav order deterministically by site_id (footprint diversity)")
     args = parser.parse_args()
 
-    nav = generate_nav(args.site_id)
+    nav = generate_nav(args.site_id, permute=args.permute)
 
     out_path = PROJECT_ROOT / "sites" / args.site_id / "nav.json"
     out_path.write_text(

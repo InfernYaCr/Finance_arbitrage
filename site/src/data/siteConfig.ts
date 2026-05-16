@@ -100,4 +100,10 @@ export const siteConfig = {
     }
   })(),
 
+  articleMeta: {
+    showDate:        import.meta.env.PUBLIC_SHOW_DATE         !== 'false',
+    showReadingTime: import.meta.env.PUBLIC_SHOW_READING_TIME === 'true',
+    showAuthor:      import.meta.env.PUBLIC_SHOW_AUTHOR       === 'true',
+  },
+
 } as const;
