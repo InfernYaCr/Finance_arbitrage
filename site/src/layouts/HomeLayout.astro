@@ -93,8 +93,8 @@ const topOffers: TopOffer[] = loadAllPages()
     <section class="home-top-offers" aria-labelledby="home-top-offers-title">
       <div class="container">
         <div class="home-section-header">
-          <h2 id="home-top-offers-title" class="home-section-title">Лучшие предложения</h2>
-          <a href={primarySection?.href ?? '/ratings/'} class="home-section-more">Все рейтинги →</a>
+          <h2 id="home-top-offers-title" class="home-section-title">{siteConfig.sectionLabels['ratings'] ?? 'Лучшие предложения'}</h2>
+          <a href={primarySection?.href ?? '/ratings/'} class="home-section-more">{`${siteConfig.sectionLabels['ratings'] ?? 'Рейтинги'} →`}</a>
         </div>
         <ul class="home-top-offers__grid" role="list">
           {topOffers.map((offer) => {

@@ -15,6 +15,10 @@ interface Props {
 const { page, seo, jsonLd } = Astro.props;
 const { data } = page;
 
+// Niche-aware catalog heading (F6.3)
+const _seg = page.path.replace(/^\//, '').split('/')[0] ?? '';
+const catalogHeading = siteConfig.sectionLabels[_seg] ?? 'Разделы и материалы';
+
 const isRatingsArchive = page.path === '/ratings/';
 
 function getCategoryFromPath(path: string): string {
@@ -134,7 +138,7 @@ const groupedChildren = directChildren.map((child) => ({
 
           {!isRatingsArchive && (
             <h2 id="archive-catalog-title" class="archive-page__catalog-title">
-              Разделы и материалы
+              {catalogHeading}
             </h2>
           )}
 
