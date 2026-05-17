@@ -140,9 +140,9 @@
 ### F6 · Templates ✅
 
 - [x] **F6.1** `ListingLayout` — новый page_type `listing`: hub-страницы с карточками дочерних
-- [ ] **F6.2** `HomeLayout`: hub-секции из `niche_profile.sections` вместо хардкода
-- [ ] **F6.3** `ArchiveLayout`: поддержка `niche_profile.labels` для заголовков категорий
-- [ ] **F6.4** Тема Gamma (`gamma.css`) — информационная ниша (нейтральный, широкий)
+- [x] **F6.2** `HomeLayout`: заголовок ratings-секции из `siteConfig.sectionLabels`
+- [x] **F6.3** `ArchiveLayout`: заголовок каталога из `siteConfig.sectionLabels[path_segment]`
+- [x] **F6.4** Тема Gamma (`gamma.css`) — warm-neutral, Literata, indigo accent
 
 ### F7 · Tags ✅
 
@@ -161,7 +161,7 @@
 - [x] **F9.1** CSS token jitter: ±2px border-radius, ±5% spacing — per site seed (`gen_css_jitter.py`)
 - [x] **F9.2** Meta description variation: шаблоны из `meta_templates` niche profile
 - [x] **F9.3** `style_extractor.py` — donor CSS → theme tokens (B4.5)
-- [ ] **F9.4** Section label variation: «Рейтинги» / «ТОПы» / «Лучшие» из niche profile
+- [x] **F9.4** Section label variation: детерминированный выбор варианта по `site_id` в `gen-env.sh`
 
 ---
 
@@ -189,6 +189,4 @@ B0 ✅  B1 ✅  B2 ✅  B3 ✅  B4 ✅  B5.1–5.5 ✅  B6 ✅
 - Деплой `yourkedm.beget.tech`: работает, форма отправляет ✅
 - **Текущая ветка**: `codex/pbn-factory`
 - **Остатки (низкий приоритет)**:
-  - F6.2 HomeLayout niche sections, F6.3 ArchiveLayout niche labels, F6.4 Gamma theme
-  - F9.4 Section label variation
   - B5.6 Keitaro, B7.1 крауд-ссылки, B7.2 UptimeRobot, B7.4 Метрика алерт
