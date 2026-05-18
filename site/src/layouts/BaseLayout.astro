@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { ViewTransitions } from 'astro:transitions';
 import SeoHead from '../components/SeoHead.astro';
 import JsonLd from '../components/JsonLd.astro';
 import Analytics from '../components/Analytics.astro';
@@ -24,6 +25,7 @@ const theme = /^[a-z0-9_-]+$/.test(rawTheme) ? rawTheme : 'alpha';
     <SeoHead seo={seo} />
     <JsonLd graph={jsonLd} />
     <Analytics />
+    <ViewTransitions />
   </head>
   <body>
     <Header currentPath={currentPath} />

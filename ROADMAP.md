@@ -173,7 +173,7 @@ B0 ✅  B1 ✅  B2 ✅  B3 ✅  B4 ✅  B5.1–5.5 ✅  B6 ✅
            F1–F9 ✅ (platform cleanup, niches, orchestrator,
                      LLM-rewrite, related, templates, tags, schema, footprint)
                          ↓
-           F6.2–6.4, F9.4 (остатки — опционально)
+           Astro improvements (RSS, View Transitions, robots.txt)
                          ↓
            B5.6 (Keitaro — при стабильном трафике)
            B7.1, 7.2, 7.4 (мониторинг)
@@ -189,4 +189,5 @@ B0 ✅  B1 ✅  B2 ✅  B3 ✅  B4 ✅  B5.1–5.5 ✅  B6 ✅
 - Деплой `yourkedm.beget.tech`: работает, форма отправляет ✅
 - **Текущая ветка**: `codex/pbn-factory`
 - **Остатки (низкий приоритет)**:
+  - Astro improvements: RSS feed, View Transitions, robots.txt
   - B5.6 Keitaro, B7.1 крауд-ссылки, B7.2 UptimeRobot, B7.4 Метрика алерт
