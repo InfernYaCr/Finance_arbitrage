@@ -44,8 +44,8 @@ export function getPageType(
   if (path === '/portfolio/') return 'portfolio_archive';
   if (section === 'portfolio' || section === 'case') return 'portfolio_case';
 
-  if (path === '/seo-wikipedia/') return 'dictionary_archive';
-  if (section === 'seo-wikipedia') return 'dictionary_article';
+  if (path === '/seo-wikipedia/' || path === '/terms/') return 'dictionary_archive';
+  if (section === 'seo-wikipedia' || section === 'terms') return 'dictionary_article';
 
   if (path === '/faq/') return 'archive';
   if (section === 'faq') return 'faq';

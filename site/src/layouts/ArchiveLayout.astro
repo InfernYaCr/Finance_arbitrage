@@ -1,9 +1,10 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import OfferCard from '../components/OfferCard.astro';
 import { getDescendantPages, getImmediateChildPages } from '../data/loadPages';
 import { siteConfig } from '../data/siteConfig';
-import type { FullPage, SeoFields, PageType } from '../data/types';
+import type { FullPage, SeoFields, PageType, Offer } from '../data/types';
 
 interface Props {
   page: FullPage;
@@ -59,6 +60,14 @@ const groupedChildren = directChildren.map((child) => ({
         {seo.h1 && <h1 class="archive-page__title">{seo.h1}</h1>}
         {seo.description && <p class="archive-page__desc">{seo.description}</p>}
       </header>
+
+      {(data.extracted?.offers?.length ?? 0) > 0 && (
+        <section class="offer-list" aria-label="Рейтинг продуктов">
+          {data.extracted!.offers!.map((offer: Offer) => (
+            <OfferCard offer={offer} ctaBaseUrl={siteConfig.legacyContent.sourceDomain} />
+          ))}
+        </section>
+      )}
 
       {data.content_html && !showGeneratedCatalog && (
         <div class="prose archive-page__body" set:html={data.content_html} />
@@ -487,6 +496,13 @@ const groupedChildren = directChildren.map((child) => ({
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+.offer-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
 }
 </style>
 
