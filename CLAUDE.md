@@ -1,7 +1,8 @@
 # Mosseo Site Pipeline
 
-Read `HANDOFF.md` first. It contains the current project state, generated
-artifacts, QA status, deploy status, and the next recommended tasks.
+Read `AGENT_HANDOFF.md` first — it's the single entry-point snapshot (state,
+commands, gotchas, next steps). Then `HANDOFF.md` for the chronological log of
+project state, generated artifacts, QA status, deploy status, and next tasks.
 
 This project is evolving from a Mosseo-derived content pipeline into a
 multi-donor PBN/content-factory platform. `site_pipeline/` discovers/crawls and
@@ -33,6 +34,7 @@ Workspace:
 
 Main context files to read first:
 
+- `AGENT_HANDOFF.md` — entry-point snapshot: state, commands, gotchas, next steps.
 - `HANDOFF.md` — current state, decisions, commands, latest QA.
 - `ROADMAP.md` — phase plan, next tasks, implementation order.
 - `CRAWLER_ARCH.md` — Exa + Firecrawl donor discovery/crawl architecture.

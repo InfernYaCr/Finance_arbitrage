@@ -5,6 +5,91 @@
 The pipeline has completed a full crawl and QA pass for the original page
 export. The Astro site is built and deployed to the first Beget test host.
 
+### 2026-06-08 update — Saleads офферы подключены (финансы + страхование, Россия)
+
+**Что сделано:** через API подключены ВСЕ доступные для России финансовые и
+страховые офферы Saleads. Создание коннекторов работает программно (скрытый
+endpoint `/connector/get-or-create`) — ручная работа в ЛК больше не нужна.
+
+**Цифры (2026-06-08):**
+- Каталог Saleads: 393 оффера.
+- Коннекторов всего: **189** (было 128 → `connect-missing` создал 61). Статусы:
+  129 `approve` (с рабочим URL) + 60 `wait` (на модерации Saleads).
+- Релевантных финансы/страхование: **160** (100 live + 60 pending).
+- `sites/finhelp-ru/affiliateLinks.json` = **101 оффер** (только live, с тегом `vertical`).
+- `sites/affiliate_pool.json` = **189** (мастер-реестр: vertical + status, все статусы).
+
+**Новые команды в `site_pipeline/saleads_offers.py`** (stdlib-only, токен из `site/.env` → `SALEADS_API_KEY`):
+```bash
+python site_pipeline/saleads_offers.py connect-missing --dry-run   # просмотр
+python site_pipeline/saleads_offers.py connect-missing             # создать коннекторы (идемпотентно)
+python site_pipeline/saleads_offers.py export-pool                 # → sites/affiliate_pool.json
+python site_pipeline/saleads_offers.py export-links --site-relevant \
+   --out sites/finhelp-ru/affiliateLinks.json                      # per-site, финансы/страхование
+```
+
+**Классификация (в коде, regex):** `_FIN_RE` (финансы) ∪ `_INS_RE` (страхование),
+минус `_JOBS_RE` (HR/работа банков — «Альфа Банк … HR» НЕ попадает на финсайт),
+минус `_NOISE_RE` (телеком SIM / Т-Афиша). Поле `vertical` у каждого оффера:
+`mfo / card / insurance / business / credit / mortgage / investment / debt_relief / finance`.
+
+**Топ-офферы (live):** Альфа Ипотека 31250₽, ББанкрот 18750₽, Ваш Фин.Партнёр 16000₽,
+ДрайвЗайм 13500₽, УБРиР РКО 11250₽, ОТП РКО 9000₽, ИЛМА 7500₽.
+
+**⚠️ Подводные камни:**
+- Хост API — `saleads.pro` (НЕ `my.saleads.pro`: он 302-редиректит и срезает авторизацию). Токен как GET-параметр `?token=`.
+- `short_url` багует (один кэш на все коннекторы) → используем полный `urls[0].url`.
+- Rate-limit: 2с между запросами, 8с back-off на 429 (зашито в `connect-missing`).
+- Токен светился в чате — **перевыпустить** в ЛК.
+
+**Что дальше по офферам:**
+1. Дождаться модерации 60 `wait`-коннекторов → повторить `export-pool` + `export-links`.
+2. После краула донора — `promoSlots.json` + дизайн под офферы (LAUNCH_PLAN раздел 23).
+
+### 2026-05-21 update — Crawl4AI backend (drop-in for Firecrawl)
+
+Open-source self-hosted crawler bolted on alongside Firecrawl. Same CLI, same
+`pages/*.json` output, same registry write. LLM extraction via Anthropic Haiku
+through LiteLLM (no local model — API only for now).
+
+- New venv: `.venv311` (Python 3.11) — Crawl4AI requires 3.10+.
+- New module: `site_pipeline/crawl_pages_c4ai.py` — reuses `filter_urls` /
+  `_build_record` / `PAGE_EXTRACTION_SCHEMA` from `crawl_pages_fc.py`, only the
+  fetch/extract layer is rewritten. Records get `content_source: "crawl4ai"`.
+- Requirements: `site_pipeline/requirements_c4ai.txt`.
+- Registry mode strings: `c4ai_base`, `c4ai_llm`, `c4ai_recrawl` (so historical
+  reports keep distinguishing backends).
+
+Setup once:
+```bash
+/opt/homebrew/bin/python3.11 -m venv .venv311
+.venv311/bin/pip install -r site_pipeline/requirements_c4ai.txt
+.venv311/bin/crawl4ai-setup
+```
+
+Smoke test (no LLM):
+```bash
+.venv311/bin/python site_pipeline/crawl_pages_c4ai.py \
+  --source-domain vsezaimyonline.ru --limit 5 \
+  --output-dir site_pipeline/output/c4ai_smoke/pages
+```
+
+Verified 2026-05-21: 5 pages built, QA `1 ok / 4 warning` (link density + thin
+content on donor pages — same shape FC produces). Registry run recorded with
+`mode=c4ai_base`.
+
+With LLM (Anthropic Haiku 4.5 via LiteLLM, requires `ANTHROPIC_API_KEY`):
+```bash
+.venv311/bin/python site_pipeline/crawl_pages_c4ai.py \
+  --source-domain vsezaimyonline.ru --limit 30 --with-llm
+```
+
+The old Firecrawl backend (`crawl_pages_fc.py` + `.venv`) stays in place as a
+fallback for the first month. Once 1–2 donors are crawled with c4ai cleanly,
+the Firecrawl subscription can be cancelled.
+
+---
+
 ### 2026-05-14 update — SITE_BUILD_PLAN + ветка codex/pbn-factory
 
 **SITE_BUILD_PLAN.md** (711b16e → 6946c37) — архитектурный план PBN-фабрики:
