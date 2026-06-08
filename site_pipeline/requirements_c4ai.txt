@@ -1,0 +1,14 @@
+# Crawl4AI backend (Python 3.10+) — install into .venv311
+# Used by crawl_pages_c4ai.py. Old .venv (Python 3.9) stays for the
+# Firecrawl backend and the rest of the pipeline.
+#
+# Setup:
+#   /opt/homebrew/bin/python3.11 -m venv .venv311
+#   .venv311/bin/pip install -r site_pipeline/requirements_c4ai.txt
+#   .venv311/bin/crawl4ai-setup     # downloads Chromium for Playwright
+
+crawl4ai>=0.8
+litellm
+beautifulsoup4
+# Pulled in for type-only reuse of crawl_pages_fc helpers (filter_urls, _build_record).
+firecrawl-py>=1.0.0
