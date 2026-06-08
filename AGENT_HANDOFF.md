@@ -73,7 +73,7 @@ npm run check:b0 && npm run deploy:dry && npm run deploy   # деплой на B
 - **Не редактировать `pages/*.json` руками** под дизайн/контакты/бренд — нормализация на рендере (`loadPages.ts`).
 - **Не инжектить `content_html` через `set:html`** для contact/home — ломает layout вложенными `.container`.
 - **HR-офферы банков** («Альфа Банк … HR») НЕ на финсайт — отсекаются `_JOBS_RE` в `saleads_offers.py`.
-- **Не трогать** `AGENTS.md`, `site/scripts/download-images.sh`, `site/scripts/ru-images.txt` (чужая работа).
+- **Не трогать** `site/scripts/download-images.sh`, `site/scripts/ru-images.txt` — legacy-media хелперы (править только в задаче про изображения).
 
 ## 6. Классификация офферов (как делятся по сайтам)
 
@@ -94,6 +94,7 @@ mortgage / investment / debt_relief / finance` + исключаемые `jobs / 
 | Файл | О чём |
 |---|---|
 | `AGENT_HANDOFF.md` | **этот файл** — снимок состояния, точка входа |
+| `AGENTS.md` | гайд для агентов: архитектура, карта файлов/layout'ов, критические правила, MCP |
 | `HANDOFF.md` | хронологический лог изменений (новое сверху) |
 | `LAUNCH_PLAN.md` | план запуска: каналы, SEO, Saleads (разд. 21), краулер (22), дизайн (23) |
 | `ROADMAP.md` | фазовый план A+B треков |

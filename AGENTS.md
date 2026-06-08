@@ -9,7 +9,8 @@ No previous sessions found.
 # Mosseo Site Pipeline — Agent Guide
 
 This document is for AI agents (Claude, Codex, etc.) working on this project.
-Read `HANDOFF.md` for current status. Read `CLAUDE.md` for quick commands.
+Read `AGENT_HANDOFF.md` first (entry-point snapshot), then `HANDOFF.md` for the
+chronological status log and `CLAUDE.md` for the full command/code map.
 
 ## What this project is
 
@@ -22,9 +23,12 @@ site config and must stay unique per site.
 
 ## Architecture in one paragraph
 
-`site_pipeline/` scripts discover donors (Exa), crawl pages (legacy CSV crawler
-or Firecrawl), normalize content into the shared `PageData + extracted`
-contract, and build indexes/manifests. The `site/` Astro project is the single
+`site_pipeline/` scripts discover donors (Exa), crawl pages (Crawl4AI is the
+current backend — `crawl_pages_c4ai.py`; Firecrawl `crawl_pages_fc.py` is the
+fallback), normalize content into the shared `PageData + extracted` contract,
+and build indexes/manifests. Monetization runs through Saleads CPA: offers are
+connected via `saleads_offers.py` and rendered through `PromoSlot`. The `site/`
+Astro project is the single
 renderer: it reads the selected content output at build time via
 `site/src/data/loadPages.ts`, maps paths to page types via
 `site/src/lib/routing.ts`, derives SEO fields via `site/src/lib/seo.ts`, and
@@ -46,9 +50,12 @@ JSON.
 | `site/src/components/Footer.astro` | Footer: logo, nav list, copyright |
 | `site/src/components/PromoSlot.astro` | Affiliate/promo slot component (config-driven) |
 | `site/src/styles/global.css` | Design tokens + legacy WP class styles |
-| `site_pipeline/crawl_pages_fc.py` | Firecrawl map/filter/scrape backend with optional LLM extraction |
+| `site_pipeline/crawl_pages_c4ai.py` | **Current** crawler: Crawl4AI map/scrape + LLM extraction (`.venv311`, Python 3.11) |
+| `site_pipeline/crawl_pages_fc.py` | Firecrawl backend — fallback; c4ai reuses its normalization/filter helpers |
+| `site_pipeline/saleads_offers.py` | Saleads CPA client: connect-missing / export-pool / export-links (vertical classifier) |
 | `site_pipeline/discover_donors.py` | Exa donor discovery smoke path |
 | `site_pipeline/qualify_donor.py` | Exa donor qualification smoke path |
+| `sites/affiliate_pool.json` | Master connector registry (vertical + status); per-site `affiliateLinks.json` filtered from it |
 | `CRAWLER_ARCH.md` | Exa + Firecrawl architecture, costs, contracts |
 
 ## Layout map
@@ -80,8 +87,9 @@ JSON.
    may be user/other-agent work — do not overwrite without checking.
 6. **Before broad layout changes**, run `python site_pipeline/audit_page_templates.py`
    to understand the template distribution (service_catalog vs content_article etc.).
-7. **Do not commit smoke crawl outputs** such as `site_pipeline/output/test_*`,
-   `site_pipeline/output/finance_test/`, Exa smoke JSON, or qualification JSON.
+7. **Do not commit smoke/donor crawl outputs** — `site_pipeline/output/test_*`,
+   `finance_test/`, `c4ai_smoke/`, donor dirs (`vsezaimyonline*/`), Exa smoke JSON,
+   qualification JSON. They are gitignored; keep it that way.
 8. **Do not copy donor CSS directly** into Astro layouts. Extract style signals
    into future theme tokens / `donor_style_profile` instead.
 
@@ -132,7 +140,9 @@ PUBLIC_LEGACY_SOURCE_DOMAIN=""    # optional donor domain for link/media rewrite
 PUBLIC_LEGACY_BRAND_ALIASES=""    # comma-separated donor brand aliases
 ```
 
-## What has been implemented (as of 2026-05-13)
+## Track A (UI) reference — what the renderer already ships
+
+> Historical baseline (закрыт 2026-05-12). Текущий статус проекта — в `AGENT_HANDOFF.md`.
 
 **Track A (UI) — fully complete.**
 
@@ -163,43 +173,24 @@ PUBLIC_LEGACY_BRAND_ALIASES=""    # comma-separated donor brand aliases
 Риски и пре-мортем — см. `RISKS.md` (читать перед любой задачей трека B).
 
 Два трека:
-- **Трек A** — UI сайта: **ЗАВЕРШЁН** (все A1–A4 пункты закрыты, 2026-05-12)
-- **Трек B** — PBN-инфраструктура: Multi-donor pipeline → Batch deploy → Темы → Link config → MCP воркфлоу
+- **Трек A** — UI сайта: **ЗАВЕРШЁН** (A1–A4 закрыты, 2026-05-12).
+- **Трек B** — PBN-инфраструктура: multi-donor pipeline → монетизация → деплой-сетка.
 
-**Текущий приоритет: B2.1 — `sites/` структура / multi-site build config.**
-Если принимается кардинальная перестройка, сначала подготовить
-`NEW_PIPELINE_ARCH.md`, `MIGRATION_PLAN.md`, `CLEANUP_PLAN.md`.
-
-B1.1 закрыт (2026-05-12): хардкод mosseo.ru убран из crawl_pages.py и qa_pages.py,
-добавлен `--source-domain` с авто-детектом из seeds.
-
-B1.2-B1.5 закрыты (2026-05-13):
-- `crawl_pages_fc.py` реализует Firecrawl map → filter → scrape, `--map-only`,
-  base mode без LLM, optional `--with-llm`, cached maps, `--recrawl`
-- `mosseo.ru` smoke прошёл base + LLM; `vsezaimyonline.ru` finance smoke прошёл
-  base crawl + QA
-- `discover_donors.py` и `qualify_donor.py` проверили Exa discovery/qualification
-- Astro умеет собирать alternate datasets через `CONTENT_OUTPUT_DIR`
-
-B0.1-B0.4 закрыты для первого тестового сайта (2026-05-12):
-- уникальный тестовый бренд/контакты заданы через `site/.env`
-- `PUBLIC_METRIKA_ID=109164667`
-- Яндекс.Вебмастер verification-файл:
-  `/yandex_b096686526decb58.html`
-- форма контактов отправляет на `/mail.php`
-- `mail.php` генерируется при сборке и деплоится рядом со статикой
-- `npm run check:b0`, `npm run check`, `npm run build`, `php -l dist/mail.php`,
-  `npm run deploy:dry`, `npm run deploy` прошли
+**Состояние Трека B (2026-06-08):**
+- ✅ Multi-site структура `sites/` (finhelp-ru активен, + vsezaimyonline, rostpoisk).
+- ✅ Crawl4AI backend (`crawl_pages_c4ai.py`, `.venv311`) — заменил Firecrawl.
+- ✅ Saleads CPA: подключены все RU финансовые/страховые офферы (160 коннекторов,
+  100 live + 60 на модерации). `affiliate_pool.json` = мастер-реестр (189).
+- ⏳ **Следующее:** полный краул `vsezaimyonline.ru` (≥300 стр) → `promoSlots.json`
+  + дизайн под офферы (LAUNCH_PLAN §23) → дождаться модерации 60 коннекторов
+  → крауд-ссылки (B7.1), UptimeRobot (B7.2), второй сайт.
 
 Подход: один Astro renderer, разные источники приводятся к общему
-`PageData + extracted`. Exa используется для donor discovery/qualification;
-Firecrawl используется для crawl/extraction. API keys читаются из `site/.env`;
-не печатать и не коммитить значения.
+`PageData + extracted`. Exa — donor discovery/qualification; Crawl4AI — crawl/extraction
+(LLM через Anthropic Haiku/LiteLLM). API keys из `site/.env`; не печатать и не коммитить.
 
-При старте новой сессии: читать `HANDOFF.md`, затем `ROADMAP.md`. Сначала
-проверить актуальную ветку и `git status`, затем брать первую `[ ]` задачу в
-Треке B или подготовить документы новой архитектуры, если пользователь выбрал
-кардинальную перестройку.
+При старте новой сессии: читать `AGENT_HANDOFF.md`, затем `HANDOFF.md` / `ROADMAP.md`.
+Сначала проверить ветку и `git status`, затем брать первую `[ ]` задачу Трека B.
 
 ## Deploy
 

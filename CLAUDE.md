@@ -15,14 +15,16 @@ Current live test site:
 http://yourkedm.beget.tech/
 ```
 
-Latest status (2026-05-13):
+Latest status (2026-06-08):
 
-- Track A UI is complete.
-- B0 + B1.1–B1.5: complete (Firecrawl + Exa smoke, finance donor).
-- B2.0: `sites/`, `gen-env.sh`, `preview.sh` — done.
+- Track A UI complete; multi-site `sites/` live (finhelp-ru active, + vsezaimyonline, rostpoisk).
+- Crawler migrated to Crawl4AI (`crawl_pages_c4ai.py`, `.venv311`); Firecrawl is fallback.
+- Saleads CPA connected: all RU finance/insurance offers — 160 connectors
+  (100 live + 60 pending moderation). `sites/affiliate_pool.json` = master registry (189).
 - Contact form posts to `/mail.php`; notifications pending (B5.5).
 - Yandex Webmaster verification file deployed: `/yandex_b096686526decb58.html`.
-- Current recommended next step: B2.1 — SQLite registry (`registry.py` + `registry_cli.py`).
+- **Next:** full crawl of `vsezaimyonline.ru` (≥300 pages) → `promoSlots.json` +
+  offer-aware page design (LAUNCH_PLAN §23) → re-export after 60 connectors approved.
 
 ## Claude quick context
 
@@ -112,8 +114,10 @@ Important current behavior:
 
 Parallel-work caution:
 
-- `AGENTS.md`, `site/scripts/download-images.sh`, and `site/scripts/ru-images.txt`
-  may be user/other-agent work. Do not overwrite or revert them without checking.
+- `site/scripts/download-images.sh` and `site/scripts/ru-images.txt` are
+  legacy-media helpers — do not overwrite or revert without checking.
+- `AGENTS.md` is a maintained project doc (agent guide); keep it in sync with
+  `AGENT_HANDOFF.md` when project state changes.
 
 Git workflow:
 
@@ -142,7 +146,9 @@ Current code entry points:
 - `site_pipeline/probe_pages.py`
 - `site_pipeline/audit_extraction_sources.py`
 - `site_pipeline/audit_page_templates.py`
-- `site_pipeline/crawl_pages_fc.py` - Firecrawl map/filter/scrape backend.
+- `site_pipeline/crawl_pages_c4ai.py` - **current** crawler: Crawl4AI map/scrape + LLM extraction (`.venv311`).
+- `site_pipeline/crawl_pages_fc.py` - Firecrawl backend (fallback); c4ai reuses its helpers.
+- `site_pipeline/saleads_offers.py` - Saleads CPA client: connect-missing / export-pool / export-links.
 - `site_pipeline/discover_donors.py` - Exa donor search via highlights.
 - `site_pipeline/qualify_donor.py` - Exa donor qualification via summary schema.
 
@@ -173,7 +179,28 @@ python site_pipeline/build_content_index.py
 python site_pipeline/audit_page_templates.py
 ```
 
-Firecrawl / Exa smoke commands:
+Crawl4AI (current crawler, Python 3.11 venv):
+
+```bash
+cd /Users/deniskononov/mosseo-site-pipeline
+.venv311/bin/python site_pipeline/crawl_pages_c4ai.py \
+  --source-domain vsezaimyonline.ru --limit 500 --with-llm \
+  --include-sections banks,credits,loans,cards,mortgage,autocredit,qa,ratings,terms
+```
+
+Saleads CPA offers (token in `site/.env` → `SALEADS_API_KEY`):
+
+```bash
+cd /Users/deniskononov/mosseo-site-pipeline
+. .venv/bin/activate
+python site_pipeline/saleads_offers.py connect-missing --dry-run   # preview missing RU finance/insurance offers
+python site_pipeline/saleads_offers.py connect-missing             # create connectors (idempotent)
+python site_pipeline/saleads_offers.py export-pool                 # → sites/affiliate_pool.json (master)
+python site_pipeline/saleads_offers.py export-links --site-relevant \
+   --out sites/finhelp-ru/affiliateLinks.json                      # per-site finance/insurance links
+```
+
+Firecrawl / Exa smoke commands (fallback crawler + donor discovery):
 
 ```bash
 cd /Users/deniskononov/mosseo-site-pipeline
