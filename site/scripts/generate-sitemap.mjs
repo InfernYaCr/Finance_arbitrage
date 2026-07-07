@@ -3,21 +3,45 @@
  * Generates sitemap.xml from build_manifest.json after astro build.
  * Run: node scripts/generate-sitemap.mjs
  */
-import { readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
-const SITE_URL = (process.env.SITE_URL ?? 'https://example.test').replace(/\/$/, '');
+const SITE_ROOT = resolve(__dirname, '..');
+
+// This runs as a plain `node` process after `astro build` in the npm script
+// chain — it does NOT get Vite's automatic .env loading, so site/.env must
+// be parsed manually here (same pattern as generate-mail-php.mjs) or every
+// site built via CONTENT_OUTPUT_DIR silently falls back to the wrong dataset
+// and domain.
+function parseEnv(text) {
+  const env = {};
+  for (const rawLine of text.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+    const match = line.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);
+    if (!match) continue;
+    const [, key, rawValue] = match;
+    env[key] = rawValue.trim().replace(/^(['"])(.*)\1$/, '$2');
+  }
+  return env;
+}
+
+const envPath = resolve(SITE_ROOT, '.env');
+const fileEnv = existsSync(envPath) ? parseEnv(readFileSync(envPath, 'utf8')) : {};
+const env = { ...fileEnv, ...process.env };
+
+const SITE_URL = (env.SITE_URL || 'https://example.test').replace(/\/$/, '');
 const DIST = resolve(__dirname, '../dist');
 const LEGACY_SLUG = ['moss', 'eo'].join('');
-const DATA_ROOT = process.env.CONTENT_OUTPUT_DIR
-  ? resolve(ROOT, 'site', process.env.CONTENT_OUTPUT_DIR)
+const DATA_ROOT = env.CONTENT_OUTPUT_DIR
+  ? resolve(ROOT, 'site', env.CONTENT_OUTPUT_DIR)
   : resolve(ROOT, 'site_pipeline/output');
-const ENABLE_EDITORIAL_POSTS = process.env.ENABLE_EDITORIAL_POSTS
-  ? process.env.ENABLE_EDITORIAL_POSTS === 'true'
-  : !process.env.CONTENT_OUTPUT_DIR;
+const ENABLE_EDITORIAL_POSTS = env.ENABLE_EDITORIAL_POSTS
+  ? env.ENABLE_EDITORIAL_POSTS === 'true'
+  : !env.CONTENT_OUTPUT_DIR;
 
 const manifest = JSON.parse(
   readFileSync(resolve(DATA_ROOT, 'build_manifest.json'), 'utf-8'),
