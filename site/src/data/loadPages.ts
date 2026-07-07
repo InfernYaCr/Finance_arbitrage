@@ -92,7 +92,13 @@ function rewriteLegacyMediaUrl(url: string = ''): string {
     rootRelative = rootRelative.replace(new RegExp(`^${domain.replace(/\./g, '\\.')}`, 'i'), '');
   }
   rootRelative = rootRelative.replace(new RegExp(`^${siteConfig.siteUrl.replace(/\/$/, '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`, 'i'), '');
-  if (!rootRelative.startsWith('/content/') && !rootRelative.startsWith('/wp-content/')) {
+  // Any root-relative path reaching this point came from donor content_html/
+  // excerpt_html (we never hand-author img/srcset in those fields) — treat it
+  // as legacy media regardless of the donor's specific path prefix. Only the
+  // original mosseo donor used /content/ and /wp-content/; other donors (e.g.
+  // vsezaimyonline.ru) use /images/, /v4/images/, etc. Absolute URLs to an
+  // unrelated third-party host are left untouched.
+  if (!rootRelative.startsWith('/')) {
     return url;
   }
 
@@ -256,6 +262,7 @@ function stripDonorNoise(html: string): string {
     'button_show',          // JS "show more" toggle
     'button_hide',          // JS "hide" toggle
     'related',              // donor "related articles" widget (we render our own RelatedPages)
+    'breadcrumbs-wrap',     // donor's own breadcrumb nav — we render our own via buildBreadcrumbs()
   );
 }
 
