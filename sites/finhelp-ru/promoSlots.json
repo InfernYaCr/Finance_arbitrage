@@ -1,29 +1,11 @@
 [
   {
-    "id": "finance-mfo-article",
-    "enabled": false,
+    "id": "finance-generic-article",
+    "enabled": true,
     "placement": "article_footer",
-    "sections": ["banki", "zaimy", "mikrozaimy", "kredity"],
+    "sections": [],
     "paths": [],
     "html": "",
-    "link_ids": ["finance-mfo-top"]
-  },
-  {
-    "id": "finance-card-article",
-    "enabled": false,
-    "placement": "article_footer",
-    "sections": ["kreditnye-karty", "banki"],
-    "paths": [],
-    "html": "",
-    "link_ids": ["finance-bank-card"]
-  },
-  {
-    "id": "finance-deposit-article",
-    "enabled": false,
-    "placement": "article_footer",
-    "sections": ["vklady", "banki"],
-    "paths": [],
-    "html": "",
-    "link_ids": ["finance-deposit"]
+    "link_ids": ["saleads-42c379c0", "saleads-28cba850", "saleads-2c9768a0", "saleads-1a0dad90"]
   }
 ]

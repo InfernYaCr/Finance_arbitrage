@@ -125,3 +125,16 @@ EOF
 
 echo "✓ site/.env written for site_id=${SITE_ID}"
 echo "  Review site/.env and fill in any blank secrets before deploying."
+
+# affiliate.ts statically imports site/src/data/{affiliateLinks,promoSlots}.json —
+# per-site data lives in sites/<SITE_ID>/ and must be copied in before build.
+for f in affiliateLinks.json promoSlots.json; do
+  SRC="sites/${SITE_ID}/${f}"
+  DEST="site/src/data/${f}"
+  if [[ -f "$SRC" ]]; then
+    cp "$SRC" "$DEST"
+    echo "✓ ${DEST} ← ${SRC}"
+  else
+    echo "⚠ ${SRC} not found — leaving ${DEST} as-is" >&2
+  fi
+done

@@ -4,6 +4,11 @@
     "label": "ОТП Банк - Кредитная карта 120 дней без % (выданная карта и транзакция по карте)",
     "href": "https://my.saleads.pro/s/83788e60-6318-11f1-8232-4175891239d0",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "28cba850-5e75-11f1-b7e1-1910288641cb",
@@ -16,6 +21,11 @@
     "label": "ОТП Банк - РКО (Активация расчетного счета)",
     "href": "https://my.saleads.pro/s/29df0300-6321-11f1-a054-4ddda152f50d",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "105bf8a0-535d-11f0-8d03-079802f22cd7",
@@ -28,6 +38,11 @@
     "label": "Т-Банк - дебетовая карта Drive (активация карты + покупка)",
     "href": "https://my.saleads.pro/s/2a076df0-6321-11f1-b262-2d8c18a85969",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "8ecb1b80-3624-11f0-8534-c1cffcd99613",
@@ -40,6 +55,11 @@
     "label": "УБРиР - РКО (открытие расчетного счета)",
     "href": "https://my.saleads.pro/s/2a4fcd60-6321-11f1-9dff-d9fe364d491d",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "1a0dad90-1eb9-11f0-8e25-53b55ad518de",
@@ -52,6 +72,11 @@
     "label": "Т-Банк - рефинансирование (утилизация)",
     "href": "https://my.saleads.pro/s/2a9f19d0-6321-11f1-a256-3f46873c06df",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "credit"
+    },
     "network": "saleads",
     "vertical": "credit",
     "offer_uuid": "2c9768a0-fb0f-11ee-a2c9-a9414ff9761f",
@@ -64,6 +89,11 @@
     "label": "ИЛМА (выданный займ)",
     "href": "https://my.saleads.pro/s/2aee0840-6321-11f1-b429-9948c54b0564",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "42c379c0-0b7b-11ee-822a-318811596750",
@@ -76,6 +106,11 @@
     "label": "Т-Банк — кредитная карта Drive (утилизация)",
     "href": "https://my.saleads.pro/s/2b20cd80-6321-11f1-ae92-8bb5d0c2f034",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "fb30b8b0-faf4-11ed-bcab-5f5e18cb5318",
@@ -88,6 +123,11 @@
     "label": "Альфа Банк - Ипотека (Выдача ипотеки)",
     "href": "https://my.saleads.pro/s/2b467210-6321-11f1-bbf0-0958ba665952",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mortgage"
+    },
     "network": "saleads",
     "vertical": "mortgage",
     "offer_uuid": "a53266e0-432b-11ed-991f-e733ec416867",
@@ -100,6 +140,11 @@
     "label": "УРАЛСИБ Банк - кредитная карта 120 дней (выданная карта)",
     "href": "https://my.saleads.pro/s/2b77e260-6321-11f1-8c3e-f597b1870acb",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "91260650-332e-11ec-958f-bf15524839b9",
@@ -112,6 +157,11 @@
     "label": "ФинМолл (Выданный займ новому клиенту)",
     "href": "https://my.saleads.pro/s/364b7440-6321-11f1-933c-170ea17e9fdf",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "4f2e3fe0-2c05-11ec-a77b-9d2e6017954c",
@@ -124,6 +174,11 @@
     "label": "ББанкрот (Оформлен договор)",
     "href": "https://my.saleads.pro/s/874439b0-6322-11f1-9006-d1843e722202",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "debt_relief"
+    },
     "network": "saleads",
     "vertical": "debt_relief",
     "offer_uuid": "fc884bf0-609a-11f0-9dda-3f62d2326724",
@@ -136,6 +191,11 @@
     "label": "Норвик Банк РКО ( Активный расчетный счет)",
     "href": "https://my.saleads.pro/s/8d58f640-6322-11f1-8465-6d95638e5777",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "0c51c560-f04d-11eb-a745-09ece320babd",
@@ -148,6 +208,11 @@
     "label": "Ак Барс Банк - РКО (активация расчетного счета)",
     "href": "https://my.saleads.pro/s/8d8373a0-6322-11f1-b93e-395f11f7e7b0",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "7182c150-f671-11ee-8720-e538e49971fa",
@@ -160,6 +225,11 @@
     "label": "Деньги на дом (выданный займ, повторный займ)",
     "href": "https://my.saleads.pro/s/8dace640-6322-11f1-8f3e-9b52b9c615b6",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "69eead20-a5e2-11e8-93b7-f7affc6eae71",
@@ -172,6 +242,11 @@
     "label": "Т-Банк - Кредитная карта от Т-Банка (активация+транзакция)",
     "href": "https://my.saleads.pro/s/8f1188c0-6322-11f1-9cfc-af103eae8edd",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "0e89e1b0-8b7e-11e9-aeff-a3a80b95bd94",
@@ -184,6 +259,11 @@
     "label": "Банк «Левобережный» - РКО  (Активация расчетного счета)",
     "href": "https://my.saleads.pro/s/8f38ce60-6322-11f1-82ef-c5fe9e2c1742",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "30cf7fe0-bbcd-11f0-af64-adb7879f365f",
@@ -196,6 +276,11 @@
     "label": "Ренессанс Жизнь - Выгодный старт (Оформлен договор)",
     "href": "https://my.saleads.pro/s/8f656350-6322-11f1-adb7-23588a65452f",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "69444db0-11e0-11ef-9e95-bb571f3ab2de",
@@ -208,6 +293,11 @@
     "label": "ОТП Банк - Дебетовая карта Premium (выданная карта и транзакция по карте)",
     "href": "https://my.saleads.pro/s/8f8c8ec0-6322-11f1-b572-5979882be5d3",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "c8f7cc80-534c-11f0-ac92-b9bd4246afa8",
@@ -220,6 +310,11 @@
     "label": "У Абрамовича (Выданный займ)",
     "href": "https://my.saleads.pro/s/8fb3bd40-6322-11f1-9bfd-9deaf244b13a",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "064c0280-afe9-11f0-8da8-0bebed8f3688",
@@ -232,6 +327,11 @@
     "label": "Быстроденьги (выданный займ )",
     "href": "https://my.saleads.pro/s/910fa700-6322-11f1-8b12-e9d0a3860c72",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "7d24ee40-4dfe-11f1-b041-3119d4a93c7e",
@@ -244,6 +344,11 @@
     "label": "Т-Банк - кредит (утилизация)",
     "href": "https://my.saleads.pro/s/9a117160-6322-11f1-952c-75794a2ca9d5",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "credit"
+    },
     "network": "saleads",
     "vertical": "credit",
     "offer_uuid": "060f3e50-f720-11e9-a3d2-ef50e1c7bf67",
@@ -256,6 +361,11 @@
     "label": "Альфа Банк - Регистрация бизнеса + РКО",
     "href": "https://my.saleads.pro/s/9a4625c0-6322-11f1-8d9e-e10680c022c3",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "34113fa0-4549-11ed-8ac3-876a42126418",
@@ -268,6 +378,11 @@
     "label": "Альфа Деньги (выданный займ )",
     "href": "https://my.saleads.pro/s/9a6e7e30-6322-11f1-bf9f-13268f5db27e",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "a2c21260-dd62-11ef-88a2-0d9d1fff2b0c",
@@ -280,6 +395,11 @@
     "label": "СМСФИНАНС (выданный займ + скорбалл)",
     "href": "https://my.saleads.pro/s/9aa4d990-6322-11f1-be49-d7b2b28ba0ec",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "1378c730-1ad4-11ec-a291-090a14c686b3",
@@ -292,6 +412,11 @@
     "label": "Vivus (выданный займ + скорбалл)",
     "href": "https://my.saleads.pro/s/9ace9b20-6322-11f1-a434-876bbb65774f",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "b2faa3c0-d00a-11eb-91b7-9978f6155bb7",
@@ -304,6 +429,11 @@
     "label": "БКС Банк - РКО (открытие расчетного счета)",
     "href": "https://my.saleads.pro/s/9c3145d0-6322-11f1-b65a-bf2db434b685",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "edb982f0-585e-11ed-b48a-4d5e31cc26d1",
@@ -316,6 +446,11 @@
     "label": "МикроКлад (выданный займ)",
     "href": "https://my.saleads.pro/s/9c5a4630-6322-11f1-8e25-af9da086016c",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "b00d1010-834d-11e7-9eb1-c1596ff52237",
@@ -328,6 +463,11 @@
     "label": "Деньги Сразу онлайн (выданный займ)",
     "href": "https://my.saleads.pro/s/9c83c560-6322-11f1-8667-3d6c231a687d",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "165fdfe0-f0bf-11e9-bc1d-3f27fe37789c",
@@ -340,6 +480,11 @@
     "label": "Ваш кредит (выданный займ)",
     "href": "https://my.saleads.pro/s/9cae5400-6322-11f1-b1d4-8fa1832d769a",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "21500100-2092-11ee-b63e-c30e748eb5e8",
@@ -352,6 +497,11 @@
     "label": "СрочноДеньги (выданный займ)",
     "href": "https://my.saleads.pro/s/9cd5fa80-6322-11f1-8743-71b3bf533ae8",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "21199c50-53ee-11ea-9d71-e13721e9ed7a",
@@ -364,6 +514,11 @@
     "label": "Халва (выданная карта)",
     "href": "https://my.saleads.pro/s/9e30b5a0-6322-11f1-bfb5-752a4295d95f",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "f168d510-50e5-11e7-943d-21c837771f42",
@@ -376,6 +531,11 @@
     "label": "Страховой Дом ВСК - КАСКО (оплаченный полис)",
     "href": "https://my.saleads.pro/s/9e647d90-6322-11f1-adc6-edc7656cfcfd",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "2598b210-f84a-11ec-a9cd-0d266304ab5c",
@@ -388,6 +548,11 @@
     "label": "Т-Банк - Т-Инвестиции(Утилизация)",
     "href": "https://my.saleads.pro/s/9eb5d6b0-6322-11f1-a9be-d766c423165b",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "investment"
+    },
     "network": "saleads",
     "vertical": "investment",
     "offer_uuid": "500064f0-a089-11ec-adfc-25de90cac41d",
@@ -400,6 +565,11 @@
     "label": "Ак Барс Банк - кредитная карта 115 дней без процентов (выданная карта+транзакция",
     "href": "https://my.saleads.pro/s/9edc7370-6322-11f1-9e74-8f2ae3ee7902",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "034653f0-21a6-11f0-a5f8-c3a4018ba624",
@@ -412,6 +582,11 @@
     "label": "Скела Мани (Выданный займ)",
     "href": "https://my.saleads.pro/s/a04144f0-6322-11f1-a20d-39adc1668f67",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "74f91b40-afe7-11f0-a855-a96f9d64f934",
@@ -424,6 +599,11 @@
     "label": "ФинТерра онлайн (выданный займ)",
     "href": "https://my.saleads.pro/s/a06aa6b0-6322-11f1-953e-fdd783941ec3",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "ac6bfe30-f183-11e8-aaff-7d06e1b1ad6e",
@@ -436,6 +616,11 @@
     "label": "МаниКэш (выданный займ)",
     "href": "https://my.saleads.pro/s/a0ce22e0-6322-11f1-9889-458d587c4864",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "d04c6b90-355d-11f0-b929-c1069b8d8997",
@@ -448,6 +633,11 @@
     "label": "Финуслуги  Вклад ( Открытие вклада)",
     "href": "https://my.saleads.pro/s/a0f61ec0-6322-11f1-b55b-81918653e59c",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "investment"
+    },
     "network": "saleads",
     "vertical": "investment",
     "offer_uuid": "7ca4df20-8f97-11ef-b8f6-018b79e25c9a",
@@ -460,6 +650,11 @@
     "label": "УБРиР - дебетовая карта Моя Жизнь (активация карты)",
     "href": "https://my.saleads.pro/s/a25d29c0-6322-11f1-b4d7-41cd64c9ec7b",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "12e73710-b8b7-11eb-924a-a324636cafb4",
@@ -472,6 +667,11 @@
     "label": "CreditPlus займ под 0% (выданный займ )",
     "href": "https://my.saleads.pro/s/a2848a40-6322-11f1-884e-f976a544fc5a",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "c8d281d0-aa9a-11f0-bf33-97ae848954cc",
@@ -484,6 +684,11 @@
     "label": "Ак Барс Банк - дебетовая карта Барс Карта (выданная карта )",
     "href": "https://my.saleads.pro/s/a2b69ee0-6322-11f1-9fac-6fd380e608c6",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "3495ba70-21a3-11f0-93f0-97a656b166d4",
@@ -496,6 +701,11 @@
     "label": "Credit7 (выданный займ)",
     "href": "https://my.saleads.pro/s/a2e01700-6322-11f1-a425-ff902689716f",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "d66f1790-d930-11e9-b119-b5d966924b7c",
@@ -508,6 +718,11 @@
     "label": "Альфа Банк - рефинансирование кредита (выданный кредит)",
     "href": "https://my.saleads.pro/s/a3176140-6322-11f1-b24e-9ddf5e43310b",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "credit"
+    },
     "network": "saleads",
     "vertical": "credit",
     "offer_uuid": "8c495170-3986-11e8-875b-078fd3418622",
@@ -520,6 +735,11 @@
     "label": "Альфа Банк - кредит наличными (выданный кредит)",
     "href": "https://my.saleads.pro/s/a471f0f0-6322-11f1-a0c5-cbf231b4b262",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "credit"
+    },
     "network": "saleads",
     "vertical": "credit",
     "offer_uuid": "3cf2ad00-e658-11e7-8936-3b0cb5fc03d6",
@@ -532,6 +752,11 @@
     "label": "Альфа Банк - РКО (открытие расчетного счета)",
     "href": "https://my.saleads.pro/s/a4a3ae80-6322-11f1-9bb6-7926a0a9a06e",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "0eb07970-e64e-11e7-9ed0-e74cf0e1a3ec",
@@ -544,6 +769,11 @@
     "label": "Т-Банк - дебетовая карта Black Premium (активация)",
     "href": "https://my.saleads.pro/s/a4cab310-6322-11f1-a5fa-1f444a5bbc9e",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "c6385280-fe1b-11ee-af9d-bb97fe6a8310",
@@ -556,6 +786,11 @@
     "label": "Точка Банк (открытие счёта для ООО (без НДС))",
     "href": "https://my.saleads.pro/s/bcf6c090-6322-11f1-ba92-4d812c9b9791",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "finance"
+    },
     "network": "saleads",
     "vertical": "finance",
     "offer_uuid": "526d29c0-a1f6-11e7-a2d2-75a10548903a",
@@ -568,6 +803,11 @@
     "label": "УРАЛСИБ Банк - Вклад \"Динамичный\" (открытие вклада)",
     "href": "https://my.saleads.pro/s/be512640-6322-11f1-a156-9ffbc36fea65",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "investment"
+    },
     "network": "saleads",
     "vertical": "investment",
     "offer_uuid": "ce332170-4f7e-11f1-bcf0-edebfecb7b6a",
@@ -580,6 +820,11 @@
     "label": "УРАЛСИБ Банк - дебетовая карта \"Прибыль\" (выданная карта+транзакция)",
     "href": "https://my.saleads.pro/s/be86f010-6322-11f1-b271-c55a4212d4ef",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "861128e0-3331-11ec-922d-971f7d733bb9",
@@ -592,6 +837,11 @@
     "label": "Лайк Мани (выданный займ)",
     "href": "https://my.saleads.pro/s/beae2670-6322-11f1-afb0-0ba0d23f9c41",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "b6cd20a0-0e44-11f1-8b6f-5f916df204e2",
@@ -604,6 +854,11 @@
     "label": "Занимательные Финансы (Выданный займ)",
     "href": "https://my.saleads.pro/s/bee1cd00-6322-11f1-913c-dbfd3856156b",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "40824050-dff7-11f0-907c-b1a1f06e9ddd",
@@ -616,6 +871,11 @@
     "label": "Альфа Банк - дебетовая Альфа‑Карта с привилегиями Альфа‑Смарт (Активация подписк",
     "href": "https://my.saleads.pro/s/bf0874b0-6322-11f1-8936-8534007ac612",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "a104a760-b0df-11f0-aef2-a7c79dc2ca8e",
@@ -628,6 +888,11 @@
     "label": "БериБеру (Выдача займа новому клиенту)",
     "href": "https://my.saleads.pro/s/c09c6820-6322-11f1-a1b6-ede2a95d13a2",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "22d56ff0-3d14-11ef-9a7a-8bcfdec13a5f",
@@ -640,6 +905,11 @@
     "label": "Хурмакредит (Выданный займ новому клиенту)",
     "href": "https://my.saleads.pro/s/c0c4b370-6322-11f1-9af7-572b4ab3e61b",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "ca601bc0-f345-11ee-a856-a7e17dcbd71c",
@@ -652,6 +922,11 @@
     "label": "Krediska (Выданный займ новому клиенту)",
     "href": "https://my.saleads.pro/s/c0ee0ea0-6322-11f1-a927-33fa75658b24",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "350390c0-c25c-11ed-9f2d-27a017576b26",
@@ -664,6 +939,11 @@
     "label": "Т-Страхование Каско (оплаченный полис )",
     "href": "https://my.saleads.pro/s/c115fdb0-6322-11f1-98a7-592db6a47fd7",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "5bd288f0-3c9d-11ec-8dcc-0323f675e617",
@@ -676,6 +956,11 @@
     "label": "КотоЗайм (выданный займ)",
     "href": "https://my.saleads.pro/s/c27003c0-6322-11f1-8aee-bd3418c307c9",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "e1780b40-716e-11ee-964b-73059f39c696",
@@ -688,6 +973,11 @@
     "label": "ДоброЗайм (выданный займ, повторный займ)",
     "href": "https://my.saleads.pro/s/c2a414e0-6322-11f1-906b-493aa867d325",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "7ea84d90-9938-11e7-883f-5344faf78e4e",
@@ -700,6 +990,11 @@
     "label": "Т-Банк - дебетовая карта ALL Airlines (активация карты + покупка)",
     "href": "https://my.saleads.pro/s/c2f403f0-6322-11f1-b77e-554fed5ae79b",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "29eff4f0-c417-11ee-bc5e-913cceaf4626",
@@ -712,6 +1007,11 @@
     "label": "МТС Деньги - дебетовая карта (выданная карта + транзакция)",
     "href": "https://my.saleads.pro/s/c31cf7b0-6322-11f1-8a14-cbf2719cb18c",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "9d750bc0-81a2-11f0-b6d7-f3b4d6a44c23",
@@ -724,6 +1024,11 @@
     "label": "Т-Банк - Вклад (Открытие депозита)",
     "href": "https://my.saleads.pro/s/c48272f0-6322-11f1-94d1-17544db82af4",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "investment"
+    },
     "network": "saleads",
     "vertical": "investment",
     "offer_uuid": "f1d5b100-d6bd-11ec-b59b-31f2ac5aa9e2",
@@ -736,6 +1041,11 @@
     "label": "Альфа Банк - дебетовая Альфа-Карта для Иностранцев (выданная карта и транзакция ",
     "href": "https://my.saleads.pro/s/c4a84670-6322-11f1-adfa-a76850589598",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "324198e0-b0c4-11f0-827e-55c2c48eb20c",
@@ -748,6 +1058,11 @@
     "label": "Альфа Банк - дебетовая Апельсиновая Карта (выданная карта и транзакция по карте)",
     "href": "https://my.saleads.pro/s/c4d3b540-6322-11f1-96f3-c1d7d892da40",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "fc861240-9d2a-11f0-8896-c12647668925",
@@ -760,6 +1075,11 @@
     "label": "Альфа Банк - дебетовая Альфа-Карта самозанятые (выданная карта и транзакция по к",
     "href": "https://my.saleads.pro/s/c4fa7b40-6322-11f1-8918-bb3c83e66aba",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "9517bad0-34ba-11f0-b24e-bbf70515d3d0",
@@ -772,6 +1092,11 @@
     "label": "Альфа Банк - дебетовая карта «Пенсия в Альфа-Банке» (выданная карта и транзакция",
     "href": "https://my.saleads.pro/s/c523e1f0-6322-11f1-87be-7359ce16138d",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "b67edea0-34b0-11f0-a6b5-9932ec7c1cd3",
@@ -784,6 +1109,11 @@
     "label": "Т-Банк - дебетовая карта Islam Black (активация карты + покупка)",
     "href": "https://my.saleads.pro/s/c67cdaa0-6322-11f1-97a0-9f9635a4a98b",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "f077ed50-324d-11f0-b22a-819bc9b99910",
@@ -796,6 +1126,11 @@
     "label": "Т-Банк - дебетовая карта для нерезидентов (активация карты + покупка)",
     "href": "https://my.saleads.pro/s/c6d7d690-6322-11f1-8943-b74078b65317",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "4083dd00-fd93-11ee-a53b-470061e5909f",
@@ -808,6 +1143,11 @@
     "label": "Деньга (выданный займ)",
     "href": "https://my.saleads.pro/s/c705d200-6322-11f1-a0a0-b77e235a27ac",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "f6ac0d00-ced9-11ed-a722-65c7caa03426",
@@ -820,6 +1160,11 @@
     "label": "Т-Банк - дебетовая карта Black Молодежная (активация карты + покупка)",
     "href": "https://my.saleads.pro/s/c72e3cc0-6322-11f1-99b1-d790414dfdbb",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "2f609780-6ef3-11ed-b160-37a0ddda9452",
@@ -832,6 +1177,11 @@
     "label": "Центрофинанс офлайн (выданный займ)",
     "href": "https://my.saleads.pro/s/c8915600-6322-11f1-8c82-9bd5104a04aa",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "a994aa10-c78a-11ec-96d1-03c55c37d247",
@@ -844,6 +1194,11 @@
     "label": "Центрофинанс онлайн (выданный займ)",
     "href": "https://my.saleads.pro/s/c8ba1fb0-6322-11f1-942b-c9ec62cba0fc",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "383781c0-c6fe-11ec-a3ed-3915ff39466b",
@@ -856,6 +1211,11 @@
     "label": "Азиатско-Тихоокеанский Банк - РКО (открытие расчетного счета)",
     "href": "https://my.saleads.pro/s/c8e49220-6322-11f1-8ec6-b329f1b53485",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "07cf73a0-60f9-11ed-8a15-7d9a676e78b8",
@@ -868,6 +1228,11 @@
     "label": "Zaymigo (выданный займ)",
     "href": "https://my.saleads.pro/s/c90d1c60-6322-11f1-8527-dfabaee69a9b",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "33f8a740-72af-11e7-971b-6320e4fe6a3b",
@@ -880,6 +1245,11 @@
     "label": "Альфа Банк - дебетовая Альфа‑Карта для молодёжи (выданная карта и транзакция по ",
     "href": "https://my.saleads.pro/s/e26e2030-6322-11f1-afe5-1f21cae8abbd",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "1aa72830-41fd-11f0-89ae-73745629c423",
@@ -892,6 +1262,11 @@
     "label": "Альфа Банк - дебетовая детская карта (выданная карта и транзакция по карте)",
     "href": "https://my.saleads.pro/s/e2979ac0-6322-11f1-8055-3b0df2fae46c",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "4b99c3a0-9b0c-11ec-991d-ab3970fcf653",
@@ -904,6 +1279,11 @@
     "label": "БКС - Инвестиции (открытие брокерского счёта+пополнение)",
     "href": "https://my.saleads.pro/s/e2c5fa50-6322-11f1-a680-550ae5875e82",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "investment"
+    },
     "network": "saleads",
     "vertical": "investment",
     "offer_uuid": "e292fc10-d5aa-11f0-9a47-c392f5b3db4c",
@@ -916,6 +1296,11 @@
     "label": "УРАЛСИБ Банк - РКО (активный расчетный счет)",
     "href": "https://my.saleads.pro/s/e2edb300-6322-11f1-bb31-ed1bf3ef7462",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "d3ea9860-3334-11ec-9954-f7111e35dc10",
@@ -928,6 +1313,11 @@
     "label": "Kviku (выданный займ)",
     "href": "https://my.saleads.pro/s/058e1f20-6323-11f1-af43-0db6ef6a5d40",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "58c9f1f0-dbca-11ea-8903-a99f9a779dd1",
@@ -940,6 +1330,11 @@
     "label": "Точка Банк (открытие счёта для ИП (без НДС))",
     "href": "https://my.saleads.pro/s/0780f720-6323-11f1-9ee5-c305ac910218",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "finance"
+    },
     "network": "saleads",
     "vertical": "finance",
     "offer_uuid": "8f2468a0-512c-11e9-b4c3-33e227eafd2f",
@@ -952,6 +1347,11 @@
     "label": "Точка Банк (регистрация ИП и ООО (без НДС))",
     "href": "https://my.saleads.pro/s/0986db40-6323-11f1-b7ee-c1025204ba6c",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "fa873860-8047-11e8-ae6f-c5b371f9b8f9",
@@ -964,6 +1364,11 @@
     "label": "Давака (выданный займ)",
     "href": "https://my.saleads.pro/s/0b7a0b90-6323-11f1-945e-b3f39cdd4523",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "8aa09a70-6f6f-11ef-9e1f-b7a0b1dc8320",
@@ -976,6 +1381,11 @@
     "label": "Страховой Дом ВСК - ОСАГО (оплаченный полис)",
     "href": "https://my.saleads.pro/s/0d6cbfb0-6323-11f1-ac29-056d1c19807a",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "cb51d010-f84c-11ec-80f5-b98a97000adf",
@@ -988,6 +1398,11 @@
     "label": "Creddy – заём под залог авто онлайн (валидная заявка)",
     "href": "https://my.saleads.pro/s/116179f0-6323-11f1-845a-15c23b5c31da",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "finance"
+    },
     "network": "saleads",
     "vertical": "finance",
     "offer_uuid": "e155cf20-7b03-11ed-b8ce-4d0d14d19340",
@@ -1000,6 +1415,11 @@
     "label": "ЛокоБанк - РКО (Активация)",
     "href": "https://my.saleads.pro/s/13559200-6323-11f1-853d-119a39132221",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "business"
+    },
     "network": "saleads",
     "vertical": "business",
     "offer_uuid": "d70ad850-074e-11f1-a6b7-01a977514dfc",
@@ -1012,6 +1432,11 @@
     "label": "Полис812 - Отмена поездки (Покупка полиса)",
     "href": "https://my.saleads.pro/s/a9ff7770-6324-11f1-a1ce-512cc16f1820",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "8a4af040-1e0f-11f1-ba29-a70f97f5063b",
@@ -1024,6 +1449,11 @@
     "label": "Полис812 - Страхование квартиры (Покупка полиса)",
     "href": "https://my.saleads.pro/s/ab6e4440-6324-11f1-ab07-61bef44f4993",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "5af1d550-1e0e-11f1-b987-d1f3819f5336",
@@ -1036,6 +1466,11 @@
     "label": "Полис812 - Ипотечное страхование Сбербанк, Другие банки (Покупка полиса)",
     "href": "https://my.saleads.pro/s/acc97b20-6324-11f1-bad9-051d1880cf47",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "e8a67800-1e0c-11f1-a164-9bbf864e31ed",
@@ -1048,6 +1483,11 @@
     "label": "Полис812 - Антиклещ (Покупка полиса)",
     "href": "https://my.saleads.pro/s/ae3e0030-6324-11f1-8cdd-f149ddcc251b",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "a7e1a720-1df7-11f1-a184-2783fd23d6e7",
@@ -1060,6 +1500,11 @@
     "label": "Полис812 - Страхование спортсменов (Покупка полиса)",
     "href": "https://my.saleads.pro/s/af985700-6324-11f1-bc0c-4f7391258a74",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "7c5db4b0-1df2-11f1-8bcc-ab3cb2c9244f",
@@ -1072,6 +1517,11 @@
     "label": "Полис812 - Страхование выезжающих за рубеж (ВЗР)(Покупка полиса)",
     "href": "https://my.saleads.pro/s/b10deaf0-6324-11f1-9da4-d7fd22a4b1e6",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "47cb0030-1d2b-11f1-90dc-1f7e16d1d812",
@@ -1084,6 +1534,11 @@
     "label": "Mafin - (Оплата полиса ОСАГО)",
     "href": "https://my.saleads.pro/s/b266c170-6324-11f1-a107-c1639043ec26",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "41d29f40-13b3-11f0-8138-81daea113b51",
@@ -1096,6 +1551,11 @@
     "label": "Mafin (Оплата полиса еКАСКО)",
     "href": "https://my.saleads.pro/s/b53d32c0-6324-11f1-970f-cd6178dc6621",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "32ede640-a5b0-11ef-9122-831cbc08bfed",
@@ -1108,6 +1568,11 @@
     "label": "Т-Страхование - Страхование ипотеки (оплаченный полис)",
     "href": "https://my.saleads.pro/s/b808efd0-6324-11f1-8622-8f1f3e1fd2bf",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "6731bca0-a205-11ed-92c2-b7c114bdfa8d",
@@ -1120,6 +1585,11 @@
     "label": "Т-Страхование ОСАГО (оплаченный полис )",
     "href": "https://my.saleads.pro/s/b97e7710-6324-11f1-ba26-c51cdc3af453",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "460101e0-3b06-11ec-b627-a14928829391",
@@ -1132,6 +1602,11 @@
     "label": "Cherehapa Полис страхования для ипотеки (Оплаченный полис Ипотека)",
     "href": "https://my.saleads.pro/s/bad85cd0-6324-11f1-a436-81bf00cbeb56",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "31e54a60-8c84-11eb-b916-9fc0386f035f",
@@ -1144,6 +1619,11 @@
     "label": "Cherehapa ОСАГО (Оплаченный электронный полис ОСАГО)",
     "href": "https://my.saleads.pro/s/bc4e8330-6324-11f1-863e-2750690f6ecf",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "59721700-8c82-11eb-8754-a50be1591d66",
@@ -1156,6 +1636,11 @@
     "label": "Cherehapa Страхование ВЗР (Оплаченный и активированный полис ВЗР)",
     "href": "https://my.saleads.pro/s/bda96940-6324-11f1-bf1f-5ddf5359308e",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "insurance"
+    },
     "network": "saleads",
     "vertical": "insurance",
     "offer_uuid": "de762000-8c7e-11eb-a4b8-3b2f97732d75",
@@ -1168,6 +1653,11 @@
     "label": "ОТП Банк - Дебетовая карта «ОТП карта» + Бесплатный платежный стикер (выданная к",
     "href": "https://my.saleads.pro/s/b5e18f80-633a-11f1-ab27-7f0267cf232c",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "9a8ec930-5290-11f0-8536-1d236f5350d9",
@@ -1180,6 +1670,11 @@
     "label": "Т-Банк - дебетовая карта Black (активация карты + покупка)",
     "href": "https://my.saleads.pro/s/b74f6900-633a-11f1-964a-233116ea01c8",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "8c9d0ea0-f723-11e9-bf82-bdd2777c8642",
@@ -1192,6 +1687,11 @@
     "label": "Т-Банк - дебетовая карта Джуниор (активация карты + покупка)",
     "href": "https://my.saleads.pro/s/c7f9e1b0-633a-11f1-be3d-ef0ee3aebcfa",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "card"
+    },
     "network": "saleads",
     "vertical": "card",
     "offer_uuid": "81fc30c0-e2cb-11ea-838d-5d5848864085",
@@ -1204,6 +1704,11 @@
     "label": "Joymoney (выданный займ )",
     "href": "https://my.saleads.pro/s/d3d5b760-633a-11f1-9d70-0d3ab3fcc677",
     "rel": "sponsored nofollow",
+    "utm": {
+      "source": "site",
+      "medium": "cpa",
+      "campaign": "mfo"
+    },
     "network": "saleads",
     "vertical": "mfo",
     "offer_uuid": "d8ac7c40-d37c-11e7-9ec3-fbcea06e8968",

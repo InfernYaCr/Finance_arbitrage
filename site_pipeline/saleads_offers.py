@@ -269,6 +269,70 @@ def cmd_clicks(args: argparse.Namespace) -> None:
         )
 
 
+def cmd_offer_details(args: argparse.Namespace) -> None:
+    """Fetch full /offer/{uuid} detail for every offer in a links file.
+
+    Only the detail endpoint returns companyDescription / offerDescription /
+    paymentInfo / landings — the list endpoint omits them. This is reference
+    material for WRITING original page copy, not for republishing verbatim:
+    offerDescription contains the advertiser's ready ad copy, and offers
+    explicitly forbid unauthorized use of ad materials. Extract facts (rates,
+    limits, requirements) and rewrite in your own words; don't paste as-is.
+    """
+    links = json.loads(Path(args.links_file).read_text(encoding="utf-8"))
+    seen: dict[str, str] = {}
+    for l in links:
+        uuid = l.get("offer_uuid")
+        if uuid and uuid not in seen:
+            seen[uuid] = l["id"]
+
+    out_path = Path(args.out)
+    out: dict[str, Any] = {}
+    if out_path.exists() and not args.fresh:
+        out = json.loads(out_path.read_text(encoding="utf-8"))
+        print(f"Resuming: {len(out)} offers already cached in {out_path}")
+
+    todo = [(uuid, link_id) for uuid, link_id in seen.items() if link_id not in out]
+    print(f"Fetching details for {len(todo)}/{len(seen)} offers (2s/req, retry on 429)...")
+    errors = 0
+    for i, (uuid, link_id) in enumerate(todo):
+        print(f"[{i+1}/{len(todo)}] {link_id} ...", end=" ", flush=True)
+        retries = 0
+        while retries < 3:
+            try:
+                d = _get(f"/offer/{uuid}")
+                out[link_id] = {
+                    "offer_uuid": uuid,
+                    "name": d.get("name", ""),
+                    "companyDescription": d.get("companyDescription", ""),
+                    "offerDescription": d.get("offerDescription", ""),
+                    "paymentInfo": d.get("paymentInfo", ""),
+                    "landings": d.get("landings", []),
+                }
+                print("ok")
+                break
+            except Exception as e:
+                if "429" in str(e):
+                    print(f"429, waiting 8s...", end=" ", flush=True)
+                    time.sleep(8)
+                    retries += 1
+                else:
+                    print(f"ERROR: {e}")
+                    errors += 1
+                    break
+        time.sleep(2)
+        if (i + 1) % 10 == 0:
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"\nWrote {len(out)}/{len(seen)} offer details ({errors} errors) → {out_path}")
+    if len(out) < len(seen):
+        print("Re-run the same command to resume — it skips offers already cached.")
+    print("Reminder: source material only — rewrite facts in your own words, don't publish offerDescription verbatim.")
+
+
 def cmd_export_links(args: argparse.Namespace) -> None:
     """Build affiliateLinks.json entries from connectors + offer payouts.
 
@@ -293,13 +357,17 @@ def cmd_export_links(args: argparse.Namespace) -> None:
         if not href:
             continue
         name = offer.get("name", "Saleads offer")
+        vertical = vertical_of(offer)
         links.append({
             "id": f"saleads-{c.get('offer_uuid','')[:8]}",
             "label": name[:80],
             "href": href,
             "rel": "sponsored nofollow",
+            # Required by site/src/lib/affiliate.ts buildUtmHref() — every
+            # AffiliateLink must carry this or /go/[offer].astro throws at build time.
+            "utm": {"source": "site", "medium": "cpa", "campaign": vertical},
             "network": "saleads",
-            "vertical": vertical_of(offer),
+            "vertical": vertical,
             "offer_uuid": c.get("offer_uuid", ""),
             "connector_uuid": c.get("uuid", ""),
             "payout": _fmt_payout(offer),
@@ -453,6 +521,12 @@ def main() -> None:
     p_cm.add_argument("--min-payout", type=float, default=0.0, help="Min RUB payout to include (0 = all)")
     p_cm.add_argument("--dry-run", action="store_true", help="Print what would be created, no API writes")
     p_cm.set_defaults(func=cmd_connect_missing)
+
+    p_det = sub.add_parser("offer-details", help="Fetch full offer detail (description/terms/landings) for a links file")
+    p_det.add_argument("--links-file", default="sites/finhelp-ru/affiliateLinks.json")
+    p_det.add_argument("--out", default="site_pipeline/output/offer_details_finhelp-ru.json")
+    p_det.add_argument("--fresh", action="store_true", help="Ignore existing cache, refetch everything")
+    p_det.set_defaults(func=cmd_offer_details)
 
     args = parser.parse_args()
     args.func(args)
