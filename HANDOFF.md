@@ -5,6 +5,42 @@
 The pipeline has completed a full crawl and QA pass for the original page
 export. The Astro site is built and deployed to the first Beget test host.
 
+### 2026-06-08 update — офферы теперь реально рендерятся на сайте (3 бага исправлены)
+
+`promoSlots.json` существовал, но не работал: `link_ids` ссылались на мёртвые id
+(`finance-mfo-top` и т.п.), которых больше нет в `affiliateLinks.json`. Копнув
+глубже, нашлись ещё два блокирующих бага в цепочке `PromoSlot.astro` →
+`affiliate.ts` → `/go/[offer].astro`:
+
+1. **Нет синка данных в билд.** `affiliate.ts` статически импортирует
+   `site/src/data/{affiliateLinks,promoSlots}.json` — а это шаблонные заглушки
+   `[]`/`[]` (закоммичены нарочно в `b809e8a` как безопасный дефолт). `gen-env.sh`
+   копировал только `.env`, но не копировал `sites/<id>/*.json` в `site/src/data/`.
+   Весь пул из 101 оффера был невидим для Astro-билда.
+2. **`buildUtmHref` падал на каждом `/go/` маршруте.** `/go/[offer].astro`
+   дёргает `link.utm.source` при генерации статических путей для КАЖДОЙ ссылки —
+   а `saleads_offers.py export-links` это поле не писал. `TypeError` на всех
+   101 `/go/`-страницах при `npm run build`.
+3. **`promoSlots.json`** ссылался на несуществующие id (см. выше).
+
+**Исправлено:**
+- `saleads_offers.py::cmd_export_links` — добавлено поле `utm: {source, medium,
+  campaign: vertical}` в каждую запись `affiliateLinks.json`.
+- `sites/finhelp-ru/promoSlots.json` — пересобран: 1 generic-слот
+  (`sections: []`, матчит любую статью) с топ-офферами по 4 универсальным
+  вертикалям (mfo/card/credit/business). Точная разбивка по разделам —
+  после полного краула (LAUNCH_PLAN §23), сейчас донор-датасет мал (~30 стр)
+  и таксономия разделов нестабильна.
+- `gen-env.sh` — в конец добавлено копирование
+  `sites/<SITE_ID>/{affiliateLinks,promoSlots}.json` → `site/src/data/`.
+
+**Проверено end-to-end** (build + Astro preview в браузере): `npm run build`
+собрал все 134 страницы включая 101 `/go/`-маршрут без единого краша;
+`/go/saleads-42c379c0/` возвращает 200 с meta-refresh на реальный трек-URL
+Saleads (`utm_campaign=mfo`); на живой странице `/7-dney/` промо-блок
+`.promo-slot[data-slot-id="finance-generic-article"]` отрендерился с 4
+кликабельными офферами.
+
 ### 2026-06-08 update — Saleads офферы подключены (финансы + страхование, Россия)
 
 **Что сделано:** через API подключены ВСЕ доступные для России финансовые и

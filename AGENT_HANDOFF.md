@@ -2,6 +2,7 @@
 
 > Точка входа для свежего агента. Прочитай этот файл первым, затем `HANDOFF.md`
 > (хронологический лог) и `LAUNCH_PLAN.md` (план запуска). Дата снимка: **2026-06-08**.
+> Обновлено: офферы теперь реально рендерятся на сайте (см. §2, §5).
 
 ## 1. Что это за проект
 
@@ -22,10 +23,13 @@ CPA (не ссылочный PBN): органический SEO → `/go/<offer>
 | Краулер Crawl4AI (замена Firecrawl) | ✅ `crawl_pages_c4ai.py`, `.venv311`, smoke ок |
 | Saleads API клиент | ✅ `saleads_offers.py` (offers/connect/export) |
 | Офферы финансы+страхование (РФ) | ✅ 160 коннекторов подключено (100 live + 60 на модерации) |
-| `affiliateLinks.json` (finhelp-ru) | ✅ 101 оффер, тег `vertical`, все live/enabled |
+| `affiliateLinks.json` (finhelp-ru) | ✅ 101 оффер, тег `vertical` + `utm`, все live/enabled |
 | `affiliate_pool.json` (мастер) | ✅ 189 коннекторов, vertical + status |
-| Полный краул донора vsezaimyonline.ru | ⏳ пока ~30 стр, нужно 300+ |
-| `promoSlots.json` + дизайн под офферы | ⏳ после краула (LAUNCH_PLAN раздел 23) |
+| Офферы реально рендерятся на сайте | ✅ `gen-env.sh` синкает данные в `site/src/data/`, build проверен (101 `/go/` маршрутов без краша) |
+| `promoSlots.json` (finhelp-ru) | ✅ 1 generic-слот (топ-4 по mfo/card/credit/business), `sections: []` — временно, разбивка по реальным разделам ещё впереди |
+| Полный краул донора vsezaimyonline.ru | ✅ **2921 страница** в `sites/finhelp-ru/pages` (реальный размер сайта — 3721 индексируемых URL по Screaming Frog, не 300 как считалось раньше). `terms` 684, `banks` 575, остальное — займы/кредиты/карты/ипотека/рейтинги |
+| `sitemap.xml` баг | ✅ починен: `generate-sitemap.mjs` не читал `site/.env` (отдельный node-процесс без Vite-инъекции env) → падал на старый mosseo-датасет 1011 стр. Теперь парсит `.env` вручную (как `generate-mail-php.mjs`) |
+| Разбивка promoSlots по реальным разделам + дизайн офферов | ⏳ следующий шаг (LAUNCH_PLAN раздел 23) — теперь на 2921-страничном датасете, не на 30 |
 | 60 `wait`-коннекторов | ⏳ ждут модерации Saleads → потом re-export |
 
 ## 3. Окружения Python (важно — их два)
@@ -49,11 +53,16 @@ python site_pipeline/saleads_offers.py financial --top 30          # обзор 
 python site_pipeline/saleads_offers.py clicks                      # клики/конверсии
 ```
 
-### Краул донора (Crawl4AI)
+### Краул донора (Crawl4AI) — уже выполнен на 2921 стр., команда для повторного/инкрементального прогона
 ```bash
 .venv311/bin/python site_pipeline/crawl_pages_c4ai.py \
-  --source-domain vsezaimyonline.ru --limit 500 --with-llm \
-  --include-sections banks,credits,loans,cards,mortgage,autocredit,qa,ratings,terms
+  --source-domain vsezaimyonline.ru --limit 4000 \
+  --output-dir sites/finhelp-ru/pages   # без --include-sections — взяли весь сайт
+
+# после краула — обязательно пересобрать индексы (build_manifest не читается напрямую из pages/):
+. .venv/bin/activate
+python site_pipeline/qa_pages.py --pages-dir sites/finhelp-ru/pages --out sites/finhelp-ru --source-domain vsezaimyonline.ru
+python site_pipeline/build_content_index.py --out sites/finhelp-ru
 ```
 
 ### Сборка / проверка / деплой Astro
@@ -74,6 +83,11 @@ npm run check:b0 && npm run deploy:dry && npm run deploy   # деплой на B
 - **Не инжектить `content_html` через `set:html`** для contact/home — ломает layout вложенными `.container`.
 - **HR-офферы банков** («Альфа Банк … HR») НЕ на финсайт — отсекаются `_JOBS_RE` в `saleads_offers.py`.
 - **Не трогать** `site/scripts/download-images.sh`, `site/scripts/ru-images.txt` — legacy-media хелперы (править только в задаче про изображения).
+- **`site/src/data/{affiliateLinks,promoSlots}.json` — не источник правды.** `affiliate.ts` их статически импортирует, но реальные данные живут в `sites/<site>/*.json`. Всегда запускать `./gen-env.sh <site_id>` перед билдом/превью — иначе он собирает пустые `[]` (были закоммичены как безопасный дефолт-заглушка).
+- **Каждая `AffiliateLink` обязана иметь `utm: {source, medium, campaign}`** — `/go/[offer].astro` дергает `link.utm.source` при генерации статических путей для КАЖДОЙ ссылки; без поля билд падает на всех `/go/` маршрутах разом. `saleads_offers.py export-links` теперь это поле пишет — не убирать.
+- **`promoSlots.json` `link_ids` должны существовать в актуальном `affiliateLinks.json`** — иначе слот молча ничего не рендерит (без ошибки сборки). После любого re-export офферов сверять id.
+- **Пост-билд node-скрипты (`site/scripts/*.mjs`) не наследуют `site/.env` автоматически.** `npm run build` = `astro build && node scripts/generate-sitemap.mjs && node scripts/generate-mail-php.mjs` — только сам `astro build` получает env через Vite, отдельные `node script.mjs` в цепочке — нет. Любой новый пост-билд скрипт, которому нужен `site/.env`, должен парсить его вручную (см. `parseEnv()` в `generate-mail-php.mjs`, теперь и в `generate-sitemap.mjs`).
+- **`sitemap.xml` реального размера сайта, а не 30 страниц** — донор `vsezaimyonline.ru` имеет **3721 индексируемую страницу** (Screaming Frog, не sitemap.xml донора — он неполный/устаревший). После `--limit 300` в старых командах краулер брал только долю сайта.
 
 ## 6. Классификация офферов (как делятся по сайтам)
 
@@ -84,9 +98,9 @@ mortgage / investment / debt_relief / finance` + исключаемые `jobs / 
 
 ## 7. Что делать дальше (приоритет)
 
-1. **Полный краул** `vsezaimyonline.ru` через Crawl4AI (≥300 стр) → QA → `pages/*.json`.
-2. После краула: **`promoSlots.json`** для finhelp-ru (раздел→офферы по `vertical`) + **дизайн под офферы** (LAUNCH_PLAN раздел 23).
-3. Дождаться модерации 60 `wait`-коннекторов → `export-pool` + `export-links` заново.
+1. Разбить `promoSlots.json` по реальным разделам (`banks`, `terms`, `zalogi`, `mortgage`, `credit-cards`, ...) вместо текущего одного generic-слота + **дизайн под офферы** (LAUNCH_PLAN раздел 23) — теперь на полном 2921-страничном датасете.
+2. Дождаться модерации 60 `wait`-коннекторов → `export-pool` + `export-links` заново (проверить, что `promoSlots.json` `link_ids` не осиротели).
+3. Домен/хостинг/аналитика для finhelp-ru (`site.config.json` сейчас пустой по `deploy`/`analytics`/`contacts`) — организационное решение, не код.
 4. B7.1 крауд-ссылки, B7.2 UptimeRobot, второй сайт (HR/страхование) через `create_site.py`.
 
 ## 8. Карта документов
