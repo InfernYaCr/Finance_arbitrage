@@ -1,7 +1,8 @@
 ---
 import OfferLogo from './OfferLogo.astro';
+import AdMark from './AdMark.astro';
 import Icon from './Icon.astro';
-import { type Offer, offerHref, reviewHref } from '../lib/offers';
+import { type Offer, offerHref, reviewHref, pskRange, PSK_LABEL } from '../lib/offers';
 import { range } from '../lib/format';
 interface Props { offers: Offer[]; title?: string }
 const { offers, title = 'Сравнение лучших предложений' } = Astro.props;
@@ -14,19 +15,23 @@ const top = offers.slice(0, 5);
       <h2 class="h2 mt-2" data-reveal>{title}</h2>
       <div class="tbl-wrap" data-reveal tabindex="0" role="region" aria-label="Сравнительная таблица, прокручивается по горизонтали">
         <table class="cmp">
-          <thead><tr><th>Организация</th><th>Сумма</th><th>Срок</th><th>Ставка в день</th><th>Первый займ</th><th>Одобрение</th><th>Решение</th><th><span class="sr-only-x">Действие</span></th></tr></thead>
+          <thead><tr><th>Организация</th><th>Сумма</th><th>Срок</th><th class="cmp-psk">{PSK_LABEL}</th><th>Ставка в день</th><th>Первый займ</th><th>Одобрение</th><th>Решение</th><th><span class="sr-only-x">Действие</span></th></tr></thead>
           <tbody>
             {top.map((o) => (
-              <tr>
+              <>
+              <tr class="cmp-main">
                 <td><a class="who no-underline" href={reviewHref(o)}><OfferLogo offer={o} />{o.name}</a></td>
                 <td>{range(o.amountMin, o.amountMax)}&nbsp;₽</td>
                 <td>{o.termMinDays}–{o.termMaxDays}&nbsp;дн.</td>
+                <td>{pskRange(o) ?? '—'}</td>
                 <td>{String(o.rateDayPct).replace('.', ',')}%</td>
                 <td>{o.freeDays && o.features.includes('zero_percent') ? <b class="text-ok">0% · {o.freeDays}&nbsp;дн.</b> : '—'}</td>
                 <td>{o.approvalPct ? `${o.approvalPct}%` : '—'}</td>
                 <td>{o.decisionMinutes ? `${o.decisionMinutes} мин` : '—'}</td>
                 <td><a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">Получить<Icon name="arrow" class="arrow" /></a></td>
               </tr>
+              <tr class="cmp-ad"><td colspan="9"><AdMark offer={o} /></td></tr>
+              </>
             ))}
           </tbody>
         </table>

@@ -28,6 +28,7 @@ export interface UtmOptions {
   campaign?: string; // страница/блок: 'home', 'guide-zaimy-bez-otkaza'…
   content?: string;  // позиция/слот: 'card-3', 'top-banner'
   term?: string;
+  erid?: string;     // токен маркировки (ОРД) — передаётся в ссылке параметром erid
 }
 
 const DEFAULT_UTM = { source: 'rencredit-online.ru', medium: 'compare', campaign: 'catalog' };
@@ -35,6 +36,7 @@ const DEFAULT_UTM = { source: 'rencredit-online.ru', medium: 'compare', campaign
 /** Добавляет UTM к партнёрской ссылке (перенос buildUtmHref из site/src/lib/affiliate.ts). */
 export function buildUtmHref(href: string, opts: UtmOptions = {}): string {
   const params: Record<string, string> = {
+    ...(opts.erid && !/[?&]erid=/.test(href) ? { erid: opts.erid } : {}),
     utm_source: opts.source ?? DEFAULT_UTM.source,
     utm_medium: opts.medium ?? DEFAULT_UTM.medium,
     utm_campaign: opts.campaign ?? DEFAULT_UTM.campaign,

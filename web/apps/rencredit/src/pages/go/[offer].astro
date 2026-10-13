@@ -2,20 +2,25 @@
 // Редирект на партнёрский оффер. Самодостаточный HTML без layout приложения.
 // В пуле есть записи status=wait: они приходят с enabled=false и без href (isLinkable → false),
 // поэтому страницы для них не генерируются. Если wait-оффер включат и дадут ссылку — путь появится сам.
+import { getCollection } from 'astro:content';
 import { pool, isLinkable, outboundUrl } from '@pbn/core';
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  // erid (ч. 17 ст. 18.1 38-ФЗ) хранится в оффере контента, а не в пуле.
+  const erids = new Map((await getCollection('offers')).map((e) => [e.data.poolId, e.data.erid]));
   return pool
     .filter((o) => isLinkable(o))
-    .map((o) => ({ params: { offer: o.id }, props: { pending: o.status !== 'approve' } }));
+    .map((o) => ({ params: { offer: o.id }, props: { pending: o.status !== 'approve', erid: erids.get(o.id) } }));
 }
 
 const { offer } = Astro.params;
+const { erid } = Astro.props;
 const destination =
   outboundUrl(offer!, {
     source: Astro.site?.hostname ?? 'rencredit-online.ru',
     medium: 'compare',
     campaign: 'go',
+    erid,
   }) ?? '/';
 ---
 

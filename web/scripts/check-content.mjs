@@ -18,6 +18,11 @@ const SOURCES_DIR = join(app, 'src/data/offer-sources');
 const SOURCED_FIELDS = ['amountMin', 'amountMax', 'termMinDays', 'termMaxDays', 'rateDayPct', 'freeDays',
   'pskMin', 'pskMax', 'ageMin', 'ageMax'];
 const MAX_AGE_DAYS = 30;
+// Предельная ПСК (ч. 11 ст. 6 353-ФЗ: min(292%, среднерыночная ПСК × 4/3)) на договоры IV кв. 2026 —
+// таблицы ЦБ от 14.08.2026 (cbr.ru/statistics/bank_sector/psk/). Обновлять ежеквартально.
+// mfo: беззалоговые займы до 100 тыс. — 292; card: кредитные карты (ЭСП) — 72,809; credit: банк, без залога — 55,437.
+const PSK_LIMIT = { mfo: 292, card: 72.809, credit: 55.437 };
+const noPsk = [];
 function checkSources(f, slug, o) {
   const path = join(SOURCES_DIR, `${slug}.json`);
   if (!existsSync(path)) return err(`${f}: verified=true, но нет src/data/offer-sources/${slug}.json`);
@@ -55,8 +60,10 @@ for (const f of files) {
   if (poolUsed.has(o.poolId)) err(`${f}: poolId ${o.poolId} уже использован в ${poolUsed.get(o.poolId)}`);
   poolUsed.set(o.poolId, f);
   if (o.verified) checkSources(f, slug, o);
-  if (o.rateDayPct > 0.8) err(`${f}: ставка > 0.8%/день`);
-  if (o.pskMax != null && o.pskMax > 292) err(`${f}: ПСК > 292`);
+  if (o.rateDayPct > 0.8) err(`${f}: ставка > 0.8%/день (ч. 23 ст. 5 353-ФЗ)`);
+  if (o.pskMax != null && o.pskMax > PSK_LIMIT[o.kind]) err(`${f}: ПСК ${o.pskMax} > предельной ${PSK_LIMIT[o.kind]} для kind=${o.kind}`);
+  if (o.pskMin != null && o.pskMax != null && o.pskMin > o.pskMax) err(`${f}: pskMin > pskMax`);
+  if (o.pskMin == null || o.pskMax == null || !o.legalName || !o.erid) noPsk.push(slug);
   if (o.amountMin > o.amountMax) err(`${f}: amountMin > amountMax`);
   if (o.termMinDays > o.termMaxDays) err(`${f}: termMin > termMax`);
   if (o.ageMin > o.ageMax) err(`${f}: ageMin > ageMax`);
@@ -95,6 +102,7 @@ for (const file of walk(contentDir)) {
   }
 }
 
+if (noPsk.length) warns.push(`реклама без pskMin+pskMax/legalName/erid (ст. 18.1, ч. 1 и 3 ст. 28 38-ФЗ): ${noPsk.join(', ')}`);
 console.log('Контент:', counts, `| офферов в пуле использовано: ${poolUsed.size}`);
 for (const w of warns) console.warn('WARN', w);
 if (errors.length) {

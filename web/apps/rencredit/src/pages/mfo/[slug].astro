@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import OfferLogo from '../../components/OfferLogo.astro';
+import AdMark from '../../components/AdMark.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaTop3 from '../../components/cta/CtaTop3.astro';
 import CtaZero from '../../components/cta/CtaZero.astro';
 import { KIND_URL } from '../../lib/cta';
 import Icon from '../../components/Icon.astro';
-import { getOffers, offerHref } from '../../lib/offers';
+import { getOffers, offerHref, pskRange, PSK_LABEL } from '../../lib/offers';
 import { FEATURE_LABELS } from '../../lib/ui/features';
 import { range, num, daysWord } from '../../lib/format';
 import { SITE } from '../../lib/ui/site';
@@ -18,6 +19,8 @@ export async function getStaticPaths() {
 const { offer: o, all } = Astro.props;
 const similar = all.filter((x) => x.slug !== o.slug && x.kind === o.kind).slice(0, 3);
 const rate = `${String(o.rateDayPct).replace('.', ',')}% в день`;
+// ч. 3 ст. 28 38-ФЗ: ПСК показываем раньше ставки и не мельче неё.
+const psk = pskRange(o) ?? (o.pskMax ? `до ${o.pskMax}% годовых` : null);
 const kindWord = { mfo: 'Займ', card: 'Карта', credit: 'Кредит' }[o.kind];
 const crumb = { mfo: ['Займы', '/zaimy/'], card: ['Карты', '/karty/'], credit: ['Кредиты', '/kredity/'] }[o.kind];
 const title = `${o.name}: условия, ставка, как получить — ${kindWord.toLowerCase()} онлайн`;
@@ -32,8 +35,8 @@ const ld = {
 const rows: [string, string][] = [
   ['Сумма', `${range(o.amountMin, o.amountMax)} ₽`],
   ['Срок', `${o.termMinDays}–${o.termMaxDays} дней`],
+  ...(psk ? ([[PSK_LABEL, psk]] as [string, string][]) : []),
   ['Ставка', rate + (o.freeDays && o.features.includes('zero_percent') ? ` (0% первые ${daysWord(o.freeDays)} для новых клиентов)` : '')],
-  ...(o.pskMax ? ([['ПСК, до', `${o.pskMax}% годовых`]] as [string, string][]) : []),
   ...(o.approvalPct ? ([['Заявленное одобрение', `${o.approvalPct}%`]] as [string, string][]) : []),
   ...(o.decisionMinutes ? ([['Время решения', `до ${o.decisionMinutes} мин`]] as [string, string][]) : []),
   ['Возраст заёмщика', `${o.ageMin}–${o.ageMax} лет`],
@@ -59,12 +62,14 @@ const legal: [string, string][] = [
       <div class="grid gap-3">
         <a class="btn btn-cta btn-lg btn-block" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">Получить деньги<Icon name="arrow" class="arrow" /></a>
         <p class="text-center text-sm text-mute">Заявка оформляется на сайте организации</p>
+        <AdMark offer={o} />
       </div>
     </div>
 
     <dl class="facts" data-reveal>
       <div class="metric"><dt>Сумма</dt><dd>{range(o.amountMin, o.amountMax)}&nbsp;₽</dd></div>
       <div class="metric"><dt>Срок</dt><dd>{o.termMinDays}–{o.termMaxDays}&nbsp;дн.</dd></div>
+      {psk && <div class="metric"><dt>{PSK_LABEL}</dt><dd>{psk}</dd></div>}
       <div class="metric"><dt>Ставка</dt><dd>{rate}</dd></div>
       {o.approvalPct ? <div class="metric"><dt>Одобрение</dt><dd>{o.approvalPct}%</dd></div> : null}
     </dl>
@@ -100,7 +105,7 @@ const legal: [string, string][] = [
   </div>
 
   <div class="sticky-cta" role="region" aria-label="Оформить заявку">
-    <div class="t">{o.name}<small>{range(o.amountMin, o.amountMax)} ₽ · {o.termMinDays}–{o.termMaxDays} дн.</small></div>
+    <div class="t">{o.name}<small>Реклама · {range(o.amountMin, o.amountMax)} ₽ · {o.termMinDays}–{o.termMaxDays} дн.</small></div>
     <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">Получить деньги</a>
   </div>
 </BaseLayout>

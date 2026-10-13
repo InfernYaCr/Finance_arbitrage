@@ -1,8 +1,9 @@
 ---
 /** Компактные строки офферов: логотип, ключевое условие, кнопка -> /go/<poolId>/. */
 import OfferLogo from '../OfferLogo.astro';
-import { offerHref, reviewHref, type Offer } from '../../lib/offers';
-import { keyCondition, AD_NOTE } from '../../lib/cta';
+import AdMark from '../AdMark.astro';
+import { offerHref, reviewHref, pskRange, PSK_LABEL, type Offer } from '../../lib/offers';
+import { keyCondition } from '../../lib/cta';
 import { range, num } from '../../lib/format';
 
 interface Props { offers: Offer[]; title?: string; moreHref?: string; moreLabel?: string; slot?: string }
@@ -18,13 +19,15 @@ const fmt = (n: number) => (n >= 1000 ? `${num(n / 1000)} тыс.` : String(n));
           <OfferLogo offer={o} />
           <div class="t3-info">
             <a class="t3-name" href={reviewHref(o)}>{o.name}</a>
+            {pskRange(o) && <span class="t3-psk">{PSK_LABEL}: {pskRange(o)}</span>}
             <span class="t3-meta">{range(o.amountMin, o.amountMax, fmt)} ₽ · {o.termMinDays}–{o.termMaxDays} дн.</span>
           </div>
           <span class="t3-key">{keyCondition(o)}</span>
           <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={`${slot}-${o.slug}`} aria-label={`Получить: ${o.name}`}>Получить</a>
+          <AdMark offer={o} />
         </li>
       ))}
     </ol>
-    <p class="cta-fine">{AD_NOTE} Условия уточняйте у организации; одобрение не гарантировано.</p>
+    <p class="cta-fine">Условия уточняйте у организации; одобрение не гарантировано.</p>
   </section>
 )}

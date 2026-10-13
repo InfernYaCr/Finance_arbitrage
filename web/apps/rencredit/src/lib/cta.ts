@@ -3,8 +3,6 @@ import type { ProductKind } from '@pbn/core';
 import { getOffers, type Offer } from './offers';
 import { daysWord, plural } from './format';
 
-export const AD_NOTE = 'Реклама. Информация о рекламодателе — на сайте организации.';
-
 export const KIND_URL: Record<ProductKind, string> = { mfo: '/zaimy/', card: '/karty/', credit: '/kredity/' };
 
 export type Category = 'zaimy' | 'kredity' | 'karty' | 'refinansirovanie' | 'kreditnaya-istoriya' | 'fingramotnost';

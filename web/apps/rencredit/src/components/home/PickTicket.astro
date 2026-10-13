@@ -1,14 +1,16 @@
 ---
 /** «Талон» предложения в живой подборке главной. Числа пересчитывает home-picker.ts. */
 import OfferLogo from '../OfferLogo.astro';
+import AdMark from '../AdMark.astro';
 import Icon from '../Icon.astro';
-import { type Offer, offerHref, reviewHref } from '../../lib/offers';
+import { type Offer, offerHref, reviewHref, pskRange, PSK_LABEL } from '../../lib/offers';
 import { num, rub, daysWord } from '../../lib/format';
 import { type Quote, overText } from '../../scripts/home-logic';
 
 interface Props { offer: Offer; index: number; quote: Quote; shown: boolean }
 const { offer: o, index, quote: q, shown } = Astro.props;
 const free = o.features.includes('zero_percent') ? o.freeDays ?? 0 : 0;
+const psk = pskRange(o);
 const limits = `до ${num(o.amountMax)} ₽, ${o.termMinDays}–${o.termMaxDays} дн.`;
 ---
 <li class="hp-ticket" data-hp-offer hidden={!shown || undefined}
@@ -19,6 +21,7 @@ const limits = `до ${num(o.amountMax)} ₽, ${o.termMinDays}–${o.termMaxDays
     <div class="min-w-0">
       <a class="hp-t-name" href={reviewHref(o)}>{o.name}</a>
       <p class="hp-t-limits">{limits}</p>
+      {psk && <p class="hp-t-psk">{PSK_LABEL}: {psk}</p>}
     </div>
     {free > 0 && <span class="hp-t-badge">0% {daysWord(free)}<span class="sr-only"> для первого займа</span></span>}
   </div>
@@ -28,4 +31,5 @@ const limits = `до ${num(o.amountMax)} ₽, ${o.termMinDays}–${o.termMaxDays
     <span class="hp-t-over" data-t-over>{overText(q, rub)}</span>
   </div>
   <a class="btn btn-cta hp-t-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={o.slug}>Получить деньги<Icon name="arrow" class="arrow" /></a>
+  <AdMark offer={o} class="hp-t-ad" />
 </li>
