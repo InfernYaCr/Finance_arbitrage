@@ -7,24 +7,29 @@ import CtaTop3 from '../../components/cta/CtaTop3.astro';
 import CtaZero from '../../components/cta/CtaZero.astro';
 import { KIND_URL } from '../../lib/cta';
 import Icon from '../../components/Icon.astro';
-import { getOffers, offerHref, pskRange, PSK_LABEL } from '../../lib/offers';
+import { getOffers, offerHref, pskRange, creditRate, REVIEW_DIR, PSK_LABEL } from '../../lib/offers';
 import { FEATURE_LABELS } from '../../lib/ui/features';
-import { range, num, daysWord } from '../../lib/format';
+import { range, num, pct, daysWord, moneyRange, termText } from '../../lib/format';
 import { SITE } from '../../lib/ui/site';
 
+// Обзоры: /mfo/<slug>/, /karty/<slug>/, /kredity/<slug>/ — раздел по kind (REVIEW_DIR).
 export async function getStaticPaths() {
   const offers = await getOffers();
-  return offers.map((offer) => ({ params: { slug: offer.slug }, props: { offer, all: offers } }));
+  return offers.map((offer) => ({ params: { dir: REVIEW_DIR[offer.kind], slug: offer.slug }, props: { offer, all: offers } }));
 }
 const { offer: o, all } = Astro.props;
 const similar = all.filter((x) => x.slug !== o.slug && x.kind === o.kind).slice(0, 3);
-const rate = `${String(o.rateDayPct).replace('.', ',')}% в день`;
+// Кредит — годовая ставка; карта — ставки вне льготного периода в данных нет, показываем только ПСК.
+const rate = o.kind === 'mfo' ? `${pct(o.rateDayPct)}% в день` : o.kind === 'credit' ? `${creditRate(o)}% годовых` : null;
 // ч. 3 ст. 28 38-ФЗ: ПСК показываем раньше ставки и не мельче неё.
-const psk = pskRange(o) ?? (o.pskMax ? `до ${o.pskMax}% годовых` : null);
+const psk = pskRange(o) ?? (o.pskMax ? `до ${pct(o.pskMax)}% годовых` : null);
+const term = termText(o.kind, o.termMinDays, o.termMaxDays);
+const amountLabel = o.kind === 'card' ? 'Кредитный лимит' : 'Сумма';
+const termLabel = o.kind === 'card' ? 'Льготный период' : 'Срок';
 const kindWord = { mfo: 'Займ', card: 'Карта', credit: 'Кредит' }[o.kind];
 const crumb = { mfo: ['Займы', '/zaimy/'], card: ['Карты', '/karty/'], credit: ['Кредиты', '/kredity/'] }[o.kind];
 const title = `${o.name}: условия, ставка, как получить — ${kindWord.toLowerCase()} онлайн`;
-const desc = o.summary ?? `${o.name}: сумма ${range(o.amountMin, o.amountMax)} ₽, срок ${o.termMinDays}–${o.termMaxDays} дней, ставка ${rate}. Условия, требования к заёмщику и как получить.`;
+const desc = o.summary ?? `${o.name}: ${amountLabel.toLowerCase()} ${moneyRange(o.amountMin, o.amountMax)}, ${termLabel.toLowerCase()} ${term}${rate ? `, ставка ${rate}` : ''}. Условия, требования к заёмщику и как получить.`;
 const ld = {
   '@context': 'https://schema.org',
   '@type': 'FinancialProduct',
@@ -33,10 +38,10 @@ const ld = {
   ...(o.rating && o.reviewsCount ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: o.rating, reviewCount: o.reviewsCount, bestRating: 5 } } : {}),
 };
 const rows: [string, string][] = [
-  ['Сумма', `${range(o.amountMin, o.amountMax)} ₽`],
-  ['Срок', `${o.termMinDays}–${o.termMaxDays} дней`],
+  [amountLabel, `${range(o.amountMin, o.amountMax)} ₽`],
+  [termLabel, term],
   ...(psk ? ([[PSK_LABEL, psk]] as [string, string][]) : []),
-  ['Ставка', rate + (o.freeDays && o.features.includes('zero_percent') ? ` (0% первые ${daysWord(o.freeDays)} для новых клиентов)` : '')],
+  ...(rate ? ([['Ставка', rate + (o.kind === 'mfo' && o.freeDays && o.features.includes('zero_percent') ? ` (0% первые ${daysWord(o.freeDays)} для новых клиентов)` : '')]] as [string, string][]) : []),
   ...(o.approvalPct ? ([['Заявленное одобрение', `${o.approvalPct}%`]] as [string, string][]) : []),
   ...(o.decisionMinutes ? ([['Время решения', `до ${o.decisionMinutes} мин`]] as [string, string][]) : []),
   ['Возраст заёмщика', `${o.ageMin}–${o.ageMax} лет`],
@@ -67,10 +72,10 @@ const legal: [string, string][] = [
     </div>
 
     <dl class="facts" data-reveal>
-      <div class="metric"><dt>Сумма</dt><dd>{range(o.amountMin, o.amountMax)}&nbsp;₽</dd></div>
-      <div class="metric"><dt>Срок</dt><dd>{o.termMinDays}–{o.termMaxDays}&nbsp;дн.</dd></div>
+      <div class="metric"><dt>{amountLabel}</dt><dd>{moneyRange(o.amountMin, o.amountMax)}</dd></div>
+      <div class="metric"><dt>{termLabel}</dt><dd>{term}</dd></div>
       {psk && <div class="metric"><dt>{PSK_LABEL}</dt><dd>{psk}</dd></div>}
-      <div class="metric"><dt>Ставка</dt><dd>{rate}</dd></div>
+      {rate && <div class="metric"><dt>Ставка</dt><dd>{rate}</dd></div>}
       {o.approvalPct ? <div class="metric"><dt>Одобрение</dt><dd>{o.approvalPct}%</dd></div> : null}
     </dl>
 
@@ -105,7 +110,7 @@ const legal: [string, string][] = [
   </div>
 
   <div class="sticky-cta" role="region" aria-label="Оформить заявку">
-    <div class="t">{o.name}<small>Реклама · {range(o.amountMin, o.amountMax)} ₽ · {o.termMinDays}–{o.termMaxDays} дн.</small></div>
+    <div class="t">{o.name}<small>Реклама · {moneyRange(o.amountMin, o.amountMax)} · {term}</small></div>
     <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">Получить деньги</a>
   </div>
 </BaseLayout>

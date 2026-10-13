@@ -4,11 +4,10 @@ import OfferLogo from '../OfferLogo.astro';
 import AdMark from '../AdMark.astro';
 import { offerHref, reviewHref, pskRange, PSK_LABEL, type Offer } from '../../lib/offers';
 import { keyCondition } from '../../lib/cta';
-import { range, num } from '../../lib/format';
+import { moneyRange, termText } from '../../lib/format';
 
 interface Props { offers: Offer[]; title?: string; moreHref?: string; moreLabel?: string; slot?: string }
 const { offers, title = 'Топ-3 по теме статьи', moreHref, moreLabel = 'Все предложения', slot = 'top3' } = Astro.props;
-const fmt = (n: number) => (n >= 1000 ? `${num(n / 1000)} тыс.` : String(n));
 ---
 {offers.length > 0 && (
   <section class="cta cta-top3" aria-labelledby={`t3-${slot}`} data-cta-slot={slot}>
@@ -20,7 +19,7 @@ const fmt = (n: number) => (n >= 1000 ? `${num(n / 1000)} тыс.` : String(n));
           <div class="t3-info">
             <a class="t3-name" href={reviewHref(o)}>{o.name}</a>
             {pskRange(o) && <span class="t3-psk">{PSK_LABEL}: {pskRange(o)}</span>}
-            <span class="t3-meta">{range(o.amountMin, o.amountMax, fmt)} ₽ · {o.termMinDays}–{o.termMaxDays} дн.</span>
+            <span class="t3-meta">{moneyRange(o.amountMin, o.amountMax)} · {termText(o.kind, o.termMinDays, o.termMaxDays)}</span>
           </div>
           <span class="t3-key">{keyCondition(o)}</span>
           <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={`${slot}-${o.slug}`} aria-label={`Получить: ${o.name}`}>Получить</a>

@@ -237,6 +237,18 @@ RewriteRule ^mfo/manicash/?$ https://%{HTTP_HOST}/zaimy/ [R=301,L]
 RewriteRule ^mfo/skela-money/?$ https://%{HTTP_HOST}/zaimy/ [R=301,L]
 RewriteRule ^mfo/zanimatelnye-finansy/?$ https://%{HTTP_HOST}/zaimy/ [R=301,L]
 RewriteRule ^mfo/zaymigo/?$ https://%{HTTP_HOST}/zaimy/ [R=301,L]
+# --- Обзоры карт и кредитов переехали с /mfo/<slug>/ (kind из src/content/offers) ---
+RewriteRule ^mfo/akbars-115/?$ https://%{HTTP_HOST}/karty/akbars-115/ [R=301,L]
+RewriteRule ^mfo/alfa-kredit-nalichnymi/?$ https://%{HTTP_HOST}/kredity/alfa-kredit-nalichnymi/ [R=301,L]
+RewriteRule ^mfo/alfa-refinansirovanie/?$ https://%{HTTP_HOST}/kredity/alfa-refinansirovanie/ [R=301,L]
+RewriteRule ^mfo/halva/?$ https://%{HTTP_HOST}/karty/halva/ [R=301,L]
+RewriteRule ^mfo/otp-120/?$ https://%{HTTP_HOST}/karty/otp-120/ [R=301,L]
+RewriteRule ^mfo/ozon-kreditnaya-karta/?$ https://%{HTTP_HOST}/karty/ozon-kreditnaya-karta/ [R=301,L]
+RewriteRule ^mfo/tbank-credit/?$ https://%{HTTP_HOST}/karty/tbank-credit/ [R=301,L]
+RewriteRule ^mfo/tbank-drive/?$ https://%{HTTP_HOST}/karty/tbank-drive/ [R=301,L]
+RewriteRule ^mfo/tbank-kredit-nalichnymi/?$ https://%{HTTP_HOST}/kredity/tbank-kredit-nalichnymi/ [R=301,L]
+RewriteRule ^mfo/tbank-refinansirovanie/?$ https://%{HTTP_HOST}/kredity/tbank-refinansirovanie/ [R=301,L]
+RewriteRule ^mfo/uralsib-120/?$ https://%{HTTP_HOST}/karty/uralsib-120/ [R=301,L]
 
 # --- Общие правила WordPress ---
 # Архивы авторов

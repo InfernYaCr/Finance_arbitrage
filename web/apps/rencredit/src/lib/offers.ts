@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
-import type { Product, ProductKind } from '@pbn/core';
+import { annualRatePct, type Product, type ProductKind } from '@pbn/core';
+import { pct } from './format';
 
 export interface Offer extends Product {
   summary?: string;
@@ -8,7 +9,12 @@ export interface Offer extends Product {
 }
 
 export const offerHref = (o: Pick<Product, 'poolId'>) => `/go/${o.poolId}/`;
-export const reviewHref = (o: Pick<Product, 'slug'>) => `/mfo/${o.slug}/`;
+/** Раздел обзора по виду продукта. Тот же словарь — в legacy/rencredit/gen_htaccess.py (301 со старых /mfo/<slug>/). */
+export const REVIEW_DIR: Record<ProductKind, string> = { mfo: 'mfo', card: 'karty', credit: 'kredity' };
+export const reviewHref = (o: Pick<Product, 'slug' | 'kind'>) => `/${REVIEW_DIR[o.kind]}/${o.slug}/`;
+
+/** Годовая ставка кредита: «от 18» / «от 19,9» (ставка в день × 365, до 0,1). Без «% …» — подпись у вызывающего. */
+export const creditRate = (o: Pick<Product, 'rateDayPct'>) => `от ${pct(annualRatePct(o.rateDayPct))}`;
 
 /** Официальный сайт кредитора из src/data/offer-sources/<slug>.json (для «Изучите все условия…»). */
 const sources = import.meta.glob<{ officialUrl?: string }>('../data/offer-sources/*.json', { eager: true, import: 'default' });

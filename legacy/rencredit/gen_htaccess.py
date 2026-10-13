@@ -11,6 +11,9 @@ from urllib.parse import urlsplit, unquote
 ROOT = Path(__file__).resolve().parents[2]
 MAP = ROOT / "legacy/rencredit/map.json"
 REMOVED_OFFERS = ROOT / "web/apps/rencredit/src/data/removed-offers.json"
+OFFERS_DIR = ROOT / "web/apps/rencredit/src/content/offers"
+# Раздел обзора по kind — копия REVIEW_DIR из web/apps/rencredit/src/lib/offers.ts
+REVIEW_DIR = {"mfo": "mfo", "card": "karty", "credit": "kredity"}
 HTACCESS = ROOT / "web/apps/rencredit/public/.htaccess"
 BEGIN, END = "# BEGIN LEGACY 301", "# END LEGACY 301"
 MAXLEN = 1800  # лимит длины строки правила
@@ -127,6 +130,11 @@ def main():
     add("# --- Снятые офферы (src/data/removed-offers.json): обзор -> раздел ---")
     for slug, t in sorted(removed.items()):
         add(f"RewriteRule ^mfo/{esc(slug)}/?$ {dest(t)} [R=301,L]")
+    add("# --- Обзоры карт и кредитов переехали с /mfo/<slug>/ (kind из src/content/offers) ---")
+    for f in sorted(OFFERS_DIR.glob("*.json")):
+        d = REVIEW_DIR[json.loads(f.read_text(encoding="utf-8"))["kind"]]
+        if d != "mfo":
+            add(f"RewriteRule ^mfo/{esc(f.stem)}/?$ {dest(f'/{d}/{f.stem}/')} [R=301,L]")
     add("")
 
     add("# --- Общие правила WordPress ---")

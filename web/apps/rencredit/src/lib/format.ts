@@ -1,4 +1,6 @@
 /** Чистые функции — используются и при SSG, и в клиентских скриптах. */
+import type { ProductKind } from '@pbn/core';
+
 const nf = new Intl.NumberFormat('ru-RU');
 
 export const num = (n: number) => nf.format(Math.round(n));
@@ -18,6 +20,25 @@ export const daysWord = (n: number) => `${n} ${plural(n, ['день', 'дня',
 
 export function range(a: number, b: number, fmt: (n: number) => string = num): string {
   return a === b ? fmt(a) : `${fmt(a)}–${fmt(b)}`;
+}
+
+/** Процент с запятой: 55.399 -> «55,399». */
+const pf = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 4 });
+export const pct = (n: number) => pf.format(n);
+
+/** Краткая сумма без «₽»: 7 500 000 -> «7,5 млн», 30 000 -> «30 тыс.», 500 -> «500». */
+const sf = new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 1 });
+export const money = (n: number) => (n >= 1e6 ? `${sf.format(n / 1e6)} млн` : n >= 1000 ? `${sf.format(n / 1000)} тыс.` : num(n));
+export const moneyRange = (a: number, b: number) => `${range(a, b, money)} ₽`;
+
+const MONTH_DAYS = 30.4;
+
+/** Срок: МФО — дни; кредит — годы (или месяцы); карта — льготный период «до N дн./мес.». */
+export function termText(kind: ProductKind, min: number, max: number): string {
+  if (kind === 'mfo') return `${range(min, max)} дн.`;
+  if (kind === 'card') return max >= 365 ? `до ${Math.round(max / MONTH_DAYS)} мес.` : `до ${max} дн.`;
+  if (min % 365 === 0 && max % 365 === 0) return `${range(min / 365, max / 365)} ${plural(max / 365, ['год', 'года', 'лет'])}`;
+  return `${range(Math.round(min / MONTH_DAYS), Math.round(max / MONTH_DAYS))} мес.`;
 }
 
 /** Максимальная сумма процентов по закону — 100% от суммы займа (с 1 апреля 2026 г.). */

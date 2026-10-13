@@ -1,5 +1,6 @@
 import type { Product } from './types';
 import { canonicalUrl } from './seo';
+import { annualRatePct } from './offers';
 
 /** JSON-LD билдеры. Возвращают plain-объекты; в страницу вставлять через jsonLd(jsonLdGraph([...])). */
 
@@ -115,8 +116,11 @@ export function financialProduct(p: Product, site: string, extra: { description?
     currency: 'RUB',
     amount: { '@type': 'MonetaryAmount', currency: 'RUB', minValue: p.amountMin, maxValue: p.amountMax },
     loanTerm: { '@type': 'QuantitativeValue', minValue: p.termMinDays, maxValue: p.termMaxDays, unitCode: 'DAY' },
-    ...(p.kind !== 'card' && p.rateDayPct > 0
-      ? { annualPercentageRate: Math.round(p.rateDayPct * 365 * 10) / 10 }
+    // schema.org: interestRate — номинальная ставка, annualPercentageRate — полная стоимость с комиссиями (= ПСК).
+    // У карт rateDayPct = 0 (льготный период), номинальную ставку не выводим.
+    ...(p.kind !== 'card' && p.rateDayPct > 0 ? { interestRate: annualRatePct(p.rateDayPct) } : {}),
+    ...(p.pskMin != null && p.pskMax != null
+      ? { annualPercentageRate: { '@type': 'QuantitativeValue', minValue: p.pskMin, maxValue: p.pskMax, unitText: 'PERCENT' } }
       : {}),
     ...(p.legalName ? { provider: { '@type': 'Organization', name: p.legalName } } : {}),
   };

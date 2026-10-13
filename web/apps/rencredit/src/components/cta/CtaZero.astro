@@ -7,7 +7,8 @@ import { daysWord } from '../../lib/format';
 
 interface Props { offer: Offer }
 const { offer: o } = Astro.props;
-const show = o.features.includes('zero_percent') && !!o.freeDays;
+// Только МФО: у карт «0%» — льготный период, а не первый займ («Дальше — 0% в день» было бы неверно).
+const show = o.kind === 'mfo' && o.features.includes('zero_percent') && !!o.freeDays;
 const rate = String(o.rateDayPct).replace('.', ',');
 const psk = pskRange(o);
 ---

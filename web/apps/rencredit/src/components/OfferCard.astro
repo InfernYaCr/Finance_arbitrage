@@ -2,14 +2,16 @@
 import OfferLogo from './OfferLogo.astro';
 import AdMark from './AdMark.astro';
 import Icon from './Icon.astro';
-import { type Offer, offerHref, reviewHref, pskRange, PSK_LABEL } from '../lib/offers';
-import { range, num, daysWord } from '../lib/format';
+import { type Offer, offerHref, reviewHref, pskRange, creditRate, PSK_LABEL } from '../lib/offers';
+import { num, daysWord, moneyRange, termText } from '../lib/format';
 import { FEATURE_LABELS } from '../lib/ui/features';
 
 interface Props { offer: Offer; index?: number; morph?: boolean }
 const { offer: o, index = 0, morph = true } = Astro.props;
 const zero = o.features.includes('zero_percent') && o.freeDays;
-const rateText = o.kind === 'mfo' ? `${String(o.rateDayPct).replace('.', ',')}% / день` : o.pskMax ? `до ${o.pskMax}% год.` : `${String(o.rateDayPct).replace('.', ',')}% / день`;
+const zeroText = zero ? (o.kind === 'mfo' ? `0% первый займ ${daysWord(o.freeDays!)}` : `Без % ${termText('card', 1, o.freeDays!)}`) : '';
+// Карта: ставки вне льготного периода в данных нет — вместо «Ставки» только ПСК (psk-line). ПСК всегда выше ставки (ч. 3 ст. 28 38-ФЗ).
+const rateText = o.kind === 'mfo' ? `${String(o.rateDayPct).replace('.', ',')}% / день` : o.kind === 'credit' ? `${creditRate(o)}% год.` : null;
 const shown = o.features.slice(0, 4);
 const psk = pskRange(o);
 ---
@@ -25,13 +27,13 @@ const psk = pskRange(o);
       <a class="oc-name" href={reviewHref(o)}>{o.name}</a>
       {o.rating ? <div class="rating"><Icon name="star" /><span>{String(o.rating).replace('.', ',')}</span>{o.reviewsCount ? <span class="text-mute font-medium">· {num(o.reviewsCount)} отз.</span> : null}</div> : null}
     </div>
-    {zero ? <span class="oc-badge">{o.kind === 'mfo' ? `0% первый займ ${daysWord(o.freeDays!)}` : (o.freeDays! > 365 ? `Без % до ${Math.round(o.freeDays! / 30.4)} мес.` : `Без % до ${daysWord(o.freeDays!)}`)}</span> : o.features.includes('new') ? <span class="oc-badge hot">Новинка</span> : null}
+    {zero ? <span class="oc-badge">{zeroText}</span> : o.features.includes('new') ? <span class="oc-badge hot">Новинка</span> : null}
   </div>
   <div class="oc-body">
-    <dl class="oc-metrics">
-      <div class="metric"><dt>Сумма</dt><dd>{range(o.amountMin, o.amountMax, (n) => n >= 1000 ? `${num(n / 1000)} тыс.` : String(n))} ₽</dd></div>
-      <div class="metric"><dt>Срок</dt><dd>{o.termMinDays}–{o.termMaxDays}&nbsp;дн.</dd></div>
-      <div class="metric"><dt>Ставка</dt><dd>{rateText}</dd></div>
+    <dl class:list={['oc-metrics', { 'oc-metrics-2': !rateText }]}>
+      <div class="metric"><dt>{o.kind === 'card' ? 'Лимит' : 'Сумма'}</dt><dd>{moneyRange(o.amountMin, o.amountMax)}</dd></div>
+      <div class="metric"><dt>{o.kind === 'card' ? 'Льготный период' : 'Срок'}</dt><dd>{termText(o.kind, o.termMinDays, o.termMaxDays)}</dd></div>
+      {rateText && <div class="metric"><dt>Ставка</dt><dd>{rateText}</dd></div>}
     </dl>
     <ul class="oc-facts">
       {o.approvalPct ? <li><Icon name="check" />Одобрение {o.approvalPct}%</li> : null}

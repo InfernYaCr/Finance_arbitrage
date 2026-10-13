@@ -2,7 +2,7 @@
 import OfferCard from './OfferCard.astro';
 import Icon from './Icon.astro';
 import type { Offer } from '../lib/offers';
-import { plural } from '../lib/format';
+import { plural, money } from '../lib/format';
 import { CHIP_ORDER, FEATURE_LABELS, type Feature } from '../lib/ui/features';
 
 interface Props {
@@ -18,6 +18,12 @@ const { offers, preset, title = 'Все предложения', eyebrow = 'Ви
 const H = h;
 const usedFeatures = new Set(offers.flatMap((o) => o.features));
 const chips = CHIP_ORDER.filter((f) => usedFeatures.has(f) || f === preset);
+// Фильтры займов (до 100 тыс. ₽, 5–365 дн.) — только для МФО. У кредитов/карт диапазон суммы — по самим офферам,
+// фильтра срока нет: у кредитов он 1–5 лет у всех, у карт «срок» — это льготный период.
+const isMfo = offers.every((o) => o.kind === 'mfo');
+const sum = isMfo
+  ? { min: 1000, max: 100000, step: 500, value: 15000 }
+  : { min: Math.min(...offers.map((o) => o.amountMin)), max: Math.max(...offers.map((o) => o.amountMax)), step: 1000, value: Math.min(...offers.map((o) => o.amountMin)) };
 ---
 <section id={id} class="section pt-10 md:pt-16" data-showcase data-preset={preset ?? ''} data-page="9">
   <div class="wrap">
@@ -27,7 +33,7 @@ const chips = CHIP_ORDER.filter((f) => usedFeatures.has(f) || f === preset);
         <H class="h2 mt-2">{title}</H>
         {lead ? <p class="lead mt-3">{lead}</p> : null}
       </div>
-      <button type="button" class="btn btn-ghost md:hidden" data-panel-toggle aria-expanded="false" aria-controls="filters-panel">Сумма, срок, возраст</button>
+      <button type="button" class="btn btn-ghost md:hidden" data-panel-toggle aria-expanded="false" aria-controls="filters-panel">{isMfo ? 'Сумма, срок, возраст' : 'Сумма, возраст'}</button>
     </div>
 
     <div class="chips" role="group" aria-label="Быстрые фильтры" data-reveal>
@@ -37,14 +43,14 @@ const chips = CHIP_ORDER.filter((f) => usedFeatures.has(f) || f === preset);
     <div class="panel" id="filters-panel" data-panel data-reveal>
       <div class="field">
         <div class="field-top"><label for="f-sum">Сумма</label><output class="field-val is-off" data-out="sum" for="f-sum">любая</output></div>
-        <input id="f-sum" class="rng" type="range" min="1000" max="100000" step="500" value="15000" data-in="sum" />
-        <div class="field-hint"><span>1 000 ₽</span><span>100 000 ₽</span></div>
+        <input id="f-sum" class="rng" type="range" min={sum.min} max={sum.max} step={sum.step} value={sum.value} data-in="sum" />
+        <div class="field-hint"><span>{money(sum.min)} ₽</span><span>{money(sum.max)} ₽</span></div>
       </div>
-      <div class="field">
+      {isMfo && <div class="field">
         <div class="field-top"><label for="f-term">Срок</label><output class="field-val is-off" data-out="term" for="f-term">любой</output></div>
         <input id="f-term" class="rng" type="range" min="5" max="365" step="1" value="15" data-in="term" />
         <div class="field-hint"><span>5 дн.</span><span>365 дн.</span></div>
-      </div>
+      </div>}
       <div class="field">
         <div class="field-top"><label for="f-age">Возраст</label></div>
         <select id="f-age" class="sel mt-2" data-in="age">
@@ -84,6 +90,6 @@ const chips = CHIP_ORDER.filter((f) => usedFeatures.has(f) || f === preset);
     <div class="more-wrap" data-more-wrap hidden>
       <button type="button" class="btn btn-ghost btn-lg" data-more>Показать ещё</button>
     </div>
-    <p class="fine">Условия предложений публикуются на основании данных организаций и могут измениться. Окончательные условия, одобрение и ставка определяются кредитором при рассмотрении заявки — проверяйте их на сайте организации. Процент «0%» действует только для первого займа и в течение указанного срока.</p>
+    <p class="fine">Условия предложений публикуются на основании данных организаций и могут измениться. Окончательные условия, одобрение и ставка определяются кредитором при рассмотрении заявки — проверяйте их на сайте организации.{isMfo && ' Процент «0%» действует только для первого займа и в течение указанного срока.'}</p>
   </div>
 </section>

@@ -47,11 +47,11 @@ export function initOffers() {
   const pageSize = Number(root.dataset.page) || 9;
   const q = <T extends HTMLElement>(s: string) => root.querySelector<T>(s)!;
   const sumIn = q<HTMLInputElement>('[data-in="sum"]');
-  const termIn = q<HTMLInputElement>('[data-in="term"]');
+  const termIn = root.querySelector<HTMLInputElement>('[data-in="term"]'); // нет у кредитов и карт
   const ageIn = q<HTMLSelectElement>('[data-in="age"]');
   const sortIn = q<HTMLSelectElement>('[data-in="sort"]');
   const sumOut = q<HTMLElement>('[data-out="sum"]');
-  const termOut = q<HTMLElement>('[data-out="term"]');
+  const termOut = root.querySelector<HTMLElement>('[data-out="term"]');
   const chips = [...root.querySelectorAll<HTMLButtonElement>('[data-chip]')];
   const resetEls = [...root.querySelectorAll<HTMLElement>('[data-reset]')];
   const empty = q('[data-empty]');
@@ -72,8 +72,8 @@ export function initOffers() {
     const n = Number(v);
     return v && Number.isFinite(n) ? Math.min(max, Math.max(min, Math.round(n))) : null;
   };
-  state.sum = num0(sp.get('sum'), 1000, 100000);
-  state.term = num0(sp.get('term'), 5, 365);
+  state.sum = num0(sp.get('sum'), +sumIn.min, +sumIn.max);
+  state.term = termIn ? num0(sp.get('term'), +termIn.min, +termIn.max) : null;
   state.age = num0(sp.get('age'), 18, 100);
   (sp.get('f') ?? '').split(',').filter(Boolean).forEach((x) => state.f.add(x));
   if (preset) state.f.add(preset);
@@ -97,13 +97,15 @@ export function initOffers() {
 
   const paintControls = () => {
     if (state.sum != null) sumIn.value = String(state.sum);
-    if (state.term != null) termIn.value = String(state.term);
     syncRange(sumIn);
-    syncRange(termIn);
     sumOut.textContent = state.sum != null ? rub(state.sum) : 'любая';
     sumOut.classList.toggle('is-off', state.sum == null);
-    termOut.textContent = state.term != null ? `${state.term} дн.` : 'любой';
-    termOut.classList.toggle('is-off', state.term == null);
+    if (termIn && termOut) {
+      if (state.term != null) termIn.value = String(state.term);
+      syncRange(termIn);
+      termOut.textContent = state.term != null ? `${state.term} дн.` : 'любой';
+      termOut.classList.toggle('is-off', state.term == null);
+    }
     ageIn.value = state.age != null ? String(state.age) : '';
     sortIn.value = state.sort;
     chips.forEach((c) => c.setAttribute('aria-pressed', String(state.f.has(c.dataset.chip!))));
@@ -148,7 +150,7 @@ export function initOffers() {
     syncRange(sumIn); sumOut.textContent = rub(state.sum); sumOut.classList.remove('is-off');
     later(() => apply());
   });
-  termIn.addEventListener('input', () => {
+  if (termIn && termOut) termIn.addEventListener('input', () => {
     state.term = +termIn.value; resetShown();
     syncRange(termIn); termOut.textContent = `${state.term} дн.`; termOut.classList.remove('is-off');
     later(() => apply());
