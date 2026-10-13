@@ -1,0 +1,17 @@
+# Скопируйте в web/.env.deploy и заполните. Файл web/.env.deploy в .gitignore — в git не попадёт.
+# Запуск: bash scripts/deploy-beget.sh --check   (потом без флага — залить)
+
+# ssh (рекомендуется: по ключу пароль не нужен; без ключа ssh спросит пароль сам) или ftp
+DEPLOY_METHOD=ssh
+
+# Хост Beget: <логин-аккаунта>.beget.tech
+BEGET_HOST=yourkedm.beget.tech
+
+# FTP/SSH-аккаунт из панели Beget («FTP» → аккаунт с галочкой «Включить SSH»)
+BEGET_USER=yourkedm_rambajo
+
+# Папка на сервере относительно корня аккаунта. Корень FTP-аккаунта уже /rencredit/public_html/ — оставьте точку.
+BEGET_PATH=.
+
+# Только для DEPLOY_METHOD=ftp. Вписывается владельцем вручную.
+BEGET_PASS=
