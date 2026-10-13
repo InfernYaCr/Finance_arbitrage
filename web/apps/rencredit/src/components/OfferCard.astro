@@ -1,12 +1,14 @@
 ---
 import OfferLogo from './OfferLogo.astro';
 import Icon from './Icon.astro';
+import AdMark from './AdMark.astro';
 import { type Offer, offerHref, reviewHref, pskRange, creditRate, showsRate, NO_RATE, CTA_LABEL, PSK_LABEL } from '../lib/offers';
 import { num, daysWord, moneyRange, termText } from '../lib/format';
 import { FEATURE_LABELS } from '../lib/ui/features';
 
-interface Props { offer: Offer; index?: number; morph?: boolean }
-const { offer: o, index = 0, morph = true } = Astro.props;
+/** ad — выделенная подборка (не каталог): карточка несёт маркировку рекламы. Слот quote — расчёт под запрос (главная). */
+interface Props { offer: Offer; index?: number; morph?: boolean; ad?: boolean }
+const { offer: o, index = 0, morph = true, ad = false } = Astro.props;
 const rated = showsRate(o);
 const zero = rated && o.features.includes('zero_percent') && o.freeDays;
 const zeroText = zero ? (o.kind === 'mfo' ? `0% первый займ ${daysWord(o.freeDays!)}` : `Без % ${termText('card', 1, o.freeDays!)}`) : '';
@@ -29,6 +31,7 @@ const psk = pskRange(o);
     </div>
     {zero ? <span class="oc-badge">{zeroText}</span> : o.features.includes('new') ? <span class="oc-badge hot">Новинка</span> : null}
   </div>
+  <slot name="quote" />
   <div class="oc-body">
     <dl class:list={['oc-metrics', { 'oc-metrics-2': !rateText }]}>
       <div class="metric"><dt>{o.kind === 'card' ? 'Лимит' : 'Сумма'}</dt><dd>{moneyRange(o.amountMin, o.amountMax)}</dd></div>
@@ -46,5 +49,6 @@ const psk = pskRange(o);
     <a class="btn btn-cta btn-lg" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={o.slug}>{CTA_LABEL[o.kind]}<Icon name="arrow" class="arrow" /></a>
     <a class="more" href={reviewHref(o)}>Обзор и условия</a>
   </div>
+  {ad && <AdMark offer={o} />}
   {!o.verified && <p class="ad-mark">Условия по данным организации, не сверены редакцией.</p>}
 </article>
