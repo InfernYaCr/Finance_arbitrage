@@ -5,6 +5,9 @@
 #   bash scripts/deploy-beget.sh --dry-run    показать, что будет залито
 #   bash scripts/deploy-beget.sh              залить dist (без удаления файлов на сервере)
 #   bash scripts/deploy-beget.sh --build      сначала собрать сайт, потом залить
+#   bash scripts/deploy-beget.sh --archive-old --build
+#                                             первая выкладка: ПЕРЕНЕСТИ всё старое из папки (WordPress)
+#                                             в архив _old_site_<дата> (не удаляет), затем залить новый сайт
 #
 # Настройки — web/.env.deploy (пример: web/deploy-env.example). Файл в .gitignore, в git не попадает.
 # Способы: DEPLOY_METHOD=ssh (по умолчанию; ключ или пароль спросит сам ssh) или ftp (пароль из BEGET_PASS).
@@ -19,12 +22,14 @@ CONF="$ROOT/web/.env.deploy"
 
 MODE=deploy
 BUILD=0
+ARCHIVE=0
 for a in "$@"; do
   case "$a" in
     --check) MODE=check ;;
     --dry-run) MODE=dry ;;
     --build) BUILD=1 ;;
-    -h|--help) sed -n 2,11p "$0"; exit 0 ;;
+    --archive-old) ARCHIVE=1 ;;
+    -h|--help) sed -n 2,14p "$0"; exit 0 ;;
     *) echo "Неизвестный аргумент: $a" >&2; exit 2 ;;
   esac
 done
@@ -72,7 +77,19 @@ if [[ "$DEPLOY_METHOD" == ssh ]]; then
       (cd "$DIST" && find . -type f | sort | head -50); echo "… всего $FILES файлов" ;;
     deploy)
       # Упаковываем локально, распаковываем на сервере одним потоком.
-      tar -C "$DIST" -czf - . | ssh_run "mkdir -p '$BEGET_PATH' && tar -xzf - -C '$BEGET_PATH' && echo OK: \$(find '$BEGET_PATH' -type f | wc -l) файлов на сервере" ;;
+      # При --archive-old сначала переносим всё старое содержимое папки в _old_site_<дата>:
+      # рядом с папкой, если есть доступ на запись, иначе внутрь неё (и закрываем архив от веба).
+      PREP=""
+      if [[ "$ARCHIVE" == 1 ]]; then
+        STAMP=$(date +%Y%m%d-%H%M)
+        PREP="cd '$BEGET_PATH' && D=\"\$(pwd)\" && P=\"\$(dirname \"\$D\")\" && \
+if [ -w \"\$P\" ] && [ \"\$P\" != \"/\" ]; then A=\"\$P/_old_site_$STAMP\"; else A=\"\$D/_old_site_$STAMP\"; fi && \
+mkdir -p \"\$A\" && \
+find \"\$D\" -mindepth 1 -maxdepth 1 ! -name '_old_site_*' -exec mv {} \"\$A\"/ \; && \
+{ [ \"\$(dirname \"\$A\")\" = \"\$D\" ] && printf 'Require all denied\nDeny from all\n' > \"\$A/.htaccess\" || true; } && \
+echo \"Старое содержимое перенесено в \$A (\$(ls -A \"\$A\" | wc -l) объектов)\" && cd - >/dev/null && "
+      fi
+      tar -C "$DIST" -czf - . | ssh_run "${PREP}mkdir -p '$BEGET_PATH' && tar -xzf - -C '$BEGET_PATH' && echo OK: \$(find '$BEGET_PATH' -type f ! -path '*/_old_site_*' | wc -l) файлов нового сайта на сервере" ;;
   esac
   exit 0
 fi
@@ -80,6 +97,9 @@ fi
 # --- FTP (curl) ---
 if [[ "$DEPLOY_METHOD" == ftp ]]; then
   : "${BEGET_PASS:?BEGET_PASS не задан в web/.env.deploy (нужен для ftp)}"
+  if [[ "$ARCHIVE" == 1 ]]; then
+    echo "--archive-old работает только по ssh. Для ftp перенесите старые файлы в файловом менеджере Beget." >&2; exit 2
+  fi
   # Пароль передаём через временный netrc, а не в аргументах команды (их видно в списке процессов).
   NETRC="$(mktemp)"; trap 'rm -f "$NETRC"' EXIT; chmod 600 "$NETRC"
   printf 'machine %s login %s password %s\n' "$BEGET_HOST" "$BEGET_USER" "$BEGET_PASS" > "$NETRC"
