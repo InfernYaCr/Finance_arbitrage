@@ -1,5 +1,5 @@
 import { markJs, initReveal, animateCounters, initTilt } from '@pbn/motion';
-import { initHeader, initSeoToggle, initMascotOnce } from './chrome';
+import { initHeader, initSeoToggle, initMascotOnce, initStickyCta } from './chrome';
 import { initOffers } from './offers-ui';
 
 /**
@@ -11,6 +11,7 @@ document.addEventListener('astro:page-load', () => {
   initHeader();
   initSeoToggle();
   initMascotOnce();
+  initStickyCta();
   initOffers();
   initReveal();
   animateCounters();

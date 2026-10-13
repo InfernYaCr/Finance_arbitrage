@@ -101,6 +101,16 @@ export function initSeoToggle() {
   });
 }
 
+let stickyRo: ResizeObserver | undefined;
+/** Плавающая группа поднимается над sticky-CTA обзора на её фактическую высоту (--sticky-h на body). */
+export function initStickyCta() {
+  stickyRo?.disconnect();
+  const bar = document.querySelector<HTMLElement>('.sticky-cta');
+  if (!bar) return;
+  stickyRo = new ResizeObserver(() => document.body.style.setProperty('--sticky-h', `${bar.offsetHeight}px`));
+  stickyRo.observe(bar);
+}
+
 /** Маскот: живёт в persist-контейнере, поэтому инициализируется один раз. */
 export function initMascotOnce() {
   initToTop();

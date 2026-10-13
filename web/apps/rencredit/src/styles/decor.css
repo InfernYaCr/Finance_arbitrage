@@ -56,7 +56,8 @@
   bottom: calc(var(--float-bottom, 16px) + env(safe-area-inset-bottom, 0px));
   width: 48px; height: 48px; view-transition-name: fk-mascot; pointer-events: none;
 }
-@media (max-width: 899px) { body[data-sticky-cta] .float-group { --float-bottom: 84px; } }
+/* --sticky-h ставит initStickyCta (chrome.ts): текст полосы переносится на 1–3 строки. */
+@media (max-width: 899px) { body[data-sticky-cta] .float-group { --float-bottom: calc(var(--sticky-h, 72px) + 12px); } }
 .float-group > * { pointer-events: auto; }
 .mascot { position: absolute; right: 0; bottom: 0; width: 0; height: 0; view-transition-name: none; transition: transform .35s var(--ease-out); }
 body[data-sticky-cta] .mascot { bottom: 0; }

@@ -64,7 +64,7 @@ const sum = isMfo
           <option value="rec">Рекомендуемые</option>
           <option value="rate">Минимальная ставка</option>
           <option value="sum">Максимальная сумма</option>
-          <option value="appr">Выше одобрение</option>
+          {offers.some((o) => o.approvalPct) && <option value="appr">Выше одобрение</option>}
         </select>
       </div>
     </div>

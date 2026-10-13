@@ -109,7 +109,7 @@ export function initOffers() {
     ageIn.value = state.age != null ? String(state.age) : '';
     sortIn.value = state.sort;
     chips.forEach((c) => c.setAttribute('aria-pressed', String(state.f.has(c.dataset.chip!))));
-    root.querySelectorAll<HTMLButtonElement>('[data-view]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === state.view)));
+    root.querySelectorAll<HTMLButtonElement>('button[data-view]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.view === state.view)));
     const active = state.sum != null || state.term != null || state.age != null || userFilters().length > 0;
     resetEls.forEach((r) => { if (r.classList.contains('link-btn')) r.hidden = !active; });
   };
@@ -163,7 +163,7 @@ export function initOffers() {
     resetShown();
     apply();
   }));
-  root.querySelectorAll<HTMLButtonElement>('[data-view]').forEach((b) => b.addEventListener('click', () => {
+  root.querySelectorAll<HTMLButtonElement>('button[data-view]').forEach((b) => b.addEventListener('click', () => {
     if (state.view === b.dataset.view) return;
     state.view = b.dataset.view!;
     apply(true, { scale: true });
