@@ -24,14 +24,14 @@
       {
         "matcher": "Bash|Read|Edit|Write|PowerShell",
         "hooks": [
-          { "type": "command", "command": "py .claude/hooks/guard.py" }
+          { "type": "command", "command": "f=\"$CLAUDE_PROJECT_DIR/.claude/hooks/guard.py\"; [ -f \"$f\" ] || exit 0; if command -v py >/dev/null 2>&1; then py \"$f\"; else python3 \"$f\"; fi" }
         ]
       }
     ],
     "Stop": [
       {
         "hooks": [
-          { "type": "command", "command": "node scripts/check.mjs --quick", "timeout": 120 }
+          { "type": "command", "command": "f=\"$CLAUDE_PROJECT_DIR/scripts/check.mjs\"; [ -f \"$f\" ] || exit 0; node \"$f\" --quick", "timeout": 120 }
         ]
       }
     ]

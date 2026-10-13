@@ -1,5 +1,6 @@
 """Самопроверка PreToolUse-хука: py scripts/test_guard.py (нужен exit 0)."""
 import json
+import os
 import subprocess
 import sys
 
@@ -31,7 +32,7 @@ CASES = [
 fails = 0
 for tool, inp, want in CASES:
     r = subprocess.run(
-        [sys.executable if sys.executable else "py", ".claude/hooks/guard.py"],
+        [sys.executable if sys.executable else "py", os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".claude", "hooks", "guard.py")],
         input=json.dumps({"tool_name": tool, "tool_input": inp}).encode("utf-8"),
         capture_output=True,
     )
