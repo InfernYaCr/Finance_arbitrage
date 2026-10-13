@@ -35,7 +35,7 @@ const ld = {
   '@type': 'FinancialProduct',
   name: o.name,
   description: desc,
-  ...(o.rating && o.reviewsCount ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: o.rating, reviewCount: o.reviewsCount, bestRating: 5 } } : {}),
+  // aggregateRating не выводим: rating — редакционная оценка, не отзывы (см. core/schema.ts financialProduct).
 };
 const rows: [string, string][] = [
   [amountLabel, `${range(o.amountMin, o.amountMax)} ₽`],
