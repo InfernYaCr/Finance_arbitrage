@@ -1,0 +1,11 @@
+{
+  "name": "pbn-web",
+  "private": true,
+  "type": "module",
+  "workspaces": ["packages/*", "apps/*"],
+  "scripts": {
+    "dev": "npm run dev -w @pbn/rencredit",
+    "build": "npm run build -w @pbn/rencredit",
+    "check": "npm run check -w @pbn/rencredit"
+  }
+}

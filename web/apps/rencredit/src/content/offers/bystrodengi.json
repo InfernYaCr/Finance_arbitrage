@@ -1,0 +1,4 @@
+{ "poolId": "saleads-7d24ee40", "kind": "mfo", "name": "Быстроденьги", "brandColor": "#E53935",
+  "amountMin": 1000, "amountMax": 30000, "termMinDays": 5, "termMaxDays": 30, "rateDayPct": 0.8,
+  "approvalPct": 85, "decisionMinutes": 10, "ageMin": 18, "ageMax": 75,
+  "features": ["to_card", "cash", "bad_history"], "rating": 4.4, "verified": false, "priority": 70 }

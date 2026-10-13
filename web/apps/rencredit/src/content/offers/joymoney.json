@@ -1,0 +1,4 @@
+{ "poolId": "saleads-d8ac7c40", "kind": "mfo", "name": "Joymoney", "brandColor": "#1E88E5",
+  "amountMin": 3000, "amountMax": 30000, "termMinDays": 7, "termMaxDays": 30, "rateDayPct": 0.8,
+  "freeDays": 14, "approvalPct": 90, "decisionMinutes": 15, "ageMin": 18, "ageMax": 71,
+  "features": ["zero_percent", "to_card", "round_the_clock"], "rating": 4.6, "verified": false, "priority": 80 }

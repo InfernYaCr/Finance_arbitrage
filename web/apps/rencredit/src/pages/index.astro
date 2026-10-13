@@ -1,0 +1,7 @@
+---
+import '../styles/global.css';
+import { getCollection } from 'astro:content';
+const offers = await getCollection('offers');
+---
+<html lang="ru"><head><meta charset="utf-8" /><title>scaffold</title></head>
+<body class="p-8"><h1 class="text-2xl font-bold">Каркас работает: {offers.length} офферов</h1></body></html>

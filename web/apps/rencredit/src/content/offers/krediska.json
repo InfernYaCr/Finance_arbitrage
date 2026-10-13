@@ -1,0 +1,4 @@
+{ "poolId": "saleads-350390c0", "kind": "mfo", "name": "Krediska", "brandColor": "#43A047",
+  "amountMin": 2000, "amountMax": 30000, "termMinDays": 5, "termMaxDays": 30, "rateDayPct": 0.8,
+  "freeDays": 7, "approvalPct": 88, "decisionMinutes": 5, "ageMin": 18, "ageMax": 70,
+  "features": ["zero_percent", "to_card", "no_photo"], "rating": 4.3, "verified": false, "priority": 60 }
