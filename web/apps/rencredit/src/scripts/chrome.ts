@@ -103,6 +103,7 @@ export function initSeoToggle() {
 
 /** Маскот: живёт в persist-контейнере, поэтому инициализируется один раз. */
 export function initMascotOnce() {
+  initToTop();
   const el = document.querySelector<HTMLElement>('[data-mascot]');
   if (!el) return;
   initMascot(el, {
@@ -119,4 +120,34 @@ export function initMascotOnce() {
       else navigate('/#calc');
     },
   });
+}
+
+let toTopReady = false;
+/**
+ * Кнопка «Наверх» в плавающей группе (persist, поэтому инициализируется один раз).
+ * Показывается после прокрутки ~1 экрана; при показе маскот сдвигается влево на 58px (transform).
+ */
+function initToTop() {
+  const group = document.querySelector<HTMLElement>('[data-float]');
+  const btn = group?.querySelector<HTMLButtonElement>('[data-to-top]');
+  if (!group || !btn || toTopReady) return;
+  toTopReady = true;
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const on = window.scrollY > window.innerHeight * 0.9;
+    if ((group.dataset.top === '1') === on) return;
+    group.dataset.top = on ? '1' : '';
+    btn.tabIndex = on ? 0 : -1;
+  };
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+  document.addEventListener('astro:page-load', update);
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: prefersReduced() ? 'auto' : 'smooth' });
+  });
+  update();
 }

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHero from '../components/decor/SectionHero.astro';
 import { SITE } from '../lib/ui/site';
 
 const L = SITE.legal;
@@ -12,10 +13,9 @@ const legalRows = [
 ].filter(([, v]) => v);
 ---
 <BaseLayout title="О проекте и контакты" description={`${SITE.name} — информационный сервис по подбору займов, карт и кредитов. Как мы работаем, как зарабатываем и как с нами связаться.`}>
-  <div class="wrap page-head">
-    <Breadcrumbs items={[{ label: 'О проекте' }]} />
-    <h1>О проекте</h1>
-  </div>
+  <SectionHero title="О проекте" lead="Сравниваем условия, объясняем простым языком, не выдаём займы и не берём деньги с посетителей." pose="wave" outline="compass">
+    <Breadcrumbs slot="crumbs" items={[{ label: 'О проекте' }]} />
+  </SectionHero>
   <div class="wrap pb-16">
     <div class="prose">
       <p>{SITE.name} — информационный сервис, который помогает сравнить условия микрофинансовых организаций, банков и карт и выбрать подходящее предложение.</p>

@@ -1,0 +1,16 @@
+---
+/** Контурная декоративная иллюстрация тематического объекта. Цвет — currentColor, aria-hidden. */
+interface Props { kind?: 'compass' | 'coins' | 'card' | 'calendar'; class?: string }
+const { kind = 'compass', class: cls = '' } = Astro.props;
+const P: Record<string, string> = {
+  compass:
+    '<circle cx="60" cy="60" r="50"/><circle cx="60" cy="60" r="40" stroke-dasharray="1 7"/><path d="M60 6v10M60 104v10M6 60h10M104 60h10"/><path d="M78 42L66 66 42 78l12-24z"/><circle cx="60" cy="60" r="3"/>',
+  coins:
+    '<ellipse cx="46" cy="94" rx="32" ry="11"/><path d="M14 94v-12M78 94v-12"/><ellipse cx="46" cy="82" rx="32" ry="11"/><path d="M14 82V70M78 82V70"/><ellipse cx="46" cy="70" rx="32" ry="11"/><circle cx="88" cy="38" r="22"/><path d="M82 48V28h8a6 6 0 010 12h-9M80 44h14"/>',
+  card:
+    '<rect x="8" y="22" width="104" height="70" rx="12"/><path d="M8 42h104"/><rect x="20" y="56" width="22" height="16" rx="4"/><path d="M20 82h30M78 82h22"/><path d="M62 58a10 10 0 010 12M69 54a16 16 0 010 20"/>',
+  calendar:
+    '<rect x="14" y="22" width="92" height="82" rx="12"/><path d="M14 46h92M38 12v18M82 12v18"/><path d="M34 62h.1M60 62h.1M86 62h.1M34 80h.1M60 80h.1" stroke-width="6"/><path d="M80 78l5 5 9-10"/>',
+};
+---
+<svg class={`deco ${cls}`.trim()} viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" set:html={P[kind]} />

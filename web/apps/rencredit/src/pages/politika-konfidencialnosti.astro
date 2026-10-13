@@ -1,13 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import SectionHero from '../components/decor/SectionHero.astro';
 import { SITE } from '../lib/ui/site';
 ---
 <BaseLayout title="Политика конфиденциальности" description={`Как ${SITE.name} обрабатывает данные посетителей: файлы cookie, аналитика, переходы к партнёрам.`}>
-  <div class="wrap page-head">
-    <Breadcrumbs items={[{ label: 'Политика конфиденциальности' }]} />
-    <h1>Политика конфиденциальности</h1>
-  </div>
+  <SectionHero title="Политика конфиденциальности" lead="Какие данные мы обрабатываем, зачем и как вы можете ими управлять." pose="shield" outline="card">
+    <Breadcrumbs slot="crumbs" items={[{ label: 'Политика конфиденциальности' }]} />
+  </SectionHero>
   <div class="wrap pb-16">
     <div class="prose">
       <p><em>Черновик. Перед запуском текст должен быть проверен юристом и дополнен реквизитами оператора.</em></p>

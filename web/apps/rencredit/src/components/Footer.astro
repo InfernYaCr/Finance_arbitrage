@@ -1,40 +1,81 @@
 ---
 import LogoMark from './LogoMark.astro';
-import { SITE, NAV } from '../lib/ui/site';
+import Character from './mascots/Character.astro';
+import Outline from './decor/Outline.astro';
+import Icon from './Icon.astro';
+import { SITE } from '../lib/ui/site';
 import { getGuides } from '../lib/content';
 
 const guides = await getGuides();
 const year = new Date().getFullYear();
 const L = SITE.legal;
 const legalLine = [L.owner, L.inn && `ИНН ${L.inn}`, L.ogrn && `ОГРН ${L.ogrn}`, L.address].filter(Boolean).join(', ');
+const trust = [
+  { icon: 'search', t: 'Сравниваем, а не выдаём', d: 'Мы информационный агрегатор: не принимаем заявки и не выдаём займы. Решение и договор — только с организацией.' },
+  { icon: 'doc', t: 'Реестр Банка России', d: 'Организации берём из публичного реестра Банка России, условия — с их официальных сайтов. Перед договором проверьте их у кредитора.' },
+  { icon: 'shield', t: 'Бесплатно для вас', d: 'Нам платят партнёры, если вы оформили заявку по ссылке. Это не меняет ставку по вашему договору.' },
+];
 ---
 <footer class="site-footer on-dark">
+  <Outline kind="compass" class="foot-compass" />
   <div class="wrap">
+    <div class="foot-cta">
+      <div class="foot-cta-text">
+        <h2>Не знаете, с чего начать?</h2>
+        <p>Укажите сумму и срок — покажем организации, которые рассматривают заявки на такие условия. Бесплатно и без регистрации.</p>
+        <div class="foot-cta-actions">
+          <a class="btn btn-cta btn-lg" href="/#calc">Подобрать займ</a>
+          <a class="foot-link-strong" href="/o-proekte/">Как мы работаем</a>
+        </div>
+      </div>
+      <div class="foot-cta-art" aria-hidden="true"><Character pose="cheer" size="lg" /></div>
+    </div>
+
     <div class="foot-grid">
-      <div>
+      <div class="foot-brand">
         <a class="brand text-white" href="/"><LogoMark class="brand-mark" /><span>{SITE.name}</span></a>
         <p class="mt-4 max-w-xs text-sm">{SITE.tagline}. Сравниваем публичные условия организаций, чтобы вы выбирали осознанно.</p>
         {SITE.email && <p class="mt-4 text-sm"><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>}
       </div>
-      <div>
-        <h4>Разделы</h4>
-        <ul>{NAV.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
-      </div>
-      <div>
-        <h4>Подборки займов</h4>
+      <nav aria-label="Займы">
+        <h3>Займы</h3>
         <ul>
-          {guides.slice(0, 7).map((g) => <li><a href={`/${g.id}/`}>{g.data.navLabel}</a></li>)}
-          {guides.length === 0 && <li><a href="/zaimy/">Все займы</a></li>}
+          <li><a href="/zaimy/">Все займы</a></li>
+          {guides.slice(0, 6).map((g) => <li><a href={`/${g.id}/`}>{g.data.navLabel}</a></li>)}
         </ul>
-      </div>
-      <div>
-        <h4>О проекте</h4>
+      </nav>
+      <nav aria-label="Карты и кредиты">
+        <h3>Карты и кредиты</h3>
+        <ul>
+          <li><a href="/karty/">Карты</a></li>
+          <li><a href="/kredity/">Кредиты</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Читать">
+        <h3>Читать</h3>
+        <ul>
+          <li><a href="/stati/">Статьи</a></li>
+          <li><a href="/novosti/">Новости</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="О проекте">
+        <h3>О проекте</h3>
         <ul>
           <li><a href="/o-proekte/">О проекте и контакты</a></li>
           <li><a href="/politika-konfidencialnosti/">Политика конфиденциальности</a></li>
         </ul>
-      </div>
+      </nav>
     </div>
+
+    <ul class="foot-trust">
+      {trust.map((x) => (
+        <li>
+          <span class="ft-ic"><Icon name={x.icon} /></span>
+          <div><b>{x.t}</b><p>{x.d}</p></div>
+        </li>
+      ))}
+    </ul>
+
     <div class="foot-legal">
       <p class="disclaimer-strong">{SITE.disclaimer}</p>
       <p>{SITE.risk}</p>

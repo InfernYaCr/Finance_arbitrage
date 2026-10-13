@@ -2,7 +2,8 @@
 /**
  * Персонаж сайта — карта «Компас». КОНТРАКТ (не менять сигнатуру):
  *   <Character pose="wave|point|think|cheer|shield|coins" size="sm|md|lg" class? />
- * Декоративный: aria-hidden. Реализацию рисует агент «маскоты и визуал».
+ * Декоративный: aria-hidden. Цвета и idle-анимация (.ch-*) живут в styles/decor.css.
+ * viewBox 120x112: карта сверху, ручки и ножки линиями, поза меняет только руки/реквизит.
  */
 interface Props {
   pose?: 'wave' | 'point' | 'think' | 'cheer' | 'shield' | 'coins';
@@ -10,13 +11,72 @@ interface Props {
   class?: string;
 }
 const { pose = 'wave', size = 'md', class: cls = '' } = Astro.props;
-const px = { sm: 72, md: 120, lg: 180 }[size];
+const w = { sm: 72, md: 120, lg: 180 }[size];
+const h = Math.round((w * 112) / 120);
 ---
-<svg class={`character character--${pose} ${cls}`} width={px} height={px * 0.8} viewBox="0 0 104 80" aria-hidden="true" data-pose={pose}>
-  <g transform="rotate(-6 52 42)">
-    <rect x="6" y="8" width="92" height="62" rx="12" fill="#13876f" />
-    <rect x="14" y="14" width="14" height="10" rx="2.5" fill="#ffb800" />
-    <circle cx="38" cy="46" r="6" fill="#fff" /><circle cx="66" cy="46" r="6" fill="#fff" />
-    <path d="M42 58q10 8 20 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" />
+<svg class={`character character--${pose} ${cls}`.trim()} width={w} height={h} viewBox="0 0 120 112" aria-hidden="true" focusable="false" data-pose={pose}>
+  <ellipse class="ch-shadow" cx="60" cy="106" rx="26" ry="4" />
+  <g class="ch-all">
+    <!-- ножки -->
+    <path class="ch-limb" d="M46 60v31M74 60v31M46 91h-8M74 91h8" />
+    <!-- руки по позам -->
+    {pose === 'wave' && (<>
+      <path class="ch-limb" d="M24 44q-10 6-11 18" />
+      <g class="ch-wave"><path class="ch-limb" d="M96 42q12-4 15-22" /><circle class="ch-hand" cx="111" cy="18" r="4.5" /></g>
+    </>)}
+    {pose === 'point' && (<>
+      <path class="ch-limb" d="M24 44q-10 6-11 18" />
+      <g class="ch-point"><path class="ch-limb" d="M96 44l16-3" /><circle class="ch-hand" cx="114" cy="40.5" r="4.5" /></g>
+    </>)}
+    {pose === 'think' && (<>
+      <path class="ch-limb" d="M24 44q-10 6-11 18" />
+      <path class="ch-limb" d="M96 46q4 14-12 11" /><circle class="ch-hand" cx="81" cy="56" r="4.5" />
+    </>)}
+    {pose === 'cheer' && (<>
+      <g class="ch-cheer-l"><path class="ch-limb" d="M24 42q-12-2-14-22" /><circle class="ch-hand" cx="10" cy="18" r="4.5" /></g>
+      <g class="ch-cheer-r"><path class="ch-limb" d="M96 42q12-2 14-22" /><circle class="ch-hand" cx="110" cy="18" r="4.5" /></g>
+    </>)}
+    {pose === 'shield' && (<>
+      <path class="ch-limb" d="M24 44q-10 6-11 18" />
+      <path class="ch-limb" d="M96 46q6 2 5 10" />
+    </>)}
+    {pose === 'coins' && (<>
+      <path class="ch-limb" d="M24 44q-10 6-11 18" />
+      <path class="ch-limb" d="M96 46q8 6 6 22" />
+    </>)}
+    <!-- карта -->
+    <rect class="ch-body" x="24" y="6" width="72" height="54" rx="11" />
+    <rect class="ch-strip" x="24" y="19" width="72" height="7" />
+    <rect class="ch-chip" x="32" y="9.5" width="11" height="8" rx="2" />
+    <!-- лицо -->
+    {pose === 'cheer' ? (<>
+      <path class="ch-happy" d="M39 38q6-9 12 0M69 38q6-9 12 0" />
+      <path class="ch-mouth-open" d="M50 44q10 13 20 0z" />
+    </>) : (<>
+      <g class="ch-eye"><ellipse class="ch-eye-w" cx="45" cy="37" rx="6" ry="7.5" /><circle class="ch-pupil" cx={pose === 'think' ? 47 : 46} cy={pose === 'think' ? 34.5 : 38} r="3.2" /></g>
+      <g class="ch-eye"><ellipse class="ch-eye-w" cx="75" cy="37" rx="6" ry="7.5" /><circle class="ch-pupil" cx={pose === 'think' ? 77 : 76} cy={pose === 'think' ? 34.5 : 38} r="3.2" /></g>
+      {pose === 'think' ? <path class="ch-mouth" d="M54 50h12" /> : <path class="ch-mouth" d="M52 48q8 7 16 0" />}
+    </>)}
+    <circle class="ch-cheek" cx="33" cy="48" r="3.4" /><circle class="ch-cheek" cx="87" cy="48" r="3.4" />
+    <!-- реквизит -->
+    {pose === 'think' && (<g class="ch-float">
+      <circle class="ch-prop" cx="104" cy="14" r="11" />
+      <path class="ch-q" d="M99.5 11.5a4.6 4.6 0 119.2 1.2c0 3.2-4.4 3.4-4.4 6.6M104.3 23v.1" />
+    </g>)}
+    {pose === 'shield' && (<g class="ch-float">
+      <path class="ch-prop" d="M101 52l15 5v11c0 11-7.5 17-15 21-7.5-4-15-10-15-21V57z" />
+      <path class="ch-q" d="M94 70l5 5 9-10" />
+    </g>)}
+    {pose === 'coins' && (<>
+      <g class="ch-coinstack">
+        <path class="ch-prop" d="M91 90v-6a11 4 0 0122 0v6a11 4 0 01-22 0z" />
+        <ellipse class="ch-prop" cx="102" cy="82" rx="11" ry="4" />
+        <ellipse class="ch-prop" cx="102" cy="75" rx="11" ry="4" />
+      </g>
+      <g class="ch-float"><circle class="ch-prop" cx="106" cy="52" r="7.5" /><path class="ch-q" d="M103.4 56v-8h3.1a2.6 2.6 0 010 5.2h-3.9M102.6 55h5.4" /></g>
+    </>)}
+    {pose === 'cheer' && (<g class="ch-spark">
+      <circle class="ch-conf a" cx="22" cy="6" r="2.4" /><rect class="ch-conf b" x="96" y="4" width="5" height="5" rx="1" /><circle class="ch-conf c" cx="60" cy="1.5" r="2" />
+    </g>)}
   </g>
 </svg>

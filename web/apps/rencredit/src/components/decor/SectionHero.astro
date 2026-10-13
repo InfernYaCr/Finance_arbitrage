@@ -1,0 +1,35 @@
+---
+import Character from '../mascots/Character.astro';
+import Outline from './Outline.astro';
+/**
+ * Шапка раздела: заголовок + лид слева, персонаж справа на мягком фоне с контурным объектом.
+ *   <SectionHero title="Статьи о займах" lead="..." pose="think" outline="compass">
+ *     <Breadcrumbs slot="crumbs" items={[{ label: 'Статьи' }]} />
+ *     (опционально — доп. контент: кнопки/чипы)
+ *   </SectionHero>
+ * h1 внутри компонента; заменяет блок <div class="wrap page-head">.
+ */
+interface Props {
+  title: string;
+  lead?: string;
+  pose?: 'wave' | 'point' | 'think' | 'cheer' | 'shield' | 'coins';
+  outline?: 'compass' | 'coins' | 'card' | 'calendar';
+}
+const { title, lead, pose = 'wave', outline = 'compass' } = Astro.props;
+---
+<section class="section-hero">
+  <div class="wrap">
+    <div class="sh-crumbs"><slot name="crumbs" /></div>
+    <div class="sh-grid">
+      <div class="sh-text">
+        <h1 set:html={title} />
+        {lead && <p class="lead">{lead}</p>}
+        <slot />
+      </div>
+      <div class="sh-art" aria-hidden="true">
+        <Outline kind={outline} class="sh-outline" />
+        <Character pose={pose} size="lg" class="sh-char" />
+      </div>
+    </div>
+  </div>
+</section>
