@@ -1,4 +1,5 @@
 ---
+import SectionHero from '../../components/decor/SectionHero.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getNews } from '../../lib/content';
@@ -7,10 +8,9 @@ import { dateRu } from '../../lib/format';
 const news = await getNews();
 ---
 <BaseLayout title="Новости финансов, займов и кредитов" description="Свежие новости рынка микрозаймов и кредитования: изменения в законах, ставках и правилах для заёмщиков.">
-  <div class="wrap page-head">
-    <Breadcrumbs items={[{ label: 'Новости' }]} />
-    <h1>Новости рынка займов и&nbsp;кредитов</h1>
-  </div>
+  <SectionHero title="Новости рынка займов и&nbsp;кредитов" pose="point" outline="calendar">
+    <Breadcrumbs slot="crumbs" items={[{ label: 'Новости' }]} />
+  </SectionHero>
   <section class="wrap pb-16">
     {news.length > 0 ? (
       <ul class="news-list">

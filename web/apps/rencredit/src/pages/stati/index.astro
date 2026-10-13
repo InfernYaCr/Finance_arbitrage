@@ -1,4 +1,5 @@
 ---
+import SectionHero from '../../components/decor/SectionHero.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaPostCard from '../../components/cta/CtaPostCard.astro';
@@ -13,11 +14,9 @@ const cta = await getCtaData();
 const cats = [...new Set(articles.map((a) => a.data.category))];
 ---
 <BaseLayout title="Статьи о займах, кредитах и картах" description="Практические статьи: как выбрать займ, улучшить кредитную историю, рефинансировать долг и не переплатить.">
-  <div class="wrap page-head">
-    <Breadcrumbs items={[{ label: 'Статьи' }]} />
-    <h1>Статьи о займах и&nbsp;кредитах</h1>
-    <p class="lead mt-3">Разбираем условия простым языком: на что смотреть в договоре, как не попасть в долговую яму и как улучшить кредитную историю.</p>
-  </div>
+  <SectionHero title="Статьи о займах и&nbsp;кредитах" lead="Разбираем условия простым языком: на что смотреть в договоре, как не попасть в долговую яму и как улучшить кредитную историю." pose="think" outline="coins">
+    <Breadcrumbs slot="crumbs" items={[{ label: 'Статьи' }]} />
+  </SectionHero>
   <section class="wrap pb-16" data-articles>
     {cats.length > 1 && (
       <div class="chips" role="group" aria-label="Рубрики">

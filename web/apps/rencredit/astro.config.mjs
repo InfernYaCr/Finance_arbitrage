@@ -16,6 +16,7 @@ import { fileURLToPath } from 'node:url';
 const legacyHtmlFiles = () => ({
   name: 'legacy-html-files',
   hooks: {
+    /** @param {{ dir: URL }} opts */
     'astro:build:done': ({ dir }) => {
       const credit = join(fileURLToPath(dir), 'credit');
       if (!existsSync(credit)) return;
