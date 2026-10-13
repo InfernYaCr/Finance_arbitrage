@@ -35,17 +35,23 @@ for a in "$@"; do
 done
 
 # --- настройки ---
+# Читаем KEY=VALUE как текст, без выполнения: в пароле могут быть &, $, ; и т.п.
+load_conf() {
+  local line key val
+  while IFS= read -r line || [[ -n "$line" ]]; do
+    line="${line%$'\r'}"
+    [[ "$line" =~ ^[[:space:]]*(#|$) ]] && continue
+    [[ "$line" =~ ^[[:space:]]*([A-Za-z_][A-Za-z0-9_]*)=(.*)$ ]] || continue
+    key="${BASH_REMATCH[1]}"; val="${BASH_REMATCH[2]}"
+    if [[ "$val" =~ ^\"(.*)\"[[:space:]]*$ || "$val" =~ ^\'(.*)\'[[:space:]]*$ ]]; then val="${BASH_REMATCH[1]}"; fi
+    printf -v "$key" '%s' "$val"
+  done < "$1"
+}
 if [[ -f "$CONF" ]]; then
-  set -a
-  # shellcheck disable=SC1090
-  . "$CONF"
-  set +a
+  load_conf "$CONF"
 elif [[ -f "$ROOT/web/deploy-env.example" ]]; then
   # Без локального конфига берём пример (в нём нет секретов): подходит для входа по SSH-ключу.
-  set -a
-  # shellcheck disable=SC1091
-  . "$ROOT/web/deploy-env.example"
-  set +a
+  load_conf "$ROOT/web/deploy-env.example"
 else
   echo "Нет $CONF — скопируйте web/deploy-env.example в web/.env.deploy и заполните." >&2
   exit 2
@@ -107,18 +113,26 @@ fi
 # --- FTP (curl) ---
 if [[ "$DEPLOY_METHOD" == ftp ]]; then
   : "${BEGET_PASS:?BEGET_PASS не задан в web/.env.deploy (нужен для ftp)}"
-  ftp_q() { curl -sS --netrc-file "$NETRC" --ssl --connect-timeout 15 "$@"; }
   # Пароль передаём через временный netrc, а не в аргументах команды (их видно в списке процессов).
   NETRC="$(mktemp)"; trap 'rm -f "$NETRC"' EXIT; chmod 600 "$NETRC"
   printf 'machine %s login %s password %s\n' "$BEGET_HOST" "$BEGET_USER" "$BEGET_PASS" > "$NETRC"
   BASE="ftp://$BEGET_HOST/${BEGET_PATH#./}"; BASE="${BASE%/}"; [[ "$BEGET_PATH" == "." ]] && BASE="ftp://$BEGET_HOST"
+  # Шифрование: пробуем FTPS (TLS 1.2 — schannel в Windows не дружит с TLS 1.3 у Beget), иначе обычный FTP.
+  TLS=()
+  for opts in "--ssl-reqd --tls-max 1.2" "--ssl-reqd"; do
+    # shellcheck disable=SC2086
+    if curl -sS --netrc-file "$NETRC" $opts --connect-timeout 15 --list-only "$BASE/" -o /dev/null 2>/dev/null; then
+      read -r -a TLS <<< "$opts"; break
+    fi
+  done
+  if [[ ${#TLS[@]} -eq 0 ]]; then echo "⚠ FTPS недоступен — используем обычный FTP (без шифрования)"; else echo "🔒 FTPS: ${TLS[*]}"; fi
+  ftp_q() { curl -sS --netrc-file "$NETRC" "${TLS[@]}" --connect-timeout 15 "$@"; }
   case "$MODE" in
     check)
-      curl -sS --netrc-file "$NETRC" --ssl-reqd --connect-timeout 15 "$BASE/" || curl -sS --netrc-file "$NETRC" --connect-timeout 15 "$BASE/" ;;
+      ftp_q "$BASE/" ;;
     dry)
       (cd "$DIST" && find . -type f | sort | head -50); echo "… всего $FILES файлов" ;;
     deploy)
-      SSL=(--ssl)   # FTPS, если сервер умеет; иначе обычный FTP
       if [[ "$ARCHIVE" == 1 ]]; then
         # Переносим (RNFR/RNTO) всё, что лежит в папке, в _old_site_<дата> и закрываем архив от веба.
         A="_old_site_$(date +%Y%m%d-%H%M)"
@@ -137,7 +151,7 @@ if [[ "$DEPLOY_METHOD" == ftp ]]; then
       n=0
       while IFS= read -r f; do
         rel="${f#./}"
-        curl -sS --netrc-file "$NETRC" "${SSL[@]}" --ftp-create-dirs --connect-timeout 15 --retry 2 \
+        curl -sS --netrc-file "$NETRC" "${TLS[@]}" --ftp-create-dirs --connect-timeout 15 --retry 2 \
           -T "$DIST/$rel" "$BASE/$rel" || { echo "Ошибка на $rel" >&2; exit 1; }
         n=$((n+1)); (( n % 25 == 0 )) && echo "  … $n/$FILES"
       done < <(cd "$DIST" && find . -type f | sort)
