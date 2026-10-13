@@ -7,6 +7,8 @@ export interface MascotOptions {
   lineMs?: number;
   /** Вызывается по кнопке «Подобрать». */
   onPick?: () => void;
+  /** Не показываться впервые, пока этот элемент (напр. CTA калькулятора) в зоне видимости. */
+  avoid?: () => Element | null;
 }
 
 const get = (k: string) => {
@@ -77,5 +79,17 @@ export function initMascot(root: HTMLElement, opts: MascotOptions) {
   });
 
   if (get(key)) setState('mini');
-  else timers.push(window.setTimeout(open, opts.firstDelay ?? 1800));
+  else {
+    const target = opts.avoid?.();
+    if (target && 'IntersectionObserver' in window) {
+      // Первый показ — только когда главный CTA ушёл с экрана, чтобы не перекрывать его.
+      const io = new IntersectionObserver((entries) => {
+        if (entries.some((e) => !e.isIntersecting)) {
+          io.disconnect();
+          timers.push(window.setTimeout(open, 600));
+        }
+      });
+      io.observe(target);
+    } else timers.push(window.setTimeout(open, opts.firstDelay ?? 1800));
+  }
 }

@@ -31,7 +31,7 @@
     "Stop": [
       {
         "hooks": [
-          { "type": "command", "command": "f=\"$CLAUDE_PROJECT_DIR/scripts/check.mjs\"; [ -f \"$f\" ] || exit 0; node \"$f\" --quick", "timeout": 120 }
+          { "type": "command", "command": "f=\"$CLAUDE_PROJECT_DIR/scripts/check.mjs\"; [ -f \"$f\" ] || exit 0; node \"$f\" --quick --hook", "timeout": 120 }
         ]
       }
     ]

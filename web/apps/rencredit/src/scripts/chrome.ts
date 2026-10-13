@@ -107,6 +107,7 @@ export function initMascotOnce() {
   if (!el) return;
   initMascot(el, {
     storageKey: 'fk:mascot:v1',
+    avoid: () => document.getElementById('calc'),
     lines: [
       'Привет! Подберу займ за минуту',
       'Выбери сумму — покажу, кто одобрит',

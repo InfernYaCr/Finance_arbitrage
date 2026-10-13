@@ -72,7 +72,7 @@ const news = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/news' }),
   schema: z.object({
     ...baseArticle,
-    source: z.string().url().optional(),
+    source: z.url().optional(),
     sourceName: z.string().optional(),
   }),
 });

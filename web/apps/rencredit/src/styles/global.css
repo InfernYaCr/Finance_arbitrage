@@ -505,4 +505,6 @@
   .hero-stat b { font-size: 22px; }
   .hero-stat > span { font-size: 12px; display: block; line-height: 1.25; }
   .trust { margin-top: 18px; }
+  /* На мобиле калькулятор — на первом экране: прячем второстепенное. */
+  .hero .lead, .hero-stats, .hero .trust { display: none; }
 }

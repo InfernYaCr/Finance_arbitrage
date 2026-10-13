@@ -30,7 +30,7 @@ const compare = [...offers].sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0)
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow text-accent!" data-reveal>Сравниваем — не выдаём</p>
-        <h1 class="mt-3" data-reveal style="--i:1">Займ онлайн <em>за&nbsp;5&nbsp;минут</em> — без переплат и лишних кругов</h1>
+        <h1 class="mt-3">Займ онлайн <em>за&nbsp;5&nbsp;минут</em> — сравним МФО и честно посчитаем переплату</h1>
         <p class="lead" data-reveal style="--i:2">Укажите сумму и срок — покажем, кто одобрит и сколько вы вернёте. Фильтры «без процентов», «без отказа», «с плохой КИ» работают сразу.</p>
         <div class="hero-stats" data-reveal style="--i:3">
           <div class="hero-stat"><b><span data-count={stats.count}>{stats.count}</span></b><span>актуальных предложений</span></div>
@@ -43,7 +43,7 @@ const compare = [...offers].sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0)
           <li><Icon name="check" />Сервис бесплатный</li>
         </ul>
       </div>
-      <div data-reveal style="--i:2"><Calculator total={offers.length} /></div>
+      <div><Calculator total={offers.length} /></div>
     </div>
   </section>
 

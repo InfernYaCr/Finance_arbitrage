@@ -24,9 +24,10 @@ const args = new Set(process.argv.slice(2));
 const QUICK = args.has('--quick');
 const DIST_ONLY = args.has('--dist-only'); // полный режим без пересборки: проверить уже существующий dist
 
-// Контекст запуска: из хука stdin содержит JSON, из терминала stdin это TTY.
+// Из хука (флаг --hook) stdin содержит JSON. Без флага stdin не читаем:
+// в не-TTY окружениях (агенты, CI) он может не закрыться, и чтение зависнет.
 let hookInput = null;
-if (!process.stdin.isTTY) {
+if (args.has('--hook')) {
   try {
     const raw = readFileSync(0, 'utf8').trim();
     if (raw) hookInput = JSON.parse(raw);
