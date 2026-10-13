@@ -10,7 +10,6 @@
   "termMaxDays": 30,
   "rateDayPct": 0.8,
   "freeDays": 7,
-  "pskMax": 292,
   "ageMin": 18,
   "ageMax": 70,
   "features": [
