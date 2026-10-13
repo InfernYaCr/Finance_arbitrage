@@ -66,7 +66,7 @@ function pageExists(urlPath) {
   if (isFile(join(dist, p, 'index.html'))) return true;
   // внутренний rewrite блока 6: /credit/<slug>.html -> /credit/<slug>/index.html
   const m = p.match(/^credit\/([^/]+)\.html$/);
-  return !!(m && isFile(join(dist, 'credit', m[1], 'index.html')));
+  return !!(m && (isFile(join(dist, 'credit', `${m[1]}.html`)) || isFile(join(dist, 'credit', m[1], 'index.html'))));
 }
 
 // ---------- проверка карты ----------

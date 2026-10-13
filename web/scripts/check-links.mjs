@@ -21,7 +21,7 @@ function exists(path) {
   if (rel === '' || rel.endsWith('/')) return existsSync(join(abs, 'index.html'));
   if (existsSync(abs) && statSync(abs).isFile()) return true;
   const legacy = rel.match(/^credit\/([^/]+)\.html$/);
-  if (legacy && existsSync(join(DIST, 'credit', legacy[1], 'index.html'))) return true;
+  if (legacy && (existsSync(join(DIST, 'credit', `${legacy[1]}.html`)) || existsSync(join(DIST, 'credit', legacy[1], 'index.html')))) return true;
   return false;
 }
 
