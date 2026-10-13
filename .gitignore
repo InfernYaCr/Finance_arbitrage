@@ -60,3 +60,4 @@ builds/
 !docs/screenshots/*.png
 !web/apps/rencredit/public/**/*.png
 !web/apps/rencredit/public/*.png
+rencredit-dist.zip
