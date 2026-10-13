@@ -1,9 +1,39 @@
 ---
-interface Props { class?: string }
+/**
+ * Логотип «Мерка»: две карточки со сдвигом (сравнение) и галочка выбора на передней.
+ * Геометрия нарисована вручную в сетке 40×40; те же координаты в scripts/gen-assets.mjs и public/favicon.svg.
+ * Props (обратно совместимы: Header/Footer передают только class):
+ *  variant: 'mark' (по умолчанию, только знак) | 'full' (знак + слово)
+ *  tone: 'color' (плашка, везде) | 'light' (белый монохром для тёмного фона) | 'dark' (тёмный монохром для светлого фона)
+ *  size: высота знака в px (если не задана — размер берёт CSS класса)
+ */
+import { SITE } from '../lib/ui/site';
+interface Props { class?: string; variant?: 'mark' | 'full'; tone?: 'color' | 'light' | 'dark'; size?: number }
+const { class: cls, variant = 'mark', tone = 'color', size } = Astro.props;
+const uid = `lm${Math.random().toString(36).slice(2, 8)}`;
+const mono = tone === 'color' ? null : tone === 'light' ? '#ffffff' : '#0d2c26';
+const w = variant === 'full' ? 40 + 12 + SITE.name.length * 14 : 40;
+const wh = size ? { height: size, width: size ? (size * w) / 40 : undefined } : {};
 ---
-<svg class={Astro.props.class} viewBox="0 0 40 40" aria-hidden="true">
-  <rect width="40" height="40" rx="12" fill="#0d2c26" />
-  <circle cx="20" cy="20" r="11" fill="none" stroke="#2fb99a" stroke-width="2" />
-  <path d="M20 8.5l4 11.5-4 11.5-4-11.5z" fill="#ffb800" transform="rotate(35 20 20)" />
-  <circle cx="20" cy="20" r="2.2" fill="#0d2c26" />
+<svg class={cls} viewBox={`0 0 ${w} 40`} aria-hidden="true" {...wh}>
+  {mono ? (
+    <>
+      <mask id={uid}>
+        <rect width="40" height="40" fill="#fff" />
+        <path d="M17.2 24.2l3.3 3.3 6.5-7.2" fill="none" stroke="#000" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+      </mask>
+      <rect x="6" y="9" width="21" height="15" rx="3.5" transform="rotate(-14 16.5 16.5)" fill={mono} opacity=".55" />
+      <rect x="12" y="15.5" width="22" height="16" rx="3.5" fill={mono} mask={`url(#${uid})`} />
+    </>
+  ) : (
+    <>
+      <rect width="40" height="40" rx="11" fill="#0d2c26" />
+      <rect x="6" y="9" width="21" height="15" rx="3.5" transform="rotate(-14 16.5 16.5)" fill="#2fb99a" />
+      <rect x="12" y="15.5" width="22" height="16" rx="3.5" fill="#ffb800" />
+      <path d="M17.2 24.2l3.3 3.3 6.5-7.2" fill="none" stroke="#0d2c26" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+    </>
+  )}
+  {variant === 'full' && (
+    <text x="52" y="29" font-family="'Onest Variable', Onest, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="-.5" fill={mono ?? '#0d2c26'}>{SITE.name}</text>
+  )}
 </svg>
