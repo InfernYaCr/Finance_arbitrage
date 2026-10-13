@@ -57,3 +57,4 @@ builds/
 *.png
 *.jpg
 *.jpeg
+!docs/screenshots/*.png

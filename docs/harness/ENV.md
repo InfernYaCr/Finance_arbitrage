@@ -42,7 +42,7 @@ Git Bash: те же команды с прямыми слешами: `.venv/Scri
 
 ```powershell
 npm --prefix web install
-npm --prefix web run dev -- --port 4321     # http://localhost:4321
+npm --prefix web/apps/rencredit run dev     # http://localhost:4321
 npm --prefix web run build                  # web\apps\rencredit\dist
 node scripts\check.mjs --quick              # быстрая проверка исходников
 node scripts\check.mjs                      # полная: build + проверка dist
