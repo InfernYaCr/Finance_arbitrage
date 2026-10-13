@@ -40,10 +40,18 @@ if [[ -f "$CONF" ]]; then
   # shellcheck disable=SC1090
   . "$CONF"
   set +a
+elif [[ -f "$ROOT/web/deploy-env.example" ]]; then
+  # Без локального конфига берём пример (в нём нет секретов): подходит для входа по SSH-ключу.
+  set -a
+  # shellcheck disable=SC1091
+  . "$ROOT/web/deploy-env.example"
+  set +a
 else
   echo "Нет $CONF — скопируйте web/deploy-env.example в web/.env.deploy и заполните." >&2
   exit 2
 fi
+# Отдельный ключ для деплоя (scripts/install-ssh-key.ps1 кладёт его на сервер).
+BEGET_KEY="${BEGET_KEY:-$HOME/.ssh/beget_ed25519}"
 
 DEPLOY_METHOD="${DEPLOY_METHOD:-ssh}"
 : "${BEGET_HOST:?BEGET_HOST не задан в web/.env.deploy}"
@@ -67,7 +75,9 @@ if [[ "$MODE" != check ]]; then
 fi
 
 # --- SSH ---
-ssh_run() { ssh -o StrictHostKeyChecking=accept-new -o ConnectTimeout=15 "$BEGET_USER@$BEGET_HOST" "$@"; }
+SSH_OPTS=(-o StrictHostKeyChecking=accept-new -o ConnectTimeout=15)
+[[ -f "$BEGET_KEY" ]] && SSH_OPTS+=(-i "$BEGET_KEY" -o IdentitiesOnly=yes)
+ssh_run() { ssh "${SSH_OPTS[@]}" "$BEGET_USER@$BEGET_HOST" "$@"; }
 
 if [[ "$DEPLOY_METHOD" == ssh ]]; then
   case "$MODE" in
@@ -85,7 +95,7 @@ if [[ "$DEPLOY_METHOD" == ssh ]]; then
         PREP="cd '$BEGET_PATH' && D=\"\$(pwd)\" && P=\"\$(dirname \"\$D\")\" && \
 if [ -w \"\$P\" ] && [ \"\$P\" != \"/\" ]; then A=\"\$P/_old_site_$STAMP\"; else A=\"\$D/_old_site_$STAMP\"; fi && \
 mkdir -p \"\$A\" && \
-find \"\$D\" -mindepth 1 -maxdepth 1 ! -name '_old_site_*' -exec mv {} \"\$A\"/ \; && \
+find \"\$D\" -mindepth 1 -maxdepth 1 ! -name '_old_site_*' ! -name '.ssh' -exec mv {} \"\$A\"/ \; && \
 { [ \"\$(dirname \"\$A\")\" = \"\$D\" ] && printf 'Require all denied\nDeny from all\n' > \"\$A/.htaccess\" || true; } && \
 echo \"Старое содержимое перенесено в \$A (\$(ls -A \"\$A\" | wc -l) объектов)\" && cd - >/dev/null && "
       fi
