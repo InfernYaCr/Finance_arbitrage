@@ -107,9 +107,7 @@ fi
 # --- FTP (curl) ---
 if [[ "$DEPLOY_METHOD" == ftp ]]; then
   : "${BEGET_PASS:?BEGET_PASS не задан в web/.env.deploy (нужен для ftp)}"
-  if [[ "$ARCHIVE" == 1 ]]; then
-    echo "--archive-old работает только по ssh. Для ftp перенесите старые файлы в файловом менеджере Beget." >&2; exit 2
-  fi
+  ftp_q() { curl -sS --netrc-file "$NETRC" --ssl --connect-timeout 15 "$@"; }
   # Пароль передаём через временный netrc, а не в аргументах команды (их видно в списке процессов).
   NETRC="$(mktemp)"; trap 'rm -f "$NETRC"' EXIT; chmod 600 "$NETRC"
   printf 'machine %s login %s password %s\n' "$BEGET_HOST" "$BEGET_USER" "$BEGET_PASS" > "$NETRC"
@@ -121,6 +119,21 @@ if [[ "$DEPLOY_METHOD" == ftp ]]; then
       (cd "$DIST" && find . -type f | sort | head -50); echo "… всего $FILES файлов" ;;
     deploy)
       SSL=(--ssl)   # FTPS, если сервер умеет; иначе обычный FTP
+      if [[ "$ARCHIVE" == 1 ]]; then
+        # Переносим (RNFR/RNTO) всё, что лежит в папке, в _old_site_<дата> и закрываем архив от веба.
+        A="_old_site_$(date +%Y%m%d-%H%M)"
+        ftp_q "$BASE/" -Q "MKD $A" -o /dev/null
+        mapfile -t NAMES < <(ftp_q --list-only "$BASE/" | tr -d '\r' | grep -vE '^(\.|\.\.|_old_site_.*)$')
+        # NLST часто скрывает dot-файлы — пробуем перенести их явно.
+        for h in .htaccess .user.ini .well-known; do NAMES+=("$h"); done
+        moved=0
+        for name in "${NAMES[@]}"; do
+          [[ -z "$name" ]] && continue
+          if ftp_q "$BASE/" -Q "RNFR $name" -Q "RNTO $A/$name" -o /dev/null 2>/dev/null; then moved=$((moved+1)); fi
+        done
+        printf 'Require all denied\nDeny from all\n' | ftp_q -T - "$BASE/$A/.htaccess"
+        echo "▶ Старое содержимое перенесено в $A ($moved объектов)"
+      fi
       n=0
       while IFS= read -r f; do
         rel="${f#./}"
