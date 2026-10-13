@@ -1,0 +1,72 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://uralsibbank.ru/p/120-dney-new",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "30",
+    "ogrn": "1020280000190",
+    "inn": "0274062111",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1020280000190",
+    "status": "active",
+    "name": "ПАО «БАНК УРАЛСИБ»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 9999,
+      "url": "https://uralsibbank.ru/api/directory-engine/files/rates/information_353_fz_s-01-07-26_45fu5hja.pdf",
+      "quote": "Тарифного плана Кредитная карта «120 дней на максимум» - не менее 9 999 российских рублей"
+    },
+    "amountMax": {
+      "value": 5000000,
+      "url": "https://uralsibbank.ru/api/directory-engine/files/rates/120dney_121026_0xzkx8ze.pdf",
+      "quote": "Размер кредитного лимита по карте до 5 000 000 ₽"
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://uralsibbank.ru/p/120-dney-new",
+      "quote": "Беспроцентный период кредитования до 120 дней"
+    },
+    "termMaxDays": {
+      "value": 120,
+      "url": "https://uralsibbank.ru/p/120-dney-new",
+      "quote": "Беспроцентный период кредитования до 120 дней"
+    },
+    "rateDayPct": {
+      "value": 0,
+      "url": "https://uralsibbank.ru/p/120-dney-new",
+      "quote": "120 дней Бесплатный льготный период на покупки"
+    },
+    "freeDays": {
+      "value": 120,
+      "url": "https://uralsibbank.ru/p/120-dney-new",
+      "quote": "Беспроцентный период кредитования до 120 дней"
+    },
+    "pskMin": {
+      "value": 21.709,
+      "url": "https://uralsibbank.ru/api/directory-engine/files/rates/120dney_121026_0xzkx8ze.pdf",
+      "quote": "Диапазон значений полной стоимости кредита от 21,709% до 72,809%"
+    },
+    "pskMax": {
+      "value": 72.809,
+      "url": "https://uralsibbank.ru/api/directory-engine/files/rates/120dney_121026_0xzkx8ze.pdf",
+      "quote": "Диапазон значений полной стоимости кредита от 21,709% до 72,809%"
+    },
+    "decisionMinutes": {
+      "value": 3,
+      "url": "https://uralsibbank.ru/p/120-dney-new",
+      "quote": "Дождитесь одобрения Через 3 минуты покажем решение"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://uralsibbank.ru/api/directory-engine/files/rates/information_353_fz_s-01-07-26_45fu5hja.pdf",
+      "quote": "Возраст: от 18 лет до 75 лет (на дату оформления Заявки)"
+    },
+    "ageMax": {
+      "value": 75,
+      "url": "https://uralsibbank.ru/api/directory-engine/files/rates/information_353_fz_s-01-07-26_45fu5hja.pdf",
+      "quote": "Возраст: от 18 лет до 75 лет"
+    }
+  },
+  "erid": "2VtzqwWfajw",
+  "notes": "Регистрационный номер в справочнике ЦБ — 2275; номер лицензии на банковские операции — 30 (генеральная лицензия от 10.09.2015); cbrLicense = номер лицензии. В тарифе льготный период «до 4 месяцев», на странице — «до 120 дней». Минимальный лимит 9 999 ₽ — по «Информации об условиях» (353-ФЗ) от 01.07.2026."
+}

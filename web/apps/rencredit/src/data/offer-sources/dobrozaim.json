@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://dobrozaim.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "2110177000192",
+    "ogrn": "1257700155360",
+    "inn": "9714073258",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1257700155360",
+    "status": "active",
+    "name": "АО МФК \"Саммит\""
+  },
+  "fields": {
+    "amountMin": {
+      "value": 1000,
+      "url": "https://dobrozaim.ru/upload/iblock/249/i3vcjrkqkm499mk7gt6n2v3nuo9cukx0/Tarify_Sammit_01.10.2026.pdf",
+      "quote": "ЗАЙМ \"Пятнашка\" ... 7 дней 7 дней 1 000 руб. 15 000 руб."
+    },
+    "amountMax": {
+      "value": 100000,
+      "url": "https://dobrozaim.ru/upload/iblock/249/i3vcjrkqkm499mk7gt6n2v3nuo9cukx0/Tarify_Sammit_01.10.2026.pdf",
+      "quote": "ЗАЙМ \"Без вопросов\" ... 168 дней 2 000 руб. 100 000 руб."
+    },
+    "termMinDays": {
+      "value": 4,
+      "url": "https://dobrozaim.ru/upload/iblock/249/i3vcjrkqkm499mk7gt6n2v3nuo9cukx0/Tarify_Sammit_01.10.2026.pdf",
+      "quote": "ЗАЙМ \"Беспроцентный\" ... 4 дней 30 дней 1 000 руб. 30 000 руб."
+    },
+    "termMaxDays": {
+      "value": 364,
+      "url": "https://dobrozaim.ru/upload/iblock/249/i3vcjrkqkm499mk7gt6n2v3nuo9cukx0/Tarify_Sammit_01.10.2026.pdf",
+      "quote": "ЗАЙМ \"Без вопросов плюс\" ... 364 364 30 000 руб. 100 000 руб."
+    },
+    "rateDayPct": {
+      "value": 0.8,
+      "url": "https://dobrozaim.ru/upload/iblock/249/i3vcjrkqkm499mk7gt6n2v3nuo9cukx0/Tarify_Sammit_01.10.2026.pdf",
+      "quote": "Процентная ставка в день ... 0,8 %"
+    },
+    "freeDays": {
+      "value": 7,
+      "url": "https://dobrozaim.ru/",
+      "quote": "7 дней бесплатно, потом 8₽ за каждую 1000 в день"
+    },
+    "pskMin": {
+      "value": 0,
+      "url": "https://dobrozaim.ru/kompaniya/yuridicheskaya-informaciya/",
+      "quote": "ПСК: 0,00%-292,000% в год"
+    },
+    "pskMax": {
+      "value": 292,
+      "url": "https://dobrozaim.ru/kompaniya/yuridicheskaya-informaciya/",
+      "quote": "ПСК: 0,00%-292,000% в год"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://dobrozaim.ru/upload/iblock/249/i3vcjrkqkm499mk7gt6n2v3nuo9cukx0/Tarify_Sammit_01.10.2026.pdf",
+      "quote": "Физические лица в возрасте от 18 до 90 лет (на момент получения займа)"
+    },
+    "ageMax": {
+      "value": 90,
+      "url": "https://dobrozaim.ru/upload/iblock/249/i3vcjrkqkm499mk7gt6n2v3nuo9cukx0/Tarify_Sammit_01.10.2026.pdf",
+      "quote": "Физические лица в возрасте от 18 до 90 лет (на момент получения займа)"
+    }
+  },
+  "erid": "2Vtzqud2s57",
+  "notes": "Перечень тарифов АО МФК «Саммит» от 01.10.2026; учтены только беззалоговые потребительские микрозаймы (залоговые/ИП-продукты до 15 млн ₽ и 720+ дней исключены). Беспроцентный 7-дневный заём: «Пятнашка» — новым клиентам один раз, «ПростоНоль» — постоянным не чаще раза в 90 дней. Диапазон ПСК 0–292% опубликован на странице юр. информации для всех продуктов компании. Под брендом также работает ООО МКК «ДЗБР» (рег. № 651503045006630) — в реестре, но лендинг оффера ведёт на Саммит. Признак with_overdue снят: на сайте только «шансы остаются»."
+}

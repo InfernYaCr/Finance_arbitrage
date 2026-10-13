@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://vashcredite.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "2110552000304",
+    "ogrn": "1105260001857",
+    "inn": "5260271530",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1105260001857",
+    "status": "active",
+    "name": "ООО МКК «Срочноденьги»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 2000,
+      "url": "https://vashcredite.ru/",
+      "quote": "Сумма займа от 2 до 100 тыс.руб. Срок займа от 1 до 180 дней."
+    },
+    "amountMax": {
+      "value": 100000,
+      "url": "https://vashcredite.ru/",
+      "quote": "Сумма займа от 2 до 100 тыс.руб."
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://vashcredite.ru/",
+      "quote": "Срок займа от 1 до 180 дней."
+    },
+    "termMaxDays": {
+      "value": 180,
+      "url": "https://vashcredite.ru/",
+      "quote": "Срок займа от 1 до 180 дней."
+    },
+    "rateDayPct": {
+      "value": 0.8,
+      "url": "https://vashcredite.ru/",
+      "quote": "Процентная ставка 0.8% в день, 0% на займы сроком до 7 дней при условии возврата займа в период с 1-го по 7-й день пользования"
+    },
+    "freeDays": {
+      "value": 7,
+      "url": "https://vashcredite.ru/",
+      "quote": "Первый заём бесплатно на срок до 7 дней"
+    },
+    "pskMin": {
+      "value": 292,
+      "url": "https://vashcredite.ru/",
+      "quote": "Диапазон полной стоимости займа: 292,000% - 292,000% годовых"
+    },
+    "pskMax": {
+      "value": 292,
+      "url": "https://vashcredite.ru/",
+      "quote": "Диапазон полной стоимости займа: 292,000% - 292,000% годовых"
+    },
+    "decisionMinutes": {
+      "value": 3,
+      "url": "https://vashcredite.ru/",
+      "quote": "Автоматическая проверка заявки занимает около трех минут."
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://srochnodengi.ru/upload/iblock/bf3/lseby16tuku15qm99yetzjlz5uqcs23p/Правила микрозаймов от 31.08.26.pdf",
+      "quote": "возраст от 18 лет до 80 лет (Правила микрозаймов ООО МКК «Срочноденьги»)"
+    },
+    "ageMax": {
+      "value": 80,
+      "url": "https://srochnodengi.ru/upload/iblock/bf3/lseby16tuku15qm99yetzjlz5uqcs23p/Правила микрозаймов от 31.08.26.pdf",
+      "quote": "возраст от 18 лет до 80 лет"
+    },
+    "legalName": {
+      "value": "ООО МКК «Срочноденьги»",
+      "url": "https://vashcredite.ru/",
+      "quote": "Сайт Vashcredite осуществляет деятельность от имени ООО МКК «Срочноденьги»."
+    }
+  },
+  "erid": "2VtzquxJhjb",
+  "notes": "Сайт vashcredite.ru — бренд ООО МКК «Срочноденьги» (ОГРН/ИНН/номер записи в футере совпадают с реестром). Расхождение на самой странице: калькулятор показывает 1 000–100 000 ₽ и 1–30 дней, юридический блок — 2–100 тыс. ₽ и 1–180 дней; взят юридический блок (совпадает с srochnodengi.ru). Возраст — из Правил микрозаймов кредитора. approvalPct не заявлен — удалён."
+}

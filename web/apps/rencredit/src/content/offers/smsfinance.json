@@ -2,31 +2,26 @@
   "poolId": "saleads-1378c730",
   "kind": "mfo",
   "name": "СМСФИНАНС",
-  "logo": "/logos/smsfinance.svg",
+  "logo": "/logos/smsfinance.png",
   "brandColor": "#0288D1",
-  "amountMin": 1500,
+  "amountMin": 1000,
   "amountMax": 30000,
-  "termMinDays": 7,
-  "termMaxDays": 30,
+  "termMinDays": 1,
+  "termMaxDays": 32,
   "rateDayPct": 0.8,
-  "pskMax": 292,
-  "approvalPct": 85,
-  "decisionMinutes": 15,
   "ageMin": 18,
   "ageMax": 70,
-  "features": [
-    "to_card",
-    "bad_history",
-    "with_overdue"
-  ],
+  "features": [],
+  "cbrLicense": "3120177002032",
+  "legalName": "ООО МКК «СМСФИНАНС»",
+  "erid": "2VtzquptmKs",
   "verified": false,
   "priority": 63,
-  "summary": "МФО, ориентированная на онлайн-займы на карту, в том числе клиентам с неидеальной историей.",
+  "summary": "МКК «СМСФИНАНС» выдаёт онлайн-займы; домен smsfinance.ru сейчас перенаправляет на vivus.ru той же организации. Условия с официального сайта не сверены.",
   "pros": [
-    "Рассматривает заявки с неидеальной историей",
-    "Онлайн-заявка"
+    "Организация действует в реестре МФО Банка России"
   ],
   "cons": [
-    "Одобрение зависит от скоринга"
+    "Условия не удалось сверить с официальным сайтом — уточняйте их у кредитора перед оформлением"
   ]
 }

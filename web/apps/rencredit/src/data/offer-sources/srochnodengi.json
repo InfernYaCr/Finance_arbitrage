@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://srochnodengi.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "2110552000304",
+    "ogrn": "1105260001857",
+    "inn": "5260271530",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1105260001857",
+    "status": "active",
+    "name": "ООО МКК «Срочноденьги»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 2000,
+      "url": "https://srochnodengi.ru/",
+      "quote": "оформить заём на сумму от 2000 до 100 000 рублей на срок от 1 до 180 дней"
+    },
+    "amountMax": {
+      "value": 100000,
+      "url": "https://srochnodengi.ru/upload/iblock/bf3/lseby16tuku15qm99yetzjlz5uqcs23p/Правила микрозаймов от 31.08.26.pdf",
+      "quote": "1.4.1. Размер суммы займа – до 100 000 рублей."
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://srochnodengi.ru/",
+      "quote": "на срок от 1 до 180 дней"
+    },
+    "termMaxDays": {
+      "value": 180,
+      "url": "https://srochnodengi.ru/",
+      "quote": "на срок от 1 до 180 дней"
+    },
+    "rateDayPct": {
+      "value": 0.8,
+      "url": "https://srochnodengi.ru/",
+      "quote": "Процентная ставка 0.8% в день, 0% на займы сроком до 7 дней при условии возврата займа в период с 1-го по 7-й день пользования"
+    },
+    "freeDays": {
+      "value": 7,
+      "url": "https://srochnodengi.ru/loyaltyprogram/pervyy-onlayn-zaem-besplatno/",
+      "quote": "Условия акции действительны для онлайн займов, впервые получаемых в ООО МКК «Срочноденьги» сроком до 7 дней включительно"
+    },
+    "pskMin": {
+      "value": 292,
+      "url": "https://srochnodengi.ru/",
+      "quote": "Диапазон полной стоимости займа: 292,000% - 292,000% годовых"
+    },
+    "pskMax": {
+      "value": 292,
+      "url": "https://srochnodengi.ru/",
+      "quote": "Диапазон полной стоимости займа: 292,000% - 292,000% годовых"
+    },
+    "decisionMinutes": {
+      "value": 5,
+      "url": "https://srochnodengi.ru/",
+      "quote": "Решение принимается автоматически за 5 минут (FAQ на главной)"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://srochnodengi.ru/upload/iblock/bf3/lseby16tuku15qm99yetzjlz5uqcs23p/Правила микрозаймов от 31.08.26.pdf",
+      "quote": "возраст от 18 лет до 80 лет"
+    },
+    "ageMax": {
+      "value": 80,
+      "url": "https://srochnodengi.ru/upload/iblock/bf3/lseby16tuku15qm99yetzjlz5uqcs23p/Правила микрозаймов от 31.08.26.pdf",
+      "quote": "возраст от 18 лет до 80 лет"
+    },
+    "features.round_the_clock": {
+      "value": true,
+      "url": "https://srochnodengi.ru/",
+      "quote": "Работаем 24/7 по всей России"
+    },
+    "features.to_card": {
+      "value": true,
+      "url": "https://srochnodengi.ru/upload/iblock/bf3/lseby16tuku15qm99yetzjlz5uqcs23p/Правила микрозаймов от 31.08.26.pdf",
+      "quote": "Займы предоставляются: ... на карту, указанную в Заявлении о предоставлении займа"
+    }
+  },
+  "erid": "2VtzqumvnmB",
+  "notes": "0% на первый заём реализован через бонусные баллы в размере начисленных процентов (ставка по договору 0,8%/день). Правила допускают срок до 1800 дней и сумму выше 100 000 ₽ — на витрину взяты публичные условия с главной (2 000–100 000 ₽, 1–180 дней). approvalPct не заявлен — удалён. Тот же кредитор, что у оффера vash-kredit (бренд vashcredite.ru)."
+}

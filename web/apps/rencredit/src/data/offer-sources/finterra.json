@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://xn--80ajiuqaln.xn--p1ai/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "651303532002603",
+    "ogrn": "1114205007443",
+    "inn": "4205219217",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1114205007443",
+    "status": "active",
+    "name": "ООО МКК «ФИНТЕРРА»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 100,
+      "url": "https://xn--80ajiuqaln.xn--p1ai/storage/documents/doc_5faa117690e03/ver_6ab49833ce63d.pdf",
+      "quote": "«Деньги до зарплаты» в сумме от 100 до 30 000 рублей (включительно) на срок до 31 календарного дня"
+    },
+    "amountMax": {
+      "value": 30000,
+      "url": "https://xn--80ajiuqaln.xn--p1ai/storage/documents/doc_5faa117690e03/ver_6ab49833ce63d.pdf",
+      "quote": "«Деньги до зарплаты» в сумме от 100 до 30 000 рублей (включительно)"
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://xn--80ajiuqaln.xn--p1ai/%D0%B0%D0%BA%D1%86%D0%B8%D0%B8/%D0%B0%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9-%D0%B7%D0%B0%D1%91%D0%BC-%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D0%BE",
+      "quote": "Срок пользования потребительским займом - от 1 до 31 дней включительно"
+    },
+    "termMaxDays": {
+      "value": 31,
+      "url": "https://xn--80ajiuqaln.xn--p1ai/storage/documents/doc_5faa117690e03/ver_6ab49833ce63d.pdf",
+      "quote": "на срок до 31 календарного дня (включительно)"
+    },
+    "rateDayPct": {
+      "value": 0.54,
+      "url": "https://xn--80ajiuqaln.xn--p1ai/storage/documents/doc_5faa118ac3b96/ver_6ab4984da92a1.pdf",
+      "quote": "«Деньги до зарплаты»: 197,100 % годовых – 365 (366) дней (0,54 % в день)"
+    },
+    "freeDays": {
+      "value": 21,
+      "url": "https://xn--80ajiuqaln.xn--p1ai/%D0%B0%D0%BA%D1%86%D0%B8%D0%B8/%D0%B0%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9-%D0%B7%D0%B0%D1%91%D0%BC-%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D0%BE",
+      "quote": "Процент за пользование займом по Акции в рамках утверждения — 0,000% годовых (0% в день) с 1 по 21 день"
+    },
+    "pskMin": {
+      "value": 0,
+      "url": "https://xn--80ajiuqaln.xn--p1ai/%D0%B0%D0%BA%D1%86%D0%B8%D0%B8/%D0%B0%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9-%D0%B7%D0%B0%D1%91%D0%BC-%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D0%BE",
+      "quote": "Диапазон значений полной стоимости кредита (займа) — от 0,000% до 197,100% годовых"
+    },
+    "pskMax": {
+      "value": 197.1,
+      "url": "https://xn--80ajiuqaln.xn--p1ai/%D0%B0%D0%BA%D1%86%D0%B8%D0%B8/%D0%B0%D0%BA%D1%86%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%B2%D1%8B%D0%B9-%D0%B7%D0%B0%D1%91%D0%BC-%D0%B1%D0%B5%D1%81%D0%BF%D0%BB%D0%B0%D1%82%D0%BD%D0%BE",
+      "quote": "Диапазон значений полной стоимости кредита (займа) — от 0,000% до 197,100% годовых"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://xn--80ajiuqaln.xn--p1ai/storage/documents/doc_5faa117690e03/ver_6ab49833ce63d.pdf",
+      "quote": "в возрасте от 18 лет до 80 лет"
+    },
+    "ageMax": {
+      "value": 80,
+      "url": "https://xn--80ajiuqaln.xn--p1ai/storage/documents/doc_5faa117690e03/ver_6ab49833ce63d.pdf",
+      "quote": "в возрасте от 18 лет до 80 лет"
+    }
+  },
+  "erid": "2VtzquhUpv9",
+  "notes": "Правила и Общие условия с 01.10.2026. Взят онлайн-продукт «Деньги до зарплаты»; «Большие деньги» (до 49 980 ₽, 61–365 дн.) и «Деньги на большие цели» (только в офисе) не включены. Важно: п. 3.2 Правил требует регистрацию в перечне регионов, а главная говорит «займы по всей России» — вынесено в минусы. Акция: сумма 2 000–30 000 ₽, новым клиентам и вернувшимся после 12 мес. Кассовая выдача есть в офисах, признак cash не ставили (оффер онлайн)."
+}

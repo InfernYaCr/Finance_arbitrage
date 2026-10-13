@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://likemoney.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "2503322010150",
+    "ogrn": "1255200003552",
+    "inn": "5262398074",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1255200003552",
+    "status": "active"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 2000,
+      "url": "https://likemoney.ru/",
+      "quote": "Сумма займа от 2 000 рублей до 100 000 рублей"
+    },
+    "amountMax": {
+      "value": 100000,
+      "url": "https://likemoney.ru/upload/iblock/375/fkuhq7nv4a5fs91a4w3kj4emkrxddzpk.pdf",
+      "quote": "Суммы потребительского займа до 100 000 рублей"
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://likemoney.ru/upload/iblock/375/fkuhq7nv4a5fs91a4w3kj4emkrxddzpk.pdf",
+      "quote": "Микрозаймы выдаются на срок от 1 дня до 180 календарных дней."
+    },
+    "termMaxDays": {
+      "value": 180,
+      "url": "https://likemoney.ru/upload/iblock/375/fkuhq7nv4a5fs91a4w3kj4emkrxddzpk.pdf",
+      "quote": "Микрозаймы выдаются на срок от 1 дня до 180 календарных дней."
+    },
+    "rateDayPct": {
+      "value": 0.8,
+      "url": "https://likemoney.ru/",
+      "quote": "Процентная ставка в день 0,8%."
+    },
+    "freeDays": {
+      "value": 7,
+      "url": "https://likemoney.ru/loyaltyprogram/pervyy_zaym_besplatno",
+      "quote": "Первый онлайн – заем бесплатно на срок до 7 дней при отсутствии просрочки"
+    },
+    "pskMin": {
+      "value": 292,
+      "url": "https://likemoney.ru/upload/iblock/375/fkuhq7nv4a5fs91a4w3kj4emkrxddzpk.pdf",
+      "quote": "292,000% - 292,000% для займов до 100 000 рублей."
+    },
+    "pskMax": {
+      "value": 292,
+      "url": "https://likemoney.ru/upload/iblock/375/fkuhq7nv4a5fs91a4w3kj4emkrxddzpk.pdf",
+      "quote": "292,000% - 292,000% для займов до 100 000 рублей."
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://likemoney.ru/upload/iblock/375/fkuhq7nv4a5fs91a4w3kj4emkrxddzpk.pdf",
+      "quote": "возраст заемщика ... должен быть не менее 18 лет и не более 80 лет"
+    },
+    "ageMax": {
+      "value": 80,
+      "url": "https://likemoney.ru/upload/iblock/375/fkuhq7nv4a5fs91a4w3kj4emkrxddzpk.pdf",
+      "quote": "возраст заемщика ... должен быть не менее 18 лет и не более 80 лет"
+    }
+  },
+  "erid": "2VtzqvigWmE",
+  "notes": "Акция «первый заём бесплатно» реализована начислением бонусных баллов в размере начисленных процентов при погашении в срок (страница программы лояльности); ПСК в договоре 292%. Источник — «Информация об условиях…» от 27.08.2025 (актуальная редакция на странице /docs/). На сайте также есть долгосрочный продукт на 1800 дней (ПСК 112,001–114,437%) — в карточку не включён. Заявленное на главной «Одобряем 97% заявок» — маркетинговое утверждение без методики, поле approvalPct удалено; время решения не заявлено официально."
+}

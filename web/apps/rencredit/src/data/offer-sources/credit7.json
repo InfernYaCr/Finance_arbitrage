@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://credit7.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "2403045010082",
+    "ogrn": "1247700466980",
+    "inn": "9727079948",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1247700466980",
+    "status": "active",
+    "name": "ООО МКК «Динар»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 1000,
+      "url": "https://credit7.ru/wp-content/uploads/2026/10/perechen-zaemnyh-produktov-05.10.26.pdf",
+      "quote": "«До зарплаты» (От 7 до 30 дней) 1 000 – 30 000"
+    },
+    "amountMax": {
+      "value": 100000,
+      "url": "https://credit7.ru/wp-content/uploads/2026/10/perechen-zaemnyh-produktov-05.10.26.pdf",
+      "quote": "Долгосрочный «Максимум» 41 000-100 000"
+    },
+    "termMinDays": {
+      "value": 7,
+      "url": "https://credit7.ru/wp-content/uploads/2026/10/perechen-zaemnyh-produktov-05.10.26.pdf",
+      "quote": "«До зарплаты» ... От 7 до 30"
+    },
+    "termMaxDays": {
+      "value": 180,
+      "url": "https://credit7.ru/wp-content/uploads/2026/10/perechen-zaemnyh-produktov-05.10.26.pdf",
+      "quote": "Займы для самозанятых тариф «Макс» 15 000 -100 000 ... 180"
+    },
+    "rateDayPct": {
+      "value": 0.8,
+      "url": "https://credit7.ru/",
+      "quote": "При повторном займе на сумму до 30 000 ₽, деньги выдаются под 0.8% в день"
+    },
+    "freeDays": {
+      "value": 7,
+      "url": "https://credit7.ru/wp-content/uploads/2025/04/akcziya-pervyj-zajm-0-2.pdf",
+      "quote": "впервые получаемых в ООО МКК «ДИНАР»; сроком займа до 7 дней включительно"
+    },
+    "pskMin": {
+      "value": 197.1,
+      "url": "https://credit7.ru/wp-content/uploads/2026/10/perechen-zaemnyh-produktov-05.10.26.pdf",
+      "quote": "Диапазон значений полной стоимости займа ... 197,100 - 292,000"
+    },
+    "pskMax": {
+      "value": 292,
+      "url": "https://credit7.ru/wp-content/uploads/2026/10/perechen-zaemnyh-produktov-05.10.26.pdf",
+      "quote": "Диапазон значений полной стоимости займа ... 197,100 - 292,000"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://credit7.ru/wp-content/uploads/2025/08/informacziya_ob_usloviyah_predostavleniya_ispolzovaniya_i_vozvrata-2.pdf",
+      "quote": "достигли возраста 18 (восемнадцати) лет"
+    },
+    "ageMax": {
+      "value": 100,
+      "url": "https://credit7.ru/",
+      "quote": "Наша компания предоставляет займы физическим лицам от 18 лет без ограничений"
+    }
+  },
+  "erid": "2VtzqukSoUq",
+  "notes": "Условия по Перечню заёмных продуктов ред. 05.10.2026. Верхний возраст МФО не ограничивает («от 18 лет без ограничений») — ageMax=100 (максимум схемы). Срок 180 дней и сумма до 100 000 ₽ — тарифы для самозанятых/долгосрочные; новым клиентам на главной — до 30 000 ₽. Самостоятельно заявленные «шанс одобрения»/«7 минут» не переносились."
+}

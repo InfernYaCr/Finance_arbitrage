@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://microklad.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "651403140005711",
+    "ogrn": "1147847295012",
+    "inn": "7842526069",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1147847295012",
+    "status": "active"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 5000,
+      "url": "https://microklad.ru/",
+      "quote": "микрозаймы в сумме от 5 000 до 50 000 рублей"
+    },
+    "amountMax": {
+      "value": 50000,
+      "url": "https://microklad.ru/",
+      "quote": "микрозаймы в сумме от 5 000 до 50 000 рублей"
+    },
+    "termMinDays": {
+      "value": 7,
+      "url": "https://microklad.ru/",
+      "quote": "срок от 7 до 90 дней"
+    },
+    "termMaxDays": {
+      "value": 90,
+      "url": "https://microklad.ru/",
+      "quote": "срок от 7 до 90 дней"
+    },
+    "rateDayPct": {
+      "value": 0.8,
+      "url": "https://microklad.ru/",
+      "quote": "процентная ставка по договору микрозайма - от 0,00% до 0,80% в день"
+    },
+    "pskMin": {
+      "value": 0,
+      "url": "https://microklad.ru/",
+      "quote": "диапазоны значений полной стоимости микрозайма - от 0,000% до 292,000%"
+    },
+    "pskMax": {
+      "value": 292,
+      "url": "https://microklad.ru/",
+      "quote": "диапазоны значений полной стоимости микрозайма - от 0,000% до 292,000%"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://microklad.ru/",
+      "quote": "гражданам Российской Федерации в возрасте от 18 до 70 лет"
+    },
+    "ageMax": {
+      "value": 70,
+      "url": "https://microklad.ru/",
+      "quote": "гражданам Российской Федерации в возрасте от 18 до 70 лет"
+    }
+  },
+  "erid": "2VtzqxS7Ab7",
+  "notes": "Ставка 0% — только для постоянных клиентов, поэтому zero_percent/freeDays не ставим (карточка подписывает 0% как условие для новых клиентов). Время решения на главной указано противоречиво («в течение 5 минут» и «в течение 1 минуты») — decisionMinutes удалён; процент одобрения официально не заявлен."
+}

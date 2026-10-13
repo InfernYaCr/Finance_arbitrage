@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://vivus.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "3120177002032",
+    "ogrn": "1167746117483",
+    "inn": "7724351447",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1167746117483",
+    "status": "active",
+    "name": "ООО МКК «СМСФИНАНС»"
+  },
+  "fields": {},
+  "erid": "2VtzquoQn3X",
+  "notes": "vivus.ru (и smsfinance.ru) на 13.10.2026 закрыты антибот-защитой: curl/WebFetch — 403, браузер — CAPTCHA/Forbidden; проходить CAPTCHA нельзя. Условия (сумма, срок, ставка, ПСК, льготный период, возраст) не подтверждены — оставлены прежние значения, verified=false. Прежний legalName «ООО МФК «Вивус.ру»» отсутствует и в действующем, и в исключённом реестре МФО; по реестру ЦБ сайт www.vivus.ru указан у ООО МКК «СМСФИНАНС» (3120177002032) — legalName/cbrLicense взяты оттуда, но с сайта vivus.ru не сверены. approvalPct/decisionMinutes удалены (официально не заявлены). Тот же кредитор, что у оффера smsfinance."
+}

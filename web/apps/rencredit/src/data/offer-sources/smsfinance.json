@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://vivus.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "3120177002032",
+    "ogrn": "1167746117483",
+    "inn": "7724351447",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1167746117483",
+    "status": "active"
+  },
+  "fields": {},
+  "erid": "2VtzquptmKs",
+  "notes": "verified=false: smsfinance.ru перенаправляет на vivus.ru (оба сайта указаны в реестре ЦБ за ООО МКК «СМСФИНАНС»), но сайт закрыт антибот-проверкой с CAPTCHA (servicepipe) — условия и документы прочитать не удалось, CAPTCHA не обходили. Суммы/сроки (1 000–30 000 ₽, 1–32 дня, возраст от 18) временно взяты из карточки оффера Saleads (заявление рекламодателя, не официальный источник); ageMax=70 и rateDayPct=0.8 не подтверждены. pskMax удалён. Признаки (bad_history, with_overdue, to_card) не подтверждены — удалены. В mfo_excluded.csv есть другое ООО МКК «СМСФИНАНС» (ОГРН 1117746198998, исключено 05.12.2019) — к действующей организации не относится. Нужна ручная проверка vivus.ru в браузере."
+}

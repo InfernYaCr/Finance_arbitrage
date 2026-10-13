@@ -34,7 +34,7 @@ const ordered = [...matched.map((m) => m.r), ...rows.filter((r) => !matched.some
 const n = matched.length;
 const offersWord = (k: number) => plural(k, ['предложение', 'предложения', 'предложений']);
 
-const zeroCount = offers.filter((o) => o.features.includes('zero_percent') && o.freeDays).length;
+const zeroCount = offers.filter((o) => o.kind === 'mfo' && o.features.includes('zero_percent') && o.freeDays).length;
 const maxAmount = Math.max(...offers.map((o) => o.amountMax));
 const maxTerm = Math.max(...offers.map((o) => o.termMaxDays));
 const sumPresets = [5000, 10000, 15000, 30000, 50000, 100000];

@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://finmoll.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "651403550005541",
+    "ogrn": "1117746509638",
+    "inn": "7705954143",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1117746509638",
+    "status": "active",
+    "name": "ООО МКК \"ФИНМОЛЛ\""
+  },
+  "fields": {
+    "amountMin": {
+      "value": 2000,
+      "url": "https://finmoll.ru/upload/uf/aed/5m3k3s0shb3map6n914oqysk8mbb2m2o.pdf",
+      "quote": "Для микрозайма «PDL»: Сумма микрозайма составляет от 2 000 до 30 000 рублей"
+    },
+    "amountMax": {
+      "value": 100000,
+      "url": "https://finmoll.ru/upload/uf/aed/5m3k3s0shb3map6n914oqysk8mbb2m2o.pdf",
+      "quote": "Для микрозайма «Индивидуальный»: Сумма микрозайма составляет от 20 000 до 100 000 рублей"
+    },
+    "termMinDays": {
+      "value": 7,
+      "url": "https://finmoll.ru/upload/uf/aed/5m3k3s0shb3map6n914oqysk8mbb2m2o.pdf",
+      "quote": "Для микрозайма «PDL»: ... Сроки: 7, 14, 21 или 30 дней"
+    },
+    "termMaxDays": {
+      "value": 175,
+      "url": "https://finmoll.ru/upload/uf/aed/5m3k3s0shb3map6n914oqysk8mbb2m2o.pdf",
+      "quote": "Для микрозайма «Индивидуальный»: ... Сроки: 25 недель"
+    },
+    "rateDayPct": {
+      "value": 0.8,
+      "url": "https://finmoll.ru/upload/uf/aed/5m3k3s0shb3map6n914oqysk8mbb2m2o.pdf",
+      "quote": "Для микрозайма «PDL» 292,00% (процентная ставка в процентах годовых; 292/365 = 0,8% в день)"
+    },
+    "pskMin": {
+      "value": 200,
+      "url": "https://finmoll.ru/upload/uf/aed/5m3k3s0shb3map6n914oqysk8mbb2m2o.pdf",
+      "quote": "Для микрозаймов «Базовый»: от 200,000% до 214,000%"
+    },
+    "pskMax": {
+      "value": 292,
+      "url": "https://finmoll.ru/upload/uf/aed/5m3k3s0shb3map6n914oqysk8mbb2m2o.pdf",
+      "quote": "Для микрозайма «PDL» от 292,000% до 292,000%"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://finmoll.ru/upload/uf/aed/5m3k3s0shb3map6n914oqysk8mbb2m2o.pdf",
+      "quote": "для микрозаймов «Базовый», «Индивидуальный», «Первый», «Кредитная линия», «PDL» от 18 до 75 лет"
+    },
+    "ageMax": {
+      "value": 75,
+      "url": "https://finmoll.ru/upload/uf/aed/5m3k3s0shb3map6n914oqysk8mbb2m2o.pdf",
+      "quote": "для микрозаймов «Базовый», «Индивидуальный», «Первый», «Кредитная линия», «PDL» от 18 до 75 лет"
+    }
+  },
+  "erid": "2Vtzqving8M",
+  "notes": "Источник — «Информация об условиях предоставления...» ред. № 66 с 01.10.2026 (скан-PDF, текст сверен визуально). Учтены продукты агентской сети (Базовый, Индивидуальный, Первый, Кредитная линия, PDL); «Целевой»/«Нецелевой» (рассрочка и займы в магазинах kari) исключены. Расхождение: на главной finmoll.ru указаны «до 50 недель» и «срок от 7 до 371 дней» — в официальной Информации максимум 25 недель, взят документ. termMaxDays=175 = 25 недель × 7. rateDayPct 0,8 — для PDL (292% годовых), у остальных продуктов 200–290% годовых. Прежние сроки 14–180 и сумма от 5 000 не подтверждены."
+}

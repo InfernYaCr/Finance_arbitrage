@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://halvacard.ru/tariffs",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "963",
+    "ogrn": "1144400000425",
+    "inn": "4401116480",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1144400000425",
+    "status": "active",
+    "name": "ПАО \"Совкомбанк\""
+  },
+  "fields": {
+    "amountMin": {
+      "value": 15000,
+      "url": "https://sovcombank.ru/document/13792",
+      "quote": "Минимальный лимит кредитования: ... 15 000 руб. - при запросе лимита кредитования"
+    },
+    "amountMax": {
+      "value": 500000,
+      "url": "https://sovcombank.ru/document/13792",
+      "quote": "Максимальный лимит кредитования - 500 000 руб."
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://halvacard.ru/tariffs",
+      "quote": "0% годовых в течение льготного периода 36 мес."
+    },
+    "termMaxDays": {
+      "value": 1095,
+      "url": "https://halvacard.ru/tariffs",
+      "quote": "0% годовых в течение льготного периода 36 мес."
+    },
+    "rateDayPct": {
+      "value": 0,
+      "url": "https://halvacard.ru/tariffs",
+      "quote": "Процентная ставка 0% годовых в течение льготного периода 36 мес."
+    },
+    "freeDays": {
+      "value": 1095,
+      "url": "https://sovcombank.ru/document/13792",
+      "quote": "Льготный период кредитования 36 месяцев"
+    },
+    "pskMin": {
+      "value": 0,
+      "url": "https://halvacard.ru/tariffs",
+      "quote": "Полная стоимость кредита от 0% до 19,527%"
+    },
+    "pskMax": {
+      "value": 19.527,
+      "url": "https://sovcombank.ru/document/13792",
+      "quote": "Полная стоимость кредита От 0% до 19,527%"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://halvacard.ru/faq/dokumenty-dlya-oformleniya-karty-rassrochki",
+      "quote": "Халву можно оформить в возрасте от 18 до 75 лет"
+    },
+    "ageMax": {
+      "value": 75,
+      "url": "https://halvacard.ru/faq/dokumenty-dlya-oformleniya-karty-rassrochki",
+      "quote": "Халву можно оформить в возрасте от 18 до 75 лет"
+    }
+  },
+  "erid": "2VtzqwmGZoU",
+  "notes": "Тарифы «Карта \"Халва\"» с 20.09.2026 (sovcombank.ru/document/13792; сайт банка использует сертификат НУЦ Минцифры, скачано без проверки TLS). Для карт по соглашению проекта term/freeDays = льготный период; 36 мес. переведены в 1095 дней (3×365). До 60 мес. — на социально значимые покупки. На главной рекламируется рассрочка у партнёров до 24 мес. Минимальный лимит 0,1 ₽ по умолчанию, 15 000 ₽ — при запросе лимита. Возраст: halvacard.ru — 18–75; в выдаче поиска встречались страницы с 20–75 для кредитного лимита — проверить при следующей сверке. Прежние 120 дней льготы и лимит от 10 000 ₽ не подтверждены."
+}

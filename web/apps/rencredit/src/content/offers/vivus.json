@@ -2,7 +2,7 @@
   "poolId": "saleads-b2faa3c0",
   "kind": "mfo",
   "name": "Vivus",
-  "logo": "/logos/vivus.svg",
+  "logo": "/logos/vivus.png",
   "brandColor": "#E91E63",
   "amountMin": 2000,
   "amountMax": 30000,
@@ -11,8 +11,6 @@
   "rateDayPct": 0.8,
   "freeDays": 7,
   "pskMax": 292,
-  "approvalPct": 85,
-  "decisionMinutes": 15,
   "ageMin": 18,
   "ageMax": 70,
   "features": [
@@ -20,15 +18,16 @@
     "to_card",
     "round_the_clock"
   ],
-  "legalName": "ООО МФК «Вивус.ру»",
+  "legalName": "ООО МКК «СМСФИНАНС»",
+  "cbrLicense": "3120177002032",
+  "erid": "2VtzquoQn3X",
   "verified": false,
   "priority": 70,
-  "summary": "Давно работающая МФО с займом на карту и льготным периодом для новых клиентов.",
+  "summary": "Онлайн-займы на карту под брендом Vivus. Условия на сайте кредитора на 13.10.2026 сверить не удалось.",
   "pros": [
-    "Давно на рынке",
-    "Льготный период для первого займа"
+    "Оформление онлайн"
   ],
   "cons": [
-    "Лимит для новых клиентов обычно ниже максимального"
+    "Условия не сверены с сайтом кредитора — уточняйте сумму, срок и ПСК перед заявкой"
   ]
 }

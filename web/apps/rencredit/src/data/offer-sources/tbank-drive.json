@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.tbank.ru/cards/credit-cards/drive/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2673",
+    "ogrn": "1027739642281",
+    "inn": "7710140679",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027739642281",
+    "status": "active",
+    "name": "АО «ТБанк»"
+  },
+  "fields": {
+    "amountMax": {
+      "value": 1000000,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-tinkoffdrive.pdf",
+      "quote": "Лимит задолженности до 1 000 000 рублей"
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-tinkoffdrive.pdf",
+      "quote": "на покупки и платы в беспроцентный период до 55 дней — 0% годовых"
+    },
+    "termMaxDays": {
+      "value": 55,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-tinkoffdrive.pdf",
+      "quote": "в беспроцентный период до 55 дней"
+    },
+    "rateDayPct": {
+      "value": 0,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-tinkoffdrive.pdf",
+      "quote": "на покупки и платы в беспроцентный период до 55 дней — 0% годовых"
+    },
+    "freeDays": {
+      "value": 55,
+      "url": "https://www.tbank.ru/cards/credit-cards/drive/",
+      "quote": "Беспроцентный период До 55 дней на любые покупки по карте"
+    },
+    "pskMin": {
+      "value": 29.855,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-tinkoffdrive.pdf",
+      "quote": "Полная стоимость кредита от 29,855% до 61,999% годовых"
+    },
+    "pskMax": {
+      "value": 61.999,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-tinkoffdrive.pdf",
+      "quote": "Полная стоимость кредита от 29,855% до 61,999% годовых"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://cdn.tbank.ru/static/documents/credit-cards-consumer-loan.pdf",
+      "quote": "Возраст 18–70 лет"
+    },
+    "ageMax": {
+      "value": 70,
+      "url": "https://cdn.tbank.ru/static/documents/credit-cards-consumer-loan.pdf",
+      "quote": "Возраст 18–70 лет"
+    }
+  },
+  "erid": "2VtzqvRynmt",
+  "notes": "Оффер ведёт на /cards/credit-cards/drive/ — кредитная карта Drive, name корректен. verified=false: минимальный кредитный лимит банк не публикует ни на странице карты, ни в тарифе, ни в общих условиях 353-ФЗ («суммы определяются по результатам оценки платежеспособности»); amountMin=10000 оставлен как обязательное поле схемы без источника. Остальные поля подтверждены."
+}

@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.tbank.ru/cards/credit-cards/platinum/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2673",
+    "ogrn": "1027739642281",
+    "inn": "7710140679",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027739642281",
+    "status": "active",
+    "name": "АО «ТБанк»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 15000,
+      "url": "https://www.tbank.ru/cards/credit-cards/platinum/",
+      "quote": "Форма заявки на странице карты: «Введите сумму от 15 000 ₽ до 1 000 000 ₽» (minLimit 15000)"
+    },
+    "amountMax": {
+      "value": 1000000,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-platinum.pdf",
+      "quote": "Лимит задолженности до 1 000 000 рублей"
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-platinum.pdf",
+      "quote": "на покупки и платы в беспроцентный период от 0 до 55 дней — 0% годовых"
+    },
+    "termMaxDays": {
+      "value": 55,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-platinum.pdf",
+      "quote": "беспроцентный период от 0 до 55 дней"
+    },
+    "rateDayPct": {
+      "value": 0,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-platinum.pdf",
+      "quote": "на покупки и платы в беспроцентный период от 0 до 55 дней — 0% годовых"
+    },
+    "freeDays": {
+      "value": 55,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-platinum.pdf",
+      "quote": "беспроцентный период от 0 до 55 дней"
+    },
+    "pskMin": {
+      "value": 29.855,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-platinum.pdf",
+      "quote": "Полная стоимость кредита от 29,855% до 61,999% годовых"
+    },
+    "pskMax": {
+      "value": 61.999,
+      "url": "https://cdn.tbank.ru/static/documents/credit_cards-tariffs-platinum.pdf",
+      "quote": "Полная стоимость кредита от 29,855% до 61,999% годовых"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://cdn.tbank.ru/static/documents/credit-cards-consumer-loan.pdf",
+      "quote": "Возраст 18–70 лет"
+    },
+    "ageMax": {
+      "value": 70,
+      "url": "https://cdn.tbank.ru/static/documents/credit-cards-consumer-loan.pdf",
+      "quote": "Возраст 18–70 лет"
+    }
+  },
+  "erid": "2Vtzqw6fAWA",
+  "notes": "Saleads-оффер «Кредитная карта от Т-Банка» ведёт на /cards/credit-cards/platinum/ — это кредитная карта «Платинум», name уточнён. Для карт по соглашению проекта rateDayPct=0, freeDays и termMin/MaxDays — льготный период. amountMin — нижняя граница желаемого лимита в форме заявки, итоговый лимит банк устанавливает индивидуально (353-ФЗ-условия: «определяются по результатам оценки платежеспособности»). Беспроцентный период 180 дней на перевод баланса с подпиской Pro не учитывался."
+}

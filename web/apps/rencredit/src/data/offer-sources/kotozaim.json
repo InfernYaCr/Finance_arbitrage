@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://kotozaim.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "2110177000192",
+    "ogrn": "1257700155360",
+    "inn": "9714073258",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1257700155360",
+    "status": "active"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 1000,
+      "url": "https://kotozaim.ru/",
+      "quote": "До 100 000 ₽ Сумма 1000 — 100 000 ₽ Срок до 12 месяцев"
+    },
+    "amountMax": {
+      "value": 100000,
+      "url": "https://kotozaim.ru/",
+      "quote": "До 100 000 ₽ Сумма 1000 — 100 000 ₽"
+    },
+    "termMinDays": {
+      "value": 4,
+      "url": "https://kotozaim.ru/",
+      "quote": "Условия предоставления займа: возраст 19–90 лет, срок 4–720 дн"
+    },
+    "termMaxDays": {
+      "value": 364,
+      "url": "https://dobrozaim.ru/",
+      "quote": "Сумма займа: до 100000 рублей. Срок займа: от 4 до 364 дней."
+    },
+    "rateDayPct": {
+      "value": 0.8,
+      "url": "https://kotozaim.ru/",
+      "quote": "процент 0,00%-0,8% в день"
+    },
+    "freeDays": {
+      "value": 7,
+      "url": "https://kotozaim.ru/",
+      "quote": "Мы предлагаем сумму до 15 000 рублей на срок до 7 дней."
+    },
+    "pskMin": {
+      "value": 0,
+      "url": "https://kotozaim.ru/",
+      "quote": "ПСК 0%-292,000% в год"
+    },
+    "pskMax": {
+      "value": 292,
+      "url": "https://kotozaim.ru/",
+      "quote": "ПСК 0%-292,000% в год"
+    },
+    "ageMin": {
+      "value": 19,
+      "url": "https://kotozaim.ru/",
+      "quote": "Условия предоставления займа: возраст 19–90 лет"
+    },
+    "ageMax": {
+      "value": 90,
+      "url": "https://kotozaim.ru/",
+      "quote": "Условия предоставления займа: возраст 19–90 лет"
+    }
+  },
+  "erid": "2VtzquX8bMP",
+  "notes": "Владелец kotozaim.ru — ООО «ТВОЙ ЗОЛОТОЙ» (ОГРН 1257700311330), займы выдаёт АО МФК «Саммит» (рег. № 2110177000192, сайт в реестре — dobrozaim.ru); в футере также указана ООО МКК «ДЗБР». Общая сноска kotozaim.ru даёт шире диапазоны (1 тыс.–1 млн ₽, 4–720 дн.), но продукт на главной — до 100 000 ₽ и до 12 месяцев; termMaxDays=364 взят с dobrozaim.ru (сайт кредитора). Калькулятор kotozaim.ru настроен на редирект на партнёрский сайт zabiray-zaym.ru. Процент одобрения и время решения официально не заявлены — поля удалены."
+}

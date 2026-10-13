@@ -25,7 +25,7 @@ const psk = pskRange(o);
       <a class="oc-name" href={reviewHref(o)}>{o.name}</a>
       {o.rating ? <div class="rating"><Icon name="star" /><span>{String(o.rating).replace('.', ',')}</span>{o.reviewsCount ? <span class="text-mute font-medium">· {num(o.reviewsCount)} отз.</span> : null}</div> : null}
     </div>
-    {zero ? <span class="oc-badge">0% первый займ {daysWord(o.freeDays!)}</span> : o.features.includes('new') ? <span class="oc-badge hot">Новинка</span> : null}
+    {zero ? <span class="oc-badge">{o.kind === 'mfo' ? `0% первый займ ${daysWord(o.freeDays!)}` : (o.freeDays! > 365 ? `Без % до ${Math.round(o.freeDays! / 30.4)} мес.` : `Без % до ${daysWord(o.freeDays!)}`)}</span> : o.features.includes('new') ? <span class="oc-badge hot">Новинка</span> : null}
   </div>
   <div class="oc-body">
     <dl class="oc-metrics">

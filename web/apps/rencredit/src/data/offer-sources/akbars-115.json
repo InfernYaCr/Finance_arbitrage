@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.akbars.ru/individuals/credit-cards/ak-bars-karta-115-dnej/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2590",
+    "ogrn": "1021600000124",
+    "inn": "1653001805",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1021600000124",
+    "status": "active",
+    "name": "ПАО «АК БАРС» БАНК"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 10000,
+      "url": "https://www.akbars.ru/storage/abbsite/_static/uploads/2026_8/1786692288157-851194844.pdf",
+      "quote": "Минимальная сумма - 10 000 рублей"
+    },
+    "amountMax": {
+      "value": 1000000,
+      "url": "https://www.akbars.ru/storage/abbsite/_static/uploads/2026_8/1786692288157-851194844.pdf",
+      "quote": "Максимальная сумма – 1 000 000 рублей"
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://www.akbars.ru/individuals/credit-cards/ak-bars-karta-115-dnej/",
+      "quote": "Не платите проценты до 115 дней"
+    },
+    "termMaxDays": {
+      "value": 115,
+      "url": "https://www.akbars.ru/individuals/credit-cards/ak-bars-karta-115-dnej/",
+      "quote": "Не платите проценты до 115 дней"
+    },
+    "rateDayPct": {
+      "value": 0,
+      "url": "https://www.akbars.ru/individuals/credit-cards/ak-bars-karta-115-dnej/",
+      "quote": "погашайте задолженность в течение 115 дней. За этот период банк не начислит никаких процентов"
+    },
+    "freeDays": {
+      "value": 115,
+      "url": "https://www.akbars.ru/individuals/credit-cards/ak-bars-karta-115-dnej/",
+      "quote": "115 дней без % действуют на все покупки по карте"
+    },
+    "pskMin": {
+      "value": 45.107,
+      "url": "https://www.akbars.ru/storage/abbsite/_static/uploads/2026_8/1786692288157-851194844.pdf",
+      "quote": "Диапазоны значений полной стоимости кредита От 45,107%до 57,177% годовых"
+    },
+    "pskMax": {
+      "value": 57.177,
+      "url": "https://www.akbars.ru/storage/abbsite/_static/uploads/2026_8/1786692288157-851194844.pdf",
+      "quote": "Диапазоны значений полной стоимости кредита От 45,107%до 57,177% годовых"
+    },
+    "ageMin": {
+      "value": 20,
+      "url": "https://www.akbars.ru/storage/abbsite/_static/uploads/2026_8/1786692288157-851194844.pdf",
+      "quote": "На момент подачи кредитной заявки в возрасте от 20 до 62 лет"
+    },
+    "ageMax": {
+      "value": 62,
+      "url": "https://www.akbars.ru/storage/abbsite/_static/uploads/2026_8/1786692288157-851194844.pdf",
+      "quote": "На момент подачи кредитной заявки в возрасте от 20 до 62 лет"
+    }
+  },
+  "erid": "2Vtzqwfgkez",
+  "notes": "Документ «Информация об условиях...» действует с 04.08.2026. Для карт по соглашению проекта termMin/MaxDays = диапазон льготного периода, rateDayPct=0 (в льготный период). В Информации технический максимум льготного периода — 117 календарных дней; на странице продукта — 115, взято 115. Процентная ставка вне льготного периода 45,0–57,0% годовых. Прежний возраст 21–70 не подтвердился (официально 20–62)."
+}
