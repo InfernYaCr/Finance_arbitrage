@@ -53,7 +53,8 @@ for (const f of files) {
   else {
     if (!p.enabled) err(`${f}: оффер ${o.poolId} в пуле выключен (enabled=false)`);
     if (!p.href) err(`${f}: у оффера ${o.poolId} нет href`);
-    if (p.vertical !== o.kind && !(o.kind === 'credit' && p.vertical === 'credit')) {
+    // vertical=finance в Saleads — общий раздел (займы под залог и т.п.): допустим для mfo/credit
+    if (p.vertical !== o.kind && !(p.vertical === 'finance' && (o.kind === 'mfo' || o.kind === 'credit'))) {
       err(`${f}: kind=${o.kind}, а vertical в пуле=${p.vertical}`);
     }
   }

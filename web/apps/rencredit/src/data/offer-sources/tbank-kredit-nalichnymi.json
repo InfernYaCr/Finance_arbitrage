@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.tbank.ru/loans/cash-loan/nopledge/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2673",
+    "ogrn": "1027739642281",
+    "inn": "7710140679",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027739642281",
+    "status": "active",
+    "name": "АО «ТБанк»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 10000,
+      "url": "https://www.tbank.ru/loans/cash-loan/nopledge/",
+      "quote": "Форма расчёта на странице: «Укажите сумму от 10 000 ₽ до 5 000 000 ₽»"
+    },
+    "amountMax": {
+      "value": 5000000,
+      "url": "https://cdn.tbank.ru/static/documents/loans-cashloan-tariff.pdf",
+      "quote": "Тарифный план КН 5.0: Сумма кредита до 5 000 000 рублей"
+    },
+    "termMinDays": {
+      "value": 365,
+      "url": "https://cdn.tbank.ru/static/documents/loans-cashloan-tariff.pdf",
+      "quote": "Срок кредита от 1 года до 5 лет"
+    },
+    "termMaxDays": {
+      "value": 1825,
+      "url": "https://cdn.tbank.ru/static/documents/loans-cashloan-tariff.pdf",
+      "quote": "Срок кредита от 1 года до 5 лет"
+    },
+    "rateDayPct": {
+      "value": 0.0545,
+      "url": "https://cdn.tbank.ru/static/documents/loans-cashloan-tariff.pdf",
+      "quote": "Процентная ставка от 19,9% до 40,0% годовых (0,0545 = 19,9 / 365)"
+    },
+    "pskMin": {
+      "value": 19.878,
+      "url": "https://cdn.tbank.ru/static/documents/loans-cashloan-tariff.pdf",
+      "quote": "Полная стоимость кредита: от 19,878% до 39,895% годовых"
+    },
+    "pskMax": {
+      "value": 39.895,
+      "url": "https://cdn.tbank.ru/static/documents/loans-cashloan-tariff.pdf",
+      "quote": "Полная стоимость кредита: от 19,878% до 39,895% годовых"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://cdn.tbank.ru/static/documents/docs-consumer-cash-loan.pdf",
+      "quote": "Требования к заемщику: Гражданство РФ; Возраст 18–70 лет"
+    },
+    "ageMax": {
+      "value": 70,
+      "url": "https://cdn.tbank.ru/static/documents/docs-consumer-cash-loan.pdf",
+      "quote": "Требования к заемщику: Гражданство РФ; Возраст 18–70 лет"
+    }
+  },
+  "erid": "2VtzqxkwKg2",
+  "notes": "Tbank.ru открыт headless-браузером с игнором сертификата (НУЦ Минцифры), PDF — cdn.tbank.ru (curl -k). Трекинговая ссылка t-cpa.ru не открывалась. Продукт — беззалоговый «Кредит наличными» (тариф КН 5.0, T-КН-5.0-260518); ПСК и ставка совпадают в тарифе и в Условиях для целей 353-ФЗ. amountMin=10 000 — валидация формы расчёта на /loans/cash-loan/nopledge/; в schema.org-микроразметке той же страницы lowPrice=50000, Saleads тоже пишет «от 50 000» — расхождение, выбрана граница из формы. Saleads указывает ПСК 22,892–42,090% — устарело. Срок рассмотрения по 353-ФЗ-условиям «как правило 1–2 рабочих дня», на странице «обычно в течение 15 минут» — decisionMinutes не заполнен. Логотип — копия tbank-credit.svg (знак Т-Банка)."
+}

@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://card.otpbank.ru/credit/120days/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2766",
+    "ogrn": "1027739176563",
+    "inn": "7708001614",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027739176563",
+    "status": "active",
+    "name": "АО «ОТП Банк»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 10000,
+      "url": "https://card.otpbank.ru/credit/120days/static/files/tariff..pdf",
+      "quote": "Минимальный кредитный лимит (овердрафт) 10 000 ₽"
+    },
+    "amountMax": {
+      "value": 1000000,
+      "url": "https://card.otpbank.ru/credit/120days/",
+      "quote": "Кредитный лимит до 1 000 000 руб."
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://card.otpbank.ru/credit/120days/",
+      "quote": "Беспроцентный период До 120 дней на любые покупки по карте"
+    },
+    "termMaxDays": {
+      "value": 120,
+      "url": "https://card.otpbank.ru/credit/120days/",
+      "quote": "Беспроцентный период До 120 дней на любые покупки по карте"
+    },
+    "rateDayPct": {
+      "value": 0,
+      "url": "https://card.otpbank.ru/credit/120days/static/files/tariff..pdf",
+      "quote": "Льготная ставка по кредиту по операциям оплаты товаров и услуг 0% годовых"
+    },
+    "freeDays": {
+      "value": 120,
+      "url": "https://card.otpbank.ru/credit/120days/static/files/tariff..pdf",
+      "quote": "Длительность льготного периода кредитования 120 дней"
+    },
+    "pskMin": {
+      "value": 44,
+      "url": "https://card.otpbank.ru/credit/120days/",
+      "quote": "Полная стоимость кредита от 44,000% до 63,999% годовых"
+    },
+    "pskMax": {
+      "value": 63.999,
+      "url": "https://card.otpbank.ru/credit/120days/",
+      "quote": "Полная стоимость кредита от 44,000% до 63,999% годовых"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://www.otpbank.ru/media/documents/bank-cards/credit-cards/over_2912.pdf",
+      "quote": "Категория Заемщиков: Граждане полностью дееспособные, имеющие постоянный источник доходов / Неработающие пенсионеры"
+    },
+    "ageMax": {
+      "value": 100,
+      "url": "https://www.otpbank.ru/media/documents/bank-cards/credit-cards/over_2912.pdf",
+      "quote": "Требования к Заемщику: возрастных ограничений не указано (допускаются неработающие пенсионеры)"
+    }
+  },
+  "erid": "2VtzqvgsTg5",
+  "notes": "Официальная страница продукта — card.otpbank.ru/credit/120days/ (на неё ведёт меню otpbank.ru; старый адрес otpbank.ru/retail/credit-cards/120days/ отдаёт 404). ПСК взята со страницы продукта (вкладка «Тарифы и условия»); в PDF-тарифе со страницы указан более узкий диапазон 56,000–58,900% (тариф «Карта с льготным периодом МИР»), в «Информации об условиях» 353-ФЗ (ред. 29.12.2025, проект «Розница») — 34,900–68,669%. Возраст: ни на странице, ни в 353-ФЗ-информации возрастных границ нет — ageMin=18 (полная дееспособность), ageMax=100 по соглашению проекта «нет верхней границы». Ранее в файле стояло 21–70 — источником не подтверждено. На странице есть кешбэк до 10% в выбранных категориях (лимит 1000 ₽/мес) — в pros не выносился. decisionMinutes не заполнен: «моментальное решение» без цифры. Логотип — текущий знак ОТП Банка (apple-touch-icon otpbank.ru, тот же файл, что в otp-bank-debetovaya-*.png)."
+}

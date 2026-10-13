@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://alfabank.ru/get-money/credit/refinancing/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "1326",
+    "ogrn": "1027700067328",
+    "inn": "7728168971",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700067328",
+    "status": "active",
+    "name": "АО «Альфа-Банк»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 30000,
+      "url": "https://alfabank.servicecdn.ru/site-upload/bf/73/1053/PIL_Programm.pdf",
+      "quote": "Сумма кредита От 30 000 до 7 500 000 рублей (включительно)"
+    },
+    "amountMax": {
+      "value": 7500000,
+      "url": "https://alfabank.servicecdn.ru/site-upload/bf/73/1053/PIL_Programm.pdf",
+      "quote": "Сумма кредита От 30 000 до 7 500 000 рублей (включительно)"
+    },
+    "termMinDays": {
+      "value": 365,
+      "url": "https://alfabank.servicecdn.ru/site-upload/bf/73/1053/PIL_Programm.pdf",
+      "quote": "Период кредитования 12 мес., 24 мес., 36 мес., 48 мес., 60 мес."
+    },
+    "termMaxDays": {
+      "value": 1825,
+      "url": "https://alfabank.servicecdn.ru/site-upload/bf/73/1053/PIL_Programm.pdf",
+      "quote": "Период кредитования 12 мес., 24 мес., 36 мес., 48 мес., 60 мес."
+    },
+    "rateDayPct": {
+      "value": 0.0493,
+      "url": "https://alfabank.servicecdn.ru/site-upload/bf/73/1053/PIL_Programm.pdf",
+      "quote": "процентная ставка 17,99% - 55,39% (0,0493 = 17,99 / 365)"
+    },
+    "pskMin": {
+      "value": 17.99,
+      "url": "https://alfabank.servicecdn.ru/site-upload/df/de/1053/PIL_psk.pdf",
+      "quote": "Минимальное значение ПСК 17,990% Максимальное значение ПСК 55,399%"
+    },
+    "pskMax": {
+      "value": 55.399,
+      "url": "https://alfabank.servicecdn.ru/site-upload/df/de/1053/PIL_psk.pdf",
+      "quote": "Минимальное значение ПСК 17,990% Максимальное значение ПСК 55,399%"
+    },
+    "ageMin": {
+      "value": 21,
+      "url": "https://alfabank.servicecdn.ru/site-upload/bf/73/1053/PIL_Programm.pdf",
+      "quote": "2.2. Возраст От 21 года"
+    },
+    "ageMax": {
+      "value": 100,
+      "url": "https://alfabank.servicecdn.ru/site-upload/bf/73/1053/PIL_Programm.pdf",
+      "quote": "2.2. Возраст От 21 года (верхняя граница не установлена)"
+    }
+  },
+  "erid": "2Vtzqw5BBDp",
+  "notes": "Страница рефинансирования (alfabank.ru/get-money/credit/refinancing/) ссылается на те же документы, что и кредит наличными: рефинансирование оформляется как Кредит наличными по «Общей программе». На странице: «С вас только паспорт — без справок из банков и других документов. Решение сообщим за 15 минут». Условия — по документам со страницы продукта: «Общая программа» Кредита наличными (PIL_Programm.pdf) и «Уведомление о ПСК» (PIL_psk.pdf). На странице alfabank.ru указаны «до 30 млн ₽» и «от 1 до 15 лет» — это вместе с кредитом под залог недвижимости; для беззалогового кредита по программе — 30 000–7 500 000 ₽ на 12–60 мес. Банк сам пишет, что минимальная ПСК 17,990% и минимальная ставка 17,99% доступны при залоге недвижимости и страховании — для беззалогового кредита ставка будет выше. rateDayPct = минимальная годовая ставка / 365 (соглашение проекта для kind=credit). ageMax=100: верхнего возраста в программе нет. Требования: доход от 10 000 ₽, непрерывный стаж от 3 месяцев, мобильный и рабочий стационарный телефон, регистрация и работа в городе присутствия банка. decisionMinutes не заполнен: на странице «Дадим ответ за 2 минуты», в программе «Сроки рассмотрения заявки… От 1 до 5 дней». Данные Saleads (19,99–36,70%, до 7 лет, «от 4%» для рефинансирования) с сайтом не совпадают и не использованы. Логотип — знак «А» Альфа-Банка (тот же, что в alfa-bank-*.svg). Трекинговая ссылка alfabank.sale не открывалась."
+}

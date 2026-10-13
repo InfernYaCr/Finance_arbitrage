@@ -1,0 +1,62 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.tbank.ru/loans/refinance/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2673",
+    "ogrn": "1027739642281",
+    "inn": "7710140679",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027739642281",
+    "status": "active",
+    "name": "АО «ТБанк»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 50000,
+      "url": "https://www.tbank.ru/loans/refinance/",
+      "quote": "Форма расчёта на странице: «Укажите сумму от 50 000 ₽ до 50 000 000 ₽»"
+    },
+    "amountMax": {
+      "value": 5000000,
+      "url": "https://cdn.tbank.ru/static/documents/loans-tariff-refinancing-8_0.pdf",
+      "quote": "Тарифный план КНР 8.0: Сумма кредита до 5 000 000 рублей"
+    },
+    "termMinDays": {
+      "value": 365,
+      "url": "https://cdn.tbank.ru/static/documents/loans-tariff-refinancing-8_0.pdf",
+      "quote": "Срок кредита от 1 года до 5 лет"
+    },
+    "termMaxDays": {
+      "value": 1825,
+      "url": "https://cdn.tbank.ru/static/documents/loans-tariff-refinancing-8_0.pdf",
+      "quote": "Срок кредита от 1 года до 5 лет"
+    },
+    "rateDayPct": {
+      "value": 0.0819,
+      "url": "https://cdn.tbank.ru/static/documents/loans-tariff-refinancing-8_0.pdf",
+      "quote": "Процентная ставка. Базовая от 29,9% до 36,6% годовых (0,0819 = 29,9 / 365)"
+    },
+    "pskMin": {
+      "value": 29.802,
+      "url": "https://cdn.tbank.ru/static/documents/loans-tariff-refinancing-8_0.pdf",
+      "quote": "Полная стоимость кредита от 29,802% до 36,595% годовых"
+    },
+    "pskMax": {
+      "value": 36.595,
+      "url": "https://cdn.tbank.ru/static/documents/loans-tariff-refinancing-8_0.pdf",
+      "quote": "Полная стоимость кредита от 29,802% до 36,595% годовых"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://cdn.tbank.ru/static/documents/docs-consumer-cash-loan-refinancing.pdf",
+      "quote": "Требования к заемщику: Гражданство РФ; Возраст 18–70 лет"
+    },
+    "ageMax": {
+      "value": 70,
+      "url": "https://cdn.tbank.ru/static/documents/docs-consumer-cash-loan-refinancing.pdf",
+      "quote": "Требования к заемщику: Гражданство РФ; Возраст 18–70 лет"
+    }
+  },
+  "erid": "2VtzqvB9uxS",
+  "notes": "Адрес из Saleads-описания /loans/refinancing/ отдаёт 404 — актуальная страница /loans/refinance/. Условия — по тарифу КНР 8.0, на который ссылается страница. В «Условиях для целей 353-ФЗ» по рефинансированию шире диапазон: ставка 19,9–59,9%, ПСК 19,890–39,905% (охватывает все тарифы) — для рекламы взят диапазон текущего тарифа. amountMin=50 000 — валидация формы расчёта на странице (форма допускает до 50 млн, но тариф — до 5 млн; amountMax по тарифу). Рефинансирование автокредитов (до 7 млн, до 7 лет) — отдельный тариф КНА 7.3, сюда не включён. Saleads пишет ПСК 24,895–39,905% — не совпадает с текущим тарифом. Трекинговая ссылка t-cpa.ru не открывалась. Логотип — копия tbank-credit.svg."
+}

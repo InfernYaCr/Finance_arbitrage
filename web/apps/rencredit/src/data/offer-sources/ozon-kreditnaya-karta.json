@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://finance.ozon.ru/promo/cards/credit/bez-procentov",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "3542",
+    "ogrn": "1227700133792",
+    "inn": "9703077050",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1227700133792",
+    "status": "active",
+    "name": "ООО «ОЗОН Банк»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 1000,
+      "url": "https://finance.ozon.ru/documents/rulesCreditCard",
+      "quote": "Суммы потребительского кредита: От 1 000 до 1 000 000"
+    },
+    "amountMax": {
+      "value": 1000000,
+      "url": "https://finance.ozon.ru/promo/cards/credit/bez-procentov",
+      "quote": "Кредитный лимит До 1 000 000 ₽"
+    },
+    "termMinDays": {
+      "value": 1,
+      "url": "https://finance.ozon.ru/documents/rulesCreditCard",
+      "quote": "Продолжительность Грейс-периода составляет до 80 дней"
+    },
+    "termMaxDays": {
+      "value": 80,
+      "url": "https://finance.ozon.ru/documents/rulesCreditCard",
+      "quote": "Продолжительность Грейс-периода составляет до 80 дней"
+    },
+    "rateDayPct": {
+      "value": 0,
+      "url": "https://finance.ozon.ru/documents/rulesCreditCard",
+      "quote": "При выполнении Заемщиком условий предоставления Грейс-периода ... Заемщик может пользоваться суммой Транша без уплаты процентов"
+    },
+    "freeDays": {
+      "value": 80,
+      "url": "https://finance.ozon.ru/promo/cards/credit/bez-procentov",
+      "quote": "До 140 дней на Ozon и до 80 дней на остальные покупки"
+    },
+    "pskMin": {
+      "value": 29.081,
+      "url": "https://finance.ozon.ru/documents/rulesCreditCard",
+      "quote": "Диапазоны значений полной стоимости потребительского кредита: 29,081 % - 59,876% годовых"
+    },
+    "pskMax": {
+      "value": 59.876,
+      "url": "https://finance.ozon.ru/documents/rulesCreditCard",
+      "quote": "Диапазоны значений полной стоимости потребительского кредита: 29,081 % - 59,876% годовых"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://finance.ozon.ru/documents/rulesCreditCard",
+      "quote": "Возраст на момент предоставления кредита: От 18 до 80 лет"
+    },
+    "ageMax": {
+      "value": 80,
+      "url": "https://finance.ozon.ru/documents/rulesCreditCard",
+      "quote": "Возраст на момент предоставления кредита: От 18 до 80 лет"
+    }
+  },
+  "erid": "2VtzquhFyNL",
+  "notes": "finance.ozon.ru закрыт антиботом для curl/headless — страница и документы прочитаны через обычный браузер; /documents/rulesCreditCard отдаёт PDF «Информация об условиях… «Кредитная Ozon Карта» 01.10.2026» с cdn1.ozone.ru. freeDays=80 — базовый грейс-период на любые покупки; увеличенный грейс-период до 140 дней действует только на товары Ozon со значком «до 140 дней» (п. 8.3) — указан в summary/pros, а не в числовом поле. Процентная ставка вне грейс-периода 29,9–62,4% (п. 8). Комиссия 0 ₽ за наличные/переводы — акция «Обслуживание на особых условиях» с 01.12.2024 по 31.12.2026, далее 3,9% + 390 ₽ (тарифный пакет от 01.07.2025). Требование: заключённый договор «Ozon Карта». Логотип — favicon finance.ozon.ru (256×256)."
+}
