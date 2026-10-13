@@ -1,0 +1,29 @@
+{
+  "poolId": "saleads-fb30b8b0",
+  "kind": "card",
+  "name": "Т-Банк — кредитная карта Drive",
+  "logo": "/logos/tbank-drive.svg",
+  "brandColor": "#3949AB",
+  "amountMin": 10000,
+  "amountMax": 700000,
+  "termMinDays": 1,
+  "termMaxDays": 55,
+  "rateDayPct": 0,
+  "freeDays": 55,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "zero_percent"
+  ],
+  "legalName": "АО «ТБанк»",
+  "verified": false,
+  "priority": 62,
+  "summary": "Кредитная карта для автовладельцев с повышенным кэшбэком на связанные с автомобилем траты.",
+  "pros": [
+    "Кэшбэк на автотовары и услуги",
+    "Беспроцентный период на покупки"
+  ],
+  "cons": [
+    "Условия кэшбэка меняются, смотрите актуальные на сайте банка"
+  ]
+}

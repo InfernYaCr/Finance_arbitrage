@@ -1,0 +1,32 @@
+{
+  "poolId": "saleads-22d56ff0",
+  "kind": "mfo",
+  "name": "БериБеру",
+  "logo": "/logos/beriberu.svg",
+  "brandColor": "#7CB342",
+  "amountMin": 1500,
+  "amountMax": 30000,
+  "termMinDays": 5,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 86,
+  "decisionMinutes": 10,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card",
+    "bad_history",
+    "with_overdue"
+  ],
+  "verified": false,
+  "priority": 48,
+  "summary": "Небольшая МФО с выдачей займов на карту и быстрым рассмотрением.",
+  "pros": [
+    "Быстрое рассмотрение заявки",
+    "Доступна разным категориям заёмщиков"
+  ],
+  "cons": [
+    "Менее известный бренд — стоит проверить МФО в реестре ЦБ"
+  ]
+}

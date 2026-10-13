@@ -1,0 +1,31 @@
+{
+  "poolId": "saleads-f6ac0d00",
+  "kind": "mfo",
+  "name": "Деньга",
+  "logo": "/logos/denga.svg",
+  "brandColor": "#F4511E",
+  "amountMin": 1500,
+  "amountMax": 30000,
+  "termMinDays": 5,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 85,
+  "decisionMinutes": 10,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card",
+    "cash"
+  ],
+  "verified": false,
+  "priority": 52,
+  "summary": "МФО с займами на карту и возможностью получения другими способами.",
+  "pros": [
+    "Несколько способов получения",
+    "Простая регистрация"
+  ],
+  "cons": [
+    "Ставка у новых клиентов близка к максимальной"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "poolId": "saleads-034653f0",
+  "kind": "card",
+  "name": "Ак Барс — 115 дней без процентов",
+  "logo": "/logos/akbars-115.svg",
+  "brandColor": "#00704A",
+  "amountMin": 10000,
+  "amountMax": 1000000,
+  "termMinDays": 1,
+  "termMaxDays": 115,
+  "rateDayPct": 0,
+  "freeDays": 115,
+  "ageMin": 21,
+  "ageMax": 70,
+  "features": [
+    "zero_percent"
+  ],
+  "legalName": "ПАО «АК БАРС» БАНК",
+  "verified": false,
+  "priority": 55,
+  "summary": "Кредитная карта с длительным льготным периодом на покупки.",
+  "pros": [
+    "Льготный период до 115 дней",
+    "Оформление онлайн"
+  ],
+  "cons": [
+    "Льготный период действует на условиях банка и не на все операции"
+  ]
+}

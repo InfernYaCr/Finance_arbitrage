@@ -1,4 +1,35 @@
-{ "poolId": "saleads-7d24ee40", "kind": "mfo", "name": "Быстроденьги", "brandColor": "#E53935",
-  "amountMin": 1000, "amountMax": 30000, "termMinDays": 5, "termMaxDays": 30, "rateDayPct": 0.8,
-  "approvalPct": 85, "decisionMinutes": 10, "ageMin": 18, "ageMax": 75,
-  "features": ["to_card", "cash", "bad_history"], "rating": 4.4, "verified": false, "priority": 70 }
+{
+  "poolId": "saleads-7d24ee40",
+  "kind": "mfo",
+  "name": "Быстроденьги",
+  "logo": "/logos/bystrodengi.svg",
+  "brandColor": "#E53935",
+  "amountMin": 1000,
+  "amountMax": 30000,
+  "termMinDays": 5,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 85,
+  "decisionMinutes": 10,
+  "ageMin": 18,
+  "ageMax": 75,
+  "features": [
+    "to_card",
+    "cash",
+    "bad_history",
+    "with_overdue"
+  ],
+  "legalName": "ООО МФК «Быстроденьги»",
+  "verified": false,
+  "priority": 85,
+  "summary": "Известная МФО с выдачей на карту и наличными, доступна клиентам с разной кредитной историей.",
+  "pros": [
+    "Можно получить на карту или наличными",
+    "Узнаваемый бренд на рынке"
+  ],
+  "cons": [
+    "Стандартная ставка до 0,8% в день",
+    "Для новых клиентов лимит ниже максимума"
+  ]
+}

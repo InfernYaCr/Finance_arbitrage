@@ -1,0 +1,30 @@
+{
+  "poolId": "saleads-74f91b40",
+  "kind": "mfo",
+  "name": "Скела Мани",
+  "logo": "/logos/skela-money.svg",
+  "brandColor": "#546E7A",
+  "amountMin": 2000,
+  "amountMax": 30000,
+  "termMinDays": 7,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 80,
+  "decisionMinutes": 15,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card",
+    "new"
+  ],
+  "verified": false,
+  "priority": 61,
+  "summary": "Онлайн-займы на карту с быстрой заявкой.",
+  "pros": [
+    "Быстрая заявка"
+  ],
+  "cons": [
+    "Условия лучше сверить на сайте МФО"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "poolId": "saleads-33f8a740",
+  "kind": "mfo",
+  "name": "Займиго",
+  "logo": "/logos/zaymigo.svg",
+  "brandColor": "#3949AB",
+  "amountMin": 1500,
+  "amountMax": 30000,
+  "termMinDays": 7,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "freeDays": 7,
+  "pskMax": 292,
+  "approvalPct": 85,
+  "decisionMinutes": 10,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "zero_percent",
+    "to_card",
+    "no_photo"
+  ],
+  "verified": false,
+  "priority": 64,
+  "summary": "Онлайн-займы на карту с акцией для новых клиентов.",
+  "pros": [
+    "Простая заявка онлайн",
+    "Акция для первого займа"
+  ],
+  "cons": [
+    "Условия акции стоит читать в договоре"
+  ]
+}

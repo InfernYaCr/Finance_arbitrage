@@ -1,0 +1,31 @@
+{
+  "poolId": "saleads-d66f1790",
+  "kind": "mfo",
+  "name": "Credit7",
+  "logo": "/logos/credit7.svg",
+  "brandColor": "#8E24AA",
+  "amountMin": 2000,
+  "amountMax": 30000,
+  "termMinDays": 7,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 85,
+  "decisionMinutes": 15,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card",
+    "bad_history"
+  ],
+  "verified": false,
+  "priority": 58,
+  "summary": "Онлайн-МФО с займами на карту и рассмотрением заявки без визита в офис.",
+  "pros": [
+    "Оформление полностью онлайн",
+    "Рассматривает клиентов с неидеальной историей"
+  ],
+  "cons": [
+    "Условия для новых клиентов могут отличаться от заявленных"
+  ]
+}

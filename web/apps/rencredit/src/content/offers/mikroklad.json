@@ -1,0 +1,30 @@
+{
+  "poolId": "saleads-b00d1010",
+  "kind": "mfo",
+  "name": "МикроКлад",
+  "logo": "/logos/mikroklad.svg",
+  "brandColor": "#5E35B1",
+  "amountMin": 3000,
+  "amountMax": 30000,
+  "termMinDays": 7,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 83,
+  "decisionMinutes": 15,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card"
+  ],
+  "verified": false,
+  "priority": 72,
+  "summary": "Онлайн-займы на карту с рассмотрением заявки без визита в офис.",
+  "pros": [
+    "Онлайн-оформление",
+    "Быстрое рассмотрение"
+  ],
+  "cons": [
+    "Информации о бренде меньше, чем у крупных МФО"
+  ]
+}

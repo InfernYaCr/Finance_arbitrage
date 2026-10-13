@@ -1,0 +1,29 @@
+{
+  "poolId": "saleads-42c379c0",
+  "kind": "mfo",
+  "name": "ИЛМА",
+  "logo": "/logos/ilma.svg",
+  "brandColor": "#00ACC1",
+  "amountMin": 3000,
+  "amountMax": 30000,
+  "termMinDays": 7,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 80,
+  "decisionMinutes": 15,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card"
+  ],
+  "verified": false,
+  "priority": 46,
+  "summary": "Онлайн-МФО с займами на карту.",
+  "pros": [
+    "Простая подача заявки"
+  ],
+  "cons": [
+    "Условия лучше сверить на сайте МФО"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "poolId": "saleads-b2faa3c0",
+  "kind": "mfo",
+  "name": "Vivus",
+  "logo": "/logos/vivus.svg",
+  "brandColor": "#E91E63",
+  "amountMin": 2000,
+  "amountMax": 30000,
+  "termMinDays": 7,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "freeDays": 7,
+  "pskMax": 292,
+  "approvalPct": 85,
+  "decisionMinutes": 15,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "zero_percent",
+    "to_card",
+    "round_the_clock"
+  ],
+  "legalName": "ООО МФК «Вивус.ру»",
+  "verified": false,
+  "priority": 70,
+  "summary": "Давно работающая МФО с займом на карту и льготным периодом для новых клиентов.",
+  "pros": [
+    "Давно на рынке",
+    "Льготный период для первого займа"
+  ],
+  "cons": [
+    "Лимит для новых клиентов обычно ниже максимального"
+  ]
+}

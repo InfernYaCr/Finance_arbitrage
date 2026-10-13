@@ -1,0 +1,32 @@
+{
+  "poolId": "saleads-58c9f1f0",
+  "kind": "mfo",
+  "name": "Kviku",
+  "logo": "/logos/kviku.svg",
+  "brandColor": "#FB8C00",
+  "amountMin": 3000,
+  "amountMax": 100000,
+  "termMinDays": 14,
+  "termMaxDays": 180,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 80,
+  "decisionMinutes": 15,
+  "ageMin": 18,
+  "ageMax": 75,
+  "features": [
+    "to_card",
+    "long_term"
+  ],
+  "verified": false,
+  "priority": 66,
+  "summary": "Сервис займов и рассрочек с более длинными сроками и более высокими лимитами.",
+  "pros": [
+    "Есть длинные сроки и повышенные лимиты",
+    "Удобное мобильное приложение"
+  ],
+  "cons": [
+    "Большой лимит доступен не сразу",
+    "Итоговая ставка зависит от скоринга"
+  ]
+}

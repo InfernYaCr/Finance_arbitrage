@@ -1,0 +1,30 @@
+{
+  "poolId": "saleads-ca601bc0",
+  "kind": "mfo",
+  "name": "Хурмакредит",
+  "logo": "/logos/hurmakredit.svg",
+  "brandColor": "#2E7D32",
+  "amountMin": 1500,
+  "amountMax": 30000,
+  "termMinDays": 5,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 85,
+  "decisionMinutes": 15,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card",
+    "new"
+  ],
+  "verified": false,
+  "priority": 49,
+  "summary": "Небольшая МФО, выдаёт займы на карту онлайн.",
+  "pros": [
+    "Простая заявка"
+  ],
+  "cons": [
+    "Малоизвестный бренд, проверьте МФО в реестре ЦБ"
+  ]
+}

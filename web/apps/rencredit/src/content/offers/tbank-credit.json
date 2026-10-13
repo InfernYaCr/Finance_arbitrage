@@ -1,0 +1,29 @@
+{
+  "poolId": "saleads-0e89e1b0",
+  "kind": "card",
+  "name": "Т-Банк — кредитная карта",
+  "logo": "/logos/tbank-credit.svg",
+  "brandColor": "#FBC02D",
+  "amountMin": 10000,
+  "amountMax": 700000,
+  "termMinDays": 1,
+  "termMaxDays": 55,
+  "rateDayPct": 0,
+  "freeDays": 55,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "zero_percent"
+  ],
+  "legalName": "АО «ТБанк»",
+  "verified": false,
+  "priority": 80,
+  "summary": "Кредитная карта с онлайн-оформлением и доставкой.",
+  "pros": [
+    "Оформление и обслуживание онлайн",
+    "Беспроцентный период на покупки"
+  ],
+  "cons": [
+    "Стоимость обслуживания и тарифы зависят от программы"
+  ]
+}

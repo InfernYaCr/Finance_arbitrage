@@ -1,0 +1,29 @@
+{
+  "poolId": "saleads-91260650",
+  "kind": "card",
+  "name": "УРАЛСИБ — 120 дней",
+  "logo": "/logos/uralsib-120.svg",
+  "brandColor": "#0D47A1",
+  "amountMin": 10000,
+  "amountMax": 600000,
+  "termMinDays": 1,
+  "termMaxDays": 120,
+  "rateDayPct": 0,
+  "freeDays": 120,
+  "ageMin": 21,
+  "ageMax": 70,
+  "features": [
+    "zero_percent"
+  ],
+  "legalName": "ПАО «БАНК УРАЛСИБ»",
+  "verified": false,
+  "priority": 50,
+  "summary": "Кредитная карта с льготным периодом до 120 дней.",
+  "pros": [
+    "Длинный льготный период",
+    "Заявка онлайн"
+  ],
+  "cons": [
+    "Условия беспроцентного периода уточняйте в банке"
+  ]
+}

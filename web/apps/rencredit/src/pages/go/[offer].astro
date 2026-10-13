@@ -1,0 +1,44 @@
+---
+// Редирект на партнёрский оффер. Самодостаточный HTML без layout приложения.
+// В пуле есть записи status=wait: они приходят с enabled=false и без href (isLinkable → false),
+// поэтому страницы для них не генерируются. Если wait-оффер включат и дадут ссылку — путь появится сам.
+import { pool, isLinkable, outboundUrl } from '@pbn/core';
+
+export function getStaticPaths() {
+  return pool
+    .filter((o) => isLinkable(o))
+    .map((o) => ({ params: { offer: o.id }, props: { pending: o.status !== 'approve' } }));
+}
+
+const { offer } = Astro.params;
+const destination =
+  outboundUrl(offer!, {
+    source: Astro.site?.hostname ?? 'rencredit-online.ru',
+    medium: 'compare',
+    campaign: 'go',
+  }) ?? '/';
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+    <title>Переход к партнёру…</title>
+    <style>
+      body { font: 16px/1.5 system-ui, sans-serif; margin: 0; min-height: 100vh; display: grid; place-items: center; color: #1c1c1c; background: #fff; }
+      p { max-width: 28rem; padding: 1rem; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <p>
+      Переходим на сайт партнёра…
+      <a href={destination} rel="nofollow sponsored noopener">Нажмите здесь</a>, если переход не произошёл.
+    </p>
+    <script define:vars={{ destination }}>
+      window.location.replace(destination);
+    </script>
+  </body>
+</html>

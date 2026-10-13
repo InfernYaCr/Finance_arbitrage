@@ -1,0 +1,33 @@
+{
+  "poolId": "saleads-b6cd20a0",
+  "kind": "mfo",
+  "name": "Лайк Мани",
+  "logo": "/logos/like-money.svg",
+  "brandColor": "#D81B60",
+  "amountMin": 2000,
+  "amountMax": 30000,
+  "termMinDays": 7,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "freeDays": 7,
+  "pskMax": 292,
+  "approvalPct": 85,
+  "decisionMinutes": 10,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "zero_percent",
+    "to_card",
+    "no_photo"
+  ],
+  "verified": false,
+  "priority": 54,
+  "summary": "Займ на карту с предложением без процентов для новых клиентов.",
+  "pros": [
+    "Предложение без процентов для первого займа",
+    "Онлайн-заявка"
+  ],
+  "cons": [
+    "Условия акции ограничены по сроку"
+  ]
+}

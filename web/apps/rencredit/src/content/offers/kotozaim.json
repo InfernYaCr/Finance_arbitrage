@@ -1,0 +1,31 @@
+{
+  "poolId": "saleads-e1780b40",
+  "kind": "mfo",
+  "name": "КотоЗайм",
+  "logo": "/logos/kotozaim.svg",
+  "brandColor": "#FF7043",
+  "amountMin": 1500,
+  "amountMax": 30000,
+  "termMinDays": 5,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 88,
+  "decisionMinutes": 10,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card",
+    "no_refusal"
+  ],
+  "verified": false,
+  "priority": 50,
+  "summary": "Займы на карту с быстрым решением и заявкой онлайн.",
+  "pros": [
+    "Быстрое решение",
+    "Заявка за несколько минут"
+  ],
+  "cons": [
+    "Заявленный процент одобрения — оценка самой МФО"
+  ]
+}

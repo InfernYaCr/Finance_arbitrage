@@ -1,0 +1,32 @@
+{
+  "poolId": "saleads-1378c730",
+  "kind": "mfo",
+  "name": "СМСФИНАНС",
+  "logo": "/logos/smsfinance.svg",
+  "brandColor": "#0288D1",
+  "amountMin": 1500,
+  "amountMax": 30000,
+  "termMinDays": 7,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 85,
+  "decisionMinutes": 15,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card",
+    "bad_history",
+    "with_overdue"
+  ],
+  "verified": false,
+  "priority": 63,
+  "summary": "МФО, ориентированная на онлайн-займы на карту, в том числе клиентам с неидеальной историей.",
+  "pros": [
+    "Рассматривает заявки с неидеальной историей",
+    "Онлайн-заявка"
+  ],
+  "cons": [
+    "Одобрение зависит от скоринга"
+  ]
+}

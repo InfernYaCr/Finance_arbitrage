@@ -1,0 +1,31 @@
+{
+  "poolId": "saleads-d04c6b90",
+  "kind": "mfo",
+  "name": "МаниКэш",
+  "logo": "/logos/manicash.svg",
+  "brandColor": "#43A047",
+  "amountMin": 2000,
+  "amountMax": 30000,
+  "termMinDays": 7,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 82,
+  "decisionMinutes": 15,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card",
+    "no_photo"
+  ],
+  "verified": false,
+  "priority": 59,
+  "summary": "Онлайн-МФО, выдача займов на карту.",
+  "pros": [
+    "Оформление онлайн",
+    "Понятный личный кабинет"
+  ],
+  "cons": [
+    "Лимит для новых клиентов ограничен"
+  ]
+}

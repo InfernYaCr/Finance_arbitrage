@@ -1,0 +1,32 @@
+{
+  "poolId": "saleads-4f2e3fe0",
+  "kind": "mfo",
+  "name": "ФинМолл",
+  "logo": "/logos/finmoll.svg",
+  "brandColor": "#00695C",
+  "amountMin": 5000,
+  "amountMax": 100000,
+  "termMinDays": 14,
+  "termMaxDays": 180,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 80,
+  "decisionMinutes": 20,
+  "ageMin": 18,
+  "ageMax": 75,
+  "features": [
+    "to_card",
+    "long_term"
+  ],
+  "verified": false,
+  "priority": 74,
+  "summary": "МФО с повышенными лимитами и более длинными сроками займа.",
+  "pros": [
+    "Есть длинные сроки",
+    "Более высокие лимиты"
+  ],
+  "cons": [
+    "Максимальная сумма доступна не всем",
+    "Сроки дольше — переплата выше"
+  ]
+}

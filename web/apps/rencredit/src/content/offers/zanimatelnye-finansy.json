@@ -1,0 +1,32 @@
+{
+  "poolId": "saleads-40824050",
+  "kind": "mfo",
+  "name": "Занимательные Финансы",
+  "logo": "/logos/zanimatelnye-finansy.svg",
+  "brandColor": "#6A1B9A",
+  "amountMin": 2000,
+  "amountMax": 30000,
+  "termMinDays": 7,
+  "termMaxDays": 30,
+  "rateDayPct": 0.8,
+  "pskMax": 292,
+  "approvalPct": 80,
+  "decisionMinutes": 15,
+  "ageMin": 18,
+  "ageMax": 70,
+  "features": [
+    "to_card",
+    "new"
+  ],
+  "verified": false,
+  "priority": 40,
+  "summary": "Небольшая МФО с онлайн-займами на карту.",
+  "pros": [
+    "Заявка онлайн",
+    "Без визита в офис"
+  ],
+  "cons": [
+    "Малоизвестный бренд",
+    "Условия лучше сверить на сайте МФО"
+  ]
+}

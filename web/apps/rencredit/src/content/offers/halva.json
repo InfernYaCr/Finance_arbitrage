@@ -1,0 +1,29 @@
+{
+  "poolId": "saleads-f168d510",
+  "kind": "card",
+  "name": "Халва",
+  "logo": "/logos/halva.svg",
+  "brandColor": "#E64A19",
+  "amountMin": 10000,
+  "amountMax": 500000,
+  "termMinDays": 1,
+  "termMaxDays": 120,
+  "rateDayPct": 0,
+  "freeDays": 120,
+  "ageMin": 20,
+  "ageMax": 75,
+  "features": [
+    "zero_percent"
+  ],
+  "legalName": "ПАО «Совкомбанк»",
+  "verified": false,
+  "priority": 58,
+  "summary": "Карта рассрочки: покупки у партнёров банка в рассрочку без процентов.",
+  "pros": [
+    "Рассрочка у партнёров без процентов",
+    "Широкая сеть магазинов-партнёров"
+  ],
+  "cons": [
+    "Условия рассрочки зависят от магазина и срока"
+  ]
+}
