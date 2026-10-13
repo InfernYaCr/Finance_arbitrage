@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://alfabank.ru/everyday/debit-cards/childcard/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "1326",
+    "ogrn": "1027700067328",
+    "inn": "7728168971",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700067328",
+    "status": "active",
+    "name": "АО \"АЛЬФА-БАНК\""
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽ всегда, без условий",
+      "url": "https://alfabank.ru/everyday/debit-cards/childcard/",
+      "quote": "Обслуживание Бесплатно всегда, без условий"
+    },
+    "Кешбэк": {
+      "value": "5% в категориях на выбор, до 100% в барабане; до 2000 ₽/мес",
+      "url": "https://alfabank.ru/everyday/debit-cards/childcard/",
+      "quote": "Кэшбэк 5% в категориях на выбор каждый месяц … До 100% на случайную категорию … Максимальная сумма кэшбэка в месяц 2000 ₽"
+    },
+    "Возраст": {
+      "value": "6–14 лет",
+      "url": "https://alfabank.ru/everyday/debit-cards/childcard/",
+      "quote": "Для детей от 6 до 14 лет"
+    },
+    "Контроль родителей": {
+      "value": "история и лимиты в приложении взрослого",
+      "url": "https://alfabank.ru/everyday/debit-cards/childcard/",
+      "quote": "историю и лимиты видно в приложении взрослого"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://alfabank.ru/everyday/debit-cards/childcard/",
+      "quote": "Обслуживание Бесплатно всегда, без условий"
+    }
+  },
+  "erid": "2Vtzqunv6jG/6053",
+  "notes": "Ставка «Копилки» 12% годовых указана на странице, но это отдельный продукт — в highlights не вынесена. Saleads указывает «Гражданство: РФ» — на сайте в форме есть выбор «Вы гражданин РФ? Да/Нет», ограничение не подтверждено. Сайт банка — сертификат НУЦ Минцифры, скачано без проверки TLS."
+}

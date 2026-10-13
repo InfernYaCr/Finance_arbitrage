@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.lockobank.ru/business/raschetnyj-schet/drayv/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2707",
+    "ogrn": "1057711014195",
+    "inn": "7750003943",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1057711014195",
+    "status": "active",
+    "name": "КБ «ЛОКО-Банк» (АО)"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽ на тарифе «Драйв»",
+      "url": "https://www.lockobank.ru/business/raschetnyj-schet/drayv/",
+      "quote": "0 ₽ обслуживание На весь срок"
+    },
+    "Платежи юрлицам и ИП": {
+      "value": "1 бесплатно, далее 100 ₽",
+      "url": "https://www.lockobank.ru/business/raschetnyj-schet/drayv/",
+      "quote": "Платежи юрлицам и ИП 1 шт. — 0 ₽ далее 100 ₽/ шт."
+    },
+    "Переводы физлицам": {
+      "value": "0% до 50 000 ₽",
+      "url": "https://www.lockobank.ru/business/raschetnyj-schet/drayv/",
+      "quote": "Переводы физлицам 0% до 50 000 ₽"
+    },
+    "Кешбэк по бизнес-карте": {
+      "value": "1%, до 5 000 ₽/мес",
+      "url": "https://www.lockobank.ru/business/raschetnyj-schet/drayv/",
+      "quote": "Кешбэк от безналичных операций 1% от суммы покупок максимум 5 000 ₽ в месяц"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://www.lockobank.ru/cms/prod/Biznes_pakety_Drajv_Drajv_Pro_Profi_Maksimum_dejstvuyut_s_01_09_2026_298939790d.pdf",
+      "quote": "1.3.1. Ежемесячно ... «Драйв» 0 руб."
+    }
+  },
+  "erid": "2Vtzqwfg6qL/6306",
+  "notes": "Стоимость «Драйва» подтверждена тарифами «Бизнес-пакеты Драйв, Драйв Про, Профи, Максимум» с 01.09.2026 (п. 1.3.1). Для социальных предпринимателей есть отдельный тариф «Импульс» (лендинг rko-social) — не использовался."
+}

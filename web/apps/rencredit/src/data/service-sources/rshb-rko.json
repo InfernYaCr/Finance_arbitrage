@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.rshb.ru/business/rko",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "3349",
+    "ogrn": "1027700342890",
+    "inn": "7725114488",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700342890",
+    "status": "active",
+    "name": "АО «Россельхозбанк»"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽/мес (пакет «Базовый лайт»)",
+      "url": "https://www.rshb.ru/business/rko",
+      "quote": "Начните свой бизнес с пакетом \"Базовый лайт\" ... 0 ₽/МЕС"
+    },
+    "Платежи в другие банки": {
+      "value": "3 в месяц бесплатно, далее 170 ₽",
+      "url": "https://www.rshb.ru/business/rko",
+      "quote": "Внешние переводы/мес. 3 шт—0 ₽, далее 170 ₽"
+    },
+    "Открытие счёта": {
+      "value": "бесплатно",
+      "url": "https://www.rshb.ru/business/rko",
+      "quote": "Бесплатно открытие и обслуживание счёта"
+    },
+    "На остаток": {
+      "value": "до 1,3% годовых",
+      "url": "https://www.rshb.ru/business/rko",
+      "quote": "До 1,3% годовых начисление на остаток по счёту"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://www.rshb.ru/business/rko",
+      "quote": "\"Базовый лайт\" ... 0 ₽/МЕС"
+    }
+  },
+  "erid": "2VtzqwL5VLP",
+  "notes": "Saleads-лендинг — трекер mrxe.ru, не открывался; условия — с rshb.ru/business/rko. Название пакета взято из alt-текста карточки тарифа на странице. «До 1,3%» — общий блок страницы, конкретный пакет не указан."
+}

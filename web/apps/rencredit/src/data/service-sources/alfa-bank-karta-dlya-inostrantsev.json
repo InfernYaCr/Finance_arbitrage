@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://alfabank.ru/everyday/foreigners/debit-cards/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "1326",
+    "ogrn": "1027700067328",
+    "inn": "7728168971",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700067328",
+    "status": "active",
+    "name": "АО \"АЛЬФА-БАНК\""
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽ навсегда",
+      "url": "https://alfabank.ru/everyday/foreigners/debit-cards/",
+      "quote": "Обслуживание — 0 ₽ навсегда"
+    },
+    "Переводы за рубеж": {
+      "value": "без комиссии",
+      "url": "https://alfabank.ru/everyday/foreigners/debit-cards/",
+      "quote": "Переводы за границу без комиссии"
+    },
+    "Снятие без комиссии": {
+      "value": "до 1 млн ₽ в банкоматах Альфа-Банка и партнёров",
+      "url": "https://alfabank.ru/everyday/foreigners/debit-cards/",
+      "quote": "Бесплатно до 1 млн ₽ в банкоматах Альфа‑Банка и партнёров, свыше — комиссия 1,99%"
+    },
+    "Для кого": {
+      "value": "иностранцы и лица без гражданства",
+      "url": "https://alfabank.ru/everyday/foreigners/debit-cards/",
+      "quote": "оформить карту могут иностранные граждане и лица без гражданства"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://alfabank.ru/everyday/foreigners/debit-cards/",
+      "quote": "Обслуживание — 0 ₽ навсегда"
+    }
+  },
+  "erid": "2Vtzquzmzz2",
+  "notes": "Сведения со страницы alfabank.ru/everyday/foreigners/ (редирект на /foreigners/debit-cards/). Кешбэк (до 30% в категориях / до 100% в барабане) указан в тарифах той же страницы, в highlights не выносился. Saleads пишет «паспорт РФ, от 14 лет» — для карты для иностранцев на сайте банка не подтверждено, не используется. Сайт банка — сертификат НУЦ Минцифры, скачано без проверки TLS."
+}

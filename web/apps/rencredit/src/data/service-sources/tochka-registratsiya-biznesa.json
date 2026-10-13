@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://tochka.com/registration/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "3545",
+    "ogrn": "1237700005157",
+    "inn": "9721194461",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1237700005157",
+    "status": "active",
+    "name": "ООО «Банк Точка»"
+  },
+  "fields": {
+    "Регистрация": {
+      "value": "0 ₽, онлайн",
+      "url": "https://tochka.com/registration/",
+      "quote": "Регистрация бизнеса онлайн за 0 ₽"
+    },
+    "Госпошлина": {
+      "value": "не нужна при электронной подаче",
+      "url": "https://tochka.com/registration/",
+      "quote": "Госпошлина при электронной подаче не нужна."
+    },
+    "Срок": {
+      "value": "3–5 дней",
+      "url": "https://tochka.com/registration/",
+      "quote": "Дождитесь регистрации — это займёт 3–5 дней"
+    },
+    "Для кого": {
+      "value": "ИП, ООО, АО",
+      "url": "https://tochka.com/registration/",
+      "quote": "Регистрация ИП Регистрация ООО Регистрация АО"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://tochka.com/registration/",
+      "quote": "Ноль Подойдёт только для ИП, которым не более 90 дней ... 0 ₽ в месяц"
+    }
+  },
+  "erid": "2VtzqwPNEjY",
+  "notes": "priceFrom = 0 — тариф «Ноль» для ИП после регистрации; для ООО минимальный тариф 950 ₽/мес. Платные доп. услуги — по FAQ страницы."
+}

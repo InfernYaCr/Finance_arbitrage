@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.akbars.ru/individuals/subscriptions/ak-bars-karta/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2590",
+    "ogrn": "1021600000124",
+    "inn": "1653001805",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1021600000124",
+    "status": "active",
+    "name": "ПАО «АК БАРС» БАНК"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽ без условий",
+      "url": "https://www.akbars.ru/individuals/subscriptions/ak-bars-karta/",
+      "quote": "Обслуживание Бесплатно для всех и без условий"
+    },
+    "Кешбэк": {
+      "value": "1–10% в 3 категориях на выбор",
+      "url": "https://www.akbars.ru/individuals/subscriptions/ak-bars-karta/",
+      "quote": "Кешбэк от 1% до 10% в 3 категориях"
+    },
+    "% на остаток": {
+      "value": "4% годовых на 30–100 тыс. ₽",
+      "url": "https://www.akbars.ru/individuals/subscriptions/ak-bars-karta/",
+      "quote": "4% годовых на остаток от 30 000 ₽ до 100 000 ₽"
+    },
+    "Снятие без комиссии": {
+      "value": "до 30 000 ₽/мес в банкоматах других банков",
+      "url": "https://www.akbars.ru/individuals/subscriptions/ak-bars-karta/",
+      "quote": "На территории РФ — до 30 000 ₽/мес. не взимается"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://www.akbars.ru/individuals/subscriptions/ak-bars-karta/",
+      "quote": "Обслуживание Бесплатно для всех и без условий"
+    }
+  },
+  "erid": "2VtzqwFPgna",
+  "notes": "На официальной странице (13.10.2026) обслуживание бесплатно «для всех и без условий» — текст Saleads про 199 ₽/мес при невыполнении условий устарел. Условие 4%: пополнить более 30 000 ₽ в день получения, держать остаток до 100 000 ₽ и тратить от 50 000 ₽/мес (FAQ страницы)."
+}

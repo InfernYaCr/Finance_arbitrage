@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.tbank.ru/tinkoff-premium/cards/debit-cards/tinkoff-black-premium/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2673",
+    "ogrn": "1027739642281",
+    "inn": "7710140679",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027739642281",
+    "status": "active",
+    "name": "АО «ТБанк»"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽ от 3 млн ₽ на счетах (или др. условия), иначе 2 990 ₽/мес",
+      "url": "https://www.tbank.ru/tinkoff-premium/cards/debit-cards/tinkoff-black-premium/",
+      "quote": "Сумма покупок от 200 000 ₽ в месяц и баланс на счетах от 1 000 000 ₽ · Общий остаток на счетах от 3 000 000 ₽ · зарплата от 400 000 ₽ в месяц · В прочих случаях 2 990 ₽ в месяц"
+    },
+    "Кешбэк": {
+      "value": "до 60 000 ₽ в месяц (банк + партнёры)",
+      "url": "https://www.tbank.ru/tinkoff-premium/cards/debit-cards/tinkoff-black-premium/",
+      "quote": "До 60 000 ₽ в месяц До 30 000 ₽ в месяц — кэшбэк от банка, еще до 30 000 ₽ — от партнеров по спецпредложениям"
+    },
+    "Накопительный счёт": {
+      "value": "до 9% годовых",
+      "url": "https://www.tbank.ru/tinkoff-premium/cards/debit-cards/tinkoff-black-premium/",
+      "quote": "9% годовых Ставка по накопительному счету"
+    },
+    "Бизнес-залы": {
+      "value": "от 2 проходов в месяц",
+      "url": "https://www.tbank.ru/tinkoff-premium/cards/debit-cards/tinkoff-black-premium/",
+      "quote": "Доступ в бизнес-залы по всему миру Предоставляем от 2 проходов в месяц"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://www.tbank.ru/tinkoff-premium/cards/debit-cards/tinkoff-black-premium/",
+      "quote": "Сколько стоит сервис Premium Бесплатно при одном из условий … В прочих случаях 2 990 ₽ в месяц"
+    }
+  },
+  "erid": "2VtzqupQ61c",
+  "notes": "Оффер Saleads — подключение сервиса Premium к карте Black. Для новых клиентов — два месяца сервиса бесплатно (по странице). Сайт банка — сертификат НУЦ Минцифры, скачано без проверки TLS."
+}

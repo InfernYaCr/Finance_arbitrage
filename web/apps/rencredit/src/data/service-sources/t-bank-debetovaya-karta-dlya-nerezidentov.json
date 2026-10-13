@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.tbank.ru/cards/debit-cards/tinkoff-black/foreign/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2673",
+    "ogrn": "1027739642281",
+    "inn": "7710140679",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027739642281",
+    "status": "active",
+    "name": "АО «ТБанк»"
+  },
+  "fields": {
+    "Для кого": {
+      "value": "иностранные граждане, без гражданства РФ",
+      "url": "https://www.tbank.ru/cards/debit-cards/tinkoff-black/foreign/",
+      "quote": "Теперь наша лучшая дебетовая карта доступна без гражданства РФ"
+    },
+    "Обслуживание": {
+      "value": "0 ₽ при остатке от 50 000 ₽, иначе 99 ₽/мес",
+      "url": "https://www.tbank.ru/cards/debit-cards/tinkoff-black/foreign/",
+      "quote": "Если хранить на дебетовых счетах Т‑Банка от 50 000 ₽ или оформить подписку Pro. Иначе — 99 ₽ в месяц"
+    },
+    "Переводы за рубеж": {
+      "value": "без комиссии до 20 000 ₽/мес (с Pro — до 50 000 ₽)",
+      "url": "https://www.tbank.ru/cards/debit-cards/tinkoff-black/foreign/",
+      "quote": "До 50 000 ₽ в месяц с подпиской Pro. До 20 000 ₽ в месяц — без подписки. Свыше — комиссия 1% от суммы превышения"
+    },
+    "Кешбэк": {
+      "value": "до 15% в 4 категориях, до 30% у партнёров",
+      "url": "https://www.tbank.ru/cards/debit-cards/tinkoff-black/foreign/",
+      "quote": "Кэшбэк до 30% За покупки по спецпредложениям партнеров банка, до 15% — в выбранных категориях"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://www.tbank.ru/cards/debit-cards/tinkoff-black/foreign/",
+      "quote": "От 0 ₽ за обслуживание Если хранить на дебетовых счетах Т‑Банка от 50 000 ₽ или оформить подписку Pro. Иначе — 99 ₽ в месяц"
+    }
+  },
+  "erid": "2VtzqvhJsaN/5007",
+  "notes": "Сайт банка — сертификат НУЦ Минцифры, скачано без проверки TLS (только чтение)."
+}

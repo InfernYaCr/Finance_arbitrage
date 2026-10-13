@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://alfabank.ru/sme/tariffs/nullforservice/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "1326",
+    "ogrn": "1027700067328",
+    "inn": "7728168971",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700067328",
+    "status": "active",
+    "name": "АО «АЛЬФА-БАНК»"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽ при поступлениях до 1 млн ₽/мес",
+      "url": "https://alfabank.ru/sme/tariffs/nullforservice/",
+      "quote": "Обслуживание счёта Бесплатно при поступлениях менее 1 млн ₽ в месяц"
+    },
+    "Платежи юрлицам и ИП": {
+      "value": "3 в месяц бесплатно, далее 149 ₽",
+      "url": "https://alfabank.ru/sme/tariffs/nullforservice/",
+      "quote": "3 перевода — бесплатно Далее — 149 ₽ за перевод"
+    },
+    "Перевод ИП на личный счёт": {
+      "value": "до 100 000 ₽ бесплатно",
+      "url": "https://alfabank.ru/sme/tariffs/nullforservice/",
+      "quote": "Переводы со счёта ИП на личный счёт в Альфа‑Банке До 100 000 ₽ — бесплатно"
+    },
+    "Кешбэк по бизнес-карте": {
+      "value": "до 10%",
+      "url": "https://alfabank.ru/sme/tariffs/nullforservice/",
+      "quote": "Кэшбэк до 10% на покупки по бизнес-карте"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://alfabank.ru/sme/tariffs/nullforservice/",
+      "quote": "0 ₽ в месяц за обслуживание счёта"
+    }
+  },
+  "erid": "2VtzqvmhUJS",
+  "notes": "Тариф «Ноль за обслуживание» (страница /sme/tariffs/nullforservice/). Партнёрский лендинг alfabank.sale не открывался."
+}

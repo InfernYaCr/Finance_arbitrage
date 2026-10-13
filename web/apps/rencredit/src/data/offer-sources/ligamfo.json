@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://ligamfo.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "651503045006603",
+    "ogrn": "1157746495389",
+    "inn": "7714342034",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1157746495389",
+    "status": "active",
+    "name": "ООО МКК «ТРАСТ АЛЬЯНС»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 3000,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "п. 5: Суммы потребительского займа от 3000 рублей до 99 000 рублей"
+    },
+    "amountMax": {
+      "value": 99000,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "п. 5: от 3000 рублей до 99 000 рублей"
+    },
+    "termMinDays": {
+      "value": 30,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "Сроки возврата потребительского займа от 30 до 180 календарных дней"
+    },
+    "termMaxDays": {
+      "value": 180,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "от 30 до 180 календарных дней"
+    },
+    "rateDayPct": {
+      "value": 0.8,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "п. 10: ПСК от 29,200 до 292,000 процентов годовых; п. 9: иные платежи не предусмотрены — ставка не выше 292% (0,8% в день)"
+    },
+    "pskMin": {
+      "value": 29.2,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "п. 10: от 29,200 до 292,000 процентов годовых"
+    },
+    "pskMax": {
+      "value": 292,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "п. 10: от 29,200 до 292,000 процентов годовых"
+    },
+    "decisionMinutes": {
+      "value": 15,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "п. 3: 15 минут с момента предоставления Заемщиком всей необходимой информации"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "п. 2: Возраст: от 18 лет"
+    },
+    "ageMax": {
+      "value": 100,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "п. 2: «Возраст: от 18 лет» — верхний предел не установлен"
+    },
+    "features.cash": {
+      "value": true,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "п. 7: единовременно наличными денежными средствами в обособленном подразделении Займодавца"
+    },
+    "features.to_card": {
+      "value": true,
+      "url": "https://api.ligamfo.ru/uploads/elFinder/footer_13/%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BE%D0%B1%20%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%20%D0%BF%D0%BE%D1%82%D1%80%D0%B5%D0%B1%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B7%D0%B0%D0%B9%D0%BC%D0%B0%20%D0%9E%D0%9E%D0%9E%20%D0%9C%D0%9A%D0%9A%20%D0%A2%D0%A0%D0%90%D0%A1%D0%A2%20%D0%90%D0%9B%D0%AC%D0%AF%D0%9D%D0%A1%20%D1%81%2022.09.2026.pdf",
+      "quote": "п. 7: путем безналичного перечисления суммы займа на платежную карту Заемщика"
+    }
+  },
+  "erid": "2VtzqxFKfsg",
+  "notes": "Источник — «Информация об условиях…» ООО МКК «ТРАСТ АЛЬЯНС», действует с 22.09.2026. Под брендом работают две МКК: «ТРАСТ АЛЬЯНС» (рассрочка 30–180 дней, офисы и карта) и ООО МКК «Атлас» (рег. № 2403045010014, ОГРН 1237700750561; займы 3 270–38 100 ₽ на 21–30 дней только на карту, ставка 199,655–292% годовых). Витрина описывает продукт «ТРАСТ АЛЬЯНС», он совпадает с описанием оффера Saleads (30–180 дней, ПСК 29,2–292%). Процентная ставка «ТРАСТ АЛЬЯНС» в документе не раскрыта («установлены внутренними приказами»), rateDayPct=0,8 — верхняя граница по ПСК 292% при отсутствии иных платежей. ageMax=100: верхний возраст не установлен. Калькулятор на главной: до 14 000 ₽ (короткие) и 15 000–60 000 ₽ (рассрочка). Сайт при отказе показывает подборку чужих предложений."
+}

@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://tochka.com/account/ooo/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "3545",
+    "ogrn": "1237700005157",
+    "inn": "9721194461",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1237700005157",
+    "status": "active",
+    "name": "ООО «Банк Точка»"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "от 950 ₽/мес (тариф «Начало»)",
+      "url": "https://tochka.com/account/ooo/",
+      "quote": "Начало 950 ₽ в месяц Подойдёт компаниям и ИП без сотрудников, сезонного бизнеса"
+    },
+    "Переводы физлицам": {
+      "value": "до 400 000 ₽/мес бесплатно",
+      "url": "https://tochka.com/account/ooo/",
+      "quote": "Переводы физлицам До 400 000 ₽ в месяц бесплатно"
+    },
+    "Платежи ИП и юрлицам": {
+      "value": "30 в месяц бесплатно, далее 75 ₽",
+      "url": "https://tochka.com/account/ooo/",
+      "quote": "Платежи ИП и юрлицам 30 платежей в месяц бесплатно Далее 75 ₽ за каждый"
+    },
+    "Бесплатный период": {
+      "value": "3 мес. на «Развитии» при открытии до 10.11.2026",
+      "url": "https://tochka.com/account/ooo/",
+      "quote": "3 месяца за 0 ₽ на тарифе «Развитие» — при открытии счёта до 10 ноября"
+    },
+    "priceFrom": {
+      "value": 950,
+      "url": "https://tochka.com/account/ooo/",
+      "quote": "Начало 950 ₽ в месяц"
+    }
+  },
+  "erid": "2VtzqwMMLvJ",
+  "notes": "Saleads-лендинг ООО — трекинговая ссылка (adv.tochka.mplace.me), не открывалась; условия взяты с tochka.com/account/ooo/. «Бесплатный период» — акция до 10.11.2026: после этой даты highlight нужно убрать."
+}

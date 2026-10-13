@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://alfabank.ru/sme/start/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "1326",
+    "ogrn": "1027700067328",
+    "inn": "7728168971",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700067328",
+    "status": "active",
+    "name": "АО «АЛЬФА-БАНК»"
+  },
+  "fields": {
+    "Регистрация": {
+      "value": "бесплатно, онлайн",
+      "url": "https://alfabank.ru/sme/start/",
+      "quote": "Регистрация бизнеса онлайн полностью бесплатно не выходя из дома"
+    },
+    "Госпошлина": {
+      "value": "0 ₽ при онлайн-подаче",
+      "url": "https://alfabank.ru/sme/start/",
+      "quote": "Надо ли оплачивать госпошлину? Нет, при регистрации фирмы с отправкой заявления в налоговую онлайн, через наш сервис."
+    },
+    "Документы": {
+      "value": "паспорт и СНИЛС",
+      "url": "https://alfabank.ru/sme/start/",
+      "quote": "Понадобится только паспорт и СНИЛС"
+    },
+    "Расчётный счёт": {
+      "value": "0 ₽ за открытие и обслуживание",
+      "url": "https://alfabank.ru/sme/start/",
+      "quote": "Расчётный счёт 0 ₽ за открытие и обслуживание."
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://alfabank.ru/sme/start/",
+      "quote": "Расчётный счёт 0 ₽ за открытие и обслуживание."
+    }
+  },
+  "erid": "2VtzqwHSHcA",
+  "notes": "Партнёрский лендинг alfabank.sale/sme/agent/start-biz не открывался; условия — с alfabank.ru/sme/start/. Условие «до 1 млн ₽» — по тарифу «Ноль за обслуживание»."
+}

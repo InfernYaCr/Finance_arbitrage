@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.atb.su/business/rko-packages/cpa/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "1810",
+    "ogrn": "1022800000079",
+    "inn": "2801023444",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1022800000079",
+    "status": "active",
+    "name": "«Азиатско-Тихоокеанский Банк» (АО)"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "от 900 ₽/мес (регионы), от 1 250 ₽ (Москва и МО)",
+      "url": "https://www.atb.su/business/rko-packages/cpa/",
+      "quote": "Saleads: «Освежающий - 900 ₽/мес» (регионы), «Освежающий - 1 250 ₽/мес» (Москва и МО)"
+    },
+    "Платежи в другие банки": {
+      "value": "6 в месяц в пакете «Освежающий»",
+      "url": "https://www.atb.su/business/rko-packages/cpa/",
+      "quote": "Saleads: «Освежающий … 6 платежей контрагентам в другой банк»"
+    },
+    "Переводы физлицам": {
+      "value": "до 200 тыс. ₽/мес в пакете «Освежающий»",
+      "url": "https://www.atb.su/business/rko-packages/cpa/",
+      "quote": "Saleads: «до 200 тыс ₽/мес переводы в пользу ФЛ»"
+    },
+    "priceFrom": {
+      "value": 900,
+      "url": "https://www.atb.su/business/rko-packages/cpa/",
+      "quote": "Saleads: «Освежающий - 900 ₽/мес»"
+    }
+  },
+  "erid": "2VtzqwBWLUn",
+  "notes": "НЕ ПРОВЕРЕНО: сайт atb.su недоступен 13.10.2026 (curl, браузер и WebFetch — таймаут; вероятно, гео-ограничение). Все значения — из карточки оффера Saleads (offerDescription), сверить с atb.su/business/rko-packages/ перед публикацией. Лицензия 1810 подтверждена по справочнику ЦБ. Логотип не скачан — сайт недоступен."
+}

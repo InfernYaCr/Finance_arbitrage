@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.soglasie.ru/individuals/avto/osago/",
+  "registry": {
+    "source": "cbr_insurer_registry",
+    "regNumber": "ОС № 1307-03",
+    "ogrn": "1027700032700",
+    "inn": "7706196090",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700032700",
+    "status": "active",
+    "name": "ООО «СК «Согласие»"
+  },
+  "fields": {
+    "Оформление": {
+      "value": "онлайн, полис на e-mail",
+      "url": "https://www.soglasie.ru/avto/kalkulyator-eosago/regions/orsk/",
+      "quote": "оформить электронный полис и получить его на электронную почту"
+    },
+    "Краткосрочный полис": {
+      "value": "срок и период использования выбираются в калькуляторе",
+      "url": "https://www.soglasie.ru/individuals/avto/osago/",
+      "quote": "для краткосрочного или сезонного полиса на последнем шаге калькулятора нужно указать срок страхования и период использования"
+    },
+    "Полис": {
+      "value": "электронный, равен бумажному",
+      "url": "https://www.soglasie.ru/avto/kalkulyator-eosago/regions/orsk/",
+      "quote": "имеет такую же юридическую силу, как и бумажный, и принимается сотрудниками ГИБДД"
+    }
+  },
+  "erid": "2Vtzqwuw7jR",
+  "notes": "Лицензия: ОС № 1307-03 (ОСАГО), также СИ № 1307 и СЛ № 1307 — справочник ЦБ, статус «Действует». verified=false: soglasie.ru закрыт DDoS-Guard для сети агента («Владелец сайта запретил доступ из вашей сети»), Wayback offline; цитаты highlights — из поискового индекса страниц soglasie.ru, а не с живой страницы. Из текста Saleads не взяты: «полис за 5–10 минут», «краткосрочный от 1 дня до 6 месяцев», «КАСКОзащита+» — не подтверждены официальной страницей. Перепроверить с российского IP."
+}

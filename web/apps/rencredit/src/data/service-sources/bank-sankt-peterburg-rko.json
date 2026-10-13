@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.bspb.ru/business/settlement-service/tariffs/delovoy-mobilniy",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "436",
+    "ogrn": "1027800000140",
+    "inn": "7831000027",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027800000140",
+    "status": "active",
+    "name": "ПАО «Банк «Санкт-Петербург»"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽ первые 6 мес., далее 540 ₽/мес",
+      "url": "https://www.bspb.ru/business/settlement-service/tariffs/delovoy-mobilniy",
+      "quote": "первые 6 месяцев – бесплатно, далее от 1 ₽ при выполнении условий / 540 ₽ в месяц"
+    },
+    "Платежи ЮЛ и ИП": {
+      "value": "10 в месяц бесплатно (в приложении)",
+      "url": "https://www.bspb.ru/business/settlement-service/tariffs/delovoy-mobilniy",
+      "quote": "Бесплатно в приложении 10 платежей на счета ЮЛ и ИП"
+    },
+    "Переводы физлицам": {
+      "value": "до 50 000 ₽/мес бесплатно",
+      "url": "https://www.bspb.ru/business/settlement-serv",
+      "quote": "Переводы на счета ФЛ - внешние из моб. приложения до 50 000 ₽ - бесплатно"
+    },
+    "Перевод ИП на свой счёт": {
+      "value": "до 500 000 ₽ бесплатно",
+      "url": "https://www.bspb.ru/business/settlement-service/tariffs/delovoy-mobilniy",
+      "quote": "переводы на счета ФЛ: для ИП до 500 000 ₽ – бесплатно, далее от 1,8%"
+    },
+    "priceFrom": {
+      "value": 540,
+      "url": "https://www.bspb.ru/business/settlement-service/tariffs/delovoy-mobilniy",
+      "quote": "далее от 1 ₽ при выполнении условий / 540 ₽ в месяц"
+    }
+  },
+  "erid": "2VtzqxdjHVW",
+  "notes": "Взят стартовый пакет «Деловой.Мобильный». priceFrom = 540 ₽ (обычная цена после 6 мес.), т.к. 1 ₽ требует остатка от 600 000 ₽ или карточных оплат от 100 000 ₽ в месяц. Внешние переводы ФЛ 50 000 ₽ — из таблицы пакетов на /business/settlement-serv (данные страницы)."
+}

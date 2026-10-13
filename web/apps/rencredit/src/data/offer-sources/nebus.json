@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://nebusfinance.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "2504125010151",
+    "ogrn": "1243800019913",
+    "inn": "3849104975",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1243800019913",
+    "status": "active",
+    "name": "ООО МКК «Базис»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 3000,
+      "url": "https://nebusfinance.ru/",
+      "quote": "Калькулятор: «Желаемая сумма … 3 000 ₽ … 300 000 ₽» (по документу — от 1 000 ₽)"
+    },
+    "amountMax": {
+      "value": 300000,
+      "url": "https://docs.nebusfinance.ru/get/04_%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F_%D0%BE%D0%B1_%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85_%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0.pdf",
+      "quote": "п. 11.3: Займы от 100 000 до 300 000 рублей со сроком пользования до 113 календарных дней"
+    },
+    "termMinDays": {
+      "value": 84,
+      "url": "https://nebusfinance.ru/",
+      "quote": "Калькулятор: «Предпочтительный срок … 12 недель … 25 недель» (12 нед. = 84 дн.)"
+    },
+    "termMaxDays": {
+      "value": 113,
+      "url": "https://docs.nebusfinance.ru/get/04_%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F_%D0%BE%D0%B1_%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85_%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0.pdf",
+      "quote": "п. 11.2–11.3: со сроком пользования до 113 (ста тринадцати) календарных дней"
+    },
+    "rateDayPct": {
+      "value": 0.8,
+      "url": "https://docs.nebusfinance.ru/get/04_%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F_%D0%BE%D0%B1_%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85_%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0.pdf",
+      "quote": "п. 11.1: Процентные ставки … от 291,00% годовых до 292,00% годовых (292/365 = 0,8% в день)"
+    },
+    "pskMin": {
+      "value": 0,
+      "url": "https://docs.nebusfinance.ru/get/04_%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F_%D0%BE%D0%B1_%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85_%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0.pdf",
+      "quote": "диапазон значений ПСК по Договорам займа составляет от 0,000% годовых до 292,000% годовых"
+    },
+    "pskMax": {
+      "value": 292,
+      "url": "https://docs.nebusfinance.ru/get/04_%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F_%D0%BE%D0%B1_%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85_%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0.pdf",
+      "quote": "от 0,000% годовых до 292,000% годовых"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://docs.nebusfinance.ru/get/04_%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F_%D0%BE%D0%B1_%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85_%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0.pdf",
+      "quote": "п. 7: возраст Заемщика от 18 лет"
+    },
+    "ageMax": {
+      "value": 100,
+      "url": "https://docs.nebusfinance.ru/get/04_%D0%98%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F_%D0%BE%D0%B1_%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D1%8F%D1%85_%D0%BF%D1%80%D0%B5%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F_%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F_%D0%B8_%D0%B2%D0%BE%D0%B7%D0%B2%D1%80%D0%B0%D1%82%D0%B0.pdf",
+      "quote": "п. 7: «возраст Заемщика от 18 лет» — верхний предел не установлен"
+    },
+    "features.to_card": {
+      "value": true,
+      "url": "https://nebusfinance.ru/",
+      "quote": "Оформите документы и получите перевод моментально онлайн"
+    },
+    "features.bad_history": {
+      "value": true,
+      "url": "https://nebusfinance.ru/",
+      "quote": "Выдаем займы даже клиентам с плохой кредитной историей"
+    },
+    "features.round_the_clock": {
+      "value": true,
+      "url": "https://nebusfinance.ru/",
+      "quote": "Заявки на заём обрабатываем круглосуточно, без выходных"
+    },
+    "cons.qrget": {
+      "value": "1000–30000",
+      "url": "https://docs.nebusfinance.ru/get/0be6ea60-aaee-40a0-a9e2-ad84e1a6b96b.pdf",
+      "quote": "Тарифный план QRGet НС 2.0: стоимость QRGET от 1000 до 30000 руб."
+    }
+  },
+  "erid": "2Vtzqv1Hzw4",
+  "notes": "Источник — «Информация об условиях…» ООО МКК «Базис» (ред. № 1, опубликована 20.03.2026; на 13.10.2026 актуальная в разделе документов). Под брендом Nebus займы выдают ООО МКК «Базис» и ООО МКК «Небусфинанс» (рег. № 2603045010266, ОГРН 1257700334429; 1 000–300 000 ₽ до 85 дней). Сайт и cookie оформлены на «Базис» — он взят основным. Расхождение: калькулятор на главной предлагает срок до 25 недель (175 дней), документ «Базиса» — до 113 дней; termMaxDays взят по документу. Минимальная сумма на сайте 3 000 ₽, в документе 1 000 ₽. «0% при возврате в срок» — акция «Все займы под 0%» (возврат в первые 14 дней), «участие предлагается в индивидуальном порядке» — zero_percent/freeDays не ставим; pskMin=0 — опубликованный диапазон с учётом акций. Время решения на сайте указано противоречиво («через 3 минуты» и «2 минуты») — decisionMinutes не заполнен. Сайт упоминает ООО «Луна» (бывш. МКК), исключённое из реестра, — займы оно не выдаёт."
+}

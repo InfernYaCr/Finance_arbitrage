@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.akbars.ru/small-business/rko/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2590",
+    "ogrn": "1021600000124",
+    "inn": "1653001805",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1021600000124",
+    "status": "active",
+    "name": "ПАО «АК БАРС» БАНК"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "690 ₽/мес, 0 ₽ при выполнении условий",
+      "url": "https://www.akbars.ru/small-business/rko/",
+      "quote": "Первый шаг ... Стоимость 690 ₽ в месяц 0 ₽ в месяц при выполнении условий"
+    },
+    "Бесплатный период": {
+      "value": "1-й месяц",
+      "url": "https://www.akbars.ru/small-business/rko/",
+      "quote": "0 ₽ — 1 месяц, далее 690 ₽"
+    },
+    "Платежи": {
+      "value": "5 в месяц в пакете «Первый шаг»",
+      "url": "https://www.akbars.ru/small-business/rko/",
+      "quote": "Первый шаг 1 счёт 5 платежей 1 бесплатная карта"
+    },
+    "Переводы физлицам": {
+      "value": "до 800 000 ₽/мес для ИП",
+      "url": "https://www.akbars.ru/small-business/rko/",
+      "quote": "до 800 000 ₽/мес. для ИП переводы физлицам (в т.ч. и внутри банка)"
+    },
+    "priceFrom": {
+      "value": 690,
+      "url": "https://www.akbars.ru/small-business/rko/",
+      "quote": "Стоимость 690 ₽ в месяц 0 ₽ в месяц при выполнении условий"
+    }
+  },
+  "erid": "2VtzqwUmHL2",
+  "notes": "Сайт akbars.ru не отдаётся curl (403/сброс), данные сняты через браузер 13.10.2026. Условия «0 ₽»: среднедневной остаток 300 000 ₽ / безнал по карте 50 000 ₽/мес / ФОТ 75 000 ₽/мес. Указанные в карточке Saleads «14,5% на остаток» на странице не найдены — не используются."
+}

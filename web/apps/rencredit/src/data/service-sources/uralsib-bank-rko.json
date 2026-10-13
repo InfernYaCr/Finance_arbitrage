@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://uralsib.ru/p/sme/rko-cpa-promotion",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "30",
+    "ogrn": "1020280000190",
+    "inn": "0274062111",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1020280000190",
+    "status": "active",
+    "name": "ПАО «БАНК УРАЛСИБ»"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽ первые 6 мес., далее 0 ₽ при остатке от 10 000 ₽",
+      "url": "https://uralsib.ru/api/directory-engine/files/rates/tarify-po-paketam-uslug-sokrashchennaya-versiya-_g4dcexfv.pdf",
+      "quote": "6 мес. - бесплатно с 7 мес. – бесплатно, при среднемесячном остатке на счете - не менее 10 000 ₽ или зачислении на счет в сумме не менее 10 000 ₽, в ином случае - 490 ₽"
+    },
+    "Платежи контрагентам": {
+      "value": "5 в месяц бесплатно, далее 199 ₽",
+      "url": "https://uralsib.ru/p/sme/rko-cpa-promotion",
+      "quote": "Стартовый ... Платежи контрагентам 5 шт – 0 ₽, далее 199 ₽"
+    },
+    "Переводы физлицам": {
+      "value": "до 300 000 ₽/мес бесплатно",
+      "url": "https://uralsib.ru/p/sme/rko-cpa-promotion",
+      "quote": "Переводы физлицам до 300 000 ₽ – бесплатно"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://uralsib.ru/api/directory-engine/files/rates/tarify-po-paketam-uslug-sokrashchennaya-versiya-_g4dcexfv.pdf",
+      "quote": "Стартовый ... с 7 мес. – бесплатно, при среднемесячном остатке на счете - не менее 10 000 ₽ или зачислении на счет в сумме не менее 10 000 ₽, в ином случае - 490 ₽"
+    }
+  },
+  "erid": "2VtzqwRoJmL",
+  "notes": "Условия обслуживания — из сокращённых «Тарифов по пакетам услуг» (актуальны на 01.07.2026). «Стартовый» подключается к одному рублёвому счёту. Акция «Свобода выбора» (бонусные опции на 3 мес.) к «Стартовому» не применяется. В справочнике ЦБ регистрационный номер 2275, номер лицензии — 30 (как в uralsib-120).\""
+}

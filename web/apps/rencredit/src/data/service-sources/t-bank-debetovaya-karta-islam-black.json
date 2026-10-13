@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.tbank.ru/cards/debit-cards/islam-card/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "2673",
+    "ogrn": "1027739642281",
+    "inn": "7710140679",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027739642281",
+    "status": "active",
+    "name": "АО «ТБанк»"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "199 ₽/мес до 31.01.2027 (обычно 299 ₽)",
+      "url": "https://www.tbank.ru/cards/debit-cards/islam-card/",
+      "quote": "исламской карты за 199 ₽ в месяц вместо 299 ₽ — при заказе до 31 января 2027"
+    },
+    "Проценты": {
+      "value": "не начисляются, нет накопительных счетов",
+      "url": "https://www.tbank.ru/cards/debit-cards/islam-card/",
+      "quote": "У нее нет накопительных счетов (элемент риба), по ней невозможны операции и покупки в харамных сферах"
+    },
+    "Кешбэк": {
+      "value": "до 15% в 4 категориях или отказ / на благотворительность",
+      "url": "https://www.tbank.ru/cards/debit-cards/islam-card/",
+      "quote": "До 15% за покупки в четырех категориях … В форме заказа карты вы можете выбрать, получать кэшбэк или нет"
+    },
+    "Снятие без комиссии": {
+      "value": "до 500 000 ₽ в банкоматах Т-Банка",
+      "url": "https://www.tbank.ru/cards/debit-cards/islam-card/",
+      "quote": "Снимайте наличные бесплатно: до 500 000 ₽ в банкоматах Т‑Банка, от 3 000 до 100 000 ₽ в банкоматах наших партнеров"
+    },
+    "priceFrom": {
+      "value": 199,
+      "url": "https://www.tbank.ru/cards/debit-cards/islam-card/",
+      "quote": "199 ₽ в месяц — фиксированная стоимость обслуживания карты до 31 января 2027"
+    }
+  },
+  "erid": "2Vtzqw2cQni",
+  "notes": "Официальный URL продукта — /cards/debit-cards/islam-card/ (в Saleads — «Islam Black»). priceFrom=199 — акционная цена при заказе до 31.01.2027; после акции — 299 ₽. Сайт банка — сертификат НУЦ Минцифры, скачано без проверки TLS."
+}

@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://uralsib.ru/vklady-scheta/dinamichniy",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "30",
+    "ogrn": "1020280000190",
+    "inn": "0274062111",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1020280000190",
+    "status": "active",
+    "name": "ПАО «БАНК УРАЛСИБ»"
+  },
+  "fields": {
+    "ratePct": {
+      "value": 20,
+      "url": "https://uralsib.ru/vklady-scheta/dinamichniy",
+      "quote": "Процентный период в днях 1-60 … Годовая процентная ставка* 20%"
+    },
+    "Ставка": {
+      "value": "20% (дни 1–60), средняя 13,71%",
+      "url": "https://uralsib.ru/vklady-scheta/dinamichniy",
+      "quote": "1-60 / 61-120 / 121-181 — 20% / 11,5% / 9,7%; * Средняя (минимально гарантированная ставка по вкладу) - 13,71 %"
+    },
+    "Срок": {
+      "value": "181 день",
+      "url": "https://uralsib.ru/vklady-scheta/dinamichniy",
+      "quote": "Срок вклада 6 месяцев (181 день)"
+    },
+    "Мин. сумма": {
+      "value": "50 000 ₽",
+      "url": "https://uralsib.ru/vklady-scheta/dinamichniy",
+      "quote": "Минимальная сумма вклада 50 000 ₽"
+    },
+    "Страхование АСВ": {
+      "value": "да",
+      "url": "https://uralsib.ru/vklady-scheta/dinamichniy",
+      "quote": "Ваши деньги будут защищены государством через агентство по страхованию вкладов"
+    }
+  },
+  "erid": "2Vtzqxdgpoa",
+  "notes": "Тарифы вклада от 25.09.2026 (PDF на странице продукта). Макс. сумма 10 млн ₽; проценты в конце срока; пополнение, расходные операции и пролонгация не предусмотрены; досрочно — 0,01%. Открытие в приложении/веб/офисе после оформления карты Уралсиба. Лендинг Saleads (uralsib.ru/p/mlm-vklad) — форма заявки без условий; условия взяты со страницы продукта. Логотип скопирован с uralsib-120.png."
+}

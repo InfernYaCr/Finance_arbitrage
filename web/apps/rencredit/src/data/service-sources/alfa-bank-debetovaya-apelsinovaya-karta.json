@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://alfabank.ru/everyday/debit-cards/apelsin/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "1326",
+    "ogrn": "1027700067328",
+    "inn": "7728168971",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700067328",
+    "status": "active",
+    "name": "АО \"АЛЬФА-БАНК\""
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽",
+      "url": "https://alfabank.ru/everyday/debit-cards/apelsin/",
+      "quote": "Бесплатно Выпуск карты и обслуживание"
+    },
+    "Кешбэк": {
+      "value": "7% в Пятёрочке и Перекрёстке баллами Х5",
+      "url": "https://alfabank.ru/everyday/debit-cards/apelsin/",
+      "quote": "7% кэшбэка на товары без акции в Пятёрочке и Перекрёстке. Кэшбэк начисляется баллами Х5 Клуба: 10 баллов = 1 ₽"
+    },
+    "% на остаток": {
+      "value": "до 17% годовых 3 месяца на сумму 5–50 тыс. ₽",
+      "url": "https://alfabank.ru/everyday/debit-cards/apelsin/",
+      "quote": "До 17% годовых на остаток по карте … в течение 3 месяцев … Проценты начисляем только на сумму от 5000 до 50 000 ₽"
+    },
+    "Возраст": {
+      "value": "с 18 лет",
+      "url": "https://alfabank.ru/everyday/debit-cards/apelsin/",
+      "quote": "Заказать карту можно только с 18 лет"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://alfabank.ru/everyday/debit-cards/apelsin/",
+      "quote": "Бесплатно Выпуск карты и обслуживание"
+    }
+  },
+  "erid": "2VtzqvMxUhB/5207",
+  "notes": "Лендинг Saleads — myapelsincard.ru (партнёрский), официальная страница продукта — alfabank.ru/everyday/debit-cards/apelsin/. Сайт банка — сертификат НУЦ Минцифры, скачано без проверки TLS."
+}

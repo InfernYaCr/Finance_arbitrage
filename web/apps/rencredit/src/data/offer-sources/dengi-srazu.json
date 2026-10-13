@@ -1,0 +1,77 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://dengisrazy.ru/",
+  "registry": {
+    "source": "cbr_mfo_registry",
+    "regNumber": "1603760008057",
+    "ogrn": "1166196099057",
+    "inn": "6162073437",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1166196099057",
+    "status": "active",
+    "name": "ООО «МКК НФ»"
+  },
+  "fields": {
+    "amountMin": {
+      "value": 500,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 12: Микрозайм «Стандартный» от 500 (Пятиста) рублей"
+    },
+    "amountMax": {
+      "value": 100000,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 12: Максимальный размер микрозайма составляет 100 000 (сто тысяч) рублей"
+    },
+    "termMinDays": {
+      "value": 17,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 13: Микрозайм «Стандартный»: на 17 (Семнадцать) дней"
+    },
+    "termMaxDays": {
+      "value": 365,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 13: на 365 (Триста шестьдесят пять) дней"
+    },
+    "rateDayPct": {
+      "value": 0.54,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 16: процентная ставка … 197,1 процентов годовых (197,1/365 = 0,54% в день); на 365 дней — 146%"
+    },
+    "pskMin": {
+      "value": 146,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 18: Полная стоимость микрозаймов «Стандартный» … от 146 процентов годовых"
+    },
+    "pskMax": {
+      "value": 197.1,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 18: … до 197,1 процентов годовых"
+    },
+    "decisionMinutes": {
+      "value": 20,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 9: решение … не позднее 20 (Двадцати) минут"
+    },
+    "ageMin": {
+      "value": 18,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 8: гражданам РФ, в возрасте от 18 до 85 лет"
+    },
+    "ageMax": {
+      "value": 85,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 8: гражданам РФ, в возрасте от 18 до 85 лет"
+    },
+    "features.to_card": {
+      "value": true,
+      "url": "https://dengisrazy.ru/document/informacia-ob-usloviah-predostavlenia-polzovania-i-vozvrata-mikrozajmov-red-051026",
+      "quote": "п. 15: перевод на счет, указанный Заёмщиком; по СБП по номеру телефона"
+    },
+    "features.round_the_clock": {
+      "value": true,
+      "url": "https://dengisrazy.ru/",
+      "quote": "Мы выдаём онлайн-займы на карту круглосуточно"
+    }
+  },
+  "erid": "2Vtzqua2Y4V",
+  "notes": "Источник — «Информация об условиях…» ред. 05.10.2026 (вступила в силу 05.10.2026). На витрину взят продукт «Стандартный» (сроки 17/33/62/92/120/179/365 дней). Заём с лимитом кредитования (до 1825 дней, ПСК до 292%) не учитывался. Акция «0% первые 5 дней» из описания Saleads на сайте и в документах не найдена — zero_percent/freeDays не ставим. Промо +1000 ₽ в приложении не переносили. Документ допускает новацию части суммы займа в оплату оказанных услуг (п. 15). На главной упоминается погашение договоров «СКОРФИН» (ООО «МКК СКОРФИН», тоже в реестре) — сайт сейчас обслуживает ООО «МКК НФ»."
+}

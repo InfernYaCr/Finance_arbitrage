@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://alfabank.ru/everyday/debit-cards/youth-card/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "1326",
+    "ogrn": "1027700067328",
+    "inn": "7728168971",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700067328",
+    "status": "active",
+    "name": "АО \"АЛЬФА-БАНК\""
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "0 ₽ всегда, без условий",
+      "url": "https://alfabank.ru/everyday/debit-cards/youth-card/",
+      "quote": "Обслуживание Бесплатно всегда, без условий"
+    },
+    "Кешбэк": {
+      "value": "до 30% в категориях на выбор, до 100% в барабане",
+      "url": "https://alfabank.ru/everyday/debit-cards/youth-card/",
+      "quote": "До 100% на случайную категорию в барабане суперкэшбэка До 30% в категориях на выбор каждый месяц"
+    },
+    "Снятие без комиссии": {
+      "value": "до 100 000 ₽/мес в любых банкоматах, до 1 млн ₽ — у Альфа-Банка и партнёров",
+      "url": "https://alfabank.ru/everyday/debit-cards/youth-card/",
+      "quote": "Бесплатно до 1 млн ₽ в банкоматах Альфа‑Банка и партнёров Бесплатно до 100 000 ₽ в банкоматах других банков"
+    },
+    "Возраст": {
+      "value": "с 14 лет",
+      "url": "https://alfabank.ru/everyday/debit-cards/youth-card/",
+      "quote": "для всех, кому исполнилось 14 лет"
+    },
+    "priceFrom": {
+      "value": 0,
+      "url": "https://alfabank.ru/everyday/debit-cards/youth-card/",
+      "quote": "Обслуживание Бесплатно всегда, без условий"
+    }
+  },
+  "erid": "2Vtzquwp2RL",
+  "notes": "Сайт банка — сертификат НУЦ Минцифры, скачано без проверки TLS. Кешбэк: базово 5% в 4 категориях (или 3 + 1% на всё), до 30% — в акционных категориях (FAQ той же страницы)."
+}

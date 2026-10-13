@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-10-13",
+  "officialUrl": "https://www.nskbl.ru/business/payment_account/otkryt_schet/nol_dlya_starta/",
+  "registry": {
+    "source": "cbr_bank",
+    "regNumber": "1343",
+    "ogrn": "1025400000010",
+    "inn": "5404154492",
+    "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1025400000010",
+    "status": "active",
+    "name": "Банк «Левобережный» (ПАО)"
+  },
+  "fields": {
+    "Обслуживание": {
+      "value": "650 ₽/мес, 0 ₽ при оплатах картой от 100 000 ₽",
+      "url": "https://www.nskbl.ru/business/payment_account/otkryt_schet/nol_dlya_starta/",
+      "quote": "Обслуживание 0 ₽, если в предыдущем отчетном месяце транзакции по корпкартам и/или бизнес-картам превысили 100 000 ₽, в ином случае – 650 ₽"
+    },
+    "Открытие счёта": {
+      "value": "0 ₽ для бизнеса до 90 дней",
+      "url": "https://www.nskbl.ru/business/payment_account/otkryt_schet/nol_dlya_starta/",
+      "quote": "Открытие счета 0 ₽ для клиентов, зарегистрированных не более 90 дней назад, в ином случае – 650 ₽"
+    },
+    "Платежи ЮЛ и ИП": {
+      "value": "5 в месяц бесплатно, далее 100 ₽",
+      "url": "https://www.nskbl.ru/business/payment_account/otkryt_schet/nol_dlya_starta/",
+      "quote": "Переводы ЮЛ и ИП в другие банки до 18:00 5 бесплатно, далее 100 руб."
+    },
+    "Переводы физлицам": {
+      "value": "до 150 000 ₽ бесплатно",
+      "url": "https://www.nskbl.ru/business/payment_account/otkryt_schet/nol_dlya_starta/",
+      "quote": "Переводы на счета физ. лиц до 150 000 рублей - бесплатно"
+    },
+    "priceFrom": {
+      "value": 650,
+      "url": "https://www.nskbl.ru/business/payment_account/otkryt_schet/nol_dlya_starta/",
+      "quote": "Обслуживание 0 ₽, если ... транзакции по корпкартам и/или бизнес-картам превысили 100 000 ₽, в ином случае – 650 ₽"
+    }
+  },
+  "erid": "2VtzqwXjFti",
+  "notes": "Saleads-лендинг — реферальная страница банка с ID агента (nskbl.ru/client-services/referral/...), на ней показан тариф «Свобода» 1 590 ₽; в карточке взят стартовый «Ноль для старта». priceFrom = 650 ₽ (без выполнения условия по карте)."
+}
