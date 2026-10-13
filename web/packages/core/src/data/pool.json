@@ -2,7 +2,7 @@
   {
     "id": "saleads-b87534e0",
     "label": "hh (регистрация нового клиента-работодателя)",
-    "href": "https://my.saleads.pro/s/88edd170-6322-11f1-a29e-1986fc75cabc",
+    "href": "https://my.saleads.pro/s/88edd170-6322-11f1-a29e-1986fc75cabc?erid=2VtzqwY9a2H",
     "network": "saleads",
     "vertical": "business",
     "payout": "7500₽",
@@ -12,7 +12,7 @@
   {
     "id": "saleads-07cf73a0",
     "label": "Азиатско-Тихоокеанский Банк - РКО (открытие расчетного счета)",
-    "href": "https://my.saleads.pro/s/c8e49220-6322-11f1-8ec6-b329f1b53485",
+    "href": "https://my.saleads.pro/s/c8e49220-6322-11f1-8ec6-b329f1b53485?erid=2VtzqwBWLUn",
     "network": "saleads",
     "vertical": "business",
     "payout": "1125₽",
@@ -22,7 +22,7 @@
   {
     "id": "saleads-7182c150",
     "label": "Ак Барс Банк - РКО (активация расчетного счета)",
-    "href": "https://my.saleads.pro/s/8d8373a0-6322-11f1-b93e-395f11f7e7b0",
+    "href": "https://my.saleads.pro/s/8d8373a0-6322-11f1-b93e-395f11f7e7b0?erid=2VtzqwUmHL2",
     "network": "saleads",
     "vertical": "business",
     "payout": "3525₽ / 4666₽",
@@ -32,27 +32,27 @@
   {
     "id": "saleads-0eb07970",
     "label": "Альфа Банк - РКО (открытие расчетного счета)",
-    "href": "https://my.saleads.pro/s/a4a3ae80-6322-11f1-9bb6-7926a0a9a06e",
+    "href": "https://my.saleads.pro/s/a4a3ae80-6322-11f1-9bb6-7926a0a9a06e?erid=2VtzqvmhUJS",
     "network": "saleads",
     "vertical": "business",
-    "payout": "1718₽",
+    "payout": "9220₽",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-34113fa0",
     "label": "Альфа Банк - Регистрация бизнеса + РКО",
-    "href": "https://my.saleads.pro/s/9a4625c0-6322-11f1-8d9e-e10680c022c3",
+    "href": "https://my.saleads.pro/s/9a4625c0-6322-11f1-8d9e-e10680c022c3?erid=2VtzqwHSHcA",
     "network": "saleads",
     "vertical": "business",
-    "payout": "3125₽",
+    "payout": "11065₽",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-edb982f0",
     "label": "БКС Банк - РКО (открытие расчетного счета)",
-    "href": "https://my.saleads.pro/s/9c3145d0-6322-11f1-b65a-bf2db434b685",
+    "href": "https://my.saleads.pro/s/9c3145d0-6322-11f1-b65a-bf2db434b685?erid=2VtzqwTHJ3g",
     "network": "saleads",
     "vertical": "business",
     "payout": "2625₽",
@@ -62,10 +62,20 @@
   {
     "id": "saleads-30cf7fe0",
     "label": "Банк «Левобережный» - РКО  (Активация расчетного счета)",
-    "href": "https://my.saleads.pro/s/8f38ce60-6322-11f1-82ef-c5fe9e2c1742",
+    "href": "https://my.saleads.pro/s/8f38ce60-6322-11f1-82ef-c5fe9e2c1742?erid=2VtzqwXjFti",
     "network": "saleads",
     "vertical": "business",
     "payout": "4125₽",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-07dd0e40",
+    "label": "Банк «Санкт-Петербург» - РКО (Активация)",
+    "href": "https://my.saleads.pro/s/7caeb870-c733-11f1-a73f-03af2c643d9f?erid=2VtzqxdjHVW",
+    "network": "saleads",
+    "vertical": "business",
+    "payout": "3750₽",
     "status": "approve",
     "enabled": true
   },
@@ -92,7 +102,7 @@
   {
     "id": "saleads-d70ad850",
     "label": "ЛокоБанк - РКО (Активация)",
-    "href": "https://my.saleads.pro/s/13559200-6323-11f1-853d-119a39132221",
+    "href": "https://my.saleads.pro/s/13559200-6323-11f1-853d-119a39132221?erid=2Vtzqwfg6qL",
     "network": "saleads",
     "vertical": "business",
     "payout": "750₽",
@@ -102,7 +112,7 @@
   {
     "id": "saleads-010795b0",
     "label": "Московская Бизнес Академия (Оплаченный курс)",
-    "href": "https://my.saleads.pro/s/b3de65e0-6324-11f1-9a8f-bd7dfbb7b89f",
+    "href": "https://my.saleads.pro/s/b3de65e0-6324-11f1-9a8f-bd7dfbb7b89f?erid=2VtzqweABux",
     "network": "saleads",
     "vertical": "business",
     "payout": "21.65%",
@@ -112,7 +122,7 @@
   {
     "id": "saleads-0c51c560",
     "label": "Норвик Банк РКО ( Активный расчетный счет)",
-    "href": "https://my.saleads.pro/s/8d58f640-6322-11f1-8465-6d95638e5777",
+    "href": "https://my.saleads.pro/s/8d58f640-6322-11f1-8465-6d95638e5777?erid=2Vtzqwo6h4i",
     "network": "saleads",
     "vertical": "business",
     "payout": "4800₽",
@@ -120,24 +130,24 @@
     "enabled": true
   },
   {
-    "id": "saleads-105bf8a0",
-    "label": "ОТП Банк - РКО (Активация расчетного счета)",
-    "href": "https://my.saleads.pro/s/29df0300-6321-11f1-a054-4ddda152f50d",
-    "network": "saleads",
-    "vertical": "business",
-    "payout": "9000₽",
-    "status": "approve",
-    "enabled": true
-  },
-  {
-    "id": "saleads-2758b9d0",
-    "label": "Совкомбанк - РКО (открытие расчетного счета)",
+    "id": "saleads-b8ebb540",
+    "label": "ОТП Банк - РКО (Активация расчетного счета )",
     "href": "",
     "network": "saleads",
     "vertical": "business",
-    "payout": "2250₽ / 2250₽",
+    "payout": "9000₽",
     "status": "wait",
     "enabled": false
+  },
+  {
+    "id": "saleads-acde1e40",
+    "label": "Россельхозбанк (РСХБ) - РКО (Открытие расчетного счета)",
+    "href": "https://my.saleads.pro/s/8ca594b0-c733-11f1-86b3-87d90c6099f7?erid=2VtzqwL5VLP",
+    "network": "saleads",
+    "vertical": "business",
+    "payout": "637.5₽",
+    "status": "approve",
+    "enabled": true
   },
   {
     "id": "saleads-1a7efb90",
@@ -172,7 +182,7 @@
   {
     "id": "saleads-fa873860",
     "label": "Точка Банк (регистрация ИП и ООО (без НДС))",
-    "href": "https://my.saleads.pro/s/0986db40-6323-11f1-b7ee-c1025204ba6c",
+    "href": "https://my.saleads.pro/s/0986db40-6323-11f1-b7ee-c1025204ba6c?erid=2VtzqwPNEjY",
     "network": "saleads",
     "vertical": "business",
     "payout": "1600₽",
@@ -182,17 +192,17 @@
   {
     "id": "saleads-1a0dad90",
     "label": "УБРиР - РКО (открытие расчетного счета)",
-    "href": "https://my.saleads.pro/s/2a4fcd60-6321-11f1-9dff-d9fe364d491d",
+    "href": "https://my.saleads.pro/s/2a4fcd60-6321-11f1-9dff-d9fe364d491d?erid=2VtzqwWFGcN",
     "network": "saleads",
     "vertical": "business",
-    "payout": "3000₽ / 6000₽ / 11250₽",
+    "payout": "3000₽ / 6000₽ / 11250₽ / 4500₽",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-d3ea9860",
     "label": "УРАЛСИБ Банк - РКО (активный расчетный счет)",
-    "href": "https://my.saleads.pro/s/e2edb300-6322-11f1-bb31-ed1bf3ef7462",
+    "href": "https://my.saleads.pro/s/e2edb300-6322-11f1-bb31-ed1bf3ef7462?erid=2VtzqwRoJmL",
     "network": "saleads",
     "vertical": "business",
     "payout": "513₽",
@@ -200,9 +210,19 @@
     "enabled": true
   },
   {
+    "id": "saleads-8955f350",
+    "label": "Ozon Банк - Кредитная карта (Активация)",
+    "href": "https://my.saleads.pro/s/89fddea0-c733-11f1-96a7-b559fa5eb98c?erid=2VtzquhFyNL",
+    "network": "saleads",
+    "vertical": "card",
+    "payout": "940₽",
+    "status": "approve",
+    "enabled": true
+  },
+  {
     "id": "saleads-3495ba70",
     "label": "Ак Барс Банк - дебетовая карта Барс Карта (выданная карта )",
-    "href": "https://my.saleads.pro/s/a2b69ee0-6322-11f1-9fac-6fd380e608c6",
+    "href": "https://my.saleads.pro/s/a2b69ee0-6322-11f1-9fac-6fd380e608c6?erid=2VtzqwFPgna",
     "network": "saleads",
     "vertical": "card",
     "payout": "1760₽",
@@ -212,7 +232,7 @@
   {
     "id": "saleads-034653f0",
     "label": "Ак Барс Банк - кредитная карта 115 дней без процентов (выданная карта+транзакция",
-    "href": "https://my.saleads.pro/s/9edc7370-6322-11f1-9e74-8f2ae3ee7902",
+    "href": "https://my.saleads.pro/s/9edc7370-6322-11f1-9e74-8f2ae3ee7902?erid=2Vtzqwfgkez",
     "network": "saleads",
     "vertical": "card",
     "payout": "2057₽",
@@ -222,7 +242,7 @@
   {
     "id": "saleads-324198e0",
     "label": "Альфа Банк - дебетовая Альфа-Карта для Иностранцев (выданная карта и транзакция ",
-    "href": "https://my.saleads.pro/s/c4a84670-6322-11f1-adfa-a76850589598",
+    "href": "https://my.saleads.pro/s/c4a84670-6322-11f1-adfa-a76850589598?erid=2Vtzquzmzz2",
     "network": "saleads",
     "vertical": "card",
     "payout": "1250₽",
@@ -232,7 +252,7 @@
   {
     "id": "saleads-9517bad0",
     "label": "Альфа Банк - дебетовая Альфа-Карта самозанятые (выданная карта и транзакция по к",
-    "href": "https://my.saleads.pro/s/c4fa7b40-6322-11f1-8918-bb3c83e66aba",
+    "href": "https://my.saleads.pro/s/c4fa7b40-6322-11f1-8918-bb3c83e66aba?erid=2VtzquvL38z",
     "network": "saleads",
     "vertical": "card",
     "payout": "1250₽",
@@ -242,7 +262,7 @@
   {
     "id": "saleads-1aa72830",
     "label": "Альфа Банк - дебетовая Альфа‑Карта для молодёжи (выданная карта и транзакция по ",
-    "href": "https://my.saleads.pro/s/e26e2030-6322-11f1-afe5-1f21cae8abbd",
+    "href": "https://my.saleads.pro/s/e26e2030-6322-11f1-afe5-1f21cae8abbd?erid=2Vtzquwp2RL",
     "network": "saleads",
     "vertical": "card",
     "payout": "625₽",
@@ -252,7 +272,7 @@
   {
     "id": "saleads-a104a760",
     "label": "Альфа Банк - дебетовая Альфа‑Карта с привилегиями Альфа‑Смарт (Активация подписк",
-    "href": "https://my.saleads.pro/s/bf0874b0-6322-11f1-8936-8534007ac612",
+    "href": "https://my.saleads.pro/s/bf0874b0-6322-11f1-8936-8534007ac612?erid=2VtzquvpuBc",
     "network": "saleads",
     "vertical": "card",
     "payout": "250₽ / 1250₽ / 1500₽",
@@ -262,7 +282,7 @@
   {
     "id": "saleads-fc861240",
     "label": "Альфа Банк - дебетовая Апельсиновая Карта (выданная карта и транзакция по карте)",
-    "href": "https://my.saleads.pro/s/c4d3b540-6322-11f1-96f3-c1d7d892da40",
+    "href": "https://my.saleads.pro/s/c4d3b540-6322-11f1-96f3-c1d7d892da40?erid=2VtzqvMxUhB",
     "network": "saleads",
     "vertical": "card",
     "payout": "1250₽",
@@ -272,7 +292,7 @@
   {
     "id": "saleads-4b99c3a0",
     "label": "Альфа Банк - дебетовая детская карта (выданная карта и транзакция по карте)",
-    "href": "https://my.saleads.pro/s/e2979ac0-6322-11f1-8055-3b0df2fae46c",
+    "href": "https://my.saleads.pro/s/e2979ac0-6322-11f1-8055-3b0df2fae46c?erid=2Vtzqunv6jG",
     "network": "saleads",
     "vertical": "card",
     "payout": "625₽",
@@ -282,7 +302,7 @@
   {
     "id": "saleads-b67edea0",
     "label": "Альфа Банк - дебетовая карта «Пенсия в Альфа-Банке» (выданная карта и транзакция",
-    "href": "https://my.saleads.pro/s/c523e1f0-6322-11f1-87be-7359ce16138d",
+    "href": "https://my.saleads.pro/s/c523e1f0-6322-11f1-87be-7359ce16138d?erid=2Vtzqutr3re",
     "network": "saleads",
     "vertical": "card",
     "payout": "1250₽",
@@ -380,9 +400,19 @@
     "enabled": false
   },
   {
+    "id": "saleads-232887d0",
+    "label": "Кредитная карта супер Сплит (открытие кредитного договора)",
+    "href": "",
+    "network": "saleads",
+    "vertical": "card",
+    "payout": "4500₽",
+    "status": "wait",
+    "enabled": false
+  },
+  {
     "id": "saleads-9d750bc0",
     "label": "МТС Деньги - дебетовая карта (выданная карта + транзакция)",
-    "href": "https://my.saleads.pro/s/c31cf7b0-6322-11f1-8a14-cbf2719cb18c",
+    "href": "https://my.saleads.pro/s/c31cf7b0-6322-11f1-8a14-cbf2719cb18c?erid=2Vtzqw89ppn",
     "network": "saleads",
     "vertical": "card",
     "payout": "1350₽",
@@ -390,32 +420,42 @@
     "enabled": true
   },
   {
-    "id": "saleads-c8f7cc80",
-    "label": "ОТП Банк - Дебетовая карта Premium (выданная карта и транзакция по карте)",
-    "href": "https://my.saleads.pro/s/8f8c8ec0-6322-11f1-b572-5979882be5d3",
+    "id": "saleads-43a316a0",
+    "label": "ОТП Банк - Дебетовая карта Premium (выданная карта и транзакция по карте )",
+    "href": "https://my.saleads.pro/s/7f6694d0-c733-11f1-9f9e-37608d930091?erid=2Vtzqx9CgHo",
     "network": "saleads",
     "vertical": "card",
-    "payout": "3750₽",
+    "payout": "3000₽",
     "status": "approve",
     "enabled": true
   },
   {
-    "id": "saleads-9a8ec930",
-    "label": "ОТП Банк - Дебетовая карта «ОТП карта» + Бесплатный платежный стикер (выданная к",
-    "href": "https://my.saleads.pro/s/b5e18f80-633a-11f1-ab27-7f0267cf232c",
+    "id": "saleads-3aa581f0",
+    "label": "ОТП Банк - Дебетовая карта «ОТП карта» (выданная карта и транзакция по карте )",
+    "href": "https://my.saleads.pro/s/8735a970-c733-11f1-b94c-0de33736707f?erid=2Vtzqw1xtQh",
     "network": "saleads",
     "vertical": "card",
-    "payout": "1650₽ / 1050₽",
+    "payout": "1700₽ / 695₽",
     "status": "approve",
     "enabled": true
   },
   {
-    "id": "saleads-28cba850",
-    "label": "ОТП Банк - Кредитная карта 120 дней без % (выданная карта и транзакция по карте)",
-    "href": "https://my.saleads.pro/s/83788e60-6318-11f1-8232-4175891239d0",
+    "id": "saleads-de9ed370",
+    "label": "ОТП Банк - Кредитная карта 120 дней без % (выданная карта и транзакция по карте ",
+    "href": "https://my.saleads.pro/s/7b5cd180-c733-11f1-8fc9-8d964b75840a?erid=2VtzqvgsTg5",
     "network": "saleads",
     "vertical": "card",
-    "payout": "4500₽",
+    "payout": "4310₽",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-f8fa6600",
+    "label": "Плати по миру (Открытие пользователем первой виртуальной карты)",
+    "href": "https://my.saleads.pro/s/82f0bb80-c733-11f1-bb22-01cbdb6ca324?erid=2Vtzqwxtkav",
+    "network": "saleads",
+    "vertical": "card",
+    "payout": "950₽ / 2600₽",
     "status": "approve",
     "enabled": true
   },
@@ -442,7 +482,7 @@
   {
     "id": "saleads-0e89e1b0",
     "label": "Т-Банк - Кредитная карта от Т-Банка (активация+транзакция)",
-    "href": "https://my.saleads.pro/s/8f1188c0-6322-11f1-9cfc-af103eae8edd",
+    "href": "https://my.saleads.pro/s/8f1188c0-6322-11f1-9cfc-af103eae8edd?erid=2Vtzqw6fAWA",
     "network": "saleads",
     "vertical": "card",
     "payout": "4320₽",
@@ -452,7 +492,7 @@
   {
     "id": "saleads-29eff4f0",
     "label": "Т-Банк - дебетовая карта ALL Airlines (активация карты + покупка)",
-    "href": "https://my.saleads.pro/s/c2f403f0-6322-11f1-b77e-554fed5ae79b",
+    "href": "https://my.saleads.pro/s/c2f403f0-6322-11f1-b77e-554fed5ae79b?erid=2Vtzqv8CvrA",
     "network": "saleads",
     "vertical": "card",
     "payout": "1400₽",
@@ -462,17 +502,17 @@
   {
     "id": "saleads-8c9d0ea0",
     "label": "Т-Банк - дебетовая карта Black (активация карты + покупка)",
-    "href": "https://my.saleads.pro/s/b74f6900-633a-11f1-964a-233116ea01c8",
+    "href": "https://my.saleads.pro/s/b74f6900-633a-11f1-964a-233116ea01c8?erid=2Vtzquih2e9",
     "network": "saleads",
     "vertical": "card",
-    "payout": "1650₽",
+    "payout": "1440₽",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-c6385280",
     "label": "Т-Банк - дебетовая карта Black Premium (активация)",
-    "href": "https://my.saleads.pro/s/a4cab310-6322-11f1-a5fa-1f444a5bbc9e",
+    "href": "https://my.saleads.pro/s/a4cab310-6322-11f1-a5fa-1f444a5bbc9e?erid=2VtzqupQ61c",
     "network": "saleads",
     "vertical": "card",
     "payout": "340₽ / 1000₽ / 1340₽ / 1680₽",
@@ -482,7 +522,7 @@
   {
     "id": "saleads-2f609780",
     "label": "Т-Банк - дебетовая карта Black Молодежная (активация карты + покупка)",
-    "href": "https://my.saleads.pro/s/c72e3cc0-6322-11f1-99b1-d790414dfdbb",
+    "href": "https://my.saleads.pro/s/c72e3cc0-6322-11f1-99b1-d790414dfdbb?erid=2VtzqwntwD8",
     "network": "saleads",
     "vertical": "card",
     "payout": "1200₽",
@@ -492,7 +532,7 @@
   {
     "id": "saleads-8ecb1b80",
     "label": "Т-Банк - дебетовая карта Drive (активация карты + покупка)",
-    "href": "https://my.saleads.pro/s/2a076df0-6321-11f1-b262-2d8c18a85969",
+    "href": "https://my.saleads.pro/s/2a076df0-6321-11f1-b262-2d8c18a85969?erid=2Vtzqvk9Tcz",
     "network": "saleads",
     "vertical": "card",
     "payout": "1312₽",
@@ -502,7 +542,7 @@
   {
     "id": "saleads-f077ed50",
     "label": "Т-Банк - дебетовая карта Islam Black (активация карты + покупка)",
-    "href": "https://my.saleads.pro/s/c67cdaa0-6322-11f1-97a0-9f9635a4a98b",
+    "href": "https://my.saleads.pro/s/c67cdaa0-6322-11f1-97a0-9f9635a4a98b?erid=2Vtzqw2cQni",
     "network": "saleads",
     "vertical": "card",
     "payout": "1237₽",
@@ -512,7 +552,7 @@
   {
     "id": "saleads-81fc30c0",
     "label": "Т-Банк - дебетовая карта Джуниор (активация карты + покупка)",
-    "href": "https://my.saleads.pro/s/c7f9e1b0-633a-11f1-be3d-ef0ee3aebcfa",
+    "href": "https://my.saleads.pro/s/c7f9e1b0-633a-11f1-be3d-ef0ee3aebcfa?erid=2VtzqwXwfsc",
     "network": "saleads",
     "vertical": "card",
     "payout": "800₽",
@@ -522,7 +562,7 @@
   {
     "id": "saleads-4083dd00",
     "label": "Т-Банк - дебетовая карта для нерезидентов (активация карты + покупка)",
-    "href": "https://my.saleads.pro/s/c6d7d690-6322-11f1-8943-b74078b65317",
+    "href": "https://my.saleads.pro/s/c6d7d690-6322-11f1-8943-b74078b65317?erid=2VtzqvhJsaN",
     "network": "saleads",
     "vertical": "card",
     "payout": "1200₽",
@@ -532,7 +572,7 @@
   {
     "id": "saleads-fb30b8b0",
     "label": "Т-Банк — кредитная карта Drive (утилизация)",
-    "href": "https://my.saleads.pro/s/2b20cd80-6321-11f1-ae92-8bb5d0c2f034",
+    "href": "https://my.saleads.pro/s/2b20cd80-6321-11f1-ae92-8bb5d0c2f034?erid=2VtzqvRynmt",
     "network": "saleads",
     "vertical": "card",
     "payout": "3690₽",
@@ -542,7 +582,7 @@
   {
     "id": "saleads-12e73710",
     "label": "УБРиР - дебетовая карта Моя Жизнь (активация карты)",
-    "href": "https://my.saleads.pro/s/a25d29c0-6322-11f1-b4d7-41cd64c9ec7b",
+    "href": "https://my.saleads.pro/s/a25d29c0-6322-11f1-b4d7-41cd64c9ec7b?erid=2VtzqupFpMT",
     "network": "saleads",
     "vertical": "card",
     "payout": "1875₽",
@@ -552,7 +592,7 @@
   {
     "id": "saleads-861128e0",
     "label": "УРАЛСИБ Банк - дебетовая карта \"Прибыль\" (выданная карта+транзакция)",
-    "href": "https://my.saleads.pro/s/be86f010-6322-11f1-b271-c55a4212d4ef",
+    "href": "https://my.saleads.pro/s/be86f010-6322-11f1-b271-c55a4212d4ef?erid=2VtzqwThcBF",
     "network": "saleads",
     "vertical": "card",
     "payout": "1505₽",
@@ -562,7 +602,7 @@
   {
     "id": "saleads-91260650",
     "label": "УРАЛСИБ Банк - кредитная карта 120 дней (выданная карта)",
-    "href": "https://my.saleads.pro/s/2b77e260-6321-11f1-8c3e-f597b1870acb",
+    "href": "https://my.saleads.pro/s/2b77e260-6321-11f1-8c3e-f597b1870acb?erid=2VtzqwWfajw",
     "network": "saleads",
     "vertical": "card",
     "payout": "3525₽",
@@ -572,7 +612,7 @@
   {
     "id": "saleads-f168d510",
     "label": "Халва (выданная карта)",
-    "href": "https://my.saleads.pro/s/9e30b5a0-6322-11f1-bfb5-752a4295d95f",
+    "href": "https://my.saleads.pro/s/9e30b5a0-6322-11f1-bfb5-752a4295d95f?erid=2VtzqwmGZoU",
     "network": "saleads",
     "vertical": "card",
     "payout": "2400₽",
@@ -582,7 +622,7 @@
   {
     "id": "saleads-3cf2ad00",
     "label": "Альфа Банк - кредит наличными (выданный кредит)",
-    "href": "https://my.saleads.pro/s/a471f0f0-6322-11f1-a0c5-cbf231b4b262",
+    "href": "https://my.saleads.pro/s/a471f0f0-6322-11f1-a0c5-cbf231b4b262?erid=2VtzqwLPiD3",
     "network": "saleads",
     "vertical": "credit",
     "payout": "1750₽",
@@ -592,7 +632,7 @@
   {
     "id": "saleads-8c495170",
     "label": "Альфа Банк - рефинансирование кредита (выданный кредит)",
-    "href": "https://my.saleads.pro/s/a3176140-6322-11f1-b24e-9ddf5e43310b",
+    "href": "https://my.saleads.pro/s/a3176140-6322-11f1-b24e-9ddf5e43310b?erid=2Vtzqw5BBDp",
     "network": "saleads",
     "vertical": "credit",
     "payout": "1750₽",
@@ -600,19 +640,9 @@
     "enabled": true
   },
   {
-    "id": "saleads-7b574210",
-    "label": "КредитаНет (Оплаченный заказ)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "credit",
-    "payout": "12.39%",
-    "status": "wait",
-    "enabled": false
-  },
-  {
     "id": "saleads-060f3e50",
     "label": "Т-Банк - кредит (утилизация)",
-    "href": "https://my.saleads.pro/s/9a117160-6322-11f1-952c-75794a2ca9d5",
+    "href": "https://my.saleads.pro/s/9a117160-6322-11f1-952c-75794a2ca9d5?erid=2VtzqxkwKg2",
     "network": "saleads",
     "vertical": "credit",
     "payout": "3332₽",
@@ -622,7 +652,7 @@
   {
     "id": "saleads-2c9768a0",
     "label": "Т-Банк - рефинансирование (утилизация)",
-    "href": "https://my.saleads.pro/s/2a9f19d0-6321-11f1-a256-3f46873c06df",
+    "href": "https://my.saleads.pro/s/2a9f19d0-6321-11f1-a256-3f46873c06df?erid=2VtzqvB9uxS",
     "network": "saleads",
     "vertical": "credit",
     "payout": "5000₽",
@@ -652,20 +682,10 @@
   {
     "id": "saleads-fc884bf0",
     "label": "ББанкрот (Оформлен договор)",
-    "href": "https://my.saleads.pro/s/874439b0-6322-11f1-9006-d1843e722202",
+    "href": "https://my.saleads.pro/s/874439b0-6322-11f1-9006-d1843e722202?erid=2VtzqvLA25T",
     "network": "saleads",
     "vertical": "debt_relief",
     "payout": "18750₽",
-    "status": "approve",
-    "enabled": true
-  },
-  {
-    "id": "saleads-0c154bc0",
-    "label": "Международное юридическое бюро (Заключенный договор)",
-    "href": "https://my.saleads.pro/s/8769be60-6322-11f1-baa6-47c0c7899eb9",
-    "network": "saleads",
-    "vertical": "debt_relief",
-    "payout": "9600₽",
     "status": "approve",
     "enabled": true
   },
@@ -682,7 +702,7 @@
   {
     "id": "saleads-e155cf20",
     "label": "Creddy – заём под залог авто онлайн (валидная заявка)",
-    "href": "https://my.saleads.pro/s/116179f0-6323-11f1-845a-15c23b5c31da",
+    "href": "https://my.saleads.pro/s/116179f0-6323-11f1-845a-15c23b5c31da?erid=2VtzqwMKRS7",
     "network": "saleads",
     "vertical": "finance",
     "payout": "768₽",
@@ -702,7 +722,7 @@
   {
     "id": "saleads-8f2468a0",
     "label": "Точка Банк (открытие счёта для ИП (без НДС))",
-    "href": "https://my.saleads.pro/s/0780f720-6323-11f1-9ee5-c305ac910218",
+    "href": "https://my.saleads.pro/s/0780f720-6323-11f1-9ee5-c305ac910218?erid=2VtzqwNqLCe",
     "network": "saleads",
     "vertical": "finance",
     "payout": "1600₽",
@@ -712,7 +732,7 @@
   {
     "id": "saleads-526d29c0",
     "label": "Точка Банк (открытие счёта для ООО (без НДС))",
-    "href": "https://my.saleads.pro/s/bcf6c090-6322-11f1-ba92-4d812c9b9791",
+    "href": "https://my.saleads.pro/s/bcf6c090-6322-11f1-ba92-4d812c9b9791?erid=2VtzqwMMLvJ",
     "network": "saleads",
     "vertical": "finance",
     "payout": "1600₽",
@@ -722,7 +742,7 @@
   {
     "id": "saleads-59721700",
     "label": "Cherehapa ОСАГО (Оплаченный электронный полис ОСАГО)",
-    "href": "https://my.saleads.pro/s/bc4e8330-6324-11f1-863e-2750690f6ecf",
+    "href": "https://my.saleads.pro/s/bc4e8330-6324-11f1-863e-2750690f6ecf?erid=2VtzqvweXwc",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "50%",
@@ -732,7 +752,7 @@
   {
     "id": "saleads-31e54a60",
     "label": "Cherehapa Полис страхования для ипотеки (Оплаченный полис Ипотека)",
-    "href": "https://my.saleads.pro/s/bad85cd0-6324-11f1-a436-81bf00cbeb56",
+    "href": "https://my.saleads.pro/s/bad85cd0-6324-11f1-a436-81bf00cbeb56?erid=2VtzqvzbWyU",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "50%",
@@ -742,7 +762,7 @@
   {
     "id": "saleads-de762000",
     "label": "Cherehapa Страхование ВЗР (Оплаченный и активированный полис ВЗР)",
-    "href": "https://my.saleads.pro/s/bda96940-6324-11f1-bf1f-5ddf5359308e",
+    "href": "https://my.saleads.pro/s/bda96940-6324-11f1-bf1f-5ddf5359308e?erid=2VtzqwzH6wX",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "15%",
@@ -750,19 +770,9 @@
     "enabled": true
   },
   {
-    "id": "saleads-32ede640",
-    "label": "Mafin (Оплата полиса еКАСКО)",
-    "href": "https://my.saleads.pro/s/b53d32c0-6324-11f1-970f-cd6178dc6621",
-    "network": "saleads",
-    "vertical": "insurance",
-    "payout": "20%",
-    "status": "approve",
-    "enabled": true
-  },
-  {
     "id": "saleads-41d29f40",
     "label": "Mafin - (Оплата полиса ОСАГО)",
-    "href": "https://my.saleads.pro/s/b266c170-6324-11f1-a107-c1639043ec26",
+    "href": "https://my.saleads.pro/s/b266c170-6324-11f1-a107-c1639043ec26?erid=2VtzqusjKrE",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "5%",
@@ -792,7 +802,7 @@
   {
     "id": "saleads-a7e1a720",
     "label": "Полис812 - Антиклещ (Покупка полиса)",
-    "href": "https://my.saleads.pro/s/ae3e0030-6324-11f1-8cdd-f149ddcc251b",
+    "href": "https://my.saleads.pro/s/ae3e0030-6324-11f1-8cdd-f149ddcc251b?erid=2VtzqwyTxDU",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "13.5%",
@@ -802,7 +812,7 @@
   {
     "id": "saleads-e8a67800",
     "label": "Полис812 - Ипотечное страхование Сбербанк, Другие банки (Покупка полиса)",
-    "href": "https://my.saleads.pro/s/acc97b20-6324-11f1-bad9-051d1880cf47",
+    "href": "https://my.saleads.pro/s/acc97b20-6324-11f1-bad9-051d1880cf47?erid=2VtzqwvVyen",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "17.25% / 3.75%",
@@ -812,7 +822,7 @@
   {
     "id": "saleads-8a4af040",
     "label": "Полис812 - Отмена поездки (Покупка полиса)",
-    "href": "https://my.saleads.pro/s/a9ff7770-6324-11f1-a1ce-512cc16f1820",
+    "href": "https://my.saleads.pro/s/a9ff7770-6324-11f1-a1ce-512cc16f1820?erid=2Vtzqwpa2XQ",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "13.5%",
@@ -822,7 +832,7 @@
   {
     "id": "saleads-47cb0030",
     "label": "Полис812 - Страхование выезжающих за рубеж (ВЗР)(Покупка полиса)",
-    "href": "https://my.saleads.pro/s/b10deaf0-6324-11f1-9da4-d7fd22a4b1e6",
+    "href": "https://my.saleads.pro/s/b10deaf0-6324-11f1-9da4-d7fd22a4b1e6?erid=2Vtzqwu3KTd",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "18%",
@@ -832,7 +842,7 @@
   {
     "id": "saleads-5af1d550",
     "label": "Полис812 - Страхование квартиры (Покупка полиса)",
-    "href": "https://my.saleads.pro/s/ab6e4440-6324-11f1-ab07-61bef44f4993",
+    "href": "https://my.saleads.pro/s/ab6e4440-6324-11f1-ab07-61bef44f4993?erid=2VtzqwsY166",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "19.5%",
@@ -842,7 +852,7 @@
   {
     "id": "saleads-7c5db4b0",
     "label": "Полис812 - Страхование спортсменов (Покупка полиса)",
-    "href": "https://my.saleads.pro/s/af985700-6324-11f1-bc0c-4f7391258a74",
+    "href": "https://my.saleads.pro/s/af985700-6324-11f1-bc0c-4f7391258a74?erid=2Vtzqx6stdC",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "18.75%",
@@ -852,7 +862,7 @@
   {
     "id": "saleads-69444db0",
     "label": "Ренессанс Жизнь - Выгодный старт (Оформлен договор)",
-    "href": "https://my.saleads.pro/s/8f656350-6322-11f1-adb7-23588a65452f",
+    "href": "https://my.saleads.pro/s/8f656350-6322-11f1-adb7-23588a65452f?erid=2VtzqwiDgn1",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "3799₽",
@@ -870,44 +880,14 @@
     "enabled": false
   },
   {
-    "id": "saleads-0baf8db0",
-    "label": "Ренессанс Жизнь — Кешбэк 44% (Оформление полиса)",
-    "href": "",
+    "id": "saleads-e3b50d20",
+    "label": "СК СОГЛАСИЕ - ОСАГО (Оплаченный полис)",
+    "href": "https://my.saleads.pro/s/8b52c780-c733-11f1-8d3f-05c38de876ad?erid=2Vtzqwuw7jR",
     "network": "saleads",
     "vertical": "insurance",
-    "payout": "2.32%",
-    "status": "wait",
-    "enabled": false
-  },
-  {
-    "id": "saleads-abd784a0",
-    "label": "Ренессанс Жизнь — Копилка Лайф VIP (Оформление полиса+ взнос средств)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "insurance",
-    "payout": "3331₽",
-    "status": "wait",
-    "enabled": false
-  },
-  {
-    "id": "saleads-d53eac10",
-    "label": "Ренессанс Жизнь — Копилка Плюс (Оформление полиса+ взнос средств)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "insurance",
-    "payout": "666₽",
-    "status": "wait",
-    "enabled": false
-  },
-  {
-    "id": "saleads-d505c520",
-    "label": "Ренессанс Жизнь — Процент Плюс (Оформленный и оплаченный полис)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "insurance",
-    "payout": "4115₽",
-    "status": "wait",
-    "enabled": false
+    "payout": "750₽",
+    "status": "approve",
+    "enabled": true
   },
   {
     "id": "saleads-3773c770",
@@ -982,7 +962,7 @@
   {
     "id": "saleads-2598b210",
     "label": "Страховой Дом ВСК - КАСКО (оплаченный полис)",
-    "href": "https://my.saleads.pro/s/9e647d90-6322-11f1-adc6-edc7656cfcfd",
+    "href": "https://my.saleads.pro/s/9e647d90-6322-11f1-adc6-edc7656cfcfd?erid=2Vtzqw3ZVYA",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "2313₽",
@@ -992,7 +972,7 @@
   {
     "id": "saleads-cb51d010",
     "label": "Страховой Дом ВСК - ОСАГО (оплаченный полис)",
-    "href": "https://my.saleads.pro/s/0d6cbfb0-6323-11f1-ac29-056d1c19807a",
+    "href": "https://my.saleads.pro/s/0d6cbfb0-6323-11f1-ac29-056d1c19807a?erid=2Vtzqx6tYSr",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "865₽ / 5.76%",
@@ -1002,7 +982,7 @@
   {
     "id": "saleads-6731bca0",
     "label": "Т-Страхование - Страхование ипотеки (оплаченный полис)",
-    "href": "https://my.saleads.pro/s/b808efd0-6324-11f1-8622-8f1f3e1fd2bf",
+    "href": "https://my.saleads.pro/s/b808efd0-6324-11f1-8622-8f1f3e1fd2bf?erid=2VtzqwyUc38",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "20%",
@@ -1012,7 +992,7 @@
   {
     "id": "saleads-5bd288f0",
     "label": "Т-Страхование Каско (оплаченный полис )",
-    "href": "https://my.saleads.pro/s/c115fdb0-6322-11f1-98a7-592db6a47fd7",
+    "href": "https://my.saleads.pro/s/c115fdb0-6322-11f1-98a7-592db6a47fd7?erid=2Vtzqw25WFp",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "1500₽",
@@ -1022,7 +1002,7 @@
   {
     "id": "saleads-460101e0",
     "label": "Т-Страхование ОСАГО (оплаченный полис )",
-    "href": "https://my.saleads.pro/s/b97e7710-6324-11f1-ba26-c51cdc3af453",
+    "href": "https://my.saleads.pro/s/b97e7710-6324-11f1-ba26-c51cdc3af453?erid=2Vtzqx5QZAW",
     "network": "saleads",
     "vertical": "insurance",
     "payout": "3% / 425₽",
@@ -1032,12 +1012,22 @@
   {
     "id": "saleads-e292fc10",
     "label": "БКС - Инвестиции (открытие брокерского счёта+пополнение)",
-    "href": "https://my.saleads.pro/s/e2c5fa50-6322-11f1-a680-550ae5875e82",
+    "href": "https://my.saleads.pro/s/e2c5fa50-6322-11f1-a680-550ae5875e82?erid=2VtzqxMaNhN",
     "network": "saleads",
     "vertical": "investment",
-    "payout": "565₽",
+    "payout": "690₽",
     "status": "approve",
     "enabled": true
+  },
+  {
+    "id": "saleads-c99e18d0",
+    "label": "Вклады от Яндекс Банка (открытый вклад или накопительный счет)",
+    "href": "",
+    "network": "saleads",
+    "vertical": "investment",
+    "payout": "2775₽",
+    "status": "wait",
+    "enabled": false
   },
   {
     "id": "saleads-b40e45b0",
@@ -1052,7 +1042,7 @@
   {
     "id": "saleads-f1d5b100",
     "label": "Т-Банк - Вклад (Открытие депозита)",
-    "href": "https://my.saleads.pro/s/c48272f0-6322-11f1-94d1-17544db82af4",
+    "href": "https://my.saleads.pro/s/c48272f0-6322-11f1-94d1-17544db82af4?erid=2VtzqwtV5qY",
     "network": "saleads",
     "vertical": "investment",
     "payout": "1350₽",
@@ -1062,7 +1052,7 @@
   {
     "id": "saleads-500064f0",
     "label": "Т-Банк - Т-Инвестиции(Утилизация)",
-    "href": "https://my.saleads.pro/s/9eb5d6b0-6322-11f1-a9be-d766c423165b",
+    "href": "https://my.saleads.pro/s/9eb5d6b0-6322-11f1-a9be-d766c423165b?erid=2Vtzqxc2PTk",
     "network": "saleads",
     "vertical": "investment",
     "payout": "2250₽",
@@ -1072,7 +1062,7 @@
   {
     "id": "saleads-ce332170",
     "label": "УРАЛСИБ Банк - Вклад \"Динамичный\" (открытие вклада)",
-    "href": "https://my.saleads.pro/s/be512640-6322-11f1-a156-9ffbc36fea65",
+    "href": "https://my.saleads.pro/s/be512640-6322-11f1-a156-9ffbc36fea65?erid=2Vtzqxdgpoa",
     "network": "saleads",
     "vertical": "investment",
     "payout": "1205₽ / 1505₽",
@@ -1082,7 +1072,7 @@
   {
     "id": "saleads-7ca4df20",
     "label": "Финуслуги  Вклад ( Открытие вклада)",
-    "href": "https://my.saleads.pro/s/a0f61ec0-6322-11f1-b55b-81918653e59c",
+    "href": "https://my.saleads.pro/s/a0f61ec0-6322-11f1-b55b-81918653e59c?erid=2VtzqxFkTAv",
     "network": "saleads",
     "vertical": "investment",
     "payout": "1875₽",
@@ -1092,7 +1082,7 @@
   {
     "id": "saleads-f4619640",
     "label": "Voxys HR ( Трудоустройство)",
-    "href": "https://my.saleads.pro/s/8b7a5480-6322-11f1-8c26-316c8c3ef2df",
+    "href": "https://my.saleads.pro/s/8b7a5480-6322-11f1-8c26-316c8c3ef2df?erid=2VtzqwpNari",
     "network": "saleads",
     "vertical": "jobs",
     "payout": "5625₽",
@@ -1100,49 +1090,19 @@
     "enabled": true
   },
   {
-    "id": "saleads-2df16920",
-    "label": "Альфа Банк - Альфа-Агент (DSA) HR (Одобрен на предварительном этапе, Выход на ра",
-    "href": "https://my.saleads.pro/s/8b287440-6322-11f1-a9b6-c9c6b0fce876",
-    "network": "saleads",
-    "vertical": "jobs",
-    "payout": "666₽ / 6000₽",
-    "status": "approve",
-    "enabled": true
-  },
-  {
-    "id": "saleads-71b6b940",
-    "label": "Альфа Банк - Менеджер по привлечению клиентов малого бизнеса HR (Одобрен на пред",
-    "href": "https://my.saleads.pro/s/8923bf20-6322-11f1-bc8b-1138ac12b255",
-    "network": "saleads",
-    "vertical": "jobs",
-    "payout": "2000₽ / 7000₽",
-    "status": "approve",
-    "enabled": true
-  },
-  {
     "id": "saleads-b66c4090",
     "label": "Альфа Банк - Мобильный банкир HR (Одобрен на предварительном этапе, Выход на раб",
-    "href": "https://my.saleads.pro/s/8b01ebc0-6322-11f1-a222-e75ed0374f21",
+    "href": "https://my.saleads.pro/s/8b01ebc0-6322-11f1-a222-e75ed0374f21?erid=2Vtzqw87pcv",
     "network": "saleads",
     "vertical": "jobs",
-    "payout": "615₽ / 6000₽",
-    "status": "approve",
-    "enabled": true
-  },
-  {
-    "id": "saleads-d55a6a90",
-    "label": "Альфа Банк - Представитель банка по работе с юр. лицами HR (Одобрен на предварит",
-    "href": "https://my.saleads.pro/s/899c35c0-6322-11f1-8aed-61aeffe97f80",
-    "network": "saleads",
-    "vertical": "jobs",
-    "payout": "666₽ / 6000₽",
+    "payout": "615₽ / 12300₽",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-750d04a0",
     "label": "Домовёнок HR (кандидат, ставший исполнителем)",
-    "href": "https://my.saleads.pro/s/8d30c780-6322-11f1-aa2f-118104543fa0",
+    "href": "https://my.saleads.pro/s/8d30c780-6322-11f1-aa2f-118104543fa0?erid=2VtzqvsLSU5",
     "network": "saleads",
     "vertical": "jobs",
     "payout": "4800₽",
@@ -1150,49 +1110,29 @@
     "enabled": true
   },
   {
-    "id": "saleads-ae011bc0",
-    "label": "Достависта (Курьер)",
-    "href": "https://my.saleads.pro/s/9e8d4910-6322-11f1-b0be-6184d6f4360b",
-    "network": "saleads",
-    "vertical": "jobs",
-    "payout": "2250₽",
-    "status": "approve",
-    "enabled": true
-  },
-  {
-    "id": "saleads-cdc799e0",
-    "label": "Кладовщик к партнёру сервиса \"Яндекс-Маркет\" ( Кладовщик)",
-    "href": "https://my.saleads.pro/s/894a7240-6322-11f1-a22b-ddea8baddda8",
-    "network": "saleads",
-    "vertical": "jobs",
-    "payout": "6720₽",
-    "status": "approve",
-    "enabled": true
-  },
-  {
     "id": "saleads-6dfeab40",
     "label": "Купер (ex. СберМаркет) HR_смс (Вышедший сотрудник на работу)",
-    "href": "https://my.saleads.pro/s/9143caf0-6322-11f1-914e-0dd2729ef49f",
+    "href": "https://my.saleads.pro/s/9143caf0-6322-11f1-914e-0dd2729ef49f?erid=2VtzqvTfG1L",
     "network": "saleads",
     "vertical": "jobs",
-    "payout": "2250₽ / 3000₽ / 3375₽ / 3375₽",
+    "payout": "2250₽ / 3375₽ / 10500₽ / 3750₽",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-97715ba0",
-    "label": "Партнер сервиса Яндекс Лавка (Кладовщик, Комплектовщик/сборщик готовой еды)",
-    "href": "https://my.saleads.pro/s/15485390-6323-11f1-ba13-8b8782955719",
+    "label": "Партнер сервиса Яндекс Лавка  (Кладовщик, Комплектовщик готовой еды/Повар, Сборщ",
+    "href": "https://my.saleads.pro/s/15485390-6323-11f1-ba13-8b8782955719?erid=2Vtzqx85QKY",
     "network": "saleads",
     "vertical": "jobs",
-    "payout": "750₽",
+    "payout": "7500₽",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-e2f53570",
     "label": "Работа в Т-Банке HR (Оформление)",
-    "href": "https://my.saleads.pro/s/8792c340-6322-11f1-970a-279146def4cc",
+    "href": "https://my.saleads.pro/s/8792c340-6322-11f1-970a-279146def4cc?erid=2VtzqubADhQ",
     "network": "saleads",
     "vertical": "jobs",
     "payout": "8400₽",
@@ -1202,10 +1142,10 @@
   {
     "id": "saleads-ed635190",
     "label": "Сервис «Руки» - (Сборщик кухонь, установщик межкомнатных дверей)(Подключение мас",
-    "href": "https://my.saleads.pro/s/8b53b080-6322-11f1-8d0a-a70af5fb8bcd",
+    "href": "https://my.saleads.pro/s/8b53b080-6322-11f1-8d0a-a70af5fb8bcd?erid=2Vtzqv6rp1j",
     "network": "saleads",
     "vertical": "jobs",
-    "payout": "6000₽",
+    "payout": "3750₽",
     "status": "approve",
     "enabled": true
   },
@@ -1220,16 +1160,6 @@
     "enabled": false
   },
   {
-    "id": "saleads-9f058940",
-    "label": "BelkaCredit (выданный займ)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "mfo",
-    "payout": "1600₽",
-    "status": "wait",
-    "enabled": false
-  },
-  {
     "id": "saleads-3f96d960",
     "label": "Carmoney -  Займ «Все Про100» (Выданный займ)",
     "href": "",
@@ -1240,19 +1170,9 @@
     "enabled": false
   },
   {
-    "id": "saleads-cd850f60",
-    "label": "Credit365 (выданный займ)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "mfo",
-    "payout": "1600₽",
-    "status": "wait",
-    "enabled": false
-  },
-  {
     "id": "saleads-d66f1790",
     "label": "Credit7 (выданный займ)",
-    "href": "https://my.saleads.pro/s/a2e01700-6322-11f1-a425-ff902689716f",
+    "href": "https://my.saleads.pro/s/a2e01700-6322-11f1-a425-ff902689716f?erid=2VtzqukSoUq",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1760₽",
@@ -1261,8 +1181,8 @@
   },
   {
     "id": "saleads-c8d281d0",
-    "label": "CreditPlus займ под 0% (выданный займ )",
-    "href": "https://my.saleads.pro/s/a2848a40-6322-11f1-884e-f976a544fc5a",
+    "label": "CreditPlus (выданный займ )",
+    "href": "https://my.saleads.pro/s/a2848a40-6322-11f1-884e-f976a544fc5a?erid=2Vtzqx6EPzd",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1800₽",
@@ -1270,19 +1190,9 @@
     "enabled": true
   },
   {
-    "id": "saleads-64625f90",
-    "label": "CreditPlus займ под 0% (выданный займ)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "mfo",
-    "payout": "1800₽",
-    "status": "wait",
-    "enabled": false
-  },
-  {
     "id": "saleads-d8ac7c40",
     "label": "Joymoney (выданный займ )",
-    "href": "https://my.saleads.pro/s/d3d5b760-633a-11f1-9d70-0d3ab3fcc677",
+    "href": "https://my.saleads.pro/s/d3d5b760-633a-11f1-9d70-0d3ab3fcc677?erid=2VtzqueWrMT",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "—",
@@ -1292,7 +1202,7 @@
   {
     "id": "saleads-350390c0",
     "label": "Krediska (Выданный займ новому клиенту)",
-    "href": "https://my.saleads.pro/s/c0ee0ea0-6322-11f1-a927-33fa75658b24",
+    "href": "https://my.saleads.pro/s/c0ee0ea0-6322-11f1-a927-33fa75658b24?erid=2VtzquuLjAu",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1500₽",
@@ -1300,22 +1210,12 @@
     "enabled": true
   },
   {
-    "id": "saleads-61033960",
-    "label": "Kviku (выданный займ )",
-    "href": "",
-    "network": "saleads",
-    "vertical": "mfo",
-    "payout": "1600₽",
-    "status": "wait",
-    "enabled": false
-  },
-  {
     "id": "saleads-58c9f1f0",
     "label": "Kviku (выданный займ)",
-    "href": "https://my.saleads.pro/s/058e1f20-6323-11f1-af43-0db6ef6a5d40",
+    "href": "https://my.saleads.pro/s/058e1f20-6323-11f1-af43-0db6ef6a5d40?erid=2VtzqvbSyDY",
     "network": "saleads",
     "vertical": "mfo",
-    "payout": "1600₽",
+    "payout": "3000₽",
     "status": "approve",
     "enabled": true
   },
@@ -1332,7 +1232,7 @@
   {
     "id": "saleads-b2faa3c0",
     "label": "Vivus (выданный займ + скорбалл)",
-    "href": "https://my.saleads.pro/s/9ace9b20-6322-11f1-a434-876bbb65774f",
+    "href": "https://my.saleads.pro/s/9ace9b20-6322-11f1-a434-876bbb65774f?erid=2VtzquoQn3X",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "160₽ / 1360₽ / 2800₽ / 320₽ / 800₽",
@@ -1342,7 +1242,7 @@
   {
     "id": "saleads-33f8a740",
     "label": "Zaymigo (выданный займ)",
-    "href": "https://my.saleads.pro/s/c90d1c60-6322-11f1-8527-dfabaee69a9b",
+    "href": "https://my.saleads.pro/s/c90d1c60-6322-11f1-8527-dfabaee69a9b?erid=2Vtzqw8VoDX",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1125₽",
@@ -1362,7 +1262,7 @@
   {
     "id": "saleads-a2c21260",
     "label": "Альфа Деньги (выданный займ )",
-    "href": "https://my.saleads.pro/s/9a6e7e30-6322-11f1-bf9f-13268f5db27e",
+    "href": "https://my.saleads.pro/s/9a6e7e30-6322-11f1-bf9f-13268f5db27e?erid=2Vtzqv4Eery",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "2880₽",
@@ -1380,9 +1280,19 @@
     "enabled": false
   },
   {
+    "id": "saleads-e235ba80",
+    "label": "Бережный (выданный займ, повторный займ)",
+    "href": "https://my.saleads.pro/s/85dac400-c733-11f1-9648-975eabeb7537?erid=2VtzquuCXn2",
+    "network": "saleads",
+    "vertical": "mfo",
+    "payout": "2250₽ / 160₽ / 136₽",
+    "status": "approve",
+    "enabled": true
+  },
+  {
     "id": "saleads-22d56ff0",
     "label": "БериБеру (Выдача займа новому клиенту)",
-    "href": "https://my.saleads.pro/s/c09c6820-6322-11f1-a1b6-ede2a95d13a2",
+    "href": "https://my.saleads.pro/s/c09c6820-6322-11f1-a1b6-ede2a95d13a2?erid=2Vtzqv1GgJH",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1500₽",
@@ -1392,32 +1302,12 @@
   {
     "id": "saleads-7d24ee40",
     "label": "Быстроденьги (выданный займ )",
-    "href": "https://my.saleads.pro/s/910fa700-6322-11f1-8b12-e9d0a3860c72",
+    "href": "https://my.saleads.pro/s/910fa700-6322-11f1-8b12-e9d0a3860c72?erid=2Vtzqws9cSj",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "3375₽",
     "status": "approve",
     "enabled": true
-  },
-  {
-    "id": "saleads-1dbabd10",
-    "label": "Быстроденьги (выданный займ)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "mfo",
-    "payout": "3375₽",
-    "status": "wait",
-    "enabled": false
-  },
-  {
-    "id": "saleads-59f58d80",
-    "label": "Бюджет( Выданный займ)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "mfo",
-    "payout": "720₽ / 960₽ / 1600₽ / 3200₽ / 6400₽",
-    "status": "wait",
-    "enabled": false
   },
   {
     "id": "saleads-ae74b660",
@@ -1432,7 +1322,7 @@
   {
     "id": "saleads-21500100",
     "label": "Ваш кредит (выданный займ)",
-    "href": "https://my.saleads.pro/s/9cae5400-6322-11f1-b1d4-8fa1832d769a",
+    "href": "https://my.saleads.pro/s/9cae5400-6322-11f1-b1d4-8fa1832d769a?erid=2VtzquxJhjb",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "2560₽",
@@ -1440,9 +1330,19 @@
     "enabled": true
   },
   {
+    "id": "saleads-5bc324a0",
+    "label": "Гранат Займ (Выданный займ)",
+    "href": "https://my.saleads.pro/s/8893e1a0-c733-11f1-88fe-635673904330?erid=2Vtzqv5mCYM",
+    "network": "saleads",
+    "vertical": "mfo",
+    "payout": "1050₽",
+    "status": "approve",
+    "enabled": true
+  },
+  {
     "id": "saleads-8aa09a70",
     "label": "Давака (выданный займ)",
-    "href": "https://my.saleads.pro/s/0b7a0b90-6323-11f1-945e-b3f39cdd4523",
+    "href": "https://my.saleads.pro/s/0b7a0b90-6323-11f1-945e-b3f39cdd4523?erid=2Vtzqv2kfad",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "900₽",
@@ -1452,7 +1352,7 @@
   {
     "id": "saleads-f6ac0d00",
     "label": "Деньга (выданный займ)",
-    "href": "https://my.saleads.pro/s/c705d200-6322-11f1-a0a0-b77e235a27ac",
+    "href": "https://my.saleads.pro/s/c705d200-6322-11f1-a0a0-b77e235a27ac?erid=2VtzquvpiTF",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1200₽",
@@ -1462,7 +1362,7 @@
   {
     "id": "saleads-165fdfe0",
     "label": "Деньги Сразу онлайн (выданный займ)",
-    "href": "https://my.saleads.pro/s/9c83c560-6322-11f1-8667-3d6c231a687d",
+    "href": "https://my.saleads.pro/s/9c83c560-6322-11f1-8667-3d6c231a687d?erid=2Vtzqua2Y4V",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "2600₽ / 2600₽ / 144₽",
@@ -1470,9 +1370,29 @@
     "enabled": true
   },
   {
+    "id": "saleads-99205f90",
+    "label": "Деньги в долг (выданный займ)",
+    "href": "",
+    "network": "saleads",
+    "vertical": "mfo",
+    "payout": "4500₽",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-d8cea580",
+    "label": "Деньги на дом (выданный займ, повторный займ )",
+    "href": "https://my.saleads.pro/s/7899a860-c733-11f1-a57b-a533232167c2?erid=2Vtzqw5Efa9",
+    "network": "saleads",
+    "vertical": "mfo",
+    "payout": "4350₽ / 160₽ / 136₽",
+    "status": "approve",
+    "enabled": true
+  },
+  {
     "id": "saleads-69eead20",
     "label": "Деньги на дом (выданный займ, повторный займ)",
-    "href": "https://my.saleads.pro/s/8dace640-6322-11f1-8f3e-9b52b9c615b6",
+    "href": "https://my.saleads.pro/s/8dace640-6322-11f1-8f3e-9b52b9c615b6?erid=2Vtzqufzqdo",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "4350₽ / 136₽ / 160₽",
@@ -1480,44 +1400,14 @@
     "enabled": true
   },
   {
-    "id": "saleads-a1ccf510",
-    "label": "ДеньгиОК (Выданный займ новому клиенту)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "mfo",
-    "payout": "1200₽",
-    "status": "wait",
-    "enabled": false
-  },
-  {
-    "id": "saleads-abf4dd40",
-    "label": "До зарплаты (выданный займ)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "mfo",
-    "payout": "792₽",
-    "status": "wait",
-    "enabled": false
-  },
-  {
     "id": "saleads-7ea84d90",
     "label": "ДоброЗайм (выданный займ, повторный займ)",
-    "href": "https://my.saleads.pro/s/c2a414e0-6322-11f1-906b-493aa867d325",
+    "href": "https://my.saleads.pro/s/c2a414e0-6322-11f1-906b-493aa867d325?erid=2Vtzqud2s57",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1440₽ / 120₽",
     "status": "approve",
     "enabled": true
-  },
-  {
-    "id": "saleads-7c335020",
-    "label": "ДрайвЗайм (Подтвержденная заявка, Выдача займа)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "mfo",
-    "payout": "600₽ / 13500₽",
-    "status": "wait",
-    "enabled": false
   },
   {
     "id": "saleads-5c8f19c0",
@@ -1532,7 +1422,7 @@
   {
     "id": "saleads-40824050",
     "label": "Занимательные Финансы (Выданный займ)",
-    "href": "https://my.saleads.pro/s/bee1cd00-6322-11f1-913c-dbfd3856156b",
+    "href": "https://my.saleads.pro/s/bee1cd00-6322-11f1-913c-dbfd3856156b?erid=2VtzqvAAbzM",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1500₽",
@@ -1552,7 +1442,7 @@
   {
     "id": "saleads-42c379c0",
     "label": "ИЛМА (выданный займ)",
-    "href": "https://my.saleads.pro/s/2aee0840-6321-11f1-b429-9948c54b0564",
+    "href": "https://my.saleads.pro/s/2aee0840-6321-11f1-b429-9948c54b0564?erid=2Vtzqv9YF7M",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "750₽ / 7500₽",
@@ -1572,7 +1462,7 @@
   {
     "id": "saleads-e1780b40",
     "label": "КотоЗайм (выданный займ)",
-    "href": "https://my.saleads.pro/s/c27003c0-6322-11f1-8aee-bd3418c307c9",
+    "href": "https://my.saleads.pro/s/c27003c0-6322-11f1-8aee-bd3418c307c9?erid=2VtzquX8bMP",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1440₽",
@@ -1592,7 +1482,7 @@
   {
     "id": "saleads-b6cd20a0",
     "label": "Лайк Мани (выданный займ)",
-    "href": "https://my.saleads.pro/s/beae2670-6322-11f1-afb0-0ba0d23f9c41",
+    "href": "https://my.saleads.pro/s/beae2670-6322-11f1-afb0-0ba0d23f9c41?erid=2VtzqvigWmE",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1500₽",
@@ -1600,9 +1490,19 @@
     "enabled": true
   },
   {
+    "id": "saleads-250bdeb0",
+    "label": "ЛигаМФО (Выданный займ новому клиенту)",
+    "href": "https://my.saleads.pro/s/71cea500-c733-11f1-a0ff-0fa55423cd73?erid=2VtzqxFKfsg",
+    "network": "saleads",
+    "vertical": "mfo",
+    "payout": "12000₽ / 8250₽ / 7500₽ / 5625₽ / 3375₽ / 1875₽ / 1125₽ / 3000₽ / 750₽",
+    "status": "approve",
+    "enabled": true
+  },
+  {
     "id": "saleads-d04c6b90",
     "label": "МаниКэш (выданный займ)",
-    "href": "https://my.saleads.pro/s/a0ce22e0-6322-11f1-9889-458d587c4864",
+    "href": "https://my.saleads.pro/s/a0ce22e0-6322-11f1-9889-458d587c4864?erid=2Vtzqv5ie9K",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1875₽",
@@ -1615,14 +1515,14 @@
     "href": "",
     "network": "saleads",
     "vertical": "mfo",
-    "payout": "3750₽",
+    "payout": "3000₽",
     "status": "wait",
     "enabled": false
   },
   {
     "id": "saleads-b00d1010",
     "label": "МикроКлад (выданный займ)",
-    "href": "https://my.saleads.pro/s/9c5a4630-6322-11f1-8e25-af9da086016c",
+    "href": "https://my.saleads.pro/s/9c5a4630-6322-11f1-8e25-af9da086016c?erid=2VtzqxS7Ab7",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "2625₽",
@@ -1631,7 +1531,7 @@
   },
   {
     "id": "saleads-e9e44d10",
-    "label": "Небус (Выданный займ)",
+    "label": "Небус ( Выданный займ )",
     "href": "",
     "network": "saleads",
     "vertical": "mfo",
@@ -1640,19 +1540,49 @@
     "enabled": false
   },
   {
-    "id": "saleads-454a0260",
-    "label": "Отличные наличные онлайн (выданный займ)",
+    "id": "saleads-36a81100",
+    "label": "Небус (Выданный займ)",
+    "href": "https://my.saleads.pro/s/74852970-c733-11f1-a28c-399b319efb3d?erid=2Vtzqv1Hzw4",
+    "network": "saleads",
+    "vertical": "mfo",
+    "payout": "6000₽ / 3750₽ / 3000₽ / 1200₽ / 375₽ / 105₽",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-cf946050",
+    "label": "ПолиЗайм (выданный займ)",
     "href": "",
     "network": "saleads",
     "vertical": "mfo",
-    "payout": "1600₽",
+    "payout": "1215₽ / 1597₽ / 2392₽ / 3240₽",
     "status": "wait",
     "enabled": false
   },
   {
+    "id": "saleads-24d8a8d0",
+    "label": "Простой вопрос (выданный займ, повторный займ)",
+    "href": "https://my.saleads.pro/s/79eb7210-c733-11f1-9d01-dfe5c3e45182?erid=2VtzqvcmsHC",
+    "network": "saleads",
+    "vertical": "mfo",
+    "payout": "4350₽ / 160₽ / 136₽",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-396ad070",
+    "label": "Рублион (выданный займ, повторный займ)",
+    "href": "https://my.saleads.pro/s/8468a410-c733-11f1-b2d7-839cf4ba62ec?erid=2VtzqweEWSE",
+    "network": "saleads",
+    "vertical": "mfo",
+    "payout": "2250₽ / 160₽ / 136₽",
+    "status": "approve",
+    "enabled": true
+  },
+  {
     "id": "saleads-1378c730",
     "label": "СМСФИНАНС (выданный займ + скорбалл)",
-    "href": "https://my.saleads.pro/s/9aa4d990-6322-11f1-be49-d7b2b28ba0ec",
+    "href": "https://my.saleads.pro/s/9aa4d990-6322-11f1-be49-d7b2b28ba0ec?erid=2VtzquptmKs",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "160₽ / 320₽ / 1360₽ / 800₽ / 2800₽",
@@ -1662,7 +1592,7 @@
   {
     "id": "saleads-74f91b40",
     "label": "Скела Мани (Выданный займ)",
-    "href": "https://my.saleads.pro/s/a04144f0-6322-11f1-a20d-39adc1668f67",
+    "href": "https://my.saleads.pro/s/a04144f0-6322-11f1-a20d-39adc1668f67?erid=2Vtzqv7CdRf",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "2025₽ / 2025₽",
@@ -1672,7 +1602,7 @@
   {
     "id": "saleads-21199c50",
     "label": "СрочноДеньги (выданный займ)",
-    "href": "https://my.saleads.pro/s/9cd5fa80-6322-11f1-8743-71b3bf533ae8",
+    "href": "https://my.saleads.pro/s/9cd5fa80-6322-11f1-8743-71b3bf533ae8?erid=2VtzqumvnmB",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "2560₽",
@@ -1681,8 +1611,8 @@
   },
   {
     "id": "saleads-064c0280",
-    "label": "У Абрамовича (Выданный займ)",
-    "href": "https://my.saleads.pro/s/8fb3bd40-6322-11f1-9bfd-9deaf244b13a",
+    "label": "У Абрамовича (Выданный займ )",
+    "href": "https://my.saleads.pro/s/8fb3bd40-6322-11f1-9bfd-9deaf244b13a?erid=2Vtzqv8gci1",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "320₽ / 920₽ / 1840₽ / 2760₽ / 3680₽",
@@ -1692,7 +1622,7 @@
   {
     "id": "saleads-4f2e3fe0",
     "label": "ФинМолл (Выданный займ новому клиенту)",
-    "href": "https://my.saleads.pro/s/364b7440-6321-11f1-933c-170ea17e9fdf",
+    "href": "https://my.saleads.pro/s/364b7440-6321-11f1-933c-170ea17e9fdf?erid=2Vtzqving8M",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "5600₽",
@@ -1702,7 +1632,7 @@
   {
     "id": "saleads-ac6bfe30",
     "label": "ФинТерра онлайн (выданный займ)",
-    "href": "https://my.saleads.pro/s/a06aa6b0-6322-11f1-953e-fdd783941ec3",
+    "href": "https://my.saleads.pro/s/a06aa6b0-6322-11f1-953e-fdd783941ec3?erid=2VtzquhUpv9",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "2000₽",
@@ -1712,7 +1642,7 @@
   {
     "id": "saleads-ca601bc0",
     "label": "Хурмакредит (Выданный займ новому клиенту)",
-    "href": "https://my.saleads.pro/s/c0c4b370-6322-11f1-9af7-572b4ab3e61b",
+    "href": "https://my.saleads.pro/s/c0c4b370-6322-11f1-9af7-572b4ab3e61b?erid=2VtzqubaDe5",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1500₽",
@@ -1722,7 +1652,7 @@
   {
     "id": "saleads-383781c0",
     "label": "Центрофинанс онлайн (выданный займ)",
-    "href": "https://my.saleads.pro/s/c8ba1fb0-6322-11f1-942b-c9ec62cba0fc",
+    "href": "https://my.saleads.pro/s/c8ba1fb0-6322-11f1-942b-c9ec62cba0fc?erid=2VtzqurNkcD",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1200₽",
@@ -1732,7 +1662,7 @@
   {
     "id": "saleads-a994aa10",
     "label": "Центрофинанс офлайн (выданный займ)",
-    "href": "https://my.saleads.pro/s/c8915600-6322-11f1-8c82-9bd5104a04aa",
+    "href": "https://my.saleads.pro/s/c8915600-6322-11f1-8c82-9bd5104a04aa?erid=2Vtzqv3pK8i",
     "network": "saleads",
     "vertical": "mfo",
     "payout": "1200₽",
@@ -1750,29 +1680,19 @@
     "enabled": false
   },
   {
-    "id": "saleads-a53266e0",
-    "label": "Альфа Банк - Ипотека (Выдача ипотеки)",
-    "href": "https://my.saleads.pro/s/2b467210-6321-11f1-bbf0-0958ba665952",
-    "network": "saleads",
-    "vertical": "mortgage",
-    "payout": "13750₽ / 23750₽ / 31250₽",
-    "status": "approve",
-    "enabled": true
-  },
-  {
     "id": "saleads-3d64e240",
     "label": "Alter (Продажа новому пользователю)",
-    "href": "https://my.saleads.pro/s/03970b20-6323-11f1-89a1-c74d27b6a160",
+    "href": "https://my.saleads.pro/s/03970b20-6323-11f1-89a1-c74d27b6a160?erid=2VtzqviXDyY",
     "network": "saleads",
     "vertical": "other",
-    "payout": "28% / 19.2% / 1600₽ / 24% / 490₽ / 38%",
+    "payout": "28% / 19.2% / 1600₽ / 24% / 392₽ / 38%",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-a87e2bc0",
     "label": "Justfood (покупка новым клиентом)",
-    "href": "https://my.saleads.pro/s/8ba35fb0-6322-11f1-af2c-7f54d7298e3c",
+    "href": "https://my.saleads.pro/s/8ba35fb0-6322-11f1-af2c-7f54d7298e3c?erid=2Vtzqxdzvbp",
     "network": "saleads",
     "vertical": "other",
     "payout": "400₽ / 2400₽ / 4800₽",
@@ -1782,7 +1702,7 @@
   {
     "id": "saleads-8b6855b0",
     "label": "Novakid ( Оплаченный курс)",
-    "href": "https://my.saleads.pro/s/8973b2b0-6322-11f1-8655-bf82c03ae6b8",
+    "href": "https://my.saleads.pro/s/8973b2b0-6322-11f1-8655-bf82c03ae6b8?erid=2VtzqxdSM7k",
     "network": "saleads",
     "vertical": "other",
     "payout": "6350₽",
@@ -1790,9 +1710,289 @@
     "enabled": true
   },
   {
+    "id": "saleads-28cba850",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/83788e60-6318-11f1-8232-4175891239d0?erid=2VtzquxEGpg",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-105bf8a0",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/29df0300-6321-11f1-a054-4ddda152f50d?erid=2VtzqwfWpxd",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-a53266e0",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/2b467210-6321-11f1-bbf0-0958ba665952?erid=2VtzqwjY7bU",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-0c154bc0",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/8769be60-6322-11f1-baa6-47c0c7899eb9?erid=2VtzqxBCS8E",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-71b6b940",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/8923bf20-6322-11f1-bc8b-1138ac12b255?erid=2Vtzqx51riH",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-cdc799e0",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/894a7240-6322-11f1-a22b-ddea8baddda8?erid=2Vtzqw9y84u",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-d55a6a90",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/899c35c0-6322-11f1-8aed-61aeffe97f80?erid=2Vtzqwdp4vR",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-2df16920",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/8b287440-6322-11f1-a9b6-c9c6b0fce876?erid=2Vtzqw6dqLa",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-c8f7cc80",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/8f8c8ec0-6322-11f1-b572-5979882be5d3?erid=2Vtzqx9h7XU",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-ae011bc0",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/9e8d4910-6322-11f1-b0be-6184d6f4360b?erid=2VtzqwA533u",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-32ede640",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/b53d32c0-6324-11f1-970f-cd6178dc6621?erid=2Vtzqw6XU6r",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-7c335020",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-59f58d80",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-d505c520",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-1dbabd10",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-abd784a0",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-2758b9d0",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-64625f90",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-9a8ec930",
+    "label": "Saleads offer",
+    "href": "https://my.saleads.pro/s/b5e18f80-633a-11f1-ab27-7f0267cf232c?erid=2VtzqvZiBDx",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "approve",
+    "enabled": true
+  },
+  {
+    "id": "saleads-61033960",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-cd850f60",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-454a0260",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-9f058940",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-a1ccf510",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-abf4dd40",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-d53eac10",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-7b574210",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
+    "id": "saleads-0baf8db0",
+    "label": "Saleads offer",
+    "href": "",
+    "network": "saleads",
+    "vertical": "other",
+    "payout": "—",
+    "status": "wait",
+    "enabled": false
+  },
+  {
     "id": "saleads-d4bea8c0",
     "label": "Skillfactory (Платные заявки)",
-    "href": "https://my.saleads.pro/s/87112b70-6322-11f1-b5ba-e9e644c2bec3",
+    "href": "https://my.saleads.pro/s/87112b70-6322-11f1-b5ba-e9e644c2bec3?erid=2VtzqwERgYG",
     "network": "saleads",
     "vertical": "other",
     "payout": "15% / 12% / 25000₽ / 5000₽",
@@ -1802,7 +2002,7 @@
   {
     "id": "saleads-ffcfc560",
     "label": "Youtalk (Оплата консультации)",
-    "href": "https://my.saleads.pro/s/a093fac0-6322-11f1-8ea1-a3276a57df54",
+    "href": "https://my.saleads.pro/s/a093fac0-6322-11f1-8ea1-a3276a57df54?erid=2VtzqufcXZG",
     "network": "saleads",
     "vertical": "other",
     "payout": "130₽ / 100₽ / 1495₽ / 650₽ / 1950₽",
@@ -1812,27 +2012,27 @@
   {
     "id": "saleads-7499ba40",
     "label": "Академия Эдюсон (оплаченный курс)",
-    "href": "https://my.saleads.pro/s/e321a870-6322-11f1-8873-f5d784f5dc48",
+    "href": "https://my.saleads.pro/s/e321a870-6322-11f1-8873-f5d784f5dc48?erid=2VtzqwovXtq",
     "network": "saleads",
     "vertical": "other",
-    "payout": "20% / 5% / 500₽",
+    "payout": "20% / 5% / 500₽ / 150₽",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-f215c180",
     "label": "Вебиум (оплаченный курс)",
-    "href": "https://my.saleads.pro/s/c070be20-6322-11f1-bcbd-9baf0f7f4185",
+    "href": "https://my.saleads.pro/s/c070be20-6322-11f1-bcbd-9baf0f7f4185?erid=2Vtzqv2kJ7x",
     "network": "saleads",
     "vertical": "other",
-    "payout": "1500₽ / 108.53₽",
+    "payout": "3000₽ / 108.53₽",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-ed1b8390",
     "label": "Московский Институт Психологии (оплаченный курс)",
-    "href": "https://my.saleads.pro/s/b6aee370-6324-11f1-aa2d-630e45737da4",
+    "href": "https://my.saleads.pro/s/b6aee370-6324-11f1-aa2d-630e45737da4?erid=2Vtzqv2dGz9",
     "network": "saleads",
     "vertical": "other",
     "payout": "17.53% / 17.53%",
@@ -1842,17 +2042,17 @@
   {
     "id": "saleads-1b385e80",
     "label": "Нетология (оплаченный курс )",
-    "href": "https://my.saleads.pro/s/86e503e0-6322-11f1-ba40-01cd8765c665",
+    "href": "https://my.saleads.pro/s/86e503e0-6322-11f1-ba40-01cd8765c665?erid=2VtzqvGwCDW",
     "network": "saleads",
     "vertical": "other",
-    "payout": "15% / 5% / 6000₽ / 30000₽",
+    "payout": "15% / 5%",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-e739db10",
     "label": "Онлайн Школа Логопотам ( Посещение пробного урока, Оплата пакета услуг)",
-    "href": "https://my.saleads.pro/s/8cfc8c70-6322-11f1-aaf5-a9f701831be2",
+    "href": "https://my.saleads.pro/s/8cfc8c70-6322-11f1-aaf5-a9f701831be2?erid=2VtzqwZVVfs",
     "network": "saleads",
     "vertical": "other",
     "payout": "480₽ / 4800₽",
@@ -1861,18 +2061,18 @@
   },
   {
     "id": "saleads-97f85fa0",
-    "label": "Т-Мобайл (платящий клиент)",
-    "href": "https://my.saleads.pro/s/e4846a20-6322-11f1-b2fa-2d5ef230f705",
+    "label": "Т-Мобайл (перенос номера)",
+    "href": "https://my.saleads.pro/s/e4846a20-6322-11f1-b2fa-2d5ef230f705?erid=2Vtzqxe1GYE",
     "network": "saleads",
     "vertical": "other",
-    "payout": "500₽ / 461₽",
+    "payout": "1125₽ / 461₽",
     "status": "approve",
     "enabled": true
   },
   {
     "id": "saleads-bc695190",
     "label": "Уфанет Интернет+ ТВ ( Подключение услуги)",
-    "href": "https://my.saleads.pro/s/c6b0cb00-6322-11f1-b2dc-2925bafcec8f",
+    "href": "https://my.saleads.pro/s/c6b0cb00-6322-11f1-b2dc-2925bafcec8f?erid=2Vtzqw2dqy1",
     "network": "saleads",
     "vertical": "other",
     "payout": "1200₽",
@@ -1882,7 +2082,7 @@
   {
     "id": "saleads-2f380500",
     "label": "Яндекс 360 (Оформление платного тарифа новым пользователем на сайте)",
-    "href": "https://my.saleads.pro/s/c2cace70-6322-11f1-9bc9-0755f80d89e3",
+    "href": "https://my.saleads.pro/s/c2cace70-6322-11f1-9bc9-0755f80d89e3?erid=2Vtzqx5Heej",
     "network": "saleads",
     "vertical": "other",
     "payout": "1425₽",

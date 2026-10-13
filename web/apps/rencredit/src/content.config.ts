@@ -93,4 +93,53 @@ const guides = defineCollection({
   }),
 });
 
-export const collections = { offers, articles, news, guides };
+/**
+ * Некредитные продукты: страхование, дебетовые карты, вклады, РКО. Отдельно от offers,
+ * потому что у них нет суммы/срока/ставки займа — калькулятор и фильтры займов их не видят.
+ * Ключевые условия — в highlights (каждое подтверждается источником при verified=true).
+ */
+export const SERVICE_CATEGORIES = [
+  'osago', 'kasko', 'strahovanie-ipoteki', 'strahovanie-puteshestvennikov', 'strahovanie-kvartiry',
+  'strahovanie-drugoe', 'debetovye-karty', 'vklady', 'rko',
+] as const;
+
+const services = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/services' }),
+  schema: z.object({
+    poolId: z.string().regex(/^saleads-[0-9a-f]{8}$/),
+    kind: z.enum(['insurance', 'debit', 'deposit', 'rko']),
+    category: z.enum(SERVICE_CATEGORIES),
+    name: z.string(),
+    logo: z.string().optional(),
+    brandColor: z.string().optional(),
+    /** 2–4 ключевых условия для карточки: «Кешбэк» → «до 30%», «Обслуживание» → «0 ₽». */
+    highlights: z.array(z.object({ label: z.string(), value: z.string() })).max(4).default([]),
+    /** Ставка вклада, % годовых (для kind=deposit) — для сортировки. */
+    ratePct: z.number().min(0).max(100).optional(),
+    /** Стоимость: обслуживание ₽/мес (debit, rko) или «полис от» ₽ (insurance) — для сортировки. */
+    priceFrom: z.number().min(0).optional(),
+    cbrLicense: z.string().optional(),   // лицензия ЦБ банка / страховщика
+    legalName: z.string().optional(),    // рекламодатель: банк, страховщик или сервис-агрегатор
+    erid: z.string().optional(),
+    verified: z.boolean().default(false),
+    priority: z.number().default(0),
+    summary: z.string().optional(),
+    pros: z.array(z.string()).default([]),
+    cons: z.array(z.string()).default([]),
+  }),
+});
+
+/** SEO-тексты посадочных /osago/, /debetovye-karty/ … (id файла = category). */
+const servicePages = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/service-pages' }),
+  schema: z.object({
+    title: z.string(),          // H1
+    navLabel: z.string(),       // «ОСАГО»
+    description: z.string().max(200),
+    lead: z.string().optional(),   // 1–2 предложения под H1
+    updatedDate: z.coerce.date().optional(),
+    faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
+  }),
+});
+
+export const collections = { offers, articles, news, guides, services, servicePages };
