@@ -23,7 +23,7 @@ const rows = offers.map((o, idx) => ({
   o,
   p: {
     sumMin: o.amountMin, sumMax: o.amountMax, termMin: o.termMinDays, termMax: o.termMaxDays,
-    rate: o.rateDayPct, free: showsRate(o) && o.features.includes('zero_percent') ? o.freeDays ?? 0 : 0,
+    rate: showsRate(o) ? o.rateDayPct : NaN, free: showsRate(o) && o.features.includes('zero_percent') ? o.freeDays ?? 0 : 0,
     prio: o.priority ?? 0, idx, features: o.features,
   } satisfies PickOffer,
 }));

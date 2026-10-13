@@ -43,8 +43,10 @@ export const matches = (o: PickOffer, s: PickState) =>
   s.term >= o.termMin && s.term <= o.termMax &&
   (!KI_FEATURE[s.ki] || o.features.includes(KI_FEATURE[s.ki]!));
 
-const byPrio = (a: PickOffer, b: PickOffer) => b.prio - a.prio || a.idx - b.idx;
-const byFree = (a: PickOffer, b: PickOffer) => b.free - a.free || byPrio(a, b);
+/** Без ставки (нет ПСК — ставку не показываем) карточка неполная: такие офферы всегда в конце. */
+const rated = (o: PickOffer) => (Number.isFinite(o.rate) ? 1 : 0);
+const byPrio = (a: PickOffer, b: PickOffer) => rated(b) - rated(a) || b.prio - a.prio || a.idx - b.idx;
+const byFree = (a: PickOffer, b: PickOffer) => rated(b) - rated(a) || b.free - a.free || byPrio(a, b);
 
 /** Подходящие предложения в порядке показа. Пустая история -> вперёд те, где первый займ без процентов. */
 export function pick<T extends PickOffer>(list: T[], s: PickState): T[] {

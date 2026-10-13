@@ -19,7 +19,7 @@ const host = site ? new URL(site).hostname.replace(/^www\./, '') : null;
 const serviceText = { insurance: 'Условия страхования, стоимость полиса и исключения', debit: 'Тарифы и условия обслуживания карты', deposit: 'Доходность зависит от суммы, срока и условий вклада. Полные условия', rko: 'Тарифы и условия обслуживания счёта' };
 ---
 <p class:list={['ad-mark', cls]}>
-  <span class="ad-tag">Реклама.</span> {o.legalName ?? o.name}.{' '}
+  <span class="ad-tag">Реклама</span>{o.legalName ?? o.name}.{' '}
   {service
     ? <>{serviceText[service]} — на&nbsp;сайте организации{site && <> <a href={site} rel="nofollow noopener" target="_blank">{host}</a></>}.</>
     : <>Оценивайте свои финансовые возможности и риски. Изучите все условия кредита (займа) на&nbsp;сайте кредитора{site && <> <a href={site} rel="nofollow noopener" target="_blank">{host}</a></>}.</>}

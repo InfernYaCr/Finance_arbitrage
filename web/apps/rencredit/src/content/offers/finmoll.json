@@ -2,7 +2,7 @@
   "poolId": "saleads-4f2e3fe0",
   "kind": "mfo",
   "name": "ФинМолл",
-  "logo": "/logos/finmoll.svg",
+  "logo": "/logos/finmoll.png",
   "brandColor": "#00695C",
   "amountMin": 2000,
   "amountMax": 100000,
@@ -17,7 +17,7 @@
     "to_card",
     "long_term"
   ],
-  "legalName": "ООО МКК \"ФИНМОЛЛ\"",
+  "legalName": "ООО МКК «ФИНМОЛЛ»",
   "cbrLicense": "651403550005541",
   "erid": "2Vtzqving8M",
   "verified": true,

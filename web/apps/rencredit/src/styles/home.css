@@ -162,7 +162,7 @@
   box-shadow: var(--shadow-card); transition: box-shadow .25s var(--ease-out), border-color .25s;
 }
 .hp-ticket:hover { box-shadow: var(--shadow-lift); border-color: color-mix(in oklab, var(--color-brand) 40%, var(--color-line)); }
-.hp-t-head { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.hp-t-head { display: flex; align-items: flex-start; gap: 12px; min-width: 0; }
 .hp-t-head .logo-tile { width: 48px; height: 48px; border-radius: 14px; font-size: 22px; }
 .hp-t-name { display: block; font-size: 17px; font-weight: 750; letter-spacing: -.015em; text-decoration: none; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .hp-t-name:hover { color: var(--color-brand-600); }
@@ -176,13 +176,21 @@
   content: ""; position: absolute; bottom: -11px; width: 20px; height: 20px; border-radius: 50%;
   background: var(--color-paper); border: 1px solid var(--color-line);
 }
-.hp-t-sum::before { left: -29px; }
-.hp-t-sum::after { right: -29px; }
+.hp-t-sum::before { left: -29px; clip-path: inset(-1px -1px -1px 50%); } /* видна только внутренняя половина — вырез, а не кружок снаружи */
+.hp-t-sum::after { right: -29px; clip-path: inset(-1px 50% -1px -1px); }
 .hp-t-k { font-size: 13px; color: var(--color-mute); }
 .hp-t-back { font-size: 30px; font-weight: 800; letter-spacing: -.03em; line-height: 1.15; font-variant-numeric: tabular-nums; }
 .hp-t-over { font-size: 13.5px; color: var(--color-ink-soft); font-variant-numeric: tabular-nums; }
 .hp-t-cta { min-height: 52px; width: 100%; }
 .hp-t-psk { font-size: 13px; font-weight: 650; margin-top: 2px; } /* не мельче бейджа «0%» (ч. 3 ст. 28 38-ФЗ) */
+.hp-t-ad { padding-top: 12px; border-top: 1px solid var(--color-line); }
+/* Три талона в ряд: строки (шапка, сумма, кнопка, маркировка) выровнены между карточками */
+@media (min-width: 900px) {
+  .hp-ticket { grid-row: span 4; grid-template-rows: subgrid; row-gap: 14px; align-content: stretch; }
+  .hp-t-sum { align-content: end; }
+  .hp-t-ad { align-self: start; }
+  .hp-t-badge { position: absolute; top: -11px; right: 18px; } /* в углу талона — не сжимает название и ПСК */
+}
 
 @media (max-width: 639px) {
   .hp-ticket {
