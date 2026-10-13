@@ -12,6 +12,26 @@ const errors = [];
 const warns = [];
 const err = (m) => errors.push(m);
 
+// verified=true разрешён только при полном наборе источников в src/data/offer-sources/<slug>.json:
+// официальный сайт, запись реестра ЦБ, проверка не старше 30 дней, источник на каждое числовое условие.
+const SOURCES_DIR = join(app, 'src/data/offer-sources');
+const SOURCED_FIELDS = ['amountMin', 'amountMax', 'termMinDays', 'termMaxDays', 'rateDayPct', 'freeDays',
+  'pskMin', 'pskMax', 'ageMin', 'ageMax'];
+const MAX_AGE_DAYS = 30;
+function checkSources(f, slug, o) {
+  const path = join(SOURCES_DIR, `${slug}.json`);
+  if (!existsSync(path)) return err(`${f}: verified=true, но нет src/data/offer-sources/${slug}.json`);
+  const s = JSON.parse(readFileSync(path, 'utf-8'));
+  const ageDays = (Date.now() - Date.parse(s.checkedAt)) / 86400000;
+  if (!(ageDays >= 0 && ageDays <= MAX_AGE_DAYS)) err(`${f}: checkedAt (${s.checkedAt}) старше ${MAX_AGE_DAYS} дней или некорректна`);
+  if (!/^https:\/\//.test(s.officialUrl ?? '')) err(`${f}: в источниках нет officialUrl`);
+  if (!s.registry?.regNumber || !s.registry?.url) err(`${f}: в источниках нет записи реестра ЦБ (regNumber + url)`);
+  if (o.cbrLicense !== s.registry?.regNumber) err(`${f}: cbrLicense не совпадает с registry.regNumber`);
+  for (const k of SOURCED_FIELDS) {
+    if (o[k] != null && !s.fields?.[k]?.url) err(`${f}: у поля ${k} нет источника (fields.${k}.url)`);
+  }
+}
+
 // 1. Офферы
 const offersDir = join(app, 'src/content/offers');
 const files = readdirSync(offersDir).filter((f) => f.endsWith('.json'));
@@ -34,7 +54,7 @@ for (const f of files) {
   }
   if (poolUsed.has(o.poolId)) err(`${f}: poolId ${o.poolId} уже использован в ${poolUsed.get(o.poolId)}`);
   poolUsed.set(o.poolId, f);
-  if (o.verified !== false) err(`${f}: verified должен быть false до ручной сверки`);
+  if (o.verified) checkSources(f, slug, o);
   if (o.rateDayPct > 0.8) err(`${f}: ставка > 0.8%/день`);
   if (o.pskMax != null && o.pskMax > 292) err(`${f}: ПСК > 292`);
   if (o.amountMin > o.amountMax) err(`${f}: amountMin > amountMax`);

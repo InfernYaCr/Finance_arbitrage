@@ -26,6 +26,7 @@ const offers = defineCollection({
     termMaxDays: z.number().int().positive(),
     rateDayPct: z.number().min(0).max(0.8),
     freeDays: z.number().int().optional(),
+    pskMin: z.number().min(0).optional(),
     pskMax: z.number().max(292).optional(),
     approvalPct: z.number().min(0).max(100).optional(),
     decisionMinutes: z.number().optional(),
@@ -36,6 +37,7 @@ const offers = defineCollection({
     reviewsCount: z.number().int().optional(),
     cbrLicense: z.string().optional(),
     legalName: z.string().optional(),
+    erid: z.string().optional(),
     verified: z.boolean().default(false),
     priority: z.number().default(0),
     summary: z.string().optional(),     // 1–2 предложения для карточки/обзора

@@ -49,6 +49,7 @@ export interface Product {
   termMaxDays: number;
   rateDayPct: number;           // ставка в день, %
   freeDays?: number;            // срок без %
+  pskMin?: number;              // ПСК, % годовых — нижняя граница диапазона (для рекламы обязателен диапазон)
   pskMax?: number;              // ПСК, % годовых (диапазон верхней границы)
   approvalPct?: number;         // заявленное одобрение
   decisionMinutes?: number;
@@ -59,6 +60,7 @@ export interface Product {
   reviewsCount?: number;
   cbrLicense?: string;          // номер в реестре ЦБ
   legalName?: string;           // ООО МФК «...»
+  erid?: string;                // токен маркировки рекламы (ОРД), из Saleads
   verified: boolean;            // условия сверены с сайтом МФО?
   priority?: number;            // порядок «по умолчанию» (больше — выше)
 }
