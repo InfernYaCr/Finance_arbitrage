@@ -17,6 +17,12 @@ const offers = await getOffers('mfo');
 const [articles, news] = await Promise.all([getArticles(), getNews()]);
 const topArticles = articles.slice(0, 3);
 const topNews = news.slice(0, 4);
+const moreServices = [
+  { href: '/strahovanie/', t: 'Страхование', d: 'ОСАГО, КАСКО, ипотека, путешествия' },
+  { href: '/debetovye-karty/', t: 'Дебетовые карты', d: 'Обслуживание, кешбэк, % на остаток' },
+  { href: '/vklady/', t: 'Вклады', d: 'Ставки и условия банков' },
+  { href: '/rko/', t: 'РКО для бизнеса', d: 'Расчётный счёт для ИП и ООО' },
+];
 const compare = [...offers].sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0));
 ---
 <BaseLayout
@@ -30,6 +36,16 @@ const compare = [...offers].sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0)
 
   <Steps />
   <CompareTable offers={compare} />
+
+  <section class="section pt-0 md:pt-0" aria-labelledby="more-services">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>Не только займы</p>
+      <h2 class="h2 mt-2" id="more-services" data-reveal>Ещё сервисы</h2>
+      <ul class="svc-tiles mt-6" data-reveal>
+        {moreServices.map((x) => <li><a href={x.href}><b>{x.t}</b><span>{x.d}</span></a></li>)}
+      </ul>
+    </div>
+  </section>
 
   {(topArticles.length > 0 || topNews.length > 0) && (
     <section class="section pt-0 md:pt-0">

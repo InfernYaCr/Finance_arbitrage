@@ -136,6 +136,28 @@ export function itemListProducts(name: string, products: Product[], site: string
   };
 }
 
+/** ItemList произвольных продуктов (страхование, вклады, РКО): тип schema.org, имя, ссылка, поставщик. */
+export interface ListEntry { type: string; name: string; path: string; provider?: string; description?: string }
+export function itemList(name: string, entries: ListEntry[], site: string) {
+  if (!entries.length) return null;
+  return {
+    '@type': 'ItemList',
+    name,
+    numberOfItems: entries.length,
+    itemListElement: entries.map((e, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': e.type,
+        name: e.name,
+        url: canonicalUrl(site, e.path),
+        ...(e.description ? { description: e.description } : {}),
+        ...(e.provider ? { provider: { '@type': 'Organization', name: e.provider } } : {}),
+      },
+    })),
+  };
+}
+
 /** Строка для <script type="application/ld+json" set:html={jsonLd(...)}>; экранирует «<». */
 export function jsonLd(data: object): string {
   return JSON.stringify(data).replace(/</g, '\\u003c');

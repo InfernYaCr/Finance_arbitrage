@@ -5,6 +5,7 @@ import Outline from './decor/Outline.astro';
 import Icon from './Icon.astro';
 import { SITE } from '../lib/ui/site';
 import { getGuides } from '../lib/content';
+import { SERVICE_LINKS } from '../lib/services';
 
 const guides = await getGuides();
 const year = new Date().getFullYear();
@@ -49,6 +50,13 @@ const trust = [
         <ul>
           <li><a href="/karty/">Карты</a></li>
           <li><a href="/kredity/">Кредиты</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Сервисы">
+        <h3>Сервисы</h3>
+        <ul>
+          <li><a href="/strahovanie/">Страхование</a></li>
+          {SERVICE_LINKS.filter((l) => !l.category.startsWith('strahovanie-')).map((l) => <li><a href={l.href}>{l.label}</a></li>)}
         </ul>
       </nav>
       <nav aria-label="Читать">

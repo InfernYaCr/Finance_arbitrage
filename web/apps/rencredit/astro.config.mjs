@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import tailwindcss from '@tailwindcss/vite';
 import { loadEnv } from 'vite';
-import { readdirSync, existsSync, renameSync, rmdirSync } from 'node:fs';
+import { readdirSync, readFileSync, existsSync, renameSync, rmdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -39,6 +39,16 @@ if (process.argv.includes('build') && env.PUBLIC_NOINDEX?.trim() !== 'true') {
   if (missing.length) console.warn(`\n[rencredit] ВНИМАНИЕ: прод-сборка без ${missing.join(', ')} — футер и политика конфиденциальности выйдут без оператора/контакта (152-ФЗ).\n`);
 }
 
+// Посадочные некредитных разделов без предложений собираются с noindex (ServiceLanding) — в sitemap их не кладём.
+const svcDir = './src/content/services';
+const svcData = existsSync(svcDir)
+  ? readdirSync(svcDir).filter((f) => f.endsWith('.json')).map((f) => JSON.parse(readFileSync(join(svcDir, f), 'utf-8')))
+  : [];
+const filledSvcPages = new Set([...svcData.map((s) => s.category), ...(svcData.some((s) => s.kind === 'insurance') ? ['strahovanie'] : [])]);
+const SVC_PAGE_RE = /^\/(strahovanie|osago|kasko|strahovanie-ipoteki|strahovanie-puteshestvennikov|strahovanie-kvartiry|debetovye-karty|vklady|rko)\/$/;
+/** @param {string} p */
+const isEmptySvcPage = (p) => { const m = new URL(p).pathname.match(SVC_PAGE_RE); return !!m && !filledSvcPages.has(m[1]); };
+
 export default defineConfig({
   // Пилот: тестовый поддомен с noindex, потом — боевой домен.
   site: (env.SITE_URL || 'https://rencredit-online.ru').replace(/\/+$/, ''),
@@ -48,7 +58,7 @@ export default defineConfig({
     mdx(),
     legacyHtmlFiles(),
     sitemap({
-      filter: (p) => !p.includes('/go/'),
+      filter: (p) => !p.includes('/go/') && !isEmptySvcPage(p),
       // Переписанные старые статьи собираются как /credit/<slug>/, но живут (и каноничны)
       // на старом адресе /credit/<slug>.html — в карту сайта кладём именно его.
       serialize: (item) => ({ ...item, url: item.url.replace(/\/credit\/([^/]+)\/$/, '/credit/$1.html') }),

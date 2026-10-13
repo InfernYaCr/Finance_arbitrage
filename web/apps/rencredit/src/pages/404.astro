@@ -19,7 +19,7 @@ import { NAV } from '../lib/ui/site';
     </div>
     <nav class="e404-links" aria-label="Популярные разделы">
       <p>Или загляните в раздел</p>
-      <ul>{NAV.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
+      <ul>{NAV.flatMap((n) => (n.href ? [n] : n.sub ?? [])).map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
     </nav>
   </div>
 </BaseLayout>
