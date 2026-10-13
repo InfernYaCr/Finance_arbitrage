@@ -15,7 +15,8 @@ const readCard = (el: HTMLElement): Card => {
   return {
     el,
     sumMin: +d.sumMin!, sumMax: +d.sumMax!, termMin: +d.termMin!, termMax: +d.termMax!,
-    rate: +d.rate!, free: +d.free!, appr: +d.appr!,
+    // нет data-rate (оффер без ПСК) -> Infinity: в конец при сортировке по ставке, вне расчёта переплаты
+    rate: d.rate ? +d.rate : Infinity, free: +d.free!, appr: +d.appr!,
     ageMin: +d.ageMin!, ageMax: +d.ageMax!, prio: +d.prio!, idx: +d.idx!,
     features: (d.features ?? '').split(',').filter(Boolean),
   };
@@ -228,16 +229,17 @@ function initCalc(showcase: HTMLElement, cards: Card[]) {
     const age = showcase.dataset.age ? +showcase.dataset.age : null;
     const matched = cards.filter((c) => match(c, { sum, term, age, f }));
     const n = matched.length;
-    if (n) {
-      const best = Math.min(...matched.map((c) => overpay(sum, term, c.rate, c.free)));
+    const rated = matched.filter((c) => Number.isFinite(c.rate));
+    if (rated.length) {
+      const best = Math.min(...rated.map((c) => overpay(sum, term, c.rate, c.free)));
       over.textContent = best === 0 ? '0 ₽' : `от ${rub(best)}`;
       back.textContent = rub(sum + best);
       note.textContent = best === 0 ? 'Для первого займа в льготный период проценты не начисляются.' : 'Расчёт по лучшему из подходящих предложений. Точные условия — на сайте кредитора.';
       goLabel.textContent = `Показать ${n} ${plural(n, ['предложение', 'предложения', 'предложений'])}`;
     } else {
       over.textContent = '—'; back.textContent = '—';
-      note.textContent = 'Под такие условия предложений не нашлось — измените сумму или срок.';
-      goLabel.textContent = 'Изменить условия';
+      note.textContent = n ? 'Условия подходящих предложений — на сайте кредитора.' : 'Под такие условия предложений не нашлось — измените сумму или срок.';
+      goLabel.textContent = n ? `Показать ${n} ${plural(n, ['предложение', 'предложения', 'предложений'])}` : 'Изменить условия';
     }
     go.dataset.n = String(n);
   };

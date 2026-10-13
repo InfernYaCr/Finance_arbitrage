@@ -7,7 +7,7 @@ import CtaTop3 from '../../components/cta/CtaTop3.astro';
 import CtaZero from '../../components/cta/CtaZero.astro';
 import { KIND_URL } from '../../lib/cta';
 import Icon from '../../components/Icon.astro';
-import { getOffers, offerHref, pskRange, creditRate, REVIEW_DIR, PSK_LABEL } from '../../lib/offers';
+import { getOffers, offerHref, pskRange, creditRate, showsRate, NO_RATE, CTA_LABEL, REVIEW_DIR, PSK_LABEL } from '../../lib/offers';
 import { FEATURE_LABELS } from '../../lib/ui/features';
 import { range, num, pct, daysWord, moneyRange, termText } from '../../lib/format';
 import { SITE } from '../../lib/ui/site';
@@ -20,9 +20,11 @@ export async function getStaticPaths() {
 const { offer: o, all } = Astro.props;
 const similar = all.filter((x) => x.slug !== o.slug && x.kind === o.kind).slice(0, 3);
 // Кредит — годовая ставка; карта — ставки вне льготного периода в данных нет, показываем только ПСК.
-const rate = o.kind === 'mfo' ? `${pct(o.rateDayPct)}% в день` : o.kind === 'credit' ? `${creditRate(o)}% годовых` : null;
+// Без диапазона ПСК ставку не показываем (ч. 3 ст. 28 38-ФЗ) — вместо неё NO_RATE.
+const rate = !showsRate(o) ? null : o.kind === 'mfo' ? `${pct(o.rateDayPct)}% в день` : o.kind === 'credit' ? `${creditRate(o)}% годовых` : null;
 // ч. 3 ст. 28 38-ФЗ: ПСК показываем раньше ставки и не мельче неё.
 const psk = pskRange(o) ?? (o.pskMax ? `до ${pct(o.pskMax)}% годовых` : null);
+const tags = o.features.filter((f) => showsRate(o) || f !== 'zero_percent'); // «Без процентов» — тоже ставка
 const term = termText(o.kind, o.termMinDays, o.termMaxDays);
 const amountLabel = o.kind === 'card' ? 'Кредитный лимит' : 'Сумма';
 const termLabel = o.kind === 'card' ? 'Льготный период' : 'Срок';
@@ -41,6 +43,7 @@ const rows: [string, string][] = [
   [amountLabel, `${range(o.amountMin, o.amountMax)} ₽`],
   [termLabel, term],
   ...(psk ? ([[PSK_LABEL, psk]] as [string, string][]) : []),
+  ...(!rate && o.kind !== 'card' ? ([['Ставка', NO_RATE]] as [string, string][]) : []),
   ...(rate ? ([['Ставка', rate + (o.kind === 'mfo' && o.freeDays && o.features.includes('zero_percent') ? ` (0% первые ${daysWord(o.freeDays)} для новых клиентов)` : '')]] as [string, string][]) : []),
   ...(o.approvalPct ? ([['Заявленное одобрение', `${o.approvalPct}%`]] as [string, string][]) : []),
   ...(o.decisionMinutes ? ([['Время решения', `до ${o.decisionMinutes} мин`]] as [string, string][]) : []),
@@ -65,7 +68,7 @@ const legal: [string, string][] = [
         {o.rating ? <p class="rating mt-3"><Icon name="star" />{String(o.rating).replace('.', ',')} из 5{o.reviewsCount ? ` · ${num(o.reviewsCount)} отзывов` : ''}</p> : null}
       </div>
       <div class="grid gap-3">
-        <a class="btn btn-cta btn-lg btn-block" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">Получить деньги<Icon name="arrow" class="arrow" /></a>
+        <a class="btn btn-cta btn-lg btn-block" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">{CTA_LABEL[o.kind]}<Icon name="arrow" class="arrow" /></a>
         <p class="text-center text-sm text-mute">Заявка оформляется на сайте организации</p>
         <AdMark offer={o} />
       </div>
@@ -81,7 +84,7 @@ const legal: [string, string][] = [
 
     <CtaZero offer={o} />
 
-    {o.features.length > 0 && <ul class="oc-tags mt-5 p-0" data-reveal>{o.features.map((f) => <li class="tag">{FEATURE_LABELS[f]}</li>)}</ul>}
+    {tags.length > 0 && <ul class="oc-tags mt-5 p-0" data-reveal>{tags.map((f) => <li class="tag">{FEATURE_LABELS[f]}</li>)}</ul>}
 
     <h2 class="h2 mt-12" data-reveal>Условия {o.name}</h2>
     <dl class="dl" data-reveal>{rows.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
@@ -110,7 +113,7 @@ const legal: [string, string][] = [
   </div>
 
   <div class="sticky-cta" role="region" aria-label="Оформить заявку">
-    <div class="t">{o.name}<small>Реклама · {moneyRange(o.amountMin, o.amountMax)} · {term}</small></div>
-    <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">Получить деньги</a>
+    <div class="t">{o.name}<small>Реклама · {o.legalName ?? o.name}{o.erid && <> · erid:&nbsp;{o.erid.split('/')[0]}</>}</small></div>
+    <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">{CTA_LABEL[o.kind]}</a>
   </div>
 </BaseLayout>

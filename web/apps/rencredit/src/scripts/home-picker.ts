@@ -10,7 +10,7 @@ import {
   type Ki, type PickOffer, type PickState,
 } from './home-logic';
 
-interface Row extends PickOffer { el: HTMLElement; back: HTMLElement; over: HTMLElement }
+interface Row extends PickOffer { el: HTMLElement; back: HTMLElement | null; over: HTMLElement | null }
 type Field = 'sum' | 'term';
 
 const offersWord = (n: number) => plural(n, ['предложение', 'предложения', 'предложений']);
@@ -38,7 +38,7 @@ export function initHomePicker() {
   const rows: Row[] = $$('[data-hp-offer]').map((el) => {
     const d = el.dataset;
     return {
-      el, back: el.querySelector<HTMLElement>('[data-t-back]')!, over: el.querySelector<HTMLElement>('[data-t-over]')!,
+      el, back: el.querySelector<HTMLElement>('[data-t-back]'), over: el.querySelector<HTMLElement>('[data-t-over]'), // нет у офферов без ПСК
       sumMin: +d.sumMin!, sumMax: +d.sumMax!, termMin: +d.termMin!, termMax: +d.termMax!,
       rate: +d.rate!, free: +d.free!, prio: +d.prio!, idx: +d.idx!,
       features: (d.features ?? '').split(',').filter(Boolean),
@@ -91,6 +91,7 @@ export function initHomePicker() {
     const n = matched.length;
 
     top.forEach((r) => {
+      if (!r.back || !r.over) return;
       const q = quote(r, state);
       r.back.textContent = rub(q.back);
       r.over.textContent = overText(q, rub);

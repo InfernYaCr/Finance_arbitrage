@@ -30,6 +30,12 @@ export function pskRange(o: Pick<Product, 'pskMin' | 'pskMax'>): string | null {
   return o.pskMin === o.pskMax ? `${f(o.pskMax)}% годовых` : `от ${f(o.pskMin)} до ${f(o.pskMax)}% годовых`;
 }
 
+/** ч. 3 ст. 28 38-ФЗ: ставку (и «0%») показываем только вместе с диапазоном ПСК. */
+export const showsRate = (o: Pick<Product, 'pskMin' | 'pskMax'>) => pskRange(o) !== null;
+export const NO_RATE = 'Условия — на сайте кредитора';
+/** Текст основной кнопки по виду продукта. */
+export const CTA_LABEL: Record<ProductKind, string> = { mfo: 'Получить деньги', card: 'Оформить карту', credit: 'Оформить кредит' };
+
 export async function getOffers(kind?: ProductKind): Promise<Offer[]> {
   const entries = await getCollection('offers');
   const list = entries.map((e) => ({ slug: e.id, ...e.data }) as Offer);

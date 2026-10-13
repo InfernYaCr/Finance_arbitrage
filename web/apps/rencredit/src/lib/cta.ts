@@ -1,6 +1,6 @@
 import { filterProducts, sortProducts } from '@pbn/core';
 import type { ProductKind } from '@pbn/core';
-import { getOffers, creditRate, type Offer } from './offers';
+import { getOffers, creditRate, showsRate, NO_RATE, type Offer } from './offers';
 import { daysWord, plural, termText } from './format';
 
 export const KIND_URL: Record<ProductKind, string> = { mfo: '/zaimy/', card: '/karty/', credit: '/kredity/' };
@@ -94,6 +94,7 @@ export function countForSum(offers: Offer[], sum: number): number {
 
 export function keyCondition(o: Offer): string {
   if (o.kind === 'card') return o.features.includes('zero_percent') && o.freeDays ? `Без % ${termText('card', 1, o.freeDays)}` : 'Кредитная карта';
+  if (!showsRate(o)) return o.decisionMinutes ? `Решение за ${o.decisionMinutes} мин` : NO_RATE;
   if (o.kind === 'credit') return `${creditRate(o)}% годовых`;
   if (o.features.includes('zero_percent') && o.freeDays) return `0% первые ${daysWord(o.freeDays)}`;
   if (o.decisionMinutes) return `Решение за ${o.decisionMinutes} мин`;

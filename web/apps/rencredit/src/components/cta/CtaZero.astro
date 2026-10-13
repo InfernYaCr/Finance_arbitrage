@@ -2,13 +2,13 @@
 /** Плашка условий 0% в обзоре МФО. Только если в данных оффера есть льготные дни. */
 import Icon from '../Icon.astro';
 import AdMark from '../AdMark.astro';
-import { offerHref, pskRange, PSK_LABEL, type Offer } from '../../lib/offers';
+import { offerHref, pskRange, showsRate, PSK_LABEL, type Offer } from '../../lib/offers';
 import { daysWord } from '../../lib/format';
 
 interface Props { offer: Offer }
 const { offer: o } = Astro.props;
 // Только МФО: у карт «0%» — льготный период, а не первый займ («Дальше — 0% в день» было бы неверно).
-const show = o.kind === 'mfo' && o.features.includes('zero_percent') && !!o.freeDays;
+const show = showsRate(o) && o.kind === 'mfo' && o.features.includes('zero_percent') && !!o.freeDays;
 const rate = String(o.rateDayPct).replace('.', ',');
 const psk = pskRange(o);
 ---

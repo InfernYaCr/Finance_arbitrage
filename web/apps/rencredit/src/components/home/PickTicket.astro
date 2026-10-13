@@ -3,19 +3,20 @@
 import OfferLogo from '../OfferLogo.astro';
 import AdMark from '../AdMark.astro';
 import Icon from '../Icon.astro';
-import { type Offer, offerHref, reviewHref, pskRange, PSK_LABEL } from '../../lib/offers';
+import { type Offer, offerHref, reviewHref, pskRange, showsRate, NO_RATE, PSK_LABEL } from '../../lib/offers';
 import { num, rub, daysWord } from '../../lib/format';
 import { type Quote, overText } from '../../scripts/home-logic';
 
 interface Props { offer: Offer; index: number; quote: Quote; shown: boolean }
 const { offer: o, index, quote: q, shown } = Astro.props;
-const free = o.features.includes('zero_percent') ? o.freeDays ?? 0 : 0;
+const rated = showsRate(o); // без ПСК не показываем ни «0%», ни расчёт по ставке
+const free = rated && o.features.includes('zero_percent') ? o.freeDays ?? 0 : 0;
 const psk = pskRange(o);
 const limits = `до ${num(o.amountMax)} ₽, ${o.termMinDays}–${o.termMaxDays} дн.`;
 ---
 <li class="hp-ticket" data-hp-offer hidden={!shown || undefined}
   data-sum-min={o.amountMin} data-sum-max={o.amountMax} data-term-min={o.termMinDays} data-term-max={o.termMaxDays}
-  data-rate={o.rateDayPct} data-free={free} data-prio={o.priority ?? 0} data-idx={index} data-features={o.features.join(',')}>
+  data-rate={rated ? o.rateDayPct : undefined} data-free={free} data-prio={o.priority ?? 0} data-idx={index} data-features={o.features.join(',')}>
   <div class="hp-t-head">
     <OfferLogo offer={o} />
     <div class="min-w-0">
@@ -25,11 +26,15 @@ const limits = `до ${num(o.amountMax)} ₽, ${o.termMinDays}–${o.termMaxDays
     </div>
     {free > 0 && <span class="hp-t-badge">0% {daysWord(free)}<span class="sr-only"> для первого займа</span></span>}
   </div>
-  <div class="hp-t-sum">
-    <span class="hp-t-k">К возврату</span>
-    <b class="hp-t-back" data-t-back>{rub(q.back)}</b>
-    <span class="hp-t-over" data-t-over>{overText(q, rub)}</span>
-  </div>
+  {rated ? (
+    <div class="hp-t-sum">
+      <span class="hp-t-k">К возврату</span>
+      <b class="hp-t-back" data-t-back>{rub(q.back)}</b>
+      <span class="hp-t-over" data-t-over>{overText(q, rub)}</span>
+    </div>
+  ) : (
+    <div class="hp-t-sum"><span class="hp-t-k">Стоимость займа</span><span class="hp-t-over">{NO_RATE}</span></div>
+  )}
   <a class="btn btn-cta hp-t-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={o.slug}>Получить деньги<Icon name="arrow" class="arrow" /></a>
   <AdMark offer={o} class="hp-t-ad" />
 </li>

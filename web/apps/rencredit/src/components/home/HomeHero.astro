@@ -8,7 +8,7 @@ import PickTicket from './PickTicket.astro';
 import Compass from './Compass.astro';
 import Icon from '../Icon.astro';
 import Character from '../mascots/Character.astro';
-import type { Offer } from '../../lib/offers';
+import { showsRate, type Offer } from '../../lib/offers';
 import { num, rub, plural, daysWord } from '../../lib/format';
 import {
   DEFAULT_STATE, KI_LABELS, SCENARIOS, SUM, TERM, TOP_N,
@@ -23,7 +23,7 @@ const rows = offers.map((o, idx) => ({
   o,
   p: {
     sumMin: o.amountMin, sumMax: o.amountMax, termMin: o.termMinDays, termMax: o.termMaxDays,
-    rate: o.rateDayPct, free: o.features.includes('zero_percent') ? o.freeDays ?? 0 : 0,
+    rate: o.rateDayPct, free: showsRate(o) && o.features.includes('zero_percent') ? o.freeDays ?? 0 : 0,
     prio: o.priority ?? 0, idx, features: o.features,
   } satisfies PickOffer,
 }));

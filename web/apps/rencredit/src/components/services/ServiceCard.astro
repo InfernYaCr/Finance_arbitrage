@@ -33,5 +33,5 @@ const cta = { insurance: 'Оформить полис', debit: 'Оформить
   <div class="oc-cta">
     <a class="btn btn-cta btn-lg" href={goHref(s.poolId)} rel="sponsored nofollow noopener" target="_blank" data-cta={s.slug}>{cta}<Icon name="arrow" class="arrow" /></a>
   </div>
-  <AdMark offer={s} service={s.kind} />
+  <AdMark offer={s} service={s.kind} unverified={!s.verified} />
 </article>

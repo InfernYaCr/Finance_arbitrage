@@ -2,25 +2,26 @@
 import OfferLogo from './OfferLogo.astro';
 import AdMark from './AdMark.astro';
 import Icon from './Icon.astro';
-import { type Offer, offerHref, reviewHref, pskRange, creditRate, PSK_LABEL } from '../lib/offers';
+import { type Offer, offerHref, reviewHref, pskRange, creditRate, showsRate, NO_RATE, CTA_LABEL, PSK_LABEL } from '../lib/offers';
 import { num, daysWord, moneyRange, termText } from '../lib/format';
 import { FEATURE_LABELS } from '../lib/ui/features';
 
 interface Props { offer: Offer; index?: number; morph?: boolean }
 const { offer: o, index = 0, morph = true } = Astro.props;
-const zero = o.features.includes('zero_percent') && o.freeDays;
+const rated = showsRate(o);
+const zero = rated && o.features.includes('zero_percent') && o.freeDays;
 const zeroText = zero ? (o.kind === 'mfo' ? `0% первый займ ${daysWord(o.freeDays!)}` : `Без % ${termText('card', 1, o.freeDays!)}`) : '';
 // Карта: ставки вне льготного периода в данных нет — вместо «Ставки» только ПСК (psk-line). ПСК всегда выше ставки (ч. 3 ст. 28 38-ФЗ).
-const rateText = o.kind === 'mfo' ? `${String(o.rateDayPct).replace('.', ',')}% / день` : o.kind === 'credit' ? `${creditRate(o)}% год.` : null;
-const shown = o.features.slice(0, 4);
+const rateText = !rated ? null : o.kind === 'mfo' ? `${String(o.rateDayPct).replace('.', ',')}% / день` : o.kind === 'credit' ? `${creditRate(o)}% год.` : null;
+const shown = o.features.filter((f) => rated || f !== 'zero_percent').slice(0, 4);
 const psk = pskRange(o);
 ---
 <article class="offer-card" data-offer data-slug={o.slug} data-kind={o.kind}
   data-sum-min={o.amountMin} data-sum-max={o.amountMax} data-term-min={o.termMinDays} data-term-max={o.termMaxDays}
-  data-rate={o.rateDayPct} data-free={o.freeDays ?? 0} data-appr={o.approvalPct ?? 0} data-rating={o.rating ?? 0}
+  data-rate={rated ? o.rateDayPct : undefined} data-free={o.freeDays ?? 0} data-appr={o.approvalPct ?? 0} data-rating={o.rating ?? 0}
   data-age-min={o.ageMin} data-age-max={o.ageMax} data-prio={o.priority ?? 0} data-idx={index} data-features={o.features.join(',')}
   data-reveal style={`--i:${Math.min(index, 6)}`}>
-  {psk && <p class="psk-line"><span>{PSK_LABEL}:</span> {psk}</p>}
+  {psk ? <p class="psk-line"><span>{PSK_LABEL}:</span> {psk}</p> : <p class="psk-line">{NO_RATE}</p>}
   <div class="oc-head">
     <OfferLogo offer={o} morph={morph} />
     <div class="min-w-0">
@@ -43,8 +44,8 @@ const psk = pskRange(o);
     {shown.length ? <ul class="oc-tags">{shown.map((f) => <li class="tag">{FEATURE_LABELS[f]}</li>)}</ul> : null}
   </div>
   <div class="oc-cta">
-    <a class="btn btn-cta btn-lg" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={o.slug}>Получить деньги<Icon name="arrow" class="arrow" /></a>
+    <a class="btn btn-cta btn-lg" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={o.slug}>{CTA_LABEL[o.kind]}<Icon name="arrow" class="arrow" /></a>
     <a class="more" href={reviewHref(o)}>Обзор и условия</a>
   </div>
-  <AdMark offer={o} />
+  <AdMark offer={o} unverified={!o.verified} />
 </article>
