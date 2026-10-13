@@ -1,0 +1,298 @@
+{
+  "id": 18,
+  "type": "page",
+  "link": "https://rencredit-online.ru/sitemap.html",
+  "slug": "sitemap",
+  "date": "2020-12-20T11:07:47",
+  "modified": "2023-12-26T09:48:01",
+  "status": "publish",
+  "title": "Карта сайта",
+  "yoast_title": "Карта сайта - Блог о рефинансировании кредита",
+  "yoast_description": "Карта сайта Блог о рефинансировании кредита представляет собой структурированный каталог всех статей блога в одном месте!",
+  "canonical": "https://rencredit-online.ru/sitemap.html",
+  "robots": {
+    "index": "index",
+    "follow": "follow",
+    "max-snippet": "max-snippet:-1",
+    "max-image-preview": "max-image-preview:large",
+    "max-video-preview": "max-video-preview:-1"
+  },
+  "excerpt": "Карта сайта Карта сайта представляет собой структурированный каталог всех статей блога в одном месте! Если вы не можете найти интересующий материал – воспользуйтесь поиском!",
+  "word_count": 358,
+  "categories": [],
+  "tags": [],
+  "featured_media_url": null,
+  "content_images": [],
+  "outgoing_links": [],
+  "partner_links": [],
+  "internal_links": [
+    {
+      "url": "https://rencredit-online.ru/credit",
+      "path": "/credit",
+      "text": "Блог",
+      "kind": "a",
+      "post_slug": null
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/aeb-kitaiskie-avtoproizvoditeli-gotoviatsia-pokinyt-rossiu.html",
+      "path": "/credit/aeb-kitaiskie-avtoproizvoditeli-gotoviatsia-pokinyt-rossiu.html",
+      "text": "АЕБ: китайские автопроизводители готовятся покинуть Россию",
+      "kind": "a",
+      "post_slug": "aeb-kitaiskie-avtoproizvoditeli-gotoviatsia-pokinyt-rossiu"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/bank-otkrytie-kak-i-na-kakih-ysloviiah-polychit-refinansirovanie-kreditov-i-ipoteki.html",
+      "path": "/credit/bank-otkrytie-kak-i-na-kakih-ysloviiah-polychit-refinansirovanie-kreditov-i-ipoteki.html",
+      "text": "Банк «Открытие»: как и на каких условиях получить рефинансирование кредитов и ипотеки",
+      "kind": "a",
+      "post_slug": "bank-otkrytie-kak-i-na-kakih-ysloviiah-polychit-refinansirovanie-kreditov-i-ipoteki"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/bank-rossii-planiryet-ogranichit-rost-ejemesiachnogo-plateja-po-ipoteke.html",
+      "path": "/credit/bank-rossii-planiryet-ogranichit-rost-ejemesiachnogo-plateja-po-ipoteke.html",
+      "text": "Банк России планирует ограничить рост ежемесячного платежа по ипотеке",
+      "kind": "a",
+      "post_slug": "bank-rossii-planiryet-ogranichit-rost-ejemesiachnogo-plateja-po-ipoteke"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/cb-dolia-ryblevyh-kreditov-s-plavaushei-stavkoi-urlicam-za-9-mes-vyrosla-do-60.html",
+      "path": "/credit/cb-dolia-ryblevyh-kreditov-s-plavaushei-stavkoi-urlicam-za-9-mes-vyrosla-do-60.html",
+      "text": "ЦБ: доля рублевых кредитов с плавающей ставкой юрлицам за 9 мес выросла до 60%",
+      "kind": "a",
+      "post_slug": "cb-dolia-ryblevyh-kreditov-s-plavaushei-stavkoi-urlicam-za-9-mes-vyrosla-do-60"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/cb-dopyskaet-vvedenie-nadbavok-na-kredity-urlicam-s-vysokim-dolgom-yje-v-2025-g.html",
+      "path": "/credit/cb-dopyskaet-vvedenie-nadbavok-na-kredity-urlicam-s-vysokim-dolgom-yje-v-2025-g.html",
+      "text": "ЦБ допускает введение надбавок на кредиты юрлицам с высоким долгом уже в 2025 г",
+      "kind": "a",
+      "post_slug": "cb-dopyskaet-vvedenie-nadbavok-na-kredity-urlicam-s-vysokim-dolgom-yje-v-2025-g"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/cena-na-zoloto-preodolela-2800-dollarov-za-ynciu-no-zatem-pereshla-k-snijeniu.html",
+      "path": "/credit/cena-na-zoloto-preodolela-2800-dollarov-za-ynciu-no-zatem-pereshla-k-snijeniu.html",
+      "text": "Цена на золото преодолела 2800 долларов за унцию, но затем перешла к снижению",
+      "kind": "a",
+      "post_slug": "cena-na-zoloto-preodolela-2800-dollarov-za-ynciu-no-zatem-pereshla-k-snijeniu"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/eksperty-osvobojdenie-ot-ndfl-kosnetsia-nebolshogo-chisla-ipotechnikov.html",
+      "path": "/credit/eksperty-osvobojdenie-ot-ndfl-kosnetsia-nebolshogo-chisla-ipotechnikov.html",
+      "text": "Эксперты: освобождение от НДФЛ коснется небольшого числа ипотечников",
+      "kind": "a",
+      "post_slug": "eksperty-osvobojdenie-ot-ndfl-kosnetsia-nebolshogo-chisla-ipotechnikov"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/gosdyma-priniala-zakon-o-razresheniu-vypyska-obligacii-roskosmosy.html",
+      "path": "/credit/gosdyma-priniala-zakon-o-razresheniu-vypyska-obligacii-roskosmosy.html",
+      "text": "Госдума приняла закон о разрешению выпуска облигаций “Роскосмосу”",
+      "kind": "a",
+      "post_slug": "gosdyma-priniala-zakon-o-razresheniu-vypyska-obligacii-roskosmosy"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/gosdyma-priniala-zakon-po-limitam-na-vydachy-ipotechnyh-i-avtokreditov-fizlicam.html",
+      "path": "/credit/gosdyma-priniala-zakon-po-limitam-na-vydachy-ipotechnyh-i-avtokreditov-fizlicam.html",
+      "text": "Госдума приняла закон по лимитам на выдачу ипотечных и автокредитов физлицам",
+      "kind": "a",
+      "post_slug": "gosdyma-priniala-zakon-po-limitam-na-vydachy-ipotechnyh-i-avtokreditov-fizlicam"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/iena-dorojaet-k-dollary-v-ojidanii-zasedaniia-iaponskogo-centrobanka.html",
+      "path": "/credit/iena-dorojaet-k-dollary-v-ojidanii-zasedaniia-iaponskogo-centrobanka.html",
+      "text": "Иена дорожает к доллару в ожидании заседания японского Центробанка",
+      "kind": "a",
+      "post_slug": "iena-dorojaet-k-dollary-v-ojidanii-zasedaniia-iaponskogo-centrobanka"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/kak-polychit-pomosh-v-refinansirovanii.html",
+      "path": "/credit/kak-polychit-pomosh-v-refinansirovanii.html",
+      "text": "Как получить помощь в рефинансировании",
+      "kind": "a",
+      "post_slug": "kak-polychit-pomosh-v-refinansirovanii"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/kak-polychit-povtornoe-refinansirovanie-ipoteki.html",
+      "path": "/credit/kak-polychit-povtornoe-refinansirovanie-ipoteki.html",
+      "text": "Как получить повторное рефинансирование ипотеки",
+      "kind": "a",
+      "post_slug": "kak-polychit-povtornoe-refinansirovanie-ipoteki"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html",
+      "path": "/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html",
+      "text": "Как происходит рефинансирование кредита: что нужно знать",
+      "kind": "a",
+      "post_slug": "kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/kak-rabotaet-agentstvo-po-refinansirovaniu.html",
+      "path": "/credit/kak-rabotaet-agentstvo-po-refinansirovaniu.html",
+      "text": "Как работает агентство по рефинансированию",
+      "kind": "a",
+      "post_slug": "kak-rabotaet-agentstvo-po-refinansirovaniu"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/kak-sdelat-refinansirovanie-kreditov-v-sberbanke.html",
+      "path": "/credit/kak-sdelat-refinansirovanie-kreditov-v-sberbanke.html",
+      "text": "Как сделать рефинансирование кредитов в Сбербанке",
+      "kind": "a",
+      "post_slug": "kak-sdelat-refinansirovanie-kreditov-v-sberbanke"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/komitet-gosdymy-odobril-pravo-cb-rf-ogranichivat-vydachy-ipotechnyh-i-avtokreditov.html",
+      "path": "/credit/komitet-gosdymy-odobril-pravo-cb-rf-ogranichivat-vydachy-ipotechnyh-i-avtokreditov.html",
+      "text": "Комитет Госдумы одобрил право ЦБ РФ ограничивать выдачу ипотечных и автокредитов",
+      "kind": "a",
+      "post_slug": "komitet-gosdymy-odobril-pravo-cb-rf-ogranichivat-vydachy-ipotechnyh-i-avtokreditov"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/na-kakih-ysloviiah-mojno-polychit-refinansirovanie-v-vtb.html",
+      "path": "/credit/na-kakih-ysloviiah-mojno-polychit-refinansirovanie-v-vtb.html",
+      "text": "На каких условиях можно получить рефинансирование в ВТБ",
+      "kind": "a",
+      "post_slug": "na-kakih-ysloviiah-mojno-polychit-refinansirovanie-v-vtb"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/nacbank-ykrainy-soobshil-o-povyshenii-ychetnoi-stavki-do-145-s-135.html",
+      "path": "/credit/nacbank-ykrainy-soobshil-o-povyshenii-ychetnoi-stavki-do-145-s-135.html",
+      "text": "Нацбанк Украины сообщил о повышении учетной ставки до 14,5% с 13,5%",
+      "kind": "a",
+      "post_slug": "nacbank-ykrainy-soobshil-o-povyshenii-ychetnoi-stavki-do-145-s-135"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/naskolko-vygodno-refinansirovanie-v-rosselhozbanke.html",
+      "path": "/credit/naskolko-vygodno-refinansirovanie-v-rosselhozbanke.html",
+      "text": "Насколько выгодно рефинансирование в Россельхозбанке",
+      "kind": "a",
+      "post_slug": "naskolko-vygodno-refinansirovanie-v-rosselhozbanke"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/perekreditovanie-kredita-pod-menshii-procent.html",
+      "path": "/credit/perekreditovanie-kredita-pod-menshii-procent.html",
+      "text": "Перекредитование кредита под меньший процент",
+      "kind": "a",
+      "post_slug": "perekreditovanie-kredita-pod-menshii-procent"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/pochta-bank-dohodnost-lestnichnyh-vkladov-i-obychnyh-depozitov-pochti-odinakova.html",
+      "path": "/credit/pochta-bank-dohodnost-lestnichnyh-vkladov-i-obychnyh-depozitov-pochti-odinakova.html",
+      "text": "Почта банк: доходность “лестничных” вкладов и обычных депозитов почти одинакова",
+      "kind": "a",
+      "post_slug": "pochta-bank-dohodnost-lestnichnyh-vkladov-i-obychnyh-depozitov-pochti-odinakova"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/pytin-podpisal-zakon-o-periode-ohlajdeniia-po-potrebitelskim-kreditam.html",
+      "path": "/credit/pytin-podpisal-zakon-o-periode-ohlajdeniia-po-potrebitelskim-kreditam.html",
+      "text": "Путин подписал закон о “периоде охлаждения” по потребительским кредитам",
+      "kind": "a",
+      "post_slug": "pytin-podpisal-zakon-o-periode-ohlajdeniia-po-potrebitelskim-kreditam"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/refinansirovanie-kredita-chto-eto-znachit.html",
+      "path": "/credit/refinansirovanie-kredita-chto-eto-znachit.html",
+      "text": "Рефинансирование кредита – что это значит?",
+      "kind": "a",
+      "post_slug": "refinansirovanie-kredita-chto-eto-znachit"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/refinansirovanie-kreditov-dlia-ip-i-uridicheskih-lic-osobennosti-perekreditovaniia-biznesa.html",
+      "path": "/credit/refinansirovanie-kreditov-dlia-ip-i-uridicheskih-lic-osobennosti-perekreditovaniia-biznesa.html",
+      "text": "Рефинансирование кредитов для ИП и юридических лиц: особенности перекредитования бизнеса",
+      "kind": "a",
+      "post_slug": "refinansirovanie-kreditov-dlia-ip-i-uridicheskih-lic-osobennosti-perekreditovaniia-biznesa"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
+      "path": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
+      "text": "Рефинансирование кредитов с плохой кредитной историей: перечень банков",
+      "kind": "a",
+      "post_slug": "refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/refinansirovanie-v-interprombanke-ysloviia-i-poriadok-oformleniia.html",
+      "path": "/credit/refinansirovanie-v-interprombanke-ysloviia-i-poriadok-oformleniia.html",
+      "text": "Рефинансирование в Интерпромбанке: условия и порядок оформления",
+      "kind": "a",
+      "post_slug": "refinansirovanie-v-interprombanke-ysloviia-i-poriadok-oformleniia"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/ria-novosti-indeks-mosbirji-snizitsia-na-sledyushei-nedele-na-12-do-2454-p.html",
+      "path": "/credit/ria-novosti-indeks-mosbirji-snizitsia-na-sledyushei-nedele-na-12-do-2454-p.html",
+      "text": "РИА Новости: индекс Мосбиржи снизится на следующей неделе на 1,2% до 2454 п",
+      "kind": "a",
+      "post_slug": "ria-novosti-indeks-mosbirji-snizitsia-na-sledyushei-nedele-na-12-do-2454-p"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/samolet-hochet-predlojit-privlekatelnyi-kypon-v-ramkah-oferty-po-bondam.html",
+      "path": "/credit/samolet-hochet-predlojit-privlekatelnyi-kypon-v-ramkah-oferty-po-bondam.html",
+      "text": "“Самолет” хочет предложить привлекательный купон в рамках оферты по бондам",
+      "kind": "a",
+      "post_slug": "samolet-hochet-predlojit-privlekatelnyi-kypon-v-ramkah-oferty-po-bondam"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/sovfed-na-plenarnom-zasedanii-odobril-zakon-o-periode-ohlajdeniia-po-potrebkreditam.html",
+      "path": "/credit/sovfed-na-plenarnom-zasedanii-odobril-zakon-o-periode-ohlajdeniia-po-potrebkreditam.html",
+      "text": "Совфед на пленарном заседании одобрил закон о “периоде охлаждения” по потребкредитам",
+      "kind": "a",
+      "post_slug": "sovfed-na-plenarnom-zasedanii-odobril-zakon-o-periode-ohlajdeniia-po-potrebkreditam"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/sovfed-odobril-pravo-cb-limitirovat-vydachy-ipotechnyh-i-avtokreditov-fizlicam.html",
+      "path": "/credit/sovfed-odobril-pravo-cb-limitirovat-vydachy-ipotechnyh-i-avtokreditov-fizlicam.html",
+      "text": "Совфед одобрил право ЦБ лимитировать выдачу ипотечных и автокредитов физлицам",
+      "kind": "a",
+      "post_slug": "sovfed-odobril-pravo-cb-limitirovat-vydachy-ipotechnyh-i-avtokreditov-fizlicam"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/stoimost-zolota-slabo-yvelichivaetsia-tretii-den-podriad-soglasno-dannym-torgov.html",
+      "path": "/credit/stoimost-zolota-slabo-yvelichivaetsia-tretii-den-podriad-soglasno-dannym-torgov.html",
+      "text": "Стоимость золота слабо увеличивается третий день подряд согласно данным торгов",
+      "kind": "a",
+      "post_slug": "stoimost-zolota-slabo-yvelichivaetsia-tretii-den-podriad-soglasno-dannym-torgov"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/stoit-li-ispolzovat-refinansirovanie-kredita.html",
+      "path": "/credit/stoit-li-ispolzovat-refinansirovanie-kredita.html",
+      "text": "Стоит ли использовать рефинансирование кредита",
+      "kind": "a",
+      "post_slug": "stoit-li-ispolzovat-refinansirovanie-kredita"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/turkiye-cb-tyrcii-poidet-v-chetverg-na-snijenie-stavki-s-50-do-4850.html",
+      "path": "/credit/turkiye-cb-tyrcii-poidet-v-chetverg-na-snijenie-stavki-s-50-do-4850.html",
+      "text": "Türkiye: ЦБ Турции пойдет в четверг на снижение ставки с 50 до 48,50%",
+      "kind": "a",
+      "post_slug": "turkiye-cb-tyrcii-poidet-v-chetverg-na-snijenie-stavki-s-50-do-4850"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/vtb-rynok-ipoteki-v-rossii-v-2025-gody-sojmetsia-minimym-na-20.html",
+      "path": "/credit/vtb-rynok-ipoteki-v-rossii-v-2025-gody-sojmetsia-minimym-na-20.html",
+      "text": "ВТБ: рынок ипотеки в России в 2025 году “сожмется” минимум на 20%",
+      "kind": "a",
+      "post_slug": "vtb-rynok-ipoteki-v-rossii-v-2025-gody-sojmetsia-minimym-na-20"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/ysloviia-refinansirovaniia-kreditov-v-banke-ybrir.html",
+      "path": "/credit/ysloviia-refinansirovaniia-kreditov-v-banke-ybrir.html",
+      "text": "Условия рефинансирования кредитов в банке УБРиР",
+      "kind": "a",
+      "post_slug": "ysloviia-refinansirovaniia-kreditov-v-banke-ybrir"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/zoloto-desheveet-pered-pyblikaciei-reshenii-frs-ssha.html",
+      "path": "/credit/zoloto-desheveet-pered-pyblikaciei-reshenii-frs-ssha.html",
+      "text": "Золото дешевеет перед публикацией решений ФРС США",
+      "kind": "a",
+      "post_slug": "zoloto-desheveet-pered-pyblikaciei-reshenii-frs-ssha"
+    },
+    {
+      "url": "https://rencredit-online.ru/credit/zoloto-desheveet-posle-dostijeniia-novogo-rekorda-v-ponedelnik.html",
+      "path": "/credit/zoloto-desheveet-posle-dostijeniia-novogo-rekorda-v-ponedelnik.html",
+      "text": "Золото дешевеет после достижения нового рекорда в понедельник",
+      "kind": "a",
+      "post_slug": "zoloto-desheveet-posle-dostijeniia-novogo-rekorda-v-ponedelnik"
+    }
+  ],
+  "content_html": "<h1>Карта сайта </h1>\n<p>Карта сайта представляет собой структурированный каталог всех статей блога в одном месте! Если вы не можете найти интересующий материал &#8211; воспользуйтесь поиском!</p>\n<div class=\"wsp-container\"><h2 class=\"wsp-posts-title\">Материалы по категориям</h2>\n<ul class=\"wsp-posts-list\">\n\t<li><strong class=\"wsp-category-title\">Категория: <a href=\"https://rencredit-online.ru/credit\">Блог</a></strong>\n<ul class=\"wsp-posts-list\">\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/aeb-kitaiskie-avtoproizvoditeli-gotoviatsia-pokinyt-rossiu.html\">АЕБ: китайские автопроизводители готовятся покинуть Россию</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/bank-otkrytie-kak-i-na-kakih-ysloviiah-polychit-refinansirovanie-kreditov-i-ipoteki.html\">Банк «Открытие»: как и на каких условиях получить рефинансирование кредитов и ипотеки</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/bank-rossii-planiryet-ogranichit-rost-ejemesiachnogo-plateja-po-ipoteke.html\">Банк России планирует ограничить рост ежемесячного платежа по ипотеке</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/cb-dolia-ryblevyh-kreditov-s-plavaushei-stavkoi-urlicam-za-9-mes-vyrosla-do-60.html\">ЦБ: доля рублевых кредитов с плавающей ставкой юрлицам за 9 мес выросла до 60%</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/cb-dopyskaet-vvedenie-nadbavok-na-kredity-urlicam-s-vysokim-dolgom-yje-v-2025-g.html\">ЦБ допускает введение надбавок на кредиты юрлицам с высоким долгом уже в 2025 г</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/cena-na-zoloto-preodolela-2800-dollarov-za-ynciu-no-zatem-pereshla-k-snijeniu.html\">Цена на золото преодолела 2800 долларов за унцию, но затем перешла к снижению</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/eksperty-osvobojdenie-ot-ndfl-kosnetsia-nebolshogo-chisla-ipotechnikov.html\">Эксперты: освобождение от НДФЛ коснется небольшого числа ипотечников</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/gosdyma-priniala-zakon-o-razresheniu-vypyska-obligacii-roskosmosy.html\">Госдума приняла закон о разрешению выпуска облигаций “Роскосмосу”</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/gosdyma-priniala-zakon-po-limitam-na-vydachy-ipotechnyh-i-avtokreditov-fizlicam.html\">Госдума приняла закон по лимитам на выдачу ипотечных и автокредитов физлицам</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/iena-dorojaet-k-dollary-v-ojidanii-zasedaniia-iaponskogo-centrobanka.html\">Иена дорожает к доллару в ожидании заседания японского Центробанка</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/kak-polychit-pomosh-v-refinansirovanii.html\">Как получить помощь в рефинансировании</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/kak-polychit-povtornoe-refinansirovanie-ipoteki.html\">Как получить повторное рефинансирование ипотеки</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html\">Как происходит рефинансирование кредита: что нужно знать</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/kak-rabotaet-agentstvo-po-refinansirovaniu.html\">Как работает агентство по рефинансированию</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/kak-sdelat-refinansirovanie-kreditov-v-sberbanke.html\">Как сделать рефинансирование кредитов в Сбербанке</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/komitet-gosdymy-odobril-pravo-cb-rf-ogranichivat-vydachy-ipotechnyh-i-avtokreditov.html\">Комитет Госдумы одобрил право ЦБ РФ ограничивать выдачу ипотечных и автокредитов</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/na-kakih-ysloviiah-mojno-polychit-refinansirovanie-v-vtb.html\">На каких условиях можно получить рефинансирование в ВТБ</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/nacbank-ykrainy-soobshil-o-povyshenii-ychetnoi-stavki-do-145-s-135.html\">Нацбанк Украины сообщил о повышении учетной ставки до 14,5% с 13,5%</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/naskolko-vygodno-refinansirovanie-v-rosselhozbanke.html\">Насколько выгодно рефинансирование в Россельхозбанке</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/perekreditovanie-kredita-pod-menshii-procent.html\">Перекредитование кредита под меньший процент</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/pochta-bank-dohodnost-lestnichnyh-vkladov-i-obychnyh-depozitov-pochti-odinakova.html\">Почта банк: доходность “лестничных” вкладов и обычных депозитов почти одинакова</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/pytin-podpisal-zakon-o-periode-ohlajdeniia-po-potrebitelskim-kreditam.html\">Путин подписал закон о “периоде охлаждения” по потребительским кредитам</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/refinansirovanie-kredita-chto-eto-znachit.html\">Рефинансирование кредита – что это значит?</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/refinansirovanie-kreditov-dlia-ip-i-uridicheskih-lic-osobennosti-perekreditovaniia-biznesa.html\">Рефинансирование кредитов для ИП и юридических лиц: особенности перекредитования бизнеса</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html\">Рефинансирование кредитов с плохой кредитной историей: перечень банков</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/refinansirovanie-v-interprombanke-ysloviia-i-poriadok-oformleniia.html\">Рефинансирование в Интерпромбанке: условия и порядок оформления</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/ria-novosti-indeks-mosbirji-snizitsia-na-sledyushei-nedele-na-12-do-2454-p.html\">РИА Новости: индекс Мосбиржи снизится на следующей неделе на 1,2% до 2454 п</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/samolet-hochet-predlojit-privlekatelnyi-kypon-v-ramkah-oferty-po-bondam.html\">“Самолет” хочет предложить привлекательный купон в рамках оферты по бондам</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/sovfed-na-plenarnom-zasedanii-odobril-zakon-o-periode-ohlajdeniia-po-potrebkreditam.html\">Совфед на пленарном заседании одобрил закон о “периоде охлаждения” по потребкредитам</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/sovfed-odobril-pravo-cb-limitirovat-vydachy-ipotechnyh-i-avtokreditov-fizlicam.html\">Совфед одобрил право ЦБ лимитировать выдачу ипотечных и автокредитов физлицам</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/stoimost-zolota-slabo-yvelichivaetsia-tretii-den-podriad-soglasno-dannym-torgov.html\">Стоимость золота слабо увеличивается третий день подряд согласно данным торгов</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/stoit-li-ispolzovat-refinansirovanie-kredita.html\">Стоит ли использовать рефинансирование кредита</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/turkiye-cb-tyrcii-poidet-v-chetverg-na-snijenie-stavki-s-50-do-4850.html\">Türkiye: ЦБ Турции пойдет в четверг на снижение ставки с 50 до 48,50%</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/vtb-rynok-ipoteki-v-rossii-v-2025-gody-sojmetsia-minimym-na-20.html\">ВТБ: рынок ипотеки в России в 2025 году “сожмется” минимум на 20%</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/ysloviia-refinansirovaniia-kreditov-v-banke-ybrir.html\">Условия рефинансирования кредитов в банке УБРиР</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/zoloto-desheveet-pered-pyblikaciei-reshenii-frs-ssha.html\">Золото дешевеет перед публикацией решений ФРС США</a></li>\n\t\t<li class=\"wsp-post\"><a href=\"https://rencredit-online.ru/credit/zoloto-desheveet-posle-dostijeniia-novogo-rekorda-v-ponedelnik.html\">Золото дешевеет после достижения нового рекорда в понедельник</a></li>\n</ul></li>\n</ul>\n</div>\n",
+  "content_text": "Карта сайта \n\nКарта сайта представляет собой структурированный каталог всех статей блога в одном месте! Если вы не можете найти интересующий материал – воспользуйтесь поиском!\n\nМатериалы по категориям\n\nКатегория: Блог\n\nАЕБ: китайские автопроизводители готовятся покинуть Россию\n\nБанк «Открытие»: как и на каких условиях получить рефинансирование кредитов и ипотеки\n\nБанк России планирует ограничить рост ежемесячного платежа по ипотеке\n\nЦБ: доля рублевых кредитов с плавающей ставкой юрлицам за 9 мес выросла до 60%\n\nЦБ допускает введение надбавок на кредиты юрлицам с высоким долгом уже в 2025 г\n\nЦена на золото преодолела 2800 долларов за унцию, но затем перешла к снижению\n\nЭксперты: освобождение от НДФЛ коснется небольшого числа ипотечников\n\nГосдума приняла закон о разрешению выпуска облигаций “Роскосмосу”\n\nГосдума приняла закон по лимитам на выдачу ипотечных и автокредитов физлицам\n\nИена дорожает к доллару в ожидании заседания японского Центробанка\n\nКак получить помощь в рефинансировании\n\nКак получить повторное рефинансирование ипотеки\n\nКак происходит рефинансирование кредита: что нужно знать\n\nКак работает агентство по рефинансированию\n\nКак сделать рефинансирование кредитов в Сбербанке\n\nКомитет Госдумы одобрил право ЦБ РФ ограничивать выдачу ипотечных и автокредитов\n\nНа каких условиях можно получить рефинансирование в ВТБ\n\nНацбанк Украины сообщил о повышении учетной ставки до 14,5% с 13,5%\n\nНасколько выгодно рефинансирование в Россельхозбанке\n\nПерекредитование кредита под меньший процент\n\nПочта банк: доходность “лестничных” вкладов и обычных депозитов почти одинакова\n\nПутин подписал закон о “периоде охлаждения” по потребительским кредитам\n\nРефинансирование кредита – что это значит?\n\nРефинансирование кредитов для ИП и юридических лиц: особенности перекредитования бизнеса\n\nРефинансирование кредитов с плохой кредитной историей: перечень банков\n\nРефинансирование в Интерпромбанке: условия и порядок оформления\n\nРИА Новости: индекс Мосбиржи снизится на следующей неделе на 1,2% до 2454 п\n\n“Самолет” хочет предложить привлекательный купон в рамках оферты по бондам\n\nСовфед на пленарном заседании одобрил закон о “периоде охлаждения” по потребкредитам\n\nСовфед одобрил право ЦБ лимитировать выдачу ипотечных и автокредитов физлицам\n\nСтоимость золота слабо увеличивается третий день подряд согласно данным торгов\n\nСтоит ли использовать рефинансирование кредита\n\nTürkiye: ЦБ Турции пойдет в четверг на снижение ставки с 50 до 48,50%\n\nВТБ: рынок ипотеки в России в 2025 году “сожмется” минимум на 20%\n\nУсловия рефинансирования кредитов в банке УБРиР\n\nЗолото дешевеет перед публикацией решений ФРС США\n\nЗолото дешевеет после достижения нового рекорда в понедельник"
+}

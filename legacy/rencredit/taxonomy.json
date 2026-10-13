@@ -1,0 +1,1134 @@
+{
+  "categories": [
+    {
+      "id": 21,
+      "count": 37,
+      "link": "https://rencredit-online.ru/credit",
+      "name": "Блог",
+      "slug": "credit",
+      "parent": 0
+    }
+  ],
+  "tags": [
+    {
+      "id": 142,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/banki",
+      "name": "Банки",
+      "slug": "banki"
+    },
+    {
+      "id": 235,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/biznesa",
+      "name": "бизнеса",
+      "slug": "biznesa"
+    },
+    {
+      "id": 201,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/birzhevogo",
+      "name": "биржевого",
+      "slug": "birzhevogo"
+    },
+    {
+      "id": 240,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/birzhu",
+      "name": "биржу",
+      "slug": "birzhu"
+    },
+    {
+      "id": 167,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/briks",
+      "name": "БРИКС",
+      "slug": "briks"
+    },
+    {
+      "id": 297,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/budet",
+      "name": "будет",
+      "slug": "budet"
+    },
+    {
+      "id": 283,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/bumagami",
+      "name": "бумагами",
+      "slug": "bumagami"
+    },
+    {
+      "id": 165,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/valyute",
+      "name": "валюте",
+      "slug": "valyute"
+    },
+    {
+      "id": 231,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/valyutnoj",
+      "name": "валютной",
+      "slug": "valyutnoj"
+    },
+    {
+      "id": 181,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/valyuty",
+      "name": "валюты",
+      "slug": "valyuty"
+    },
+    {
+      "id": 233,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/vashih",
+      "name": "ваших",
+      "slug": "vashih"
+    },
+    {
+      "id": 268,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/vveli",
+      "name": "ввели",
+      "slug": "vveli"
+    },
+    {
+      "id": 200,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/vklady",
+      "name": "вклады",
+      "slug": "vklady"
+    },
+    {
+      "id": 281,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/vozglavil",
+      "name": "возглавил",
+      "slug": "vozglavil"
+    },
+    {
+      "id": 177,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/vozobnovit",
+      "name": "возобновит",
+      "slug": "vozobnovit"
+    },
+    {
+      "id": 173,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/vpervye",
+      "name": "впервые",
+      "slug": "vpervye"
+    },
+    {
+      "id": 286,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/vyvezti",
+      "name": "вывезти",
+      "slug": "vyvezti"
+    },
+    {
+      "id": 140,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/vydali",
+      "name": "выдали",
+      "slug": "vydali"
+    },
+    {
+      "id": 163,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/vyplatyat",
+      "name": "выплатят",
+      "slug": "vyplatyat"
+    },
+    {
+      "id": 229,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/vyruchki",
+      "name": "выручки",
+      "slug": "vyruchki"
+    },
+    {
+      "id": 206,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/gaz",
+      "name": "газ",
+      "slug": "gaz"
+    },
+    {
+      "id": 267,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/gazovye",
+      "name": "Газовые",
+      "slug": "gazovye"
+    },
+    {
+      "id": 155,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/god",
+      "name": "год",
+      "slug": "god"
+    },
+    {
+      "id": 139,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/goda",
+      "name": "года",
+      "slug": "goda"
+    },
+    {
+      "id": 185,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/godu",
+      "name": "году",
+      "slug": "godu"
+    },
+    {
+      "id": 266,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dvigateli",
+      "name": "двигатели,",
+      "slug": "dvigateli"
+    },
+    {
+      "id": 146,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dekabre",
+      "name": "декабре",
+      "slug": "dekabre"
+    },
+    {
+      "id": 174,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dekabrya",
+      "name": "декабря",
+      "slug": "dekabrya"
+    },
+    {
+      "id": 152,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dengi",
+      "name": "деньги",
+      "slug": "dengi"
+    },
+    {
+      "id": 160,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dividendov",
+      "name": "дивидендов",
+      "slug": "dividendov"
+    },
+    {
+      "id": 184,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dlya",
+      "name": "для",
+      "slug": "dlya"
+    },
+    {
+      "id": 188,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dollar",
+      "name": "доллар",
+      "slug": "dollar"
+    },
+    {
+      "id": 220,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dollara",
+      "name": "доллара",
+      "slug": "dollara"
+    },
+    {
+      "id": 169,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dollarom",
+      "name": "долларом",
+      "slug": "dollarom"
+    },
+    {
+      "id": 253,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dollaru",
+      "name": "доллару,",
+      "slug": "dollaru"
+    },
+    {
+      "id": 284,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/dohodnymi",
+      "name": "доходными",
+      "slug": "dohodnymi"
+    },
+    {
+      "id": 172,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/evro",
+      "name": "евро",
+      "slug": "evro"
+    },
+    {
+      "id": 245,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ego",
+      "name": "его",
+      "slug": "ego"
+    },
+    {
+      "id": 205,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/zhdat",
+      "name": "ждать",
+      "slug": "zhdat"
+    },
+    {
+      "id": 255,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/zhdut",
+      "name": "ждут",
+      "slug": "zhdut"
+    },
+    {
+      "id": 256,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/zastrojshhiki",
+      "name": "застройщики",
+      "slug": "zastrojshhiki"
+    },
+    {
+      "id": 178,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/zolota",
+      "name": "золота",
+      "slug": "zolota"
+    },
+    {
+      "id": 213,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/zolotyh",
+      "name": "золотых",
+      "slug": "zolotyh"
+    },
+    {
+      "id": 232,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/izmenitsya",
+      "name": "изменится",
+      "slug": "izmenitsya"
+    },
+    {
+      "id": 288,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ili",
+      "name": "или",
+      "slug": "ili"
+    },
+    {
+      "id": 208,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/investor",
+      "name": "Инвестор",
+      "slug": "investor"
+    },
+    {
+      "id": 238,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/investorov",
+      "name": "инвесторов",
+      "slug": "investorov"
+    },
+    {
+      "id": 257,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ipoteke",
+      "name": "ипотеке",
+      "slug": "ipoteke"
+    },
+    {
+      "id": 144,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ipoteki",
+      "name": "ипотеки",
+      "slug": "ipoteki"
+    },
+    {
+      "id": 243,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ipotechnyj",
+      "name": "ипотечный",
+      "slug": "ipotechnyj"
+    },
+    {
+      "id": 189,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/iyunya",
+      "name": "июня",
+      "slug": "iyunya"
+    },
+    {
+      "id": 194,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/kak",
+      "name": "как",
+      "slug": "kak"
+    },
+    {
+      "id": 161,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/kompanii",
+      "name": "компании",
+      "slug": "kompanii"
+    },
+    {
+      "id": 278,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/kompanij",
+      "name": "компаний",
+      "slug": "kompanij"
+    },
+    {
+      "id": 166,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/konkurirovat",
+      "name": "конкурировать",
+      "slug": "konkurirovat"
+    },
+    {
+      "id": 241,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/kredit",
+      "name": "кредит",
+      "slug": "kredit"
+    },
+    {
+      "id": 171,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/kurs",
+      "name": "Курс",
+      "slug": "kurs"
+    },
+    {
+      "id": 260,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/kursa",
+      "name": "курса",
+      "slug": "kursa"
+    },
+    {
+      "id": 296,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/kursom",
+      "name": "курсом",
+      "slug": "kursom"
+    },
+    {
+      "id": 154,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/legko",
+      "name": "легко",
+      "slug": "legko"
+    },
+    {
+      "id": 153,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/limit",
+      "name": "лимит",
+      "slug": "limit"
+    },
+    {
+      "id": 247,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/lovushku",
+      "name": "ловушку",
+      "slug": "lovushku"
+    },
+    {
+      "id": 147,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/lgotnoj",
+      "name": "льготной",
+      "slug": "lgotnoj"
+    },
+    {
+      "id": 263,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/lgoty",
+      "name": "льготы",
+      "slug": "lgoty"
+    },
+    {
+      "id": 145,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/maksimalnyj",
+      "name": "максимальный",
+      "slug": "maksimalnyj"
+    },
+    {
+      "id": 210,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/margolin",
+      "name": "Марголин:",
+      "slug": "margolin"
+    },
+    {
+      "id": 246,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/marketplejsah",
+      "name": "маркетплейсах:",
+      "slug": "marketplejsah"
+    },
+    {
+      "id": 270,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/mediczina",
+      "name": "медицина:",
+      "slug": "mediczina"
+    },
+    {
+      "id": 225,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/mer",
+      "name": "мер",
+      "slug": "mer"
+    },
+    {
+      "id": 150,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/mesyacz",
+      "name": "месяц",
+      "slug": "mesyacz"
+    },
+    {
+      "id": 180,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/minfin",
+      "name": "Минфин",
+      "slug": "minfin"
+    },
+    {
+      "id": 272,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/mirovoj",
+      "name": "мировой",
+      "slug": "mirovoj"
+    },
+    {
+      "id": 162,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/mlrd",
+      "name": "млрд",
+      "slug": "mlrd"
+    },
+    {
+      "id": 249,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/moshenniki",
+      "name": "Мошенники",
+      "slug": "moshenniki"
+    },
+    {
+      "id": 164,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/nazvana",
+      "name": "Названа",
+      "slug": "nazvana"
+    },
+    {
+      "id": 237,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/najti",
+      "name": "найти",
+      "slug": "najti"
+    },
+    {
+      "id": 195,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/nalogi",
+      "name": "налоги",
+      "slug": "nalogi"
+    },
+    {
+      "id": 265,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/nalogovye",
+      "name": "налоговые",
+      "slug": "nalogovye"
+    },
+    {
+      "id": 276,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/nachal",
+      "name": "начал",
+      "slug": "nachal"
+    },
+    {
+      "id": 295,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/nachale",
+      "name": "начале",
+      "slug": "nachale"
+    },
+    {
+      "id": 168,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/nevozmozhnosti",
+      "name": "невозможности",
+      "slug": "nevozmozhnosti"
+    },
+    {
+      "id": 291,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/nelegalno",
+      "name": "нелегально",
+      "slug": "nelegalno"
+    },
+    {
+      "id": 262,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/neuteshitelnuyu",
+      "name": "неутешительную",
+      "slug": "neuteshitelnuyu"
+    },
+    {
+      "id": 176,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/nizhe",
+      "name": "ниже",
+      "slug": "nizhe"
+    },
+    {
+      "id": 199,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/npd",
+      "name": "НПД,",
+      "slug": "npd"
+    },
+    {
+      "id": 192,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/obnulili",
+      "name": "обнулили",
+      "slug": "obnulili"
+    },
+    {
+      "id": 287,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/obshhej",
+      "name": "общей",
+      "slug": "obshhej"
+    },
+    {
+      "id": 141,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/obyom",
+      "name": "объём",
+      "slug": "obyom"
+    },
+    {
+      "id": 228,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/obyazatelnoj",
+      "name": "обязательной",
+      "slug": "obyazatelnoj"
+    },
+    {
+      "id": 190,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/opustilsya",
+      "name": "опустился",
+      "slug": "opustilsya"
+    },
+    {
+      "id": 244,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/oformit",
+      "name": "оформить",
+      "slug": "oformit"
+    },
+    {
+      "id": 230,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/oczenili",
+      "name": "оценили",
+      "slug": "oczenili"
+    },
+    {
+      "id": 277,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/padeniya",
+      "name": "падения",
+      "slug": "padeniya"
+    },
+    {
+      "id": 151,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/perevodite",
+      "name": "Переводите",
+      "slug": "perevodite"
+    },
+    {
+      "id": 148,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/perevodov",
+      "name": "переводов",
+      "slug": "perevodov"
+    },
+    {
+      "id": 198,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/platit",
+      "name": "платить",
+      "slug": "platit"
+    },
+    {
+      "id": 254,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/povysheniya",
+      "name": "повышения",
+      "slug": "povysheniya"
+    },
+    {
+      "id": 251,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/poziczii",
+      "name": "позиции",
+      "slug": "poziczii"
+    },
+    {
+      "id": 209,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/polittehnolog",
+      "name": "Политтехнолог",
+      "slug": "polittehnolog"
+    },
+    {
+      "id": 218,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ponizilsya",
+      "name": "понизился",
+      "slug": "ponizilsya"
+    },
+    {
+      "id": 248,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/popast",
+      "name": "попасть",
+      "slug": "popast"
+    },
+    {
+      "id": 186,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/prichin",
+      "name": "причин",
+      "slug": "prichin"
+    },
+    {
+      "id": 170,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/prichina",
+      "name": "причина",
+      "slug": "prichina"
+    },
+    {
+      "id": 289,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/provezti",
+      "name": "провезти",
+      "slug": "provezti"
+    },
+    {
+      "id": 187,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/prognoza",
+      "name": "прогноза",
+      "slug": "prognoza"
+    },
+    {
+      "id": 226,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/prodazhe",
+      "name": "продаже",
+      "slug": "prodazhe"
+    },
+    {
+      "id": 179,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/prodazhi",
+      "name": "продажи",
+      "slug": "prodazhi"
+    },
+    {
+      "id": 224,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/prodlenie",
+      "name": "продление",
+      "slug": "prodlenie"
+    },
+    {
+      "id": 290,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/pytalis",
+      "name": "пытались",
+      "slug": "pytalis"
+    },
+    {
+      "id": 156,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/razuvaev",
+      "name": "Разуваев:",
+      "slug": "razuvaev"
+    },
+    {
+      "id": 204,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rasskazal",
+      "name": "рассказал,",
+      "slug": "rasskazal"
+    },
+    {
+      "id": 294,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rasskazali",
+      "name": "рассказали,",
+      "slug": "rasskazali"
+    },
+    {
+      "id": 264,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/regionah",
+      "name": "регионах",
+      "slug": "regionah"
+    },
+    {
+      "id": 214,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rezervov",
+      "name": "резервов",
+      "slug": "rezervov"
+    },
+    {
+      "id": 279,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rejting",
+      "name": "рейтинг",
+      "slug": "rejting"
+    },
+    {
+      "id": 271,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rol",
+      "name": "роль",
+      "slug": "rol"
+    },
+    {
+      "id": 143,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rossii",
+      "name": "России",
+      "slug": "rossii"
+    },
+    {
+      "id": 157,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rossijskie",
+      "name": "Российские",
+      "slug": "rossijskie"
+    },
+    {
+      "id": 212,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rost",
+      "name": "Рост",
+      "slug": "rost"
+    },
+    {
+      "id": 159,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rublej",
+      "name": "рублей",
+      "slug": "rublej"
+    },
+    {
+      "id": 252,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rubl",
+      "name": "Рубль",
+      "slug": "rubl"
+    },
+    {
+      "id": 217,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rublya",
+      "name": "рубля",
+      "slug": "rublya"
+    },
+    {
+      "id": 202,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/rynka",
+      "name": "рынка",
+      "slug": "rynka"
+    },
+    {
+      "id": 280,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/samymi",
+      "name": "самыми",
+      "slug": "samymi"
+    },
+    {
+      "id": 285,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/sberbank",
+      "name": "Сбербанк",
+      "slug": "sberbank"
+    },
+    {
+      "id": 149,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/sbp",
+      "name": "СБП",
+      "slug": "sbp"
+    },
+    {
+      "id": 196,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/sverhpribyl",
+      "name": "сверхприбыль:",
+      "slug": "sverhpribyl"
+    },
+    {
+      "id": 236,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/svoego",
+      "name": "своего",
+      "slug": "svoego"
+    },
+    {
+      "id": 275,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/svoyu",
+      "name": "свою",
+      "slug": "svoyu"
+    },
+    {
+      "id": 274,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/snizhaet",
+      "name": "снижает",
+      "slug": "snizhaet"
+    },
+    {
+      "id": 269,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/spik",
+      "name": "СПИК",
+      "slug": "spik"
+    },
+    {
+      "id": 259,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/sprognoziroval",
+      "name": "спрогнозировал",
+      "slug": "sprognoziroval"
+    },
+    {
+      "id": 221,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/sprognozirovali",
+      "name": "спрогнозировали",
+      "slug": "sprognozirovali"
+    },
+    {
+      "id": 258,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/stavok",
+      "name": "ставок",
+      "slug": "stavok"
+    },
+    {
+      "id": 261,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/sudbu",
+      "name": "судьбу",
+      "slug": "sudbu"
+    },
+    {
+      "id": 292,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/summe",
+      "name": "сумме",
+      "slug": "summe"
+    },
+    {
+      "id": 191,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/schyot",
+      "name": "счёт",
+      "slug": "schyot"
+    },
+    {
+      "id": 242,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/takoe",
+      "name": "такое",
+      "slug": "takoe"
+    },
+    {
+      "id": 182,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/uvidel",
+      "name": "увидел",
+      "slug": "uvidel"
+    },
+    {
+      "id": 250,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ukrepil",
+      "name": "укрепил",
+      "slug": "ukrepil"
+    },
+    {
+      "id": 211,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ukreplyaet",
+      "name": "укрепляет",
+      "slug": "ukreplyaet"
+    },
+    {
+      "id": 175,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/upal",
+      "name": "упал",
+      "slug": "upal"
+    },
+    {
+      "id": 197,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/usn",
+      "name": "УСН,",
+      "slug": "usn"
+    },
+    {
+      "id": 215,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ustojchivost",
+      "name": "устойчивость",
+      "slug": "ustojchivost"
+    },
+    {
+      "id": 223,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/fevral",
+      "name": "февраль",
+      "slug": "fevral"
+    },
+    {
+      "id": 234,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/finansov",
+      "name": "финансов",
+      "slug": "finansov"
+    },
+    {
+      "id": 216,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/finansovuyu",
+      "name": "финансовую",
+      "slug": "finansovuyu"
+    },
+    {
+      "id": 193,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/fnb",
+      "name": "ФНБ",
+      "slug": "fnb"
+    },
+    {
+      "id": 207,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/czen",
+      "name": "цен",
+      "slug": "czen"
+    },
+    {
+      "id": 282,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/czennymi",
+      "name": "ценными",
+      "slug": "czennymi"
+    },
+    {
+      "id": 239,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/cherez",
+      "name": "через",
+      "slug": "cherez"
+    },
+    {
+      "id": 203,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/chto",
+      "name": "что",
+      "slug": "chto"
+    },
+    {
+      "id": 273,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ekonomike",
+      "name": "экономике",
+      "slug": "ekonomike"
+    },
+    {
+      "id": 183,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ekonomist",
+      "name": "Экономист",
+      "slug": "ekonomist"
+    },
+    {
+      "id": 293,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ekonomisty",
+      "name": "Экономисты",
+      "slug": "ekonomisty"
+    },
+    {
+      "id": 158,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/ekspert",
+      "name": "Эксперт",
+      "slug": "ekspert"
+    },
+    {
+      "id": 222,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/eksperty",
+      "name": "Эксперты",
+      "slug": "eksperty"
+    },
+    {
+      "id": 227,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/eksporterami",
+      "name": "экспортерами",
+      "slug": "eksporterami"
+    },
+    {
+      "id": 219,
+      "count": 0,
+      "link": "https://rencredit-online.ru/tag/yanvarya",
+      "name": "января",
+      "slug": "yanvarya"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "slug": "yourkedm_admin",
+      "link": "https://rencredit-online.ru/author/yourkedm_admin"
+    }
+  ]
+}
