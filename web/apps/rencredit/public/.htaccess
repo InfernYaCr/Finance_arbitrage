@@ -1,0 +1,109 @@
+# ============================================================================
+# .htaccess для Beget (Apache за nginx). Кладётся в КОРЕНЬ сайта (public_html).
+# Файл скрытый (начинается с точки): при загрузке по FTP включите «показывать скрытые файлы».
+# Порядок блоков важен — не переставляйте их.
+# ============================================================================
+
+# --- 1. Базовые настройки ----------------------------------------------------
+# Кодировка по умолчанию, индекс каталога и запрет листинга папок (без index.html — 403, а не список файлов).
+AddDefaultCharset UTF-8
+DirectoryIndex index.html
+Options -Indexes
+
+# Тип для манифеста PWA (иначе Apache может отдать его как text/plain).
+AddType application/manifest+json .webmanifest
+
+# Страница 404 — собранный Astro файл /404.html (лежит в корне dist).
+ErrorDocument 404 /404.html
+
+# --- 2. Защита служебных файлов ----------------------------------------------
+# Скрытые файлы (.git, .env и т.п.) наружу не отдаём; .well-known (проверки доменов, SSL) оставляем.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule (^|/)\.(?!well-known/) - [F,L]
+</IfModule>
+
+# --- 3. Заголовки безопасности -------------------------------------------------
+# Без жёсткого CSP: на странице есть инлайн-скрипты Astro и (опционально) Яндекс Метрика.
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+# HSTS включайте только когда https точно работает на всех поддоменах (откат потом долгий):
+# Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# --- 4. Канонический хост: https + без www — ОДНИМ редиректом 301 -----------------
+# Beget: перед Apache стоит nginx, поэтому %{HTTPS} часто всегда «off».
+# Реальную схему берём из заголовка X-Forwarded-Proto.
+<IfModule mod_rewrite.c>
+# 4a. www.* -> https://без-www (сразу на https, чтобы не было цепочки из двух редиректов).
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# 4b. http -> https (хост уже без www).
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# --- 5. Старые URL WordPress -> новые (301) ------------------------------------
+# Сюда вставляются правила вида:
+#   RewriteRule ^old-page/?$ /novaya-stranica/ [R=301,L]
+#   RewriteCond %{QUERY_STRING} (^|&)p=123(&|$)
+#   RewriteRule ^$ /stati/novaya-statya/? [R=301,L]
+# Блок стоит ПЕРЕД общими правилами ниже, чтобы старый адрес уходил на новый за один редирект,
+# а не через добавление слэша. Переписанные статьи /credit/<slug>.html здесь НЕ редиректим —
+# они отдаются на прежнем адресе (см. блок 6).
+# BEGIN LEGACY 301
+# END LEGACY 301
+
+# --- 6. Старые статьи /credit/<slug>.html без редиректа ------------------------
+# Страница собрана как /credit/<slug>/index.html. Внутренний rewrite (адрес в браузере не меняется)
+# отдаёт её по старому URL — но только если такая папка с index.html реально существует.
+<IfModule mod_rewrite.c>
+RewriteCond %{DOCUMENT_ROOT}/credit/$1/index.html -f
+RewriteRule ^credit/([^/]+)\.html$ credit/$1/index.html [L]
+</IfModule>
+
+# --- 7. Завершающий слэш --------------------------------------------------------
+# /zaimy -> /zaimy/ (301), но только если такая страница есть; пути с расширением
+# (.html, .css, .xml, ...) и существующие файлы не трогаем. Несуществующие адреса сразу идут в 404.
+<IfModule mod_rewrite.c>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\.[^/]+$
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^(.+[^/])$ https://%{HTTP_HOST}/$1/ [R=301,L]
+</IfModule>
+
+# --- 8. Сжатие -------------------------------------------------------------------
+# Brotli (если модуль есть) и gzip. Сжатый ответ второй фильтр уже не трогает.
+<IfModule mod_brotli.c>
+AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css text/javascript application/javascript application/json application/xml application/manifest+json image/svg+xml
+</IfModule>
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json application/xml application/manifest+json image/svg+xml
+</IfModule>
+
+# --- 9. Кэш ----------------------------------------------------------------------
+# Значения ставит mod_headers; порядок: общие правила по типу файла, затем исключение для /_astro/.
+<IfModule mod_headers.c>
+# HTML — коротко, с перепроверкой: правки на сайте видны быстро.
+<FilesMatch "\.html$">
+Header set Cache-Control "public, max-age=300, must-revalidate"
+</FilesMatch>
+# sitemap, robots, поисковый индекс, манифест — час.
+<FilesMatch "\.(xml|txt|json|webmanifest)$">
+Header set Cache-Control "public, max-age=3600"
+</FilesMatch>
+# Картинки и иконки вне /_astro/ (логотипы МФО, og, favicon) — неделя.
+<FilesMatch "\.(png|jpe?g|webp|avif|gif|svg|ico)$">
+Header set Cache-Control "public, max-age=604800"
+</FilesMatch>
+# /_astro/*: имена файлов содержат хеш содержимого — кэшируем навсегда.
+# (<If> применяется после FilesMatch и перекрывает правила выше.)
+<If "%{REQUEST_URI} =~ m#^/_astro/#">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</If>
+</IfModule>

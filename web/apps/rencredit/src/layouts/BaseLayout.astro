@@ -4,7 +4,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Mascot from '../components/Mascot.astro';
-import { SITE } from '../lib/ui/site';
+import { SITE, ENV } from '../lib/ui/site';
 
 interface Props {
   title: string;
@@ -12,6 +12,8 @@ interface Props {
   /** Не добавлять « — Бренд» к title (главная). */
   rawTitle?: boolean;
   noindex?: boolean;
+  /** Абсолютный canonical, если он не равен адресу страницы (статьи на legacy-URL /credit/<slug>.html). */
+  canonical?: string;
   ogType?: 'website' | 'article';
   ogImage?: string;
   /** Страница с закреплённой CTA-панелью на мобильном (поднимает маскота). */
@@ -20,10 +22,13 @@ interface Props {
   publishedTime?: Date;
   modifiedTime?: Date;
 }
-const { title, description, rawTitle, noindex, ogType = 'website', ogImage, stickyCta, jsonLd, publishedTime, modifiedTime } = Astro.props;
+const { title, description, rawTitle, noindex, canonical: canonicalProp, ogType = 'website', ogImage, stickyCta, jsonLd, publishedTime, modifiedTime } = Astro.props;
 const fullTitle = rawTitle ? title : `${title} — ${SITE.name}`;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
-const robotsNoindex = noindex || import.meta.env.PUBLIC_NOINDEX === 'true';
+const canonical = canonicalProp ?? new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+// PUBLIC_NOINDEX=true (тестовый поддомен) закрывает от индексации весь сайт.
+const robotsNoindex = noindex || ENV.noindex;
+// Картинка по умолчанию — статичная public/og/default.png (1200x630).
+const ogUrl = new URL(ogImage ?? '/og/default.png', Astro.site ?? Astro.url).href;
 const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
 <!doctype html>
@@ -36,18 +41,45 @@ const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <link rel="canonical" href={canonical} />
     {robotsNoindex ? <meta name="robots" content="noindex, nofollow" /> : <meta name="robots" content="index, follow, max-image-preview:large" />}
     <meta name="theme-color" content="#0d2c26" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    {ENV.yandexVerification && <meta name="yandex-verification" content={ENV.yandexVerification} />}
+    {ENV.googleVerification && <meta name="google-site-verification" content={ENV.googleVerification} />}
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:locale" content="ru_RU" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site ?? Astro.url).href} />}
-    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta property="og:image" content={ogUrl} />
+    {!ogImage && <meta property="og:image:width" content="1200" />}
+    {!ogImage && <meta property="og:image:height" content="630" />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogUrl} />
     {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
     {ld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j).replace(/</g, '\\u003c')} />)}
+    {ENV.metrikaId && (
+      <>
+        {/* Яндекс Метрика: вебвизор выключен, сам скрипт грузится с defer. Только если задан PUBLIC_METRIKA_ID. */}
+        <script is:inline define:vars={{ id: Number(ENV.metrikaId) }}>
+          window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
+          window.ym.l = 1 * new Date();
+          window.ym(id, 'init', { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false });
+          // ClientRouter не перезагружает страницу: первый хит шлёт init, дальше — вручную.
+          var first = true;
+          document.addEventListener('astro:page-load', function () {
+            if (first) { first = false; return; }
+            window.ym(id, 'hit', location.href);
+          });
+        </script>
+        <script is:inline defer src="https://mc.yandex.ru/metrika/tag.js"></script>
+      </>
+    )}
     <ClientRouter />
     <script>
       import '../scripts/main';

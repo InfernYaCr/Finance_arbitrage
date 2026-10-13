@@ -1,15 +1,32 @@
+const env = import.meta.env;
+const str = (v: unknown) => (typeof v === 'string' ? v.trim() : '');
+
+/**
+ * Прод-режимы из переменных окружения (см. .env.example). Читаются на этапе сборки.
+ * Ничего не выдумываем: пустая переменная = блок на сайте не выводится.
+ */
+export const ENV = {
+  /** true -> meta robots noindex,nofollow везде и robots.txt «Disallow: /» (тестовый поддомен). */
+  noindex: str(env.PUBLIC_NOINDEX) === 'true',
+  /** Номер счётчика Яндекс Метрики (цифры). Пусто -> счётчик не вставляется. */
+  metrikaId: /^\d+$/.test(str(env.PUBLIC_METRIKA_ID)) ? str(env.PUBLIC_METRIKA_ID) : '',
+  yandexVerification: str(env.PUBLIC_YANDEX_VERIFICATION),
+  googleVerification: str(env.PUBLIC_GOOGLE_VERIFICATION),
+} as const;
+
 /** Всё, что меняется при смене бренда/домена, живёт здесь. */
 export const SITE = {
   name: 'ФинКомпас',
   tagline: 'Подбор займов, карт и кредитов онлайн',
   domain: 'rencredit-online.ru',
-  email: 'info@rencredit-online.ru',
+  /** Почта для связи: PUBLIC_CONTACT_EMAIL. Пусто -> ссылки на почту не выводятся. */
+  email: str(env.PUBLIC_CONTACT_EMAIL),
   /** Реквизиты владельца сайта. Пустые поля в футере не выводятся. */
   legal: {
-    owner: '',
-    inn: '',
-    ogrn: '',
-    address: '',
+    owner: str(env.PUBLIC_LEGAL_OWNER),
+    inn: str(env.PUBLIC_LEGAL_INN),
+    ogrn: str(env.PUBLIC_LEGAL_OGRN),
+    address: str(env.PUBLIC_LEGAL_ADDRESS),
   },
   disclaimer:
     'Сайт не является сайтом банка или МФО, не выдаёт займы и не принимает заявки на их выдачу. Это информационный агрегатор: мы сравниваем публичные условия организаций из реестра Банка России. Окончательные условия определяет кредитор — проверяйте их на его сайте до подписания договора.',
@@ -26,7 +43,7 @@ export const NAV = [
 ] as const;
 
 /** Страницы, на которые нельзя занимать slug посадочных (guides). */
-export const RESERVED_SLUGS = ['zaimy', 'karty', 'kredity', 'stati', 'novosti', 'mfo', 'go', 'o-proekte', 'politika-konfidencialnosti', 'search.json', '404'];
+export const RESERVED_SLUGS = ['zaimy', 'karty', 'kredity', 'stati', 'novosti', 'mfo', 'go', 'o-proekte', 'politika-konfidencialnosti', 'search.json', 'robots.txt', 'credit', 'og', '404'];
 
 export const CATEGORY_LABELS: Record<string, string> = {
   zaimy: 'Займы',

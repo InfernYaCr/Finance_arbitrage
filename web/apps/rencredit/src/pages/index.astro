@@ -9,7 +9,7 @@ import Faq from '../components/Faq.astro';
 import SeoText from '../components/SeoText.astro';
 import Icon from '../components/Icon.astro';
 import { getOffers, offerStats } from '../lib/offers';
-import { getArticles, getNews } from '../lib/content';
+import { getArticles, getNews, articleHref } from '../lib/content';
 import { readingMinutes, dateRu } from '../lib/format';
 import { SITE } from '../lib/ui/site';
 import { HOME_FAQ } from '../lib/ui/faq';
@@ -63,7 +63,7 @@ const compare = [...offers].sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0)
             </div>
             <div class="grid-cards" style="grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr))">
               {topArticles.map((a, i) => (
-                <PostCard index={i} href={`/stati/${a.id}/`} title={a.data.title} description={a.data.description} date={a.data.publishDate} category={a.data.category} cover={a.data.cover} minutes={readingMinutes(a.body ?? '')} />
+                <PostCard index={i} href={articleHref(a)} title={a.data.title} description={a.data.description} date={a.data.publishDate} category={a.data.category} cover={a.data.cover} minutes={readingMinutes(a.body ?? '')} />
               ))}
             </div>
           </div>

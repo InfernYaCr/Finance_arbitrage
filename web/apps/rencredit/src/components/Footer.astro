@@ -14,7 +14,7 @@ const legalLine = [L.owner, L.inn && `ИНН ${L.inn}`, L.ogrn && `ОГРН ${L.
       <div>
         <a class="brand text-white" href="/"><LogoMark class="brand-mark" /><span>{SITE.name}</span></a>
         <p class="mt-4 max-w-xs text-sm">{SITE.tagline}. Сравниваем публичные условия организаций, чтобы вы выбирали осознанно.</p>
-        <p class="mt-4 text-sm"><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+        {SITE.email && <p class="mt-4 text-sm"><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>}
       </div>
       <div>
         <h4>Разделы</h4>

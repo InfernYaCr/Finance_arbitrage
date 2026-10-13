@@ -1,0 +1,16 @@
+---
+import ArticleView from '../../components/ArticleView.astro';
+import { getArticles, legacySlug } from '../../lib/content';
+
+// Переписанные старые статьи: собираются как /credit/<slug>/index.html, а на проде
+// .htaccess отдаёт их по прежнему адресу /credit/<slug>.html без редиректа. Canonical = legacyUrl.
+export async function getStaticPaths() {
+  const articles = await getArticles();
+  return articles.flatMap((entry) => {
+    const slug = legacySlug(entry);
+    return slug ? [{ params: { slug }, props: { entry, articles } }] : [];
+  });
+}
+const { entry, articles } = Astro.props;
+---
+<ArticleView entry={entry} articles={articles} />
