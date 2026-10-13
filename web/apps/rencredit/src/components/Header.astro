@@ -24,8 +24,8 @@ const items = NAV.map((n) => n.label === 'Займы' && guides.length > 0
         return n.sub ? (
           <div class="has-sub">
             {n.href
-              ? <a class="nav-link" href={n.href} aria-current={current ? 'page' : undefined}>{n.label}<Icon name="chevron" class="chev" /></a>
-              : <button type="button" class="nav-btn" aria-haspopup="true" data-current={current ? '' : undefined}>{n.label}<Icon name="chevron" class="chev" /></button>}
+              ? <a class="nav-link" href={n.href} aria-current={current ? 'page' : undefined} aria-haspopup="true" aria-expanded="false">{n.label}<Icon name="chevron" class="chev" /></a>
+              : <button type="button" class="nav-btn" aria-haspopup="true" aria-expanded="false" data-current={current ? '' : undefined}>{n.label}<Icon name="chevron" class="chev" /></button>}
             <div class="sub">{n.sub.map((x) => <a href={x.href}>{x.label}</a>)}</div>
           </div>
         ) : (

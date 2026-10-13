@@ -35,6 +35,12 @@ export function initHeader() {
   document.addEventListener('keydown', onKey);
   document.addEventListener('astro:before-swap', () => { document.removeEventListener('keydown', onKey); document.body.style.overflow = ''; }, { once: true });
 
+  // Подменю открывает CSS (:hover / :focus-within) — aria-expanded триггера держим в том же состоянии.
+  header.querySelectorAll<HTMLElement>('.has-sub').forEach((li) => {
+    const sync = () => li.firstElementChild!.setAttribute('aria-expanded', String(li.matches(':hover, :focus-within')));
+    for (const ev of ['mouseenter', 'mouseleave', 'focusin', 'focusout']) li.addEventListener(ev, () => requestAnimationFrame(sync));
+  });
+
   // «Подобрать займ»: скролл к калькулятору, если он на странице
   header.querySelectorAll<HTMLAnchorElement>('[data-pick]').forEach((a) =>
     a.addEventListener('click', (e) => {

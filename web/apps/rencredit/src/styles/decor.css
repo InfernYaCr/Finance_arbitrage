@@ -61,6 +61,7 @@
 .float-group > * { pointer-events: auto; }
 .mascot { position: absolute; right: 0; bottom: 0; width: 0; height: 0; view-transition-name: none; transition: transform .35s var(--ease-out); }
 body[data-sticky-cta] .mascot { bottom: 0; }
+body[data-no-mascot] .mascot { display: none; }
 .float-group[data-top="1"] .mascot { transform: translate3d(-58px, 0, 0); }
 .mascot-body { width: 96px; height: 90px; }
 .mascot-char { width: 100%; height: 100%; }

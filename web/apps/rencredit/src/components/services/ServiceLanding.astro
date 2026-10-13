@@ -52,7 +52,7 @@ const related = [
 const site = (Astro.site ?? Astro.url).href;
 const listLd = itemList(title, services.map((s) => ({ type: SCHEMA_TYPE[s.kind], name: s.name, path: `/go/${s.poolId}/`, provider: s.legalName, description: s.summary })), site);
 ---
-<BaseLayout title={title} description={description} noindex={services.length === 0} jsonLd={listLd ? { '@context': 'https://schema.org', ...listLd } : undefined}>
+<BaseLayout noMascot title={title} description={description} noindex={services.length === 0} jsonLd={listLd ? { '@context': 'https://schema.org', ...listLd } : undefined}>
   <div class="wrap page-head">
     <Breadcrumbs items={crumbs} />
     <h1>{title}</h1>

@@ -22,7 +22,7 @@ const { offers, title = 'Топ-3 по теме статьи', moreHref, moreLab
             <span class="t3-meta">{moneyRange(o.amountMin, o.amountMax)} · {termText(o.kind, o.termMinDays, o.termMaxDays)}</span>
           </div>
           <span class="t3-key">{keyCondition(o)}</span>
-          <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={`${slot}-${o.slug}`} aria-label={`Получить: ${o.name}`}>Получить</a>
+          <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={`${slot}-${o.slug}`} aria-label={`${o.kind === 'mfo' ? 'Получить' : 'Оформить'}: ${o.name}`}>{o.kind === 'mfo' ? 'Получить' : 'Оформить'}</a>
           <AdMark offer={o} />
         </li>
       ))}

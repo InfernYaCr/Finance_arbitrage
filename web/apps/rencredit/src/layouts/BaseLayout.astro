@@ -22,11 +22,13 @@ interface Props {
   ogImage?: string;
   /** Страница с закреплённой CTA-панелью на мобильном (поднимает маскота). */
   stickyCta?: boolean;
+  /** Скрыть маскота (его реплики — про займы): страхование, дебетовые карты, вклады, РКО. */
+  noMascot?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   publishedTime?: Date;
   modifiedTime?: Date;
 }
-const { title, description, rawTitle, noindex, canonical: canonicalProp, ogType = 'website', ogImage, stickyCta, jsonLd, publishedTime, modifiedTime } = Astro.props;
+const { title, description, rawTitle, noindex, canonical: canonicalProp, ogType = 'website', ogImage, stickyCta, noMascot, jsonLd, publishedTime, modifiedTime } = Astro.props;
 const fullTitle = rawTitle ? title : `${title} — ${SITE.name}`;
 const canonical = canonicalProp ?? new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 // PUBLIC_NOINDEX=true (тестовый поддомен) закрывает от индексации весь сайт.
@@ -138,7 +140,7 @@ const ld = [...siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) 
       import '../scripts/main';
     </script>
   </head>
-  <body data-sticky-cta={stickyCta ? '' : undefined}>
+  <body data-sticky-cta={stickyCta ? '' : undefined} data-no-mascot={noMascot ? '' : undefined}>
     <a class="skip" href="#main">К содержимому</a>
     {ENV.metrikaId && <CookieBar />}
     <Header />
