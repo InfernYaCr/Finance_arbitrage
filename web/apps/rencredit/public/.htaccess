@@ -57,6 +57,103 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 # а не через добавление слэша. Переписанные статьи /credit/<slug>.html здесь НЕ редиректим —
 # они отдаются на прежнем адресе (см. блок 6).
 # BEGIN LEGACY 301
+<IfModule mod_rewrite.c>
+# Сгенерировано legacy/rencredit/gen_htaccess.py из legacy/rencredit/map.json — руками не править.
+
+# --- Query-URL WordPress (сброс query через '?' в конце цели) ---
+# https://rencredit-online.ru/?oceanwp_library=footer
+RewriteCond %{QUERY_STRING} (^|&)oceanwp_library=footer(&|$)
+RewriteRule ^$ https://%{HTTP_HOST}/? [R=301,L]
+# Старые ссылки ?feed=… (rss2/atom/comments-rss2) -> главная
+RewriteCond %{QUERY_STRING} (^|&)feed=
+RewriteRule ^$ https://%{HTTP_HOST}/? [R=301,L]
+# Старый REST через ?rest_route=… -> 410
+RewriteCond %{QUERY_STRING} (^|&)rest_route=
+RewriteRule ^(index\.php)?$ - [G,L]
+
+# --- Отдельные страницы, посты, рубрика, feed (из map.json) ---
+# category: https://rencredit-online.ru/credit
+RewriteRule ^credit/?$ https://%{HTTP_HOST}/stati/ [R=301,L]
+# feed: https://rencredit-online.ru/comments/feed/
+RewriteRule ^comments/feed/?$ https://%{HTTP_HOST}/ [R=301,L]
+# feed: https://rencredit-online.ru/credit/feed/
+RewriteRule ^credit/feed/?$ https://%{HTTP_HOST}/ [R=301,L]
+# feed: https://rencredit-online.ru/feed/
+RewriteRule ^feed/?$ https://%{HTTP_HOST}/ [R=301,L]
+# page: https://rencredit-online.ru/privacy.html
+RewriteRule ^privacy\.html$ https://%{HTTP_HOST}/politika-konfidencialnosti/ [R=301,L]
+# page: https://rencredit-online.ru/sitemap.html
+RewriteRule ^sitemap\.html$ https://%{HTTP_HOST}/ [R=301,L]
+# post: https://rencredit-online.ru/credit/aeb-kitaiskie-avtoproizvoditeli-gotoviatsia-pokinyt-rossiu.html
+RewriteRule ^credit/aeb-kitaiskie-avtoproizvoditeli-gotoviatsia-pokinyt-rossiu\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/bank-rossii-planiryet-ogranichit-rost-ejemesiachnogo-plateja-po-ipoteke.html
+RewriteRule ^credit/bank-rossii-planiryet-ogranichit-rost-ejemesiachnogo-plateja-po-ipoteke\.html$ https://%{HTTP_HOST}/kredity/ [R=301,L]
+# post: https://rencredit-online.ru/credit/cb-dolia-ryblevyh-kreditov-s-plavaushei-stavkoi-urlicam-za-9-mes-vyrosla-do-60.html
+RewriteRule ^credit/cb-dolia-ryblevyh-kreditov-s-plavaushei-stavkoi-urlicam-za-9-mes-vyrosla-do-60\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/cb-dopyskaet-vvedenie-nadbavok-na-kredity-urlicam-s-vysokim-dolgom-yje-v-2025-g.html
+RewriteRule ^credit/cb-dopyskaet-vvedenie-nadbavok-na-kredity-urlicam-s-vysokim-dolgom-yje-v-2025-g\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/cena-na-zoloto-preodolela-2800-dollarov-za-ynciu-no-zatem-pereshla-k-snijeniu.html
+RewriteRule ^credit/cena-na-zoloto-preodolela-2800-dollarov-za-ynciu-no-zatem-pereshla-k-snijeniu\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/eksperty-osvobojdenie-ot-ndfl-kosnetsia-nebolshogo-chisla-ipotechnikov.html
+RewriteRule ^credit/eksperty-osvobojdenie-ot-ndfl-kosnetsia-nebolshogo-chisla-ipotechnikov\.html$ https://%{HTTP_HOST}/kredity/ [R=301,L]
+# post: https://rencredit-online.ru/credit/gosdyma-priniala-zakon-o-razresheniu-vypyska-obligacii-roskosmosy.html
+RewriteRule ^credit/gosdyma-priniala-zakon-o-razresheniu-vypyska-obligacii-roskosmosy\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/gosdyma-priniala-zakon-po-limitam-na-vydachy-ipotechnyh-i-avtokreditov-fizlicam.html
+RewriteRule ^credit/gosdyma-priniala-zakon-po-limitam-na-vydachy-ipotechnyh-i-avtokreditov-fizlicam\.html$ https://%{HTTP_HOST}/kredity/ [R=301,L]
+# post: https://rencredit-online.ru/credit/iena-dorojaet-k-dollary-v-ojidanii-zasedaniia-iaponskogo-centrobanka.html
+RewriteRule ^credit/iena-dorojaet-k-dollary-v-ojidanii-zasedaniia-iaponskogo-centrobanka\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-polychit-povtornoe-refinansirovanie-ipoteki.html
+RewriteRule ^credit/kak-polychit-povtornoe-refinansirovanie-ipoteki\.html$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/komitet-gosdymy-odobril-pravo-cb-rf-ogranichivat-vydachy-ipotechnyh-i-avtokreditov.html
+RewriteRule ^credit/komitet-gosdymy-odobril-pravo-cb-rf-ogranichivat-vydachy-ipotechnyh-i-avtokreditov\.html$ https://%{HTTP_HOST}/kredity/ [R=301,L]
+# post: https://rencredit-online.ru/credit/nacbank-ykrainy-soobshil-o-povyshenii-ychetnoi-stavki-do-145-s-135.html
+RewriteRule ^credit/nacbank-ykrainy-soobshil-o-povyshenii-ychetnoi-stavki-do-145-s-135\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/pochta-bank-dohodnost-lestnichnyh-vkladov-i-obychnyh-depozitov-pochti-odinakova.html
+RewriteRule ^credit/pochta-bank-dohodnost-lestnichnyh-vkladov-i-obychnyh-depozitov-pochti-odinakova\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/pytin-podpisal-zakon-o-periode-ohlajdeniia-po-potrebitelskim-kreditam.html
+RewriteRule ^credit/pytin-podpisal-zakon-o-periode-ohlajdeniia-po-potrebitelskim-kreditam\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/ria-novosti-indeks-mosbirji-snizitsia-na-sledyushei-nedele-na-12-do-2454-p.html
+RewriteRule ^credit/ria-novosti-indeks-mosbirji-snizitsia-na-sledyushei-nedele-na-12-do-2454-p\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/samolet-hochet-predlojit-privlekatelnyi-kypon-v-ramkah-oferty-po-bondam.html
+RewriteRule ^credit/samolet-hochet-predlojit-privlekatelnyi-kypon-v-ramkah-oferty-po-bondam\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/sovfed-na-plenarnom-zasedanii-odobril-zakon-o-periode-ohlajdeniia-po-potrebkreditam.html
+RewriteRule ^credit/sovfed-na-plenarnom-zasedanii-odobril-zakon-o-periode-ohlajdeniia-po-potrebkreditam\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/sovfed-odobril-pravo-cb-limitirovat-vydachy-ipotechnyh-i-avtokreditov-fizlicam.html
+RewriteRule ^credit/sovfed-odobril-pravo-cb-limitirovat-vydachy-ipotechnyh-i-avtokreditov-fizlicam\.html$ https://%{HTTP_HOST}/kredity/ [R=301,L]
+# post: https://rencredit-online.ru/credit/stoimost-zolota-slabo-yvelichivaetsia-tretii-den-podriad-soglasno-dannym-torgov.html
+RewriteRule ^credit/stoimost-zolota-slabo-yvelichivaetsia-tretii-den-podriad-soglasno-dannym-torgov\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/turkiye-cb-tyrcii-poidet-v-chetverg-na-snijenie-stavki-s-50-do-4850.html
+RewriteRule ^credit/turkiye-cb-tyrcii-poidet-v-chetverg-na-snijenie-stavki-s-50-do-4850\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/vtb-rynok-ipoteki-v-rossii-v-2025-gody-sojmetsia-minimym-na-20.html
+RewriteRule ^credit/vtb-rynok-ipoteki-v-rossii-v-2025-gody-sojmetsia-minimym-na-20\.html$ https://%{HTTP_HOST}/kredity/ [R=301,L]
+# post: https://rencredit-online.ru/credit/zoloto-desheveet-pered-pyblikaciei-reshenii-frs-ssha.html
+RewriteRule ^credit/zoloto-desheveet-pered-pyblikaciei-reshenii-frs-ssha\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# post: https://rencredit-online.ru/credit/zoloto-desheveet-posle-dostijeniia-novogo-rekorda-v-ponedelnik.html
+RewriteRule ^credit/zoloto-desheveet-posle-dostijeniia-novogo-rekorda-v-ponedelnik\.html$ https://%{HTTP_HOST}/novosti/ [R=301,L]
+# sitemap: https://rencredit-online.ru/sitemap_index.xml
+RewriteRule ^sitemap_index\.xml/?$ https://%{HTTP_HOST}/sitemap-index.xml [R=301,L]
+
+# --- Теги /tag/<slug> (с завершающим слэшем и без), сгруппированы по цели ---
+# 5 тегов -> /kredity/
+RewriteRule ^tag/(banki|ipoteke|ipoteki|kredit|sberbank)/?$ https://%{HTTP_HOST}/kredity/ [R=301,L]
+# 154 тегов -> /stati/
+RewriteRule ^tag/(birzhevogo|birzhu|biznesa|briks|budet|bumagami|cherez|chto|czen|czennymi|dekabre|dekabrya|dengi|dividendov|dlya|dohodnymi|dollar|dollara|dollarom|dollaru|dvigateli|ego|ekonomike|ekonomist|ekonomisty|ekspert|eksperty|eksporterami|evro|fevral|finansov|finansovuyu|fnb|gaz|gazovye|god|goda|godu|ili|investor|investorov|ipotechnyj|iyunya|izmenitsya|kak|kompanii|kompanij|konkurirovat|kurs|kursa|kursom|legko|lgotnoj|lgoty|limit|lovushku|maksimalnyj|margolin|marketplejsah|mediczina|mer|mesyacz|minfin|mirovoj|mlrd|moshenniki|nachal|nachale|najti|nalogi|nalogovye|nazvana|nelegalno|neuteshitelnuyu|nevozmozhnosti|nizhe|npd|obnulili|obshhej|obyazatelnoj|obyom|oczenili|oformit|opustilsya|padeniya|perevodite|perevodov|platit|polittehnolog|ponizilsya|popast|povysheniya|poziczii|prichin|prichina|prodazhe|prodazhi|prodlenie|prognoza|provezti|pytalis|rasskazal|rasskazali|razuvaev|regionah|rejting|rezervov|rol|rossii|rossijskie|rost|rubl|rublej|rublya|rynka|samymi|sbp|schyot|snizhaet|spik|sprognoziroval|sprognozirovali|stavok|sudbu|summe|sverhpribyl|svoego|svoyu|takoe|ukrepil|ukreplyaet|upal|usn|ustojchivost|uvidel|valyute|valyutnoj|valyuty|vashih|vklady|vozglavil|vozobnovit|vpervye|vveli|vydali|vyplatyat|vyruchki|vyvezti|yanvarya|zastrojshhiki|zhdat|zhdut|zolota|zolotyh)/?$ https://%{HTTP_HOST}/stati/ [R=301,L]
+
+# --- Общие правила WordPress ---
+# Архивы авторов
+RewriteRule ^author/.*$ https://%{HTTP_HOST}/o-proekte/ [R=301,L]
+# Пагинация рубрики блога /credit/page/N
+RewriteRule ^credit/page/\d+/?$ https://%{HTTP_HOST}/stati/ [R=301,L]
+# Пагинация главной /page/N
+RewriteRule ^page/\d+/?$ https://%{HTTP_HOST}/ [R=301,L]
+# Yoast/WP-карты сайта -> индекс карты нового сайта (Astro: sitemap-index.xml)
+RewriteRule ^(sitemap_index|sitemap|[a-z0-9_-]+-sitemap[0-9]*|wp-sitemap[a-z0-9_-]*)\.(xml|xsl)$ https://%{HTTP_HOST}/sitemap-index.xml [R=301,L]
+# Прочие feed (/…/feed/, /feed/atom/, /comments/feed/ и т.п.), не описанные в map.json -> 410
+RewriteRule (^|/)feed(/[a-z0-9-]+)?/?$ - [G,L]
+# Служебное WordPress: админка, API, xmlrpc, плагины/темы/ядро -> 410
+RewriteRule ^wp-(admin|json|content|includes)(/|$) - [G,L]
+RewriteRule ^(wp-[a-z-]+|xmlrpc)\.php$ - [G,L]
+</IfModule>
 # END LEGACY 301
 
 # --- 6. Старые статьи /credit/<slug>.html без редиректа ------------------------
