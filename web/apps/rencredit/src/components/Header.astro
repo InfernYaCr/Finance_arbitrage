@@ -6,7 +6,11 @@ import { getGuides } from '../lib/content';
 
 const guides = await getGuides();
 const path = Astro.url.pathname;
-const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const isCurrent = (href?: string) => !!href && (href === '/' ? path === '/' : path.startsWith(href));
+// Подменю «Займы» — подборки (guides); остальные — из NAV.
+const items = NAV.map((n) => n.label === 'Займы' && guides.length > 0
+  ? { ...n, sub: [{ label: 'Все займы', href: n.href! }, ...guides.map((g) => ({ label: g.data.navLabel, href: `/${g.id}/` }))] }
+  : n);
 ---
 <header class="site-header" data-header>
   <div class="hdr-bg" aria-hidden="true"></div>
@@ -15,19 +19,19 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
       <LogoMark class="brand-mark" /><span>{SITE.name}</span>
     </a>
     <nav class="nav" aria-label="Основная навигация">
-      {NAV.map((n) =>
-        n.label === 'Займы' && guides.length > 0 ? (
+      {items.map((n) => {
+        const current = isCurrent(n.href) || !!n.sub?.some((x) => isCurrent(x.href));
+        return n.sub ? (
           <div class="has-sub">
-            <a class="nav-link" href={n.href} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}<Icon name="chevron" class="chev" /></a>
-            <div class="sub">
-              <a href={n.href}>Все займы</a>
-              {guides.map((g) => <a href={`/${g.id}/`}>{g.data.navLabel}</a>)}
-            </div>
+            {n.href
+              ? <a class="nav-link" href={n.href} aria-current={current ? 'page' : undefined}>{n.label}<Icon name="chevron" class="chev" /></a>
+              : <button type="button" class="nav-btn" aria-haspopup="true" data-current={current ? '' : undefined}>{n.label}<Icon name="chevron" class="chev" /></button>}
+            <div class="sub">{n.sub.map((x) => <a href={x.href}>{x.label}</a>)}</div>
           </div>
         ) : (
-          <a class="nav-link" href={n.href} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}</a>
-        ),
-      )}
+          <a class="nav-link" href={n.href} aria-current={current ? 'page' : undefined}>{n.label}</a>
+        );
+      })}
     </nav>
     <div class="hdr-actions">
       <button type="button" class="icon-btn" data-search-open aria-label="Поиск по сайту"><Icon name="search" /></button>
@@ -38,14 +42,12 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
     </div>
   </div>
   <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Мобильное меню">
-    {guides.length > 0 ? (
+    {items.map((n) => n.sub ? (
       <details>
-        <summary>Займы <Icon name="chevron" class="h-5 w-5" /></summary>
-        <a href="/zaimy/">Все займы</a>
-        {guides.map((g) => <a href={`/${g.id}/`}>{g.data.navLabel}</a>)}
+        <summary>{n.label} <Icon name="chevron" class="h-5 w-5" /></summary>
+        {n.sub.map((x) => <a href={x.href}>{x.label}</a>)}
       </details>
-    ) : <a href="/zaimy/">Займы</a>}
-    {NAV.filter((n) => n.label !== 'Займы').map((n) => <a href={n.href}>{n.label}</a>)}
+    ) : <a href={n.href}>{n.label}</a>)}
     <a class="btn btn-cta btn-lg btn-block mt-6 justify-center border-0" href="/#calc" data-pick>Подобрать займ</a>
   </nav>
   <dialog class="search-dlg" data-search aria-label="Поиск по сайту">

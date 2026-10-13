@@ -3,16 +3,22 @@
  * Маркировка рекламного блока оффера:
  *  - «Реклама», рекламодатель, erid — ч. 16–17 ст. 18.1 38-ФЗ «О рекламе»;
  *  - наименование лица, оказывающего финуслугу — ч. 1 ст. 28;
- *  - предупреждения ч. 2.1 и 3.1 ст. 28 (кредит/заём).
+ *  - предупреждения ч. 2.1 и 3.1 ст. 28 (кредит/заём) — только для кредитных продуктов.
+ * service — некредитный продукт (страхование, дебетовая карта, вклад, РКО): вместо кредитного
+ * предупреждения — отсылка к полным условиям на сайте организации.
  */
 import { type Offer, officialUrl } from '../lib/offers';
+import { serviceOfficialUrl, type ServiceKind } from '../lib/services';
 
-interface Props { offer: Pick<Offer, 'slug' | 'name' | 'legalName' | 'erid'>; class?: string }
-const { offer: o, class: cls } = Astro.props;
-const site = officialUrl(o.slug);
+interface Props { offer: Pick<Offer, 'slug' | 'name' | 'legalName' | 'erid'>; service?: ServiceKind; class?: string }
+const { offer: o, service, class: cls } = Astro.props;
+const site = service ? serviceOfficialUrl(o.slug) : officialUrl(o.slug);
 const host = site ? new URL(site).hostname.replace(/^www\./, '') : null;
+const serviceText = { insurance: 'Условия страхования, стоимость полиса и исключения', debit: 'Тарифы и условия обслуживания карты', deposit: 'Доходность зависит от суммы, срока и условий вклада. Полные условия', rko: 'Тарифы и условия обслуживания счёта' };
 ---
 <div class:list={['ad-mark', cls]}>
   <p class="ad-id"><span class="ad-tag">Реклама</span> <span>{o.legalName ?? o.name}</span>{o.erid && <span>erid:&nbsp;{o.erid}</span>}</p>
-  <p class="ad-warn">Оценивайте свои финансовые возможности и риски. Изучите все условия кредита (займа) на&nbsp;сайте кредитора{site && <> <a href={site} rel="nofollow noopener" target="_blank">{host}</a></>}.</p>
+  {service
+    ? <p class="ad-warn">{serviceText[service]} — на&nbsp;сайте организации{site && <> <a href={site} rel="nofollow noopener" target="_blank">{host}</a></>}.</p>
+    : <p class="ad-warn">Оценивайте свои финансовые возможности и риски. Изучите все условия кредита (займа) на&nbsp;сайте кредитора{site && <> <a href={site} rel="nofollow noopener" target="_blank">{host}</a></>}.</p>}
 </div>

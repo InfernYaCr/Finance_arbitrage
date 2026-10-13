@@ -1,0 +1,110 @@
+---
+/**
+ * Посадочная некредитного раздела: /osago/, /vklady/ … или хаб /strahovanie/ (category не задана).
+ * Тексты — из src/content/service-pages/<category|strahovanie>.mdx, без файла — фолбэк из SERVICE_META.
+ * Без предложений страница собирается с пустым состоянием и noindex (тонкую страницу не индексируем).
+ */
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../Breadcrumbs.astro';
+import Faq from '../Faq.astro';
+import ServiceCard from './ServiceCard.astro';
+import { itemList } from '@pbn/core';
+import { offersWord, dateRu } from '../../lib/format';
+import {
+  type ServiceCategory, SERVICE_META, SERVICE_LINKS, INSURANCE_CATEGORIES, SCHEMA_TYPE,
+  getServices, getServicePage,
+} from '../../lib/services';
+
+interface Props { category?: ServiceCategory }
+const { category } = Astro.props;
+
+const HUB = {
+  h1: 'Страхование онлайн',
+  description: 'Страхование онлайн: ОСАГО, КАСКО, ипотека, путешествия и квартира — сервисы и страховые компании, где оформить полис.',
+  lead: 'Выберите вид страхования или посмотрите все предложения: сервисы сравнения полисов и страховые компании.',
+};
+const meta = category ? SERVICE_META[category] : { ...HUB, kind: 'insurance' };
+const isInsurance = !category || SERVICE_META[category].kind === 'insurance';
+const page = await getServicePage(category ?? 'strahovanie');
+const Content = page ? (await render(page)).Content : null;
+const title = page?.data.title ?? meta.h1;
+const description = page?.data.description ?? meta.description;
+const lead = page?.data.lead ?? meta.lead;
+
+const services = await getServices(category ? { category } : { kind: 'insurance' });
+const tiles = category ? [] : INSURANCE_CATEGORIES.filter((c) => SERVICE_META[c].href)
+  .map((c) => ({ ...SERVICE_META[c], n: services.filter((s) => s.category === c).length }));
+
+const crumbs = !category
+  ? [{ label: 'Страхование' }]
+  : isInsurance
+    ? [{ label: 'Страхование', href: '/strahovanie/' }, { label: SERVICE_META[category].label }]
+    : [{ label: SERVICE_META[category].label }];
+
+// Перелинковка: хаб страхования и все соседние разделы (сначала — того же типа).
+const related = [
+  ...(category ? [{ label: 'Всё страхование', href: '/strahovanie/' }] : []),
+  ...SERVICE_LINKS.filter((l) => l.category !== category)
+    .sort((a, b) => Number(SERVICE_META[b.category].kind === meta.kind) - Number(SERVICE_META[a.category].kind === meta.kind)),
+];
+
+const site = (Astro.site ?? Astro.url).href;
+const listLd = itemList(title, services.map((s) => ({ type: SCHEMA_TYPE[s.kind], name: s.name, path: `/go/${s.poolId}/`, provider: s.legalName, description: s.summary })), site);
+---
+<BaseLayout title={title} description={description} noindex={services.length === 0} jsonLd={listLd ? { '@context': 'https://schema.org', ...listLd } : undefined}>
+  <div class="wrap page-head">
+    <Breadcrumbs items={crumbs} />
+    <h1>{title}</h1>
+    {lead && <p class="lead mt-3">{lead}</p>}
+    {page?.data.updatedDate && <p class="svc-upd">Обновлено {dateRu(page.data.updatedDate)}</p>}
+  </div>
+
+  {tiles.length > 0 && (
+    <section class="section pt-4 pb-0 md:pt-4 md:pb-0" aria-label="Виды страхования">
+      <div class="wrap">
+        <ul class="svc-tiles" data-reveal>
+          {tiles.map((t) => (
+            <li><a href={t.href}><b>{t.label}</b><span>{t.n ? offersWord(t.n) : 'Скоро'}</span></a></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <section class="section pt-8 md:pt-10" id="offers">
+    <div class="wrap">
+      {!category && <h2 class="h2" data-reveal>Все страховые предложения</h2>}
+      <p class="count-line">{offersWord(services.length)}</p>
+      {services.length > 0 ? (
+        <div class="offers">
+          {services.map((s, i) => <ServiceCard service={s} index={i} showCategory={!category} />)}
+        </div>
+      ) : (
+        <div class="empty">
+          <h3>Предложения скоро появятся</h3>
+          <p class="lead mx-auto mt-2">Мы проверяем условия организаций. Пока можно посмотреть соседние разделы или прочитать статьи.</p>
+          <a class="btn btn-dark mt-5" href="/stati/">Читать статьи</a>
+        </div>
+      )}
+      <p class="fine">Условия публикуются на основании данных организаций и могут измениться. Окончательные условия, тарифы и стоимость определяет организация — проверяйте их на её сайте до оформления. Сайт не является банком или страховой компанией и не оказывает финансовых услуг.</p>
+    </div>
+  </section>
+
+  {Content && (
+    <section class="section pt-0 md:pt-0">
+      <div class="wrap"><div class="prose"><Content /></div></div>
+    </section>
+  )}
+
+  <Faq items={page?.data.faq ?? []} />
+
+  {related.length > 0 && (
+    <section class="section pt-0 md:pt-0">
+      <div class="wrap">
+        <h2 class="h2" data-reveal>Другие разделы</h2>
+        <div class="chips">{related.map((l) => <a class="chip no-underline" href={l.href}>{l.label}</a>)}</div>
+      </div>
+    </section>
+  )}
+</BaseLayout>

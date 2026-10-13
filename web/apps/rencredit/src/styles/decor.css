@@ -131,7 +131,7 @@ body[data-sticky-cta] .mascot { bottom: 0; }
 
 .foot-grid { margin-top: 44px; display: grid; gap: 28px 20px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .foot-brand { grid-column: 1 / -1; }
-@media (min-width: 900px) { .foot-grid { grid-template-columns: 1.5fr 1.1fr 1fr .8fr 1.2fr; } .foot-brand { grid-column: auto; } }
+@media (min-width: 900px) { .foot-grid { grid-template-columns: 1.4fr 1.1fr 1fr 1.1fr .8fr 1.2fr; } .foot-brand { grid-column: auto; } }
 .site-footer nav a { min-height: 40px; }
 .site-footer a:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; border-radius: 4px; }
 

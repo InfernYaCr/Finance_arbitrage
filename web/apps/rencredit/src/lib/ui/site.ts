@@ -36,16 +36,39 @@ export const SITE = {
     'Заём — это ответственность. Чрезмерная задолженность может привести к потере платёжеспособности и ухудшению кредитной истории. Максимальная переплата по договору потребительского займа ограничена законом.',
 } as const;
 
-export const NAV = [
+interface NavItem { label: string; href?: string; sub?: { label: string; href: string }[] }
+
+/**
+ * Шапка. Пункты с sub — выпадающее меню (на мобиле — <details>). У «Займы» подменю — подборки (guides),
+ * его добавляет Header. Пункт без href («Ещё») — только раскрывашка.
+ */
+export const NAV: NavItem[] = [
   { label: 'Займы', href: '/zaimy/' },
-  { label: 'Карты', href: '/karty/' },
+  { label: 'Карты', href: '/karty/', sub: [
+    { label: 'Кредитные карты', href: '/karty/' },
+    { label: 'Дебетовые карты', href: '/debetovye-karty/' },
+  ] },
   { label: 'Кредиты', href: '/kredity/' },
-  { label: 'Статьи', href: '/stati/' },
-  { label: 'Новости', href: '/novosti/' },
-] as const;
+  { label: 'Страхование', href: '/strahovanie/', sub: [
+    { label: 'Всё страхование', href: '/strahovanie/' },
+    { label: 'ОСАГО', href: '/osago/' },
+    { label: 'КАСКО', href: '/kasko/' },
+    { label: 'Страхование ипотеки', href: '/strahovanie-ipoteki/' },
+    { label: 'Путешествия', href: '/strahovanie-puteshestvennikov/' },
+    { label: 'Квартира', href: '/strahovanie-kvartiry/' },
+  ] },
+  { label: 'Ещё', sub: [
+    { label: 'Вклады', href: '/vklady/' },
+    { label: 'РКО для бизнеса', href: '/rko/' },
+    { label: 'Статьи', href: '/stati/' },
+    { label: 'Новости', href: '/novosti/' },
+  ] },
+];
 
 /** Страницы, на которые нельзя занимать slug посадочных (guides). */
-export const RESERVED_SLUGS = ['zaimy', 'karty', 'kredity', 'stati', 'novosti', 'mfo', 'go', 'o-proekte', 'politika-konfidencialnosti', 'search.json', 'robots.txt', 'credit', 'og', '404'];
+export const RESERVED_SLUGS = ['zaimy', 'karty', 'kredity', 'stati', 'novosti', 'mfo', 'go', 'o-proekte', 'politika-konfidencialnosti', 'search.json', 'robots.txt', 'credit', 'og', '404',
+  'strahovanie', 'osago', 'kasko', 'strahovanie-ipoteki', 'strahovanie-puteshestvennikov', 'strahovanie-kvartiry',
+  'strahovanie-drugoe', 'debetovye-karty', 'vklady', 'rko'];
 
 export const CATEGORY_LABELS: Record<string, string> = {
   zaimy: 'Займы',

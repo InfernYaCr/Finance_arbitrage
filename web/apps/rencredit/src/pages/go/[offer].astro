@@ -6,8 +6,9 @@ import { getCollection } from 'astro:content';
 import { pool, isLinkable, outboundUrl } from '@pbn/core';
 
 export async function getStaticPaths() {
-  // erid (ч. 17 ст. 18.1 38-ФЗ) хранится в оффере контента, а не в пуле.
-  const erids = new Map((await getCollection('offers')).map((e) => [e.data.poolId, e.data.erid]));
+  // erid (ч. 17 ст. 18.1 38-ФЗ) хранится в контенте (offers и services), а не в пуле.
+  const entries = [...(await getCollection('offers')), ...(await getCollection('services'))];
+  const erids = new Map(entries.map((e) => [e.data.poolId, e.data.erid]));
   return pool
     .filter((o) => isLinkable(o))
     .map((o) => ({ params: { offer: o.id }, props: { pending: o.status !== 'approve', erid: erids.get(o.id) } }));

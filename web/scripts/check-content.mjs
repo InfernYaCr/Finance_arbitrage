@@ -71,6 +71,49 @@ for (const f of files) {
   if (o.rating != null || o.reviewsCount != null) warns.push(`${f}: rating/reviewsCount заполнены — убедитесь, что это не выдуманные отзывы`);
 }
 
+// 1b. Некредитные продукты (services): страхование, дебетовые карты, вклады, РКО.
+// verified=true — только с src/data/service-sources/<slug>.json: officialUrl, свежий checkedAt,
+// источник на каждый highlight (fields[label].url) и на ratePct/priceFrom, лицензия ЦБ совпадает с реестром.
+const SVC_SOURCES_DIR = join(app, 'src/data/service-sources');
+const SVC_KIND = { osago: 'insurance', kasko: 'insurance', 'strahovanie-ipoteki': 'insurance', 'strahovanie-puteshestvennikov': 'insurance',
+  'strahovanie-kvartiry': 'insurance', 'strahovanie-drugoe': 'insurance', 'debetovye-karty': 'debit', vklady: 'deposit', rko: 'rko' };
+function checkServiceSources(f, slug, o) {
+  const path = join(SVC_SOURCES_DIR, `${slug}.json`);
+  if (!existsSync(path)) return err(`${f}: verified=true, но нет src/data/service-sources/${slug}.json`);
+  const s = JSON.parse(readFileSync(path, 'utf-8'));
+  const ageDays = (Date.now() - Date.parse(s.checkedAt)) / 86400000;
+  if (!(ageDays >= 0 && ageDays <= MAX_AGE_DAYS)) err(`${f}: checkedAt (${s.checkedAt}) старше ${MAX_AGE_DAYS} дней или некорректна`);
+  if (!/^https:\/\//.test(s.officialUrl ?? '')) err(`${f}: в источниках нет officialUrl`);
+  for (const h of o.highlights ?? []) {
+    if (!s.fields?.[h.label]?.url) err(`${f}: у highlight «${h.label}» нет источника (fields["${h.label}"].url)`);
+  }
+  for (const k of ['ratePct', 'priceFrom']) {
+    if (o[k] != null && !s.fields?.[k]?.url) err(`${f}: у поля ${k} нет источника (fields.${k}.url)`);
+  }
+  if (o.cbrLicense && (s.registry?.regNumber !== o.cbrLicense || !s.registry?.url)) {
+    err(`${f}: cbrLicense не совпадает с registry.regNumber (или нет registry.url)`);
+  }
+}
+const servicesDir = join(app, 'src/content/services');
+const svcFiles = existsSync(servicesDir) ? readdirSync(servicesDir).filter((f) => f.endsWith('.json')) : [];
+for (const f of svcFiles) {
+  const rel = `services/${f}`;
+  const slug = f.replace(/\.json$/, '');
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug)) err(`${rel}: slug должен быть латиницей kebab-case`);
+  const text = readFileSync(join(servicesDir, f), 'utf-8');
+  const o = JSON.parse(text);
+  const p = poolById.get(o.poolId);
+  if (!p) err(`${rel}: poolId ${o.poolId} нет в пуле`);
+  else if (!p.enabled || !p.href) err(`${rel}: оффер ${o.poolId} в пуле выключен или без href`);
+  if (poolUsed.has(o.poolId)) err(`${rel}: poolId ${o.poolId} уже использован в ${poolUsed.get(o.poolId)}`);
+  poolUsed.set(o.poolId, rel);
+  if (SVC_KIND[o.category] !== o.kind) err(`${rel}: category=${o.category} не соответствует kind=${o.kind}`);
+  if (o.logo && !existsSync(join(app, 'public', o.logo))) err(`${rel}: нет файла логотипа ${o.logo}`);
+  if (/(Ренессанс|Renaissance)/i.test(text)) err(`${rel}: упоминание «Ренессанс»`);
+  if (!o.legalName || !o.erid) warns.push(`${rel}: реклама без legalName/erid (ст. 18.1 38-ФЗ)`);
+  if (o.verified) checkServiceSources(rel, slug, o);
+}
+
 // 2. Тексты: чужие партнёрки и внешние ссылки
 const PARTNER_RE = /saleads|admitad|leads\.su|leadgid|actionpay|cpa\.|utm_|aff_|click\.|clickid/i;
 const ALLOWED_HOSTS = ['cbr.ru', 'www.cbr.ru', 'consultant.ru', 'www.consultant.ru', 'garant.ru', 'pravo.gov.ru',
@@ -89,7 +132,7 @@ for (const file of walk(contentDir)) {
   const sect = rel.split('/')[0];
   counts[sect] = (counts[sect] ?? 0) + 1;
   const text = readFileSync(file, 'utf-8');
-  if (sect !== 'offers') {
+  if (sect !== 'offers' && sect !== 'services') {
     if (PARTNER_RE.test(text)) err(`${rel}: похоже на партнёрскую ссылку/метку`);
     for (const m of text.matchAll(/https?:\/\/([^\s/)"'\]>]+)/g)) {
       if (!ALLOWED_HOSTS.includes(m[1].toLowerCase())) err(`${rel}: внешняя ссылка на ${m[1]} (нет в allowlist)`);

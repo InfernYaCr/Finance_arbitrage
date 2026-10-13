@@ -1,0 +1,37 @@
+---
+import OfferLogo from '../OfferLogo.astro';
+import AdMark from '../AdMark.astro';
+import Icon from '../Icon.astro';
+import { goHref } from '@pbn/core';
+import { type Service, SERVICE_META } from '../../lib/services';
+
+interface Props { service: Service; index?: number; showCategory?: boolean }
+const { service: s, index = 0, showCategory = false } = Astro.props;
+const cta = { insurance: 'Оформить полис', debit: 'Оформить карту', deposit: 'Открыть вклад', rko: 'Открыть счёт' }[s.kind];
+---
+<article class="offer-card svc-card" data-reveal style={`--i:${Math.min(index, 6)}`}>
+  <div class="oc-head">
+    <OfferLogo offer={s} />
+    <div class="min-w-0">
+      <h3 class="svc-name">{s.name}</h3>
+      {showCategory && <span class="tag">{SERVICE_META[s.category].label}</span>}
+    </div>
+  </div>
+  {s.highlights.length > 0 && (
+    <dl class="svc-hl">
+      {s.highlights.map((h) => <div class="metric"><dt>{h.label}</dt><dd>{h.value}</dd></div>)}
+    </dl>
+  )}
+  {s.summary && <p class="svc-sum">{s.summary}</p>}
+  {(s.pros.length > 0 || s.cons.length > 0) && (
+    <details class="svc-pc">
+      <summary>Плюсы и минусы<Icon name="chevron" /></summary>
+      {s.pros.length > 0 && <ul class="svc-pros">{s.pros.map((p) => <li><Icon name="check" />{p}</li>)}</ul>}
+      {s.cons.length > 0 && <ul class="svc-cons">{s.cons.map((c) => <li><Icon name="close" />{c}</li>)}</ul>}
+    </details>
+  )}
+  <div class="oc-cta">
+    <a class="btn btn-cta btn-lg" href={goHref(s.poolId)} rel="sponsored nofollow noopener" target="_blank" data-cta={s.slug}>{cta}<Icon name="arrow" class="arrow" /></a>
+  </div>
+  <AdMark offer={s} service={s.kind} />
+</article>
