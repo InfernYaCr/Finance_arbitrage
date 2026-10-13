@@ -1,0 +1,44 @@
+---
+/**
+ * Полоса согласия на cookie/Метрику. Рендерится из BaseLayout только при PUBLIC_METRIKA_ID.
+ * Не оверлей: стоит в потоке над шапкой, поэтому не перекрывает sticky-CTA и маскота.
+ * Видимость — через html[data-consent="pending"] (ставит inline-скрипт в <head> до отрисовки),
+ * так что без JS и после выбора полоса скрыта, а у вернувшихся посетителей нет сдвига макета.
+ */
+---
+<section class="cookie-bar" data-cookie-bar role="region" aria-labelledby="cookie-bar-t">
+  <div class="wrap cookie-bar-in">
+    <p id="cookie-bar-t">
+      С вашего согласия мы используем cookie и Яндекс Метрику, чтобы считать посещения и улучшать сайт.
+      Без согласия счётчик не загружается. <a href="/politika-konfidencialnosti/#cookie">Подробнее в политике</a>.
+    </p>
+    <div class="cookie-bar-act">
+      <button type="button" class="btn btn-dark" data-consent-choice="yes">Принять</button>
+      <button type="button" class="btn btn-ghost" data-consent-choice="no">Отказаться</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cookie-bar { display: none; background: var(--color-card); border-bottom: 1px solid var(--color-line); font-size: 14px; line-height: 1.45; }
+  :global(html[data-consent="pending"]) .cookie-bar { display: block; }
+  .cookie-bar-in { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; padding-block: 12px; }
+  .cookie-bar p { flex: 1 1 320px; margin: 0; color: var(--color-ink-soft); }
+  .cookie-bar a { color: var(--color-brand-600); }
+  .cookie-bar-act { display: flex; gap: 8px; flex: none; }
+  .cookie-bar .btn { min-height: 44px; padding: 0 18px; font-size: 15px; }
+</style>
+
+<script>
+  // Модуль выполняется один раз; делегирование на document переживает переходы ClientRouter.
+  document.addEventListener('click', (e) => {
+    // Кнопки выбора — в полосе и на странице политики (#cookie).
+    const btn = (e.target as Element).closest<HTMLButtonElement>('[data-consent-choice]');
+    if (!btn) return;
+    (window as Window & { fkConsent?: (yes: boolean) => void }).fkConsent?.(btn.dataset.consentChoice === 'yes');
+    if (!btn.closest('[data-cookie-bar]')) return;
+    // Полоса скрыта — уводим фокус с исчезнувшей кнопки на основной контент.
+    const main = document.getElementById('main');
+    if (main) { main.tabIndex = -1; main.focus({ preventScroll: true }); }
+  });
+</script>

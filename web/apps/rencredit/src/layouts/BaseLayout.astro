@@ -7,6 +7,7 @@ import '../styles/decor.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Mascot from '../components/Mascot.astro';
+import CookieBar from '../components/CookieBar.astro';
 import { SITE, ENV } from '../lib/ui/site';
 
 interface Props {
@@ -32,7 +33,18 @@ const canonical = canonicalProp ?? new URL(Astro.url.pathname, Astro.site ?? Ast
 const robotsNoindex = noindex || ENV.noindex;
 // Картинка по умолчанию — статичная public/og/default.png (1200x630).
 const ogUrl = new URL(ogImage ?? '/og/default.png', Astro.site ?? Astro.url).href;
-const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+// На главной — WebSite + Organization (страницы их не передают).
+const home = new URL('/', Astro.site ?? Astro.url).href;
+const siteLd = Astro.url.pathname === '/' ? [
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: home, inLanguage: 'ru-RU', description: SITE.descriptor },
+  {
+    '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: home, logo: new URL('/icon-512.png', home).href,
+    ...(SITE.email && { email: SITE.email }),
+    ...(SITE.legal.owner && { legalName: SITE.legal.owner }),
+    ...(SITE.legal.inn && { taxID: SITE.legal.inn }),
+  },
+] : [];
+const ld = [...siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
 ---
 <!doctype html>
 <html lang="ru">
@@ -66,22 +78,60 @@ const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}
     {modifiedTime && <meta property="article:modified_time" content={modifiedTime.toISOString()} />}
     {ld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j).replace(/</g, '\\u003c')} />)}
+    {/*
+      Яндекс Метрика — только после согласия (152-ФЗ, ст. 9). Выбор: localStorage 'fk-consent' = yes|no.
+      Скрипт ставит html[data-consent] (yes|no|pending) до отрисовки — от него зависит видимость CookieBar.
+      Одинаковый inline-скрипт в <head> ClientRouter не перезапускает, а атрибуты <html> при переходе
+      заменяет — поэтому data-consent восстанавливаем на astro:after-swap.
+      window.fkConsent(true|false) — из CookieBar и со страницы политики (отзыв согласия).
+    */}
     {ENV.metrikaId && (
-      <>
-        {/* Яндекс Метрика: вебвизор выключен, сам скрипт грузится с defer. Только если задан PUBLIC_METRIKA_ID. */}
-        <script is:inline define:vars={{ id: Number(ENV.metrikaId) }}>
+      <script is:inline define:vars={{ id: Number(ENV.metrikaId) }}>
+        var KEY = 'fk-consent';
+        var choice = null;
+        try { choice = localStorage.getItem(KEY); } catch (e) { /* приватный режим: спросим снова */ }
+        var root = document.documentElement;
+        var mark = function () { root.dataset.consent = choice === 'yes' || choice === 'no' ? choice : 'pending'; };
+        mark();
+        document.addEventListener('astro:after-swap', mark);
+        var loaded = false;
+        var load = function () {
+          if (loaded) return;
+          loaded = true;
+          // Вебвизор выключен. Первый хит шлёт init, дальше — вручную на каждый переход ClientRouter.
           window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
           window.ym.l = 1 * new Date();
           window.ym(id, 'init', { clickmap: true, trackLinks: true, accurateTrackBounce: true, webvisor: false });
-          // ClientRouter не перезагружает страницу: первый хит шлёт init, дальше — вручную.
-          var first = true;
+          var last = location.href;
           document.addEventListener('astro:page-load', function () {
-            if (first) { first = false; return; }
-            window.ym(id, 'hit', location.href);
+            if (location.href === last) return;
+            last = location.href;
+            window.ym(id, 'hit', last);
           });
-        </script>
-        <script is:inline defer src="https://mc.yandex.ru/metrika/tag.js"></script>
-      </>
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://mc.yandex.ru/metrika/tag.js';
+          document.head.appendChild(s);
+        };
+        window.fkConsent = function (yes) {
+          var was = choice;
+          choice = yes ? 'yes' : 'no';
+          try { localStorage.setItem(KEY, choice); } catch (e) { /* выбор действует до закрытия вкладки */ }
+          mark();
+          if (yes) return load();
+          if (was !== 'yes') return;
+          // Отзыв согласия: стираем cookie Метрики (_ym*) и перезагружаем, чтобы выгрузить счётчик.
+          document.cookie.split(';').forEach(function (c) {
+            var name = c.split('=')[0].trim();
+            if (name.indexOf('_ym') !== 0) return;
+            ['', '; domain=' + location.hostname, '; domain=.' + location.hostname.replace(/^www\./, '')].forEach(function (d) {
+              document.cookie = name + '=; Max-Age=0; path=/' + d;
+            });
+          });
+          location.reload();
+        };
+        if (choice === 'yes') load();
+      </script>
     )}
     <ClientRouter />
     <script>
@@ -90,6 +140,7 @@ const ld = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
   </head>
   <body data-sticky-cta={stickyCta ? '' : undefined}>
     <a class="skip" href="#main">К содержимому</a>
+    {ENV.metrikaId && <CookieBar />}
     <Header />
     <main id="main">
       <slot />

@@ -33,6 +33,12 @@ const legacyHtmlFiles = () => ({
 // SITE_URL берём из окружения или из .env (PUBLIC_* Vite подхватывает сам).
 const env = { ...loadEnv(process.env.NODE_ENV ?? 'production', process.cwd(), ''), ...process.env };
 
+// Боевая сборка (без PUBLIC_NOINDEX) без реквизитов оператора: футер и политика выйдут без них.
+if (process.argv.includes('build') && env.PUBLIC_NOINDEX?.trim() !== 'true') {
+  const missing = ['PUBLIC_LEGAL_OWNER', 'PUBLIC_LEGAL_INN', 'PUBLIC_CONTACT_EMAIL'].filter((k) => !env[k]?.trim());
+  if (missing.length) console.warn(`\n[rencredit] ВНИМАНИЕ: прод-сборка без ${missing.join(', ')} — футер и политика конфиденциальности выйдут без оператора/контакта (152-ФЗ).\n`);
+}
+
 export default defineConfig({
   // Пилот: тестовый поддомен с noindex, потом — боевой домен.
   site: (env.SITE_URL || 'https://rencredit-online.ru').replace(/\/+$/, ''),
