@@ -167,7 +167,9 @@ body:has(.cta-sticky.is-on) .mascot { bottom: 84px; }
 /* Тонкая лента над витриной гайда: одна строка, не сдвигает витрину */
 .cta-usp.is-slim { padding: 6px 0; border-block-width: 1px; }
 .cta-usp.is-slim li, .cta-usp.is-slim span { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.cta-usp.is-slim ul { flex-wrap: nowrap; }
+.cta-usp.is-slim { grid-template-columns: minmax(0, 1fr); }
+.cta-usp.is-slim ul { flex-wrap: nowrap; min-width: 0; max-width: 100%; overflow: hidden; }
+.cta-usp.is-slim li { max-width: 100%; }
 .cta-usp.is-slim b { font-size: 15px; }
 .cta-usp.is-slim span { font-size: 13px; }
 
