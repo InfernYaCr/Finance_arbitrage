@@ -1,0 +1,21 @@
+---
+/** УТП-лента: цифры считаются из content/offers, ничего не выдумано. */
+import Icon from '../Icon.astro';
+import { getCtaData } from '../../lib/cta';
+import { plural } from '../../lib/format';
+
+interface Props { slim?: boolean; slot?: string }
+const { slim = false, slot = 'usp' } = Astro.props;
+const d = await getCtaData();
+const items = [
+  d.zeroCount > 0 && { n: String(d.zeroCount), t: `${plural(d.zeroCount, ['предложение', 'предложения', 'предложений'])} с 0% первые дни для новых клиентов` },
+  d.minDecision != null && { n: `от ${d.minDecision} мин`, t: 'срок решения у самых быстрых МФО (по данным организаций)' },
+  { n: String(d.mfoCount), t: 'МФО в сравнении: сумма, срок, ставка в день' },
+].filter(Boolean) as { n: string; t: string }[];
+---
+<aside class:list={['cta cta-usp', slim && 'is-slim']} aria-label="Коротко о подборе" data-cta-slot={slot}>
+  <ul>
+    {items.map((i) => <li><b>{i.n}</b><span>{i.t}</span></li>)}
+  </ul>
+  {!slim && <a class="cta-link" href="/zaimy/">Сравнить предложения<Icon name="arrow" class="arrow" /></a>}
+</aside>

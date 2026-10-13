@@ -4,6 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Showcase from '../components/Showcase.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Faq from '../components/Faq.astro';
+import CtaUsp from '../components/cta/CtaUsp.astro';
+import CtaCallout from '../components/cta/CtaCallout.astro';
+import CtaNext from '../components/cta/CtaNext.astro';
+import CtaSticky from '../components/cta/CtaSticky.astro';
 import { getGuides } from '../lib/content';
 import { getOffers } from '../lib/offers';
 import { RESERVED_SLUGS } from '../lib/ui/site';
@@ -18,12 +22,18 @@ const { guide } = Astro.props;
 const { Content } = await render(guide);
 const offers = await getOffers(guide.data.kind);
 const others = (await getGuides()).filter((g) => g.id !== guide.id && !RESERVED_SLUGS.includes(g.id));
+const calloutCat = guide.data.feature === 'zero_percent' ? 'zaimy-zero' : guide.data.feature === 'bad_history' || guide.data.feature === 'with_overdue' ? 'kreditnaya-istoriya' : guide.data.kind === 'card' ? 'karty' : guide.data.kind === 'credit' ? 'kredity' : 'zaimy';
 ---
 <BaseLayout title={guide.data.title} description={guide.data.description}>
   <div class="wrap page-head"><Breadcrumbs items={[{ label: 'Займы', href: '/zaimy/' }, { label: guide.data.navLabel }]} /></div>
+  <div class="wrap"><CtaUsp slim slot="guide-usp" /></div>
   <Showcase offers={offers} preset={guide.data.feature} h="h1" title={guide.data.title} eyebrow="Подборка" lead={guide.data.description} />
   <section class="section pt-0 md:pt-0">
-    <div class="wrap"><div class="prose"><Content /></div></div>
+    <div class="wrap">
+      <CtaCallout category={calloutCat} offerKind={guide.data.kind} slot="guide-callout" />
+      <div class="prose"><Content /></div>
+      <CtaNext kind={guide.data.kind} slot="guide-next" />
+    </div>
   </section>
   <Faq items={guide.data.faq} />
   {others.length > 0 && (
@@ -34,4 +44,5 @@ const others = (await getGuides()).filter((g) => g.id !== guide.id && !RESERVED_
       </div>
     </section>
   )}
+  <CtaSticky category={calloutCat} offerKind={guide.data.kind} />
 </BaseLayout>

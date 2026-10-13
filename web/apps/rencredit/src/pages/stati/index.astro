@@ -1,12 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaPostCard from '../../components/cta/CtaPostCard.astro';
+import { getCtaData } from '../../lib/cta';
 import PostCard from '../../components/PostCard.astro';
 import { getArticles, articleHref } from '../../lib/content';
 import { readingMinutes } from '../../lib/format';
 import { CATEGORY_LABELS } from '../../lib/ui/site';
 
 const articles = await getArticles();
+const cta = await getCtaData();
 const cats = [...new Set(articles.map((a) => a.data.category))];
 ---
 <BaseLayout title="Статьи о займах, кредитах и картах" description="Практические статьи: как выбрать займ, улучшить кредитную историю, рефинансировать долг и не переплатить.">
@@ -24,7 +27,12 @@ const cats = [...new Set(articles.map((a) => a.data.category))];
     )}
     {articles.length > 0 ? (
       <div class="grid-cards">
-        {articles.map((a, i) => <PostCard index={i} href={articleHref(a)} title={a.data.title} description={a.data.description} date={a.data.publishDate} category={a.data.category} cover={a.data.cover} minutes={readingMinutes(a.body ?? '')} />)}
+        {articles.map((a, i) => (
+          <>
+            {i > 0 && i % 6 === 5 && <CtaPostCard variant={Math.floor(i / 6)} mfoCount={cta.mfoCount} />}
+            <PostCard index={i} href={articleHref(a)} title={a.data.title} description={a.data.description} date={a.data.publishDate} category={a.data.category} cover={a.data.cover} minutes={readingMinutes(a.body ?? '')} />
+          </>
+        ))}
       </div>
     ) : (
       <div class="empty"><h3>Статьи скоро появятся</h3><p class="lead mx-auto mt-2">Пока можно подобрать займ на главной.</p><a class="btn btn-dark mt-5" href="/">На главную</a></div>

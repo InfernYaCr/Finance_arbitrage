@@ -1,0 +1,16 @@
+---
+/** Маркер, который rehype-плагин вставляет в текст статьи. n=1 — после вступления, n=2 — после 2-го H2. */
+import CtaPicker from './CtaPicker.astro';
+import CtaUsp from './CtaUsp.astro';
+import CtaCallout from './CtaCallout.astro';
+import { pickVariant } from '../../lib/cta';
+
+interface Props { n?: string; category?: string; offerKind?: 'mfo' | 'card' | 'credit'; slug?: string }
+const { n = '1', category = 'zaimy', offerKind, slug = '' } = Astro.props;
+const mfo = (offerKind ?? 'mfo') === 'mfo' && !['karty', 'kredity', 'refinansirovanie'].includes(category);
+const v = pickVariant(slug, 2);
+---
+<div class="cta-inline">
+  {n === '1' && (mfo ? (v === 0 ? <CtaPicker slot="picker" /> : <CtaUsp slot="usp" />) : <CtaCallout category={category} offerKind={offerKind} slot="callout-1" tone="light" />)}
+  {n === '2' && (mfo ? <CtaCallout category={category} offerKind={offerKind} slot="callout-2" /> : null)}
+</div>

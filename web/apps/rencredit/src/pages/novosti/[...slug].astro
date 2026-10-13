@@ -3,6 +3,8 @@ import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getNews } from '../../lib/content';
+import CtaCallout from '../../components/cta/CtaCallout.astro';
+import CtaNext from '../../components/cta/CtaNext.astro';
 import { dateRu } from '../../lib/format';
 import { SITE } from '../../lib/ui/site';
 
@@ -35,6 +37,10 @@ const ld = {
   </div>
   <div class="wrap pb-14">
     <div class="prose"><Content /></div>
+    <div class="prose">
+      <CtaCallout category="zaimy" slot="news-callout" title="Сравните условия перед займом" text="Перед любым займом сравните сумму, срок, ставку в день и полную стоимость. Подберите предложения под свою ситуацию." />
+      <CtaNext kind="mfo" slot="news-next" />
+    </div>
   </div>
   {more.length > 0 && (
     <section class="section pt-0 md:pt-0">

@@ -1,0 +1,54 @@
+---
+/** Липкая полоса на мобильном: появляется после 30% прокрутки, прячется у футера, закрывается. */
+import Icon from '../Icon.astro';
+import { getCtaData, calloutCopy, kindForArticle } from '../../lib/cta';
+import type { ProductKind } from '@pbn/core';
+
+interface Props { category?: string; offerKind?: ProductKind }
+const { category = 'zaimy', offerKind } = Astro.props;
+const c = calloutCopy(category, await getCtaData(), offerKind);
+const fallback = kindForArticle(category, offerKind) !== c.kind;
+const short = fallback && c.kind === 'card' ? 'Карты с льготным периодом' : { mfo: 'Подбор займа', card: 'Подбор карты', credit: 'Подбор кредита' }[c.kind];
+---
+<div class="cta-sticky" data-cta-sticky hidden role="region" aria-label="Подбор предложений">
+  <div class="cs-t"><b>{short}</b><small>Сумма, срок, ставка — в одном списке</small></div>
+  <a class="btn btn-cta" href={c.href} data-cta="sticky">Подобрать<Icon name="arrow" class="arrow" /></a>
+  <button type="button" class="cs-x" aria-label="Скрыть панель" data-close><Icon name="close" /></button>
+</div>
+
+<script>
+  let cleanup: (() => void) | undefined;
+  function init() {
+    cleanup?.();
+    const bar = document.querySelector<HTMLElement>('[data-cta-sticky]');
+    if (!bar) return;
+    let dismissed = false;
+    try { dismissed = sessionStorage.getItem('fk-sticky-x') === '1'; } catch { /* приватный режим */ }
+    if (dismissed) return;
+    let pastScroll = false;
+    let nearFooter = false;
+    const apply = () => {
+      const show = pastScroll && !nearFooter;
+      if (show) bar.hidden = false;
+      requestAnimationFrame(() => bar.classList.toggle('is-on', show));
+      if (show) bar.removeAttribute('aria-hidden'); else bar.setAttribute('aria-hidden', 'true');
+    };
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      pastScroll = max > 0 && scrollY / max >= 0.3;
+      apply();
+    };
+    const footer = document.querySelector('footer');
+    const io = footer ? new IntersectionObserver(([e]) => { nearFooter = e.isIntersecting; apply(); }) : null;
+    if (footer) io!.observe(footer);
+    bar.querySelector('[data-close]')!.addEventListener('click', () => {
+      bar.classList.remove('is-on'); bar.hidden = true; pastScroll = false;
+      try { sessionStorage.setItem('fk-sticky-x', '1'); } catch { /* ignore */ }
+      cleanup?.();
+    });
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    cleanup = () => { removeEventListener('scroll', onScroll); io?.disconnect(); };
+  }
+  document.addEventListener('astro:page-load', init);
+</script>

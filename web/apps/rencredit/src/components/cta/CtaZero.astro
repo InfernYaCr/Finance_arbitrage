@@ -1,0 +1,25 @@
+---
+/** Плашка условий 0% в обзоре МФО. Только если в данных оффера есть льготные дни. */
+import Icon from '../Icon.astro';
+import { offerHref, type Offer } from '../../lib/offers';
+import { AD_NOTE } from '../../lib/cta';
+import { daysWord } from '../../lib/format';
+
+interface Props { offer: Offer }
+const { offer: o } = Astro.props;
+const show = o.features.includes('zero_percent') && !!o.freeDays;
+const rate = String(o.rateDayPct).replace('.', ',');
+---
+{show && (
+  <aside class="cta cta-zero" aria-label="Условия 0%" data-cta-slot="zero">
+    <div class="z-big" aria-hidden="true">0%</div>
+    <div class="z-body">
+      <p class="cta-title">Первые {daysWord(o.freeDays!)} без процентов</p>
+      <p class="cta-sub">Для новых клиентов. Дальше — {rate}% в день. Условия льготного периода подтверждает МФО при оформлении заявки.</p>
+    </div>
+    <div class="z-go">
+      <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta="zero">Оформить на 0%<Icon name="arrow" class="arrow" /></a>
+      <p class="cta-fine">{AD_NOTE}</p>
+    </div>
+  </aside>
+)}

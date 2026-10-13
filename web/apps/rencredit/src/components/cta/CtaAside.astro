@@ -1,0 +1,17 @@
+---
+/** Карточка в сайдбаре статьи (десктоп), под оглавлением. */
+import Character from '../mascots/Character.astro';
+import Icon from '../Icon.astro';
+import { getCtaData, calloutCopy } from '../../lib/cta';
+import type { ProductKind } from '@pbn/core';
+
+interface Props { category?: string; offerKind?: ProductKind }
+const { category = 'zaimy', offerKind } = Astro.props;
+const c = calloutCopy(category, await getCtaData(), offerKind);
+---
+<aside class="cta cta-aside" aria-label="Подбор предложений" data-cta-slot="aside">
+  <Character pose={c.pose} size="sm" class="cta-char" />
+  <p class="cta-title">{c.title}</p>
+  <p class="cta-sub">{c.text}</p>
+  <a class="btn btn-cta btn-block" href={c.href}>{c.button}<Icon name="arrow" class="arrow" /></a>
+</aside>

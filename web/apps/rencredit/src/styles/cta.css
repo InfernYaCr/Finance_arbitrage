@@ -1,1 +1,182 @@
-/* cta.css — зона владения отдельного агента. Подключён в BaseLayout. */
+/* cta.css — CTA/УТП-блоки внутри редакционного дизайна. Только токены из global.css @theme. */
+.cta { --cta-pad: 20px; position: relative; margin-block: 32px; min-width: 0; font-size: 15px; line-height: 1.45; text-wrap: pretty; }
+.cta-inline { margin-block: 8px; }
+.prose .cta { max-width: none; }
+.cta-title { font-size: clamp(19px, 2.4vw, 24px); font-weight: 750; letter-spacing: -.02em; line-height: 1.2; text-wrap: balance; margin: 0; }
+.cta-sub { margin: 6px 0 0; color: var(--color-ink-soft); max-width: 52ch; }
+.cta-fine { margin: 10px 0 0; font-size: 12.5px; line-height: 1.4; color: var(--color-mute); max-width: 60ch; }
+.cta-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 700; color: var(--color-brand-600); text-decoration: none; }
+.cta-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.cta-link svg { width: 16px; height: 16px; transition: transform .25s var(--ease-out); }
+.cta-link:hover svg { transform: translateX(3px); }
+.cta .btn { text-decoration: none; }
+.prose .cta a.btn { color: var(--color-ink); text-decoration: none; }
+.prose .cta a.cta-link { color: var(--color-brand-600); text-decoration: none; }
+
+/* 1. Мини-подборщик: бумажная карточка с акцентной кромкой слева */
+.cta-picker {
+  display: grid; gap: 18px; padding: var(--cta-pad); background: var(--color-card);
+  border: 1px solid var(--color-line); border-left: 6px solid var(--color-accent);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-card);
+}
+@media (min-width: 720px) { .cta-picker { grid-template-columns: 1fr auto; align-items: end; gap: 28px; padding: 24px 28px; } }
+.cta-sums { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.cta-sum {
+  min-height: 44px; padding: 0 16px; border-radius: 999px; background: var(--color-paper); border: 1.5px solid var(--color-line);
+  font: inherit; font-weight: 700; color: var(--color-ink); cursor: pointer; transition: background-color .2s, border-color .2s, color .2s, transform .2s var(--ease-out);
+}
+.cta-sum:hover { border-color: var(--color-brand); }
+.cta-sum:active { transform: scale(.96); }
+.cta-sum[aria-pressed="true"] { background: var(--color-forest-900); border-color: var(--color-forest-900); color: #fff; }
+.cta-picker-go { display: grid; justify-items: start; max-width: 340px; }
+.cta-picker-go .btn { min-width: 0; max-width: 100%; }
+@media (max-width: 719px) { .cta-picker-go .btn { width: 100%; padding-inline: 16px; } }
+.cta-picker-go [data-label] { white-space: nowrap; }
+
+/* 2. УТП-лента: крупные цифры без карточных рамок */
+.cta-usp { padding: 18px 0; border-block: 2px solid var(--color-ink); display: grid; gap: 14px; }
+.cta-usp ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.cta-usp li { display: grid; grid-template-columns: minmax(84px, auto) 1fr; gap: 14px; align-items: baseline; }
+.cta-usp b { font-size: clamp(26px, 4vw, 34px); font-weight: 800; letter-spacing: -.03em; line-height: 1; color: var(--color-brand-600); white-space: nowrap; }
+.cta-usp span { color: var(--color-ink-soft); }
+@media (min-width: 820px) {
+  .cta-usp { grid-template-columns: 1fr auto; align-items: center; gap: 28px; }
+  .cta-usp ul { grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .cta-usp li { grid-template-columns: 1fr; gap: 6px; padding-left: 18px; border-left: 2px solid var(--color-accent); }
+}
+.cta-usp.is-slim { padding: 10px 0; margin-block: 0 8px; }
+.cta-usp.is-slim ul { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.cta-usp.is-slim li { display: inline-flex; gap: 8px; padding: 0; border: 0; }
+.cta-usp.is-slim b { font-size: 16px; }
+.cta-usp.is-slim span { font-size: 14px; }
+@media (max-width: 819px) { .cta-usp.is-slim li:nth-child(n+2) { display: none; } }
+
+/* 3. Акцентная врезка с персонажем */
+.cta-callout {
+  display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 22px var(--cta-pad) 22px 24px; overflow: hidden;
+  background: var(--color-forest-900); color: #fff; border-radius: var(--radius-xl);
+}
+.cta-callout::before { content: ""; position: absolute; right: -50px; top: -50px; width: 190px; height: 190px; border-radius: 50%; background: var(--color-forest-700); opacity: .55; pointer-events: none; }
+.cta-callout .cta-sub { color: rgb(255 255 255 / .82); }
+.cta-callout .btn { margin-top: 16px; }
+.cta-callout-body { position: relative; z-index: 1; min-width: 0; }
+.cta-callout .cta-char { position: relative; z-index: 1; flex: none; max-width: 120px; height: auto; }
+.cta-callout.is-light { background: var(--color-brand-50); color: var(--color-ink); border: 1px solid var(--color-brand-100); }
+.cta-callout.is-light::before { background: var(--color-brand-100); opacity: .8; }
+.cta-callout.is-light .cta-sub { color: var(--color-ink-soft); }
+@media (max-width: 539px) { .cta-callout { grid-template-columns: 1fr; } .cta-callout .cta-char { position: absolute; right: 10px; top: 10px; max-width: 64px; opacity: .95; } .cta-callout .cta-title { padding-right: 70px; } }
+.cta-callout .btn, .prose .cta-callout a.btn { width: auto; max-width: 100%; }
+@media (max-width: 539px) { .cta-callout .btn { width: 100%; } }
+
+/* 4. Топ-3: плотные строки с линейкой, а не отдельные карточки */
+.cta-top3 { padding: 20px var(--cta-pad) 16px; background: var(--color-card); border: 1px solid var(--color-line); border-radius: var(--radius-lg); }
+.cta-top3 header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; margin-bottom: 4px; }
+.cta-top3 ol { list-style: none; margin: 0; padding: 0; }
+.cta-top3 li { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; gap: 4px 14px; align-items: center; padding: 14px 0; border-top: 1px solid var(--color-line); }
+.cta-top3 li:first-child { border-top: 0; }
+.cta-top3 .logo-tile { width: 48px; height: 48px; border-radius: 14px; font-size: 22px; }
+.t3-info { min-width: 0; display: grid; }
+.t3-name { font-weight: 750; font-size: 17px; text-decoration: none; color: var(--color-ink); overflow-wrap: anywhere; }
+.t3-name:hover { color: var(--color-brand-600); text-decoration: underline; text-underline-offset: 3px; }
+.t3-meta { color: var(--color-mute); font-size: 14px; }
+.t3-key { display: none; justify-self: start; padding: 3px 10px; border-radius: 999px; background: var(--color-accent-soft); color: #5b3f00; font-size: 13px; font-weight: 700; white-space: nowrap; }
+.cta-top3 li .btn { min-height: 44px; padding: 0 20px; }
+@media (min-width: 720px) {
+  .cta-top3 li { grid-template-columns: 48px minmax(0, 1fr) 190px auto; }
+  .t3-key { display: inline-block; justify-self: start; }
+}
+@media (max-width: 719px) {
+  .t3-key { display: inline-block; grid-column: 2 / 3; grid-row: 2; margin-top: 2px; }
+  .cta-top3 li .btn { grid-column: 3; grid-row: 1 / span 2; }
+  .cta-top3 li { align-items: center; }
+}
+@media (max-width: 400px) {
+  .cta-top3 li { grid-template-columns: 44px minmax(0, 1fr); }
+  .cta-top3 .logo-tile { width: 44px; height: 44px; }
+  .cta-top3 li .btn { grid-column: 1 / -1; grid-row: auto; width: 100%; }
+  .t3-key { grid-row: auto; }
+}
+
+/* 5. «Что дальше» */
+.cta-next { padding-top: 6px; }
+.cta-next ul { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 10px; }
+@media (min-width: 720px) { .cta-next ul { grid-template-columns: repeat(3, 1fr); gap: 14px; } }
+.cta-next a {
+  display: grid; grid-template-columns: 44px 1fr 20px; gap: 12px; align-items: center; min-height: 64px; padding: 12px 16px;
+  background: var(--color-paper-2); border-radius: var(--radius-md); text-decoration: none; color: var(--color-ink);
+  border: 1px solid transparent; transition: background-color .2s, border-color .2s, transform .25s var(--ease-out);
+}
+.cta-next a:hover { background: var(--color-card); border-color: var(--color-brand); transform: translateY(-2px); }
+.nx-ic { width: 44px; height: 44px; border-radius: 12px; background: var(--color-card); display: grid; place-items: center; color: var(--color-brand-600); }
+.nx-ic svg { width: 22px; height: 22px; }
+.nx-t { display: grid; min-width: 0; }
+.nx-t b { font-weight: 750; font-size: 16px; }
+.nx-t small { color: var(--color-mute); font-size: 13.5px; }
+.nx-arr { width: 18px; height: 18px; color: var(--color-brand-600); transition: transform .25s var(--ease-out); }
+.cta-next a:hover .nx-arr { transform: translateX(3px); }
+
+/* 6. Карточка сайдбара (десктоп) */
+.side-stack { position: sticky; top: calc(var(--header-h) + 20px); display: grid; gap: 16px; max-height: calc(100vh - var(--header-h) - 40px); }
+.side-stack .toc { position: static; max-height: 46vh; overflow: auto; }
+.cta-aside { margin: 0; padding: 18px; background: var(--color-forest-900); color: #fff; border-radius: var(--radius-lg); overflow: hidden; }
+.cta-aside .cta-char { float: right; margin: -4px -4px 0 6px; max-width: 72px; height: auto; }
+.cta-aside .cta-title { font-size: 18px; }
+.cta-aside .cta-sub { color: rgb(255 255 255 / .82); font-size: 14px; margin-bottom: 14px; }
+.cta-aside .btn { min-height: 48px; padding-inline: 14px; clear: both; }
+
+/* 7. Липкая полоса (мобильный): вне потока, CLS нет */
+.cta-sticky {
+  position: fixed; z-index: 45; left: 8px; right: 68px; bottom: calc(8px + env(safe-area-inset-bottom)); display: flex; align-items: center; gap: 10px;
+  padding: 8px 6px 8px 14px; background: var(--color-forest-900); color: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lift);
+  transform: translateY(140%); visibility: hidden; transition: transform .35s var(--ease-out), visibility 0s .35s;
+}
+.cta-sticky.is-on { transform: none; visibility: visible; transition: transform .35s var(--ease-out); }
+.cs-t { min-width: 0; display: grid; line-height: 1.2; flex: 1; }
+.cs-t b { font-size: 15px; }
+.cs-t small { color: rgb(255 255 255 / .75); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cta-sticky .btn { min-height: 44px; padding: 0 16px; flex: none; }
+.cs-x { flex: none; width: 44px; height: 44px; border-radius: 12px; background: transparent; border: 0; color: #fff; display: grid; place-items: center; cursor: pointer; }
+.cs-x:hover { background: rgb(255 255 255 / .12); }
+.cs-x svg { width: 18px; height: 18px; }
+.cta-sticky :focus-visible { outline-color: var(--color-accent); }
+@media (min-width: 900px) { .cta-sticky { display: none; } }
+body:has(.cta-sticky.is-on) .mascot { bottom: 84px; }
+
+/* 8. Карточка среди постов */
+.cta-post { margin: 0; display: flex; flex-direction: column; gap: 8px; padding: 22px; border-radius: var(--radius-xl); background: var(--color-forest-900); color: #fff; overflow: hidden; height: 100%; }
+.cta-post .cta-char { max-width: 84px; height: auto; margin-bottom: 4px; }
+.cta-post .cta-sub { color: rgb(255 255 255 / .82); }
+.cta-post .btn { margin-top: auto; align-self: flex-start; }
+.cta-post .cta-sub { margin-bottom: 12px; }
+.cta-post.is-alt { background: var(--color-accent-soft); color: var(--color-ink); border: 1px solid var(--color-accent); }
+.cta-post.is-alt .cta-sub { color: #5b3f00; }
+.cta-post.is-alt .btn-cta { background: var(--color-ink); color: #fff; box-shadow: none; }
+
+/* 9. Плашка 0% в обзоре МФО */
+.cta-zero { display: grid; gap: 14px; padding: var(--cta-pad); background: var(--color-accent-soft); border: 1px dashed var(--color-accent); border-radius: var(--radius-xl); align-items: center; }
+@media (min-width: 760px) { .cta-zero { grid-template-columns: auto 1fr auto; gap: 22px; padding: 20px 26px; } }
+.z-big { font-size: clamp(44px, 8vw, 64px); font-weight: 850; letter-spacing: -.05em; line-height: 1; color: var(--color-ink); }
+.cta-zero .cta-sub { color: #5b3f00; }
+.z-go { display: grid; }
+.z-go .cta-fine { color: #6b5a2e; }
+@media (max-width: 759px) { .z-go .btn { width: 100%; } }
+
+/* Подпись о рекламе внутри статей не должна растягивать колонку */
+.cta *, .cta-sticky * { overflow-wrap: break-word; }
+
+/* Тонкая лента над витриной гайда: одна строка, не сдвигает витрину */
+.cta-usp.is-slim { padding: 6px 0; border-block-width: 1px; }
+.cta-usp.is-slim li, .cta-usp.is-slim span { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cta-usp.is-slim ul { flex-wrap: nowrap; }
+.cta-usp.is-slim b { font-size: 15px; }
+.cta-usp.is-slim span { font-size: 13px; }
+
+/* .prose рисует маркеры у списков — внутри CTA они не нужны */
+.prose .cta ul, .prose .cta ol { padding: 0; list-style: none; }
+.prose .cta li { padding-left: 0; }
+.prose .cta li::before { content: none; }
+.prose .cta-top3 li, .prose .cta-next li { padding-left: 0; }
+.prose .cta-usp li { padding-left: 0; }
+@media (min-width: 820px) { .prose .cta-usp li { padding-left: 18px; } }
+.prose .cta-next ul { gap: 10px; }
+@media (min-width: 720px) { .prose .cta-next ul { gap: 14px; } }

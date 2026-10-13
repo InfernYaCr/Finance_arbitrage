@@ -1,0 +1,30 @@
+---
+/** Компактные строки офферов: логотип, ключевое условие, кнопка -> /go/<poolId>/. */
+import OfferLogo from '../OfferLogo.astro';
+import { offerHref, reviewHref, type Offer } from '../../lib/offers';
+import { keyCondition, AD_NOTE } from '../../lib/cta';
+import { range, num } from '../../lib/format';
+
+interface Props { offers: Offer[]; title?: string; moreHref?: string; moreLabel?: string; slot?: string }
+const { offers, title = 'Топ-3 по теме статьи', moreHref, moreLabel = 'Все предложения', slot = 'top3' } = Astro.props;
+const fmt = (n: number) => (n >= 1000 ? `${num(n / 1000)} тыс.` : String(n));
+---
+{offers.length > 0 && (
+  <section class="cta cta-top3" aria-labelledby={`t3-${slot}`} data-cta-slot={slot}>
+    <header><h2 class="cta-title" id={`t3-${slot}`}>{title}</h2>{moreHref && <a class="cta-link" href={moreHref}>{moreLabel}</a>}</header>
+    <ol>
+      {offers.map((o) => (
+        <li>
+          <OfferLogo offer={o} />
+          <div class="t3-info">
+            <a class="t3-name" href={reviewHref(o)}>{o.name}</a>
+            <span class="t3-meta">{range(o.amountMin, o.amountMax, fmt)} ₽ · {o.termMinDays}–{o.termMaxDays} дн.</span>
+          </div>
+          <span class="t3-key">{keyCondition(o)}</span>
+          <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={`${slot}-${o.slug}`} aria-label={`Получить: ${o.name}`}>Получить</a>
+        </li>
+      ))}
+    </ol>
+    <p class="cta-fine">{AD_NOTE} Условия уточняйте у организации; одобрение не гарантировано.</p>
+  </section>
+)}

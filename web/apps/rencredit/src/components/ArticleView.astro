@@ -2,11 +2,15 @@
 import { render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import OfferCard from '../components/OfferCard.astro';
 import PostCard from '../components/PostCard.astro';
 import Faq from '../components/Faq.astro';
+import CtaH2 from './cta/CtaH2.astro';
+import CtaTop3 from './cta/CtaTop3.astro';
+import CtaNext from './cta/CtaNext.astro';
+import CtaAside from './cta/CtaAside.astro';
+import CtaSticky from './cta/CtaSticky.astro';
+import { getCtaData, topOffers, resolveKind, kindForArticle, KIND_URL } from '../lib/cta';
 import { articleHref, articleCanonical } from '../lib/content';
-import { getOffers } from '../lib/offers';
 import { readingMinutes, dateRu } from '../lib/format';
 import { CATEGORY_LABELS, SITE } from '../lib/ui/site';
 
@@ -14,9 +18,14 @@ interface Props { entry: CollectionEntry<'articles'>; articles: CollectionEntry<
 const { entry, articles } = Astro.props;
 const canonical = articleCanonical(entry);
 const { Content, headings } = await render(entry);
+(Astro.locals as Record<string, unknown>).cta = { h2: 0, category: entry.data.category, offerKind: entry.data.offerKind, slug: entry.id };
 const d = entry.data;
 const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
-const offers = d.offerKind ? (await getOffers(d.offerKind)).slice(0, 3) : [];
+const ctaData = await getCtaData();
+const wantedKind = kindForArticle(d.category, d.offerKind);
+const hasKind = ctaData.all.some((o) => o.kind === wantedKind);
+const offers = hasKind ? topOffers(ctaData, wantedKind, 3) : [];
+const kindUrl = KIND_URL[resolveKind(wantedKind, ctaData)];
 const related = articles.filter((a) => a.id !== entry.id).sort((a, b) => Number(b.data.category === d.category) - Number(a.data.category === d.category)).slice(0, 3);
 const ld = {
   '@context': 'https://schema.org',
@@ -45,22 +54,19 @@ const ld = {
 
   <div class="wrap article-grid">
     <article>
-      <div class="prose"><Content /></div>
+      <div class="prose"><Content components={{ h2: CtaH2 }} /></div>
 
-      {offers.length > 0 && (
-        <section class="mt-14" aria-labelledby="art-offers">
-          <h2 class="h2" id="art-offers">Подходящие предложения</h2>
-          <div class="offers" style="grid-template-columns: 1fr">
-            {offers.map((o, i) => <OfferCard offer={o} index={i} morph={false} />)}
-          </div>
-        </section>
-      )}
+      <CtaTop3 offers={offers} slot="top3" title="Подходящие предложения по теме" moreHref={kindUrl} moreLabel="Все предложения" />
+      <CtaNext kind={wantedKind} exclude={entry.id} />
     </article>
-    {toc.length > 0 && (
-      <aside class="hidden lg:block"><nav class="toc" aria-label="Содержание"><b>Содержание</b>
-        <ol>{toc.map((h) => <li><a class:list={[h.depth === 3 && 'sub2']} href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
-      </nav></aside>
-    )}
+    <aside class="hidden lg:block">
+      <div class="side-stack">
+        {toc.length > 0 && <nav class="toc" aria-label="Содержание"><b>Содержание</b>
+          <ol>{toc.map((h) => <li><a class:list={[h.depth === 3 && 'sub2']} href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+        </nav>}
+        <CtaAside category={d.category} offerKind={d.offerKind} />
+      </div>
+    </aside>
   </div>
 
   <Faq items={d.faq} />
@@ -75,4 +81,5 @@ const ld = {
       </div>
     </section>
   )}
+  <CtaSticky category={d.category} offerKind={d.offerKind} />
 </BaseLayout>

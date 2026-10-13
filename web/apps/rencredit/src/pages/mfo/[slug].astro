@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import OfferLogo from '../../components/OfferLogo.astro';
-import OfferCard from '../../components/OfferCard.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaTop3 from '../../components/cta/CtaTop3.astro';
+import CtaZero from '../../components/cta/CtaZero.astro';
+import { KIND_URL } from '../../lib/cta';
 import Icon from '../../components/Icon.astro';
 import { getOffers, offerHref } from '../../lib/offers';
 import { FEATURE_LABELS } from '../../lib/ui/features';
@@ -67,6 +69,8 @@ const legal: [string, string][] = [
       {o.approvalPct ? <div class="metric"><dt>Одобрение</dt><dd>{o.approvalPct}%</dd></div> : null}
     </dl>
 
+    <CtaZero offer={o} />
+
     {o.features.length > 0 && <ul class="oc-tags mt-5 p-0" data-reveal>{o.features.map((f) => <li class="tag">{FEATURE_LABELS[f]}</li>)}</ul>}
 
     <h2 class="h2 mt-12" data-reveal>Условия {o.name}</h2>
@@ -91,10 +95,7 @@ const legal: [string, string][] = [
     </div>
 
     {similar.length > 0 && (
-      <>
-        <h2 class="h2 mt-14" data-reveal>Похожие предложения</h2>
-        <div class="offers">{similar.map((s, i) => <OfferCard offer={s} index={i} morph={false} />)}</div>
-      </>
+      <div class="mt-14"><CtaTop3 offers={similar} slot="similar" title="Похожие предложения" moreHref={KIND_URL[o.kind]} moreLabel="Смотреть все" /></div>
     )}
   </div>
 

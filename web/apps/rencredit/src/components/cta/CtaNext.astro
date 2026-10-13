@@ -1,0 +1,27 @@
+---
+/** «Что дальше»: 2–3 действия в конце материала. */
+import Icon from '../Icon.astro';
+import { getArticles, articleHref } from '../../lib/content';
+import { getCtaData, resolveKind, KIND_URL } from '../../lib/cta';
+import type { ProductKind } from '@pbn/core';
+
+interface Props { kind?: ProductKind; slot?: string; exclude?: string }
+const { kind = 'mfo', slot = 'next', exclude } = Astro.props;
+const d = await getCtaData();
+const k = resolveKind(kind, d);
+const check = (await getArticles()).find((a) => a.id === 'kak-proverit-mfo-v-reestre-cb');
+type Item = { t: string; s: string; href: string; icon: string; id?: string };
+const items = ([
+  { t: k === 'card' ? 'Выбрать карту' : k === 'credit' ? 'Сравнить кредиты' : 'Подобрать займ', s: 'Фильтры по сумме, сроку и возрасту', href: KIND_URL[k], icon: 'search' },
+  { t: 'Рассчитать переплату', s: 'Сколько вернёте за свой срок', href: '/#calc', icon: 'grid' },
+  check && { t: 'Проверить МФО в реестре', s: 'Короткая инструкция по сайту ЦБ', href: articleHref(check), icon: 'shield', id: check.id },
+] as (Item | undefined)[]).filter((x): x is Item => !!x && !(exclude && x.id === exclude));
+---
+<section class="cta cta-next" aria-labelledby={`nx-${slot}`} data-cta-slot={slot}>
+  <h2 class="cta-title" id={`nx-${slot}`}>Что дальше</h2>
+  <ul>
+    {items.map((i) => (
+      <li><a href={i.href}><span class="nx-ic"><Icon name={i.icon} /></span><span class="nx-t"><b>{i.t}</b><small>{i.s}</small></span><Icon name="arrow" class="arrow nx-arr" /></a></li>
+    ))}
+  </ul>
+</section>

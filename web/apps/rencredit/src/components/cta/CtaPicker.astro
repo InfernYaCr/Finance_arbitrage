@@ -1,0 +1,51 @@
+---
+/** Мини-подборщик: чипы суммы -> /zaimy/?sum=… (витрина читает ?sum). Число предложений считается по реальным диапазонам. */
+import Icon from '../Icon.astro';
+import { getCtaData, countForSum, offersPlural, KIND_URL } from '../../lib/cta';
+
+interface Props { title?: string; slot?: string }
+const { title = 'Сколько нужно?', slot = 'picker' } = Astro.props;
+const d = await getCtaData();
+const sums = [5000, 10000, 15000, 30000];
+const def = 10000;
+const ranges = d.mfo.map((o) => `${o.amountMin}-${o.amountMax}`).join(',');
+const n = countForSum(d.mfo, def);
+const base = KIND_URL.mfo;
+---
+<aside class="cta cta-picker" aria-label="Подбор займа по сумме" data-cta-picker data-ranges={ranges} data-base={base} data-cta-slot={slot}>
+  <div class="cta-picker-main">
+    <p class="cta-title">{title}</p>
+    <p class="cta-sub">Выберите сумму — покажем МФО, которые её выдают.</p>
+    <div class="cta-sums" role="group" aria-label="Сумма займа">
+      {sums.map((s) => <button type="button" class="cta-sum" data-sum={s} aria-pressed={s === def ? 'true' : 'false'}>{s / 1000} тыс. ₽</button>)}
+    </div>
+  </div>
+  <div class="cta-picker-go">
+    <a class="btn btn-cta btn-lg" href={`${base}?sum=${def}`} data-go>
+      <span data-label aria-live="polite">Показать {offersPlural(n)}</span><Icon name="arrow" class="arrow" />
+    </a>
+    <p class="cta-fine">Условия определяет МФО. Сайт не выдаёт займы и не гарантирует одобрение.</p>
+  </div>
+</aside>
+
+<script>
+  import { plural } from '../../lib/format';
+  function init() {
+    document.querySelectorAll<HTMLElement>('[data-cta-picker]:not([data-ready])').forEach((root) => {
+      root.dataset.ready = '1';
+      const ranges = (root.dataset.ranges ?? '').split(',').filter(Boolean).map((r) => r.split('-').map(Number) as [number, number]);
+      const go = root.querySelector<HTMLAnchorElement>('[data-go]')!;
+      const label = root.querySelector<HTMLElement>('[data-label]')!;
+      const btns = [...root.querySelectorAll<HTMLButtonElement>('[data-sum]')];
+      const base = root.dataset.base ?? '/zaimy/';
+      btns.forEach((b) => b.addEventListener('click', () => {
+        const sum = Number(b.dataset.sum);
+        btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        const n = ranges.filter(([a, z]) => sum >= a && sum <= z).length;
+        label.textContent = `Показать ${n} ${plural(n, ['предложение', 'предложения', 'предложений'])}`;
+        go.href = `${base}?sum=${sum}`;
+      }));
+    });
+  }
+  document.addEventListener('astro:page-load', init);
+</script>

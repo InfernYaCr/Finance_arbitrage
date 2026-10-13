@@ -1,0 +1,19 @@
+---
+/** CTA-карточка среди постов в листинге. */
+import Character from '../mascots/Character.astro';
+import Icon from '../Icon.astro';
+
+interface Props { variant?: number; mfoCount?: number }
+const { variant = 0, mfoCount = 0 } = Astro.props;
+const list = [
+  { pose: 'point', t: 'Нужны деньги? Сначала сравните', s: `Сумма, срок и ставка в день у ${mfoCount} МФО — в одном списке.`, b: 'Подобрать займ', h: '/zaimy/' },
+  { pose: 'cheer', t: 'Первый займ под 0%', s: 'МФО, где новым клиентам не начисляют проценты первые дни.', b: 'Смотреть', h: '/zaimy-bez-procentov/' },
+] as const;
+const v = list[variant % 2];
+---
+<div class:list={['cta cta-post', variant % 2 === 1 && 'is-alt']} data-cta-slot="post-card">
+  <Character pose={v.pose} size="sm" class="cta-char" />
+  <p class="cta-title">{v.t}</p>
+  <p class="cta-sub">{v.s}</p>
+  <a class="btn btn-cta" href={v.h}>{v.b}<Icon name="arrow" class="arrow" /></a>
+</div>

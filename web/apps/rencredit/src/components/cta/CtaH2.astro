@@ -1,0 +1,15 @@
+---
+/**
+ * Подмена <h2> в тексте статьи (MDX components). Считает заголовки и вставляет CTA:
+ * перед 1-м H2 (то есть после вступления) и перед 3-м H2 (после второго раздела).
+ * Контекст статьи кладёт в Astro.locals.cta компонент ArticleView.
+ */
+import CtaSlot from './CtaSlot.astro';
+
+const attrs = Astro.props;
+const ctx = (Astro.locals as { cta?: { h2: number; category: string; offerKind?: 'mfo' | 'card' | 'credit'; slug: string } }).cta;
+const n = ctx ? ++ctx.h2 : 0;
+---
+{ctx && n === 1 && <CtaSlot n="1" category={ctx.category} offerKind={ctx.offerKind} slug={ctx.slug} />}
+{ctx && n === 3 && <CtaSlot n="2" category={ctx.category} offerKind={ctx.offerKind} slug={ctx.slug} />}
+<h2 {...attrs}><slot /></h2>

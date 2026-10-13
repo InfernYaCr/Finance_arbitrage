@@ -1,0 +1,20 @@
+---
+/** Акцентная врезка с персонажем. Текст зависит от рубрики статьи. */
+import Character from '../mascots/Character.astro';
+import Icon from '../Icon.astro';
+import { getCtaData, calloutCopy } from '../../lib/cta';
+import type { ProductKind } from '@pbn/core';
+
+interface Props { category?: string; offerKind?: ProductKind; tone?: 'dark' | 'light'; slot?: string; title?: string; text?: string }
+const { category = 'zaimy', offerKind, tone = 'dark', slot = 'callout', title, text } = Astro.props;
+const d = await getCtaData();
+const c = calloutCopy(category, d, offerKind);
+---
+<aside class:list={['cta cta-callout', tone === 'light' && 'is-light']} aria-label={title ?? c.title} data-cta-slot={slot}>
+  <div class="cta-callout-body">
+    <p class="cta-title">{title ?? c.title}</p>
+    <p class="cta-sub">{text ?? c.text}</p>
+    <a class="btn btn-cta" href={c.href}>{c.button}<Icon name="arrow" class="arrow" /></a>
+  </div>
+  <Character pose={c.pose} size="md" class="cta-char" />
+</aside>
