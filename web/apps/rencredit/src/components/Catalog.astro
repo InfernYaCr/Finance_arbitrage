@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Showcase from './Showcase.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import { getOffers } from '../lib/offers';
+import type { ProductKind } from '@pbn/core';
+
+interface Props { kind: ProductKind; h1: string; title: string; description: string; lead: string; crumb: string }
+const { kind, h1, title, description, lead, crumb } = Astro.props;
+const offers = await getOffers(kind);
+---
+<BaseLayout title={title} description={description}>
+  <div class="wrap page-head"><Breadcrumbs items={[{ label: crumb }]} /></div>
+  <Showcase offers={offers} title={h1} h="h1" eyebrow="Каталог" lead={lead} />
+</BaseLayout>

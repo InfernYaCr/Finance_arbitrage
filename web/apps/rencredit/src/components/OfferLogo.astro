@@ -1,0 +1,10 @@
+---
+import type { Offer } from '../lib/offers';
+interface Props { offer: Pick<Offer, 'slug' | 'name' | 'logo' | 'brandColor'>; size?: 'md' | 'lg'; morph?: boolean }
+const { offer, size = 'md', morph = false } = Astro.props;
+const letter = offer.name.trim().charAt(0).toUpperCase();
+const name = morph ? `logo-${offer.slug}` : undefined;
+---
+<div class:list={['logo-tile', size === 'lg' && 'lg']} style={offer.brandColor ? `--bc:${offer.brandColor}` : undefined} transition:name={name} aria-hidden="true">
+  {offer.logo ? <img src={offer.logo} alt="" width="84" height="84" loading="lazy" decoding="async" /> : letter}
+</div>

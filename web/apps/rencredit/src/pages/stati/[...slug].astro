@@ -1,0 +1,80 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import OfferCard from '../../components/OfferCard.astro';
+import PostCard from '../../components/PostCard.astro';
+import Faq from '../../components/Faq.astro';
+import { getArticles } from '../../lib/content';
+import { getOffers } from '../../lib/offers';
+import { readingMinutes, dateRu } from '../../lib/format';
+import { CATEGORY_LABELS, SITE } from '../../lib/ui/site';
+
+export async function getStaticPaths() {
+  const articles = await getArticles();
+  return articles.map((entry) => ({ params: { slug: entry.id }, props: { entry, articles } }));
+}
+const { entry, articles } = Astro.props;
+const { Content, headings } = await render(entry);
+const d = entry.data;
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+const offers = d.offerKind ? (await getOffers(d.offerKind)).slice(0, 3) : [];
+const related = articles.filter((a) => a.id !== entry.id).sort((a, b) => Number(b.data.category === d.category) - Number(a.data.category === d.category)).slice(0, 3);
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.title,
+  description: d.description,
+  datePublished: d.publishDate.toISOString(),
+  dateModified: (d.updatedDate ?? d.publishDate).toISOString(),
+  author: { '@type': 'Person', name: d.author },
+  publisher: { '@type': 'Organization', name: SITE.name },
+  ...(d.cover ? { image: d.cover } : {}),
+};
+---
+<BaseLayout title={d.title} description={d.description} ogType="article" ogImage={d.cover} jsonLd={ld} publishedTime={d.publishDate} modifiedTime={d.updatedDate}>
+  <div class="wrap page-head">
+    <Breadcrumbs items={[{ label: 'Статьи', href: '/stati/' }, { label: d.title }]} />
+    <h1 class="max-w-4xl">{d.title}</h1>
+    <div class="meta-line">
+      <span class="pill">{CATEGORY_LABELS[d.category]}</span>
+      <time datetime={d.publishDate.toISOString()}>{dateRu(d.publishDate)}</time>
+      {d.updatedDate && <span>Обновлено {dateRu(d.updatedDate)}</span>}
+      <span>{readingMinutes(entry.body ?? '')} мин чтения</span>
+      <span>{d.author}</span>
+    </div>
+  </div>
+
+  <div class="wrap article-grid">
+    <article>
+      <div class="prose"><Content /></div>
+
+      {offers.length > 0 && (
+        <section class="mt-14" aria-labelledby="art-offers">
+          <h2 class="h2" id="art-offers">Подходящие предложения</h2>
+          <div class="offers" style="grid-template-columns: 1fr">
+            {offers.map((o, i) => <OfferCard offer={o} index={i} morph={false} />)}
+          </div>
+        </section>
+      )}
+    </article>
+    {toc.length > 0 && (
+      <aside class="hidden lg:block"><nav class="toc" aria-label="Содержание"><b>Содержание</b>
+        <ol>{toc.map((h) => <li><a class:list={[h.depth === 3 && 'sub2']} href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+      </nav></aside>
+    )}
+  </div>
+
+  <Faq items={d.faq} />
+
+  {related.length > 0 && (
+    <section class="section pt-0 md:pt-0">
+      <div class="wrap">
+        <h2 class="h2" data-reveal>Читайте также</h2>
+        <div class="grid-cards">
+          {related.map((a, i) => <PostCard index={i} href={`/stati/${a.id}/`} title={a.data.title} description={a.data.description} date={a.data.publishDate} category={a.data.category} cover={a.data.cover} minutes={readingMinutes(a.body ?? '')} />)}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>

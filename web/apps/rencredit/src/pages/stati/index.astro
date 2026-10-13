@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getArticles } from '../../lib/content';
+import { readingMinutes } from '../../lib/format';
+import { CATEGORY_LABELS } from '../../lib/ui/site';
+
+const articles = await getArticles();
+const cats = [...new Set(articles.map((a) => a.data.category))];
+---
+<BaseLayout title="Статьи о займах, кредитах и картах" description="Практические статьи: как выбрать займ, улучшить кредитную историю, рефинансировать долг и не переплатить.">
+  <div class="wrap page-head">
+    <Breadcrumbs items={[{ label: 'Статьи' }]} />
+    <h1>Статьи о займах и&nbsp;кредитах</h1>
+    <p class="lead mt-3">Разбираем условия простым языком: на что смотреть в договоре, как не попасть в долговую яму и как улучшить кредитную историю.</p>
+  </div>
+  <section class="wrap pb-16" data-articles>
+    {cats.length > 1 && (
+      <div class="chips" role="group" aria-label="Рубрики">
+        <button type="button" class="chip" data-cat="" aria-pressed="true">Все</button>
+        {cats.map((c) => <button type="button" class="chip" data-cat={c} aria-pressed="false">{CATEGORY_LABELS[c] ?? c}</button>)}
+      </div>
+    )}
+    {articles.length > 0 ? (
+      <div class="grid-cards">
+        {articles.map((a, i) => <PostCard index={i} href={`/stati/${a.id}/`} title={a.data.title} description={a.data.description} date={a.data.publishDate} category={a.data.category} cover={a.data.cover} minutes={readingMinutes(a.body ?? '')} />)}
+      </div>
+    ) : (
+      <div class="empty"><h3>Статьи скоро появятся</h3><p class="lead mx-auto mt-2">Пока можно подобрать займ на главной.</p><a class="btn btn-dark mt-5" href="/">На главную</a></div>
+    )}
+  </section>
+</BaseLayout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const root = document.querySelector<HTMLElement>('[data-articles]');
+    if (!root) return;
+    const btns = [...root.querySelectorAll<HTMLButtonElement>('[data-cat]')];
+    const cards = [...root.querySelectorAll<HTMLElement>('.post-card')];
+    btns.forEach((b) =>
+      b.addEventListener('click', () => {
+        btns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        cards.forEach((c) => { c.hidden = !!b.dataset.cat && c.dataset.category !== b.dataset.cat; });
+      }),
+    );
+  });
+</script>

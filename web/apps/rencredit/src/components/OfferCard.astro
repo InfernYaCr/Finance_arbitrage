@@ -1,0 +1,44 @@
+---
+import OfferLogo from './OfferLogo.astro';
+import Icon from './Icon.astro';
+import { type Offer, offerHref, reviewHref } from '../lib/offers';
+import { range, num, daysWord } from '../lib/format';
+import { FEATURE_LABELS } from '../lib/ui/features';
+
+interface Props { offer: Offer; index?: number; morph?: boolean }
+const { offer: o, index = 0, morph = true } = Astro.props;
+const zero = o.features.includes('zero_percent') && o.freeDays;
+const rateText = o.kind === 'mfo' ? `${String(o.rateDayPct).replace('.', ',')}% / день` : o.pskMax ? `до ${o.pskMax}% год.` : `${String(o.rateDayPct).replace('.', ',')}% / день`;
+const shown = o.features.slice(0, 4);
+---
+<article class="offer-card" data-offer data-slug={o.slug} data-kind={o.kind}
+  data-sum-min={o.amountMin} data-sum-max={o.amountMax} data-term-min={o.termMinDays} data-term-max={o.termMaxDays}
+  data-rate={o.rateDayPct} data-free={o.freeDays ?? 0} data-appr={o.approvalPct ?? 0} data-rating={o.rating ?? 0}
+  data-age-min={o.ageMin} data-age-max={o.ageMax} data-prio={o.priority ?? 0} data-idx={index} data-features={o.features.join(',')}
+  data-reveal style={`--i:${Math.min(index, 6)}`}>
+  <div class="oc-head">
+    <OfferLogo offer={o} morph={morph} />
+    <div class="min-w-0">
+      <a class="oc-name" href={reviewHref(o)}>{o.name}</a>
+      {o.rating ? <div class="rating"><Icon name="star" /><span>{String(o.rating).replace('.', ',')}</span>{o.reviewsCount ? <span class="text-mute font-medium">· {num(o.reviewsCount)} отз.</span> : null}</div> : null}
+    </div>
+    {zero ? <span class="oc-badge">0% первый займ {daysWord(o.freeDays!)}</span> : o.features.includes('new') ? <span class="oc-badge hot">Новинка</span> : null}
+  </div>
+  <div class="oc-body">
+    <dl class="oc-metrics">
+      <div class="metric"><dt>Сумма</dt><dd>{range(o.amountMin, o.amountMax, (n) => n >= 1000 ? `${num(n / 1000)} тыс.` : String(n))} ₽</dd></div>
+      <div class="metric"><dt>Срок</dt><dd>{o.termMinDays}–{o.termMaxDays}&nbsp;дн.</dd></div>
+      <div class="metric"><dt>Ставка</dt><dd>{rateText}</dd></div>
+    </dl>
+    <ul class="oc-facts">
+      {o.approvalPct ? <li><Icon name="check" />Одобрение {o.approvalPct}%</li> : null}
+      {o.decisionMinutes ? <li><Icon name="clock" />Решение за {o.decisionMinutes}&nbsp;мин</li> : null}
+      <li><Icon name="user" />{o.ageMin}–{o.ageMax} лет</li>
+    </ul>
+    {shown.length ? <ul class="oc-tags">{shown.map((f) => <li class="tag">{FEATURE_LABELS[f]}</li>)}</ul> : null}
+  </div>
+  <div class="oc-cta">
+    <a class="btn btn-cta btn-lg" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={o.slug}>Получить деньги<Icon name="arrow" class="arrow" /></a>
+    <a class="more" href={reviewHref(o)}>Обзор и условия</a>
+  </div>
+</article>

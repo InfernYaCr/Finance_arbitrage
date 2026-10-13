@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getNews } from '../../lib/content';
+import { dateRu } from '../../lib/format';
+
+const news = await getNews();
+---
+<BaseLayout title="Новости финансов, займов и кредитов" description="Свежие новости рынка микрозаймов и кредитования: изменения в законах, ставках и правилах для заёмщиков.">
+  <div class="wrap page-head">
+    <Breadcrumbs items={[{ label: 'Новости' }]} />
+    <h1>Новости рынка займов и&nbsp;кредитов</h1>
+  </div>
+  <section class="wrap pb-16">
+    {news.length > 0 ? (
+      <ul class="news-list">
+        {news.map((n) => (
+          <li data-reveal>
+            <a href={`/novosti/${n.id}/`}>
+              <time datetime={n.data.publishDate.toISOString()}>{dateRu(n.data.publishDate)}</time>
+              <span><strong>{n.data.title}</strong><span class="mt-1 block text-ink-soft">{n.data.description}</span></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="empty"><h3>Новостей пока нет</h3><p class="lead mx-auto mt-2">Загляните позже.</p></div>
+    )}
+  </section>
+</BaseLayout>

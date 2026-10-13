@@ -1,0 +1,44 @@
+---
+import LogoMark from './LogoMark.astro';
+import { SITE, NAV } from '../lib/ui/site';
+import { getGuides } from '../lib/content';
+
+const guides = await getGuides();
+const year = new Date().getFullYear();
+const L = SITE.legal;
+const legalLine = [L.owner, L.inn && `ИНН ${L.inn}`, L.ogrn && `ОГРН ${L.ogrn}`, L.address].filter(Boolean).join(', ');
+---
+<footer class="site-footer on-dark">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand text-white" href="/"><LogoMark class="brand-mark" /><span>{SITE.name}</span></a>
+        <p class="mt-4 max-w-xs text-sm">{SITE.tagline}. Сравниваем публичные условия организаций, чтобы вы выбирали осознанно.</p>
+        <p class="mt-4 text-sm"><a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <ul>{NAV.map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
+      </div>
+      <div>
+        <h4>Подборки займов</h4>
+        <ul>
+          {guides.slice(0, 7).map((g) => <li><a href={`/${g.id}/`}>{g.data.navLabel}</a></li>)}
+          {guides.length === 0 && <li><a href="/zaimy/">Все займы</a></li>}
+        </ul>
+      </div>
+      <div>
+        <h4>О проекте</h4>
+        <ul>
+          <li><a href="/o-proekte/">О проекте и контакты</a></li>
+          <li><a href="/politika-konfidencialnosti/">Политика конфиденциальности</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <p class="disclaimer-strong">{SITE.disclaimer}</p>
+      <p>{SITE.risk}</p>
+      <p>© {year} {SITE.name}.{legalLine ? ` ${legalLine}.` : ''} Материалы сайта носят справочный характер и не являются публичной офертой.</p>
+    </div>
+  </div>
+</footer>

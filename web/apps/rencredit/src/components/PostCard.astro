@@ -1,0 +1,13 @@
+---
+import { dateRu } from '../lib/format';
+import { CATEGORY_LABELS } from '../lib/ui/site';
+interface Props { href: string; title: string; description: string; date: Date; category?: string; cover?: string; minutes?: number; index?: number }
+const { href, title, description, date, category, cover, minutes, index = 0 } = Astro.props;
+---
+<a class="post-card" href={href} data-reveal data-category={category} style={`--i:${Math.min(index, 5)}`}>
+  <div class="post-cover" aria-hidden="true">{cover && <img src={cover} alt="" loading="lazy" decoding="async" width="640" height="360" />}</div>
+  {category && <span class="pill self-start">{CATEGORY_LABELS[category] ?? category}</span>}
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <div class="meta"><time datetime={date.toISOString()}>{dateRu(date)}</time>{minutes ? <span>· {minutes} мин чтения</span> : null}</div>
+</a>

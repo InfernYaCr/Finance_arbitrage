@@ -4,5 +4,5 @@
   "private": true,
   "type": "module",
   "exports": { ".": "./src/index.ts", "./*": "./src/*" },
-  "peerDependencies": { "astro": "*" }
+  "peerDependencies": { "astro": "*", "gsap": "^3.12.0" }
 }

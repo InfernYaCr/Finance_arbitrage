@@ -1,0 +1,49 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getNews } from '../../lib/content';
+import { dateRu } from '../../lib/format';
+import { SITE } from '../../lib/ui/site';
+
+export async function getStaticPaths() {
+  const news = await getNews();
+  return news.map((entry) => ({ params: { slug: entry.id }, props: { entry, news } }));
+}
+const { entry, news } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const more = news.filter((n) => n.id !== entry.id).slice(0, 4);
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'NewsArticle',
+  headline: d.title,
+  description: d.description,
+  datePublished: d.publishDate.toISOString(),
+  dateModified: (d.updatedDate ?? d.publishDate).toISOString(),
+  author: { '@type': 'Organization', name: SITE.name },
+};
+---
+<BaseLayout title={d.title} description={d.description} ogType="article" ogImage={d.cover} jsonLd={ld} publishedTime={d.publishDate} modifiedTime={d.updatedDate}>
+  <div class="wrap page-head">
+    <Breadcrumbs items={[{ label: 'Новости', href: '/novosti/' }, { label: d.title }]} />
+    <h1 class="max-w-4xl">{d.title}</h1>
+    <div class="meta-line">
+      <time datetime={d.publishDate.toISOString()}>{dateRu(d.publishDate)}</time>
+      {d.sourceName && <span>Источник: {d.source ? <a class="underline" href={d.source} rel="nofollow noopener" target="_blank">{d.sourceName}</a> : d.sourceName}</span>}
+    </div>
+  </div>
+  <div class="wrap pb-14">
+    <div class="prose"><Content /></div>
+  </div>
+  {more.length > 0 && (
+    <section class="section pt-0 md:pt-0">
+      <div class="wrap">
+        <h2 class="h2">Другие новости</h2>
+        <ul class="news-list">
+          {more.map((n) => <li><a href={`/novosti/${n.id}/`}><time datetime={n.data.publishDate.toISOString()}>{dateRu(n.data.publishDate)}</time><strong>{n.data.title}</strong></a></li>)}
+        </ul>
+      </div>
+    </section>
+  )}
+</BaseLayout>

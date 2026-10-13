@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import OfferLogo from '../../components/OfferLogo.astro';
+import OfferCard from '../../components/OfferCard.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Icon from '../../components/Icon.astro';
+import { getOffers, offerHref } from '../../lib/offers';
+import { FEATURE_LABELS } from '../../lib/ui/features';
+import { range, num, daysWord } from '../../lib/format';
+import { SITE } from '../../lib/ui/site';
+
+export async function getStaticPaths() {
+  const offers = await getOffers();
+  return offers.map((offer) => ({ params: { slug: offer.slug }, props: { offer, all: offers } }));
+}
+const { offer: o, all } = Astro.props;
+const similar = all.filter((x) => x.slug !== o.slug && x.kind === o.kind).slice(0, 3);
+const rate = `${String(o.rateDayPct).replace('.', ',')}% в день`;
+const kindWord = { mfo: 'Займ', card: 'Карта', credit: 'Кредит' }[o.kind];
+const crumb = { mfo: ['Займы', '/zaimy/'], card: ['Карты', '/karty/'], credit: ['Кредиты', '/kredity/'] }[o.kind];
+const title = `${o.name}: условия, ставка, как получить — ${kindWord.toLowerCase()} онлайн`;
+const desc = o.summary ?? `${o.name}: сумма ${range(o.amountMin, o.amountMax)} ₽, срок ${o.termMinDays}–${o.termMaxDays} дней, ставка ${rate}. Условия, требования к заёмщику и как получить.`;
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'FinancialProduct',
+  name: o.name,
+  description: desc,
+  ...(o.rating && o.reviewsCount ? { aggregateRating: { '@type': 'AggregateRating', ratingValue: o.rating, reviewCount: o.reviewsCount, bestRating: 5 } } : {}),
+};
+const rows: [string, string][] = [
+  ['Сумма', `${range(o.amountMin, o.amountMax)} ₽`],
+  ['Срок', `${o.termMinDays}–${o.termMaxDays} дней`],
+  ['Ставка', rate + (o.freeDays && o.features.includes('zero_percent') ? ` (0% первые ${daysWord(o.freeDays)} для новых клиентов)` : '')],
+  ...(o.pskMax ? ([['ПСК, до', `${o.pskMax}% годовых`]] as [string, string][]) : []),
+  ...(o.approvalPct ? ([['Заявленное одобрение', `${o.approvalPct}%`]] as [string, string][]) : []),
+  ...(o.decisionMinutes ? ([['Время решения', `до ${o.decisionMinutes} мин`]] as [string, string][]) : []),
+  ['Возраст заёмщика', `${o.ageMin}–${o.ageMax} лет`],
+  ['Гражданство', 'Российская Федерация'],
+];
+const legal: [string, string][] = [
+  ...(o.legalName ? ([['Организация', o.legalName]] as [string, string][]) : []),
+  ...(o.cbrLicense ? ([['Номер в реестре ЦБ РФ', o.cbrLicense]] as [string, string][]) : []),
+];
+---
+<BaseLayout title={title} description={desc.slice(0, 200)} stickyCta jsonLd={ld}>
+  <div class="wrap page-head"><Breadcrumbs items={[{ label: crumb[0], href: crumb[1] }, { label: o.name }]} /></div>
+
+  <div class="wrap pb-14">
+    <div class="rev-hero">
+      <OfferLogo offer={o} size="lg" morph />
+      <div>
+        <p class="eyebrow">Обзор</p>
+        <h1 class="mt-1">{o.name}: условия и&nbsp;как получить</h1>
+        {o.summary && <p class="lead mt-3">{o.summary}</p>}
+        {o.rating ? <p class="rating mt-3"><Icon name="star" />{String(o.rating).replace('.', ',')} из 5{o.reviewsCount ? ` · ${num(o.reviewsCount)} отзывов` : ''}</p> : null}
+      </div>
+      <div class="grid gap-3">
+        <a class="btn btn-cta btn-lg btn-block" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">Получить деньги<Icon name="arrow" class="arrow" /></a>
+        <p class="text-center text-sm text-mute">Заявка оформляется на сайте организации</p>
+      </div>
+    </div>
+
+    <dl class="facts" data-reveal>
+      <div class="metric"><dt>Сумма</dt><dd>{range(o.amountMin, o.amountMax)}&nbsp;₽</dd></div>
+      <div class="metric"><dt>Срок</dt><dd>{o.termMinDays}–{o.termMaxDays}&nbsp;дн.</dd></div>
+      <div class="metric"><dt>Ставка</dt><dd>{rate}</dd></div>
+      {o.approvalPct ? <div class="metric"><dt>Одобрение</dt><dd>{o.approvalPct}%</dd></div> : null}
+    </dl>
+
+    {o.features.length > 0 && <ul class="oc-tags mt-5 p-0" data-reveal>{o.features.map((f) => <li class="tag">{FEATURE_LABELS[f]}</li>)}</ul>}
+
+    <h2 class="h2 mt-12" data-reveal>Условия {o.name}</h2>
+    <dl class="dl" data-reveal>{rows.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+
+    {(o.pros.length > 0 || o.cons.length > 0) && (
+      <div class="pc" data-reveal>
+        {o.pros.length > 0 && <div class="pro"><h3>Плюсы</h3><ul>{o.pros.map((p) => <li>{p}</li>)}</ul></div>}
+        {o.cons.length > 0 && <div class="con"><h3>Минусы</h3><ul>{o.cons.map((p) => <li>{p}</li>)}</ul></div>}
+      </div>
+    )}
+
+    {legal.length > 0 && (
+      <>
+        <h2 class="h2 mt-12" data-reveal>Юридические данные</h2>
+        <dl class="dl" data-reveal>{legal.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+      </>
+    )}
+
+    <div class="note-card mt-10" data-reveal>
+      {o.verified ? 'Условия сверены с сайтом организации.' : 'Условия приведены по данным организации и могут отличаться.'} Окончательные ставка, сумма и срок определяются кредитором при рассмотрении заявки. {SITE.name} не выдаёт займы.
+    </div>
+
+    {similar.length > 0 && (
+      <>
+        <h2 class="h2 mt-14" data-reveal>Похожие предложения</h2>
+        <div class="offers">{similar.map((s, i) => <OfferCard offer={s} index={i} morph={false} />)}</div>
+      </>
+    )}
+  </div>
+
+  <div class="sticky-cta" role="region" aria-label="Оформить заявку">
+    <div class="t">{o.name}<small>{range(o.amountMin, o.amountMax)} ₽ · {o.termMinDays}–{o.termMaxDays} дн.</small></div>
+    <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">Получить деньги</a>
+  </div>
+</BaseLayout>

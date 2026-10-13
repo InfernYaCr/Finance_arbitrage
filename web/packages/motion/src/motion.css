@@ -1,0 +1,26 @@
+/* Общие анимации сети сайтов. Только transform/opacity. */
+
+/* ---- Появление при скролле ---- */
+.js [data-reveal] { opacity: 0; transform: translate3d(0, 18px, 0); }
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity .7s cubic-bezier(.2, .7, .2, 1), transform .7s cubic-bezier(.2, .7, .2, 1);
+  transition-delay: calc(var(--i, 0) * 70ms);
+}
+
+/* ---- View Transitions ---- */
+@keyframes fk-out { to { opacity: 0; transform: translate3d(0, -8px, 0); } }
+@keyframes fk-in { from { opacity: 0; transform: translate3d(0, 16px, 0); } }
+::view-transition-old(root) { animation: .2s ease-in both fk-out; }
+::view-transition-new(root) { animation: .42s .08s cubic-bezier(.2, .7, .2, 1) both fk-in; }
+::view-transition-group(*) { animation-duration: .55s; animation-timing-function: cubic-bezier(.2, .7, .2, 1); }
+::view-transition-group(fk-header),
+::view-transition-group(fk-mascot) { animation: none; }
+::view-transition-old(fk-header),
+::view-transition-new(fk-header) { animation: none; mix-blend-mode: normal; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal], .js [data-reveal].is-in { opacity: 1 !important; transform: none !important; transition: none !important; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+}

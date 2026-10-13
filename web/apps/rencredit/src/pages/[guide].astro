@@ -1,0 +1,37 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Showcase from '../components/Showcase.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Faq from '../components/Faq.astro';
+import { getGuides } from '../lib/content';
+import { getOffers } from '../lib/offers';
+import { RESERVED_SLUGS } from '../lib/ui/site';
+
+export async function getStaticPaths() {
+  const guides = await getGuides();
+  return guides
+    .filter((g) => !RESERVED_SLUGS.includes(g.id))
+    .map((guide) => ({ params: { guide: guide.id }, props: { guide } }));
+}
+const { guide } = Astro.props;
+const { Content } = await render(guide);
+const offers = await getOffers(guide.data.kind);
+const others = (await getGuides()).filter((g) => g.id !== guide.id && !RESERVED_SLUGS.includes(g.id));
+---
+<BaseLayout title={guide.data.title} description={guide.data.description}>
+  <div class="wrap page-head"><Breadcrumbs items={[{ label: 'Займы', href: '/zaimy/' }, { label: guide.data.navLabel }]} /></div>
+  <Showcase offers={offers} preset={guide.data.feature} h="h1" title={guide.data.title} eyebrow="Подборка" lead={guide.data.description} />
+  <section class="section pt-0 md:pt-0">
+    <div class="wrap"><div class="prose"><Content /></div></div>
+  </section>
+  <Faq items={guide.data.faq} />
+  {others.length > 0 && (
+    <section class="section pt-0 md:pt-0">
+      <div class="wrap">
+        <h2 class="h2" data-reveal>Другие подборки</h2>
+        <div class="chips">{others.map((g) => <a class="chip no-underline" href={`/${g.id}/`}>{g.data.navLabel}</a>)}</div>
+      </div>
+    </section>
+  )}
+</BaseLayout>

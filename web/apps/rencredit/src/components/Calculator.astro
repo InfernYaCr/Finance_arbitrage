@@ -1,0 +1,47 @@
+---
+import Icon from './Icon.astro';
+import { plural } from '../lib/format';
+interface Props { total: number }
+const { total } = Astro.props;
+---
+<div class="calc-stage" data-tilt-zone>
+  <div class="hero-card3d" data-tilt="9" aria-hidden="true">
+    <svg viewBox="0 0 320 202" width="250" height="158" class="h-auto w-full drop-shadow-2xl">
+      <defs>
+        <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffc62e"/><stop offset="1" stop-color="#f08a00"/></linearGradient>
+      </defs>
+      <rect width="320" height="202" rx="22" fill="url(#cg)" />
+      <circle cx="262" cy="46" r="86" fill="#fff" opacity=".13" />
+      <rect x="28" y="60" width="46" height="36" rx="8" fill="#10231f" opacity=".85" />
+      <path d="M28 78h46M51 60v36" stroke="#ffc62e" stroke-width="2" />
+      <text x="28" y="150" font-family="Onest Variable, Arial" font-weight="700" font-size="21" fill="#10231f" letter-spacing="3">•••• 4820</text>
+      <text x="28" y="180" font-family="Onest Variable, Arial" font-weight="800" font-size="15" fill="#10231f">ФИНКОМПАС</text>
+      <circle cx="268" cy="168" r="18" fill="#10231f" opacity=".85" /><circle cx="286" cy="168" r="18" fill="#0e7a66" opacity=".95" />
+    </svg>
+  </div>
+  <div class="calc" id="calc" data-calc>
+    <h2>Подберите займ под себя</h2>
+    <div class="field">
+      <div class="field-top"><label for="c-sum">Сумма</label><output class="field-val" data-c-out="sum" for="c-sum">15&nbsp;000<small>&nbsp;₽</small></output></div>
+      <input id="c-sum" class="rng" type="range" min="1000" max="100000" step="500" value="15000" data-c="sum" />
+      <div class="field-hint"><span>1 000 ₽</span><span>100 000 ₽</span></div>
+      <div class="presets" role="group" aria-label="Быстрый выбор суммы">
+        {[5000, 15000, 30000, 50000].map((v) => <button type="button" class="preset" data-preset={v} aria-pressed="false">{new Intl.NumberFormat('ru-RU').format(v)}</button>)}
+      </div>
+    </div>
+    <div class="field">
+      <div class="field-top"><label for="c-term">Срок</label><output class="field-val" data-c-out="term" for="c-term">15<small>&nbsp;дн.</small></output></div>
+      <input id="c-term" class="rng" type="range" min="5" max="365" step="1" value="15" data-c="term" />
+      <div class="field-hint"><span>5 дней</span><span>365 дней</span></div>
+    </div>
+    <dl class="calc-out" aria-live="polite">
+      <div><dt>Переплата</dt><dd data-c-over>—</dd></div>
+      <div><dt>К возврату</dt><dd data-c-back>—</dd></div>
+      <p class="note" data-c-note>Расчёт ориентировочный.</p>
+    </dl>
+    <button type="button" class="btn btn-cta btn-lg btn-block" data-calc-go data-n={total}>
+      <span data-calc-label>Показать {total} {plural(total, ['предложение', 'предложения', 'предложений'])}</span><Icon name="arrow" class="arrow" />
+    </button>
+    <p class="calc-trust">Мы сравниваем, а не выдаём займы. Все организации — из реестра ЦБ РФ.</p>
+  </div>
+</div>

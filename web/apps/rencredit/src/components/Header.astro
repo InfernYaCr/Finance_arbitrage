@@ -1,0 +1,57 @@
+---
+import Icon from './Icon.astro';
+import LogoMark from './LogoMark.astro';
+import { SITE, NAV } from '../lib/ui/site';
+import { getGuides } from '../lib/content';
+
+const guides = await getGuides();
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+<header class="site-header" data-header>
+  <div class="hdr-bg" aria-hidden="true"></div>
+  <div class="wrap hdr-in">
+    <a class="brand" href="/" aria-label={`${SITE.name} — на главную`}>
+      <LogoMark class="brand-mark" /><span>{SITE.name}</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      {NAV.map((n) =>
+        n.label === 'Займы' && guides.length > 0 ? (
+          <div class="has-sub">
+            <a class="nav-link" href={n.href} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}<Icon name="chevron" class="chev" /></a>
+            <div class="sub">
+              <a href={n.href}>Все займы</a>
+              {guides.map((g) => <a href={`/${g.id}/`}>{g.data.navLabel}</a>)}
+            </div>
+          </div>
+        ) : (
+          <a class="nav-link" href={n.href} aria-current={isCurrent(n.href) ? 'page' : undefined}>{n.label}</a>
+        ),
+      )}
+    </nav>
+    <div class="hdr-actions">
+      <button type="button" class="icon-btn" data-search-open aria-label="Поиск по сайту"><Icon name="search" /></button>
+      <a class="btn btn-cta hdr-cta" href="/#calc" data-pick>Подобрать займ</a>
+      <button type="button" class="icon-btn burger" data-burger aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
+        <Icon name="menu" class="icon-open" /><Icon name="close" class="icon-close hidden" />
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Мобильное меню">
+    {guides.length > 0 ? (
+      <details>
+        <summary>Займы <Icon name="chevron" class="h-5 w-5" /></summary>
+        <a href="/zaimy/">Все займы</a>
+        {guides.map((g) => <a href={`/${g.id}/`}>{g.data.navLabel}</a>)}
+      </details>
+    ) : <a href="/zaimy/">Займы</a>}
+    {NAV.filter((n) => n.label !== 'Займы').map((n) => <a href={n.href}>{n.label}</a>)}
+    <a class="btn btn-cta btn-lg btn-block mt-6 justify-center border-0" href="/#calc" data-pick>Подобрать займ</a>
+  </nav>
+  <dialog class="search-dlg" data-search aria-label="Поиск по сайту">
+    <div class="search-box">
+      <input type="search" placeholder="Например: займ без отказа" aria-label="Поисковый запрос" autocomplete="off" data-search-input />
+      <ul class="search-res" data-search-res></ul>
+    </div>
+  </dialog>
+</header>

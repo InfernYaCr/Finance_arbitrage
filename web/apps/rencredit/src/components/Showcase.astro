@@ -1,0 +1,89 @@
+---
+import OfferCard from './OfferCard.astro';
+import Icon from './Icon.astro';
+import type { Offer } from '../lib/offers';
+import { plural } from '../lib/format';
+import { CHIP_ORDER, FEATURE_LABELS, type Feature } from '../lib/ui/features';
+
+interface Props {
+  offers: Offer[];
+  preset?: Feature;
+  title?: string;
+  eyebrow?: string;
+  lead?: string;
+  id?: string;
+  h?: 'h1' | 'h2';
+}
+const { offers, preset, title = 'Все предложения', eyebrow = 'Витрина', lead, id = 'offers', h = 'h2' } = Astro.props;
+const H = h;
+const usedFeatures = new Set(offers.flatMap((o) => o.features));
+const chips = CHIP_ORDER.filter((f) => usedFeatures.has(f) || f === preset);
+---
+<section id={id} class="section pt-10 md:pt-16" data-showcase data-preset={preset ?? ''} data-page="9">
+  <div class="wrap">
+    <div class="shop-head" data-reveal>
+      <div>
+        <p class="eyebrow">{eyebrow}</p>
+        <H class="h2 mt-2">{title}</H>
+        {lead ? <p class="lead mt-3">{lead}</p> : null}
+      </div>
+      <button type="button" class="btn btn-ghost md:hidden" data-panel-toggle aria-expanded="false" aria-controls="filters-panel">Сумма, срок, возраст</button>
+    </div>
+
+    <div class="chips" role="group" aria-label="Быстрые фильтры" data-reveal>
+      {chips.map((f) => <button type="button" class="chip" data-chip={f} aria-pressed={f === preset ? 'true' : 'false'}>{FEATURE_LABELS[f]}</button>)}
+    </div>
+
+    <div class="panel" id="filters-panel" data-panel data-reveal>
+      <div class="field">
+        <div class="field-top"><label for="f-sum">Сумма</label><output class="field-val is-off" data-out="sum" for="f-sum">любая</output></div>
+        <input id="f-sum" class="rng" type="range" min="1000" max="100000" step="500" value="15000" data-in="sum" />
+        <div class="field-hint"><span>1 000 ₽</span><span>100 000 ₽</span></div>
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="f-term">Срок</label><output class="field-val is-off" data-out="term" for="f-term">любой</output></div>
+        <input id="f-term" class="rng" type="range" min="5" max="365" step="1" value="15" data-in="term" />
+        <div class="field-hint"><span>5 дн.</span><span>365 дн.</span></div>
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="f-age">Возраст</label></div>
+        <select id="f-age" class="sel mt-2" data-in="age">
+          <option value="">Любой</option>
+          {[18, 20, 21, 23, 25, 30, 40, 50, 60, 65, 70].map((a) => <option value={a}>{a} лет</option>)}
+        </select>
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="f-sort">Сортировка</label></div>
+        <select id="f-sort" class="sel mt-2" data-in="sort">
+          <option value="rec">Рекомендуемые</option>
+          <option value="rate">Минимальная ставка</option>
+          <option value="sum">Максимальная сумма</option>
+          <option value="appr">Выше одобрение</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <p class="count-line" aria-live="polite"><b data-count-out>{offers.length}</b> <span data-count-word>{plural(offers.length, ['предложение', 'предложения', 'предложений'])}</span> <button type="button" class="link-btn ml-3" data-reset hidden>Сбросить</button></p>
+      <div class="seg" role="group" aria-label="Вид списка">
+        <button type="button" data-view="grid" aria-pressed="true" aria-label="Сетка"><Icon name="grid" /></button>
+        <button type="button" data-view="list" aria-pressed="false" aria-label="Список"><Icon name="list" /></button>
+      </div>
+    </div>
+
+    <div class="offers" data-offers data-view="grid">
+      {offers.map((o, i) => <OfferCard offer={o} index={i} />)}
+    </div>
+
+    <div class="empty" data-empty hidden={offers.length > 0 ? true : undefined}>
+      <h3>{offers.length ? 'Под такие условия предложений нет' : 'Предложения скоро появятся'}</h3>
+      <p class="lead mx-auto mt-2">{offers.length ? 'Попробуйте уменьшить сумму, изменить срок или снять часть фильтров.' : 'Мы обновляем витрину. Загляните позже или прочитайте наши статьи.'}</p>
+      {offers.length ? <button type="button" class="btn btn-dark mt-5" data-reset>Сбросить фильтры</button> : <a class="btn btn-dark mt-5" href="/stati/">Читать статьи</a>}
+    </div>
+
+    <div class="more-wrap" data-more-wrap hidden>
+      <button type="button" class="btn btn-ghost btn-lg" data-more>Показать ещё</button>
+    </div>
+    <p class="fine">Условия предложений публикуются на основании данных организаций и могут измениться. Окончательные условия, одобрение и ставка определяются кредитором при рассмотрении заявки — проверяйте их на сайте организации. Процент «0%» действует только для первого займа и в течение указанного срока.</p>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+---
+interface Props { items: { q: string; a: string }[]; title?: string; jsonld?: boolean }
+const { items, title = 'Частые вопросы', jsonld = true } = Astro.props;
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((i) => ({ '@type': 'Question', name: i.q, acceptedAnswer: { '@type': 'Answer', text: i.a } })),
+};
+---
+{items.length > 0 && (
+  <section class="section" id="faq">
+    <div class="wrap">
+      <p class="eyebrow" data-reveal>FAQ</p>
+      <h2 class="h2 mt-2" data-reveal>{title}</h2>
+      <div class="faq" data-reveal>
+        {items.map((i) => <details><summary>{i.q}</summary><div class="ans">{i.a}</div></details>)}
+      </div>
+    </div>
+    {jsonld && <script type="application/ld+json" set:html={JSON.stringify(ld).replace(/</g, '\\u003c')} />}
+  </section>
+)}
