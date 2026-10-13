@@ -113,7 +113,7 @@ const legal: [string, string][] = [
   </div>
 
   <div class="sticky-cta" role="region" aria-label="Оформить заявку">
-    <div class="t">{o.name}<small>Реклама · {o.legalName ?? o.name}{o.erid && <> · erid:&nbsp;{o.erid.split('/')[0]}</>}</small></div>
+    <div class="t">{o.name}<small>Реклама · {o.legalName ?? o.name}</small></div>
     <a class="btn btn-cta" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">{CTA_LABEL[o.kind]}</a>
   </div>
 </BaseLayout>

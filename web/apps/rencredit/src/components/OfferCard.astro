@@ -1,6 +1,5 @@
 ---
 import OfferLogo from './OfferLogo.astro';
-import AdMark from './AdMark.astro';
 import Icon from './Icon.astro';
 import { type Offer, offerHref, reviewHref, pskRange, creditRate, showsRate, NO_RATE, CTA_LABEL, PSK_LABEL } from '../lib/offers';
 import { num, daysWord, moneyRange, termText } from '../lib/format';
@@ -47,5 +46,5 @@ const psk = pskRange(o);
     <a class="btn btn-cta btn-lg" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={o.slug}>{CTA_LABEL[o.kind]}<Icon name="arrow" class="arrow" /></a>
     <a class="more" href={reviewHref(o)}>Обзор и условия</a>
   </div>
-  <AdMark offer={o} unverified={!o.verified} />
+  {!o.verified && <p class="ad-mark">Условия по данным организации, не сверены редакцией.</p>}
 </article>

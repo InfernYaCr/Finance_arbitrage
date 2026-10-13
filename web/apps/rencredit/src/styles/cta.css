@@ -184,12 +184,9 @@ body:has(.cta-sticky.is-on) .mascot { bottom: 84px; }
 @media (min-width: 720px) { .prose .cta-next ul { gap: 14px; } }
 
 /* ---------- Маркировка рекламы (AdMark) и ПСК ---------- */
-.ad-mark { display: grid; gap: 2px; font-size: 12px; line-height: 1.4; color: var(--color-mute); min-width: 0; overflow-wrap: anywhere; }
-.ad-mark p { margin: 0; }
-.ad-id { display: flex; flex-wrap: wrap; gap: 0 6px; }
-.ad-id > span + span::before { content: "·"; margin-right: 6px; }
+.ad-mark { margin: 0; font-size: 11px; line-height: 1.4; color: var(--color-mute); min-width: 0; overflow-wrap: anywhere; }
 .ad-tag { font-weight: 700; color: var(--color-ink-soft); }
-.ad-warn a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.ad-mark a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .psk-line { margin: 0; font-size: 15.5px; line-height: 1.3; font-weight: 650; overflow-wrap: anywhere; }
 .psk-line span { font-weight: 500; color: var(--color-ink-soft); }
 .offer-card > .psk-line { grid-column: 1 / -1; }
