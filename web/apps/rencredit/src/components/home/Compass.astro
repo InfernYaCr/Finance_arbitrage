@@ -1,0 +1,25 @@
+---
+/** Декоративный компас главной: стрелка поворачивается вслед за суммой и сроком (только transform). */
+interface Props { angle: number }
+const { angle } = Astro.props;
+const ticks = Array.from({ length: 72 }, (_, i) => i * 5);
+---
+<div class="hp-compass" aria-hidden="true">
+  <svg viewBox="0 0 400 400" width="400" height="400">
+    <circle cx="200" cy="200" r="196" class="c-ring" />
+    <circle cx="200" cy="200" r="150" class="c-ring c-ring--soft" />
+    <circle cx="200" cy="200" r="92" class="c-ring c-ring--soft" />
+    {ticks.map((d) => (
+      <line x1="200" y1={d % 45 === 0 ? 14 : d % 15 === 0 ? 22 : 28} x2="200" y2="36" class={d % 45 === 0 ? 'c-tick c-tick--major' : 'c-tick'} transform={`rotate(${d} 200 200)`} />
+    ))}
+    <text x="200" y="66" class="c-label">С</text>
+    <text x="342" y="208" class="c-label">В</text>
+    <text x="200" y="350" class="c-label">Ю</text>
+    <text x="58" y="208" class="c-label">З</text>
+    <g class="hp-needle" data-hp-needle style={`--a:${angle}deg`}>
+      <path d="M200 58 L216 200 L200 214 L184 200 Z" class="c-needle-n" />
+      <path d="M200 342 L216 200 L200 186 L184 200 Z" class="c-needle-s" />
+      <circle cx="200" cy="200" r="11" class="c-hub" />
+    </g>
+  </svg>
+</div>

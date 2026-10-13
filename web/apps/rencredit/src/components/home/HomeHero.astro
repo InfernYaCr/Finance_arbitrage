@@ -1,0 +1,142 @@
+---
+/**
+ * Hero главной: «фраза-подборщик». Человек дописывает предложение о себе
+ * («Мне нужно 15 000 ₽ на 14 дней, кредитная история хорошая»), под ним живут три подходящих
+ * предложения с расчётом возврата и CTA. На мобильном значения правятся в нижней шторке.
+ */
+import PickTicket from './PickTicket.astro';
+import Compass from './Compass.astro';
+import Icon from '../Icon.astro';
+import Character from '../mascots/Character.astro';
+import type { Offer } from '../../lib/offers';
+import { num, rub, plural, daysWord } from '../../lib/format';
+import {
+  DEFAULT_STATE, KI_LABELS, SCENARIOS, SUM, TERM, TOP_N,
+  pick, quote, needleAngle, type PickOffer, type Ki,
+} from '../../scripts/home-logic';
+
+interface Props { offers: Offer[] }
+const { offers } = Astro.props;
+
+const s = DEFAULT_STATE;
+const rows = offers.map((o, idx) => ({
+  o,
+  p: {
+    sumMin: o.amountMin, sumMax: o.amountMax, termMin: o.termMinDays, termMax: o.termMaxDays,
+    rate: o.rateDayPct, free: o.features.includes('zero_percent') ? o.freeDays ?? 0 : 0,
+    prio: o.priority ?? 0, idx, features: o.features,
+  } satisfies PickOffer,
+}));
+const matched = pick(rows.map((r) => ({ ...r.p, r })), s);
+const top = new Set(matched.slice(0, TOP_N).map((m) => m.r.o.slug));
+// В DOM сначала идут видимые (в порядке показа), затем остальные — без JS порядок тоже верный.
+const ordered = [...matched.map((m) => m.r), ...rows.filter((r) => !matched.some((m) => m.r === r))];
+const n = matched.length;
+const offersWord = (k: number) => plural(k, ['предложение', 'предложения', 'предложений']);
+
+const zeroCount = offers.filter((o) => o.features.includes('zero_percent') && o.freeDays).length;
+const maxAmount = Math.max(...offers.map((o) => o.amountMax));
+const maxTerm = Math.max(...offers.map((o) => o.termMaxDays));
+const sumPresets = [5000, 10000, 15000, 30000, 50000, 100000];
+const termPresets = [7, 14, 30, 90, 180];
+const kiOrder: Ki[] = ['good', 'none', 'bad'];
+const pct = (v: number, r: { min: number; max: number }) => `${((v - r.min) / (r.max - r.min)) * 100}%`;
+---
+<section class="hp" data-hp data-total={offers.length}>
+  <Compass angle={needleAngle(s)} />
+  <div class="wrap hp-wrap">
+    <h1 class="hp-h1">Займ онлайн: сравните {offers.length}&nbsp;МФО <em>до&nbsp;заявки</em></h1>
+
+    <div class="hp-ask" id="calc">
+      <p class="hp-sentence">
+        <span class="hp-w">Мне нужно</span>{' '}
+        <button type="button" class="hp-tok" data-hp-open="sum" aria-expanded="false" aria-controls="hp-editor">
+          <span class="sr-only">Сумма: </span><span data-hp-out="sum">{num(s.sum)}&nbsp;₽</span>
+        </button>{' '}
+        <span class="hp-w">на</span>{' '}
+        <span class="hp-nw"><button type="button" class="hp-tok" data-hp-open="term" aria-expanded="false" aria-controls="hp-editor">
+          <span class="sr-only">Срок: </span><span data-hp-out="term">{daysWord(s.term).replace(' ', ' ')}</span>
+        </button>,</span>{' '}
+        <span class="hp-w">кредитная история</span>{' '}
+        <span class="hp-tok hp-tok--sel">
+          <select data-hp-ki aria-label="Кредитная история">
+            {kiOrder.map((k) => <option value={k} selected={k === s.ki}>{KI_LABELS[k]}</option>)}
+          </select>
+          <Icon name="chevron" class="hp-caret" />
+        </span>
+      </p>
+
+      <div class="hp-editor" id="hp-editor" role="dialog" aria-label="Изменить сумму и срок" data-hp-editor inert>
+        <div class="hp-ed-grip" aria-hidden="true"></div>
+        <div class="hp-ed-panel" data-hp-panel="sum">
+          <div class="hp-ed-top"><label for="hp-sum">Сумма</label><output for="hp-sum" data-hp-val="sum">{rub(s.sum)}</output></div>
+          <div class="hp-ed-row">
+            <button type="button" class="hp-step" data-hp-step="sum" data-d="-1" aria-label="Уменьшить сумму на 1 000 ₽">−</button>
+            <input id="hp-sum" class="rng" type="range" min={SUM.min} max={SUM.max} step={SUM.step} value={s.sum} data-hp-in="sum" style={`--p:${pct(s.sum, SUM)}`} />
+            <button type="button" class="hp-step" data-hp-step="sum" data-d="1" aria-label="Увеличить сумму на 1 000 ₽">+</button>
+          </div>
+          <div class="hp-presets" role="group" aria-label="Быстрый выбор суммы">
+            {sumPresets.map((v) => <button type="button" data-hp-set="sum" data-v={v} aria-pressed={v === s.sum ? 'true' : 'false'}>{num(v)}</button>)}
+          </div>
+        </div>
+        <div class="hp-ed-panel" data-hp-panel="term">
+          <div class="hp-ed-top"><label for="hp-term">Срок</label><output for="hp-term" data-hp-val="term">{daysWord(s.term)}</output></div>
+          <div class="hp-ed-row">
+            <button type="button" class="hp-step" data-hp-step="term" data-d="-1" aria-label="Уменьшить срок на 1 день">−</button>
+            <input id="hp-term" class="rng" type="range" min={TERM.min} max={TERM.max} step={TERM.step} value={s.term} data-hp-in="term" style={`--p:${pct(s.term, TERM)}`} />
+            <button type="button" class="hp-step" data-hp-step="term" data-d="1" aria-label="Увеличить срок на 1 день">+</button>
+          </div>
+          <div class="hp-presets" role="group" aria-label="Быстрый выбор срока">
+            {termPresets.map((v) => <button type="button" data-hp-set="term" data-v={v} aria-pressed={v === s.term ? 'true' : 'false'}>{v} дн.</button>)}
+          </div>
+        </div>
+        <button type="button" class="btn btn-dark btn-block hp-ed-done" data-hp-close>
+          <span data-hp-done>Готово: {n} {offersWord(n)}</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hp-scen" role="group" aria-label="Частые ситуации">
+      {SCENARIOS.map((sc) => (
+        <button type="button" class="hp-sc" data-hp-scenario={sc.id} data-sum={sc.state.sum} data-term={sc.state.term} data-ki={sc.state.ki} aria-pressed="false">
+          <b>{sc.title}</b><span>{sc.hint}</span>
+        </button>
+      ))}
+    </div>
+
+    <div class="hp-results">
+      <p class="hp-count" aria-live="polite" data-hp-count>
+        Подходят <b data-hp-n>{n}</b> из {offers.length}. <span data-hp-lead>{n > TOP_N ? 'Первые три:' : n ? 'Вот они:' : ''}</span>
+      </p>
+      <ol class="hp-list" data-hp-list>
+        {ordered.map((r) => <PickTicket offer={r.o} index={r.p.idx} quote={quote(r.p, s)} shown={top.has(r.o.slug)} />)}
+      </ol>
+      <div class="hp-empty" data-hp-empty hidden={n > 0 || undefined}>
+        <Character pose="think" size="sm" />
+        <div>
+          <p><b>Под такие условия предложений нет.</b> <span data-hp-empty-hint>Попробуйте сумму поменьше или другой срок.</span></p>
+          <button type="button" class="btn btn-dark mt-3" data-hp-fix hidden>Подобрать ближайшее</button>
+        </div>
+      </div>
+      <div class="hp-foot">
+        <a class="hp-all" href="#offers" data-hp-all>
+          <span data-hp-all-label>{n > TOP_N ? `Все ${n} ${offersWord(n)} с фильтрами` : 'Вся витрина с фильтрами'}</span><Icon name="arrow" />
+        </a>
+        <p class="hp-disc">Сравниваем, а не выдаём займы. Расчёт ориентировочный, по ставке из условий организации; окончательные условия определяет кредитор.</p>
+      </div>
+    </div>
+
+    <dl class="hp-facts">
+      <div><dt>МФО в сравнении</dt><dd>{offers.length}</dd></div>
+      <div><dt>с 0% на первый займ</dt><dd>{zeroCount}</dd></div>
+      <div><dt>максимальная сумма</dt><dd>{num(maxAmount)}&nbsp;₽</dd></div>
+      <div><dt>самый длинный срок</dt><dd>{maxTerm}&nbsp;дн.</dd></div>
+    </dl>
+  </div>
+  <div class="hp-scrim" data-hp-scrim aria-hidden="true"></div>
+</section>
+
+<script>
+  import { initHomePicker } from '../../scripts/home-picker';
+  document.addEventListener('astro:page-load', initHomePicker);
+</script>

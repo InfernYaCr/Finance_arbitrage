@@ -1,21 +1,19 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Calculator from '../components/Calculator.astro';
+import HomeHero from '../components/home/HomeHero.astro';
 import Showcase from '../components/Showcase.astro';
 import Steps from '../components/Steps.astro';
 import CompareTable from '../components/CompareTable.astro';
 import PostCard from '../components/PostCard.astro';
 import Faq from '../components/Faq.astro';
 import SeoText from '../components/SeoText.astro';
-import Icon from '../components/Icon.astro';
-import { getOffers, offerStats } from '../lib/offers';
+import { getOffers } from '../lib/offers';
 import { getArticles, getNews, articleHref } from '../lib/content';
 import { readingMinutes, dateRu } from '../lib/format';
 import { SITE } from '../lib/ui/site';
 import { HOME_FAQ } from '../lib/ui/faq';
 
 const offers = await getOffers('mfo');
-const stats = offerStats(offers);
 const [articles, news] = await Promise.all([getArticles(), getNews()]);
 const topArticles = articles.slice(0, 3);
 const topNews = news.slice(0, 4);
@@ -26,28 +24,9 @@ const compare = [...offers].sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0)
   title={`Займы онлайн на карту — сравнение условий МФО | ${SITE.name}`}
   description="Подберите займ онлайн: сравните ставки, суммы и сроки МФО, отфильтруйте «без процентов», «без отказа» и «с плохой КИ» и оформите заявку за несколько минут."
 >
-  <section class="hero" data-tilt-zone>
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow text-accent!" data-reveal>Сравниваем — не выдаём</p>
-        <h1 class="mt-3">Займ онлайн <em>за&nbsp;5&nbsp;минут</em> — сравним МФО и честно посчитаем переплату</h1>
-        <p class="lead" data-reveal style="--i:2">Укажите сумму и срок — покажем, кто одобрит и сколько вы вернёте. Фильтры «без процентов», «без отказа», «с плохой КИ» работают сразу.</p>
-        <div class="hero-stats" data-reveal style="--i:3">
-          <div class="hero-stat"><b><span data-count={stats.count}>{stats.count}</span></b><span>актуальных предложений</span></div>
-          <div class="hero-stat"><b>до&nbsp;<span data-count={stats.maxApproval}>{stats.maxApproval}</span>%</b><span>заявленное одобрение</span></div>
-          <div class="hero-stat"><b>от&nbsp;<span data-count={stats.minDecision}>{stats.minDecision}</span>&nbsp;мин</b><span>до решения</span></div>
-        </div>
-        <ul class="trust p-0" data-reveal style="--i:4">
-          <li><Icon name="shield" />МФО из реестра ЦБ РФ</li>
-          <li><Icon name="lock" />Данные не передаём без вашей заявки</li>
-          <li><Icon name="check" />Сервис бесплатный</li>
-        </ul>
-      </div>
-      <div><Calculator total={offers.length} /></div>
-    </div>
-  </section>
+  <HomeHero offers={offers} />
 
-  <Showcase offers={offers} title="Займы онлайн: подберите под себя" eyebrow="Витрина предложений" lead="Меняйте фильтры — список перестроится мгновенно, без перезагрузки страницы." />
+  <Showcase offers={offers} title="Все займы: фильтры и сортировка" eyebrow="Витрина предложений" lead="Здесь все предложения сразу. Отметьте «без процентов», «на карту» или «с плохой КИ», задайте возраст и сортировку." />
 
   <Steps />
   <CompareTable offers={compare} />
