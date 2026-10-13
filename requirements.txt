@@ -1,0 +1,12 @@
+# Python-зависимости пайплайна (site_pipeline/, create_site.py, export_site.py).
+# Окружение: uv venv .venv --python 3.11 ; uv pip install --python .venv/Scripts/python.exe -r requirements.txt
+# Подробности: docs/harness/ENV.md
+beautifulsoup4==4.12.3
+requests==2.32.3
+urllib3<2
+firecrawl-py>=1.0.0
+# Crawl4AI-бэкенд (crawl_pages_c4ai.py, Python 3.10+). litellm НЕ указываем: crawl4ai тянет форк unclecode-litellm под именем litellm, отдельный litellm ломает импорт
+crawl4ai>=0.8
+# LLM-обогащение (enrich_llm.py, rewrite_intros.py)
+anthropic
+playwright

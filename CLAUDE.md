@@ -1,5 +1,38 @@
 # Mosseo Site Pipeline
 
+## Новый фронт web/ (пилот rencredit)
+
+Пилот сайта rencredit-online.ru строится в `web/` (npm workspaces). Старый `site/` (Astro 4) и Python `site_pipeline/` остаются как есть и обслуживают донорский конвейер.
+
+```
+web/
+  apps/rencredit/        Astro 7 + Tailwind 4 + GSAP; контент в src/content/{articles,guides,news}/*.md(x) и offers/*.json
+                         схемы Zod: src/content.config.ts (источник правды по frontmatter)
+  packages/core/         офферы, JSON-LD, SEO-хелперы, типы (@pbn/core)
+  packages/motion/       анимации, View Transitions, GSAP (@pbn/motion)
+```
+
+Правило: **контент это markdown в content collections, без краулинга донора.** Факты из первоисточников, офферы из `sites/affiliate_pool.json` через `content/offers/*.json`, ссылки только `/go/<poolId>/` с `rel="sponsored nofollow"`.
+
+Команды (Windows; Bash или PowerShell, из корня репозитория):
+
+```bash
+npm --prefix web install                 # один раз
+npm --prefix web run dev -- --port 4321  # dev (или launch.json: rencredit-dev)
+npm --prefix web run build               # статика в web/apps/rencredit/dist
+node scripts/check.mjs --quick           # быстрая проверка (она же Stop-хук)
+node scripts/check.mjs                   # полная: quick + build + проверка dist
+py scripts/test_guard.py                 # самопроверка PreToolUse-хука
+```
+
+Харнесс (`.claude/`, подробности `docs/harness/README.md`, окружение `docs/harness/ENV.md`):
+
+- Скиллы: `site-design`, `motion-system`, `ymyl-content`, `offer-placement`, `news-pipeline`, плюс `grill-me`, `to-spec`, `handoff`, `diagnosing-bugs`, `code-review`.
+- Агенты: `ui-builder`, `motion-designer`, `content-writer`, `news-writer`, `ymyl-fact-checker` (read-only), `seo-auditor` (read-only), `page-reviewer` (Playwright).
+- Команды: `/check`, `/new-article <тема>`, `/new-news <тема>`, `/new-offer <poolId>`, `/review-page <url>`.
+- Хук `.claude/hooks/guard.py` блокирует чтение `.env`, `git push`, массовые удаления, правку `sites/*/pages/*.json`, копирование файлов Яндекса/Метрики между сайтами. Не обходить.
+- Зоны владения при параллельной работе: `web/apps/rencredit/src/{pages,layouts,components,styles}` (ui-builder), `web/packages/motion` (motion-designer), `src/content/{articles,guides}` (content-writer), `src/content/news` (news-writer), `web/packages/core` и `src/content/offers` (основной агент). Свою зону не покидать.
+
 Read `AGENT_HANDOFF.md` first — it's the single entry-point snapshot (state,
 commands, gotchas, next steps). Then `HANDOFF.md` for the chronological log of
 project state, generated artifacts, QA status, deploy status, and next tasks.
@@ -18,7 +51,7 @@ http://yourkedm.beget.tech/
 Latest status (2026-06-08):
 
 - Track A UI complete; multi-site `sites/` live (finhelp-ru active, + vsezaimyonline, rostpoisk).
-- Crawler migrated to Crawl4AI (`crawl_pages_c4ai.py`, `.venv311`); Firecrawl is fallback.
+- Crawler migrated to Crawl4AI (`crawl_pages_c4ai.py`, `.venv` (Python 3.11)); Firecrawl is fallback.
 - Saleads CPA connected: all RU finance/insurance offers — 160 connectors
   (100 live + 60 pending moderation). `sites/affiliate_pool.json` = master registry (189).
 - Contact form posts to `/mail.php`; notifications pending (B5.5).
@@ -28,11 +61,9 @@ Latest status (2026-06-08):
 
 ## Claude quick context
 
-Workspace:
+Workspace: корень репозитория (Windows: `E:\Finance_arbitrage`). Все команды ниже выполняются из корня. Оболочка: Git Bash или PowerShell; Python только через `py` или `.venv\Scripts\python.exe`.
 
-```bash
-/Users/deniskononov/mosseo-site-pipeline
-```
+Окружение Python (`.venv`, Python 3.11, зависимости в корневом `requirements.txt`): см. `docs/harness/ENV.md`.
 
 Main context files to read first:
 
@@ -134,7 +165,7 @@ Git workflow:
 Use the local virtual environment:
 
 ```bash
-. .venv/bin/activate
+.venv\Scripts\activate   # PowerShell/cmd; Git Bash: source .venv/Scripts/activate
 ```
 
 Current code entry points:
@@ -146,7 +177,7 @@ Current code entry points:
 - `site_pipeline/probe_pages.py`
 - `site_pipeline/audit_extraction_sources.py`
 - `site_pipeline/audit_page_templates.py`
-- `site_pipeline/crawl_pages_c4ai.py` - **current** crawler: Crawl4AI map/scrape + LLM extraction (`.venv311`).
+- `site_pipeline/crawl_pages_c4ai.py` - **current** crawler: Crawl4AI map/scrape + LLM extraction (`.venv` (Python 3.11)).
 - `site_pipeline/crawl_pages_fc.py` - Firecrawl backend (fallback); c4ai reuses its helpers.
 - `site_pipeline/saleads_offers.py` - Saleads CPA client: connect-missing / export-pool / export-links.
 - `site_pipeline/discover_donors.py` - Exa donor search via highlights.
@@ -172,8 +203,7 @@ archives.
 Pipeline QA:
 
 ```bash
-cd /Users/deniskononov/mosseo-site-pipeline
-. .venv/bin/activate
+.venv\Scripts\activate   # PowerShell/cmd; Git Bash: source .venv/Scripts/activate
 python site_pipeline/qa_pages.py
 python site_pipeline/build_content_index.py
 python site_pipeline/audit_page_templates.py
@@ -182,8 +212,7 @@ python site_pipeline/audit_page_templates.py
 Crawl4AI (current crawler, Python 3.11 venv):
 
 ```bash
-cd /Users/deniskononov/mosseo-site-pipeline
-.venv311/bin/python site_pipeline/crawl_pages_c4ai.py \
+.venv\Scripts\python.exe site_pipeline/crawl_pages_c4ai.py \
   --source-domain vsezaimyonline.ru --limit 500 --with-llm \
   --include-sections banks,credits,loans,cards,mortgage,autocredit,qa,ratings,terms
 ```
@@ -191,8 +220,7 @@ cd /Users/deniskononov/mosseo-site-pipeline
 Saleads CPA offers (token in `site/.env` → `SALEADS_API_KEY`):
 
 ```bash
-cd /Users/deniskononov/mosseo-site-pipeline
-. .venv/bin/activate
+.venv\Scripts\activate   # PowerShell/cmd; Git Bash: source .venv/Scripts/activate
 python site_pipeline/saleads_offers.py connect-missing --dry-run   # preview missing RU finance/insurance offers
 python site_pipeline/saleads_offers.py connect-missing             # create connectors (idempotent)
 python site_pipeline/saleads_offers.py export-pool                 # → sites/affiliate_pool.json (master)
@@ -203,8 +231,7 @@ python site_pipeline/saleads_offers.py export-links --site-relevant \
 Firecrawl / Exa smoke commands (fallback crawler + donor discovery):
 
 ```bash
-cd /Users/deniskononov/mosseo-site-pipeline
-. .venv/bin/activate
+.venv\Scripts\activate   # PowerShell/cmd; Git Bash: source .venv/Scripts/activate
 python site_pipeline/crawl_pages_fc.py --source-domain mosseo.ru --limit 30 --output-dir site_pipeline/output/test_fc --map-only
 python site_pipeline/discover_donors.py --niche finance --num-results 5 --out site_pipeline/output/exa_finance_smoke.json
 python site_pipeline/qualify_donor.py --url https://vsezaimyonline.ru --out site_pipeline/output/qualify_vsezaimyonline.json
@@ -213,7 +240,7 @@ python site_pipeline/qualify_donor.py --url https://vsezaimyonline.ru --out site
 Astro build/check:
 
 ```bash
-cd /Users/deniskononov/mosseo-site-pipeline/site
+cd site
 npm run build
 npm run check
 ```
@@ -221,7 +248,7 @@ npm run check
 Alternate donor dataset build:
 
 ```bash
-cd /Users/deniskononov/mosseo-site-pipeline/site
+cd site
 CONTENT_OUTPUT_DIR=../site_pipeline/output/finance_test \
 ENABLE_EDITORIAL_POSTS=false \
 PUBLIC_LEGACY_SOURCE_DOMAIN=https://vsezaimyonline.ru \
@@ -232,14 +259,14 @@ npm run build
 Local preview:
 
 ```bash
-cd /Users/deniskononov/mosseo-site-pipeline/site
+cd site
 npm run preview -- --host 127.0.0.1 --port 4321
 ```
 
 Deploy to Beget:
 
 ```bash
-cd /Users/deniskononov/mosseo-site-pipeline/site
+cd site
 npm run check:b0
 npm run build
 npm run deploy:dry

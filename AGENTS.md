@@ -8,6 +8,15 @@ No previous sessions found.
 
 # Mosseo Site Pipeline — Agent Guide
 
+## Новый фронт web/ (пилот rencredit)
+
+Пилот rencredit-online.ru живёт в `web/` (Astro 7 + Tailwind 4 + GSAP; пакеты `@pbn/core`, `@pbn/motion`). Контент это markdown/JSON в content collections (`web/apps/rencredit/src/content`, схемы в `src/content.config.ts`), без краулинга донора. Старые `site/` и `site_pipeline/` без изменений.
+
+- Проверка: `node scripts/check.mjs --quick` (быстро), `node scripts/check.mjs` (с build и dist). Dev: `npm --prefix web run dev -- --port 4321`.
+- Харнесс Claude Code: `.claude/` (хук `guard.py`, скиллы, агенты, команды). Карта: `docs/harness/README.md`, окружение Windows/Python: `docs/harness/ENV.md`. Подробнее в `CLAUDE.md` (блок в начале).
+- Запреты: не читать `.env`, не `git push`, не править `sites/*/pages/*.json`, не копировать файлы подтверждения Яндекса/Метрики между сайтами, не использовать бренд «Ренессанс Кредит» как бренд сайта, ссылки на офферы только `/go/<poolId>/` с `rel="sponsored nofollow"`.
+- Python: `py` и `.venv` (Python 3.11, `requirements.txt`); команды пайплайна ниже в Windows-варианте: `.venv\Scripts\python.exe site_pipeline\...`.
+
 This document is for AI agents (Claude, Codex, etc.) working on this project.
 Read `AGENT_HANDOFF.md` first (entry-point snapshot), then `HANDOFF.md` for the
 chronological status log and `CLAUDE.md` for the full command/code map.
@@ -50,7 +59,7 @@ JSON.
 | `site/src/components/Footer.astro` | Footer: logo, nav list, copyright |
 | `site/src/components/PromoSlot.astro` | Affiliate/promo slot component (config-driven) |
 | `site/src/styles/global.css` | Design tokens + legacy WP class styles |
-| `site_pipeline/crawl_pages_c4ai.py` | **Current** crawler: Crawl4AI map/scrape + LLM extraction (`.venv311`, Python 3.11) |
+| `site_pipeline/crawl_pages_c4ai.py` | **Current** crawler: Crawl4AI map/scrape + LLM extraction (`.venv` (Python 3.11), Python 3.11) |
 | `site_pipeline/crawl_pages_fc.py` | Firecrawl backend — fallback; c4ai reuses its normalization/filter helpers |
 | `site_pipeline/saleads_offers.py` | Saleads CPA client: connect-missing / export-pool / export-links (vertical classifier) |
 | `site_pipeline/discover_donors.py` | Exa donor discovery smoke path |
@@ -108,7 +117,7 @@ JSON.
 - Before deploy-related commits, run:
 
 ```bash
-cd /Users/deniskononov/mosseo-site-pipeline/site
+cd site
 npm run check:b0
 npm run build
 ```
@@ -178,7 +187,7 @@ PUBLIC_LEGACY_BRAND_ALIASES=""    # comma-separated donor brand aliases
 
 **Состояние Трека B (2026-06-08):**
 - ✅ Multi-site структура `sites/` (finhelp-ru активен, + vsezaimyonline, rostpoisk).
-- ✅ Crawl4AI backend (`crawl_pages_c4ai.py`, `.venv311`) — заменил Firecrawl.
+- ✅ Crawl4AI backend (`crawl_pages_c4ai.py`, `.venv` (Python 3.11)) — заменил Firecrawl.
 - ✅ Saleads CPA: подключены все RU финансовые/страховые офферы (160 коннекторов,
   100 live + 60 на модерации). `affiliate_pool.json` = мастер-реестр (189).
 - ⏳ **Следующее:** полный краул `vsezaimyonline.ru` (≥300 стр) → `promoSlots.json`
@@ -195,7 +204,7 @@ PUBLIC_LEGACY_BRAND_ALIASES=""    # comma-separated donor brand aliases
 ## Deploy
 
 ```bash
-cd /Users/deniskononov/mosseo-site-pipeline/site
+cd site
 npm run check:b0
 npm run build
 npm run deploy:dry
@@ -225,7 +234,6 @@ Test URL: http://yourkedm.beget.tech/
 | firecrawl | Краулинг новых донор-сайтов для PBN | ✅ Подключён (FIRECRAWL_API_KEY задан) |
 | exa | Поиск доноров по нишам, квалификация доноров | ✅ Проверен через `discover_donors.py` / `qualify_donor.py` |
 | playwright | Автотест задеплоенных сайтов | ✅ Готов |
-| filesystem | Управление конфигами N сайтов | ✅ Готов |
 
 API ключи добавлять в `site/.env`. Файл конфига: `.mcp.json` в корне проекта.
 

@@ -1,0 +1,83 @@
+# ЧЕРНОВИК. Автодеплой не активен: запуск только вручную (workflow_dispatch).
+# Расписание закомментировано. Перед включением владелец задаёт секреты репозитория:
+#   BEGET_FTP_HOST, BEGET_FTP_USER, BEGET_FTP_PASS, BEGET_FTP_PATH (например /rencredit-online.ru/public_html)
+# и переменные (Settings -> Variables): INDEXNOW_SITE, INDEXNOW_KEY (ключ не секрет, он публикуется файлом на сайте).
+name: Deploy rencredit (draft)
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Только показать, что будет залито (lftp --dry-run)"
+        type: boolean
+        default: true
+      indexnow:
+        description: "Отправить IndexNow после деплоя"
+        type: boolean
+        default: false
+  # schedule:
+  #   - cron: "0 5 * * *"   # раз в сутки, 08:00 МСК; включать после первого успешного ручного деплоя
+
+concurrency:
+  group: deploy-rencredit
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install
+        run: npm ci
+        working-directory: web
+
+      - name: Check (quick)
+        run: node scripts/check.mjs --quick
+
+      - name: Build
+        run: npm run build
+        working-directory: web
+
+      - name: Check dist
+        run: node scripts/check.mjs --dist-only
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy to Beget (lftp mirror)
+        env:
+          FTP_HOST: ${{ secrets.BEGET_FTP_HOST }}
+          FTP_USER: ${{ secrets.BEGET_FTP_USER }}
+          FTP_PASS: ${{ secrets.BEGET_FTP_PASS }}
+          FTP_PATH: ${{ secrets.BEGET_FTP_PATH }}
+          DRY: ${{ inputs.dry_run }}
+        run: |
+          test -n "$FTP_HOST" -a -n "$FTP_USER" -a -n "$FTP_PASS" -a -n "$FTP_PATH" || { echo "FTP secrets are not set"; exit 1; }
+          FLAGS="--reverse --verbose --only-newer --parallel=4"
+          if [ "$DRY" = "true" ]; then FLAGS="$FLAGS --dry-run"; fi
+          # --delete не используем: на хостинге лежат файлы подтверждения Яндекса/Метрики и mail.php, которых нет в dist.
+          lftp -u "$FTP_USER","$FTP_PASS" "ftp://$FTP_HOST" <<LFTP
+          set ftp:ssl-allow no
+          set net:max-retries 3
+          set net:timeout 20
+          mirror $FLAGS web/apps/rencredit/dist "$FTP_PATH"
+          bye
+          LFTP
+
+      - name: IndexNow ping
+        if: ${{ inputs.indexnow && !inputs.dry_run }}
+        env:
+          INDEXNOW_SITE: ${{ vars.INDEXNOW_SITE }}
+          INDEXNOW_KEY: ${{ vars.INDEXNOW_KEY }}
+        run: node scripts/indexnow.mjs

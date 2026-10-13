@@ -17,14 +17,6 @@
     "playwright": {
       "command": "npx",
       "args": ["-y", "@playwright/mcp", "--browser", "chrome"]
-    },
-    "filesystem": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "/Users/deniskononov/mosseo-site-pipeline"
-      ]
     }
   }
 }
