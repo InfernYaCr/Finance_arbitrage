@@ -48,10 +48,11 @@ for (const raw of txt.slice(s, e).split('\n')) {
 // Первый совпавший терминальный ([L]) rule: { status, target } | null
 function simulate(path, query) {
   for (const r of rules) {
-    if (!r.re.test(path)) continue;
+    const m = path.match(r.re);
+    if (!m) continue;
     if (!r.conds.every(c => c.re.test(query))) continue;
     if (r.status === 410) return { status: 410, rule: r };
-    let t = r.to.replace('https://%{HTTP_HOST}', '');
+    let t = r.to.replace('https://%{HTTP_HOST}', '').replace(/\$(\d)/g, (_, n) => m[n] ?? '');
     return { status: r.status, target: t, rule: r };
   }
   return null;
@@ -113,6 +114,20 @@ for (const [p, q] of [['wp-json/wp/v2/posts', ''], ['wp-admin/', ''], ['wp-login
   const want = /sitemap/.test(p) ? 301 : (p === '' ? 301 : 410);
   if (!r || r.status !== want) problems.push({ kind: 'SERVICE', url: `/${p}${q ? '?' + q : ''}`, note: `ожидался ${want}, получено ${r ? r.status : 'нет правила'}` });
   else if (want === 301 && !pageExists(r.target)) problems.push({ kind: 'TARGET', url: `/${p}`, note: `цель ${r.target} отсутствует` });
+}
+
+// Варианты, которые отдавал WP: ?p=/?page_id= по ID, поиск, лишний слэш у .html, index.php -> одна 301 на цель
+for (const [p, q, want] of [['', 'p=40625', '/credit/refinansirovanie-kredita-chto-eto-znachit.html?'],
+  ['', 'p=40573', '/novosti/?'], ['', 'page_id=3', '/politika-konfidencialnosti/?'], ['', 'p=5', '/?'], ['', 's=kredit', '/?'],
+  ['', 'author=1', '/?'], ['', 'utm_source=x', null], ['index.php', 'p=40625', '/credit/refinansirovanie-kredita-chto-eto-znachit.html?'],
+  ['index.php', '', '/'], ['credit/refinansirovanie-kredita-chto-eto-znachit.html/', '', '/credit/refinansirovanie-kredita-chto-eto-znachit.html'],
+  ['credit/zoloto-desheveet-pered-pyblikaciei-reshenii-frs-ssha.html/', '', '/novosti/'], ['sitemap.html/', '', '/'], ['tag/banki/', '', '/kredity/']]) {
+  const r = simulate(p, q);
+  const got = r ? `${r.status} ${r.target}` : 'нет правила';
+  const ok = want === null ? !r : (r && r.status === 301 && r.target === want);
+  if (!ok) problems.push({ kind: 'VARIANT', url: `/${p}${q ? '?' + q : ''}`, note: `ожидалось ${want === null ? 'без правила' : '301 ' + want}, получено ${got}` });
+  else if (r && !pageExists(r.target.replace(/\?$/, ''))) problems.push({ kind: 'TARGET', url: `/${p}?${q}`, note: `цель ${r.target} отсутствует` });
+  else if (r && simulate(r.target.replace(/^\/|\?$/g, ''), '')) problems.push({ kind: 'CHAIN', url: `/${p}?${q}`, note: `цель ${r.target} снова редиректится` });
 }
 
 // ---------- отчёт ----------

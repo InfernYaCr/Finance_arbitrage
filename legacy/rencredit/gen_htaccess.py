@@ -10,6 +10,7 @@ from urllib.parse import urlsplit, unquote
 
 ROOT = Path(__file__).resolve().parents[2]
 MAP = ROOT / "legacy/rencredit/map.json"
+REMOVED_OFFERS = ROOT / "web/apps/rencredit/src/data/removed-offers.json"
 HTACCESS = ROOT / "web/apps/rencredit/public/.htaccess"
 BEGIN, END = "# BEGIN LEGACY 301", "# END LEGACY 301"
 MAXLEN = 1800  # лимит длины строки правила
@@ -27,7 +28,22 @@ GENERIC_301 = [
     ("Архивы авторов", r"^author/.*$", "/o-proekte/"),
     ("Пагинация рубрики блога /credit/page/N", r"^credit/page/\d+/?$", "/stati/"),
     ("Пагинация главной /page/N", r"^page/\d+/?$", "/"),
+    ("Старая точка входа WP", r"^index\.php$", "/"),
 ]
+# Query-параметры WP на главной (?p=, ?s=, …), не покрытые ID из экспорта -> главная без query
+WP_QUERY_KEYS = "p|page_id|attachment_id|s|cat|tag|author"
+
+def wp_ids(by_url):
+    """?p=<id>/?page_id=<id> из экспорта постов/страниц -> конечная цель (rewrite: тот же URL)."""
+    out = []
+    for f in sorted((MAP.parent / "posts").glob("*.json")) + sorted((MAP.parent / "pages").glob("*.json")):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        x = by_url.get(d["link"])
+        if not x:
+            continue
+        t = urlsplit(d["link"]).path if x["decision"] == "rewrite" else x["target"]
+        out.append(("page_id" if d["type"] == "page" else "p", d["id"], t, d["link"]))
+    return out
 
 def main():
     m = json.loads(MAP.read_text(encoding="utf-8"))
@@ -67,6 +83,13 @@ def main():
     add("# Старый REST через ?rest_route=… -> 410")
     add("RewriteCond %{QUERY_STRING} (^|&)rest_route=")
     add("RewriteRule ^(index\\.php)?$ - [G,L]")
+    add("# ?p=<id> / ?page_id=<id> постов и страниц из экспорта -> их новый адрес одним 301")
+    for k, i, t, _ in wp_ids({x["old_url"]: x for x in m}):
+        add(f"RewriteCond %{{QUERY_STRING}} (^|&){k}={i}(&|$)")
+        add(f"RewriteRule ^(index\\.php)?$ {dest(t, True)} [R=301,L]")
+    add("# Прочие ?p=, ?page_id=, ?s=, ?cat=, ?tag=, ?author= (на статике отдавали бы дубль главной) -> главная")
+    add(f"RewriteCond %{{QUERY_STRING}} (^|&)({WP_QUERY_KEYS})=")
+    add(f"RewriteRule ^(index\\.php)?$ {dest('/', True)} [R=301,L]")
     add("")
 
     add("# --- Отдельные страницы, посты, рубрика, feed (из map.json) ---")
@@ -75,8 +98,10 @@ def main():
         if covered(path, t):
             continue
         add(f"# {typ}: {old}")
-        add(f"RewriteRule ^{esc(path)}/?$ {dest(t)} [R=301,L]" if not path.endswith(".html")
-            else f"RewriteRule ^{esc(path)}$ {dest(t)} [R=301,L]")
+        add(f"RewriteRule ^{esc(path)}/?$ {dest(t)} [R=301,L]")
+    add("# Переписанные статьи /credit/<slug>.html/ (WP снимал лишний слэш) -> без слэша;")
+    add("# файл credit/<slug>.html существует, '/' попадает в PATH_INFO — DPI, чтобы он не прилип к цели")
+    add(f"RewriteRule ^(credit/[^/]+\\.html)/$ {HOST}/$1 [R=301,L,DPI]")
     add("")
 
     add("# --- Теги /tag/<slug> (с завершающим слэшем и без), сгруппированы по цели ---")
@@ -96,6 +121,12 @@ def main():
             ntag += len(c)
             add(f"# {len(c)} тегов -> {t}")
             add(f"RewriteRule ^tag/({'|'.join(c)})/?$ {dest(t)} [R=301,L]")
+    add("")
+
+    removed = {k: v for k, v in json.loads(REMOVED_OFFERS.read_text(encoding="utf-8")).items() if not k.startswith("_")}
+    add("# --- Снятые офферы (src/data/removed-offers.json): обзор -> раздел ---")
+    for slug, t in sorted(removed.items()):
+        add(f"RewriteRule ^mfo/{esc(slug)}/?$ {dest(t)} [R=301,L]")
     add("")
 
     add("# --- Общие правила WordPress ---")
