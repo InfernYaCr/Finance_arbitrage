@@ -135,7 +135,8 @@ function checkSources() {
     const text = readFileSync(f, 'utf8');
     checkDonor(f, text);
     const isContent = rel(f).includes('/src/content/');
-    checkBrand(f, text, !isContent);
+    // service-sources: служебные данные проверки фактов, на сайт не попадают (бренды партнёров в notes допустимы)
+    if (!rel(f).includes('/src/data/service-sources/')) checkBrand(f, text, !isContent);
     if (/\.(astro|mdx|md|tsx)$/.test(f)) checkGoLinks(f, text);
   }
   checkJsonFiles();

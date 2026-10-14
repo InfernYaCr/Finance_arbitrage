@@ -312,8 +312,15 @@
   .oc-cta .more { text-align: center; font-weight: 650; font-size: 14px; color: var(--color-ink-soft); text-decoration: underline; text-underline-offset: 3px; min-height: 44px; display: grid; place-items: center; }
   .oc-cta .more:hover { color: var(--color-brand-600); }
   .oc-body { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  /* Сетка: плитки в ряду одной высоты, шапка фиксирована, кнопка CTA всегда у нижнего края */
+  .offers:not([data-view="list"]) .offer-card { display: flex; flex-direction: column; height: 100%; }
+  .offers:not([data-view="list"]) .oc-head { min-height: 56px; }
+  .offers:not([data-view="list"]) .oc-name { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+  .offers:not([data-view="list"]) .oc-body { flex: 1 1 auto; align-content: start; }
+  .offers:not([data-view="list"]) .offer-card > .ad-mark { order: 90; }
+  .offers:not([data-view="list"]) .oc-cta { order: 99; margin-top: auto; }
   @media (min-width: 900px) {
-    .offers[data-view="list"] .offer-card { grid-template-columns: 250px 1fr 210px; align-items: center; gap: 24px; padding: 20px 24px; }
+    .offers[data-view="list"] .offer-card { display: grid; grid-template-columns: 250px 1fr 210px; align-items: center; gap: 24px; padding: 20px 24px; }
     .offers[data-view="list"] .oc-head { align-items: flex-start; flex-wrap: wrap; }
     .offers[data-view="list"] .oc-badge { margin-left: 0; max-width: none; }
     .offers[data-view="list"] .oc-cta { align-content: center; }
