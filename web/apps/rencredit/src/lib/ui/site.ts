@@ -1,5 +1,6 @@
 const env = import.meta.env;
 const str = (v: unknown) => (typeof v === 'string' ? v.trim() : '');
+const noindex = str(env.PUBLIC_NOINDEX) === 'true';
 
 /**
  * Прод-режимы из переменных окружения (см. .env.example). Читаются на этапе сборки.
@@ -7,9 +8,9 @@ const str = (v: unknown) => (typeof v === 'string' ? v.trim() : '');
  */
 export const ENV = {
   /** true -> meta robots noindex,nofollow везде и robots.txt «Disallow: /» (тестовый поддомен). */
-  noindex: str(env.PUBLIC_NOINDEX) === 'true',
-  /** Номер счётчика Яндекс Метрики (цифры). Пусто -> счётчик не вставляется. */
-  metrikaId: /^\d+$/.test(str(env.PUBLIC_METRIKA_ID)) ? str(env.PUBLIC_METRIKA_ID) : '',
+  noindex,
+  /** Номер счётчика Яндекс Метрики (цифры). Пусто или noindex (тестовый поддомен) -> счётчик не вставляется. */
+  metrikaId: !noindex && /^\d+$/.test(str(env.PUBLIC_METRIKA_ID)) ? str(env.PUBLIC_METRIKA_ID) : '',
   yandexVerification: str(env.PUBLIC_YANDEX_VERIFICATION),
   googleVerification: str(env.PUBLIC_GOOGLE_VERIFICATION),
 } as const;
