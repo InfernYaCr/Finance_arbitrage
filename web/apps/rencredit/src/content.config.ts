@@ -88,6 +88,8 @@ const guides = defineCollection({
     description: z.string().max(200),
     kind: z.enum(['mfo', 'card', 'credit']).default('mfo'),
     feature: z.enum(FEATURES).optional(),  // предустановленный фильтр витрины
+    /** Витрина, если офферов с feature меньше MIN_GUIDE_OFFERS (страница тогда noindex). Нет — все офферы kind. */
+    fallback: z.enum(FEATURES).optional(),
     order: z.number().default(0),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
   }),

@@ -2,9 +2,9 @@
 import Icon from './Icon.astro';
 import LogoMark from './LogoMark.astro';
 import { SITE, NAV } from '../lib/ui/site';
-import { getGuides } from '../lib/content';
+import { getIndexableGuides } from '../lib/content';
 
-const guides = await getGuides();
+const guides = await getIndexableGuides();
 const path = Astro.url.pathname;
 const isCurrent = (href?: string) => !!href && (href === '/' ? path === '/' : path.startsWith(href));
 // Подменю «Займы» — подборки (guides); остальные — из NAV.

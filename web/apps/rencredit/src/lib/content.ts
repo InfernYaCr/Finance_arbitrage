@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { getOffers } from './offers';
 
 type Article = CollectionEntry<'articles'>;
 
@@ -36,4 +37,27 @@ export async function getNews() {
 export async function getGuides() {
   const all = await getCollection('guides');
   return all.sort((a, b) => a.data.order - b.data.order || a.data.navLabel.localeCompare(b.data.navLabel, 'ru'));
+}
+
+/** Меньше стольких офферов с признаком подборки — подборка тонкая. То же число — в astro.config.mjs (sitemap). */
+export const MIN_GUIDE_OFFERS = 3;
+
+/**
+ * Витрина подборки, отфильтрованная в сборке: в HTML только офферы с признаком guide.feature,
+ * клиентский фильтр (preset) их не сужает. Признаки офферов не додумываем: если подтверждённых
+ * меньше MIN_GUIDE_OFFERS — thin (noindex, вне меню), витрина по guide.fallback или все офферы kind.
+ */
+export async function getGuideOffers(guide: CollectionEntry<'guides'>) {
+  const { kind, feature, fallback } = guide.data;
+  const all = await getOffers(kind);
+  const own = feature ? all.filter((o) => o.features.includes(feature)) : all;
+  if (own.length >= MIN_GUIDE_OFFERS) return { offers: own, preset: feature, thin: false };
+  return { offers: fallback ? all.filter((o) => o.features.includes(fallback)) : all, preset: fallback, thin: true };
+}
+
+/** Подборки для меню, футера и перелинковки — без тонких (noindex). */
+export async function getIndexableGuides() {
+  const guides = await getGuides();
+  const thin = await Promise.all(guides.map(async (g) => (await getGuideOffers(g)).thin));
+  return guides.filter((_, i) => !thin[i]);
 }

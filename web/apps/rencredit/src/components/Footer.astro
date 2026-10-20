@@ -4,10 +4,10 @@ import Character from './mascots/Character.astro';
 import Outline from './decor/Outline.astro';
 import Icon from './Icon.astro';
 import { SITE } from '../lib/ui/site';
-import { getGuides } from '../lib/content';
+import { getIndexableGuides } from '../lib/content';
 import { SERVICE_LINKS } from '../lib/services';
 
-const guides = await getGuides();
+const guides = await getIndexableGuides();
 const year = new Date().getFullYear();
 const L = SITE.legal;
 const legalLine = [L.owner, L.inn && `ИНН ${L.inn}`, L.ogrn && `ОГРН ${L.ogrn}`, L.address].filter(Boolean).join(', ');
