@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import OfferLogo from '../../components/OfferLogo.astro';
 import AdMark from '../../components/AdMark.astro';
+import RegistryBadge from '../../components/RegistryBadge.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaTop3 from '../../components/cta/CtaTop3.astro';
 import CtaZero from '../../components/cta/CtaZero.astro';
@@ -9,7 +10,7 @@ import { KIND_URL } from '../../lib/cta';
 import Icon from '../../components/Icon.astro';
 import { getOffers, offerHref, pskRange, creditRate, showsRate, NO_RATE, CTA_LABEL, REVIEW_DIR, PSK_LABEL } from '../../lib/offers';
 import { FEATURE_LABELS } from '../../lib/ui/features';
-import { range, num, pct, daysWord, moneyRange, termText } from '../../lib/format';
+import { range, num, pct, daysWord, moneyRange, termText, ageText } from '../../lib/format';
 import { SITE } from '../../lib/ui/site';
 
 // Обзоры: /mfo/<slug>/, /karty/<slug>/, /kredity/<slug>/ — раздел по kind (REVIEW_DIR).
@@ -47,7 +48,7 @@ const rows: [string, string][] = [
   ...(rate ? ([['Ставка', rate + (o.kind === 'mfo' && o.freeDays && o.features.includes('zero_percent') ? ` (0% первые ${daysWord(o.freeDays)} для новых клиентов)` : '')]] as [string, string][]) : []),
   ...(o.approvalPct ? ([['Заявленное одобрение', `${o.approvalPct}%`]] as [string, string][]) : []),
   ...(o.decisionMinutes ? ([['Время решения', `до ${o.decisionMinutes} мин`]] as [string, string][]) : []),
-  ['Возраст заёмщика', `${o.ageMin}–${o.ageMax} лет`],
+  ['Возраст заёмщика', ageText(o.ageMin, o.ageMax)],
   ['Гражданство', 'Российская Федерация'],
 ];
 const legal: [string, string][] = [
@@ -71,6 +72,7 @@ const legal: [string, string][] = [
         <a class="btn btn-cta btn-lg btn-block" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank">{CTA_LABEL[o.kind]}<Icon name="arrow" class="arrow" /></a>
         <p class="text-center text-sm text-mute">Заявка оформляется на сайте организации</p>
         <AdMark offer={o} />
+        <RegistryBadge offer={o} />
       </div>
     </div>
 

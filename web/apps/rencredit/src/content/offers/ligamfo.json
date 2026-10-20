@@ -13,7 +13,6 @@
   "pskMax": 292,
   "decisionMinutes": 15,
   "ageMin": 18,
-  "ageMax": 100,
   "features": [
     "to_card",
     "cash",

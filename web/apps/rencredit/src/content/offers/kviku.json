@@ -11,7 +11,6 @@
   "rateDayPct": 0.8,
   "pskMax": 292,
   "ageMin": 18,
-  "ageMax": 65,
   "features": [
     "to_card",
     "long_term"
@@ -19,7 +18,7 @@
   "cbrLicense": "651303045003744",
   "legalName": "ООО МФК «ЭЙРЛОАНС»",
   "erid": "2VtzqvbSyDY",
-  "verified": false,
+  "verified": true,
   "priority": 66,
   "summary": "Онлайн-сервис займов и рассрочки. По правилам ООО МФК «ЭйрЛоанс» от 03.09.2026 заём выдаётся до 49 500 ₽ на срок от 30 до 365 дней.",
   "pros": [

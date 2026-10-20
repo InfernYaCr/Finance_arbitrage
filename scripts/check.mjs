@@ -21,6 +21,7 @@ const DIST = join(APP, 'dist');
 const POOL = join(ROOT, 'sites', 'affiliate_pool.json');
 const FACTS = join(WEB, 'packages', 'core', 'src', 'data', 'facts.json');
 const FACTS_MAX_AGE_DAYS = 7;
+const CHECK_CONTENT = join(WEB, 'scripts', 'check-content.mjs');
 
 const args = new Set(process.argv.slice(2));
 const QUICK = args.has('--quick');
@@ -121,6 +122,17 @@ function checkFacts() {
   if (!(ageDays <= FACTS_MAX_AGE_DAYS)) warn(`facts.json: синк с cbr.ru был ${Math.floor(ageDays)} дн. назад (${facts.fetchedAt}); запустите node web/scripts/sync-cbr.mjs`);
 }
 
+/** web/scripts/check-content.mjs: офферы, реестр ЦБ, свежесть источников, ссылки в текстах.
+ *  Срочный деплой с устаревшими checkedAt/снимком ЦБ: ALLOW_STALE=1 node scripts/check.mjs (переменная пробрасывается). */
+function checkContent() {
+  const r = spawnSync(process.execPath, [CHECK_CONTENT], { cwd: ROOT, encoding: 'utf8' });
+  const lines = `${r.stdout || ''}\n${r.stderr || ''}`.split('\n');
+  for (const l of lines) if (l.startsWith('ERROR ')) err(`check-content: ${l.slice(6)}`);
+  const n = lines.filter((l) => l.startsWith('WARN ')).length;
+  if (n) warn(`check-content: предупреждений ${n} (подробно: node web/scripts/check-content.mjs)`);
+  if (r.status !== 0 && !lines.some((l) => l.startsWith('ERROR '))) err(`check-content упал (код ${r.status}): ${(r.stderr || r.error?.message || '').trim().split('\n').slice(-3).join(' ')}`);
+}
+
 function checkJsonFiles() {
   const dirs = [join(SRC, 'content'), join(WEB, 'packages', 'core', 'src', 'data')];
   const files = dirs.flatMap((d) => walk(d, ['.json']));
@@ -166,6 +178,7 @@ function checkSources() {
   }
   checkJsonFiles();
   checkFacts();
+  checkContent();
 }
 
 function runBuild() {
