@@ -44,7 +44,9 @@ npm --prefix web/apps/rencredit run preview -- --port 4330
 ```bash
 node scripts/check.mjs --quick                 # исходники: бренды донора, rel у /go/, офферы
 node scripts/check.mjs                         # полная: build + аудит dist
-node web/scripts/check-content.mjs             # офферы ↔ пул Saleads, лимиты ставок, логотипы
+node web/scripts/check-content.mjs             # офферы ↔ пул Saleads, реестр ЦБ, лимиты ставок, логотипы (входит в check.mjs)
+node web/scripts/sync-cbr-registry.mjs         # снимок реестра ЦБ (МФО + банки) -> src/data/cbr-registry.json, раз в неделю
+ALLOW_STALE=1 node scripts/check.mjs           # срочный деплой: устаревшие checkedAt/снимок ЦБ — предупреждение
 npm --prefix web/apps/rencredit run check      # astro check (типы)
 ```
 
@@ -115,7 +117,7 @@ dist/  ── FTP ──▶  Beget          (.github/workflows/deploy-rencredit.
 1. Обновить пул: `python site_pipeline/saleads_offers.py export-pool` (токен `SALEADS_API_KEY` в `site/.env`).
 2. Скопировать во фронт: `node web/scripts/sync-pool.mjs`.
 3. Продукт для витрины — JSON в `web/apps/rencredit/src/content/offers/` с `poolId` из пула.
-4. `node web/scripts/check-content.mjs`.
+4. `node web/scripts/sync-cbr-registry.mjs` (новый номер `cbrLicense` попадает в снимок реестра ЦБ), затем `node web/scripts/check-content.mjs`.
 
 > ⚠️ Условия всех офферов заполнены по публичным данным и помечены `verified: false`.
 > Перед продом — сверить с сайтами МФО и кабинетом Saleads.

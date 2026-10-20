@@ -151,7 +151,19 @@ for (const f of svcFiles) {
 const PARTNER_RE = /saleads|admitad|leads\.su|leadgid|actionpay|cpa\.|utm_|aff_|click\.|clickid/i;
 const ALLOWED_HOSTS = ['cbr.ru', 'www.cbr.ru', 'consultant.ru', 'www.consultant.ru', 'garant.ru', 'pravo.gov.ru',
   'publication.pravo.gov.ru', 'gosuslugi.ru', 'www.gosuslugi.ru', 'fedresurs.ru', 'interfax.ru', 'www.interfax.ru',
-  'banki.ru', 'www.banki.ru', 'rencredit-online.ru', 'duma.gov.ru', 'government.ru', 'kremlin.ru', 'minfin.gov.ru', 'xn--90aivcdt6dxbc.xn--p1ai'];
+  'banki.ru', 'www.banki.ru', 'rencredit-online.ru', 'duma.gov.ru', 'government.ru', 'kremlin.ru', 'minfin.gov.ru', 'xn--90aivcdt6dxbc.xn--p1ai',
+  // первоисточники для «Источников» статей: госорганы и суды, финомбудсмен, БКИ, ДОМ.РФ, «Российская газета» (публикация законов),
+  // банки и BNPL-сервисы без своего оффера
+  'gov.ru', 'ksrf.ru', 'vsrf.ru', 'finombudsman.ru', 'rospotrebnadzor.ru', 'grfc.ru', 'rg.ru', 'nbki.ru', 'scoring.ru',
+  'xn--d1aqf.xn--p1ai', 'sovcombank.ru', 'vtb.ru', 'dolyame.ru', 'yandex.ru', 'alfabank.servicecdn.ru'];
+// + домены официальных сайтов кредиторов и партнёров (officialUrl в offer-sources/service-sources), с поддоменами
+for (const dir of [SOURCES_DIR, SVC_SOURCES_DIR]) {
+  for (const f of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
+    const u = readJson(join(dir, f)).officialUrl;
+    if (u) ALLOWED_HOSTS.push(new URL(u).hostname.split('.').slice(-2).join('.'));
+  }
+}
+const allowedHost = (h) => ALLOWED_HOSTS.some((a) => h === a || h.endsWith(`.${a}`));
 function walk(dir) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((d) =>
     d.isDirectory() ? walk(join(dir, d.name)) : [join(dir, d.name)]);
@@ -168,7 +180,8 @@ for (const file of walk(contentDir)) {
   if (sect !== 'offers' && sect !== 'services') {
     if (PARTNER_RE.test(text)) err(`${rel}: похоже на партнёрскую ссылку/метку`);
     for (const m of text.matchAll(/https?:\/\/([^\s/)"'\]>]+)/g)) {
-      if (!ALLOWED_HOSTS.includes(m[1].toLowerCase())) err(`${rel}: внешняя ссылка на ${m[1]} (нет в allowlist)`);
+      // В новостях только allowlist; в статьях и гайдах прочее — предупреждение редактору (не первоисточник?)
+      if (!allowedHost(m[1].toLowerCase())) (sect === 'news' ? err : (x) => warns.push(x))(`${rel}: внешняя ссылка на ${m[1]} (нет в allowlist)`);
     }
     if (/100\s*%\s*(одобрен|гарант)/i.test(text)) err(`${rel}: обещание 100% одобрения`);
     if (/(Ренессанс|Renaissance)/i.test(text)) err(`${rel}: упоминание «Ренессанс Кредит»`);
