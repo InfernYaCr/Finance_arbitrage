@@ -59,11 +59,11 @@ REWRITE = {
 # Остальные посты -> (target, reason); всё прочее по умолчанию -> /novosti/
 MERGE = {
     "kak-polychit-povtornoe-refinansirovanie-ipoteki": (REFI, "429 слов, ипотека вне фокуса сайта; тема повторного рефинансирования раскрывается в опорной статье."),
-    "pytin-podpisal-zakon-o-periode-ohlajdeniia-po-potrebitelskim-kreditam": ("/novosti/", "Устаревшая новостная заметка (459 слов) без самостоятельной ценности; общий раздел новостей."),
-    "sovfed-na-plenarnom-zasedanii-odobril-zakon-o-periode-ohlajdeniia-po-potrebkreditam": ("/novosti/", "Короткая новость-однодневка (180 слов) о том же законе."),
-    "gosdyma-priniala-zakon-po-limitam-na-vydachy-ipotechnyh-i-avtokreditov-fizlicam": ("/kredity/", "Короткая устаревшая новость об ограничениях по ипотеке и автокредитам; ближайший раздел — каталог кредитов."),
-    "komitet-gosdymy-odobril-pravo-cb-rf-ogranichivat-vydachy-ipotechnyh-i-avtokreditov": ("/kredity/", "Короткая новость того же сюжета, дубль."),
-    "sovfed-odobril-pravo-cb-limitirovat-vydachy-ipotechnyh-i-avtokreditov-fizlicam": ("/kredity/", "Короткая новость того же сюжета, дубль."),
+    "pytin-podpisal-zakon-o-periode-ohlajdeniia-po-potrebitelskim-kreditam": ("/stati/period-ohlazhdeniya-po-kreditu/", "Устаревшая новость о законе о периоде охлаждения; тема раскрыта в статье о периоде охлаждения."),
+    "sovfed-na-plenarnom-zasedanii-odobril-zakon-o-periode-ohlajdeniia-po-potrebkreditam": ("/stati/period-ohlazhdeniya-po-kreditu/", "Короткая новость-однодневка (180 слов) о том же законе; статья о периоде охлаждения."),
+    "gosdyma-priniala-zakon-po-limitam-na-vydachy-ipotechnyh-i-avtokreditov-fizlicam": ("/stati/pokazatel-dolgovoj-nagruzki/", "Короткая устаревшая новость о праве ЦБ ограничивать выдачи (макропруденциальные лимиты); статья о ПДН и лимитах."),
+    "komitet-gosdymy-odobril-pravo-cb-rf-ogranichivat-vydachy-ipotechnyh-i-avtokreditov": ("/stati/pokazatel-dolgovoj-nagruzki/", "Короткая новость того же сюжета, дубль."),
+    "sovfed-odobril-pravo-cb-limitirovat-vydachy-ipotechnyh-i-avtokreditov-fizlicam": ("/stati/pokazatel-dolgovoj-nagruzki/", "Короткая новость того же сюжета, дубль."),
     "bank-rossii-planiryet-ogranichit-rost-ejemesiachnogo-plateja-po-ipoteke": ("/kredity/", "Короткая устаревшая новость про ипотечный платёж."),
     "vtb-rynok-ipoteki-v-rossii-v-2025-gody-sojmetsia-minimym-na-20": ("/kredity/", "Короткая устаревшая новость про рынок ипотеки."),
     "eksperty-osvobojdenie-ot-ndfl-kosnetsia-nebolshogo-chisla-ipotechnikov": ("/kredity/", "Короткая устаревшая новость про ипотеку и НДФЛ."),
@@ -95,7 +95,6 @@ LOST = {
         "mojno-li-vziat-obychnyu-ipoteky-a-potom-refinansirovat-po-semeinoi-ipoteke",
         "obzor-programm-refinansirovaniia-2023-goda", "osobennosti-refinansirovaniia-voennoi-ipoteki-v-2024-gody",
         "otvety-na-voprosy-zaemshikov-pro-refinansirovanie",
-        "refinansirovanie-ili-restryktyrizaciia-chto-vybrat-dlia-ymensheniia-plateja-po-kredity",
         "refinansirovanie-ipoteki-drygih-bankov-lychshie-predlojeniia-2024-goda",
         "refinansirovanie-ipoteki-v-chem-vygoda-i-kak-ee-rasschitat", "refinansirovanie-kredita",
         "refinansirovanie-kredita-dlia-pensionerov-lychshie-predlojeniia-bankov-v-2024-gody",
@@ -116,16 +115,12 @@ LOST = {
         "odobriat-li-refinansirovanie-v-banke-esli-net-spravki-o-dohodah",
         "spisok-dokymentov-dlia-refinansirovaniia-kredita-i-ipoteki",
     ]),
-    BADKI: ("Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).", [
+    BADKI: ("Просрочка, плохая КИ, рефинансирование с просрочкой.", [
         "gde-oformit-refinansirovanie-kreditov-s-prosrochkoi",
         "kyda-obrashatsia-za-refinansirovaniem-esli-kredit-s-zadoljennostu",
-        "osnovnye-prichiny-pochemy-bank-ne-refinansiryet-kredit-daje-pod-zalog",
-        "otkazali-v-refinansirovanii-osnovnye-prichiny", "pochemy-bank-otkazyvaet-v-refinansirovanii-posle-restryktyrizacii",
-        "prichiny-otkaza-v-refinansirovanii-kotorye-skryvaut-banki",
         "razreshat-li-v-banke-refinansirovat-mikrozaim-s-prosrochkami",
         "refinansirovanie-ipoteki-s-plohoi-ki-v-kakih-bankah-odobriat",
         "refinansirovanie-s-plohoi-kreditnoi-istoriei-predlojeniia-bankov",
-        "top-6-prichin-pochemy-banki-otkazyvaut-v-refinansirovanii",
     ]),
     "/credit/kak-sdelat-refinansirovanie-kreditov-v-sberbanke.html": ("Сбербанк.", [
         "kak-oformit-refinansirovanie-kredita-v-sberbanke", "kakie-nyjny-dokymenty-dlia-refinansirovaniia-v-sberbanke",
@@ -133,7 +128,7 @@ LOST = {
         "sberbank-otkazal-v-refinansirovanii-prichiny-kak-ispravit-sityaciu",
     ]),
     "/credit/stoit-li-ispolzovat-refinansirovanie-kredita.html": ("«Плюсы и минусы», «когда выгодно».", [
-        "plusy-i-minysy-refinansirovaniia", "kogda-vygodno-oformliat-refinansirovanie-a-kogda-kreditnye-kanikyly",
+        "plusy-i-minysy-refinansirovaniia",
     ]),
     "/credit/perekreditovanie-kredita-pod-menshii-procent.html": ("«Снизить процент».", [
         "kak-snizit-procent-po-kredity-v-2024-gody",
@@ -157,6 +152,24 @@ LOST = {
     "/stati/samozapret-na-kredity/": ("Самозапрет на кредиты.", [
         "grigorenko-grajdane-smogyt-samozapretit-oformlenie-kredita-cherez-gosyslygi",
     ]),
+    "/stati/pochemu-bank-otkazyvaet-v-kredite/": ("Причины отказа в кредите и рефинансировании.", [
+        "osnovnye-prichiny-pochemy-bank-ne-refinansiryet-kredit-daje-pod-zalog",
+        "otkazali-v-refinansirovanii-osnovnye-prichiny", "pochemy-bank-otkazyvaet-v-refinansirovanii-posle-restryktyrizacii",
+        "prichiny-otkaza-v-refinansirovanii-kotorye-skryvaut-banki",
+        "top-6-prichin-pochemy-banki-otkazyvaut-v-refinansirovanii",
+    ]),
+    "/stati/restrukturizaciya-kredita-kak-poluchit/": ("Реструктуризация кредита.", [
+        "refinansirovanie-ili-restryktyrizaciia-chto-vybrat-dlia-ymensheniia-plateja-po-kredity",
+    ]),
+    "/stati/kreditnye-kanikuly-2026/": ("Кредитные каникулы.", [
+        "kogda-vygodno-oformliat-refinansirovanie-a-kogda-kreditnye-kanikyly",
+    ]),
+    "/stati/period-ohlazhdeniya-po-kreditu/": ("Период охлаждения по потребкредитам (новость о законопроекте).", [
+        "gosdyma-priniala-v-i-chtenii-zakonoproekt-o-periode-ohlajdeniia-po-potrebkreditam",
+    ]),
+    "/stati/pokazatel-dolgovoj-nagruzki/": ("Право ЦБ на макропруденциальные лимиты (новость о законопроекте).", [
+        "gosdyma-vo-ii-chtenii-razreshaet-cb-limitirovat-vydachy-ipoteki-i-avtokreditov-fizlicam",
+    ]),
     "/zaimy/": ("Краткосрочные займы.", [
         "bystrye-kredity-kratkosrochnye-zajmy",
     ]),
@@ -175,8 +188,6 @@ LOST = {
         "cb-ne-bydet-prodlevat-mery-podderjki-bankov-zavershaushih-deistvie-v-2024-gody",
         "cb-povysil-ojidaniia-po-rosty-potrebkreditovaniia-v-2024-gody-do-15-18",
         "docent-gorbynova-esli-bank-yrezal-vam-kreditnyi-limit-proverte-nalichie-dolga",
-        "gosdyma-priniala-v-i-chtenii-zakonoproekt-o-periode-ohlajdeniia-po-potrebkreditam",
-        "gosdyma-vo-ii-chtenii-razreshaet-cb-limitirovat-vydachy-ipoteki-i-avtokreditov-fizlicam",
         "nabiyllina-kreditnaia-aktivnost-v-pervye-nedeli-dekabria-ostavalas-sderjannoi",
         "naimenee-popyliarnoi-ipotechnoi-programmoi-v-2024-gody-stala-dalnevostochnaia-ipoteka",
         "nbki-dolia-zaemshikov-moloje-30-let-v-stryktyre-vydachi-potrebitelskih-kreditov-sokratilas",

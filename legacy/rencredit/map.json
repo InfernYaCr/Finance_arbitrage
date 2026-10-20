@@ -247,8 +247,8 @@
     "http_status": 200,
     "in_sitemap": true,
     "decision": "merge301",
-    "target": "/kredity/",
-    "reason": "Короткая устаревшая новость об ограничениях по ипотеке и автокредитам; ближайший раздел — каталог кредитов.",
+    "target": "/stati/pokazatel-dolgovoj-nagruzki/",
+    "reason": "Короткая устаревшая новость о праве ЦБ ограничивать выдачи (макропруденциальные лимиты); статья о ПДН и лимитах.",
     "priority": null
   },
   {
@@ -380,7 +380,7 @@
     "http_status": 200,
     "in_sitemap": true,
     "decision": "merge301",
-    "target": "/kredity/",
+    "target": "/stati/pokazatel-dolgovoj-nagruzki/",
     "reason": "Короткая новость того же сюжета, дубль.",
     "priority": null
   },
@@ -489,8 +489,8 @@
     "http_status": 200,
     "in_sitemap": true,
     "decision": "merge301",
-    "target": "/novosti/",
-    "reason": "Устаревшая новостная заметка (459 слов) без самостоятельной ценности; общий раздел новостей.",
+    "target": "/stati/period-ohlazhdeniya-po-kreditu/",
+    "reason": "Устаревшая новость о законе о периоде охлаждения; тема раскрыта в статье о периоде охлаждения.",
     "priority": null
   },
   {
@@ -622,8 +622,8 @@
     "http_status": 200,
     "in_sitemap": true,
     "decision": "merge301",
-    "target": "/novosti/",
-    "reason": "Короткая новость-однодневка (180 слов) о том же законе.",
+    "target": "/stati/period-ohlazhdeniya-po-kreditu/",
+    "reason": "Короткая новость-однодневка (180 слов) о том же законе; статья о периоде охлаждения.",
     "priority": null
   },
   {
@@ -634,7 +634,7 @@
     "http_status": 200,
     "in_sitemap": true,
     "decision": "merge301",
-    "target": "/kredity/",
+    "target": "/stati/pokazatel-dolgovoj-nagruzki/",
     "reason": "Короткая новость того же сюжета, дубль.",
     "priority": null
   },
@@ -2770,7 +2770,7 @@
     "in_sitemap": false,
     "decision": "merge301",
     "target": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
-    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).",
+    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, рефинансирование с просрочкой.",
     "priority": null
   },
   {
@@ -2792,9 +2792,9 @@
     "words": null,
     "http_status": 404,
     "in_sitemap": false,
-    "decision": "gone410",
-    "target": null,
-    "reason": "Wayback 200, не было в REST. Нет тематической цели: банки без статей (Райффайзен, Росбанк, ПСБ, Газпромбанк, Возрождение), льготная ипотека без рефинансирования, ставка рефинансирования ЦБ, новости без темы, офтоп. 301 на хаб/главную = soft-404 (SEO_PLAN §7.1).",
+    "decision": "merge301",
+    "target": "/stati/period-ohlazhdeniya-po-kreditu/",
+    "reason": "Wayback 200, не было в REST. Период охлаждения по потребкредитам (новость о законопроекте).",
     "priority": null
   },
   {
@@ -2804,9 +2804,9 @@
     "words": null,
     "http_status": 404,
     "in_sitemap": false,
-    "decision": "gone410",
-    "target": null,
-    "reason": "Wayback 200, не было в REST. Нет тематической цели: банки без статей (Райффайзен, Росбанк, ПСБ, Газпромбанк, Возрождение), льготная ипотека без рефинансирования, ставка рефинансирования ЦБ, новости без темы, офтоп. 301 на хаб/главную = soft-404 (SEO_PLAN §7.1).",
+    "decision": "merge301",
+    "target": "/stati/pokazatel-dolgovoj-nagruzki/",
+    "reason": "Wayback 200, не было в REST. Право ЦБ на макропруденциальные лимиты (новость о законопроекте).",
     "priority": null
   },
   {
@@ -3057,8 +3057,8 @@
     "http_status": 404,
     "in_sitemap": false,
     "decision": "merge301",
-    "target": "/credit/stoit-li-ispolzovat-refinansirovanie-kredita.html",
-    "reason": "Wayback 200, не было в REST. «Плюсы и минусы», «когда выгодно».",
+    "target": "/stati/kreditnye-kanikuly-2026/",
+    "reason": "Wayback 200, не было в REST. Кредитные каникулы.",
     "priority": null
   },
   {
@@ -3070,7 +3070,7 @@
     "in_sitemap": false,
     "decision": "merge301",
     "target": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
-    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).",
+    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, рефинансирование с просрочкой.",
     "priority": null
   },
   {
@@ -3273,8 +3273,8 @@
     "http_status": 404,
     "in_sitemap": false,
     "decision": "merge301",
-    "target": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
-    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).",
+    "target": "/stati/pochemu-bank-otkazyvaet-v-kredite/",
+    "reason": "Wayback 200, не было в REST. Причины отказа в кредите и рефинансировании.",
     "priority": null
   },
   {
@@ -3297,8 +3297,8 @@
     "http_status": 404,
     "in_sitemap": false,
     "decision": "merge301",
-    "target": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
-    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).",
+    "target": "/stati/pochemu-bank-otkazyvaet-v-kredite/",
+    "reason": "Wayback 200, не было в REST. Причины отказа в кредите и рефинансировании.",
     "priority": null
   },
   {
@@ -3333,8 +3333,8 @@
     "http_status": 404,
     "in_sitemap": false,
     "decision": "merge301",
-    "target": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
-    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).",
+    "target": "/stati/pochemu-bank-otkazyvaet-v-kredite/",
+    "reason": "Wayback 200, не было в REST. Причины отказа в кредите и рефинансировании.",
     "priority": null
   },
   {
@@ -3405,8 +3405,8 @@
     "http_status": 404,
     "in_sitemap": false,
     "decision": "merge301",
-    "target": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
-    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).",
+    "target": "/stati/pochemu-bank-otkazyvaet-v-kredite/",
+    "reason": "Wayback 200, не было в REST. Причины отказа в кредите и рефинансировании.",
     "priority": null
   },
   {
@@ -3478,7 +3478,7 @@
     "in_sitemap": false,
     "decision": "merge301",
     "target": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
-    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).",
+    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, рефинансирование с просрочкой.",
     "priority": null
   },
   {
@@ -3501,8 +3501,8 @@
     "http_status": 404,
     "in_sitemap": false,
     "decision": "merge301",
-    "target": "/credit/refinansirovanie-kredita-chto-eto-znachit.html",
-    "reason": "Wayback 200, не было в REST. Общее про рефинансирование, ипотеку (до хаба /stati/refinansirovanie-ipoteki-v-2026/), автокредит, кредитные карты — опорная статья.",
+    "target": "/stati/restrukturizaciya-kredita-kak-poluchit/",
+    "reason": "Wayback 200, не было в REST. Реструктуризация кредита.",
     "priority": null
   },
   {
@@ -3526,7 +3526,7 @@
     "in_sitemap": false,
     "decision": "merge301",
     "target": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
-    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).",
+    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, рефинансирование с просрочкой.",
     "priority": null
   },
   {
@@ -3682,7 +3682,7 @@
     "in_sitemap": false,
     "decision": "merge301",
     "target": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
-    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).",
+    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, рефинансирование с просрочкой.",
     "priority": null
   },
   {
@@ -3765,8 +3765,8 @@
     "http_status": 404,
     "in_sitemap": false,
     "decision": "merge301",
-    "target": "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html",
-    "reason": "Wayback 200, не было в REST. Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).",
+    "target": "/stati/pochemu-bank-otkazyvaet-v-kredite/",
+    "reason": "Wayback 200, не было в REST. Причины отказа в кредите и рефинансировании.",
     "priority": null
   },
   {
