@@ -1,5 +1,8 @@
 # Mosseo Site Pipeline
 
+> **Активный сайт — rencredit-online.ru («Мерка»). Точка входа: `AGENT_HANDOFF.md`** (состояние, ветки, команды, открытые вопросы).
+> Работа идёт в `web/apps/rencredit`, рабочая ветка `content/wave-1-articles`. Всё, что про finhelp-ru, mosseo, `site/`, `site_pipeline/` и Beget-тестовый сайт `yourkedm.beget.tech`, лежит ниже в разделе «Legacy (finhelp-ru/mosseo)» и к rencredit не относится.
+
 ## Новый фронт web/ (пилот rencredit)
 
 Пилот сайта rencredit-online.ru строится в `web/` (npm workspaces). Старый `site/` (Astro 4) и Python `site_pipeline/` остаются как есть и обслуживают донорский конвейер.
@@ -33,6 +36,10 @@ py scripts/test_guard.py                 # самопроверка PreToolUse-�
 - Хук `.claude/hooks/guard.py` блокирует чтение `.env`, `git push`, массовые удаления, правку `sites/*/pages/*.json`, копирование файлов Яндекса/Метрики между сайтами. Не обходить.
 - Зоны владения при параллельной работе: `web/apps/rencredit/src/{pages,layouts,components,styles}` (ui-builder), `web/packages/motion` (motion-designer), `src/content/{articles,guides}` (content-writer), `src/content/news` (news-writer), `web/packages/core` и `src/content/offers` (основной агент). Свою зону не покидать.
 
+## Legacy (finhelp-ru/mosseo)
+
+> Разделы ниже описывают старый конвейер (finhelp-ru, mosseo, донорский краулинг, `site/`). Статусы в них датированы июнем 2026 и **не отражают rencredit**. Архив старого handoff: `docs/archive/AGENT_HANDOFF_finhelp_2026-06.md`.
+
 Read `AGENT_HANDOFF.md` first — it's the single entry-point snapshot (state,
 commands, gotchas, next steps). Then `HANDOFF.md` for the chronological log of
 project state, generated artifacts, QA status, deploy status, and next tasks.
@@ -59,7 +66,7 @@ Latest status (2026-06-08):
 - **Next:** full crawl of `vsezaimyonline.ru` (≥300 pages) → `promoSlots.json` +
   offer-aware page design (LAUNCH_PLAN §23) → re-export after 60 connectors approved.
 
-## Claude quick context
+### Claude quick context
 
 Workspace: корень репозитория (Windows: `E:\Finance_arbitrage`). Все команды ниже выполняются из корня. Оболочка: Git Bash или PowerShell; Python только через `py` или `.venv\Scripts\python.exe`.
 
@@ -198,7 +205,7 @@ This distinguishes content articles from source-template pages such as service
 catalogs, calculator/service landings, portfolio templates, and dictionary
 archives.
 
-## Common commands
+### Common commands
 
 Pipeline QA:
 

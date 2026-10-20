@@ -1,119 +1,78 @@
-# Agent Handoff — Mosseo Site Pipeline
+# Agent Handoff — rencredit-online.ru («Мерка»)
 
-> Точка входа для свежего агента. Прочитай этот файл первым, затем `HANDOFF.md`
-> (хронологический лог) и `LAUNCH_PLAN.md` (план запуска). Дата снимка: **2026-06-08**.
-> Обновлено: офферы теперь реально рендерятся на сайте (см. §2, §5).
+> Точка входа для нового агента. Снимок: **2026-10-20**, ветка `content/wave-1-articles` (HEAD `b60b616`).
+> Старый снимок про finhelp-ru (июнь 2026): `docs/archive/AGENT_HANDOFF_finhelp_2026-06.md`. Он **не про этот сайт**.
 
-## 1. Что это за проект
+## 1. Что это
 
-PBN/контент-фабрика под финансовую нишу РФ. Каждый сайт зарабатывает сам через
-CPA (не ссылочный PBN): органический SEO → `/go/<offer>/` → CPA-сеть Saleads → выплата.
+Финансовый CPA-сайт: рефинансирование, кредиты, кредитные карты, кредитная история, долги. МФО — вторичный контур.
+Деньги: SEO → витрина офферов → `/go/<poolId>/` → CPA-сеть Saleads. Основной поисковик — Яндекс.
 
-- `site_pipeline/` — Python: краулит донора, нормализует контент в `pages/*.json`.
-- `site/` — единый Astro-рендерер; собирает выбранный датасет в статический сайт.
-- `sites/<name>/` — конфиг + данные конкретного сайта (контент, офферы, навигация).
+- **Активное приложение:** `web/apps/rencredit/` (Astro 7 + Tailwind 4 + GSAP, статика). Контент — markdown в content collections.
+- `web/packages/core` (`@pbn/core`: офферы, JSON-LD, SEO, факты) и `web/packages/motion` (`@pbn/motion`: анимации, View Transitions).
+- Схемы frontmatter — источник правды: `web/apps/rencredit/src/content.config.ts`.
+- Старый `site/` (Astro 4), `site_pipeline/`, `sites/finhelp-ru` — донорский конвейер и другой сайт. Не трогать без задачи (см. раздел Legacy в `CLAUDE.md`).
 
-**Активный сайт:** `sites/finhelp-ru/` (финансы). Деплой-хост: http://yourkedm.beget.tech/
-**Текущая ветка:** `codex/pbn-factory` (работать на топик-ветке, не в main).
+## 2. Где работать
 
-## 2. Текущее состояние (что готово)
+- Рабочая ветка: `content/wave-1-articles`, основной checkout `/Users/deniskononov/rencredit-pilot-wt`.
+- Новая работа — в своём worktree от этой ветки (`claude/rencredit-<тема>-<id>`). Ветка `release` — база для PR; `codex/pbn-factory` в корневом checkout — старая.
+- Запрещено настройками проекта: `git push`, `reset --hard`, `clean`, `rm -rf`. Хук `.claude/hooks/guard.py` блокирует чтение `.env`, правку `sites/*/pages/*.json` и т.п. Не обходить.
 
-| Область | Статус |
+## 3. Состояние контента
+
+| Коллекция | Всего | Опубликовано | Draft |
+|---|---|---|---|
+| `articles` | 52 | 37 | 15 (wave-1) |
+| `guides` | 7 | 7 | 0 |
+| `news` | 4 | 3 | 1 (`stavka-0-8-procenta-i-limit-130-s-iyulya-2023`) |
+| `offers/*.json` | 33 | — | — |
+
+- **Релиз 1** = 15 статей (commit `7337b6c`): `draft: false`, `publishDate: 2026-10-21`; факты сверены с первоисточниками (`23c482c`), перелинковка (`825967a`).
+- Для 14 legacy-URL `/credit/*.html` настроены 301 на статьи релиза 1 (`21e8fb1`); остальные потерянные URL — 301/410 (`2775a9f`).
+- Витрины гайдов `/zaimy/`, `/zaimy-na-kartu/` разведены по интентам (`fd1b39f`), ставка ЦБ подтягивается при сборке (`163a329`), цели Метрики на CPA-кликах (`022a0e0`).
+- Оставшиеся 15 draft-статей — релиз 2. План и приоритеты: `docs/seo-rencredit/SEO_PLAN.md`, `FEATURES_PLAN.md`, `article-briefs.md`.
+- Факт в HEAD ≠ факт на проде: статус выкладки на Beget в git не виден, проверяй у владельца. Процедура: `docs/DEPLOY.md`, `scripts/deploy-beget.sh`.
+
+## 4. Открытые ветки (не смёржены в `content/wave-1-articles`)
+
+| Ветка | Что внутри |
 |---|---|
-| Краулер Crawl4AI (замена Firecrawl) | ✅ `crawl_pages_c4ai.py`, `.venv311`, smoke ок |
-| Saleads API клиент | ✅ `saleads_offers.py` (offers/connect/export) |
-| Офферы финансы+страхование (РФ) | ✅ 160 коннекторов подключено (100 live + 60 на модерации) |
-| `affiliateLinks.json` (finhelp-ru) | ✅ 101 оффер, тег `vertical` + `utm`, все live/enabled |
-| `affiliate_pool.json` (мастер) | ✅ 189 коннекторов, vertical + status |
-| Офферы реально рендерятся на сайте | ✅ `gen-env.sh` синкает данные в `site/src/data/`, build проверен (101 `/go/` маршрутов без краша) |
-| `promoSlots.json` (finhelp-ru) | ✅ 1 generic-слот (топ-4 по mfo/card/credit/business), `sections: []` — временно, разбивка по реальным разделам ещё впереди |
-| Полный краул донора vsezaimyonline.ru | ✅ **2921 страница** в `sites/finhelp-ru/pages` (реальный размер сайта — 3721 индексируемых URL по Screaming Frog, не 300 как считалось раньше). `terms` 684, `banks` 575, остальное — займы/кредиты/карты/ипотека/рейтинги |
-| `sitemap.xml` баг | ✅ починен: `generate-sitemap.mjs` не читал `site/.env` (отдельный node-процесс без Vite-инъекции env) → падал на старый mosseo-датасет 1011 стр. Теперь парсит `.env` вручную (как `generate-mail-php.mjs`) |
-| Разбивка promoSlots по реальным разделам + дизайн офферов | ⏳ следующий шаг (LAUNCH_PLAN раздел 23) — теперь на 2921-страничном датасете, не на 30 |
-| 60 `wait`-коннекторов | ⏳ ждут модерации Saleads → потом re-export |
+| `claude/rencredit-indexation-dd16f5` | IndexNow после деплоя, `lastmod` в sitemap для статей/новостей, Clean-param в robots.txt, фикс упаковки dist |
+| `claude/rencredit-interlinking-ed30de` | ротация перелинковки, логичные хлебные крошки, порядок офферов, `check-graph.mjs` |
+| `claude/rencredit-registry-data-38eec7` | снимок реестра ЦБ, бейдж реестра на офферах, фильтр неактивных, `check-content` в `check.mjs` |
 
-## 3. Окружения Python (важно — их два)
+Перед правкой смежных файлов (sitemap, robots, перелинковка, офферы, `scripts/check.mjs`) проверь, что эти ветки не конфликтуют.
+Остальные `claude/rencredit-*` ветки уже в HEAD.
+
+## 5. Команды (из корня репозитория)
 
 ```bash
-. .venv/bin/activate        # Python 3.9 — весь пайплайн + Firecrawl + saleads_offers.py
-.venv311/bin/python …       # Python 3.11 — только Crawl4AI (crawl_pages_c4ai.py)
+npm --prefix web install                 # один раз
+npm --prefix web run dev -- --port 4321  # dev (launch.json: rencredit-dev)
+npm --prefix web run build               # статика в web/apps/rencredit/dist
+node scripts/check.mjs --quick           # быстрая проверка (она же Stop-хук)
+node scripts/check.mjs                   # полная: quick + build + проверка dist
+py scripts/test_guard.py                 # самопроверка хука (macOS: python3)
 ```
 
-## 4. Ключевые команды
+## 6. Харнесс `.claude/`
 
-### Офферы Saleads (токен в `site/.env` → `SALEADS_API_KEY`)
-```bash
-. .venv/bin/activate
-python site_pipeline/saleads_offers.py connect-missing --dry-run   # просмотр недостающих
-python site_pipeline/saleads_offers.py connect-missing             # создать коннекторы (идемпотентно)
-python site_pipeline/saleads_offers.py export-pool                 # → sites/affiliate_pool.json
-python site_pipeline/saleads_offers.py export-links --site-relevant \
-   --out sites/finhelp-ru/affiliateLinks.json                      # per-site финансы/страхование
-python site_pipeline/saleads_offers.py financial --top 30          # обзор по выплате
-python site_pipeline/saleads_offers.py clicks                      # клики/конверсии
-```
+- Агенты: `ui-builder`, `motion-designer`, `content-writer`, `news-writer`, `ymyl-fact-checker` (read-only), `seo-auditor` (read-only), `page-reviewer` (Playwright).
+- Команды: `/check`, `/new-article <тема>`, `/new-news <тема>`, `/new-offer <poolId>`, `/review-page <url>`.
+- Скиллы: `site-design`, `motion-system`, `ymyl-content`, `offer-placement`, `news-pipeline`, `grill-me`, `to-spec`, `handoff`, `diagnosing-bugs`, `code-review`.
+- Зоны владения при параллельной работе: `src/{pages,layouts,components,styles}` — ui-builder; `web/packages/motion` — motion-designer; `src/content/{articles,guides}` — content-writer; `src/content/news` — news-writer; `web/packages/core` и `src/content/offers` — основной агент.
+- Подробности: `docs/harness/README.md`, окружение: `docs/harness/ENV.md` (написано под Windows; на macOS команды те же, `py` → `python3`).
 
-### Краул донора (Crawl4AI) — уже выполнен на 2921 стр., команда для повторного/инкрементального прогона
-```bash
-.venv311/bin/python site_pipeline/crawl_pages_c4ai.py \
-  --source-domain vsezaimyonline.ru --limit 4000 \
-  --output-dir sites/finhelp-ru/pages   # без --include-sections — взяли весь сайт
+## 7. Правила, которые легко нарушить
 
-# после краула — обязательно пересобрать индексы (build_manifest не читается напрямую из pages/):
-. .venv/bin/activate
-python site_pipeline/qa_pages.py --pages-dir sites/finhelp-ru/pages --out sites/finhelp-ru --source-domain vsezaimyonline.ru
-python site_pipeline/build_content_index.py --out sites/finhelp-ru
-```
+- Ссылки на офферы только `/go/<poolId>/` с `rel="sponsored nofollow"`. Офферы берутся из `sites/affiliate_pool.json` через `content/offers/*.json`.
+- Пределы и ставки не писать по памяти: предельная переплата по микрозаймам — 100%, лимит ПСК — по `ymyl-content` и `facts.json`. Сверять с первоисточниками (cbr.ru, consultant.ru).
+- Новость без `source` — только draft. Статью с непроверенными фактами не снимать с draft.
+- Не копировать файлы Яндекса/Метрики с других сайтов сети.
 
-### Сборка / проверка / деплой Astro
-```bash
-cd site
-npm run build && npm run check
-npm run preview -- --host 127.0.0.1 --port 4321   # локальный просмотр
-npm run check:b0 && npm run deploy:dry && npm run deploy   # деплой на Beget
-```
+## 8. Открытые вопросы (владелец)
 
-## 5. Подводные камни (не наступить повторно)
-
-- **Saleads API хост** — `saleads.pro` (НЕ `my.saleads.pro`: 302-редирект срезает авторизацию). Токен как GET-параметр `?token=`.
-- **`short_url` Saleads багует** — отдаёт один кэш на все коннекторы. Использовать полный `urls[0].url`.
-- **Rate-limit Saleads** — 429 после ~27 быстрых запросов. В `connect-missing` зашиты паузы 2с / back-off 8с.
-- **Токен светился в чате** — перевыпустить в ЛК.
-- **Не редактировать `pages/*.json` руками** под дизайн/контакты/бренд — нормализация на рендере (`loadPages.ts`).
-- **Не инжектить `content_html` через `set:html`** для contact/home — ломает layout вложенными `.container`.
-- **HR-офферы банков** («Альфа Банк … HR») НЕ на финсайт — отсекаются `_JOBS_RE` в `saleads_offers.py`.
-- **Не трогать** `site/scripts/download-images.sh`, `site/scripts/ru-images.txt` — legacy-media хелперы (править только в задаче про изображения).
-- **`site/src/data/{affiliateLinks,promoSlots}.json` — не источник правды.** `affiliate.ts` их статически импортирует, но реальные данные живут в `sites/<site>/*.json`. Всегда запускать `./gen-env.sh <site_id>` перед билдом/превью — иначе он собирает пустые `[]` (были закоммичены как безопасный дефолт-заглушка).
-- **Каждая `AffiliateLink` обязана иметь `utm: {source, medium, campaign}`** — `/go/[offer].astro` дергает `link.utm.source` при генерации статических путей для КАЖДОЙ ссылки; без поля билд падает на всех `/go/` маршрутах разом. `saleads_offers.py export-links` теперь это поле пишет — не убирать.
-- **`promoSlots.json` `link_ids` должны существовать в актуальном `affiliateLinks.json`** — иначе слот молча ничего не рендерит (без ошибки сборки). После любого re-export офферов сверять id.
-- **Пост-билд node-скрипты (`site/scripts/*.mjs`) не наследуют `site/.env` автоматически.** `npm run build` = `astro build && node scripts/generate-sitemap.mjs && node scripts/generate-mail-php.mjs` — только сам `astro build` получает env через Vite, отдельные `node script.mjs` в цепочке — нет. Любой новый пост-билд скрипт, которому нужен `site/.env`, должен парсить его вручную (см. `parseEnv()` в `generate-mail-php.mjs`, теперь и в `generate-sitemap.mjs`).
-- **`sitemap.xml` реального размера сайта, а не 30 страниц** — донор `vsezaimyonline.ru` имеет **3721 индексируемую страницу** (Screaming Frog, не sitemap.xml донора — он неполный/устаревший). После `--limit 300` в старых командах краулер брал только долю сайта.
-
-## 6. Классификация офферов (как делятся по сайтам)
-
-Мастер-пул `sites/affiliate_pool.json` (все 189) → фильтр по `vertical` → per-site
-`affiliateLinks.json`. Вертикали: `mfo / card / insurance / business / credit /
-mortgage / investment / debt_relief / finance` + исключаемые `jobs / other`.
-Маппинг vertical → раздел сайта — в LAUNCH_PLAN разделе 23.2.
-
-## 7. Что делать дальше (приоритет)
-
-1. Разбить `promoSlots.json` по реальным разделам (`banks`, `terms`, `zalogi`, `mortgage`, `credit-cards`, ...) вместо текущего одного generic-слота + **дизайн под офферы** (LAUNCH_PLAN раздел 23) — теперь на полном 2921-страничном датасете.
-2. Дождаться модерации 60 `wait`-коннекторов → `export-pool` + `export-links` заново (проверить, что `promoSlots.json` `link_ids` не осиротели).
-3. Домен/хостинг/аналитика для finhelp-ru (`site.config.json` сейчас пустой по `deploy`/`analytics`/`contacts`) — организационное решение, не код.
-4. B7.1 крауд-ссылки, B7.2 UptimeRobot, второй сайт (HR/страхование) через `create_site.py`.
-
-## 8. Карта документов
-
-| Файл | О чём |
-|---|---|
-| `AGENT_HANDOFF.md` | **этот файл** — снимок состояния, точка входа |
-| `AGENTS.md` | гайд для агентов: архитектура, карта файлов/layout'ов, критические правила, MCP |
-| `HANDOFF.md` | хронологический лог изменений (новое сверху) |
-| `LAUNCH_PLAN.md` | план запуска: каналы, SEO, Saleads (разд. 21), краулер (22), дизайн (23) |
-| `ROADMAP.md` | фазовый план A+B треков |
-| `CRAWLER_ARCH.md` | архитектура донор-краула |
-| `NEW_PIPELINE_ARCH.md` | целевая архитектура: registry, sites/, exporter |
-| `ARBITRAGE.md` | монетизация (CPA, PromoSlot) |
-| `LAUNCH_CHECKLIST.md` | чеклист деплоя/SEO/форм/аналитики на сайт |
-| `CLAUDE.md` | инструкции проекта + карта кода (entry points, layouts) |
+- **Домен.** `rencredit` — риск по товарному знаку банка; SEO_PLAN рекомендует переезд на нейтральный домен «Мерки». Решения нет.
+- Реквизиты оператора (`PUBLIC_LEGAL_*`), контактный e-mail, `PUBLIC_METRIKA_ID`, коды Вебмастера — заполняет владелец (`web/apps/rencredit/.env.example`).
+- Мёрж трёх открытых веток из раздела 4 и план релиза 2.
