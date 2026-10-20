@@ -19,6 +19,8 @@ const APP = join(WEB, 'apps', 'rencredit');
 const SRC = join(APP, 'src');
 const DIST = join(APP, 'dist');
 const POOL = join(ROOT, 'sites', 'affiliate_pool.json');
+const FACTS = join(WEB, 'packages', 'core', 'src', 'data', 'facts.json');
+const FACTS_MAX_AGE_DAYS = 7;
 
 const args = new Set(process.argv.slice(2));
 const QUICK = args.has('--quick');
@@ -47,6 +49,8 @@ const warn = (m) => warns.push(m);
 const DONOR_RX = /vsezaimyonline|delen\.ru/i;
 const DONOR_RX_CASE = /ВсеЗаймыОнлайн|Все Займы Онлайн|ВСЕЗАЙМЫОНЛАЙН/;
 const BRAND_RX = /Ренессанс|Renaissance\s+Credit/gi;
+// Ставка, вписанная руками («ключевая ставка … 14%»): в контенте только <Fact k="keyRate"/> или {{keyRate}}.
+const KEY_RATE_RX = /ключев\S*\s+ставк\S*[^.\n]{0,40}?\d+([,.]\d+)?\s?%/gi;
 const DISCLAIMER_RX = /не\s+является|не\s+связан|товарн\w+\s+знак|не\s+аффилирован|не\s+представляет|не\s+имеет\s+отношения/i;
 
 function walk(dir, exts, out = []) {
@@ -97,6 +101,26 @@ function checkGoLinks(file, text) {
   }
 }
 
+function checkKeyRate(file, text) {
+  KEY_RATE_RX.lastIndex = 0;
+  let m;
+  while ((m = KEY_RATE_RX.exec(text))) {
+    err(`${rel(file)}:${lineOf(text, m.index)} ставка вписана руками «${m[0]}» (используйте <Fact k="keyRate"/> или {{keyRate}})`);
+  }
+}
+
+/** facts.json (web/scripts/sync-cbr.mjs): заседание ЦБ прошло — ставка могла измениться. */
+function checkFacts() {
+  if (!existsSync(FACTS)) return err(`${rel(FACTS)} не найден: запустите node web/scripts/sync-cbr.mjs`);
+  const facts = JSON.parse(readFileSync(FACTS, 'utf8'));
+  const today = new Date(Date.now() + 3 * 3600e3).toISOString().slice(0, 10); // по Москве
+  if (facts.nextMeeting < today) {
+    err(`facts.json: заседание ЦБ ${facts.nextMeeting} прошло, факты не обновлены. Запустите node web/scripts/sync-cbr.mjs (до вступления новой ставки в силу — через facts.override.json)`);
+  }
+  const ageDays = (Date.now() - Date.parse(facts.fetchedAt)) / 86400e3;
+  if (!(ageDays <= FACTS_MAX_AGE_DAYS)) warn(`facts.json: синк с cbr.ru был ${Math.floor(ageDays)} дн. назад (${facts.fetchedAt}); запустите node web/scripts/sync-cbr.mjs`);
+}
+
 function checkJsonFiles() {
   const dirs = [join(SRC, 'content'), join(WEB, 'packages', 'core', 'src', 'data')];
   const files = dirs.flatMap((d) => walk(d, ['.json']));
@@ -138,8 +162,10 @@ function checkSources() {
     // service-sources: служебные данные проверки фактов, на сайт не попадают (бренды партнёров в notes допустимы)
     if (!rel(f).includes('/src/data/service-sources/')) checkBrand(f, text, !isContent);
     if (/\.(astro|mdx|md|tsx)$/.test(f)) checkGoLinks(f, text);
+    if (isContent) checkKeyRate(f, text);
   }
   checkJsonFiles();
+  checkFacts();
 }
 
 function runBuild() {

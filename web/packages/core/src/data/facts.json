@@ -1,0 +1,14 @@
+{
+  "fetchedAt": "2026-10-20T10:14:09.061Z",
+  "keyRate": {
+    "value": 14,
+    "since": "2026-07-27"
+  },
+  "nextMeeting": "2026-10-23",
+  "taxFree": {
+    "year": 2026,
+    "maxRate": 16,
+    "limitRub": 160000,
+    "final": false
+  }
+}

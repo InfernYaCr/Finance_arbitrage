@@ -1,0 +1,7 @@
+---
+/** Факт Банка России из facts.json: <Fact k="keyRate"/>. Передаётся в MDX через components. */
+import { factText, factsDate, type FactKey } from '../lib/facts';
+interface Props { k: FactKey }
+const { k } = Astro.props;
+---
+<span class="fact" title={`Данные Банка России на ${factsDate()}`}>{factText(k)}</span>
