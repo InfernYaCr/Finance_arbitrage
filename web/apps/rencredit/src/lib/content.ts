@@ -1,5 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { getOffers } from './offers';
+import { getOffers, showsRate } from './offers';
 
 type Article = CollectionEntry<'articles'>;
 
@@ -45,14 +45,14 @@ export const MIN_GUIDE_OFFERS = 3;
 /**
  * Витрина подборки, отфильтрованная в сборке: в HTML только офферы с признаком guide.feature,
  * клиентский фильтр (preset) их не сужает. Признаки офферов не додумываем: если подтверждённых
- * меньше MIN_GUIDE_OFFERS — thin (noindex, вне меню), витрина по guide.fallback или все офферы kind.
+ * меньше MIN_GUIDE_OFFERS — thin (noindex, вне меню), витрина — все офферы kind.
  */
 export async function getGuideOffers(guide: CollectionEntry<'guides'>) {
-  const { kind, feature, fallback } = guide.data;
-  const all = await getOffers(kind);
+  const { kind, feature, verifiedOnly } = guide.data;
+  const all = (await getOffers(kind)).filter((o) => !verifiedOnly || (o.verified && showsRate(o)));
   const own = feature ? all.filter((o) => o.features.includes(feature)) : all;
   if (own.length >= MIN_GUIDE_OFFERS) return { offers: own, preset: feature, thin: false };
-  return { offers: fallback ? all.filter((o) => o.features.includes(fallback)) : all, preset: fallback, thin: true };
+  return { offers: all, preset: undefined, thin: true };
 }
 
 /** Подборки для меню, футера и перелинковки — без тонких (noindex). */

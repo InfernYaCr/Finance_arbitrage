@@ -472,6 +472,12 @@ RewriteRule ^(wp-[a-z-]+|xmlrpc)\.php$ - [G,L]
 </IfModule>
 # END LEGACY 301
 
+# --- 5b. Слитые страницы нового сайта (руками; вне генерируемого блока) ---------
+# /zaimy-s-prosrochkami/ — тот же интент, что /zaimy-s-plohoj-ki/ (текст влит туда).
+<IfModule mod_rewrite.c>
+RewriteRule ^zaimy-s-prosrochkami/?$ https://%{HTTP_HOST}/zaimy-s-plohoj-ki/ [R=301,L]
+</IfModule>
+
 # --- 6. Старые статьи /credit/<slug>.html без редиректа ------------------------
 # Страница собрана как /credit/<slug>/index.html. Внутренний rewrite (адрес в браузере не меняется)
 # отдаёт её по старому URL — но только если такая папка с index.html реально существует.
