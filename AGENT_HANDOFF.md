@@ -1,6 +1,6 @@
 # Agent Handoff — rencredit-online.ru («Мерка»)
 
-> Точка входа для нового агента. Снимок: **2026-10-20**, ветка `content/wave-1-articles` (HEAD `b60b616`).
+> Точка входа для нового агента. Снимок: **2026-10-20**, ветка `content/wave-1-articles` (после merge wave A, `c005c3b`).
 > Старый снимок про finhelp-ru (июнь 2026): `docs/archive/AGENT_HANDOFF_finhelp_2026-06.md`. Он **не про этот сайт**.
 
 ## 1. Что это
@@ -38,12 +38,10 @@
 
 | Ветка | Что внутри |
 |---|---|
-| `claude/rencredit-indexation-dd16f5` | IndexNow после деплоя, `lastmod` в sitemap для статей/новостей, Clean-param в robots.txt, фикс упаковки dist |
-| `claude/rencredit-interlinking-ed30de` | ротация перелинковки, логичные хлебные крошки, порядок офферов, `check-graph.mjs` |
-| `claude/rencredit-registry-data-38eec7` | снимок реестра ЦБ, бейдж реестра на офферах, фильтр неактивных, `check-content` в `check.mjs` |
+| `claude/rencredit-release-2-prep-97be7b` | черновики релиза 2: фактчек и перелинковка карточных статей (#18, #20, #21, #22, #30); работа идёт |
 
-Перед правкой смежных файлов (sitemap, robots, перелинковка, офферы, `scripts/check.mjs`) проверь, что эти ветки не конфликтуют.
-Остальные `claude/rencredit-*` ветки уже в HEAD.
+Wave A уже в HEAD: indexation (IndexNow, `lastmod`, Clean-param), interlinking (`check-graph.mjs`, крошки, порядок офферов), registry-data (реестр ЦБ, `check-content` в `check.mjs`), eeat-pages (`/metodologiya/`, `/redakcionnaya-politika/`).
+Остальные `claude/rencredit-*` ветки тоже в HEAD.
 
 ## 5. Команды (из корня репозитория)
 
