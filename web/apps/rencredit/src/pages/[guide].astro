@@ -8,9 +8,9 @@ import CtaUsp from '../components/cta/CtaUsp.astro';
 import CtaCallout from '../components/cta/CtaCallout.astro';
 import CtaNext from '../components/cta/CtaNext.astro';
 import CtaSticky from '../components/cta/CtaSticky.astro';
-import { getGuides } from '../lib/content';
-import { getOffers } from '../lib/offers';
+import { getGuides, getIndexableGuides, getGuideOffers } from '../lib/content';
 import { RESERVED_SLUGS } from '../lib/ui/site';
+import { FEATURE_LABELS } from '../lib/ui/features';
 
 export async function getStaticPaths() {
   const guides = await getGuides();
@@ -20,14 +20,18 @@ export async function getStaticPaths() {
 }
 const { guide } = Astro.props;
 const { Content } = await render(guide);
-const offers = await getOffers(guide.data.kind);
-const others = (await getGuides()).filter((g) => g.id !== guide.id && !RESERVED_SLUGS.includes(g.id));
+const { offers, preset, thin } = await getGuideOffers(guide);
+// Тонкая подборка: честно говорим, что подтверждённых предложений мало, и показываем все займы.
+const lead = thin && guide.data.feature
+  ? `Предложений с подтверждённым условием «${FEATURE_LABELS[guide.data.feature]}» пока меньше трёх, поэтому отдельную подборку мы не собираем. Ниже — все займы из нашего каталога.`
+  : guide.data.description;
+const others = (await getIndexableGuides()).filter((g) => g.id !== guide.id && !RESERVED_SLUGS.includes(g.id));
 const calloutCat = guide.data.feature === 'zero_percent' ? 'zaimy-zero' : guide.data.feature === 'bad_history' || guide.data.feature === 'with_overdue' ? 'kreditnaya-istoriya' : guide.data.kind === 'card' ? 'karty' : guide.data.kind === 'credit' ? 'kredity' : 'zaimy';
 ---
-<BaseLayout title={guide.data.title} description={guide.data.description}>
+<BaseLayout title={guide.data.title} description={guide.data.description} noindex={thin}>
   <div class="wrap page-head"><Breadcrumbs items={[{ label: 'Займы', href: '/zaimy/' }, { label: guide.data.navLabel }]} /></div>
   <div class="wrap"><CtaUsp slim slot="guide-usp" /></div>
-  <Showcase offers={offers} preset={guide.data.feature} h="h1" title={guide.data.title} eyebrow="Подборка" lead={guide.data.description} />
+  <Showcase offers={offers} preset={preset} h="h1" title={guide.data.title} eyebrow="Подборка" lead={lead} />
   <section class="section pt-0 md:pt-0">
     <div class="wrap">
       <CtaCallout category={calloutCat} offerKind={guide.data.kind} slot="guide-callout" />

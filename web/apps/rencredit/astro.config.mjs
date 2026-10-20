@@ -49,6 +49,19 @@ const SVC_PAGE_RE = /^\/(strahovanie|osago|kasko|strahovanie-ipoteki|strahovanie
 /** @param {string} p */
 const isEmptySvcPage = (p) => { const m = new URL(p).pathname.match(SVC_PAGE_RE); return !!m && !filledSvcPages.has(m[1]); };
 
+// Подборки, где офферов с признаком меньше 3, собираются с noindex (getGuideOffers в lib/content.ts) — в sitemap их не кладём.
+const offerData = readdirSync('./src/content/offers').filter((f) => f.endsWith('.json')).map((f) => JSON.parse(readFileSync(join('./src/content/offers', f), 'utf-8')));
+const thinGuides = new Set(readdirSync('./src/content/guides').filter((f) => /\.mdx?$/.test(f)).flatMap((f) => {
+  const fm = readFileSync(join('./src/content/guides', f), 'utf-8');
+  const field = (k) => fm.match(new RegExp(`^${k}:\\s*"?(\\w+)`, 'm'))?.[1];
+  const kind = field('kind') ?? 'mfo';
+  const feature = field('feature');
+  const verifiedOnly = /^verifiedOnly:\s*true/m.test(fm);
+  const n = offerData.filter((o) => o.kind === kind && (!feature || o.features.includes(feature))
+    && (!verifiedOnly || (o.verified && o.pskMin != null && o.pskMax != null))).length;
+  return n < 3 ? [`/${f.replace(/\.mdx?$/, '')}/`] : [];
+}));
+
 export default defineConfig({
   // Пилот: тестовый поддомен с noindex, потом — боевой домен.
   site: (env.SITE_URL || 'https://rencredit-online.ru').replace(/\/+$/, ''),
@@ -58,7 +71,7 @@ export default defineConfig({
     mdx(),
     legacyHtmlFiles(),
     sitemap({
-      filter: (p) => !p.includes('/go/') && !isEmptySvcPage(p),
+      filter: (p) => !p.includes('/go/') && !isEmptySvcPage(p) && !thinGuides.has(new URL(p).pathname),
       // Переписанные старые статьи собираются как /credit/<slug>/, но живут (и каноничны)
       // на старом адресе /credit/<slug>.html — в карту сайта кладём именно его.
       serialize: (item) => ({ ...item, url: item.url.replace(/\/credit\/([^/]+)\/$/, '/credit/$1.html') }),

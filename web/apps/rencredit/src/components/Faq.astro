@@ -1,6 +1,9 @@
 ---
+import { fillFacts } from '../lib/facts';
 interface Props { items: { q: string; a: string }[]; title?: string; jsonld?: boolean }
-const { items, title = 'Частые вопросы', jsonld = true } = Astro.props;
+const { title = 'Частые вопросы', jsonld = true } = Astro.props;
+// {{keyRate}} и др. — факты ЦБ из facts.json; подставляем до вывода и до JSON-LD.
+const items = Astro.props.items.map((i) => ({ q: fillFacts(i.q), a: fillFacts(i.a) }));
 const ld = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',

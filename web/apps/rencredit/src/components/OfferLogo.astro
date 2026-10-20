@@ -3,8 +3,12 @@ import type { Offer } from '../lib/offers';
 interface Props { offer: Pick<Offer, 'slug' | 'name' | 'logo' | 'brandColor'>; size?: 'md' | 'lg'; morph?: boolean }
 const { offer, size = 'md', morph = false } = Astro.props;
 const letter = offer.name.trim().charAt(0).toUpperCase();
-const name = morph ? `logo-${offer.slug}` : undefined;
+const cls = ['logo-tile', size === 'lg' && 'lg'];
+const st = offer.brandColor ? `--bc:${offer.brandColor}` : undefined;
+// transition:name={undefined} директиву не отключает: Astro подставит авто-имя astro-<hash>-N (одно и то же
+// на разных страницах — логотипы чужих офферов морфятся друг в друга) и добавит <style> ~2,4 КБ. Поэтому две ветки.
+// Карточкам витрины имя logo-<slug> ставит @pbn/motion (initLogoMorph) только на кликнутую.
 ---
-<div class:list={['logo-tile', size === 'lg' && 'lg']} style={offer.brandColor ? `--bc:${offer.brandColor}` : undefined} transition:name={name} aria-hidden="true">
-  {offer.logo ? <img src={offer.logo} alt="" width="84" height="84" loading="lazy" decoding="async" /> : letter}
-</div>
+{morph
+  ? <div class:list={cls} style={st} transition:name={`logo-${offer.slug}`} aria-hidden="true">{offer.logo ? <img src={offer.logo} alt="" width="84" height="84" loading="lazy" decoding="async" /> : letter}</div>
+  : <div class:list={cls} style={st} aria-hidden="true">{offer.logo ? <img src={offer.logo} alt="" width="84" height="84" loading="lazy" decoding="async" /> : letter}</div>}

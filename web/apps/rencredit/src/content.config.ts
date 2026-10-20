@@ -88,6 +88,8 @@ const guides = defineCollection({
     description: z.string().max(200),
     kind: z.enum(['mfo', 'card', 'credit']).default('mfo'),
     feature: z.enum(FEATURES).optional(),  // предустановленный фильтр витрины
+    /** Витрина только из verified-офферов с диапазоном ПСК (подборка без признака, например «высокий процент одобрения»). */
+    verifiedOnly: z.boolean().default(false),
     order: z.number().default(0),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
   }),

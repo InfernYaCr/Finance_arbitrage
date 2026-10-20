@@ -1,6 +1,7 @@
 // Проверка внутренних ссылок собранного сайта: каждый href/src="/..." из dist/**/*.html
 // должен указывать на существующий файл. Запуск: node web/scripts/check-links.mjs [путь-к-dist]
 // Правила резолва повторяют .htaccess: /dir/ -> dir/index.html; /credit/<slug>.html -> credit/<slug>/index.html.
+// Заодно View Transitions: нет авто-имён astro-* (transition:name={undefined}) и дублей logo-* на странице (дубль отменяет переход).
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -26,10 +27,14 @@ function exists(path) {
 }
 
 const bad = new Map();
+const vtBad = [];
 let total = 0;
 for (const f of htmls) {
   const html = readFileSync(f, 'utf8');
   const page = '/' + f.slice(DIST.length + 1).replaceAll('\\', '/');
+  if (html.includes('view-transition-name: astro-')) vtBad.push(`${page}: авто-имя view-transition-name: astro-*`);
+  const names = [...html.matchAll(/view-transition-name: (logo-[\w-]+)/g)].map((m) => m[1]);
+  for (const n of new Set(names.filter((n, i) => names.indexOf(n) !== i))) vtBad.push(`${page}: дубль view-transition-name ${n}`);
   for (const m of html.matchAll(/\s(?:href|src)=["'](\/[^"'\s]*)["']/g)) {
     const url = m[1];
     if (url.startsWith('//')) continue;
@@ -42,6 +47,11 @@ for (const f of htmls) {
   }
 }
 console.log(`Проверено ссылок: ${total}, страниц: ${htmls.length}`);
+if (vtBad.length) {
+  for (const m of vtBad.slice(0, 20)) console.error(`VT ${m}`);
+  console.error(`Ошибок View Transitions: ${vtBad.length}`);
+  process.exitCode = 1;
+}
 if (bad.size) {
   for (const [url, pages] of bad) console.error(`НЕТ ФАЙЛА ${url}  <- ${pages.slice(0, 3).join(', ')}${pages.length > 3 ? ` (+${pages.length - 3})` : ''}`);
   console.error(`Битых ссылок: ${bad.size}`);
