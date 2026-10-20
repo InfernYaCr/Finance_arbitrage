@@ -33,6 +33,10 @@ export function pskRange(o: Pick<Product, 'pskMin' | 'pskMax'>): string | null {
 /** ч. 3 ст. 28 38-ФЗ: ставку (и «0%») показываем только вместе с диапазоном ПСК. */
 export const showsRate = (o: Pick<Product, 'pskMin' | 'pskMax'>) => pskRange(o) !== null;
 export const NO_RATE = 'Условия — на сайте кредитора';
+/** SEO-10 п. 4: на позициях 1–3 витрин и «Похожих» — только сверенные офферы с диапазоном ПСК. */
+export const isTopEligible = (o: Pick<Product, 'verified' | 'pskMin' | 'pskMax'>) => o.verified && showsRate(o);
+/** SEO-10 п. 5: рефинансирование — по slug (отдельного поля в данных нет). */
+export const isRefi = (o: Pick<Product, 'kind' | 'slug'>) => o.kind === 'credit' && o.slug.includes('refinans');
 /** Текст основной кнопки по виду продукта. */
 export const CTA_LABEL: Record<ProductKind, string> = { mfo: 'Получить деньги', card: 'Оформить карту', credit: 'Оформить кредит' };
 
@@ -40,7 +44,8 @@ export async function getOffers(kind?: ProductKind): Promise<Offer[]> {
   const entries = await getCollection('offers');
   const list = entries.map((e) => ({ slug: e.id, ...e.data }) as Offer);
   const filtered = kind ? list.filter((o) => o.kind === kind) : list;
-  return filtered.sort((a, b) => (b.priority ?? 0) - (a.priority ?? 0) || a.name.localeCompare(b.name, 'ru'));
+  // Порядок «по умолчанию» для всех витрин: сначала verified + ПСК, затем priority (порядок выплаты).
+  return filtered.sort((a, b) => Number(isTopEligible(b)) - Number(isTopEligible(a)) || (b.priority ?? 0) - (a.priority ?? 0) || a.name.localeCompare(b.name, 'ru'));
 }
 
 export function offerStats(offers: Offer[]) {

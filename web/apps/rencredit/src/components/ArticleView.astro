@@ -10,10 +10,11 @@ import CtaTop3 from './cta/CtaTop3.astro';
 import CtaNext from './cta/CtaNext.astro';
 import CtaAside from './cta/CtaAside.astro';
 import CtaSticky from './cta/CtaSticky.astro';
-import { getCtaData, topOffers, resolveKind, kindForArticle, KIND_URL } from '../lib/cta';
-import { articleHref, articleCanonical } from '../lib/content';
+import { getCtaData, topOffers, resolveKind, kindForArticle, rotate, KIND_URL } from '../lib/cta';
+import { articleHref, articleCanonical, getIndexableGuides } from '../lib/content';
+import { isRefi } from '../lib/offers';
 import { readingMinutes, dateRu } from '../lib/format';
-import { CATEGORY_LABELS, SITE } from '../lib/ui/site';
+import { CATEGORY_LABELS, CATEGORY_HUB, KIND_HUB, SITE } from '../lib/ui/site';
 
 interface Props { entry: CollectionEntry<'articles'>; articles: CollectionEntry<'articles'>[] }
 const { entry, articles } = Astro.props;
@@ -25,9 +26,16 @@ const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
 const ctaData = await getCtaData();
 const wantedKind = kindForArticle(d.category, d.offerKind);
 const hasKind = ctaData.all.some((o) => o.kind === wantedKind);
-const offers = hasKind ? topOffers(ctaData, wantedKind, 3) : [];
+const offers = hasKind ? topOffers(ctaData, wantedKind, entry.id, 3, d.category === 'refinansirovanie' ? isRefi : undefined) : [];
 const kindUrl = KIND_URL[resolveKind(wantedKind, ctaData)];
-const related = articles.filter((a) => a.id !== entry.id).sort((a, b) => Number(b.data.category === d.category) - Number(a.data.category === d.category)).slice(0, 3);
+// «Читайте также»: соседи по кольцу внутри рубрики (articles — по дате), в маленькой рубрике — добор соседями по всем статьям.
+const self = articles.find((a) => a.id === entry.id);
+const near = rotate(articles.filter((a) => a.data.category === d.category), self, entry.id);
+const related = [...near, ...rotate(articles.filter((a) => !near.includes(a)), self, entry.id, 3 - near.length)];
+// Крошки по логическому родителю: Главная › хаб › кластер › статья (≤4 уровней).
+const hub = CATEGORY_HUB[d.category] ?? KIND_HUB[wantedKind];
+const cluster = hub.cluster ? (await getIndexableGuides()).find((g) => g.id === hub.cluster) : undefined;
+const crumbs = [{ label: hub.label, href: hub.href }, ...(cluster ? [{ label: cluster.data.navLabel, href: `/${cluster.id}/` }] : []), { label: d.title }];
 const ld = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -42,7 +50,7 @@ const ld = {
 ---
 <BaseLayout canonical={canonical} title={d.title} description={d.description} ogType="article" ogImage={d.cover} jsonLd={ld} publishedTime={d.publishDate} modifiedTime={d.updatedDate}>
   <div class="wrap page-head">
-    <Breadcrumbs items={[{ label: 'Статьи', href: '/stati/' }, { label: d.title }]} />
+    <Breadcrumbs items={crumbs} />
     <h1 class="max-w-4xl">{d.title}</h1>
     <div class="meta-line">
       <span class="pill">{CATEGORY_LABELS[d.category]}</span>
@@ -75,7 +83,7 @@ const ld = {
   {related.length > 0 && (
     <section class="section pt-0 md:pt-0">
       <div class="wrap">
-        <h2 class="h2" data-reveal>Читайте также</h2>
+        <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2" data-reveal><h2 class="h2">Читайте также</h2><a class="font-bold" href="/stati/">Все статьи</a></div>
         <div class="grid-cards">
           {related.map((a, i) => <PostCard index={i} href={articleHref(a)} title={a.data.title} description={a.data.description} date={a.data.publishDate} category={a.data.category} cover={a.data.cover} minutes={readingMinutes(a.body ?? '')} />)}
         </div>

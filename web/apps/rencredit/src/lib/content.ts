@@ -61,3 +61,10 @@ export async function getIndexableGuides() {
   const thin = await Promise.all(guides.map(async (g) => (await getGuideOffers(g)).thin));
   return guides.filter((_, i) => !thin[i]);
 }
+
+/** Индексируемые подборки, в витрине которых есть оффер (блок «Входит в подборки» на обзоре). */
+export async function getOfferGuides(slug: string) {
+  const guides = await getIndexableGuides();
+  const lists = await Promise.all(guides.map(getGuideOffers));
+  return guides.filter((_, i) => lists[i].offers.some((o) => o.slug === slug));
+}

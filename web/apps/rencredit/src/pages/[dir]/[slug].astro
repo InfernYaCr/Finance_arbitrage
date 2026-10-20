@@ -5,9 +5,10 @@ import AdMark from '../../components/AdMark.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CtaTop3 from '../../components/cta/CtaTop3.astro';
 import CtaZero from '../../components/cta/CtaZero.astro';
-import { KIND_URL } from '../../lib/cta';
+import { KIND_URL, rotate } from '../../lib/cta';
+import { getOfferGuides } from '../../lib/content';
 import Icon from '../../components/Icon.astro';
-import { getOffers, offerHref, pskRange, creditRate, showsRate, NO_RATE, CTA_LABEL, REVIEW_DIR, PSK_LABEL } from '../../lib/offers';
+import { getOffers, offerHref, pskRange, creditRate, showsRate, isTopEligible, NO_RATE, CTA_LABEL, REVIEW_DIR, PSK_LABEL } from '../../lib/offers';
 import { FEATURE_LABELS } from '../../lib/ui/features';
 import { range, num, pct, daysWord, moneyRange, termText } from '../../lib/format';
 import { SITE } from '../../lib/ui/site';
@@ -18,7 +19,9 @@ export async function getStaticPaths() {
   return offers.map((offer) => ({ params: { dir: REVIEW_DIR[offer.kind], slug: offer.slug }, props: { offer, all: offers } }));
 }
 const { offer: o, all } = Astro.props;
-const similar = all.filter((x) => x.slug !== o.slug && x.kind === o.kind).slice(0, 3);
+// «Похожие»: соседи по кольцу среди verified + ПСК того же kind (SEO-10 п. 4, SEO-18) — входящие поровну.
+const similar = rotate(all.filter((x) => x.kind === o.kind && isTopEligible(x)), o, o.slug);
+const guides = await getOfferGuides(o.slug);
 // Кредит — годовая ставка; карта — ставки вне льготного периода в данных нет, показываем только ПСК.
 // Без диапазона ПСК ставку не показываем (ч. 3 ст. 28 38-ФЗ) — вместо неё NO_RATE.
 const rate = !showsRate(o) ? null : o.kind === 'mfo' ? `${pct(o.rateDayPct)}% в день` : o.kind === 'credit' ? `${creditRate(o)}% годовых` : null;
@@ -85,6 +88,7 @@ const legal: [string, string][] = [
     <CtaZero offer={o} />
 
     {tags.length > 0 && <ul class="oc-tags mt-5 p-0" data-reveal>{tags.map((f) => <li class="tag">{FEATURE_LABELS[f]}</li>)}</ul>}
+    {guides.length > 0 && <nav class="mt-5" aria-label="Входит в подборки" data-reveal><b class="text-sm">Входит в подборки</b><div class="chips">{guides.map((g) => <a class="chip no-underline" href={`/${g.id}/`}>{g.data.title.split(':')[0]}</a>)}</div></nav>}
 
     <h2 class="h2 mt-12" data-reveal>Условия {o.name}</h2>
     <dl class="dl" data-reveal>{rows.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>

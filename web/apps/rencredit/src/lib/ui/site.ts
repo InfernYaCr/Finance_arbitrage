@@ -1,3 +1,5 @@
+import type { ProductKind } from '@pbn/core';
+
 const env = import.meta.env;
 const str = (v: unknown) => (typeof v === 'string' ? v.trim() : '');
 const noindex = str(env.PUBLIC_NOINDEX) === 'true';
@@ -78,4 +80,25 @@ export const CATEGORY_LABELS: Record<string, string> = {
   refinansirovanie: 'Рефинансирование',
   'kreditnaya-istoriya': 'Кредитная история',
   fingramotnost: 'Финансовая грамотность',
+};
+
+interface Hub { label: string; href: string; /** id подборки-кластера (content/guides); в крошках, только если она есть и индексируется. */ cluster?: string }
+
+/** Хаб L1 по виду продукта — подписи совпадают с H1/меню хабов. */
+export const KIND_HUB: Record<ProductKind, Hub> = {
+  mfo: { label: 'Займы', href: '/zaimy/' },
+  card: { label: 'Кредитные карты', href: '/karty/' },
+  credit: { label: 'Кредиты', href: '/kredity/' },
+};
+
+/**
+ * Логический родитель статьи (SEO-18, 03-architecture §2–3): рубрика -> хаб и кластер. Задаёт крошки
+ * «Главная › хаб › кластер › статья». Рубрики без записи (fingramotnost) — хаб по виду продукта статьи.
+ */
+export const CATEGORY_HUB: Record<string, Hub> = {
+  zaimy: KIND_HUB.mfo,
+  'kreditnaya-istoriya': KIND_HUB.mfo,
+  kredity: KIND_HUB.credit,
+  refinansirovanie: { ...KIND_HUB.credit, cluster: 'refinansirovanie' },
+  karty: KIND_HUB.card,
 };
