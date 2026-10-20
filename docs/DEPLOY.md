@@ -73,9 +73,19 @@ node web/scripts/check-links.mjs
 ```
 
 В `web/apps/rencredit/dist/` должны быть: `index.html`, `404.html`, `.htaccess`, `robots.txt`, `sitemap-index.xml`,
-`favicon.ico`, `og/default.png`. В `robots.txt` — `Disallow: /go/` и строка `Sitemap:`, без `Disallow: /`.
+`favicon.ico`, `og/default.png`, файл ключа IndexNow `740b7cc98a0782826ae3b496a98d2945.txt`. В `robots.txt` — два блока
+(`User-agent: *` и `User-agent: Yandex` с `Clean-param` по UTM/yclid/gclid/erid), в обоих `Disallow: /go/`, строка `Sitemap:`,
+без `Disallow: /`. В `sitemap-0.xml` у статей, новостей и `/credit/*.html` есть `<lastmod>` (= `updatedDate ?? publishDate`),
+у витрин и хабов его нет.
 
 ## 4. Заливка
+
+Скриптом (SSH или FTP, настройки в `web/.env.deploy`): `bash scripts/deploy-beget.sh --build` (`--dry-run` — показать файлы,
+`--check` — доступ). Скрипт ничего не удаляет на сервере. В SSH-режиме архив собирается без записи `./`, поэтому tar на
+сервере не трогает права корня `public_html` (раньше это давало `Cannot utime: .` и ненулевой код при успешной заливке).
+После успешной заливки скрипт сам запускает IndexNow (см. §6); его сбой деплой не роняет.
+
+Вручную:
 
 1. Подключиться по FTP (FileZilla и т.п.) или открыть файловый менеджер Beget. Включить показ скрытых файлов.
 2. Залить СОДЕРЖИМОЕ `dist/` (не саму папку `dist`) в корень домена: чтобы `index.html` и `.htaccess` лежали прямо в
@@ -119,7 +129,12 @@ curl -sI -H "Accept-Encoding: br, gzip" https://rencredit-online.ru/   # Content
 2. «Переобход страниц»: отправить главную, `/zaimy/`, ключевые посадочные, переписанные `/credit/<slug>.html`.
 3. «Индексирование» -> «Переезд сайта»/«Диагностика»: следить за разделом ошибок, 404 и «страницы не найдены».
 4. Google Search Console: добавить ресурс, отправить `sitemap-index.xml`, инспекция URL главной.
-5. IndexNow (по желанию): `node scripts/indexnow.mjs`.
+5. IndexNow — автоматически после `scripts/deploy-beget.sh`: шлёт в `yandex.com/indexnow` только новые и изменённые URL из
+   `dist/sitemap-0.xml` (состояние в `web/.indexnow-state.json`, в git не попадает). Тестовую сборку (`Disallow: /` в
+   `robots.txt`) и чужой origin в sitemap пропускает. Вручную: `node scripts/indexnow.mjs --dry-run` (список без отправки),
+   `--all` (весь sitemap). Ключ — `public/740b7cc98a0782826ae3b496a98d2945.txt`; проверить: `curl
+   https://rencredit-online.ru/740b7cc98a0782826ae3b496a98d2945.txt` отдаёт ключ. Первый пинг вернёт 202 (ключ на проверке,
+   состояние не сохраняется, URL уйдут снова при следующем деплое), дальше 200. При переезде на другой домен — новый ключ.
 6. Через 1–2 недели: проверить, что старые URL отдают 301 на новые, а в выдаче нет 404 по прежним адресам.
 
 ## 7. Откат
