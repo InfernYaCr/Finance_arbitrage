@@ -105,7 +105,9 @@ find \"\$D\" -mindepth 1 -maxdepth 1 ! -name '_old_site_*' ! -name '.ssh' -exec 
 { [ \"\$(dirname \"\$A\")\" = \"\$D\" ] && printf 'Require all denied\nDeny from all\n' > \"\$A/.htaccess\" || true; } && \
 echo \"Старое содержимое перенесено в \$A (\$(ls -A \"\$A\" | wc -l) объектов)\" && cd - >/dev/null && "
       fi
-      tar -C "$DIST" -czf - . | ssh_run "${PREP}mkdir -p '$BEGET_PATH' && tar -xzf - -C '$BEGET_PATH' && echo OK: \$(find '$BEGET_PATH' -type f ! -path '*/_old_site_*' | wc -l) файлов нового сайта на сервере" ;;
+      # В архив кладём содержимое dist без записи «./»: иначе tar на сервере пытается сменить время/права
+      # корня public_html (он не наш) — «Cannot utime: .» и ненулевой код при успешной заливке.
+      (cd "$DIST" && find . -mindepth 1 -maxdepth 1 -print0 | tar --null -czf - -T -) | ssh_run "${PREP}mkdir -p '$BEGET_PATH' && tar -xzf - -C '$BEGET_PATH' && echo OK: \$(find '$BEGET_PATH' -type f ! -path '*/_old_site_*' | wc -l) файлов нового сайта на сервере" ;;
   esac
   exit 0
 fi
