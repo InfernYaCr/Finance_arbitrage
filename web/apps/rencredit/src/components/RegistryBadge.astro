@@ -1,0 +1,27 @@
+---
+/**
+ * Статус организации в реестре Банка России из снимка src/data/cbr-registry.json (sync-cbr-registry.mjs).
+ * Факт, а не оценка: без «одобрено ЦБ» и без символики регулятора (38-ФЗ). Дата — срез ЦБ, не дата сборки.
+ *  - полная (обзор): «В реестре Банка России: МКК, рег. № …, с … · данные ЦБ на …», ссылка на карточку cbr.ru;
+ *  - compact (OfferCard, внутри ul.oc-facts): <li> «В реестре ЦБ · МКК» без внешней ссылки, полный текст в title.
+ * Нет записи или организация не действует — ничего не выводим.
+ */
+import Icon from './Icon.astro';
+import { type Offer, registryOf } from '../lib/offers';
+
+interface Props { offer: Pick<Offer, 'cbrLicense'>; compact?: boolean }
+const { offer, compact = false } = Astro.props;
+const r = registryOf(offer);
+const d = (iso?: string) => iso?.split('-').reverse().join('.');
+const full = r && `В реестре Банка России: ${r.kind}, рег. № ${offer.cbrLicense}${r.since ? `, с ${d(r.since)}` : ''} · данные ЦБ на ${d(r.asOf)}`;
+---
+{r?.status === 'active' && (compact
+  ? <li title={full}><Icon name="shield" />В реестре ЦБ · {r.kind}</li>
+  : <p class="reg-badge"><Icon name="shield" />{r.url ? <a href={r.url} rel="noopener" target="_blank">{full}</a> : full}</p>)}
+
+<style>
+  .reg-badge { display: flex; gap: 6px; align-items: flex-start; margin: 0; font-size: 13px; line-height: 1.4; color: var(--color-ink-soft); overflow-wrap: anywhere; }
+  .reg-badge :global(svg) { width: 16px; height: 16px; flex: none; margin-top: 1px; color: var(--color-brand); }
+  .reg-badge a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .reg-badge a:hover { color: var(--color-brand); }
+</style>

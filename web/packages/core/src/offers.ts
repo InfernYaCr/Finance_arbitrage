@@ -66,7 +66,7 @@ export function filterProducts<T extends Product>(products: T[], f: ProductFilte
   return products.filter((p) => {
     if (f.sum != null && (f.sum < p.amountMin || f.sum > p.amountMax)) return false;
     if (f.term != null && (f.term < p.termMinDays || f.term > p.termMaxDays)) return false;
-    if (f.age != null && (f.age < p.ageMin || f.age > p.ageMax)) return false;
+    if (f.age != null && (f.age < p.ageMin || (p.ageMax != null && f.age > p.ageMax))) return false;
     if (f.features?.length && !f.features.every((x) => p.features.includes(x))) return false;
     return true;
   });

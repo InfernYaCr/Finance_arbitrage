@@ -2,8 +2,9 @@
 import OfferLogo from './OfferLogo.astro';
 import Icon from './Icon.astro';
 import AdMark from './AdMark.astro';
+import RegistryBadge from './RegistryBadge.astro';
 import { type Offer, offerHref, reviewHref, pskRange, creditRate, showsRate, NO_RATE, CTA_LABEL, PSK_LABEL } from '../lib/offers';
-import { num, daysWord, moneyRange, termText } from '../lib/format';
+import { num, daysWord, moneyRange, termText, ageText } from '../lib/format';
 import { FEATURE_LABELS } from '../lib/ui/features';
 
 /** ad — выделенная подборка (не каталог): карточка несёт маркировку рекламы. Слот quote — расчёт под запрос (главная). */
@@ -41,7 +42,8 @@ const psk = pskRange(o);
     <ul class="oc-facts">
       {o.approvalPct ? <li><Icon name="check" />Одобрение {o.approvalPct}%</li> : null}
       {o.decisionMinutes ? <li><Icon name="clock" />Решение за {o.decisionMinutes}&nbsp;мин</li> : null}
-      <li><Icon name="user" />{o.ageMin}–{o.ageMax} лет</li>
+      <li><Icon name="user" />{ageText(o.ageMin, o.ageMax)}</li>
+      <RegistryBadge offer={o} compact />
     </ul>
     {shown.length ? <ul class="oc-tags">{shown.map((f) => <li class="tag">{FEATURE_LABELS[f]}</li>)}</ul> : null}
   </div>

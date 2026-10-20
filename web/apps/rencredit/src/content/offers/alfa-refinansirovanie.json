@@ -12,7 +12,6 @@
   "pskMin": 17.99,
   "pskMax": 55.399,
   "ageMin": 21,
-  "ageMax": 100,
   "features": [
     "long_term"
   ],

@@ -13,7 +13,6 @@
   "pskMin": 44,
   "pskMax": 63.999,
   "ageMin": 18,
-  "ageMax": 100,
   "features": [
     "zero_percent"
   ],

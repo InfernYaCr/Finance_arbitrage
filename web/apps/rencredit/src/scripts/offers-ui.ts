@@ -17,7 +17,7 @@ const readCard = (el: HTMLElement): Card => {
     sumMin: +d.sumMin!, sumMax: +d.sumMax!, termMin: +d.termMin!, termMax: +d.termMax!,
     // нет data-rate (оффер без ПСК) -> Infinity: в конец при сортировке по ставке, вне расчёта переплаты
     rate: d.rate ? +d.rate : Infinity, free: +d.free!, appr: +d.appr!,
-    ageMin: +d.ageMin!, ageMax: +d.ageMax!, prio: +d.prio!, idx: +d.idx!,
+    ageMin: +d.ageMin!, ageMax: d.ageMax ? +d.ageMax : Infinity, prio: +d.prio!, idx: +d.idx!,
     features: (d.features ?? '').split(',').filter(Boolean),
   };
 };
