@@ -56,7 +56,9 @@ const thinGuides = new Set(readdirSync('./src/content/guides').filter((f) => /\.
   const field = (k) => fm.match(new RegExp(`^${k}:\\s*"?(\\w+)`, 'm'))?.[1];
   const kind = field('kind') ?? 'mfo';
   const feature = field('feature');
-  const n = offerData.filter((o) => o.kind === kind && (!feature || o.features.includes(feature))).length;
+  const verifiedOnly = /^verifiedOnly:\s*true/m.test(fm);
+  const n = offerData.filter((o) => o.kind === kind && (!feature || o.features.includes(feature))
+    && (!verifiedOnly || (o.verified && o.pskMin != null && o.pskMax != null))).length;
   return n < 3 ? [`/${f.replace(/\.mdx?$/, '')}/`] : [];
 }));
 
