@@ -214,6 +214,12 @@ function checkDist() {
   const sm0 = join(DIST, 'sitemap-0.xml');
   if (!existsSync(sm) && !existsSync(sm0) && !existsSync(join(DIST, 'sitemap.xml'))) warn('в dist нет sitemap');
   if (existsSync(sm0) && /\/go\//.test(readFileSync(sm0, 'utf8'))) err('в sitemap попали /go/ ссылки');
+  // Статьи, новости и /credit/*.html — с lastmod (updatedDate ?? publishDate, astro.config.mjs).
+  if (existsSync(sm0)) {
+    for (const [, url, body] of readFileSync(sm0, 'utf8').matchAll(/<url><loc>([^<]+)<\/loc>(.*?)<\/url>/g)) {
+      if (/\/(stati|novosti)\/[^/]+\/$|\/credit\/[^/]+\.html$/.test(url) && !/<lastmod>/.test(body)) err(`sitemap: нет lastmod у ${url}`);
+    }
+  }
   if (!existsSync(join(DIST, 'robots.txt'))) warn('в dist нет robots.txt');
   if (pages === 0) warn('в dist нет индексируемых страниц');
 }
