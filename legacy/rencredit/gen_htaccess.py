@@ -55,7 +55,11 @@ def main():
     tags = OrderedDict()   # target -> [slug]
     singles = []           # (path, target, old_url)
     queries = []           # (query, target, old_url)
+    gone = []              # (path, old_url) -> 410
     for x in m:
+        if x["decision"] == "gone410":
+            gone.append((unquote(urlsplit(x["old_url"]).path).strip("/"), x["old_url"]))
+            continue
         if x["decision"] != "merge301":
             continue
         u = urlsplit(x["old_url"])
@@ -102,6 +106,10 @@ def main():
             continue
         add(f"# {typ}: {old}")
         add(f"RewriteRule ^{esc(path)}/?$ {dest(t)} [R=301,L]")
+    add("# --- Посты без тематической цели (decision gone410 в map.json) -> 410 ---")
+    for path, old in gone:
+        add(f"# {old}")
+        add(f"RewriteRule ^{esc(path)}/?$ - [G,L]")
     add("# Переписанные статьи /credit/<slug>.html/ (WP снимал лишний слэш) -> без слэша;")
     add("# файл credit/<slug>.html существует, '/' попадает в PATH_INFO — DPI, чтобы он не прилип к цели")
     add(f"RewriteRule ^(credit/[^/]+\\.html)/$ {HOST}/$1 [R=301,L,DPI]")

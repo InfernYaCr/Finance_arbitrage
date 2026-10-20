@@ -73,6 +73,127 @@ MERGE = {
 }
 DEFAULT_NEWS = "Новость-однодневка (рынки, золото, зарубежные ЦБ, облигации) не по теме сайта; общий раздел новостей."
 
+# 101 пост /credit/<slug>.html, которых не было в REST API/sitemap (в inventory их нет), но в Wayback
+# они 200 (2025-08…2026-01), а на новом сайте отдавали 404. Источник: docs/seo-rencredit/01-technical.md
+# прил. A; цели по таблице SEO_PLAN.md §7.1: сильное совпадение -> 301 на существующую страницу,
+# остальное (банки без статей, новости без темы, офтоп, цель ещё в draft) -> 410 (цель None).
+# Когда выйдет статья-цель из draft — перенести slug в её группу и перегенерировать .htaccess.
+KAK = "/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html"
+BADKI = "/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html"
+LOST = {
+    REFI: ("Общее про рефинансирование, ипотеку (до хаба /stati/refinansirovanie-ipoteki-v-2026/), автокредит, кредитные карты — опорная статья.", [
+        "chto-takoe-refinansirovanie-ipoteki", "kak-i-gde-proizvesti-refinansirovanie-avtokredita",
+        "kak-rabotaet-kalkyliator-refinansirovaniia-ipoteki", "kak-refinansirovat-ipotechnyi-dolg",
+        "kak-refinansirovat-kredit-pod-zalog-nedvijimosti", "kak-sdelat-refinansirovanie-kredita-ili-ipoteki",
+        "kak-sdelat-refinansirovaniia-ipoteki-s-materinskim-kapitalom-v-2024-gody",
+        "kakie-rashody-mogyt-vozniknyt-pri-refinansirovanii-ipotechnogo-kredita",
+        "kyda-obratitsia-dlia-oformleniia-refinansirovaniia-avtokredita",
+        "mojno-li-refinansirovat-ipoteky-v-slychae-rojdeniia-pervogo-rebenka",
+        "mojno-li-refinansirovat-kredit-s-pomoshu-selskoi-ipoteki",
+        "mojno-li-refinansirovat-po-programme-semeinaia-ipoteka-kredit-oformlennyi-na-apartamenty",
+        "mojno-li-sdelat-refinansirovanie-yje-imeusheisia-ipoteki-za-schet-lgotnoi-ipoteki-dlia-it-specialistov",
+        "mojno-li-vziat-obychnyu-ipoteky-a-potom-refinansirovat-po-semeinoi-ipoteke",
+        "obzor-programm-refinansirovaniia-2023-goda", "osobennosti-refinansirovaniia-voennoi-ipoteki-v-2024-gody",
+        "otvety-na-voprosy-zaemshikov-pro-refinansirovanie",
+        "refinansirovanie-ili-restryktyrizaciia-chto-vybrat-dlia-ymensheniia-plateja-po-kredity",
+        "refinansirovanie-ipoteki-drygih-bankov-lychshie-predlojeniia-2024-goda",
+        "refinansirovanie-ipoteki-v-chem-vygoda-i-kak-ee-rasschitat", "refinansirovanie-kredita",
+        "refinansirovanie-kredita-dlia-pensionerov-lychshie-predlojeniia-bankov-v-2024-gody",
+        "refinansirovanie-kreditov-drygih-bankov-gde-polychit-bez-problem",
+        "refinansirovanie-kreditov-drygih-bankov-na-vygodnyh-ysloviiah-v-2024-gody",
+        "refinansirovanie-kreditov-pod-zalog-nedvijimosti-kak-pravilno-oformit-sdelky",
+        "refinansirovanie-kreditov-v-raznyh-sityaciiah-podborka-statei-ot-mbk",
+        "v-kakih-bankah-oformliaut-refinansirovanie", "v-kakom-banke-vygodno-oformliat-refinansirovanie-ipoteki",
+        "vozmojno-li-posle-refinansirovaniia-ipoteki-polychit-nalogovyi-vychet",
+        "vozmojno-li-povtorno-provesti-refinansirovanie",
+        "kak-i-gde-polychit-refinansirovanie-kreditnoi-karty", "kak-provesti-refinansirovanie-kreditki",
+        "top-9-predlojenii-po-refinansirovaniu-kreditnyh-kart-v-2023-gody",
+    ]),
+    KAK: ("Порядок, документы, «без справки о доходах», «когда работает».", [
+        "chto-nyjno-znat-pered-tem-kak-sdelat-refinansirovanie-kredita", "dokymenty-dlia-refinansirovaniia-ipoteki",
+        "gde-polychit-refinansirovanie-kredita-bez-spravki-o-dohodah",
+        "kogda-bank-razreshaet-obrashatsia-za-refinansirovaniem", "kogda-rabotaet-refinansirovanie",
+        "odobriat-li-refinansirovanie-v-banke-esli-net-spravki-o-dohodah",
+        "spisok-dokymentov-dlia-refinansirovaniia-kredita-i-ipoteki",
+    ]),
+    BADKI: ("Просрочка, плохая КИ, причины отказа (до /stati/pochemu-bank-otkazyvaet-v-kredite/).", [
+        "gde-oformit-refinansirovanie-kreditov-s-prosrochkoi",
+        "kyda-obrashatsia-za-refinansirovaniem-esli-kredit-s-zadoljennostu",
+        "osnovnye-prichiny-pochemy-bank-ne-refinansiryet-kredit-daje-pod-zalog",
+        "otkazali-v-refinansirovanii-osnovnye-prichiny", "pochemy-bank-otkazyvaet-v-refinansirovanii-posle-restryktyrizacii",
+        "prichiny-otkaza-v-refinansirovanii-kotorye-skryvaut-banki",
+        "razreshat-li-v-banke-refinansirovat-mikrozaim-s-prosrochkami",
+        "refinansirovanie-ipoteki-s-plohoi-ki-v-kakih-bankah-odobriat",
+        "refinansirovanie-s-plohoi-kreditnoi-istoriei-predlojeniia-bankov",
+        "top-6-prichin-pochemy-banki-otkazyvaut-v-refinansirovanii",
+    ]),
+    "/credit/kak-sdelat-refinansirovanie-kreditov-v-sberbanke.html": ("Сбербанк.", [
+        "kak-oformit-refinansirovanie-kredita-v-sberbanke", "kakie-nyjny-dokymenty-dlia-refinansirovaniia-v-sberbanke",
+        "refinansirovanie-ipoteki-v-sberbanke-chto-nyjno-znat", "refinansirovanie-sberbank-vtb",
+        "sberbank-otkazal-v-refinansirovanii-prichiny-kak-ispravit-sityaciu",
+    ]),
+    "/credit/stoit-li-ispolzovat-refinansirovanie-kredita.html": ("«Плюсы и минусы», «когда выгодно».", [
+        "plusy-i-minysy-refinansirovaniia", "kogda-vygodno-oformliat-refinansirovanie-a-kogda-kreditnye-kanikyly",
+    ]),
+    "/credit/perekreditovanie-kredita-pod-menshii-procent.html": ("«Снизить процент».", [
+        "kak-snizit-procent-po-kredity-v-2024-gody",
+    ]),
+    "/credit/na-kakih-ysloviiah-mojno-polychit-refinansirovanie-v-vtb.html": ("ВТБ.", [
+        "kak-oformit-refinansirovanie-ipoteki-v-vtb",
+    ]),
+    "/credit/naskolko-vygodno-refinansirovanie-v-rosselhozbanke.html": ("Россельхозбанк.", [
+        "poriadok-i-ysloviia-refinansirovaniia-ipoteki-v-rosselhozbanke",
+    ]),
+    "/kredity/tbank-refinansirovanie/": ("Т-Банк (Тинькофф): обзор оффера рефинансирования (до /stati/refinansirovanie-v-t-banke/).", [
+        "kak-proishodit-refinansirovanie-kreditov-v-tinkoff-banke",
+        "preimyshestva-refinansirovaniia-ipoteki-v-tinkoff-banke", "refinansirovanie-kreditnoi-karty-tinkoff",
+    ]),
+    "/kredity/alfa-refinansirovanie/": ("Альфа-Банк: обзор оффера рефинансирования (до /stati/refinansirovanie-v-alfa-banke/).", [
+        "refinansirovanie-ipoteki-v-alfa-banke-v-2024-gody", "refinansirovanie-v-alfa-banke-ysloviia-i-poriadok-oformleniia",
+    ]),
+    "/stati/kak-ne-popast-v-dolgovuyu-yamu-s-mikrozajmami/": ("Рефинансирование микрозаймов (до /stati/refinansirovanie-mikrozajmov/).", [
+        "kak-proizvesti-refinansirovanie-mikrozaimov-mfo",
+    ]),
+    "/stati/samozapret-na-kredity/": ("Самозапрет на кредиты.", [
+        "grigorenko-grajdane-smogyt-samozapretit-oformlenie-kredita-cherez-gosyslygi",
+    ]),
+    "/zaimy/": ("Краткосрочные займы.", [
+        "bystrye-kredity-kratkosrochnye-zajmy",
+    ]),
+    None: ("Нет тематической цели: банки без статей (Райффайзен, Росбанк, ПСБ, Газпромбанк, Возрождение), "
+           "льготная ипотека без рефинансирования, ставка рефинансирования ЦБ, новости без темы, офтоп. "
+           "301 на хаб/главную = soft-404 (SEO_PLAN §7.1).", [
+        "kak-polychit-refinansirovanie-ipoteki-v-rosbanke", "kak-polychit-refinansirovanie-kreditov-v-raiffaizenbanke",
+        "na-kakih-ysloviiah-mojno-polychit-refinansirovanie-v-gazprombanke",
+        "procedyra-refinansirovaniia-ipoteki-v-raiffaizenbanke",
+        "refinansirovanie-kreditov-drygih-bankov-v-rosbanke-ysloviia-i-procedyra",
+        "refinansirovanie-kreditov-v-promsviazbanke-dlia-fizicheskih-lic",
+        "ysloviia-refinansirovaniia-ipoteki-v-gazprombanke", "ysloviia-refinansirovaniia-v-banke-vozrojdenie",
+        "popyliarnye-voprosy-o-lgotnyh-ipotechnyh-programmah", "popyliarnye-voprosy-o-programme-dalnevostochnaia-ipoteka",
+        "razmer-stavki-refinansirovaniia-v-2024-gody", "stavka-refinansirovaniia-chto-eto",
+        "brysnika-s-sovkombankom-pervoi-v-rossii-zapystila-ipoteky-so-snijennoi-stavkoi-849",
+        "cb-ne-bydet-prodlevat-mery-podderjki-bankov-zavershaushih-deistvie-v-2024-gody",
+        "cb-povysil-ojidaniia-po-rosty-potrebkreditovaniia-v-2024-gody-do-15-18",
+        "docent-gorbynova-esli-bank-yrezal-vam-kreditnyi-limit-proverte-nalichie-dolga",
+        "gosdyma-priniala-v-i-chtenii-zakonoproekt-o-periode-ohlajdeniia-po-potrebkreditam",
+        "gosdyma-vo-ii-chtenii-razreshaet-cb-limitirovat-vydachy-ipoteki-i-avtokreditov-fizlicam",
+        "nabiyllina-kreditnaia-aktivnost-v-pervye-nedeli-dekabria-ostavalas-sderjannoi",
+        "naimenee-popyliarnoi-ipotechnoi-programmoi-v-2024-gody-stala-dalnevostochnaia-ipoteka",
+        "nbki-dolia-zaemshikov-moloje-30-let-v-stryktyre-vydachi-potrebitelskih-kreditov-sokratilas",
+        "nbki-kolichestvo-vydannyh-v-rossii-avtokreditov-v-oktiabre-sokratilos-na-35",
+        "nbki-srednii-razmer-potrebkredita-v-sentiabre-snizilsia-do-160-tysiach-ryblei",
+        "novak-moratorii-do-2028-goda-na-vyplaty-dividendov-rysgidro-obsyjdaetsia",
+        "polyianova-mikropredpriiatiia-smogyt-brat-kredity-bez-ogranicheniia-na-plavaushyu-stavky",
+        "pytin-podpisal-zakon-o-bessrochnom-mehanizme-zontichnyh-porychitelstv-dlia-msp",
+        "pytin-porychil-vlastiam-otslejivat-dinamiky-korporativnogo-kreditovaniia-v-rossii",
+        "pytin-prizval-obespechivat-rost-korporativnogo-kreditnogo-portfelia",
+        "rbk-nachislennye-rossiianam-procenty-po-kreditam-prevysili-600-milliardov-ryblei",
+        "ria-novosti-rossiiane-v-2024-g-chashe-vsego-brali-kredity-na-remont-i-pokypky-avto",
+        "za-2024-god-nornikel-sokratil-chistyu-pribyl-po-rsby-na-57-do-123-mlrd-ryb",
+        "metallicheskaya-setka-vidy-osobennosti-i-primenenie", "vidy-bankovskih-prodyktov",
+    ]),
+}
+
 
 def tag_target(name, slug):
     n = (name + " " + slug).lower()
@@ -127,5 +248,16 @@ for it in inv:
 
 assert all(r["target"].startswith("/") for r in out)
 assert {r["old_url"] for r in out} == {i["url"] for i in inv} and len(out) == len(inv)
-(R / "map.json").write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+lost = [(s, t, why) for t, (why, slugs) in LOST.items() for s in slugs]
+assert len(lost) == 101 and len({s for s, _, _ in lost}) == 101
+known = {r["old_url"] for r in out}
+for s, t, why in sorted(lost):
+    u = f"https://rencredit-online.ru/credit/{s}.html"
+    assert u not in known, u
+    out.append(dict(old_url=u, type="post", title=None, words=None, http_status=404, in_sitemap=False,
+                    decision="merge301" if t else "gone410", target=t, reason="Wayback 200, не было в REST. " + why,
+                    priority=None))
+# CRLF как в репозитории (файл создавался на Windows), чтобы запуск на macOS не давал diff на весь файл
+(R / "map.json").write_bytes((json.dumps(out, ensure_ascii=False, indent=2) + "\n").replace("\n", "\r\n").encode("utf-8"))
 print(len(out), dict(Counter(r["decision"] for r in out)), dict(Counter(r["target"] for r in out if r["type"] == "tag")))
