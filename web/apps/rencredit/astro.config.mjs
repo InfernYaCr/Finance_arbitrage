@@ -62,6 +62,22 @@ const thinGuides = new Set(readdirSync('./src/content/guides').filter((f) => /\.
   return n < 3 ? [`/${f.replace(/\.mdx?$/, '')}/`] : [];
 }));
 
+// lastmod в sitemap: updatedDate ?? publishDate статей (/stati/, /credit/*.html) и новостей; витрины без lastmod.
+/** @param {string} dir @param {(id: string, fm: string) => string} urlOf */
+const contentDates = (dir, urlOf) => readdirSync(dir).filter((f) => /\.mdx?$/.test(f)).map((f) => {
+  const fm = readFileSync(join(dir, f), 'utf-8').split(/^---\r?$/m)[1] ?? '';
+  const field = (k) => fm.match(new RegExp(`^${k}:\\s*["']?([^"'\\s]+)`, 'm'))?.[1];
+  const date = field('updatedDate') ?? field('publishDate');
+  return [urlOf(f.replace(/\.mdx?$/, ''), fm), date && new Date(date).toISOString()];
+});
+const lastmod = new Map([
+  ...contentDates('./src/content/articles', (id, fm) => {
+    const legacy = fm.match(/^legacyUrl:\s*["']?https?:\/\/[^/]+(\/credit\/[^"'\s]+\.html)/m)?.[1];
+    return legacy ?? `/stati/${id}/`;
+  }),
+  ...contentDates('./src/content/news', (id) => `/novosti/${id}/`),
+]);
+
 export default defineConfig({
   // Пилот: тестовый поддомен с noindex, потом — боевой домен.
   site: (env.SITE_URL || 'https://rencredit-online.ru').replace(/\/+$/, ''),
@@ -74,7 +90,11 @@ export default defineConfig({
       filter: (p) => !p.includes('/go/') && !isEmptySvcPage(p) && !thinGuides.has(new URL(p).pathname),
       // Переписанные старые статьи собираются как /credit/<slug>/, но живут (и каноничны)
       // на старом адресе /credit/<slug>.html — в карту сайта кладём именно его.
-      serialize: (item) => ({ ...item, url: item.url.replace(/\/credit\/([^/]+)\/$/, '/credit/$1.html') }),
+      serialize: (item) => {
+        const url = item.url.replace(/\/credit\/([^/]+)\/$/, '/credit/$1.html');
+        const date = lastmod.get(new URL(url).pathname);
+        return { ...item, url, ...(date && { lastmod: date }) };
+      },
     }),
   ],
   vite: { plugins: [tailwindcss()] },

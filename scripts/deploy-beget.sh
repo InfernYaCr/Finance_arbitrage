@@ -80,6 +80,9 @@ if [[ "$MODE" != check ]]; then
   echo "▶ dist: $FILES файлов, $SIZE → $DEPLOY_METHOD://$BEGET_USER@$BEGET_HOST/$BEGET_PATH"
 fi
 
+# IndexNow после успешной заливки (set -e: до сюда доходим только без ошибок). Деплой из-за него не падает.
+indexnow() { node "$ROOT/scripts/indexnow.mjs" || echo "⚠ IndexNow не отправлен (деплой при этом прошёл)"; }
+
 # --- SSH ---
 SSH_OPTS=(-o StrictHostKeyChecking=accept-new -o ConnectTimeout=15)
 [[ -f "$BEGET_KEY" ]] && SSH_OPTS+=(-i "$BEGET_KEY" -o IdentitiesOnly=yes)
@@ -105,8 +108,11 @@ find \"\$D\" -mindepth 1 -maxdepth 1 ! -name '_old_site_*' ! -name '.ssh' -exec 
 { [ \"\$(dirname \"\$A\")\" = \"\$D\" ] && printf 'Require all denied\nDeny from all\n' > \"\$A/.htaccess\" || true; } && \
 echo \"Старое содержимое перенесено в \$A (\$(ls -A \"\$A\" | wc -l) объектов)\" && cd - >/dev/null && "
       fi
-      tar -C "$DIST" -czf - . | ssh_run "${PREP}mkdir -p '$BEGET_PATH' && tar -xzf - -C '$BEGET_PATH' && echo OK: \$(find '$BEGET_PATH' -type f ! -path '*/_old_site_*' | wc -l) файлов нового сайта на сервере" ;;
+      # В архив кладём содержимое dist без записи «./»: иначе tar на сервере пытается сменить время/права
+      # корня public_html (он не наш) — «Cannot utime: .» и ненулевой код при успешной заливке.
+      (cd "$DIST" && find . -mindepth 1 -maxdepth 1 -print0 | tar --null -czf - -T -) | ssh_run "${PREP}mkdir -p '$BEGET_PATH' && tar -xzf - -C '$BEGET_PATH' && echo OK: \$(find '$BEGET_PATH' -type f ! -path '*/_old_site_*' | wc -l) файлов нового сайта на сервере" ;;
   esac
+  [[ "$MODE" == deploy ]] && indexnow
   exit 0
 fi
 
@@ -157,6 +163,7 @@ if [[ "$DEPLOY_METHOD" == ftp ]]; then
       done < <(cd "$DIST" && find . -type f | sort)
       echo "OK: залито $n файлов" ;;
   esac
+  [[ "$MODE" == deploy ]] && indexnow
   exit 0
 fi
 
