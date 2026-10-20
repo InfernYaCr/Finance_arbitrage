@@ -1,6 +1,7 @@
 import { markJs, initReveal, animateCounters, initTilt, initLogoMorph } from '@pbn/motion';
 import { initHeader, initSeoToggle, initMascotOnce, initStickyCta } from './chrome';
 import { initOffers } from './offers-ui';
+import './goals';
 
 /**
  * Единая точка входа клиентского JS. С <ClientRouter /> модуль выполняется один раз,
