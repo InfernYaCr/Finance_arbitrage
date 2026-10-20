@@ -7,8 +7,8 @@ import { num, daysWord, moneyRange, termText } from '../lib/format';
 import { FEATURE_LABELS } from '../lib/ui/features';
 
 /** ad — выделенная подборка (не каталог): карточка несёт маркировку рекламы. Слот quote — расчёт под запрос (главная). */
-interface Props { offer: Offer; index?: number; morph?: boolean; ad?: boolean }
-const { offer: o, index = 0, morph = true, ad = false } = Astro.props;
+interface Props { offer: Offer; index?: number; ad?: boolean }
+const { offer: o, index = 0, ad = false } = Astro.props;
 const rated = showsRate(o);
 const zero = rated && o.features.includes('zero_percent') && o.freeDays;
 const zeroText = zero ? (o.kind === 'mfo' ? `0% первый займ ${daysWord(o.freeDays!)}` : `Без % ${termText('card', 1, o.freeDays!)}`) : '';
@@ -24,7 +24,7 @@ const psk = pskRange(o);
   data-reveal style={`--i:${Math.min(index, 6)}`}>
   {psk ? <p class="psk-line"><span>{PSK_LABEL}:</span> {psk}</p> : <p class="psk-line">{NO_RATE}</p>}
   <div class="oc-head">
-    <OfferLogo offer={o} morph={morph} />
+    <OfferLogo offer={o} />
     <div class="min-w-0">
       <a class="oc-name" href={reviewHref(o)}>{o.name}</a>
       {o.rating ? <div class="rating"><Icon name="star" /><span>{String(o.rating).replace('.', ',')}</span>{o.reviewsCount ? <span class="text-mute font-medium">· {num(o.reviewsCount)} отз.</span> : null}</div> : null}

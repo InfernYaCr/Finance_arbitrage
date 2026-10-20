@@ -13,7 +13,7 @@ const free = rated && o.features.includes('zero_percent') ? o.freeDays ?? 0 : 0;
 <li class="hp-ticket" data-hp-offer hidden={!shown || undefined}
   data-sum-min={o.amountMin} data-sum-max={o.amountMax} data-term-min={o.termMinDays} data-term-max={o.termMaxDays}
   data-rate={rated ? o.rateDayPct : undefined} data-free={free} data-prio={o.priority ?? 0} data-idx={index} data-features={o.features.join(',')}>
-  <OfferCard offer={o} index={index} morph={false} ad>
+  <OfferCard offer={o} index={index} ad>
     {rated && (
       <p slot="quote" class="oc-quote">
         <span class="oc-quote-k">К возврату</span>
