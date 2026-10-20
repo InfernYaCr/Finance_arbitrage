@@ -132,6 +132,8 @@ const ld = [...siteLd, ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) 
           });
           location.reload();
         };
+        // Цели (scripts/goals.ts): только после согласия, иначе молча ничего.
+        window.fkGoal = function (n, p) { if (loaded) window.ym(id, 'reachGoal', n, p); };
         if (choice === 'yes') load();
       </script>
     )}

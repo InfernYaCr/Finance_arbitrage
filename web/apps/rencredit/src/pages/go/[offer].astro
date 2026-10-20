@@ -31,7 +31,7 @@ const destination =
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex,nofollow" />
-    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+    <noscript><meta http-equiv="refresh" content={`0;url=${destination}`} /></noscript>
     <title>Переход к партнёру…</title>
     <style>
       body { font: 16px/1.5 system-ui, sans-serif; margin: 0; min-height: 100vh; display: grid; place-items: center; color: #1c1c1c; background: #fff; }
@@ -43,8 +43,22 @@ const destination =
       Переходим на сайт партнёра…
       <a href={destination} rel="nofollow sponsored noopener">Нажмите здесь</a>, если переход не произошёл.
     </p>
+    {/*
+      Метка места клика (scripts/goals.ts): ?p=<слот>&s=<sid> → utm_content/utm_term, раздел из referrer → utm_campaign.
+      erid и путь коннектора не трогаем, utm только дописываем. Без s (открыли из контекстного меню) — свой sid.
+    */}
     <script define:vars={{ destination }}>
-      window.location.replace(destination);
+      var q = new URLSearchParams(location.search), u = new URL(destination, location.href);
+      var p = q.get('p') || '', s = q.get('s') || '', sec = 'direct';
+      try {
+        var r = new URL(document.referrer);
+        sec = r.origin === location.origin ? r.pathname.split('/')[1] || 'home' : 'ext';
+      } catch (e) { /* пустой referrer */ }
+      if (!/^[0-9a-f]{12}$/.test(s)) s = Array.from(crypto.getRandomValues(new Uint8Array(6)), function (b) { return b.toString(16).padStart(2, '0'); }).join('');
+      u.searchParams.set('utm_content', /^[a-z0-9-]{1,32}$/.test(p) ? p : 'none');
+      u.searchParams.set('utm_term', s);
+      if (/^[a-z0-9-]{1,48}$/.test(sec)) u.searchParams.set('utm_campaign', sec);
+      location.replace(u.href);
     </script>
   </body>
 </html>
