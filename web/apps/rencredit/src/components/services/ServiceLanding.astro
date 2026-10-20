@@ -8,6 +8,7 @@ import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import Faq from '../Faq.astro';
+import Fact from '../Fact.astro';
 import ServiceCard from './ServiceCard.astro';
 import { itemList } from '@pbn/core';
 import { offersWord, dateRu } from '../../lib/format';
@@ -93,7 +94,7 @@ const listLd = itemList(title, services.map((s) => ({ type: SCHEMA_TYPE[s.kind],
 
   {Content && (
     <section class="section pt-0 md:pt-0">
-      <div class="wrap"><div class="prose"><Content /></div></div>
+      <div class="wrap"><div class="prose"><Content components={{ Fact }} /></div></div>
     </section>
   )}
 

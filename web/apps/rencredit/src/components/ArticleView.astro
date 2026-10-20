@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import PostCard from '../components/PostCard.astro';
 import Faq from '../components/Faq.astro';
+import Fact from '../components/Fact.astro';
 import CtaH2 from './cta/CtaH2.astro';
 import CtaTop3 from './cta/CtaTop3.astro';
 import CtaNext from './cta/CtaNext.astro';
@@ -54,7 +55,7 @@ const ld = {
 
   <div class="wrap article-grid">
     <article>
-      <div class="prose"><Content components={{ h2: CtaH2 }} /></div>
+      <div class="prose"><Content components={{ h2: CtaH2, Fact }} /></div>
 
       <CtaTop3 offers={offers} slot="top3" title="Подходящие предложения по теме" moreHref={kindUrl} moreLabel="Все предложения" />
       <CtaNext kind={wantedKind} exclude={entry.id} />
