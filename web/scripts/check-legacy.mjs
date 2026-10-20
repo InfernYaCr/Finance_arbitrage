@@ -74,7 +74,7 @@ function pageExists(urlPath) {
 const map = JSON.parse(readFileSync(mapFile, 'utf8'));
 const problems = [];
 const rewritePaths = new Set(map.filter(x => x.decision === 'rewrite').map(x => new URL(x.old_url).pathname));
-const stat = { rewrite: 0, rewriteMissing: 0, merge: 0, keep: 0 };
+const stat = { rewrite: 0, rewriteMissing: 0, merge: 0, gone: 0, keep: 0 };
 for (const x of map) {
   const u = new URL(x.old_url);
   const path = decodeURIComponent(u.pathname).replace(/^\/+/, '');
@@ -104,6 +104,10 @@ for (const x of map) {
     const chain = simulate(decodeURIComponent(tp).replace(/^\/+/, ''), tq);
     if (chain) add('CHAIN', `цель ${tp} снова редиректится (${chain.status})`);
     if (verbose) console.log(`301 ${x.old_url} -> ${sim.target}`);
+  } else if (x.decision === 'gone410') {
+    stat.gone++;
+    if (!sim || sim.status !== 410) add('STATUS', `ожидался 410, получено ${sim ? sim.status : 'нет правила'}`);
+    if (pageExists('/' + path)) add('HIJACK', `410 на существующую страницу dist/${path}`);
   } else add('UNKNOWN', `decision=${x.decision}`);
 }
 
@@ -134,7 +138,7 @@ for (const [p, q, want] of [['', 'p=40625', '/credit/refinansirovanie-kredita-ch
 const missing = problems.filter(p => p.kind === 'MISSING');
 const hard = problems.filter(p => !(allowMissing && p.kind === 'MISSING'));
 console.log(`Правил в блоке LEGACY: ${rules.length}; URL в map.json: ${map.length}`);
-console.log(`rewrite: ${stat.rewrite} (нет в dist: ${stat.rewriteMissing}), merge301: ${stat.merge}, keep: ${stat.keep}`);
+console.log(`rewrite: ${stat.rewrite} (нет в dist: ${stat.rewriteMissing}), merge301: ${stat.merge}, gone410: ${stat.gone}, keep: ${stat.keep}`);
 if (problems.length) {
   console.log('\nПроблемы:');
   const w = Math.max(...problems.map(p => p.kind.length));

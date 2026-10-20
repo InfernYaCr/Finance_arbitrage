@@ -214,6 +214,209 @@ RewriteRule ^credit/zoloto-desheveet-pered-pyblikaciei-reshenii-frs-ssha\.html/?
 RewriteRule ^credit/zoloto-desheveet-posle-dostijeniia-novogo-rekorda-v-ponedelnik\.html/?$ https://%{HTTP_HOST}/novosti/ [R=301,L]
 # sitemap: https://rencredit-online.ru/sitemap_index.xml
 RewriteRule ^sitemap_index\.xml/?$ https://%{HTTP_HOST}/sitemap-index.xml [R=301,L]
+# post: https://rencredit-online.ru/credit/bystrye-kredity-kratkosrochnye-zajmy.html
+RewriteRule ^credit/bystrye-kredity-kratkosrochnye-zajmy\.html/?$ https://%{HTTP_HOST}/zaimy/ [R=301,L]
+# post: https://rencredit-online.ru/credit/chto-nyjno-znat-pered-tem-kak-sdelat-refinansirovanie-kredita.html
+RewriteRule ^credit/chto-nyjno-znat-pered-tem-kak-sdelat-refinansirovanie-kredita\.html/?$ https://%{HTTP_HOST}/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html [R=301,L]
+# post: https://rencredit-online.ru/credit/chto-takoe-refinansirovanie-ipoteki.html
+RewriteRule ^credit/chto-takoe-refinansirovanie-ipoteki\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/dokymenty-dlia-refinansirovaniia-ipoteki.html
+RewriteRule ^credit/dokymenty-dlia-refinansirovaniia-ipoteki\.html/?$ https://%{HTTP_HOST}/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html [R=301,L]
+# post: https://rencredit-online.ru/credit/gde-oformit-refinansirovanie-kreditov-s-prosrochkoi.html
+RewriteRule ^credit/gde-oformit-refinansirovanie-kreditov-s-prosrochkoi\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html [R=301,L]
+# post: https://rencredit-online.ru/credit/gde-polychit-refinansirovanie-kredita-bez-spravki-o-dohodah.html
+RewriteRule ^credit/gde-polychit-refinansirovanie-kredita-bez-spravki-o-dohodah\.html/?$ https://%{HTTP_HOST}/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html [R=301,L]
+# post: https://rencredit-online.ru/credit/grigorenko-grajdane-smogyt-samozapretit-oformlenie-kredita-cherez-gosyslygi.html
+RewriteRule ^credit/grigorenko-grajdane-smogyt-samozapretit-oformlenie-kredita-cherez-gosyslygi\.html/?$ https://%{HTTP_HOST}/stati/samozapret-na-kredity/ [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-i-gde-polychit-refinansirovanie-kreditnoi-karty.html
+RewriteRule ^credit/kak-i-gde-polychit-refinansirovanie-kreditnoi-karty\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-i-gde-proizvesti-refinansirovanie-avtokredita.html
+RewriteRule ^credit/kak-i-gde-proizvesti-refinansirovanie-avtokredita\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-oformit-refinansirovanie-ipoteki-v-vtb.html
+RewriteRule ^credit/kak-oformit-refinansirovanie-ipoteki-v-vtb\.html/?$ https://%{HTTP_HOST}/credit/na-kakih-ysloviiah-mojno-polychit-refinansirovanie-v-vtb.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-oformit-refinansirovanie-kredita-v-sberbanke.html
+RewriteRule ^credit/kak-oformit-refinansirovanie-kredita-v-sberbanke\.html/?$ https://%{HTTP_HOST}/credit/kak-sdelat-refinansirovanie-kreditov-v-sberbanke.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-proishodit-refinansirovanie-kreditov-v-tinkoff-banke.html
+RewriteRule ^credit/kak-proishodit-refinansirovanie-kreditov-v-tinkoff-banke\.html/?$ https://%{HTTP_HOST}/kredity/tbank-refinansirovanie/ [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-proizvesti-refinansirovanie-mikrozaimov-mfo.html
+RewriteRule ^credit/kak-proizvesti-refinansirovanie-mikrozaimov-mfo\.html/?$ https://%{HTTP_HOST}/stati/kak-ne-popast-v-dolgovuyu-yamu-s-mikrozajmami/ [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-provesti-refinansirovanie-kreditki.html
+RewriteRule ^credit/kak-provesti-refinansirovanie-kreditki\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-rabotaet-kalkyliator-refinansirovaniia-ipoteki.html
+RewriteRule ^credit/kak-rabotaet-kalkyliator-refinansirovaniia-ipoteki\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-refinansirovat-ipotechnyi-dolg.html
+RewriteRule ^credit/kak-refinansirovat-ipotechnyi-dolg\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-refinansirovat-kredit-pod-zalog-nedvijimosti.html
+RewriteRule ^credit/kak-refinansirovat-kredit-pod-zalog-nedvijimosti\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-sdelat-refinansirovanie-kredita-ili-ipoteki.html
+RewriteRule ^credit/kak-sdelat-refinansirovanie-kredita-ili-ipoteki\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-sdelat-refinansirovaniia-ipoteki-s-materinskim-kapitalom-v-2024-gody.html
+RewriteRule ^credit/kak-sdelat-refinansirovaniia-ipoteki-s-materinskim-kapitalom-v-2024-gody\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kak-snizit-procent-po-kredity-v-2024-gody.html
+RewriteRule ^credit/kak-snizit-procent-po-kredity-v-2024-gody\.html/?$ https://%{HTTP_HOST}/credit/perekreditovanie-kredita-pod-menshii-procent.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kakie-nyjny-dokymenty-dlia-refinansirovaniia-v-sberbanke.html
+RewriteRule ^credit/kakie-nyjny-dokymenty-dlia-refinansirovaniia-v-sberbanke\.html/?$ https://%{HTTP_HOST}/credit/kak-sdelat-refinansirovanie-kreditov-v-sberbanke.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kakie-rashody-mogyt-vozniknyt-pri-refinansirovanii-ipotechnogo-kredita.html
+RewriteRule ^credit/kakie-rashody-mogyt-vozniknyt-pri-refinansirovanii-ipotechnogo-kredita\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kogda-bank-razreshaet-obrashatsia-za-refinansirovaniem.html
+RewriteRule ^credit/kogda-bank-razreshaet-obrashatsia-za-refinansirovaniem\.html/?$ https://%{HTTP_HOST}/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kogda-rabotaet-refinansirovanie.html
+RewriteRule ^credit/kogda-rabotaet-refinansirovanie\.html/?$ https://%{HTTP_HOST}/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kogda-vygodno-oformliat-refinansirovanie-a-kogda-kreditnye-kanikyly.html
+RewriteRule ^credit/kogda-vygodno-oformliat-refinansirovanie-a-kogda-kreditnye-kanikyly\.html/?$ https://%{HTTP_HOST}/credit/stoit-li-ispolzovat-refinansirovanie-kredita.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kyda-obrashatsia-za-refinansirovaniem-esli-kredit-s-zadoljennostu.html
+RewriteRule ^credit/kyda-obrashatsia-za-refinansirovaniem-esli-kredit-s-zadoljennostu\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html [R=301,L]
+# post: https://rencredit-online.ru/credit/kyda-obratitsia-dlia-oformleniia-refinansirovaniia-avtokredita.html
+RewriteRule ^credit/kyda-obratitsia-dlia-oformleniia-refinansirovaniia-avtokredita\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/mojno-li-refinansirovat-ipoteky-v-slychae-rojdeniia-pervogo-rebenka.html
+RewriteRule ^credit/mojno-li-refinansirovat-ipoteky-v-slychae-rojdeniia-pervogo-rebenka\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/mojno-li-refinansirovat-kredit-s-pomoshu-selskoi-ipoteki.html
+RewriteRule ^credit/mojno-li-refinansirovat-kredit-s-pomoshu-selskoi-ipoteki\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/mojno-li-refinansirovat-po-programme-semeinaia-ipoteka-kredit-oformlennyi-na-apartamenty.html
+RewriteRule ^credit/mojno-li-refinansirovat-po-programme-semeinaia-ipoteka-kredit-oformlennyi-na-apartamenty\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/mojno-li-sdelat-refinansirovanie-yje-imeusheisia-ipoteki-za-schet-lgotnoi-ipoteki-dlia-it-specialistov.html
+RewriteRule ^credit/mojno-li-sdelat-refinansirovanie-yje-imeusheisia-ipoteki-za-schet-lgotnoi-ipoteki-dlia-it-specialistov\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/mojno-li-vziat-obychnyu-ipoteky-a-potom-refinansirovat-po-semeinoi-ipoteke.html
+RewriteRule ^credit/mojno-li-vziat-obychnyu-ipoteky-a-potom-refinansirovat-po-semeinoi-ipoteke\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/obzor-programm-refinansirovaniia-2023-goda.html
+RewriteRule ^credit/obzor-programm-refinansirovaniia-2023-goda\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/odobriat-li-refinansirovanie-v-banke-esli-net-spravki-o-dohodah.html
+RewriteRule ^credit/odobriat-li-refinansirovanie-v-banke-esli-net-spravki-o-dohodah\.html/?$ https://%{HTTP_HOST}/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html [R=301,L]
+# post: https://rencredit-online.ru/credit/osnovnye-prichiny-pochemy-bank-ne-refinansiryet-kredit-daje-pod-zalog.html
+RewriteRule ^credit/osnovnye-prichiny-pochemy-bank-ne-refinansiryet-kredit-daje-pod-zalog\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html [R=301,L]
+# post: https://rencredit-online.ru/credit/osobennosti-refinansirovaniia-voennoi-ipoteki-v-2024-gody.html
+RewriteRule ^credit/osobennosti-refinansirovaniia-voennoi-ipoteki-v-2024-gody\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/otkazali-v-refinansirovanii-osnovnye-prichiny.html
+RewriteRule ^credit/otkazali-v-refinansirovanii-osnovnye-prichiny\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html [R=301,L]
+# post: https://rencredit-online.ru/credit/otvety-na-voprosy-zaemshikov-pro-refinansirovanie.html
+RewriteRule ^credit/otvety-na-voprosy-zaemshikov-pro-refinansirovanie\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/plusy-i-minysy-refinansirovaniia.html
+RewriteRule ^credit/plusy-i-minysy-refinansirovaniia\.html/?$ https://%{HTTP_HOST}/credit/stoit-li-ispolzovat-refinansirovanie-kredita.html [R=301,L]
+# post: https://rencredit-online.ru/credit/pochemy-bank-otkazyvaet-v-refinansirovanii-posle-restryktyrizacii.html
+RewriteRule ^credit/pochemy-bank-otkazyvaet-v-refinansirovanii-posle-restryktyrizacii\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html [R=301,L]
+# post: https://rencredit-online.ru/credit/poriadok-i-ysloviia-refinansirovaniia-ipoteki-v-rosselhozbanke.html
+RewriteRule ^credit/poriadok-i-ysloviia-refinansirovaniia-ipoteki-v-rosselhozbanke\.html/?$ https://%{HTTP_HOST}/credit/naskolko-vygodno-refinansirovanie-v-rosselhozbanke.html [R=301,L]
+# post: https://rencredit-online.ru/credit/preimyshestva-refinansirovaniia-ipoteki-v-tinkoff-banke.html
+RewriteRule ^credit/preimyshestva-refinansirovaniia-ipoteki-v-tinkoff-banke\.html/?$ https://%{HTTP_HOST}/kredity/tbank-refinansirovanie/ [R=301,L]
+# post: https://rencredit-online.ru/credit/prichiny-otkaza-v-refinansirovanii-kotorye-skryvaut-banki.html
+RewriteRule ^credit/prichiny-otkaza-v-refinansirovanii-kotorye-skryvaut-banki\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html [R=301,L]
+# post: https://rencredit-online.ru/credit/razreshat-li-v-banke-refinansirovat-mikrozaim-s-prosrochkami.html
+RewriteRule ^credit/razreshat-li-v-banke-refinansirovat-mikrozaim-s-prosrochkami\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-ili-restryktyrizaciia-chto-vybrat-dlia-ymensheniia-plateja-po-kredity.html
+RewriteRule ^credit/refinansirovanie-ili-restryktyrizaciia-chto-vybrat-dlia-ymensheniia-plateja-po-kredity\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-ipoteki-drygih-bankov-lychshie-predlojeniia-2024-goda.html
+RewriteRule ^credit/refinansirovanie-ipoteki-drygih-bankov-lychshie-predlojeniia-2024-goda\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-ipoteki-s-plohoi-ki-v-kakih-bankah-odobriat.html
+RewriteRule ^credit/refinansirovanie-ipoteki-s-plohoi-ki-v-kakih-bankah-odobriat\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-ipoteki-v-alfa-banke-v-2024-gody.html
+RewriteRule ^credit/refinansirovanie-ipoteki-v-alfa-banke-v-2024-gody\.html/?$ https://%{HTTP_HOST}/kredity/alfa-refinansirovanie/ [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-ipoteki-v-chem-vygoda-i-kak-ee-rasschitat.html
+RewriteRule ^credit/refinansirovanie-ipoteki-v-chem-vygoda-i-kak-ee-rasschitat\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-ipoteki-v-sberbanke-chto-nyjno-znat.html
+RewriteRule ^credit/refinansirovanie-ipoteki-v-sberbanke-chto-nyjno-znat\.html/?$ https://%{HTTP_HOST}/credit/kak-sdelat-refinansirovanie-kreditov-v-sberbanke.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-kredita.html
+RewriteRule ^credit/refinansirovanie-kredita\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-kredita-dlia-pensionerov-lychshie-predlojeniia-bankov-v-2024-gody.html
+RewriteRule ^credit/refinansirovanie-kredita-dlia-pensionerov-lychshie-predlojeniia-bankov-v-2024-gody\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-kreditnoi-karty-tinkoff.html
+RewriteRule ^credit/refinansirovanie-kreditnoi-karty-tinkoff\.html/?$ https://%{HTTP_HOST}/kredity/tbank-refinansirovanie/ [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-kreditov-drygih-bankov-gde-polychit-bez-problem.html
+RewriteRule ^credit/refinansirovanie-kreditov-drygih-bankov-gde-polychit-bez-problem\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-kreditov-drygih-bankov-na-vygodnyh-ysloviiah-v-2024-gody.html
+RewriteRule ^credit/refinansirovanie-kreditov-drygih-bankov-na-vygodnyh-ysloviiah-v-2024-gody\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-kreditov-pod-zalog-nedvijimosti-kak-pravilno-oformit-sdelky.html
+RewriteRule ^credit/refinansirovanie-kreditov-pod-zalog-nedvijimosti-kak-pravilno-oformit-sdelky\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-kreditov-v-raznyh-sityaciiah-podborka-statei-ot-mbk.html
+RewriteRule ^credit/refinansirovanie-kreditov-v-raznyh-sityaciiah-podborka-statei-ot-mbk\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-s-plohoi-kreditnoi-istoriei-predlojeniia-bankov.html
+RewriteRule ^credit/refinansirovanie-s-plohoi-kreditnoi-istoriei-predlojeniia-bankov\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-sberbank-vtb.html
+RewriteRule ^credit/refinansirovanie-sberbank-vtb\.html/?$ https://%{HTTP_HOST}/credit/kak-sdelat-refinansirovanie-kreditov-v-sberbanke.html [R=301,L]
+# post: https://rencredit-online.ru/credit/refinansirovanie-v-alfa-banke-ysloviia-i-poriadok-oformleniia.html
+RewriteRule ^credit/refinansirovanie-v-alfa-banke-ysloviia-i-poriadok-oformleniia\.html/?$ https://%{HTTP_HOST}/kredity/alfa-refinansirovanie/ [R=301,L]
+# post: https://rencredit-online.ru/credit/sberbank-otkazal-v-refinansirovanii-prichiny-kak-ispravit-sityaciu.html
+RewriteRule ^credit/sberbank-otkazal-v-refinansirovanii-prichiny-kak-ispravit-sityaciu\.html/?$ https://%{HTTP_HOST}/credit/kak-sdelat-refinansirovanie-kreditov-v-sberbanke.html [R=301,L]
+# post: https://rencredit-online.ru/credit/spisok-dokymentov-dlia-refinansirovaniia-kredita-i-ipoteki.html
+RewriteRule ^credit/spisok-dokymentov-dlia-refinansirovaniia-kredita-i-ipoteki\.html/?$ https://%{HTTP_HOST}/credit/kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat.html [R=301,L]
+# post: https://rencredit-online.ru/credit/top-6-prichin-pochemy-banki-otkazyvaut-v-refinansirovanii.html
+RewriteRule ^credit/top-6-prichin-pochemy-banki-otkazyvaut-v-refinansirovanii\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov.html [R=301,L]
+# post: https://rencredit-online.ru/credit/top-9-predlojenii-po-refinansirovaniu-kreditnyh-kart-v-2023-gody.html
+RewriteRule ^credit/top-9-predlojenii-po-refinansirovaniu-kreditnyh-kart-v-2023-gody\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/v-kakih-bankah-oformliaut-refinansirovanie.html
+RewriteRule ^credit/v-kakih-bankah-oformliaut-refinansirovanie\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/v-kakom-banke-vygodno-oformliat-refinansirovanie-ipoteki.html
+RewriteRule ^credit/v-kakom-banke-vygodno-oformliat-refinansirovanie-ipoteki\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/vozmojno-li-posle-refinansirovaniia-ipoteki-polychit-nalogovyi-vychet.html
+RewriteRule ^credit/vozmojno-li-posle-refinansirovaniia-ipoteki-polychit-nalogovyi-vychet\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# post: https://rencredit-online.ru/credit/vozmojno-li-povtorno-provesti-refinansirovanie.html
+RewriteRule ^credit/vozmojno-li-povtorno-provesti-refinansirovanie\.html/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
+# --- Посты без тематической цели (decision gone410 в map.json) -> 410 ---
+# https://rencredit-online.ru/credit/brysnika-s-sovkombankom-pervoi-v-rossii-zapystila-ipoteky-so-snijennoi-stavkoi-849.html
+RewriteRule ^credit/brysnika-s-sovkombankom-pervoi-v-rossii-zapystila-ipoteky-so-snijennoi-stavkoi-849\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/cb-ne-bydet-prodlevat-mery-podderjki-bankov-zavershaushih-deistvie-v-2024-gody.html
+RewriteRule ^credit/cb-ne-bydet-prodlevat-mery-podderjki-bankov-zavershaushih-deistvie-v-2024-gody\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/cb-povysil-ojidaniia-po-rosty-potrebkreditovaniia-v-2024-gody-do-15-18.html
+RewriteRule ^credit/cb-povysil-ojidaniia-po-rosty-potrebkreditovaniia-v-2024-gody-do-15-18\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/docent-gorbynova-esli-bank-yrezal-vam-kreditnyi-limit-proverte-nalichie-dolga.html
+RewriteRule ^credit/docent-gorbynova-esli-bank-yrezal-vam-kreditnyi-limit-proverte-nalichie-dolga\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/gosdyma-priniala-v-i-chtenii-zakonoproekt-o-periode-ohlajdeniia-po-potrebkreditam.html
+RewriteRule ^credit/gosdyma-priniala-v-i-chtenii-zakonoproekt-o-periode-ohlajdeniia-po-potrebkreditam\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/gosdyma-vo-ii-chtenii-razreshaet-cb-limitirovat-vydachy-ipoteki-i-avtokreditov-fizlicam.html
+RewriteRule ^credit/gosdyma-vo-ii-chtenii-razreshaet-cb-limitirovat-vydachy-ipoteki-i-avtokreditov-fizlicam\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/kak-polychit-refinansirovanie-ipoteki-v-rosbanke.html
+RewriteRule ^credit/kak-polychit-refinansirovanie-ipoteki-v-rosbanke\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/kak-polychit-refinansirovanie-kreditov-v-raiffaizenbanke.html
+RewriteRule ^credit/kak-polychit-refinansirovanie-kreditov-v-raiffaizenbanke\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/metallicheskaya-setka-vidy-osobennosti-i-primenenie.html
+RewriteRule ^credit/metallicheskaya-setka-vidy-osobennosti-i-primenenie\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/na-kakih-ysloviiah-mojno-polychit-refinansirovanie-v-gazprombanke.html
+RewriteRule ^credit/na-kakih-ysloviiah-mojno-polychit-refinansirovanie-v-gazprombanke\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/nabiyllina-kreditnaia-aktivnost-v-pervye-nedeli-dekabria-ostavalas-sderjannoi.html
+RewriteRule ^credit/nabiyllina-kreditnaia-aktivnost-v-pervye-nedeli-dekabria-ostavalas-sderjannoi\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/naimenee-popyliarnoi-ipotechnoi-programmoi-v-2024-gody-stala-dalnevostochnaia-ipoteka.html
+RewriteRule ^credit/naimenee-popyliarnoi-ipotechnoi-programmoi-v-2024-gody-stala-dalnevostochnaia-ipoteka\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/nbki-dolia-zaemshikov-moloje-30-let-v-stryktyre-vydachi-potrebitelskih-kreditov-sokratilas.html
+RewriteRule ^credit/nbki-dolia-zaemshikov-moloje-30-let-v-stryktyre-vydachi-potrebitelskih-kreditov-sokratilas\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/nbki-kolichestvo-vydannyh-v-rossii-avtokreditov-v-oktiabre-sokratilos-na-35.html
+RewriteRule ^credit/nbki-kolichestvo-vydannyh-v-rossii-avtokreditov-v-oktiabre-sokratilos-na-35\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/nbki-srednii-razmer-potrebkredita-v-sentiabre-snizilsia-do-160-tysiach-ryblei.html
+RewriteRule ^credit/nbki-srednii-razmer-potrebkredita-v-sentiabre-snizilsia-do-160-tysiach-ryblei\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/novak-moratorii-do-2028-goda-na-vyplaty-dividendov-rysgidro-obsyjdaetsia.html
+RewriteRule ^credit/novak-moratorii-do-2028-goda-na-vyplaty-dividendov-rysgidro-obsyjdaetsia\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/polyianova-mikropredpriiatiia-smogyt-brat-kredity-bez-ogranicheniia-na-plavaushyu-stavky.html
+RewriteRule ^credit/polyianova-mikropredpriiatiia-smogyt-brat-kredity-bez-ogranicheniia-na-plavaushyu-stavky\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/popyliarnye-voprosy-o-lgotnyh-ipotechnyh-programmah.html
+RewriteRule ^credit/popyliarnye-voprosy-o-lgotnyh-ipotechnyh-programmah\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/popyliarnye-voprosy-o-programme-dalnevostochnaia-ipoteka.html
+RewriteRule ^credit/popyliarnye-voprosy-o-programme-dalnevostochnaia-ipoteka\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/procedyra-refinansirovaniia-ipoteki-v-raiffaizenbanke.html
+RewriteRule ^credit/procedyra-refinansirovaniia-ipoteki-v-raiffaizenbanke\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/pytin-podpisal-zakon-o-bessrochnom-mehanizme-zontichnyh-porychitelstv-dlia-msp.html
+RewriteRule ^credit/pytin-podpisal-zakon-o-bessrochnom-mehanizme-zontichnyh-porychitelstv-dlia-msp\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/pytin-porychil-vlastiam-otslejivat-dinamiky-korporativnogo-kreditovaniia-v-rossii.html
+RewriteRule ^credit/pytin-porychil-vlastiam-otslejivat-dinamiky-korporativnogo-kreditovaniia-v-rossii\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/pytin-prizval-obespechivat-rost-korporativnogo-kreditnogo-portfelia.html
+RewriteRule ^credit/pytin-prizval-obespechivat-rost-korporativnogo-kreditnogo-portfelia\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/razmer-stavki-refinansirovaniia-v-2024-gody.html
+RewriteRule ^credit/razmer-stavki-refinansirovaniia-v-2024-gody\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/rbk-nachislennye-rossiianam-procenty-po-kreditam-prevysili-600-milliardov-ryblei.html
+RewriteRule ^credit/rbk-nachislennye-rossiianam-procenty-po-kreditam-prevysili-600-milliardov-ryblei\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/refinansirovanie-kreditov-drygih-bankov-v-rosbanke-ysloviia-i-procedyra.html
+RewriteRule ^credit/refinansirovanie-kreditov-drygih-bankov-v-rosbanke-ysloviia-i-procedyra\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/refinansirovanie-kreditov-v-promsviazbanke-dlia-fizicheskih-lic.html
+RewriteRule ^credit/refinansirovanie-kreditov-v-promsviazbanke-dlia-fizicheskih-lic\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/ria-novosti-rossiiane-v-2024-g-chashe-vsego-brali-kredity-na-remont-i-pokypky-avto.html
+RewriteRule ^credit/ria-novosti-rossiiane-v-2024-g-chashe-vsego-brali-kredity-na-remont-i-pokypky-avto\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/stavka-refinansirovaniia-chto-eto.html
+RewriteRule ^credit/stavka-refinansirovaniia-chto-eto\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/vidy-bankovskih-prodyktov.html
+RewriteRule ^credit/vidy-bankovskih-prodyktov\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/ysloviia-refinansirovaniia-ipoteki-v-gazprombanke.html
+RewriteRule ^credit/ysloviia-refinansirovaniia-ipoteki-v-gazprombanke\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/ysloviia-refinansirovaniia-v-banke-vozrojdenie.html
+RewriteRule ^credit/ysloviia-refinansirovaniia-v-banke-vozrojdenie\.html/?$ - [G,L]
+# https://rencredit-online.ru/credit/za-2024-god-nornikel-sokratil-chistyu-pribyl-po-rsby-na-57-do-123-mlrd-ryb.html
+RewriteRule ^credit/za-2024-god-nornikel-sokratil-chistyu-pribyl-po-rsby-na-57-do-123-mlrd-ryb\.html/?$ - [G,L]
 # Переписанные статьи /credit/<slug>.html/ (WP снимал лишний слэш) -> без слэша;
 # файл credit/<slug>.html существует, '/' попадает в PATH_INFO — DPI, чтобы он не прилип к цели
 RewriteRule ^(credit/[^/]+\.html)/$ https://%{HTTP_HOST}/$1 [R=301,L,DPI]
@@ -275,6 +478,10 @@ RewriteRule ^(wp-[a-z-]+|xmlrpc)\.php$ - [G,L]
 <IfModule mod_rewrite.c>
 RewriteCond %{DOCUMENT_ROOT}/credit/$1/index.html -f
 RewriteRule ^credit/([^/]+)\.html$ credit/$1/index.html [L]
+# Страховка: прочие старые /credit/<slug>.html, которых нет ни в dist, ни в map.json -> 410.
+# Не 301 на одну статью: массовый редирект на нерелевантную цель Яндекс считает soft-404 (SEO_PLAN §7.1).
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^credit/[^/]+\.html$ - [G,L]
 </IfModule>
 
 # --- 7. Завершающий слэш --------------------------------------------------------
