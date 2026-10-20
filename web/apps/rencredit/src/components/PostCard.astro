@@ -4,12 +4,13 @@ import { CATEGORY_LABELS } from '../lib/ui/site';
 interface Props { href: string; title: string; description: string; date: Date; category?: string; cover?: string; minutes?: number; index?: number; kind?: 'news' }
 const { href, title, description, date, category, cover, minutes, index = 0, kind } = Astro.props;
 // Нет своей обложки -> тематическая иллюстрация по рубрике (public/illustrations/<рубрика>.svg), для новостей и неизвестных рубрик — news.
+// Ссылка только на заголовке (чистый анкор); кликабельна вся карточка — через h3 a::after (decor.css).
 const art = cover ?? `/illustrations/${kind !== 'news' && category && category in CATEGORY_LABELS ? category : 'news'}.svg`;
 ---
-<a class="post-card" href={href} data-reveal data-category={category} style={`--i:${Math.min(index, 5)}`}>
+<article class="post-card" data-reveal data-category={category} style={`--i:${Math.min(index, 5)}`}>
   <div class="post-cover" aria-hidden="true"><img src={art} alt="" loading="lazy" decoding="async" width="640" height="360" /></div>
   {category && <span class="pill self-start">{CATEGORY_LABELS[category] ?? category}</span>}
-  <h3>{title}</h3>
+  <h3><a href={href}>{title}</a></h3>
   <p>{description}</p>
   <div class="meta"><time datetime={date.toISOString()}>{dateRu(date)}</time>{minutes ? <span>· {minutes} мин чтения</span> : null}<span class="more" aria-hidden="true">Читать <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span></div>
-</a>
+</article>

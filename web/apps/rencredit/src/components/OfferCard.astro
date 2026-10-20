@@ -17,11 +17,12 @@ const zeroText = zero ? (o.kind === 'mfo' ? `0% первый займ ${daysWord
 const rateText = !rated ? null : o.kind === 'mfo' ? `${String(o.rateDayPct).replace('.', ',')}% / день` : o.kind === 'credit' ? `${creditRate(o)}% год.` : null;
 const shown = o.features.filter((f) => rated || f !== 'zero_percent').slice(0, 4);
 const psk = pskRange(o);
+// data-prio — ранг в витрине (порядок getOffers): по нему клиент сортирует «Рекомендуем».
 ---
 <article class="offer-card" data-offer data-slug={o.slug} data-kind={o.kind}
   data-sum-min={o.amountMin} data-sum-max={o.amountMax} data-term-min={o.termMinDays} data-term-max={o.termMaxDays}
   data-rate={rated ? o.rateDayPct : undefined} data-free={o.freeDays ?? 0} data-appr={o.approvalPct ?? 0} data-rating={o.rating ?? 0}
-  data-age-min={o.ageMin} data-age-max={o.ageMax} data-prio={o.priority ?? 0} data-idx={index} data-features={o.features.join(',')}
+  data-age-min={o.ageMin} data-age-max={o.ageMax} data-prio={-index} data-idx={index} data-features={o.features.join(',')}
   data-reveal style={`--i:${Math.min(index, 6)}`}>
   {psk ? <p class="psk-line"><span>{PSK_LABEL}:</span> {psk}</p> : <p class="psk-line">{NO_RATE}</p>}
   <div class="oc-head">
@@ -49,7 +50,7 @@ const psk = pskRange(o);
   </div>
   <div class="oc-cta">
     <a class="btn btn-cta btn-lg" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={o.slug}>{CTA_LABEL[o.kind]}<Icon name="arrow" class="arrow" /></a>
-    <a class="more" href={reviewHref(o)}>Обзор и условия</a>
+    <a class="more" href={reviewHref(o)}>Обзор {o.name}</a>
   </div>
   {ad && <AdMark offer={o} />}
   {!o.verified && <p class="ad-mark">Условия по данным организации, не сверены редакцией.</p>}

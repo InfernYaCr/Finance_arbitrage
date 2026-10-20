@@ -235,6 +235,9 @@ function checkDist() {
   }
   if (!existsSync(join(DIST, 'robots.txt'))) warn('в dist нет robots.txt');
   if (pages === 0) warn('в dist нет индексируемых страниц');
+  // Ссылочный граф (SEO-18): пока предупреждение — оставшиеся нарушения упираются в данные офферов.
+  const g = spawnSync(process.execPath, [join(WEB, 'scripts', 'check-graph.mjs'), DIST], { encoding: 'utf8' });
+  if (g.status !== 0) warn(`граф ссылок (node web/scripts/check-graph.mjs):\n${g.stderr.trim()}`);
 }
 
 // ---------------------------------------------------------------------------
