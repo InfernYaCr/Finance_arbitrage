@@ -1,0 +1,374 @@
+{
+  "asOf": "2026-10-20",
+  "fetchedAt": "2026-10-20T15:46:51.818Z",
+  "sources": {
+    "mfo": {
+      "asOf": "2026-10-20",
+      "url": "https://www.cbr.ru/vfs/finmarkets/files/supervision/list_MFO.xlsx",
+      "active": 806
+    },
+    "bank": {
+      "asOf": "2026-10-20",
+      "url": "https://www.cbr.ru/CreditInfoWebServ/CreditOrgInfo.asmx",
+      "bics": 638
+    }
+  },
+  "byLicense": {
+    "429": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1990-09-28",
+      "ogrn": "1026600000350",
+      "name": "ПАО КБ \"УБРиР\"",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1026600000350"
+    },
+    "436": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1990-10-03",
+      "ogrn": "1027800000140",
+      "name": "ПАО \"Банк \"Санкт-Петербург\"",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027800000140"
+    },
+    "963": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1990-11-27",
+      "ogrn": "1144400000425",
+      "name": "ПАО \"Совкомбанк\"",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1144400000425"
+    },
+    "1326": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1991-01-03",
+      "ogrn": "1027700067328",
+      "name": "АО \"АЛЬФА-БАНК\"",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700067328"
+    },
+    "1343": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1991-01-17",
+      "ogrn": "1025400000010",
+      "name": "Банк «Левобережный» (ПАО)",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1025400000010"
+    },
+    "1810": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1992-02-14",
+      "ogrn": "1022800000079",
+      "name": "\"Азиатско-Тихоокеанский Банк\" (АО)",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1022800000079"
+    },
+    "2275": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1993-01-28",
+      "ogrn": "1020280000190",
+      "name": "ПАО \"БАНК УРАЛСИБ\"",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1020280000190"
+    },
+    "2530": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1993-10-14",
+      "ogrn": "1027800000942",
+      "name": "ЭКСИ-Банк (АО)",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027800000942"
+    },
+    "2590": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1993-11-29",
+      "ogrn": "1021600000124",
+      "name": "ПАО «АК БАРС» БАНК",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1021600000124"
+    },
+    "2673": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1994-01-28",
+      "ogrn": "1027739642281",
+      "name": "АО \"ТБанк\"",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027739642281"
+    },
+    "2707": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1994-02-21",
+      "ogrn": "1057711014195",
+      "name": "КБ «ЛОКО-Банк» (АО)",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1057711014195"
+    },
+    "2766": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "1994-03-28",
+      "ogrn": "1027739176563",
+      "name": "АО \"ОТП Банк\"",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027739176563"
+    },
+    "3349": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "2000-04-24",
+      "ogrn": "1027700342890",
+      "name": "АО \"Россельхозбанк\"",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1027700342890"
+    },
+    "3542": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "2022-03-11",
+      "ogrn": "1227700133792",
+      "name": "ООО \"ОЗОН БАНК\"",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1227700133792"
+    },
+    "3545": {
+      "type": "bank",
+      "status": "active",
+      "kind": "банк",
+      "since": "2023-01-10",
+      "ogrn": "1237700005157",
+      "name": "ООО \"Банк Точка\"",
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1237700005157"
+    },
+    "1603760008057": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2016-12-22",
+      "ogrn": "1166196099057",
+      "name": "ООО \"МКК НФ\"",
+      "sites": [
+        "dengisrazy.ru",
+        "новое-финансирование.рф",
+        "финбридж.рф"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1166196099057"
+    },
+    "1703045008644": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2017-12-01",
+      "ogrn": "5177746022262",
+      "name": "ООО МКК «Кредди»",
+      "sites": [
+        "creddy.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=5177746022262"
+    },
+    "1803550008778": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2018-03-07",
+      "ogrn": "1185476002117",
+      "name": "ООО МКК «Бриз»",
+      "sites": [
+        "beregny.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1185476002117"
+    },
+    "2110177000192": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МФК",
+      "since": "2011-07-08",
+      "ogrn": "1257700155360",
+      "name": "АО МФК \"Саммит\"",
+      "sites": [
+        "dobrozaim.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1257700155360"
+    },
+    "2110178000979": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2011-12-28",
+      "ogrn": "1117847472973",
+      "name": "ООО \"МКК \"ЮПИТЕР 6\"",
+      "sites": [
+        "denga.ru",
+        "denga-pts.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1117847472973"
+    },
+    "2110552000304": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2011-08-03",
+      "ogrn": "1105260001857",
+      "name": "ООО МКК «Срочноденьги»",
+      "sites": [
+        "srochnodengi.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1105260001857"
+    },
+    "2110573000002": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МФК",
+      "since": "2011-07-08",
+      "ogrn": "1087325005899",
+      "name": "МФК Быстроденьги (ООО)",
+      "sites": [
+        "bistrodengi.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1087325005899"
+    },
+    "2303140009995": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2023-10-17",
+      "ogrn": "1237800087040",
+      "name": "ООО МКК «Аделаида»",
+      "sites": [
+        "prostoyvopros.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1237800087040"
+    },
+    "2403045010082": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2024-08-08",
+      "ogrn": "1247700466980",
+      "name": "ООО МКК «Динар»",
+      "sites": [
+        "credit7.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1247700466980"
+    },
+    "2503140010138": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2025-03-17",
+      "ogrn": "1247800119148",
+      "name": "ООО МКК \"Нордика\"",
+      "sites": [
+        "rublion.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1247800119148"
+    },
+    "2503322010150": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2025-04-17",
+      "ogrn": "1255200003552",
+      "name": "ООО МКК \"Лайк Мани\"",
+      "sites": [
+        "likemoney.su",
+        "likemoney.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1255200003552"
+    },
+    "2504125010151": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2025-04-17",
+      "ogrn": "1243800019913",
+      "name": "ООО МКК \"БАЗИС\"",
+      "sites": [
+        "basisfin.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1243800019913"
+    },
+    "3120177002032": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2012-08-30",
+      "ogrn": "1167746117483",
+      "name": "ООО МКК «СМСФИНАНС»",
+      "sites": [
+        "vivus.ru",
+        "smsfinance.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1167746117483"
+    },
+    "651303045003744": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МФК",
+      "since": "2013-08-08",
+      "ogrn": "1137746543296",
+      "name": "ООО МФК \"ЭЙРЛОАНС\"",
+      "sites": [
+        "kviku.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1137746543296"
+    },
+    "651303532002603": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2013-01-15",
+      "ogrn": "1114205007443",
+      "name": "ООО МКК «ФИНТЕРРА»",
+      "sites": [
+        "финтерра.рф"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1114205007443"
+    },
+    "651403140005711": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2014-09-30",
+      "ogrn": "1147847295012",
+      "name": "ООО МКК «МикроКлад»",
+      "sites": [
+        "microklad.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1147847295012"
+    },
+    "651403550005541": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2014-08-19",
+      "ogrn": "1117746509638",
+      "name": "ООО МКК \"ФИНМОЛЛ\"",
+      "sites": [
+        "finmoll.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1117746509638"
+    },
+    "651503045006603": {
+      "type": "mfo",
+      "status": "active",
+      "kind": "МКК",
+      "since": "2015-06-23",
+      "ogrn": "1157746495389",
+      "name": "ООО МКК «ТРАСТ АЛЬЯНС»",
+      "sites": [
+        "ligamfo.ru"
+      ],
+      "url": "https://www.cbr.ru/finorg/foinfo/?ogrn=1157746495389"
+    }
+  }
+}
