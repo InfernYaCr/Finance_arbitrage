@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHero from '../../components/decor/SectionHero.astro';
+import RefiCalc from '../../components/RefiCalc.astro';
+import { getArticles, articleHref } from '../../lib/content';
+
+const articles = (await getArticles()).filter((a) => a.data.category === 'refinansirovanie');
+---
+<BaseLayout title="Калькулятор рефинансирования кредитов: выгодно или нет" description="Сравните, сколько вы заплатите по текущим кредитам и кредиткам и после рефинансирования — с учётом комиссии, страховки и срока. До 5 долгов, ПСК нового кредита.">
+  <SectionHero title="Калькулятор рефинансирования" lead="Объедините до пяти кредитов и кредитных карт и посмотрите, сколько вы заплатите всего: сейчас и после рефинансирования, с комиссией и страховкой." pose="think" outline="coins">
+    <Breadcrumbs slot="crumbs" items={[{ label: 'Кредиты', href: '/kredity/' }, { label: 'Калькулятор рефинансирования' }]} />
+  </SectionHero>
+  <div class="wrap pb-16">
+    <div class="max-w-4xl"><RefiCalc /></div>
+    <div class="prose">
+      <h2>Как пользоваться</h2>
+      <ol>
+        <li>Для каждого кредита укажите остаток долга, ставку и сколько месяцев осталось платить. Кредитную карту считайте как кредит: за сколько месяцев планируете её погасить.</li>
+        <li>Введите условия нового кредита: ставку и срок из предложения банка, комиссию за выдачу и стоимость страховки, если она есть.</li>
+        <li>Сравните итоговые суммы. Низкий ежемесячный платёж ещё не значит выгоду: при длинном сроке проценты за лишние месяцы могут перекрыть разницу в ставке.</li>
+      </ol>
+      <p>Ссылку на расчёт можно сохранить: введённые значения остаются в адресе страницы.</p>
+      {articles.length > 0 && <>
+        <h2>Статьи о рефинансировании</h2>
+        <ul>{articles.map((a) => <li><a href={articleHref(a)}>{a.data.title}</a></li>)}</ul>
+      </>}
+    </div>
+  </div>
+</BaseLayout>
