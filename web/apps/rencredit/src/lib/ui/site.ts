@@ -68,7 +68,10 @@ export const NAV: NavItem[] = [
     { label: 'Кредитные карты', href: '/karty/' },
     { label: 'Дебетовые карты', href: '/debetovye-karty/' },
   ] },
-  { label: 'Кредиты', href: '/kredity/' },
+  { label: 'Кредиты', href: '/kredity/', sub: [
+    { label: 'Все кредиты', href: '/kredity/' },
+    { label: 'Рефинансирование', href: '/refinansirovanie/' },
+  ] },
   { label: 'Страхование', href: '/strahovanie/', sub: [
     { label: 'Всё страхование', href: '/strahovanie/' },
     { label: 'ОСАГО', href: '/osago/' },
@@ -86,7 +89,7 @@ export const NAV: NavItem[] = [
 ];
 
 /** Страницы, на которые нельзя занимать slug посадочных (guides). */
-export const RESERVED_SLUGS = ['zaimy', 'karty', 'kredity', 'stati', 'novosti', 'mfo', 'go', 'o-proekte', 'politika-konfidencialnosti', 'search.json', 'robots.txt', 'credit', 'og', '404',
+export const RESERVED_SLUGS = ['zaimy', 'karty', 'kredity', 'stati', 'novosti', 'mfo', 'go', 'o-proekte', 'politika-konfidencialnosti', 'search.json', 'robots.txt', 'credit', 'refinansirovanie', 'og', '404',
   'strahovanie', 'osago', 'kasko', 'strahovanie-ipoteki', 'strahovanie-puteshestvennikov', 'strahovanie-kvartiry',
   'strahovanie-drugoe', 'debetovye-karty', 'vklady', 'rko'];
 
@@ -116,6 +119,6 @@ export const CATEGORY_HUB: Record<string, Hub> = {
   zaimy: KIND_HUB.mfo,
   'kreditnaya-istoriya': KIND_HUB.mfo,
   kredity: KIND_HUB.credit,
-  refinansirovanie: { ...KIND_HUB.credit, cluster: 'refinansirovanie' },
+  refinansirovanie: { label: 'Рефинансирование', href: '/refinansirovanie/' },
   karty: KIND_HUB.card,
 };
