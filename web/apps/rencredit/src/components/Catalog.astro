@@ -11,5 +11,6 @@ const offers = await getOffers(kind);
 ---
 <BaseLayout title={title} description={description}>
   <div class="wrap page-head"><Breadcrumbs items={[{ label: crumb }]} /></div>
-  <Showcase offers={offers} title={h1} h="h1" eyebrow="Каталог" lead={lead} />
+  <Showcase offers={offers} title={h1} h="h1" eyebrow="Каталог" lead={lead}><slot name="intro" /></Showcase>
+  <slot />
 </BaseLayout>

@@ -1,0 +1,79 @@
+---
+/**
+ * Хаб L1 (/zaimy/, /karty/, /kredity/): витрина Catalog + «Обновлено», «Как мы сравниваем», «Подборки» над ней,
+ * SEO-текст, FAQ и «Статьи по теме» под ней. Тексты — src/content/service-pages/<hub>.mdx (id = hub).
+ * Статьи: рубрика = hub, плюс `also` (id смежных статей из других рубрик); неопубликованные отсекает getArticles.
+ */
+import { render } from 'astro:content';
+import Catalog from './Catalog.astro';
+import Faq from './Faq.astro';
+import Fact from './Fact.astro';
+import PostCard from './PostCard.astro';
+import { getServicePage } from '../lib/services';
+import { getArticles, getIndexableGuides, articleHref } from '../lib/content';
+import { dateRu, readingMinutes } from '../lib/format';
+import type { ProductKind } from '@pbn/core';
+
+interface Props {
+  hub: 'zaimy' | 'karty' | 'kredity';
+  kind: ProductKind;
+  crumb: string;
+  h1: string;
+  title: string;
+  description: string;
+  lead: string;
+  /** Ссылки блока «Подборки» помимо подборок-гайдов (смежные разделы). */
+  picks?: { href: string; label: string }[];
+  also?: string[];
+}
+const { hub, kind, picks = [], also = [], ...catalog } = Astro.props;
+
+const NOUN = { zaimy: 'займов', karty: 'карт', kredity: 'кредитов' }[hub];
+const page = await getServicePage(hub);
+const Content = page ? (await render(page)).Content : null;
+
+const guides = kind === 'mfo' ? await getIndexableGuides() : [];
+const chips = [...guides.map((g) => ({ href: `/${g.id}/`, label: g.data.navLabel })), ...picks];
+
+const all = await getArticles();
+const related = [...all.filter((a) => a.data.category === hub), ...all.filter((a) => a.data.category !== hub && also.includes(a.id))].slice(0, 6);
+---
+<Catalog kind={kind} {...catalog}>
+  <div slot="intro" class="hub-intro" data-reveal>
+    {page?.data.updatedDate && <p class="svc-upd">Обновлено {dateRu(page.data.updatedDate)}</p>}
+    <p class="hub-how"><b>Как мы сравниваем.</b> Условия {NOUN} берём из документов организаций и сверяем с реестрами Банка России. Порядок на витрине выставляет редакция вручную, это не рейтинг качества: все предложения партнёрские, и мы получаем вознаграждение за заявки по нашим ссылкам. <a href="/metodologiya/">Методология: что значит «сверено» и как влияет вознаграждение</a>.</p>
+    {chips.length > 0 && (
+      <nav aria-label="Подборки">
+        <p class="hub-label">Подборки</p>
+        <div class="chips">{chips.map((c) => <a class="chip no-underline" href={c.href}>{c.label}</a>)}</div>
+      </nav>
+    )}
+  </div>
+
+  {Content && (
+    <section class="section pt-0 md:pt-0">
+      <div class="wrap"><div class="prose"><Content components={{ Fact }} /></div></div>
+    </section>
+  )}
+
+  <Faq items={page?.data.faq ?? []} />
+
+  {related.length > 0 && (
+    <section class="section pt-0 md:pt-0" aria-labelledby="hub-articles">
+      <div class="wrap">
+        <h2 class="h2" id="hub-articles" data-reveal>Статьи по теме</h2>
+        <div class="grid-cards mt-6">
+          {related.map((a, i) => <PostCard index={i} href={articleHref(a)} title={a.data.title} description={a.data.description} date={a.data.publishDate} category={a.data.category} cover={a.data.cover} minutes={readingMinutes(a.body ?? '')} />)}
+        </div>
+      </div>
+    </section>
+  )}
+</Catalog>
+
+<style>
+  .hub-intro { margin-top: 18px; display: grid; gap: 14px; }
+  .hub-intro .svc-upd { margin-top: 0; }
+  .hub-how { max-width: 72ch; font-size: 15px; color: var(--color-ink-soft); }
+  .hub-label { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--color-mute); }
+  .hub-intro .chips { margin-top: 8px; }
+</style>
