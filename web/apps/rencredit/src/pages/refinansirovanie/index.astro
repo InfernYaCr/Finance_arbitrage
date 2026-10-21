@@ -10,6 +10,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Faq from '../../components/Faq.astro';
 import OfferCard from '../../components/OfferCard.astro';
+import RefiCalc from '../../components/RefiCalc.astro';
 import PostCard from '../../components/PostCard.astro';
 import { getArticles, articleHref } from '../../lib/content';
 import { getOffers, isRefi } from '../../lib/offers';
@@ -107,7 +108,9 @@ const crumbs = [{ label: 'Кредиты', href: '/kredity/' }, { label: 'Реф
     </div>
   </section>
 
-  {/* Место под калькулятор рефинансирования: <RefiCalc /> (вставляет сессия refi-calc, id="calc" оставить). */}
+  <section class="section pt-0 md:pt-0 refi-noprint" id="calc" aria-label="Калькулятор рефинансирования">
+    <div class="wrap"><div class="max-w-4xl"><RefiCalc /></div></div>
+  </section>
 
   <section class="section pt-0 md:pt-0 refi-noprint" id="predlozheniya" aria-labelledby="refi-offers">
     <div class="wrap">
