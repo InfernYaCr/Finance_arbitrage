@@ -133,6 +133,12 @@ function checkContent() {
   if (r.status !== 0 && !lines.some((l) => l.startsWith('ERROR '))) err(`check-content упал (код ${r.status}): ${(r.stderr || r.error?.message || '').trim().split('\n').slice(-3).join(' ')}`);
 }
 
+/** Эталоны формул (web/packages/core/src/*.test.ts, node --test). */
+function checkTests() {
+  const r = spawnSync('npm', ['--prefix', 'web', 'test'], { cwd: ROOT, shell: true, encoding: 'utf8' });
+  if (r.status !== 0) err(`тесты web (npm --prefix web test) упали:\n${`${r.stdout || ''}\n${r.stderr || ''}`.trim().split('\n').slice(-15).join('\n')}`);
+}
+
 function checkJsonFiles() {
   const dirs = [join(SRC, 'content'), join(WEB, 'packages', 'core', 'src', 'data')];
   const files = dirs.flatMap((d) => walk(d, ['.json']));
@@ -179,6 +185,7 @@ function checkSources() {
   checkJsonFiles();
   checkFacts();
   checkContent();
+  checkTests();
 }
 
 function runBuild() {
