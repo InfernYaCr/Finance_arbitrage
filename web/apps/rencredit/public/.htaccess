@@ -155,7 +155,7 @@ RewriteRule ^(index\.php)?$ https://%{HTTP_HOST}/? [R=301,L]
 
 # --- Отдельные страницы, посты, рубрика, feed (из map.json) ---
 # category: https://rencredit-online.ru/credit
-RewriteRule ^credit/?$ https://%{HTTP_HOST}/stati/ [R=301,L]
+RewriteRule ^credit/?$ https://%{HTTP_HOST}/refinansirovanie/ [R=301,L]
 # feed: https://rencredit-online.ru/comments/feed/
 RewriteRule ^comments/feed/?$ https://%{HTTP_HOST}/ [R=301,L]
 # feed: https://rencredit-online.ru/credit/feed/
@@ -476,6 +476,8 @@ RewriteRule ^(wp-[a-z-]+|xmlrpc)\.php$ - [G,L]
 # /zaimy-s-prosrochkami/ — тот же интент, что /zaimy-s-plohoj-ki/ (текст влит туда).
 <IfModule mod_rewrite.c>
 RewriteRule ^zaimy-s-prosrochkami/?$ https://%{HTTP_HOST}/zaimy-s-plohoj-ki/ [R=301,L]
+# /stati/kak-rabotaet-refinansirovanie-kredita/ — текст влит в pillar (SEO-12).
+RewriteRule ^stati/kak-rabotaet-refinansirovanie-kredita/?$ https://%{HTTP_HOST}/credit/refinansirovanie-kredita-chto-eto-znachit.html [R=301,L]
 </IfModule>
 
 # --- 6. Старые статьи /credit/<slug>.html без редиректа ------------------------
