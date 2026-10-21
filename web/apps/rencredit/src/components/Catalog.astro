@@ -13,5 +13,6 @@ const ld = itemListProducts(h1, offers, ORG.url, reviewHref);
 ---
 <BaseLayout title={title} description={description} jsonLd={ld}>
   <div class="wrap page-head"><Breadcrumbs items={[{ label: crumb }]} /></div>
-  <Showcase offers={offers} title={h1} h="h1" eyebrow="Каталог" lead={lead} />
+  <Showcase offers={offers} title={h1} h="h1" eyebrow="Каталог" lead={lead}><slot name="intro" /></Showcase>
+  <slot />
 </BaseLayout>

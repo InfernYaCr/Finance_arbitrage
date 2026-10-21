@@ -36,6 +36,8 @@ const sum = isMfo
       <button type="button" class="btn btn-ghost md:hidden" data-panel-toggle aria-expanded="false" aria-controls="filters-panel">{isMfo ? 'Сумма, срок, возраст' : 'Сумма, возраст'}</button>
     </div>
 
+    <slot />
+
     <div class="chips" role="group" aria-label="Быстрые фильтры" data-reveal>
       {chips.map((f) => <button type="button" class="chip" data-chip={f} aria-pressed={f === preset ? 'true' : 'false'}>{FEATURE_LABELS[f]}</button>)}
     </div>
