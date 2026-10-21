@@ -13,7 +13,7 @@ import ServiceCard from './ServiceCard.astro';
 import { itemList } from '@pbn/core';
 import { offersWord, dateRu } from '../../lib/format';
 import {
-  type ServiceCategory, SERVICE_META, SERVICE_LINKS, INSURANCE_CATEGORIES, SCHEMA_TYPE,
+  type ServiceCategory, SERVICE_META, SERVICE_LINKS, INSURANCE_CATEGORIES, schemaType,
   getServices, getServicePage,
 } from '../../lib/services';
 
@@ -50,10 +50,11 @@ const related = [
     .sort((a, b) => Number(SERVICE_META[b.category].kind === meta.kind) - Number(SERVICE_META[a.category].kind === meta.kind)),
 ];
 
-const site = (Astro.site ?? Astro.url).href;
-const listLd = itemList(title, services.map((s) => ({ type: SCHEMA_TYPE[s.kind], name: s.name, path: `/go/${s.poolId}/`, provider: s.legalName, description: s.summary })), site);
+// Элементы ItemList ведут на карточки этой же страницы (#slug), а не на /go/.
+const pageUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
+const listLd = itemList(title, services.map((s) => ({ type: schemaType(s), name: s.name, url: `${pageUrl}#${s.slug}`, provider: s.legalName, description: s.summary })));
 ---
-<BaseLayout noMascot title={title} description={description} noindex={services.length === 0} jsonLd={listLd ? { '@context': 'https://schema.org', ...listLd } : undefined}>
+<BaseLayout noMascot title={title} description={description} noindex={services.length === 0} jsonLd={listLd}>
   <div class="wrap page-head">
     <Breadcrumbs items={crumbs} />
     <h1>{title}</h1>

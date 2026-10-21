@@ -1,4 +1,4 @@
-import type { ProductKind } from '@pbn/core';
+import type { OrgInfo, ProductKind } from '@pbn/core';
 
 const env = import.meta.env;
 const str = (v: unknown) => (typeof v === 'string' ? v.trim() : '');
@@ -38,6 +38,21 @@ export const SITE = {
   risk:
     'Заём — это ответственность. Чрезмерная задолженность может привести к потере платёжеспособности и ухудшению кредитной истории. Максимальная переплата по договору потребительского займа ограничена законом.',
 } as const;
+
+/** Автор статей и новостей в JSON-LD (Organization). */
+export const EDITORIAL = 'Редакция Мерки';
+
+/** Организация для JSON-LD (@pbn/core): реквизиты и почта — только из env, пустые не выводятся. */
+const home = new URL('/', env.SITE).href;
+export const ORG: OrgInfo = {
+  name: SITE.name,
+  url: home,
+  logo: new URL('/icon-512.png', home).href,
+  email: SITE.email,
+  legalName: SITE.legal.owner,
+  taxID: SITE.legal.inn,
+  publishingPrinciples: new URL('/redakcionnaya-politika/', home).href,
+};
 
 interface NavItem { label: string; href?: string; sub?: { label: string; href: string }[] }
 

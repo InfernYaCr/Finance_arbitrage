@@ -196,6 +196,22 @@ function attr(html, rx) {
   return m ? m[1].trim() : '';
 }
 
+// SEO-19: title ≤ 70 символов и валидный JSON в каждом <script type="application/ld+json"> (кроме /go/ и редиректов).
+const TITLE_MAX = 70;
+const decodeEntities = (s) => s.replace(/&nbsp;/g, ' ').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+function checkTitleAndLd(file, html) {
+  if (/http-equiv=["']refresh["']/i.test(html) && html.length < 1200) return;
+  const title = decodeEntities(attr(html, /<title[^>]*>([^<]+)<\/title>/i));
+  if (title.length > TITLE_MAX) err(`${rel(file)} title ${title.length} > ${TITLE_MAX}: «${title}»`);
+  for (const [, body] of html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      JSON.parse(body);
+    } catch (e) {
+      err(`${rel(file)} JSON-LD не парсится: ${e.message}`);
+    }
+  }
+}
+
 function checkDist() {
   if (!existsSync(DIST)) {
     err('web/apps/rencredit/dist не найден после сборки');
@@ -214,6 +230,7 @@ function checkDist() {
       if (!noindex) err(`${rel(f)} страница /go/ без meta robots noindex`);
       continue;
     }
+    checkTitleAndLd(f, html);
     if (/\/404\.html$/.test(r) || noindex) continue;
     // Страницы-редиректы Astro (meta refresh) не считаем контентными.
     if (/http-equiv=["']refresh["']/i.test(html) && html.length < 1200) continue;
