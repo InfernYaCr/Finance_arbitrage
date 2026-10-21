@@ -118,6 +118,9 @@
   .btn:hover svg.arrow { transform: translateX(3px); }
 
   /* ---------- Шапка ---------- */
+  /* Плашка «не сайт банка» (Яндекс «Мимикрия»): крупно и контрастно, над шапкой, не липкая. */
+  .notice-bar { margin: 0; padding: 8px 16px; background: var(--color-forest-900); color: #fff; font-size: 14px; line-height: 1.4; font-weight: 600; text-align: center; text-wrap: balance; }
+  @media (min-width: 640px) { .notice-bar { font-size: 15px; } }
   .site-header { position: sticky; top: 0; z-index: 50; height: var(--header-h); view-transition-name: fk-header; }
   .hdr-bg {
     position: absolute; inset: 0; background: color-mix(in oklab, var(--color-paper) 95%, transparent);
@@ -579,7 +582,7 @@
 .refi-check input { flex: none; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--color-brand); }
 .refi-print-only { display: none; }
 @media print {
-  .site-header, .site-footer, .refi-noprint, .cookie-bar, .float-group { display: none !important; }
+  .notice-bar, .site-header, .site-footer, .refi-noprint, .cookie-bar, .float-group { display: none !important; }
   .refi-print-only { display: block; }
   .refi-docs { padding-block: 0; }
   .refi-check input { appearance: auto; }
