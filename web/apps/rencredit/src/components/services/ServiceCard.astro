@@ -9,7 +9,7 @@ interface Props { service: Service; index?: number; showCategory?: boolean }
 const { service: s, index = 0, showCategory = false } = Astro.props;
 const cta = { insurance: 'Оформить полис', debit: 'Оформить карту', deposit: 'Открыть вклад', rko: 'Открыть счёт' }[s.kind];
 ---
-<article class="offer-card svc-card" data-reveal style={`--i:${Math.min(index, 6)}`}>
+<article id={s.slug} class="offer-card svc-card" data-reveal style={`--i:${Math.min(index, 6)}`}>
   <div class="oc-head">
     <OfferLogo offer={s} />
     <div class="min-w-0">

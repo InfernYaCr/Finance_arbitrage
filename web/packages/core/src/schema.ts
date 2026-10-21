@@ -6,7 +6,17 @@ import { annualRatePct } from './offers';
 
 export interface Faq { q: string; a: string }
 export interface Crumb { name: string; path: string }
-export interface OrgInfo { name: string; url: string; logo?: string; email?: string }
+/** Реквизиты (legalName, taxID) и email необязательны: пустое значение в JSON-LD не выводится. */
+export interface OrgInfo {
+  name: string;
+  url: string;
+  logo?: string;
+  email?: string;
+  legalName?: string;
+  taxID?: string;
+  /** Абсолютный URL редакционной политики. */
+  publishingPrinciples?: string;
+}
 
 export function textOnly(value: string): string {
   return value.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
@@ -26,7 +36,10 @@ export function organization(org: OrgInfo) {
     name: org.name,
     url: org.url,
     ...(org.logo ? { logo: org.logo } : {}),
-    ...(org.email ? { email: org.email } : {}),
+    ...(org.legalName ? { legalName: org.legalName } : {}),
+    ...(org.taxID ? { taxID: org.taxID } : {}),
+    ...(org.email ? { email: org.email, contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: org.email } } : {}),
+    ...(org.publishingPrinciples ? { publishingPrinciples: org.publishingPrinciples } : {}),
   };
 }
 
@@ -56,12 +69,13 @@ export function breadcrumbList(site: string, crumbs: Crumb[]) {
 }
 
 export interface ArticleInput {
-  site: string;
-  path: string;
+  /** Абсолютный canonical страницы (у legacy-статей это /credit/<slug>.html). */
+  url: string;
   headline: string;
   description?: string;
   datePublished: Date | string;
   dateModified?: Date | string;
+  /** Автор-организация; по умолчанию — имя издателя. */
   author?: string;
   image?: string;
   publisher: OrgInfo;
@@ -70,7 +84,7 @@ export interface ArticleInput {
 const iso = (d: Date | string) => (d instanceof Date ? d.toISOString() : d);
 
 function articleBase(type: 'Article' | 'NewsArticle', a: ArticleInput) {
-  const url = canonicalUrl(a.site, a.path);
+  const { url, publisher: org } = a;
   return {
     '@type': type,
     headline: a.headline,
@@ -80,9 +94,13 @@ function articleBase(type: 'Article' | 'NewsArticle', a: ArticleInput) {
     inLanguage: 'ru',
     datePublished: iso(a.datePublished),
     dateModified: iso(a.dateModified ?? a.datePublished),
-    author: { '@type': 'Organization', name: a.author ?? a.publisher.name },
-    publisher: { '@id': orgId(a.publisher) },
-    ...(a.image ? { image: a.image } : {}),
+    author: { '@type': 'Organization', name: a.author ?? org.name, url: org.url },
+    // Издатель целиком, а не только @id: валидаторы не всегда разрешают ссылки между узлами @graph.
+    publisher: {
+      '@type': 'Organization', '@id': orgId(org), name: org.name, url: org.url,
+      ...(org.logo ? { logo: { '@type': 'ImageObject', url: org.logo } } : {}),
+    },
+    ...(a.image ? { image: new URL(a.image, url).href } : {}),
   };
 }
 
@@ -103,30 +121,35 @@ export function faqPage(faq: Faq[]) {
 }
 
 /**
- * Оффер как финансовый продукт (LoanOrCredit / CreditCard).
+ * Оффер как финансовый продукт (LoanOrCredit / CreditCard). path — страница обзора на сайте (не /go/).
  * aggregateRating намеренно НЕ выводим: rating в контенте — редакционная оценка,
  * а не пользовательские отзывы (иначе нарушение правил Google по разметке отзывов).
  */
-export function financialProduct(p: Product, site: string, extra: { description?: string } = {}) {
+export function financialProduct(p: Product, site: string, path: string, extra: { description?: string } = {}) {
+  const hasPsk = p.pskMin != null && p.pskMax != null;
   return {
     '@type': p.kind === 'card' ? 'CreditCard' : 'LoanOrCredit',
     name: p.name,
     ...(extra.description ? { description: extra.description } : {}),
-    url: canonicalUrl(site, `/go/${p.poolId}/`),
+    url: canonicalUrl(site, path),
     currency: 'RUB',
     amount: { '@type': 'MonetaryAmount', currency: 'RUB', minValue: p.amountMin, maxValue: p.amountMax },
-    loanTerm: { '@type': 'QuantitativeValue', minValue: p.termMinDays, maxValue: p.termMaxDays, unitCode: 'DAY' },
+    // У карты termMin/MaxDays — льготный период, а не срок кредита.
+    ...(p.kind !== 'card'
+      ? { loanTerm: { '@type': 'QuantitativeValue', minValue: p.termMinDays, maxValue: p.termMaxDays, unitCode: 'DAY' } }
+      : {}),
     // schema.org: interestRate — номинальная ставка, annualPercentageRate — полная стоимость с комиссиями (= ПСК).
-    // У карт rateDayPct = 0 (льготный период), номинальную ставку не выводим.
-    ...(p.kind !== 'card' && p.rateDayPct > 0 ? { interestRate: annualRatePct(p.rateDayPct) } : {}),
-    ...(p.pskMin != null && p.pskMax != null
+    // Ставку без диапазона ПСК не выводим (ч. 3 ст. 28 38-ФЗ, как на странице); у карт rateDayPct = 0 (льготный период).
+    ...(hasPsk && p.kind !== 'card' && p.rateDayPct > 0 ? { interestRate: annualRatePct(p.rateDayPct) } : {}),
+    ...(hasPsk
       ? { annualPercentageRate: { '@type': 'QuantitativeValue', minValue: p.pskMin, maxValue: p.pskMax, unitText: 'PERCENT' } }
       : {}),
     ...(p.legalName ? { provider: { '@type': 'Organization', name: p.legalName } } : {}),
   };
 }
 
-export function itemListProducts(name: string, products: Product[], site: string) {
+/** ItemList офферов хаба; pathOf — адрес обзора оффера. */
+export function itemListProducts(name: string, products: Product[], site: string, pathOf: (p: Product) => string) {
   if (!products.length) return null;
   return {
     '@type': 'ItemList',
@@ -135,14 +158,14 @@ export function itemListProducts(name: string, products: Product[], site: string
     itemListElement: products.map((p, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: financialProduct(p, site),
+      item: financialProduct(p, site, pathOf(p)),
     })),
   };
 }
 
-/** ItemList произвольных продуктов (страхование, вклады, РКО): тип schema.org, имя, ссылка, поставщик. */
-export interface ListEntry { type: string; name: string; path: string; provider?: string; description?: string }
-export function itemList(name: string, entries: ListEntry[], site: string) {
+/** ItemList произвольных продуктов (страхование, вклады, РКО): тип schema.org, имя, абсолютный url (можно с #якорем), поставщик. */
+export interface ListEntry { type: string; name: string; url: string; provider?: string; description?: string }
+export function itemList(name: string, entries: ListEntry[]) {
   if (!entries.length) return null;
   return {
     '@type': 'ItemList',
@@ -154,7 +177,7 @@ export function itemList(name: string, entries: ListEntry[], site: string) {
       item: {
         '@type': e.type,
         name: e.name,
-        url: canonicalUrl(site, e.path),
+        url: e.url,
         ...(e.description ? { description: e.description } : {}),
         ...(e.provider ? { provider: { '@type': 'Organization', name: e.provider } } : {}),
       },

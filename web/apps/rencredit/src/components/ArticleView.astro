@@ -14,7 +14,8 @@ import { getCtaData, topOffers, resolveKind, kindForArticle, rotate, KIND_URL } 
 import { articleHref, articleCanonical, getIndexableGuides } from '../lib/content';
 import { isRefi } from '../lib/offers';
 import { readingMinutes, dateRu } from '../lib/format';
-import { CATEGORY_LABELS, CATEGORY_HUB, KIND_HUB, SITE } from '../lib/ui/site';
+import { CATEGORY_LABELS, CATEGORY_HUB, KIND_HUB, EDITORIAL, ORG } from '../lib/ui/site';
+import { article, canonicalUrl } from '@pbn/core';
 
 interface Props { entry: CollectionEntry<'articles'>; articles: CollectionEntry<'articles'>[] }
 const { entry, articles } = Astro.props;
@@ -36,17 +37,10 @@ const related = [...near, ...rotate(articles.filter((a) => !near.includes(a)), s
 const hub = CATEGORY_HUB[d.category] ?? KIND_HUB[wantedKind];
 const cluster = hub.cluster ? (await getIndexableGuides()).find((g) => g.id === hub.cluster) : undefined;
 const crumbs = [{ label: hub.label, href: hub.href }, ...(cluster ? [{ label: cluster.data.navLabel, href: `/${cluster.id}/` }] : []), { label: d.title }];
-const ld = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: d.title,
-  description: d.description,
-  datePublished: d.publishDate.toISOString(),
-  dateModified: (d.updatedDate ?? d.publishDate).toISOString(),
-  author: { '@type': 'Person', name: d.author },
-  publisher: { '@type': 'Organization', name: SITE.name },
-  ...(d.cover ? { image: d.cover } : {}),
-};
+const ld = article({
+  url: canonical ?? canonicalUrl(ORG.url, Astro.url.pathname), headline: d.title, description: d.description, datePublished: d.publishDate, dateModified: d.updatedDate,
+  author: EDITORIAL, image: d.cover, publisher: ORG,
+});
 ---
 <BaseLayout canonical={canonical} title={d.title} description={d.description} ogType="article" ogImage={d.cover} jsonLd={ld} publishedTime={d.publishDate} modifiedTime={d.updatedDate}>
   <div class="wrap page-head">

@@ -8,12 +8,19 @@ export function truncate(text: string, max: number): string {
   return (sp > max * 0.6 ? cut.slice(0, sp) : cut).replace(/[\s,;:.\-–—]+$/, '') + '…';
 }
 
-/** «Заголовок — Бренд»; бренд опускается, если не помещается в maxLen (по умолчанию 60). */
+/**
+ * «Заголовок — Бренд» не длиннее maxLen. Бренд опускается, если не помещается.
+ * Длинный заголовок режется по последнему «:», «,» или « — » (без многоточия), если остаётся ≥ половины лимита,
+ * иначе — по слову с «…».
+ */
 export function buildTitle(title: string, siteName?: string, maxLen = 60): string {
-  const t = title.trim();
-  if (!siteName) return truncate(t, maxLen);
-  const full = `${t} — ${siteName}`;
-  return full.length <= maxLen ? full : truncate(t, maxLen);
+  const t = title.replace(/\s+/g, ' ').trim();
+  const full = siteName ? `${t} — ${siteName}` : t;
+  if (full.length <= maxLen) return full;
+  if (t.length <= maxLen) return t;
+  const head = t.slice(0, maxLen + 1);
+  const cut = Math.max(head.lastIndexOf(':'), head.lastIndexOf(','), head.lastIndexOf(' — '));
+  return cut >= maxLen / 2 ? t.slice(0, cut).trim() : truncate(t, maxLen);
 }
 
 /** Description до ~160 символов; fallback — запасной текст. */

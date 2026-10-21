@@ -6,7 +6,8 @@ import { getNews } from '../../lib/content';
 import CtaCallout from '../../components/cta/CtaCallout.astro';
 import CtaNext from '../../components/cta/CtaNext.astro';
 import { dateRu } from '../../lib/format';
-import { SITE } from '../../lib/ui/site';
+import { EDITORIAL, ORG } from '../../lib/ui/site';
+import { canonicalUrl, newsArticle } from '@pbn/core';
 
 export async function getStaticPaths() {
   const news = await getNews();
@@ -16,15 +17,10 @@ const { entry, news } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
 const more = news.filter((n) => n.id !== entry.id).slice(0, 4);
-const ld = {
-  '@context': 'https://schema.org',
-  '@type': 'NewsArticle',
-  headline: d.title,
-  description: d.description,
-  datePublished: d.publishDate.toISOString(),
-  dateModified: (d.updatedDate ?? d.publishDate).toISOString(),
-  author: { '@type': 'Organization', name: SITE.name },
-};
+const ld = newsArticle({
+  url: canonicalUrl(ORG.url, Astro.url.pathname), headline: d.title, description: d.description,
+  datePublished: d.publishDate, dateModified: d.updatedDate, author: EDITORIAL, image: d.cover, publisher: ORG,
+});
 ---
 <BaseLayout title={d.title} description={d.description} ogType="article" ogImage={d.cover} jsonLd={ld} publishedTime={d.publishDate} modifiedTime={d.updatedDate}>
   <div class="wrap page-head">

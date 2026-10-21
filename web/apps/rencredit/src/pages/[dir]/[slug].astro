@@ -9,10 +9,11 @@ import CtaZero from '../../components/cta/CtaZero.astro';
 import { KIND_URL, rotate } from '../../lib/cta';
 import { getOfferGuides } from '../../lib/content';
 import Icon from '../../components/Icon.astro';
-import { getOffers, offerHref, pskRange, creditRate, showsRate, isTopEligible, NO_RATE, CTA_LABEL, REVIEW_DIR, PSK_LABEL } from '../../lib/offers';
+import { getOffers, reviewHref, offerHref, pskRange, creditRate, showsRate, isTopEligible, NO_RATE, CTA_LABEL, REVIEW_DIR, PSK_LABEL } from '../../lib/offers';
 import { FEATURE_LABELS } from '../../lib/ui/features';
 import { range, num, pct, daysWord, moneyRange, termText, ageText } from '../../lib/format';
-import { SITE } from '../../lib/ui/site';
+import { SITE, ORG } from '../../lib/ui/site';
+import { financialProduct } from '@pbn/core';
 
 // Обзоры: /mfo/<slug>/, /karty/<slug>/, /kredity/<slug>/ — раздел по kind (REVIEW_DIR).
 export async function getStaticPaths() {
@@ -32,17 +33,10 @@ const tags = o.features.filter((f) => showsRate(o) || f !== 'zero_percent'); // 
 const term = termText(o.kind, o.termMinDays, o.termMaxDays);
 const amountLabel = o.kind === 'card' ? 'Кредитный лимит' : 'Сумма';
 const termLabel = o.kind === 'card' ? 'Льготный период' : 'Срок';
-const kindWord = { mfo: 'Займ', card: 'Карта', credit: 'Кредит' }[o.kind];
 const crumb = { mfo: ['Займы', '/zaimy/'], card: ['Карты', '/karty/'], credit: ['Кредиты', '/kredity/'] }[o.kind];
-const title = `${o.name}: условия, ставка, как получить — ${kindWord.toLowerCase()} онлайн`;
+const title = `${o.name}: условия и как получить`;
 const desc = o.summary ?? `${o.name}: ${amountLabel.toLowerCase()} ${moneyRange(o.amountMin, o.amountMax)}, ${termLabel.toLowerCase()} ${term}${rate ? `, ставка ${rate}` : ''}. Условия, требования к заёмщику и как получить.`;
-const ld = {
-  '@context': 'https://schema.org',
-  '@type': 'FinancialProduct',
-  name: o.name,
-  description: desc,
-  // aggregateRating не выводим: rating — редакционная оценка, не отзывы (см. core/schema.ts financialProduct).
-};
+const ld = financialProduct(o, ORG.url, reviewHref(o), { description: desc });
 const rows: [string, string][] = [
   [amountLabel, `${range(o.amountMin, o.amountMax)} ₽`],
   [termLabel, term],
