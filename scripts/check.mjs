@@ -52,6 +52,12 @@ const DONOR_RX_CASE = /ВсеЗаймыОнлайн|Все Займы Онлай
 const BRAND_RX = /Ренессанс|Renaissance\s+Credit/gi;
 // Ставка, вписанная руками («ключевая ставка … 14%»): в контенте только <Fact k="keyRate"/> или {{keyRate}}.
 const KEY_RATE_RX = /ключев\S*\s+ставк\S*[^.\n]{0,40}?\d+([,.]\d+)?\s?%/gi;
+// Жёсткий режим (docs/seo-rencredit/SEO_PLAN.md §2.3): бренд банка нельзя в title, H1, slug, анкорах, данных офферов/услуг.
+// Домен сайта (canonical, og:url, почта) вырезается до проверки; дисклеймер стоит в <p> и под эти поля не попадает.
+const HARD_RX = /ренессанс|rencredit|ренкредит/i;
+const hardHit = (s) => HARD_RX.test(s.replace(/rencredit-online\.ru/gi, ''));
+// SEO-8: на этих страницах число «Реклама» (AdMark) обязано совпадать с числом CTA на /go/.
+const AD_PAGES = ['/zaimy/', '/karty/', '/kredity/', '/osago/'];
 const DISCLAIMER_RX = /не\s+является|не\s+связан|товарн\w+\s+знак|не\s+аффилирован|не\s+представляет|не\s+имеет\s+отношения/i;
 
 function walk(dir, exts, out = []) {
@@ -155,6 +161,9 @@ function checkJsonFiles() {
       err(`${rel(f)} невалидный JSON: ${e.message}`);
       continue;
     }
+    if (/\/content\/(offers|services)\/|\/data\/pool\.json$/.test(rel(f)) && hardHit(JSON.stringify(data))) {
+      err(`${rel(f)}: бренд банка в данных оффера/услуги/пула (жёсткий режим, SEO_PLAN §2.3; офферы группы «Ренессанс» запрещены)`);
+    }
     if (rel(f).includes('/content/offers/') && data && data.poolId) {
       if (!/^saleads-[0-9a-f]{8}$/.test(data.poolId)) err(`${rel(f)} poolId «${data.poolId}» не по формату saleads-xxxxxxxx`);
       else if (pool && pool.size > 0 && !pool.has(data.poolId)) err(`${rel(f)} poolId «${data.poolId}» нет в sites/affiliate_pool.json`);
@@ -196,6 +205,24 @@ function attr(html, rx) {
   return m ? m[1].trim() : '';
 }
 
+const plain = (s) => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+
+function checkHardMode(f, r, html) {
+  const hits = [];
+  if (hardHit(r)) hits.push(`slug ${r}`);
+  const title = attr(html, /<title[^>]*>([^<]+)<\/title>/i);
+  if (hardHit(title)) hits.push(`title «${title}»`);
+  for (const [h1] of html.matchAll(/<h1[\s>][\s\S]*?<\/h1>/gi)) if (hardHit(plain(h1))) hits.push(`H1 «${plain(h1)}»`);
+  for (const [, a] of html.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi)) if (hardHit(plain(a))) hits.push(`анкор «${plain(a).slice(0, 80)}»`);
+  for (const h of hits) err(`${rel(f)}: ${h} — бренд банка (жёсткий режим, SEO_PLAN §2.3)`);
+}
+
+function checkAdMarks(f, html) {
+  const ctas = (html.match(/<a\b[^>]*href=["']\/go\//gi) || []).length;
+  const ads = (html.match(/Реклама/g) || []).length;
+  if (ctas !== ads) err(`${rel(f)}: CTA на /go/ ${ctas}, маркировок «Реклама» ${ads} — AdMark нужен на каждой карточке с CTA (SEO-8)`);
+}
+
 function checkDist() {
   if (!existsSync(DIST)) {
     err('web/apps/rencredit/dist не найден после сборки');
@@ -209,6 +236,8 @@ function checkDist() {
     checkDonor(f, html);
     checkBrand(f, html, false);
     checkGoLinks(f, html);
+    checkHardMode(f, r, html);
+    if (AD_PAGES.some((p) => r === `${p}index.html`)) checkAdMarks(f, html);
     const noindex = /<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
     if (r.startsWith('/go/')) {
       if (!noindex) err(`${rel(f)} страница /go/ без meta robots noindex`);
