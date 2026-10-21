@@ -860,26 +860,6 @@
     "enabled": true
   },
   {
-    "id": "saleads-69444db0",
-    "label": "Ренессанс Жизнь - Выгодный старт (Оформлен договор)",
-    "href": "https://my.saleads.pro/s/8f656350-6322-11f1-adb7-23588a65452f?erid=2VtzqwiDgn1",
-    "network": "saleads",
-    "vertical": "insurance",
-    "payout": "3799₽",
-    "status": "approve",
-    "enabled": true
-  },
-  {
-    "id": "saleads-e8004440",
-    "label": "Ренессанс Жизнь - Стабильный доход (Подтвержденная заявка, Оплаченный договор)",
-    "href": "",
-    "network": "saleads",
-    "vertical": "insurance",
-    "payout": "1600₽ / 6400₽",
-    "status": "wait",
-    "enabled": false
-  },
-  {
     "id": "saleads-e3b50d20",
     "label": "СК СОГЛАСИЕ - ОСАГО (Оплаченный полис)",
     "href": "https://my.saleads.pro/s/8b52c780-c733-11f1-8d3f-05c38de876ad?erid=2Vtzqwuw7jR",

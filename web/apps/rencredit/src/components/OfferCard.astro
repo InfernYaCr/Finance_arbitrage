@@ -7,7 +7,7 @@ import { type Offer, offerHref, reviewHref, pskRange, creditRate, showsRate, NO_
 import { num, daysWord, moneyRange, termText, ageText } from '../lib/format';
 import { FEATURE_LABELS } from '../lib/ui/features';
 
-/** ad — выделенная подборка (не каталог): карточка несёт маркировку рекламы. Слот quote — расчёт под запрос (главная). */
+/** ad — выделенная подборка: полная маркировка рекламы; без ad (каталог) — компактная. Слот quote — расчёт под запрос (главная). */
 interface Props { offer: Offer; index?: number; ad?: boolean }
 const { offer: o, index = 0, ad = false } = Astro.props;
 const rated = showsRate(o);
@@ -52,6 +52,6 @@ const psk = pskRange(o);
     <a class="btn btn-cta btn-lg" href={offerHref(o)} rel="sponsored nofollow noopener" target="_blank" data-cta={o.slug}>{CTA_LABEL[o.kind]}<Icon name="arrow" class="arrow" /></a>
     <a class="more" href={reviewHref(o)}>Обзор {o.name}</a>
   </div>
-  {ad && <AdMark offer={o} />}
+  <AdMark offer={o} compact={!ad} />
   {!o.verified && <p class="ad-mark">Условия по данным организации, не сверены редакцией.</p>}
 </article>

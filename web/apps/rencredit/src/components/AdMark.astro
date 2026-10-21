@@ -1,26 +1,29 @@
 ---
 /**
  * Маркировка рекламного блока оффера:
- *  - «Реклама» и рекламодатель — ч. 16 ст. 18.1 38-ФЗ «О рекламе»; erid передаётся в ссылке /go/ (?erid=),
- *    на экран не выводится — как у sravni.ru;
+ *  - «Реклама», рекламодатель и erid — ч. 16 ст. 18.1 38-ФЗ «О рекламе»; erid выводится в тексте метки
+ *    и дополнительно передаётся партнёру со страницы /go/;
  *  - наименование лица, оказывающего финуслугу — ч. 1 ст. 28;
  *  - предупреждения ч. 2.1 и 3.1 ст. 28 (кредит/заём) — только для кредитных продуктов.
  * service — некредитный продукт (страхование, дебетовая карта, вклад, РКО): вместо кредитного
  * предупреждения — отсылка к полным условиям на сайте организации.
- * Ставится только на выделенные блоки (топ-подборки, CTA, обзор); обычные карточки каталога — без неё.
+ * Ставится на каждую карточку с CTA (SEO-8). compact — карточки каталогов и услуг: только «Реклама · рекламодатель · erid»,
+ * без предупреждений (они есть в полной метке выделенных блоков и в футере).
  */
 import { type Offer, officialUrl } from '../lib/offers';
 import { serviceOfficialUrl, type ServiceKind } from '../lib/services';
 
-interface Props { offer: Pick<Offer, 'slug' | 'name' | 'legalName'>; service?: ServiceKind; class?: string }
-const { offer: o, service, class: cls } = Astro.props;
+interface Props { offer: Pick<Offer, 'slug' | 'name' | 'legalName' | 'erid'>; service?: ServiceKind; compact?: boolean; class?: string }
+const { offer: o, service, compact = false, class: cls } = Astro.props;
+// ponytail: у части офферов в данных erid с хвостом «/NNNN»; в ссылке Saleads (пул) — только токен до «/». Выводим токен.
+const erid = o.erid?.split('/')[0];
 const site = service ? serviceOfficialUrl(o.slug) : officialUrl(o.slug);
 const host = site ? new URL(site).hostname.replace(/^www\./, '') : null;
 const serviceText = { insurance: 'Условия страхования, стоимость полиса и исключения', debit: 'Тарифы и условия обслуживания карты', deposit: 'Доходность зависит от суммы, срока и условий вклада. Полные условия', rko: 'Тарифы и условия обслуживания счёта' };
 ---
 <p class:list={['ad-mark', cls]}>
-  <span class="ad-tag">Реклама</span>{o.legalName ?? o.name}.{' '}
-  {service
+  <span class="ad-tag">Реклама</span>{o.legalName ?? o.name}{erid && <> · erid:&nbsp;{erid}</>}{compact ? null : '. '}
+  {compact ? null : service
     ? <>{serviceText[service]} — на&nbsp;сайте организации{site && <> <a href={site} rel="nofollow noopener" target="_blank">{host}</a></>}.</>
     : <>Оценивайте свои финансовые возможности и риски. Изучите все условия кредита (займа) на&nbsp;сайте кредитора{site && <> <a href={site} rel="nofollow noopener" target="_blank">{host}</a></>}.</>}
 </p>
