@@ -24,10 +24,13 @@ const oldMonths = Math.max(...DEBTS.map((d) => d.months));
 const v = refiView(r, cbr, oldMonths, OFFER.months);
 const max = Math.max(r.oldTotal, r.newTotal);
 const offers = (await getOffers('credit')).filter(isRefi);
+const CALC_URL = '/refinansirovanie/kalkulyator/';
+const onCalcPage = Astro.url.pathname === CALC_URL;
 const MODES = [['none', 'Нет'], ['body', 'В сумме кредита'], ['separate', 'Оплачу сразу']] as const;
 ---
 <section class="refi" data-refi data-cbr={cbr ? JSON.stringify(cbr) : undefined} aria-labelledby="refi-h">
   <h2 class="refi-h" id="refi-h">Посчитать выгоду рефинансирования</h2>
+  {!onCalcPage && <p class="text-sm"><a href={CALC_URL}>Открыть калькулятор рефинансирования на отдельной странице</a></p>}
   <form class="refi-form" data-form novalidate>
     <fieldset>
       <legend>Ваши кредиты и кредитные карты</legend>
