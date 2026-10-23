@@ -14,6 +14,8 @@ import { SITE, ENV, ORG } from '../lib/ui/site';
 interface Props {
   title: string;
   description: string;
+  /** Не добавлять « — Бренд» к title (главная). */
+  rawTitle?: boolean;
   noindex?: boolean;
   /** Абсолютный canonical, если он не равен адресу страницы (статьи на legacy-URL /credit/<slug>.html). */
   canonical?: string;
@@ -28,10 +30,10 @@ interface Props {
   publishedTime?: Date;
   modifiedTime?: Date;
 }
-const { title, description, noindex, canonical: canonicalProp, ogType = 'website', ogImage, stickyCta, noMascot, jsonLd, publishedTime, modifiedTime } = Astro.props;
-// Яндекс «Мимикрия»: статус сайта — в первых 20 символах title и в начале description (SITE.titlePrefix/descriptionPrefix).
-const fullTitle = SITE.titlePrefix + buildTitle(title, undefined, 70 - SITE.titlePrefix.length);
-const metaDescription = SITE.descriptionPrefix + description;
+const { title, description, rawTitle, noindex, canonical: canonicalProp, ogType = 'website', ogImage, stickyCta, noMascot, jsonLd, publishedTime, modifiedTime } = Astro.props;
+const fullTitle = buildTitle(title, rawTitle ? undefined : SITE.name, 70);
+// Яндекс «Мимикрия»: статус сайта — в конце description (SITE.descriptionSuffix).
+const metaDescription = `${/[.!?…]$/.test(description.trim()) ? description.trim() : `${description.trim()}.`} ${SITE.descriptionSuffix}`;
 const canonical = canonicalProp ?? new URL(Astro.url.pathname, Astro.site ?? Astro.url).href;
 // PUBLIC_NOINDEX=true (тестовый поддомен) закрывает от индексации весь сайт.
 const robotsNoindex = noindex || ENV.noindex;
