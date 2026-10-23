@@ -8,6 +8,8 @@ No previous sessions found.
 
 # Mosseo Site Pipeline — Agent Guide
 
+> **Активный сайт — rencredit-online.ru. Точка входа: `AGENT_HANDOFF.md`**, правила и харнесс — начало `CLAUDE.md`. Остальное в этом файле — legacy (finhelp-ru/mosseo).
+
 ## Новый фронт web/ (пилот rencredit)
 
 Пилот rencredit-online.ru живёт в `web/` (Astro 7 + Tailwind 4 + GSAP; пакеты `@pbn/core`, `@pbn/motion`). Контент это markdown/JSON в content collections (`web/apps/rencredit/src/content`, схемы в `src/content.config.ts`), без краулинга донора. Старые `site/` и `site_pipeline/` без изменений.

@@ -1,7 +1,8 @@
 # ЧЕРНОВИК. Автодеплой не активен: запуск только вручную (workflow_dispatch).
 # Расписание закомментировано. Перед включением владелец задаёт секреты репозитория:
 #   BEGET_FTP_HOST, BEGET_FTP_USER, BEGET_FTP_PASS, BEGET_FTP_PATH (например /rencredit-online.ru/public_html)
-# и переменные (Settings -> Variables): INDEXNOW_SITE, INDEXNOW_KEY (ключ не секрет, он публикуется файлом на сайте).
+# и переменные (Settings -> Variables): INDEXNOW_SITE, INDEXNOW_KEY (ключ не секрет, он публикуется файлом на сайте),
+# PUBLIC_LEGAL_OWNER, PUBLIC_CONTACT_EMAIL (реквизиты для футера и политики).
 name: Deploy rencredit (draft)
 
 on:
@@ -48,6 +49,10 @@ jobs:
       - name: Build
         run: npm run build
         working-directory: web
+        # Реквизиты владельца не храним в публичном репозитории: Settings -> Variables.
+        env:
+          PUBLIC_LEGAL_OWNER: ${{ vars.PUBLIC_LEGAL_OWNER }}
+          PUBLIC_CONTACT_EMAIL: ${{ vars.PUBLIC_CONTACT_EMAIL }}
 
       - name: Check dist
         run: node scripts/check.mjs --dist-only

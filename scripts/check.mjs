@@ -21,6 +21,7 @@ const DIST = join(APP, 'dist');
 const POOL = join(ROOT, 'sites', 'affiliate_pool.json');
 const FACTS = join(WEB, 'packages', 'core', 'src', 'data', 'facts.json');
 const FACTS_MAX_AGE_DAYS = 7;
+const CHECK_CONTENT = join(WEB, 'scripts', 'check-content.mjs');
 
 const args = new Set(process.argv.slice(2));
 const QUICK = args.has('--quick');
@@ -51,6 +52,16 @@ const DONOR_RX_CASE = /ВсеЗаймыОнлайн|Все Займы Онлай
 const BRAND_RX = /Ренессанс|Renaissance\s+Credit/gi;
 // Ставка, вписанная руками («ключевая ставка … 14%»): в контенте только <Fact k="keyRate"/> или {{keyRate}}.
 const KEY_RATE_RX = /ключев\S*\s+ставк\S*[^.\n]{0,40}?\d+([,.]\d+)?\s?%/gi;
+// Жёсткий режим (docs/seo-rencredit/SEO_PLAN.md §2.3): бренд банка нельзя в title, H1, slug, анкорах, данных офферов/услуг.
+// Домен сайта (canonical, og:url, почта) вырезается до проверки; дисклеймер стоит в <p> и под эти поля не попадает.
+const HARD_RX = /ренессанс|rencredit|ренкредит/i;
+const hardHit = (s) => HARD_RX.test(s.replace(/rencredit-online\.ru/gi, ''));
+// SEO-8: на этих страницах число «Реклама» (AdMark) обязано совпадать с числом CTA на /go/.
+const AD_PAGES = ['/zaimy/', '/karty/', '/kredity/', '/osago/'];
+// Яндекс «Мимикрия»: на каждой индексируемой странице плашка «не сайт банка» и статус в начале title/description.
+// Строки — копия SITE.titlePrefix/descriptionPrefix из web/apps/rencredit/src/lib/ui/site.ts.
+const MIMICRY_TITLE = 'Мерка (агрегатор) — ';
+const MIMICRY_DESC = 'Независимый агрегатор, не сайт банка. ';
 const DISCLAIMER_RX = /не\s+является|не\s+связан|товарн\w+\s+знак|не\s+аффилирован|не\s+представляет|не\s+имеет\s+отношения/i;
 
 function walk(dir, exts, out = []) {
@@ -121,6 +132,23 @@ function checkFacts() {
   if (!(ageDays <= FACTS_MAX_AGE_DAYS)) warn(`facts.json: синк с cbr.ru был ${Math.floor(ageDays)} дн. назад (${facts.fetchedAt}); запустите node web/scripts/sync-cbr.mjs`);
 }
 
+/** web/scripts/check-content.mjs: офферы, реестр ЦБ, свежесть источников, ссылки в текстах.
+ *  Срочный деплой с устаревшими checkedAt/снимком ЦБ: ALLOW_STALE=1 node scripts/check.mjs (переменная пробрасывается). */
+function checkContent() {
+  const r = spawnSync(process.execPath, [CHECK_CONTENT], { cwd: ROOT, encoding: 'utf8' });
+  const lines = `${r.stdout || ''}\n${r.stderr || ''}`.split('\n');
+  for (const l of lines) if (l.startsWith('ERROR ')) err(`check-content: ${l.slice(6)}`);
+  const n = lines.filter((l) => l.startsWith('WARN ')).length;
+  if (n) warn(`check-content: предупреждений ${n} (подробно: node web/scripts/check-content.mjs)`);
+  if (r.status !== 0 && !lines.some((l) => l.startsWith('ERROR '))) err(`check-content упал (код ${r.status}): ${(r.stderr || r.error?.message || '').trim().split('\n').slice(-3).join(' ')}`);
+}
+
+/** Эталоны формул (web/packages/core/src/*.test.ts, node --test). */
+function checkTests() {
+  const r = spawnSync('npm', ['--prefix', 'web', 'test'], { cwd: ROOT, shell: true, encoding: 'utf8' });
+  if (r.status !== 0) err(`тесты web (npm --prefix web test) упали:\n${`${r.stdout || ''}\n${r.stderr || ''}`.trim().split('\n').slice(-15).join('\n')}`);
+}
+
 function checkJsonFiles() {
   const dirs = [join(SRC, 'content'), join(WEB, 'packages', 'core', 'src', 'data')];
   const files = dirs.flatMap((d) => walk(d, ['.json']));
@@ -142,6 +170,9 @@ function checkJsonFiles() {
     } catch (e) {
       err(`${rel(f)} невалидный JSON: ${e.message}`);
       continue;
+    }
+    if (/\/content\/(offers|services)\/|\/data\/pool\.json$/.test(rel(f)) && hardHit(JSON.stringify(data))) {
+      err(`${rel(f)}: бренд банка в данных оффера/услуги/пула (жёсткий режим, SEO_PLAN §2.3; офферы группы «Ренессанс» запрещены)`);
     }
     if (rel(f).includes('/content/offers/') && data && data.poolId) {
       if (!/^saleads-[0-9a-f]{8}$/.test(data.poolId)) err(`${rel(f)} poolId «${data.poolId}» не по формату saleads-xxxxxxxx`);
@@ -166,6 +197,8 @@ function checkSources() {
   }
   checkJsonFiles();
   checkFacts();
+  checkContent();
+  checkTests();
 }
 
 function runBuild() {
@@ -183,6 +216,40 @@ function attr(html, rx) {
   return m ? m[1].trim() : '';
 }
 
+const plain = (s) => s.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+
+function checkHardMode(f, r, html) {
+  const hits = [];
+  if (hardHit(r)) hits.push(`slug ${r}`);
+  const title = attr(html, /<title[^>]*>([^<]+)<\/title>/i);
+  if (hardHit(title)) hits.push(`title «${title}»`);
+  for (const [h1] of html.matchAll(/<h1[\s>][\s\S]*?<\/h1>/gi)) if (hardHit(plain(h1))) hits.push(`H1 «${plain(h1)}»`);
+  for (const [, a] of html.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi)) if (hardHit(plain(a))) hits.push(`анкор «${plain(a).slice(0, 80)}»`);
+  for (const h of hits) err(`${rel(f)}: ${h} — бренд банка (жёсткий режим, SEO_PLAN §2.3)`);
+}
+
+function checkAdMarks(f, html) {
+  const ctas = (html.match(/<a\b[^>]*href=["']\/go\//gi) || []).length;
+  const ads = (html.match(/Реклама/g) || []).length;
+  if (ctas !== ads) err(`${rel(f)}: CTA на /go/ ${ctas}, маркировок «Реклама» ${ads} — AdMark нужен на каждой карточке с CTA (SEO-8)`);
+}
+
+// SEO-19: title ≤ 70 символов и валидный JSON в каждом <script type="application/ld+json"> (кроме /go/ и редиректов).
+const TITLE_MAX = 70;
+const decodeEntities = (s) => s.replace(/&nbsp;/g, ' ').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+function checkTitleAndLd(file, html) {
+  if (/http-equiv=["']refresh["']/i.test(html) && html.length < 1200) return;
+  const title = decodeEntities(attr(html, /<title[^>]*>([^<]+)<\/title>/i));
+  if (title.length > TITLE_MAX) err(`${rel(file)} title ${title.length} > ${TITLE_MAX}: «${title}»`);
+  for (const [, body] of html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      JSON.parse(body);
+    } catch (e) {
+      err(`${rel(file)} JSON-LD не парсится: ${e.message}`);
+    }
+  }
+}
+
 function checkDist() {
   if (!existsSync(DIST)) {
     err('web/apps/rencredit/dist не найден после сборки');
@@ -196,11 +263,14 @@ function checkDist() {
     checkDonor(f, html);
     checkBrand(f, html, false);
     checkGoLinks(f, html);
+    checkHardMode(f, r, html);
+    if (AD_PAGES.some((p) => r === `${p}index.html`)) checkAdMarks(f, html);
     const noindex = /<meta[^>]+name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html);
     if (r.startsWith('/go/')) {
       if (!noindex) err(`${rel(f)} страница /go/ без meta robots noindex`);
       continue;
     }
+    checkTitleAndLd(f, html);
     if (/\/404\.html$/.test(r) || noindex) continue;
     // Страницы-редиректы Astro (meta refresh) не считаем контентными.
     if (/http-equiv=["']refresh["']/i.test(html) && html.length < 1200) continue;
@@ -209,13 +279,25 @@ function checkDist() {
     if (!attr(html, /<meta[^>]+name=["']description["'][^>]*content=["']([^"']+)["']/i)) err(`${rel(f)} нет meta description`);
     if (!attr(html, /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)) err(`${rel(f)} нет link canonical`);
     if (!/<h1[\s>]/i.test(html)) warn(`${rel(f)} нет <h1>`);
+    if (!/class="notice-bar"/.test(html)) err(`${rel(f)}: нет плашки .notice-bar «не сайт банка» (Яндекс «Мимикрия»)`);
+    if (!decodeEntities(attr(html, /<title[^>]*>([^<]+)<\/title>/i)).startsWith(MIMICRY_TITLE)) err(`${rel(f)}: title не начинается с «${MIMICRY_TITLE}» (Яндекс «Мимикрия»)`);
+    if (!decodeEntities(attr(html, /<meta[^>]+name=["']description["'][^>]*content=["']([^"']+)["']/i)).startsWith(MIMICRY_DESC)) err(`${rel(f)}: description не начинается с «${MIMICRY_DESC}» (Яндекс «Мимикрия»)`);
   }
   const sm = join(DIST, 'sitemap-index.xml');
   const sm0 = join(DIST, 'sitemap-0.xml');
   if (!existsSync(sm) && !existsSync(sm0) && !existsSync(join(DIST, 'sitemap.xml'))) warn('в dist нет sitemap');
   if (existsSync(sm0) && /\/go\//.test(readFileSync(sm0, 'utf8'))) err('в sitemap попали /go/ ссылки');
+  // Статьи, новости и /credit/*.html — с lastmod (updatedDate ?? publishDate, astro.config.mjs).
+  if (existsSync(sm0)) {
+    for (const [, url, body] of readFileSync(sm0, 'utf8').matchAll(/<url><loc>([^<]+)<\/loc>(.*?)<\/url>/g)) {
+      if (/\/(stati|novosti)\/[^/]+\/$|\/credit\/[^/]+\.html$/.test(url) && !/<lastmod>/.test(body)) err(`sitemap: нет lastmod у ${url}`);
+    }
+  }
   if (!existsSync(join(DIST, 'robots.txt'))) warn('в dist нет robots.txt');
   if (pages === 0) warn('в dist нет индексируемых страниц');
+  // Ссылочный граф (SEO-18): пока предупреждение — оставшиеся нарушения упираются в данные офферов.
+  const g = spawnSync(process.execPath, [join(WEB, 'scripts', 'check-graph.mjs'), DIST], { encoding: 'utf8' });
+  if (g.status !== 0) warn(`граф ссылок (node web/scripts/check-graph.mjs):\n${g.stderr.trim()}`);
 }
 
 // ---------------------------------------------------------------------------

@@ -2,14 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Showcase from './Showcase.astro';
 import Breadcrumbs from './Breadcrumbs.astro';
-import { getOffers } from '../lib/offers';
-import type { ProductKind } from '@pbn/core';
+import { getOffers, reviewHref } from '../lib/offers';
+import { itemListProducts, type ProductKind } from '@pbn/core';
+import { ORG } from '../lib/ui/site';
 
 interface Props { kind: ProductKind; h1: string; title: string; description: string; lead: string; crumb: string }
 const { kind, h1, title, description, lead, crumb } = Astro.props;
 const offers = await getOffers(kind);
+const ld = itemListProducts(h1, offers, ORG.url, reviewHref);
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} jsonLd={ld}>
   <div class="wrap page-head"><Breadcrumbs items={[{ label: crumb }]} /></div>
-  <Showcase offers={offers} title={h1} h="h1" eyebrow="Каталог" lead={lead} />
+  <Showcase offers={offers} title={h1} h="h1" eyebrow="Каталог" lead={lead}><slot name="intro" /></Showcase>
+  <slot />
 </BaseLayout>

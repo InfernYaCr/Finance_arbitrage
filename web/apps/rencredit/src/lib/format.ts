@@ -17,6 +17,8 @@ export function plural(n: number, forms: [string, string, string]): string {
 
 export const offersWord = (n: number) => `${n} ${plural(n, ['предложение', 'предложения', 'предложений'])}`;
 export const daysWord = (n: number) => `${n} ${plural(n, ['день', 'дня', 'дней'])}`;
+/** «18–70 лет»; без подтверждённого верхнего предела — «от 18 лет». */
+export const ageText = (min: number, max?: number) => (max ? `${min}–${max} лет` : `от ${min} лет`);
 
 export function range(a: number, b: number, fmt: (n: number) => string = num): string {
   return a === b ? fmt(a) : `${fmt(a)}–${fmt(b)}`;

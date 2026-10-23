@@ -22,6 +22,8 @@ export function initHeader() {
   const burger = header.querySelector<HTMLButtonElement>('[data-burger]')!;
   const menu = header.querySelector<HTMLElement>('[data-mobile-menu]')!;
   const setMenu = (open: boolean) => {
+    // Над шапкой плашка .notice-bar: вверху страницы шапка ниже --header-h, меню ставим под её фактический низ.
+    if (open) menu.style.top = `${header.getBoundingClientRect().bottom}px`;
     menu.classList.toggle('is-open', open);
     burger.setAttribute('aria-expanded', String(open));
     burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');

@@ -54,7 +54,7 @@ export interface Product {
   approvalPct?: number;         // заявленное одобрение
   decisionMinutes?: number;
   ageMin: number;
-  ageMax: number;
+  ageMax?: number;
   features: ProductFeature[];
   rating?: number;              // 0..5
   reviewsCount?: number;

@@ -1,5 +1,5 @@
 import { flipUpdate, warmup, prefersReduced } from '@pbn/motion';
-import { num, rub, overpay, plural } from '../lib/format';
+import { rub, plural } from '../lib/format';
 
 interface Card {
   el: HTMLElement;
@@ -17,7 +17,7 @@ const readCard = (el: HTMLElement): Card => {
     sumMin: +d.sumMin!, sumMax: +d.sumMax!, termMin: +d.termMin!, termMax: +d.termMax!,
     // нет data-rate (оффер без ПСК) -> Infinity: в конец при сортировке по ставке, вне расчёта переплаты
     rate: d.rate ? +d.rate : Infinity, free: +d.free!, appr: +d.appr!,
-    ageMin: +d.ageMin!, ageMax: +d.ageMax!, prio: +d.prio!, idx: +d.idx!,
+    ageMin: +d.ageMin!, ageMax: d.ageMax ? +d.ageMax : Infinity, prio: +d.prio!, idx: +d.idx!,
     features: (d.features ?? '').split(',').filter(Boolean),
   };
 };
@@ -195,66 +195,4 @@ export function initOffers() {
   paintControls();
   apply(false);
   warmup();
-
-  initCalc(root, cards);
-}
-
-function initCalc(showcase: HTMLElement, cards: Card[]) {
-  const calc = document.querySelector<HTMLElement>('[data-calc]');
-  if (!calc) return;
-  const sumIn = calc.querySelector<HTMLInputElement>('[data-c="sum"]')!;
-  const termIn = calc.querySelector<HTMLInputElement>('[data-c="term"]')!;
-  const sumOut = calc.querySelector<HTMLElement>('[data-c-out="sum"]')!;
-  const termOut = calc.querySelector<HTMLElement>('[data-c-out="term"]')!;
-  const over = calc.querySelector<HTMLElement>('[data-c-over]')!;
-  const back = calc.querySelector<HTMLElement>('[data-c-back]')!;
-  const note = calc.querySelector<HTMLElement>('[data-c-note]')!;
-  const go = calc.querySelector<HTMLButtonElement>('[data-calc-go]')!;
-  const goLabel = calc.querySelector<HTMLElement>('[data-calc-label]')!;
-  const presets = [...calc.querySelectorAll<HTMLButtonElement>('[data-preset]')];
-
-  const sp = new URLSearchParams(location.search);
-  const s0 = Number(sp.get('sum')); const t0 = Number(sp.get('term'));
-  if (s0 >= 1000 && s0 <= 100000) sumIn.value = String(s0);
-  if (t0 >= 5 && t0 <= 365) termIn.value = String(t0);
-
-  const paint = () => {
-    const sum = +sumIn.value; const term = +termIn.value;
-    sumOut.innerHTML = `${num(sum)}<small> ₽</small>`;
-    termOut.innerHTML = `${term}<small> дн.</small>`;
-    sumIn.style.setProperty('--p', pct(sumIn));
-    termIn.style.setProperty('--p', pct(termIn));
-    presets.forEach((p) => p.setAttribute('aria-pressed', String(+p.dataset.preset! === sum)));
-    const f = (showcase.dataset.f ?? '').split(',').filter(Boolean);
-    const age = showcase.dataset.age ? +showcase.dataset.age : null;
-    const matched = cards.filter((c) => match(c, { sum, term, age, f }));
-    const n = matched.length;
-    const rated = matched.filter((c) => Number.isFinite(c.rate));
-    if (rated.length) {
-      const best = Math.min(...rated.map((c) => overpay(sum, term, c.rate, c.free)));
-      over.textContent = best === 0 ? '0 ₽' : `от ${rub(best)}`;
-      back.textContent = rub(sum + best);
-      note.textContent = best === 0 ? 'Для первого займа в льготный период проценты не начисляются.' : 'Расчёт по лучшему из подходящих предложений. Точные условия — на сайте кредитора.';
-      goLabel.textContent = `Показать ${n} ${plural(n, ['предложение', 'предложения', 'предложений'])}`;
-    } else {
-      over.textContent = '—'; back.textContent = '—';
-      note.textContent = n ? 'Условия подходящих предложений — на сайте кредитора.' : 'Под такие условия предложений не нашлось — измените сумму или срок.';
-      goLabel.textContent = n ? `Показать ${n} ${plural(n, ['предложение', 'предложения', 'предложений'])}` : 'Изменить условия';
-    }
-    go.dataset.n = String(n);
-  };
-  sumIn.addEventListener('input', paint);
-  termIn.addEventListener('input', paint);
-  presets.forEach((p) => p.addEventListener('click', () => { sumIn.value = p.dataset.preset!; paint(); }));
-  showcase.addEventListener('fk:filters', (e) => {
-    const d = (e as CustomEvent<{ sum: number | null; term: number | null }>).detail;
-    if (d.sum != null) sumIn.value = String(d.sum);
-    if (d.term != null) termIn.value = String(d.term);
-    paint();
-  });
-  go.addEventListener('click', () => {
-    if (go.dataset.n === '0') { sumIn.focus(); return; }
-    showcase.dispatchEvent(new CustomEvent('fk:calc', { detail: { sum: +sumIn.value, term: +termIn.value } }));
-  });
-  paint();
 }

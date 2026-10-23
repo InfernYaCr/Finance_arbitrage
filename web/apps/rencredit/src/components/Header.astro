@@ -12,6 +12,7 @@ const items = NAV.map((n) => n.label === 'Займы' && guides.length > 0
   ? { ...n, sub: [{ label: 'Все займы', href: n.href! }, ...guides.map((g) => ({ label: g.data.navLabel, href: `/${g.id}/` }))] }
   : n);
 ---
+<p class="notice-bar" role="note">{SITE.notice}</p>
 <header class="site-header" data-header>
   <div class="hdr-bg" aria-hidden="true"></div>
   <div class="wrap hdr-in">

@@ -1,0 +1,168 @@
+---
+/**
+ * Хаб рефинансирования /refinansirovanie/ (SEO-15 + FEATURES refi-hub). Статическая страница, не guide:
+ * у guide в шаблоне крошка «Займы», а все guides попадают в меню займов. Тексты и FAQ — service-pages/refinansirovanie.mdx.
+ * Маршрутизатор — нативные <details name> (без JS); ссылка сценария ведёт на первую опубликованную статью из списка
+ * (черновики не линкуем), поэтому хаб сам подхватывает статьи, когда их снимают с draft.
+ */
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Faq from '../../components/Faq.astro';
+import OfferCard from '../../components/OfferCard.astro';
+import RefiCalc from '../../components/RefiCalc.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getArticles, articleHref } from '../../lib/content';
+import { getOffers, isRefi } from '../../lib/offers';
+import { getServicePage } from '../../lib/services';
+import { readingMinutes, dateRu } from '../../lib/format';
+
+const page = (await getServicePage('refinansirovanie'))!;
+const { Content } = await render(page);
+const { title, description, lead, updatedDate, faq } = page.data;
+
+const articles = await getArticles();
+const byId = new Map(articles.map((a) => [a.id, a]));
+const offers = (await getOffers('credit')).filter(isRefi);
+const PILLAR = 'refinansirovanie-kredita-chto-eto-znachit';
+// Рубрика: опорная статья первой, остальные — по дате.
+const rubric = articles.filter((a) => a.data.category === 'refinansirovanie')
+  .sort((a, b) => Number(b.id === PILLAR) - Number(a.id === PILLAR));
+
+interface Scenario { id: string; q: string; text: string; articles: string[] }
+const SCENARIOS = ([
+  { id: 'odin-kredit', q: 'У меня один кредит, хочу снизить ставку или платёж',
+    text: 'Выгода есть, если новая ставка заметно ниже, а до конца срока ещё далеко. Посчитайте общую сумму платежей по старому и новому кредиту вместе со страховкой и сборами. Если выгода небольшая или остаётся мало платежей, оформлять новый кредит не стоит.',
+    articles: ['perekreditovanie-kredita-pod-menshii-procent', 'stoit-li-ispolzovat-refinansirovanie-kredita'] },
+  { id: 'neskolko-dolgov', q: 'Несколько кредитов и карт, нужен один платёж',
+    text: 'Многие банки объединяют несколько кредитов и кредитных карт в один кредит. Удобство — один платёж и одна дата, но выгоду даёт только меньшая полная стоимость. Уточните, нужно ли закрывать старые карты, и не берите новый долг по освободившимся лимитам.',
+    articles: ['kak-obedinit-kredity-v-odin', 'refinansirovanie-kreditnyh-kart', 'kak-proishodit-refinansirovanie-kredita-chto-nyjno-znat'] },
+  { id: 'ipoteka', q: 'Ипотека',
+    text: 'Для ипотеки нужно переоформить залог на нового кредитора, оценить недвижимость и пересмотреть страхование. Эти расходы могут съесть значительную часть выгоды, особенно если разница в ставке небольшая. Льготную ипотеку рефинансировать почти всегда невыгодно: льгота теряется.',
+    articles: ['refinansirovanie-ipoteki-v-2026', 'na-kakih-ysloviiah-mojno-polychit-refinansirovanie-v-vtb', 'bank-otkrytie-kak-i-na-kakih-ysloviiah-polychit-refinansirovanie-kreditov-i-ipoteki'] },
+  { id: 'avtokredit', q: 'Автокредит',
+    text: 'Автокредит обычно обеспечен залогом автомобиля, поэтому банку нужно оформить залог на себя и, как правило, потребовать страхование. Требования к автомобилю и к самому кредиту у банков разные: проверьте их до заявки.',
+    articles: ['refinansirovanie-avtokredita', 'stoit-li-ispolzovat-refinansirovanie-kredita'] },
+  { id: 'platit-tyazhelo', q: 'Платить по графику стало тяжело',
+    text: 'Когда платёж уже непосилен, банки рефинансируют неохотно. Часто лучше обратиться к действующему кредитору: он может изменить график платежей или предоставить каникулы. Реструктуризация обычно продлевает срок, поэтому переплата растёт.',
+    articles: ['restrukturizaciya-kredita-kak-poluchit', 'kreditnye-kanikuly-2026'] },
+  { id: 'prosrochki', q: 'Есть просрочки или плохая кредитная история',
+    text: 'Банки, как правило, не рефинансируют кредиты с действующей просрочкой. Если просрочка закрыта и прошло время, шансы выше, но одобрение не гарантировано. Сначала погасите задолженность и проверьте кредитную историю.',
+    articles: ['refinansirovanie-kreditov-s-plohoi-kreditnoi-istoriei-perechen-bankov', 'kak-polychit-pomosh-v-refinansirovanii'] },
+  { id: 'mfo', q: 'Займы МФО',
+    text: 'Ставки МФО выше банковских, поэтому перевод долга в банк может сократить переплату. Но часть банков отказывает, если в кредитной истории много займов, а условия программ отличаются. Не берите новый заём, чтобы закрыть старый: так формируется долговая спираль.',
+    articles: ['refinansirovanie-mikrozajmov', 'kak-ne-popast-v-dolgovuyu-yamu-s-mikrozajmami'] },
+] as Scenario[]).map((s) => ({ ...s, article: s.articles.map((id) => byId.get(id)).find(Boolean) }));
+
+const TABLE: { what: string; can: string; note: string }[] = [
+  { what: 'Кредиты наличными', can: 'Да', note: 'Самый частый случай: у банков конкуренция выше, чем по другим продуктам.' },
+  { what: 'Кредитные карты', can: 'Да, у многих банков', note: 'Долг по карте переводят в новый кредит с фиксированным платежом. Карту часто просят закрыть или заблокировать лимит.' },
+  { what: 'Автокредит', can: 'Зависит от банка', note: 'Банк обычно требует залог автомобиля и страхование.' },
+  { what: 'Ипотека', can: 'Да, отдельная процедура', note: 'Оценка, переоформление залога, страхование. Расходы могут съесть выгоду.' },
+  { what: 'Займы МФО', can: 'Зависит от банка', note: 'Требования строже; много займов в кредитной истории может привести к отказу.' },
+  { what: 'Кредиты ИП и организаций', can: 'Особые правила', note: 'Закон о потребительском кредите на них не распространяется, условия смотрите у банка.' },
+  { what: 'Кредит с действующей просрочкой', can: 'Как правило, нет', note: 'Сначала погасите просрочку, затем подавайте заявку.' },
+];
+
+const DOCS = [
+  'Паспорт.',
+  'Кредитные договоры по каждому долгу, который вы хотите рефинансировать.',
+  'Справка об остатке долга и реквизиты банка-кредитора (у части программ не требуется — уточните у банка).',
+  'Справка о доходах или выписка по счёту, если банк их запрашивает.',
+  'Документы о занятости, если банк их запрашивает.',
+  'Для ипотеки и автокредита — документы на предмет залога, оценка и страхование по требованию банка.',
+];
+const PREP = [
+  'Выпишите по каждому кредиту: остаток долга, ставку, платёж, дату окончания, наличие страховки.',
+  'Посчитайте сумму оставшихся платежей по текущим условиям.',
+  'Запросите предложения в двух-трёх банках и сравните полную стоимость кредита (ПСК).',
+  'Узнайте, включена ли страховка в ставку и что будет со ставкой при отказе от неё.',
+  'До подтверждения закрытия старого кредита продолжайте вносить платёж.',
+  'После закрытия возьмите справку и через одну-две недели проверьте кредитный отчёт.',
+];
+
+const crumbs = [{ label: 'Кредиты', href: '/kredity/' }, { label: 'Рефинансирование' }];
+---
+<BaseLayout title={title} description={description}>
+  <div class="wrap page-head refi-noprint">
+    <Breadcrumbs items={crumbs} />
+    <h1>{title}</h1>
+    <p class="lead mt-3">{lead}</p>
+    {updatedDate && <p class="svc-upd">Обновлено {dateRu(updatedDate)}</p>}
+  </div>
+
+  <section class="section pt-6 md:pt-8 refi-noprint" id="scenarii" aria-labelledby="refi-scenarii">
+    <div class="wrap">
+      <h2 class="h2" id="refi-scenarii" data-reveal>Выберите свою ситуацию</h2>
+      <div class="refi-router" data-reveal>
+        {SCENARIOS.map((s) => (
+          <details name="refi-scenario" id={s.id} class="refi-sc">
+            <summary>{s.q}</summary>
+            <div class="refi-sc-body">
+              <p>{s.text}</p>
+              {s.article && <a class="refi-more" href={articleHref(s.article)}>{s.article.data.title}</a>}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0 md:pt-0 refi-noprint" id="calc" aria-label="Калькулятор рефинансирования">
+    <div class="wrap"><div class="max-w-4xl"><RefiCalc /></div></div>
+  </section>
+
+  <section class="section pt-0 md:pt-0 refi-noprint" id="predlozheniya" aria-labelledby="refi-offers">
+    <div class="wrap">
+      <h2 class="h2" id="refi-offers" data-reveal>Предложения банков по рефинансированию</h2>
+      <p class="lead mt-3">Условия по данным банков. Ставку банк называет индивидуально после рассмотрения заявки, одобрение не гарантировано.</p>
+      {offers.length > 0 && <div class="offers">{offers.map((o, i) => <OfferCard offer={o} index={i} ad />)}</div>}
+      <p class="fine">Реклама. Условия публикуются на основании данных организаций и могут измениться. Окончательные условия определяет банк — проверяйте их на его сайте до подписания договора.</p>
+    </div>
+  </section>
+
+  <section class="section pt-0 md:pt-0 refi-noprint" id="chto-mozhno" aria-labelledby="refi-what">
+    <div class="wrap">
+      <h2 class="h2" id="refi-what" data-reveal>Что можно рефинансировать</h2>
+      <div class="refi-table-wrap" data-reveal>
+        <table class="refi-table">
+          <thead><tr><th scope="col">Что рефинансируем</th><th scope="col">Можно ли</th><th scope="col">На что обратить внимание</th></tr></thead>
+          <tbody>{TABLE.map((r) => <tr><th scope="row">{r.what}</th><td data-label="Можно ли">{r.can}</td><td data-label="Важно">{r.note}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0 md:pt-0 refi-docs" id="dokumenty" aria-labelledby="refi-docs">
+    <div class="wrap">
+      <h2 class="h2" id="refi-docs" data-reveal>Чек-лист: документы и подготовка</h2>
+      <p class="lead mt-3 refi-noprint">Набор документов зависит от банка. Страницу можно распечатать (Ctrl/⌘ + P): на бумагу выводится только чек-лист.</p>
+      <div class="refi-lists">
+        <div>
+          <h3>Документы</h3>
+          <ul class="refi-check">{DOCS.map((d) => <li><label><input type="checkbox" /> <span>{d}</span></label></li>)}</ul>
+        </div>
+        <div>
+          <h3>Перед заявкой</h3>
+          <ul class="refi-check">{PREP.map((d) => <li><label><input type="checkbox" /> <span>{d}</span></label></li>)}</ul>
+        </div>
+      </div>
+      <p class="fine refi-print-only">Мерка — информационный сайт, не банк. rencredit-online.ru</p>
+    </div>
+  </section>
+
+  <section class="section pt-0 md:pt-0 refi-noprint" id="stati" aria-labelledby="refi-articles">
+    <div class="wrap">
+      <h2 class="h2" id="refi-articles" data-reveal>Все материалы о рефинансировании</h2>
+      <div class="grid-cards">
+        {rubric.map((a, i) => <PostCard index={i} href={articleHref(a)} title={a.data.title} description={a.data.description} date={a.data.publishDate} category={a.data.category} cover={a.data.cover} minutes={readingMinutes(a.body ?? '')} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0 md:pt-0 refi-noprint">
+    <div class="wrap"><div class="prose"><Content /></div></div>
+  </section>
+
+  <div class="refi-noprint"><Faq items={faq} /></div>
+</BaseLayout>

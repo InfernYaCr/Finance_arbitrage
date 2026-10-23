@@ -93,6 +93,9 @@ export const getServicePage = (id: string) => getEntry('servicePages', id);
 
 /** schema.org-тип элемента ItemList. */
 export const SCHEMA_TYPE: Record<ServiceKind, string> = { insurance: 'FinancialProduct', debit: 'PaymentCard', deposit: 'DepositAccount', rko: 'BankAccount' };
+/** Брокерский счёт лежит в разделе вкладов, но это не DepositAccount. */
+const SCHEMA_OVERRIDE: Record<string, string> = { 'bks-investitsii': 'BrokerageAccount' };
+export const schemaType = (s: Pick<Service, 'slug' | 'kind'>) => SCHEMA_OVERRIDE[s.slug] ?? SCHEMA_TYPE[s.kind];
 
 /** Официальный сайт организации из src/data/service-sources/<slug>.json. */
 const sources = import.meta.glob<{ officialUrl?: string }>('../data/service-sources/*.json', { eager: true, import: 'default' });

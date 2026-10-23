@@ -1,6 +1,7 @@
 ---
 import OfferLogo from '../OfferLogo.astro';
 import Icon from '../Icon.astro';
+import AdMark from '../AdMark.astro';
 import { goHref } from '@pbn/core';
 import { type Service, SERVICE_META } from '../../lib/services';
 
@@ -8,7 +9,7 @@ interface Props { service: Service; index?: number; showCategory?: boolean }
 const { service: s, index = 0, showCategory = false } = Astro.props;
 const cta = { insurance: 'Оформить полис', debit: 'Оформить карту', deposit: 'Открыть вклад', rko: 'Открыть счёт' }[s.kind];
 ---
-<article class="offer-card svc-card" data-reveal style={`--i:${Math.min(index, 6)}`}>
+<article id={s.slug} class="offer-card svc-card" data-reveal style={`--i:${Math.min(index, 6)}`}>
   <div class="oc-head">
     <OfferLogo offer={s} />
     <div class="min-w-0">
@@ -32,5 +33,6 @@ const cta = { insurance: 'Оформить полис', debit: 'Оформить
   <div class="oc-cta">
     <a class="btn btn-cta btn-lg" href={goHref(s.poolId)} rel="sponsored nofollow noopener" target="_blank" data-cta={s.slug}>{cta}<Icon name="arrow" class="arrow" /></a>
   </div>
+  <AdMark offer={s} service={s.kind} compact />
   {!s.verified && <p class="ad-mark">Условия по данным организации, не сверены редакцией.</p>}
 </article>

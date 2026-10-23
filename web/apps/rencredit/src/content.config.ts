@@ -31,7 +31,7 @@ const offers = defineCollection({
     approvalPct: z.number().min(0).max(100).optional(),
     decisionMinutes: z.number().optional(),
     ageMin: z.number().int().min(18),
-    ageMax: z.number().int().max(100),
+    ageMax: z.number().int().max(100).optional(), // нет — верхний предел источником не установлен («от N лет»)
     features: z.array(z.enum(FEATURES)),
     rating: z.number().min(0).max(5).optional(),
     reviewsCount: z.number().int().optional(),

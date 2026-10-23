@@ -13,7 +13,6 @@
   "pskMin": 252.908,
   "pskMax": 292,
   "ageMin": 18,
-  "ageMax": 100,
   "features": [
     "zero_percent",
     "to_card",

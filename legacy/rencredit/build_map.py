@@ -240,7 +240,7 @@ for it in inv:
         else:
             row.update(decision="merge301", target="/", reason="HTML-карта сайта WP; заменена sitemap.xml и навигацией.")
     elif t == "category":
-        row.update(decision="merge301", target="/stati/", reason="Рубрика «Блог» -> раздел статей.")
+        row.update(decision="merge301", target="/refinansirovanie/", reason="Рубрика «Блог» (весь контент про рефинансирование) -> хаб /refinansirovanie/ (SEO-15).")
     elif t == "category_page":
         row.update(decision="merge301", target="/stati/", reason="Пагинация рубрики -> раздел статей.")
     elif t == "tag":

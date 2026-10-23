@@ -12,7 +12,6 @@
   "pskMin": 0,
   "pskMax": 292,
   "ageMin": 18,
-  "ageMax": 100,
   "features": [
     "to_card",
     "bad_history",

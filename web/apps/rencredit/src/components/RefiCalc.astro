@@ -1,0 +1,293 @@
+---
+/**
+ * Калькулятор «Выгодно ли рефинансировать» (SEO-16). Формулы — @pbn/core/finance (не barrel: тот тянет pool.json).
+ * SSG показывает результат по дефолтам, скрипт пересчитывает и пишет состояние в #d=…&n=… (без дублей URL в индексе).
+ * Офферы под результатом — только при зелёном вердикте и подходящей сумме (YMYL: «невыгодно» + «оформить» нельзя).
+ */
+import OfferCard from './OfferCard.astro';
+import { refi, type Debt, type RefiOffer } from '@pbn/core/finance';
+import cbrData from '@pbn/core/data/psk-cbr.json';
+import { getOffers, isRefi } from '../lib/offers';
+import { refiView, type Cbr } from '../lib/refi';
+import { rub, dateRu } from '../lib/format';
+
+const DEBTS: Debt[] = [
+  { balance: 150_000, rate: 34.9, months: 24 },
+  { balance: 300_000, rate: 24.9, months: 36 },
+];
+const OFFER: RefiOffer = { rate: 21.9, months: 36, feePct: 0, insurance: 0, insMode: 'none' };
+
+// Сравнение с ЦБ — только пока таблица действует (квартал validTo); после — молча выключено до обновления psk-cbr.json.
+const cbr: Cbr = new Date().toISOString().slice(0, 10) <= cbrData.validTo ? cbrData.rows : null;
+const r = refi(DEBTS, OFFER);
+const oldMonths = Math.max(...DEBTS.map((d) => d.months));
+const v = refiView(r, cbr, oldMonths, OFFER.months);
+const max = Math.max(r.oldTotal, r.newTotal);
+const offers = (await getOffers('credit')).filter(isRefi);
+const CALC_URL = '/refinansirovanie/kalkulyator/';
+const onCalcPage = Astro.url.pathname === CALC_URL;
+const MODES = [['none', 'Нет'], ['body', 'В сумме кредита'], ['separate', 'Оплачу сразу']] as const;
+---
+<section class="refi" data-refi data-cbr={cbr ? JSON.stringify(cbr) : undefined} aria-labelledby="refi-h">
+  <h2 class="refi-h" id="refi-h">Посчитать выгоду рефинансирования</h2>
+  {!onCalcPage && <p class="text-sm"><a href={CALC_URL}>Открыть калькулятор рефинансирования на отдельной странице</a></p>}
+  <form class="refi-form" data-form novalidate>
+    <fieldset>
+      <legend>Ваши кредиты и кредитные карты</legend>
+      <div data-debts>
+        {DEBTS.map((d) => (
+          <div class="refi-debt" data-debt>
+            <label>Остаток долга, ₽<input type="number" inputmode="numeric" min="1000" max="10000000" step="1000" value={d.balance} data-k="balance" required /></label>
+            <label>Ставка, % год.<input type="number" inputmode="decimal" min="0" max="100" step="0.1" value={d.rate} data-k="rate" required /></label>
+            <label>Осталось, мес.<input type="number" inputmode="numeric" min="1" max="360" step="1" value={d.months} data-k="months" required /></label>
+            <button type="button" class="refi-del" data-del aria-label="Убрать этот долг">×</button>
+          </div>
+        ))}
+      </div>
+      <button type="button" class="refi-add" data-add>+ Добавить долг</button>
+      <p class="refi-hint">Для кредитной карты укажите, за сколько месяцев планируете её погасить.</p>
+    </fieldset>
+    <fieldset>
+      <legend>Новый кредит</legend>
+      <div class="refi-new">
+        <label>Ставка, % год.<input type="number" inputmode="decimal" min="0" max="100" step="0.1" value={OFFER.rate} name="rate" required /></label>
+        <label>Срок, мес.<input type="number" inputmode="numeric" min="1" max="120" step="1" value={OFFER.months} name="months" required /></label>
+        <label>Комиссия за выдачу, %<input type="number" inputmode="decimal" min="0" max="20" step="0.1" value={OFFER.feePct} name="fee" /></label>
+        <label>Страховка, ₽<input type="number" inputmode="numeric" min="0" max="5000000" step="1000" value={OFFER.insurance} name="ins" /></label>
+      </div>
+      <fieldset class="refi-modes">
+        <legend>Страховка</legend>
+        {MODES.map(([val, label]) => <label><input type="radio" name="mode" value={val} checked={val === OFFER.insMode} />{label}</label>)}
+      </fieldset>
+    </fieldset>
+  </form>
+
+  <div class="refi-out" data-verdict={r.verdict}>
+    <div aria-live="polite" aria-atomic="true">
+      <p class="refi-badge" data-o="badge">{v.badge}</p>
+      <p class="refi-head" data-o="head">{v.head}</p>
+      <p class="refi-cause" data-o="cause">{v.cause}</p>
+    </div>
+    <dl class="refi-bars">
+      <div><dt>Платить как сейчас</dt><dd><span class="refi-bar"><i data-bar="old" style={`--w:${r.oldTotal / max}`}></i></span><b data-o="oldTotal">{rub(r.oldTotal)}</b> <small data-o="oldPay">{rub(r.oldPay)} в мес.</small></dd></div>
+      <div><dt>После рефинансирования</dt><dd><span class="refi-bar"><i data-bar="new" style={`--w:${r.newTotal / max}`}></i></span><b data-o="newTotal">{rub(r.newTotal)}</b> <small data-o="newPay">{rub(r.newPay)} в мес.</small></dd></div>
+    </dl>
+    <p class="refi-note" data-o="payback">{v.payback}</p>
+    <p class="refi-note" data-o="psk">{v.psk}</p>
+    <p class="refi-note">Расчёт ориентировочный, по аннуитетной схеме: банк может предложить другие условия. Это не рекомендация брать или не брать кредит.</p>
+  </div>
+
+  <details class="refi-how">
+    <summary>Как считаем</summary>
+    <p>Сравниваем, сколько всего вы заплатите: по текущим долгам до конца их сроков и по новому кредиту вместе с комиссией и страховкой. Платежи — аннуитетные: P = S · i / (1 − (1 + i)<sup>−n</sup>), где i — ставка в месяц, n — срок в месяцах. Страховка «в сумме кредита» увеличивает долг, «оплачу сразу» — разовый расход.</p>
+    <p>ПСК считаем по ч. 2 ст. 6 закона 353-ФЗ «О потребительском кредите (займе)» с комиссией и страховкой. Если разница меньше 1% от долга, вердикт «на грани».{cbr && <> Среднерыночная и предельная ПСК — <a href={cbrData.source} rel="noopener" target="_blank">Банк России</a>, для договоров IV квартала 2026 года, опубликовано {dateRu(new Date(cbrData.asOf))}.</>}</p>
+  </details>
+
+  {offers.length > 0 && (
+    <div class="refi-offers" data-offers data-cta-slot="refi-calc" hidden={!v.showOffers || undefined}>
+      <p class="refi-offers-h">Рефинансирование в банках-партнёрах</p>
+      <div class="offers">
+        {offers.map((o, i) => <OfferCard offer={o} index={i} ad />)}
+      </div>
+    </div>
+  )}
+</section>
+
+<script>
+  import { refi, type Debt, type InsuranceMode } from '@pbn/core/finance';
+  import { refiView, amountBucket, type Cbr } from '../lib/refi';
+  import { rub } from '../lib/format';
+
+  type Goal = (n: string, p?: Record<string, string>) => void;
+  const goal: Goal = (n, p) => (window as Window & { fkGoal?: Goal }).fkGoal?.(n, p);
+  const MAX_DEBTS = 5;
+  const NEW_DEBT: Debt = { balance: 100_000, rate: 20, months: 36 };
+  // Границы полей: значения из #hash и из ввода приводятся к ним (hash — ввод пользователя).
+  const LIM: Record<string, [number, number, number]> = {
+    balance: [1000, 1e7, 100_000], rate: [0, 100, 20], months: [1, 360, 36],
+    nrate: [0, 100, 20], nmonths: [1, 120, 36], fee: [0, 20, 0], ins: [0, 5e6, 0],
+  };
+  const clamp = (raw: string | undefined, k: string) => {
+    const [min, max, def] = LIM[k];
+    const n = raw?.trim() ? Number(raw) : NaN;
+    return Number.isFinite(n) ? Math.min(max, Math.max(min, n)) : def;
+  };
+  const MODES: Record<string, InsuranceMode> = { n: 'none', b: 'body', s: 'separate' };
+
+  function init(root: HTMLElement) {
+    root.dataset.ready = '1';
+    const form = root.querySelector<HTMLFormElement>('[data-form]')!;
+    const list = root.querySelector<HTMLElement>('[data-debts]')!;
+    const add = root.querySelector<HTMLButtonElement>('[data-add]')!;
+    const out = root.querySelector<HTMLElement>('.refi-out')!;
+    const offers = root.querySelector<HTMLElement>('[data-offers]');
+    const cbr: Cbr = root.dataset.cbr ? JSON.parse(root.dataset.cbr) : null;
+    const rows = () => [...list.querySelectorAll<HTMLElement>('[data-debt]')];
+    const f = form.elements as unknown as Record<'rate' | 'months' | 'fee' | 'ins', HTMLInputElement> & { mode: RadioNodeList };
+    const set = (k: string, t: string) => (root.querySelector(`[data-o="${k}"]`)!.textContent = t);
+
+    const addRow = (d?: Debt) => {
+      const row = rows()[0].cloneNode(true) as HTMLElement;
+      row.querySelectorAll<HTMLInputElement>('input').forEach((i) => (i.value = String((d ?? NEW_DEBT)[i.dataset.k as keyof Debt])));
+      list.append(row);
+    };
+    const sync = () => {
+      const n = rows().length;
+      add.disabled = n >= MAX_DEBTS;
+      rows().forEach((r, i) => {
+        const del = r.querySelector<HTMLButtonElement>('[data-del]')!;
+        del.hidden = n === 1;
+        del.setAttribute('aria-label', `Убрать долг ${i + 1}`);
+      });
+    };
+
+    // #d=остаток,ставка,мес;…&n=ставка,мес,комиссия,страховка,режим(n|b|s)
+    const h = new URLSearchParams(location.hash.slice(1));
+    if (h.has('d')) {
+      const ds = (h.get('d') ?? '').split(';').slice(0, MAX_DEBTS).map((s) => s.split(','));
+      rows().slice(1).forEach((r) => r.remove());
+      ds.forEach(([b, r, m], i) => {
+        const d = { balance: clamp(b, 'balance'), rate: clamp(r, 'rate'), months: Math.round(clamp(m, 'months')) };
+        if (i === 0) rows()[0].querySelectorAll<HTMLInputElement>('input').forEach((x) => (x.value = String(d[x.dataset.k as keyof Debt])));
+        else addRow(d);
+      });
+      const [r, m, fee, ins, mode] = (h.get('n') ?? '').split(',');
+      f.rate.value = String(clamp(r, 'nrate'));
+      f.months.value = String(Math.round(clamp(m, 'nmonths')));
+      f.fee.value = String(clamp(fee, 'fee'));
+      f.ins.value = String(clamp(ins, 'ins'));
+      f.mode.value = MODES[mode] ?? 'none';
+    }
+
+    let sent = '';
+    let timer = 0;
+    const paint = (save: boolean) => {
+      const debts: Debt[] = rows().map((r) => {
+        const v = (k: string) => r.querySelector<HTMLInputElement>(`[data-k="${k}"]`)!.value;
+        return { balance: clamp(v('balance'), 'balance'), rate: clamp(v('rate'), 'rate'), months: Math.round(clamp(v('months'), 'months')) };
+      });
+      const mode = (Object.values(MODES).find((m) => m === f.mode.value) ?? 'none') as InsuranceMode;
+      f.ins.disabled = mode === 'none';
+      const o = { rate: clamp(f.rate.value, 'nrate'), months: Math.round(clamp(f.months.value, 'nmonths')), feePct: clamp(f.fee.value, 'fee'), insurance: clamp(f.ins.value, 'ins'), insMode: mode };
+      const r = refi(debts, o);
+      const v = refiView(r, cbr, Math.max(...debts.map((d) => d.months)), o.months);
+      const max = Math.max(r.oldTotal, r.newTotal);
+      out.dataset.verdict = r.verdict;
+      (['badge', 'head', 'cause', 'payback', 'psk'] as const).forEach((k) => set(k, v[k]));
+      set('oldTotal', rub(r.oldTotal));
+      set('newTotal', rub(r.newTotal));
+      set('oldPay', `${rub(r.oldPay)} в мес.`);
+      set('newPay', `${rub(r.newPay)} в мес.`);
+      root.querySelector<HTMLElement>('[data-bar="old"]')!.style.setProperty('--w', String(r.oldTotal / max));
+      root.querySelector<HTMLElement>('[data-bar="new"]')!.style.setProperty('--w', String(r.newTotal / max));
+      if (offers) {
+        const cards = [...offers.querySelectorAll<HTMLElement>('[data-offer]')];
+        cards.forEach((c) => (c.hidden = !(r.principal >= Number(c.dataset.sumMin) && r.principal <= Number(c.dataset.sumMax))));
+        offers.hidden = !v.showOffers || cards.every((c) => c.hidden);
+      }
+      if (!save) return;
+      const mk = Object.keys(MODES).find((k) => MODES[k] === mode);
+      const hash = `d=${debts.map((d) => `${d.balance},${d.rate},${d.months}`).join(';')}&n=${o.rate},${o.months},${o.feePct},${o.insurance},${mk}`;
+      history.replaceState(history.state, '', `#${hash}`);
+      // Цель результата — когда ввод затих и вердикт/корзина изменились (не на каждую клавишу).
+      clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        const p = { verdict: r.verdict, amount_bucket: amountBucket(r.balance) };
+        const key = `${p.verdict}|${p.amount_bucket}`;
+        if (key !== sent) goal('refi_calc_result', p);
+        sent = key;
+      }, 1500);
+    };
+
+    let touched = false;
+    const onInput = () => {
+      if (!touched) goal('refi_calc_input');
+      touched = true;
+      paint(true);
+    };
+    form.addEventListener('input', onInput);
+    form.addEventListener('submit', (e) => e.preventDefault());
+    add.addEventListener('click', () => {
+      addRow();
+      sync();
+      rows().at(-1)!.querySelector('input')!.focus();
+    });
+    list.addEventListener('click', (e) => {
+      const del = (e.target as Element).closest('[data-del]');
+      if (!del || rows().length === 1) return;
+      del.closest('[data-debt]')!.remove();
+      sync();
+      add.focus();
+      onInput();
+    });
+    sync();
+    paint(false);
+  }
+
+  document.addEventListener('astro:page-load', () => document.querySelectorAll<HTMLElement>('[data-refi]:not([data-ready])').forEach(init));
+</script>
+
+<style>
+  .refi { margin-block: 32px; padding: 20px; border: 1px solid var(--color-line); border-radius: var(--radius-lg); background: var(--color-card); box-shadow: var(--shadow-card); font-size: 15px; line-height: 1.45; }
+  @media (min-width: 768px) { .refi { padding: 28px; } }
+  :global(.prose) .refi { max-width: none; }
+  /* .prose статьи красит ссылки и рисует маркеры списков — внутри OfferCard (чужие scoped-стили) это не нужно */
+  :global(.prose) .refi :global(li) { padding-left: 0; }
+  :global(.prose) .refi :global(li::before) { content: none; }
+  :global(.prose) .refi :global(ul) { display: flex; padding: 0; }
+  :global(.prose) .refi :global(a.btn) { color: var(--color-ink); text-decoration: none; }
+  :global(.prose) .refi :global(a.oc-name) { color: inherit; text-decoration: none; }
+  .refi-h { margin: 0; font-size: clamp(20px, 2.4vw, 26px); font-weight: 750; letter-spacing: -.02em; line-height: 1.2; }
+  .refi-form { display: grid; gap: 18px; margin-top: 18px; }
+  fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  legend { padding: 0; font-weight: 700; margin-bottom: 10px; }
+  label { display: grid; gap: 4px; font-size: 13px; color: var(--color-ink-soft); min-width: 0; }
+  input[type="number"] { width: 100%; min-height: 44px; padding: 8px 12px; border: 1.5px solid var(--color-line); border-radius: var(--radius-md); background: var(--color-paper); font: inherit; font-size: 16px; font-weight: 650; color: var(--color-ink); font-variant-numeric: tabular-nums; }
+  input:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 1px; border-color: var(--color-brand); }
+  input:disabled { opacity: .5; }
+  .refi-debt { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) 44px; gap: 8px; align-items: end; margin-bottom: 8px; }
+  @media (max-width: 520px) { .refi-debt { grid-template-columns: 1fr 1fr 44px; } .refi-debt label:first-child { grid-column: 1 / -1; } }
+  .refi-del { width: 44px; height: 44px; border: 1.5px solid var(--color-line); border-radius: var(--radius-md); background: none; font-size: 22px; line-height: 1; color: var(--color-mute); cursor: pointer; }
+  .refi-del:hover { border-color: var(--color-coral); color: var(--color-coral); }
+  .refi-add { min-height: 44px; padding: 0 16px; border: 1.5px dashed var(--color-brand); border-radius: 999px; background: none; font: inherit; font-weight: 700; color: var(--color-brand-600); cursor: pointer; }
+  .refi-add:hover:not(:disabled) { background: var(--color-brand-50); }
+  .refi-add:disabled { border-color: var(--color-line); color: var(--color-mute); cursor: not-allowed; }
+  .refi-del:focus-visible, .refi-add:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+  .refi-hint, .refi-note { margin: 8px 0 0; font-size: 13px; color: var(--color-mute); }
+  .refi-new { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  @media (min-width: 768px) { .refi-new { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .refi-modes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+  .refi-modes legend { margin-bottom: 6px; font-size: 13px; font-weight: 400; color: var(--color-ink-soft); }
+  .refi-modes label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1.5px solid var(--color-line); border-radius: 999px; font-size: 14px; font-weight: 650; color: var(--color-ink); cursor: pointer; }
+  .refi-modes label:has(:checked) { border-color: var(--color-brand); background: var(--color-brand-50); color: var(--color-brand-600); }
+  .refi-modes label:has(:focus-visible) { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+  .refi-modes input { accent-color: var(--color-brand); }
+
+  .refi-out { --tone: var(--color-ok); --tone-bg: var(--color-brand-50); margin-top: 22px; padding: 18px; border-radius: var(--radius-lg); background: var(--tone-bg); border-left: 6px solid var(--tone); }
+  .refi-out[data-verdict="yellow"] { --tone: #8a5a00; --tone-bg: var(--color-accent-soft); }
+  .refi-out[data-verdict="red"] { --tone: var(--color-coral); --tone-bg: var(--color-coral-soft); }
+  .refi-out p { margin: 0; }
+  .refi-badge { font-size: 13px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; color: var(--tone); }
+  .refi-out .refi-head { margin-top: 4px; font-size: clamp(20px, 2.6vw, 26px); font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .refi-out .refi-cause { margin-top: 6px; color: var(--color-ink-soft); }
+  .refi-cause:empty, .refi-note:empty { display: none; }
+  .refi-bars { display: grid; gap: 10px; margin: 16px 0 0; }
+  .refi-bars dt { font-size: 13px; color: var(--color-ink-soft); }
+  .refi-bars dd { margin: 2px 0 0; font-variant-numeric: tabular-nums; }
+  .refi-bar { display: block; height: 12px; border-radius: 99px; background: rgb(16 35 31 / .08); overflow: hidden; margin-bottom: 4px; }
+  .refi-bar i { display: block; height: 100%; border-radius: inherit; background: var(--color-ink-soft); transform: scaleX(var(--w, 1)); transform-origin: left; transition: transform .45s var(--ease-out); }
+  .refi-bar [data-bar="new"] { background: var(--tone); }
+  @media (prefers-reduced-motion: reduce) { .refi-bar i { transition: none; } }
+  .refi-bars b { font-size: 17px; }
+  .refi-bars small { color: var(--color-mute); }
+
+  .refi-how { margin-top: 16px; font-size: 14px; color: var(--color-ink-soft); }
+  .refi-how summary { min-height: 44px; display: flex; align-items: center; font-weight: 700; color: var(--color-ink); cursor: pointer; }
+  .refi-how summary::before { content: "▸"; margin-right: 8px; color: var(--color-brand); }
+  .refi-how[open] summary::before { content: "▾"; }
+  .refi-how p { margin: 8px 0 0; }
+  .refi-offers { margin-top: 22px; }
+  .refi-offers-h { margin: 0 0 12px; font-weight: 750; }
+  .refi-offers .offers { display: grid; gap: 16px; }
+  @media (min-width: 640px) { .refi-offers .offers { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+</style>

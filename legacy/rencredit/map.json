@@ -19,8 +19,8 @@
     "http_status": 200,
     "in_sitemap": true,
     "decision": "merge301",
-    "target": "/stati/",
-    "reason": "Рубрика «Блог» -> раздел статей.",
+    "target": "/refinansirovanie/",
+    "reason": "Рубрика «Блог» (весь контент про рефинансирование) -> хаб /refinansirovanie/ (SEO-15).",
     "priority": null
   },
   {

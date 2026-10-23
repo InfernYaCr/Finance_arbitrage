@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Character from '../components/mascots/Character.astro';
 import Outline from '../components/decor/Outline.astro';
-import { NAV } from '../lib/ui/site';
+import { NAV, SITE } from '../lib/ui/site';
 ---
 <BaseLayout title="Страница не найдена" description="Такой страницы нет. Вернитесь на главную и подберите займ." noindex>
   <div class="wrap e404">
@@ -21,5 +21,6 @@ import { NAV } from '../lib/ui/site';
       <p>Или загляните в раздел</p>
       <ul>{NAV.flatMap((n) => (n.href ? [n] : n.sub ?? [])).map((n) => <li><a href={n.href}>{n.label}</a></li>)}</ul>
     </nav>
+    <p class="mx-auto mt-10 max-w-xl text-sm text-mute">{SITE.notBank}</p>
   </div>
 </BaseLayout>

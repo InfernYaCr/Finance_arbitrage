@@ -149,16 +149,19 @@ body[data-no-mascot] .mascot { display: none; }
 
 /* ---------- Карточка статьи ---------- */
 .post-card { position: relative; }
+.post-card h3 a { color: inherit; text-decoration: none; }
+.post-card h3 a::after { content: ''; position: absolute; inset: 0; border-radius: inherit; }
+.post-card h3 a:focus-visible { outline: none; }
 .post-card .post-cover { background: var(--color-brand-50); }
 .post-card .post-cover::after { display: none; }
 .post-card .post-cover img { transition: transform .5s var(--ease-out); transform-origin: 50% 60%; }
-.post-card:hover .post-cover img, .post-card:focus-visible .post-cover img { transform: scale(1.05); }
+.post-card:hover .post-cover img, .post-card:focus-within .post-cover img { transform: scale(1.05); }
 .post-card h3 { transition: color .2s; }
 .post-card:hover h3 { color: var(--color-brand-600); }
-.post-card:focus-visible { outline: 3px solid var(--color-brand); outline-offset: 3px; }
+.post-card:has(a:focus-visible) { outline: 3px solid var(--color-brand); outline-offset: 3px; }
 .post-card .meta { align-items: center; }
 .post-card .more { margin-left: auto; display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: var(--color-brand-600); opacity: 0; transform: translateX(-6px); transition: opacity .25s, transform .3s var(--ease-out); }
-.post-card:hover .more, .post-card:focus-visible .more { opacity: 1; transform: none; }
+.post-card:hover .more, .post-card:focus-within .more { opacity: 1; transform: none; }
 @media (hover: none) { .post-card .more { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .post-card .post-cover img, .post-card .more { transition: none; } .post-card:hover .post-cover img { transform: none; } }
 
