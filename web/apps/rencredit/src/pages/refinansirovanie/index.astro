@@ -30,7 +30,7 @@ const rubric = articles.filter((a) => a.data.category === 'refinansirovanie')
   .sort((a, b) => Number(b.id === PILLAR) - Number(a.id === PILLAR));
 
 interface Scenario { id: string; q: string; text: string; articles: string[] }
-const SCENARIOS: Scenario[] = [
+const SCENARIOS = ([
   { id: 'odin-kredit', q: 'У меня один кредит, хочу снизить ставку или платёж',
     text: 'Выгода есть, если новая ставка заметно ниже, а до конца срока ещё далеко. Посчитайте общую сумму платежей по старому и новому кредиту вместе со страховкой и сборами. Если выгода небольшая или остаётся мало платежей, оформлять новый кредит не стоит.',
     articles: ['perekreditovanie-kredita-pod-menshii-procent', 'stoit-li-ispolzovat-refinansirovanie-kredita'] },
@@ -52,7 +52,7 @@ const SCENARIOS: Scenario[] = [
   { id: 'mfo', q: 'Займы МФО',
     text: 'Ставки МФО выше банковских, поэтому перевод долга в банк может сократить переплату. Но часть банков отказывает, если в кредитной истории много займов, а условия программ отличаются. Не берите новый заём, чтобы закрыть старый: так формируется долговая спираль.',
     articles: ['refinansirovanie-mikrozajmov', 'kak-ne-popast-v-dolgovuyu-yamu-s-mikrozajmami'] },
-].map((s) => ({ ...s, article: s.articles.map((id) => byId.get(id)).find(Boolean) })) as (Scenario & { article?: (typeof articles)[number] })[];
+] as Scenario[]).map((s) => ({ ...s, article: s.articles.map((id) => byId.get(id)).find(Boolean) }));
 
 const TABLE: { what: string; can: string; note: string }[] = [
   { what: 'Кредиты наличными', can: 'Да', note: 'Самый частый случай: у банков конкуренция выше, чем по другим продуктам.' },
