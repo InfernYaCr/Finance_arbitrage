@@ -58,10 +58,9 @@ const HARD_RX = /ренессанс|rencredit|ренкредит/i;
 const hardHit = (s) => HARD_RX.test(s.replace(/rencredit-online\.ru/gi, ''));
 // SEO-8: на этих страницах число «Реклама» (AdMark) обязано совпадать с числом CTA на /go/.
 const AD_PAGES = ['/zaimy/', '/karty/', '/kredity/', '/osago/'];
-// Яндекс «Мимикрия»: на каждой индексируемой странице плашка «не сайт банка» и статус в начале title/description.
-// Строки — копия SITE.titlePrefix/descriptionPrefix из web/apps/rencredit/src/lib/ui/site.ts.
-const MIMICRY_TITLE = 'Мерка (агрегатор) — ';
-const MIMICRY_DESC = 'Независимый агрегатор, не сайт банка. ';
+// Яндекс «Мимикрия»: на каждой индексируемой странице плашка «не сайт банка» и статус в конце description.
+// Строка — копия SITE.descriptionSuffix из web/apps/rencredit/src/lib/ui/site.ts.
+const MIMICRY_DESC = 'Мерка — независимый агрегатор, не банк.';
 const DISCLAIMER_RX = /не\s+является|не\s+связан|товарн\w+\s+знак|не\s+аффилирован|не\s+представляет|не\s+имеет\s+отношения/i;
 
 function walk(dir, exts, out = []) {
@@ -280,8 +279,7 @@ function checkDist() {
     if (!attr(html, /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']+)["']/i)) err(`${rel(f)} нет link canonical`);
     if (!/<h1[\s>]/i.test(html)) warn(`${rel(f)} нет <h1>`);
     if (!/class="notice-bar"/.test(html)) err(`${rel(f)}: нет плашки .notice-bar «не сайт банка» (Яндекс «Мимикрия»)`);
-    if (!decodeEntities(attr(html, /<title[^>]*>([^<]+)<\/title>/i)).startsWith(MIMICRY_TITLE)) err(`${rel(f)}: title не начинается с «${MIMICRY_TITLE}» (Яндекс «Мимикрия»)`);
-    if (!decodeEntities(attr(html, /<meta[^>]+name=["']description["'][^>]*content=["']([^"']+)["']/i)).startsWith(MIMICRY_DESC)) err(`${rel(f)}: description не начинается с «${MIMICRY_DESC}» (Яндекс «Мимикрия»)`);
+    if (!decodeEntities(attr(html, /<meta[^>]+name=["']description["'][^>]*content=["']([^"']+)["']/i)).endsWith(MIMICRY_DESC)) err(`${rel(f)}: description не заканчивается «${MIMICRY_DESC}» (Яндекс «Мимикрия»)`);
   }
   const sm = join(DIST, 'sitemap-index.xml');
   const sm0 = join(DIST, 'sitemap-0.xml');
